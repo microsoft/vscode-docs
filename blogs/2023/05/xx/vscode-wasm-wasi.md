@@ -8,7 +8,7 @@ Author: Dirk Bäumer
 ---
 # Using WebAssemblies to execute non JavaScript code in VS Code Web
 
-[VS Code for the Web](https://vscode.dev/) has been around for a while now and it has always been our goal to support the edit / compile / debug cycle. This is relatively easy for languages like JavaScript and TypeScript since the Browser ships with a JavaScript execution engine. It is harder for other languages since we must be able to execute (and therefore debug) the code. For example, to run Python code in a browser we need an execution engine that allows us to run the [Python](https://www.python.org/) interpreter. These language runtimes are usually written in C/C++. [WebAssembly](https://webassembly.org/) is a binary instruction format for a virtual machine. These virtual machines ship in modern browsers today and there are tool chains to compile C/C++ to WebAssembly code. We have decided exploring to take a Python interpreter written C/C++, compile it to WebAssembly and run it in VS Code for the Web. Luckily, the Python team already started working on compiling [CPython to WASM](https://github.com/brettcannon/cpython-wasi-build/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
+[VS Code for the Web](https://vscode.dev/) has been around for a while now and it has always been our goal to support the full edit / compile / debug cycle. This is relatively easy for languages like JavaScript and TypeScript since the Browser ships with a JavaScript execution engine. It is harder for other languages since we must be able to execute (and therefore debug) the code. For example, to run Python code in a browser we need an execution engine that allows us to run the [Python](https://www.python.org/) interpreter. These language runtimes are usually written in C/C++. [WebAssembly](https://webassembly.org/) is a binary instruction format for a virtual machine. WebAssembly virtual machines ship in modern browsers today and there are tool chains to compile C/C++ to WebAssembly code. To find out what is possible with WebAssemblies today we decided to take a Python interpreter written C/C++, compile it to WebAssembly and run it in VS Code for the Web. Luckily, the Python team already started working on compiling [CPython to WASM](https://github.com/brettcannon/cpython-wasi-build/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
 
 ![Execute a Python file in VS Code for the Web](./run-python-file.gif)
 
@@ -24,12 +24,12 @@ Additionally, the Python interpreter compiled to WebAssembly (WASM) code has no 
 
 ## How does it work?
 
-WebAssembly virtual machines don't come with with a SDK (like for example Java or .NET). So out of the box WebAssembly code can't print to a console or read the content of a file. What the WebAssembly specification defines is how WebAssembly code can call functions in the host running the virtual machine. In the case of VS Code for the web the host is the browser. The virtual machine can therefore call JavaScript functions that execute in the browser.
+WebAssembly virtual machines don't come with with a SDK (like for example [Java](https://www.java.com/en/) or [.NET](https://dotnet.microsoft.com/en-us/)). So out of the box WebAssembly code can't print to a console or read the content of a file. What the WebAssembly specification defines is how WebAssembly code can call functions in the host running the virtual machine. In the case of VS Code for the web the host is the browser. The virtual machine can therefore call JavaScript functions that execute in the browser.
 
 The Python team provides WebAssembly binaries of their interpreter in two flavors: one compiled with [emscripten](https://emscripten.org/index.html) and the other compiled with the [WASI-SDK](https://github.com/WebAssembly/wasi-sdk). Although they both create WebAssembly code they have quite different characteristics in regards to the JavaScript functions they provide as a host implementation:
 
 - *emscripten*: has a special focus on the Web platform and [Node.js](https://nodejs.org/en). In addition to generating WASM code it also generates JavaScript code that acts as a host to execute the WASM code in either the browser or Node.js environment. The JavaScript code for example provides a function to print the content of a C `printf` statement to the browser's console.
-- *WASI-SDK*: compiles C/C++ code to WASM and assumes a host implementation that conforms to the [WASI](https://wasi.dev/) [specification](https://github.com/WebAssembly/WASI). WASI stands for WebAssembly System Interface. It defines several operating-system-like features, including files and file systems, sockets, clocks, and random numbers. Compiling C/C++ code with the WASI-SDK will only generate WebAssembly code but will not generate any JavaScript functions. The JavaScript functions necessary to for example print the content of a C `printf` statement must be provided by the host. [Wasmtime](https://github.com/bytecodealliance/wasmtime) is for example a runtime that provides a WASI host implementation that wires WASI to operating system calls.
+- *WASI-SDK*: compiles C/C++ code to WASM and assumes a host implementation that conforms to the [WASI](https://wasi.dev/) [specification](https://github.com/WebAssembly/WASI). WASI stands for WebAssembly System Interface. It defines several operating-system-like features, including files and file systems, sockets, clocks, and random numbers. Compiling C/C++ code with the WASI-SDK will only generate WebAssembly code but will not generate any JavaScript functions. The JavaScript functions necessary to print the content of a C `printf` statement must be provided by the host. [Wasmtime](https://github.com/bytecodealliance/wasmtime) is for example a runtime that provides a WASI host implementation that wires WASI to operating system calls.
 
 For VS Code we decided to support WASI. Although our primary focus is to execute WASM code in the browser, we are not actually running it in a pure browser environment. We have to run WebAssemblies in VS Code's extension host worker since this is the standard way how VS Code is extended. The extension host worker provides, beside the browser's worker API, the whole [VS Code Extension API](https://code.visualstudio.com/api). So instead of wiring a `printf` call in a C/C++ program to the browser's console we actually want to wire it to VS Code's [Terminal](https://insiders.vscode.dev/github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.d.ts#L6704) API. Doing this in WASI was easier for us than in emscripten.
 
@@ -37,7 +37,7 @@ Our current implementation of VS Code's WASI host is based on the [WASI snapshot
 
 ## How can I ran my own WebAssembly Code?
 
-After we had Python running in VS Code for the Web we quickly realized that the approach we took allows to execute any code that can be compiled to WASI. We therefore demonstrate how to compile your own little C program to WASI using the WASI-SDK and execute it inside VS Code's extension host. The example assumes that the reader is familiar with [VS Code's Extension API](https://code.visualstudio.com/api) and knows how to write an extension for [VS Code for the Web](https://code.visualstudio.com/api/extension-guides/web-extensions).
+After we had Python running in VS Code for the Web we quickly realized that the approach we took allows to execute any code that can be compiled to WASI. This section therefore demonstrates how to compile a little C program to WASI using the WASI-SDK and execute it inside VS Code's extension host. The example assumes that the reader is familiar with [VS Code's Extension API](https://code.visualstudio.com/api) and knows how to write an extension for [VS Code for the Web](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
 The C program we run is a simple "Hello World" program that looks like this:
 
@@ -86,7 +86,7 @@ New features are added to VS Code via extensions, and we follow the same model w
 }
 ```
 
-The [`ms-vscode.wasm-wasi-core`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension supplies the WebAssembly execution engine which wires the WASI API up to the VS Code API. The node module `@vscode/wasm-wasi` provides a facade to ease calling that API.
+The [`ms-vscode.wasm-wasi-core`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension supplies the WebAssembly execution engine which wires the WASI API up to the VS Code API. The node module `@vscode/wasm-wasi` provides a facade to loading and running WebAssembly code in VS Code.
 
 Below is the actual TypeScript code to load and run WebAssembly code:
 
@@ -131,11 +131,11 @@ The screen cast below shows the extension running in VS Code for the Web.
 
 ![Run Hello World](./helloWorld.gif)
 
-We used C/C++ code as a source for our WebAssembly. Because WASI is a standard there are other toolchains that support the WASI (e.g. have a compile target `wasm32-wasi`). Examples are: [Rust](https://www.rust-lang.org/), [.NET](https://github.com/dotnet/dotnet-wasi-sdk) or [Swift](https://swiftwasm.org/)
+We used C/C++ code as a source for the WebAssembly. Because WASI is a standard there are other toolchains that support WASI. Examples are: [Rust](https://www.rust-lang.org/), [.NET](https://github.com/dotnet/dotnet-wasi-sdk) or [Swift](https://swiftwasm.org/).
 
 ## VS Code's WASI Implementation
 
-WASI and the VS Code API share concepts like a file system or stdio (e.g. a terminal). This enabled us to implement the WASI specification on top of the VS Code API. However the different execution behavior was a challenge: WebAssembly code execution is sync (e.g. once a WebAssembly execution started, the JavaScript worker is blocked until the execution finished) in WASM execution is sync  whereas most of the API of VS Code's and the browser is async. For instance reading from a file in WASI is sync while the corresponding VS Code API is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
+WASI and the VS Code API share concepts like a file system or stdio (e.g. a terminal). This enabled us to implement the WASI specification on top of the VS Code API. However, the different execution behavior was a challenge: WebAssembly code execution is sync (e.g. once a WebAssembly execution started, the JavaScript worker is blocked until the execution finished) whereas most of the API of VS Code and the browser is async. For instance reading from a file in WASI is sync while the corresponding VS Code API is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
 
 - we need to prevent the extension host from being blocked while executing WebAssembly code since this would block other extensions from being executed.
 - a mechanism is needed to implement the sync WASI API on top of the async VS Code and browser API.
@@ -161,7 +161,7 @@ We investigated into compiling one of the *nix shells to WebAssembly. However, s
 
 ![A web shell](./webshell.gif)
 
-A shell is very limited if you can't execute custom WebAssemblies or commands. To extend the web shell extensions can contribute additional mount points to the file system as well as commands that are invoked when they are typed into the web shell. The indirection via commands decouples the concrete WebAssembly execution from what is type in the terminal. Using this support in the Python extension form the beginning allows two execute Python code directly from within the shell by entering `python app.py` into the prompt or listing the default python 3.11 library which is usually mounted under `/usr/local/lib/python3.11`
+A shell is very limited if you can't execute custom WebAssemblies or commands. To extend the web shell other extensions can contribute additional mount points to the file system as well as commands that are invoked when they are typed into the web shell. The indirection via commands decouples the concrete WebAssembly execution from what is type in the terminal. Using this support in the Python extension form the beginning allows two execute Python code directly from within the shell by entering `python app.py` into the prompt or listing the default python 3.11 library which is usually mounted under `/usr/local/lib/python3.11`
 
 ![Python integration into web shell](./python-webshell.gif)
 
@@ -172,10 +172,10 @@ The WASM execution engine extension and the Web Shell extension are both experim
 What we do know is that we will extend exploration into the following topics:
 - the WASI team is working on a preview2 of the specification, which we want to support as well. Version 2 will change the way a WASI host is implemented. However, we are confident that we can keep the API, which is exposed in the WASM execution engine extension, mostly stable.
 - there is also the [WASIX](https://wasmer.io/posts/announcing-wasix) effort that extends WASI with additional [operating-system-like features](https://wasix.org/docs/api-reference) like process or futex. We want to investigate whether implementing WASIX will broaden the programs we can compile to WebAssembly code and execute in VS Code.
-- lots of language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We plan to explore the possibility of compiling these language servers to `wasm-wasi` and run them in VS Code for the Web as well.
-- improving debugging for Python on the Web. We have started to work this, so stay tuned.
+- lots of language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We plan to explore the possibility of compiling these language servers to `wasm32-wasi` and run them in VS Code for the Web as well.
+- improving debugging for Python on the Web. We have started to work on this, so stay tuned.
 - support that extension B can run WebAssembly code contributed by extension A. This will for example allow arbitrary extension to execute Python code by reusing the extension that contributed the Python WebAssembly.
-- ensuring that other language runtimes that are compiled for `wasm-wasi` run on top of VS Code's WebAssembly execution engine. [VM Ware Labs](https://github.com/vmware-labs/webassembly-language-runtimes) for example provide Ruby and PHP `wasm-wasi` binaries. Both do run in VS Code.
+- ensuring that other language runtimes that are compiled for `wasm32-wasi` run on top of VS Code's WebAssembly execution engine. [VM Ware Labs](https://github.com/vmware-labs/webassembly-language-runtimes) for example provide Ruby and PHP `wasm32-wasi` binaries. Both do run in VS Code.
 
 Thanks,
 
