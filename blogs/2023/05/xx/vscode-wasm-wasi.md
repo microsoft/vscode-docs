@@ -1,12 +1,12 @@
 ---
 Order: 80
-TOCTitle: VS Code and WebAssembly
-PageTitle: Visual Studio Code and GitHub Copilot AI
+TOCTitle: VS Code and WebAssemblies
+PageTitle: VS Code and WebAssemblies
 MetaDescription: Running WebAssemblies in VS Code for the Web.
 Date: 2023-05-31
 Author: Dirk Bäumer
 ---
-# Using WebAssemblies to execute non JavaScript code in VS Code Web
+# Running WebAssemblies in VS Code for the Web
 
 [VS Code for the Web](https://vscode.dev/) has been around for a while now and it has always been our goal to support the full edit / compile / debug cycle. This is relatively easy for languages like JavaScript and TypeScript since the Browser ships with a JavaScript execution engine. It is harder for other languages since we must be able to execute (and therefore debug) the code. For example, to run Python code in a browser we need an execution engine that allows us to run the [Python](https://www.python.org/) interpreter. These language runtimes are usually written in C/C++. [WebAssembly](https://webassembly.org/) is a binary instruction format for a virtual machine. WebAssembly virtual machines ship in modern browsers today and there are tool chains to compile C/C++ to WebAssembly code. To find out what is possible with WebAssemblies today we decided to take a Python interpreter written C/C++, compile it to WebAssembly and run it in VS Code for the Web. Luckily, the Python team already started working on compiling [CPython to WASM](https://github.com/brettcannon/cpython-wasi-build/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
 
