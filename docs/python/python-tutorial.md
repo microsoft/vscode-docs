@@ -10,7 +10,10 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Hello World" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
+In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
+
+To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
+
 
 ## Prerequisites
 
@@ -121,7 +124,7 @@ By using the `.py` file extension, you tell VS Code to interpret this file as a 
 Now that you have a code file in your Workspace, enter the following source code in `hello.py`:
 
 ```python
-msg = "Hello World"
+msg = "Roll a dice"
 print(msg)
 ```
 
@@ -189,7 +192,7 @@ The Status Bar also changes color (orange in many themes) to indicate that you'r
 
 To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the end.
 
-> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
+> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Roll a dice!` in a box above the variable.
 
 You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of VS Code, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
 
@@ -215,26 +218,26 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 Let's build upon the previous example by using packages.
 
-In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/), that provide additional functionality to your program. For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
+In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/), that provide additional functionality to your program. For this example, you use the `numpy` package to generate a random number.
 
-Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
+Return to the **Explorer** view (the top-most icon on the left side, which shows files), open `hellp.py`, and paste in the following source code:
 
 ```python
-import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(0, 20, 100)  # Create a list of evenly-spaced numbers over the range
-plt.plot(x, np.sin(x))       # Plot the sine of each x point
-plt.show()                   # Display the plot
+msg = "Roll a dice"
+print(msg)
+
+print(np.random.randint(1,9))
 ```
 
 > **Tip**: If you enter the above code by hand, you may find that auto-completions change the names after the `as` keywords when you press `kbstyle(Enter)` at the end of a line. To avoid this, type a space, then `kbstyle(Enter)`.
 
 Next, run the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-You should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. This message indicates that the required package isn't available in your system. If you're using an Anaconda distribution or have previously installed the `matplotlib` package you may not see this message.
+You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your system. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
+To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
 To install the required packages in your virtual environment, enter the following commands as appropriate for your operating system:
 
@@ -244,25 +247,20 @@ To install the required packages in your virtual environment, enter the followin
    # Don't use with Anaconda distributions because they include matplotlib already.
 
    # macOS
-   python3 -m pip install matplotlib
+   python3 -m pip install numpy
 
    # Windows (may require elevation)
-   py -m pip install matplotlib
+   py -m pip install numpy
 
    # Linux (Debian)
    apt-get install python3-tk
-   python3 -m pip install matplotlib
+   python3 -m pip install numpy
    ```
 
-1. Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
-
-   ![matplotlib output](images/tutorial/plot-output.png)
+1. Now, rerun the program, with or without the debugger, to view the output!
 
 
 ## Next steps
-
-To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
-
 To learn to build web apps with the Django and Flask frameworks, see the following tutorials:
 
 - [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
