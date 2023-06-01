@@ -10,5 +10,11 @@
     "markdown.validate.ignoredLinks": [
         "/Download",
         "/insiders"
-    ]
+    ],
+    "markdown.copyFiles.destination": {
+        "/release-notes/**/*": "/release-notes/images/${documentBaseName}/"
+    },
+    "editor.codeActionsOnSave": {
+        "source.organizeLinkDefinitions": true
+    }
 }
