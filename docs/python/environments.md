@@ -28,7 +28,7 @@ There are two types of environments that you can create for your workspace: **vi
 
 #### Virtual environments
 
-A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual-environment) is a built-in way to create an environment. A virtual environment creates a folder that contains a copy (or symlink) to a specific interpreter. When you install packages into a virtual environment it will end up in this new folder, thus, isolated from other packages used by other workspaces.
+A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual-environment) is a built-in way to create an environment. A virtual environment creates a folder that contains a copy (or symlink) to a specific interpreter. When you install packages into a virtual environment it will end up in this new folder, and thus isolated from other packages used by other workspaces.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
@@ -134,7 +134,7 @@ The **Python: Select Interpreter** command displays a list of available global e
 
 If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information internally. This ensure that the same interpreter will be used when you reopen the workspace.
 
-The selected environment is used by the Python extention for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Terminal** command. In the latter case, VS Code automatically activates the selected environment.
+The selected environment is used by the Python extension for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Terminal** command. In the latter case, VS Code automatically activates the selected environment.
 
 > **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file (it can be placed anywhere as a sibling to the existing settings).
 
@@ -176,7 +176,7 @@ If you want to manually specify a default interpreter that will be used when you
 Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
 
 
-### How the extension looks for environments
+### How the extension chooses an environment automatically
 
 If an interpreter hasn't been specified, then the Python extension automatically selects the interpreter with the highest version in the following priority order:
 
