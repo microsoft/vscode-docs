@@ -173,7 +173,7 @@ A shell is very limited if you can't execute custom WebAssemblies or commands. T
 
 ## What comes next?
 
-The WASM execution engine extension and the Web Shell extension are both experimental as a preview and shouldn't be used to implement production ready extensions using WebAssemblies. They have been made publicly available to get early feedback on the technology. If you have any questions or feedback, please open issues in the corresponding [vscode-wasm](https://github.com/microsoft/vscode-wasm/issues) GitHub repository.
+The WASM execution engine extension and the Web Shell extension are both experimental as a preview and shouldn't be used to implement production ready extensions using WebAssemblies. They have been made publicly available to get early feedback on the technology. If you have any questions or feedback, please open issues in the corresponding [vscode-wasm](https://github.com/microsoft/vscode-wasm/issues) GitHub repository. This repository also contains the source code for the [Python example](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/main/testbeds/python/extension.ts#L1) as well as for the [WASM execution engine](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/main/wasm-wasi-core/package.json#L1) and the [Web Shell](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/main/webshell/package.json#L1).
 
 What we do know is that we will further explore the following topics:
 
