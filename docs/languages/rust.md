@@ -19,7 +19,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 ### 1. Install Rust
 
-First you will need to have the Rust toolset installed on your machine. Rust is installed via the [rustup](https://rustup.rs) installer, which supports installation on Windows, macOS, and Linux. Follow the rustup installation guidance for your platform, taking care to install any extra tools required to build and run Rust programs.
+First you will need to have the Rust toolset installed on your machine. Rust is installed via the [rustup](https://rustup.rs) installer, which supports installation on Windows, macOS, and Linux. Follow the rustup installation guidance for your platform, take care to install any extra tools required to build and run Rust programs.
 
 >**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
