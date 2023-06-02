@@ -121,6 +121,4 @@ If you rely on using UNC paths in VS Code, you can either
 
 *Note:* if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `security.allowedUNCHosts` has to be configured on the remote machine and not the local machine.
 
-*Note:* if you are using UNC paths for the application data of VS Code itself, configuring the `security.allowedUNCHosts` setting will not work. You will have to pick one of the alternatives.
-
 This change was done to improve the security when using VS Code with UNC paths. Please refer to the associated [security advisory](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr) for more information.
