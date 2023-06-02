@@ -12,7 +12,8 @@
         "/insiders"
     ],
     "markdown.copyFiles.destination": {
-        "/release-notes/**/*": "/release-notes/images/${documentBaseName}/"
+        // /release-notes/v123.md -> /release-notes/images/123/img.png
+        "/release-notes/**/*": "/release-notes/images/${documentBaseName/v(.*)/$1/}/"
     },
     "editor.codeActionsOnSave": {
         "source.organizeLinkDefinitions": true
