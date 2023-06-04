@@ -6,7 +6,7 @@ MetaDescription: Running WebAssemblies in VS Code for the Web.
 Date: 2023-06-05
 Author: Dirk Bäumer
 ---
-# Running WebAssemblies in VS Code for the Web
+# Run WebAssemblies in VS Code for the Web
 
 June 5, 2023 by by Dirk Bäumer
 
