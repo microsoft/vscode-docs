@@ -8,7 +8,7 @@ Author: Dirk Bäumer
 ---
 # Run WebAssemblies in VS Code for the Web
 
-June 5, 2023 by by Dirk Bäumer
+June 5, 2023 by Dirk Bäumer
 
 VS Code for the Web ([https://vscode.dev](https://vscode.dev)) has been available for some time now and it has always been our goal to support the full edit / compile / debug cycle in the browser. This is relatively easy for languages like JavaScript and TypeScript since browsers ship with a JavaScript execution engine. It is harder for other languages since we must be able to execute (and therefore debug) the code. For example, to run Python source code in a browser, there needs to be an execution engine that can run the [Python](https://www.python.org/) interpreter. These language runtimes are usually written in C/C++.
 
