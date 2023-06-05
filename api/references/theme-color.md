@@ -551,6 +551,23 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditorGutter.removedLineBackground`: Background color for the margin where lines got removed.
 - `diffEditorOverview.insertedForeground`: Diff overview ruler foreground for inserted content.
 - `diffEditorOverview.removedForeground`: Diff overview ruler foreground for removed content.
+- `diffEditor.unchangedRegionBackground`: The color of unchanged blocks in diff editor.
+
+## Chat colors
+- `chat.requestBackground`: The background color of a chat request.
+- `chat.requestBorder`: The border color of a chat request.
+
+## Interactive Editor colors
+
+- `interactiveEditor.border`: Border color of the interactive editor widget
+-  `interactiveEditor.shadow`: Shadow color of the interactive editor widget
+-  `interactiveEditor.regionHighlight`: Background highlighting of the current interactive region. Must be transparent.
+-  `interactiveEditorInput.border`: Border color of the interactive editor input
+-  `interactiveEditorInput.focusBorder`: Border color of the interactive editor input when focused
+-  `interactiveEditorInput.placeholderForeground`: Foreground color of the interactive editor input placeholder
+-  `interactiveEditorInput.background`: Background color of the interactive editor input
+-  `interactiveEditorDiff.inserted`: Background color of inserted text in the interactive editor input
+-  `interactiveEditorDiff.removed`: Background color of removed text in the interactive editor input
 
 ## Editor widget colors
 
@@ -620,6 +637,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewTitle.background`: Background color of the peek view title area.
 - `peekViewTitleDescription.foreground`: Color of the peek view title info.
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
+- `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
 
 ## Merge conflicts colors
 
@@ -637,6 +655,8 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
+- `editorOverviewRuler.commentForeground`: Editor overview ruler decoration color for resolved comments. This color should be opaque.
+- `editorOverviewRuler.commentUnresolvedForeground`: Editor overview ruler decoration color for unresolved comments. This color should be opaque.
 - `mergeEditor.change.background`: The background color for changes.
 - `mergeEditor.change.word.background`: The background color for word changes.
 - `mergeEditor.conflict.unhandledUnfocused.border`: The border color of unhandled unfocused conflicts.
@@ -695,6 +715,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
+- `statusBar.offlineBackground`: Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window
+- `statusBar.offlineForeground`: Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -1064,6 +1086,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 ## Ports Colors
 
 - `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
+
+## Comments View colors
+- `commentsView.resolvedIcon`: Icon color for resolved comments.
+- `commentsView.unresolvedIcon`: Icon color for unresolved comments.
 
 ## Extension colors
 
