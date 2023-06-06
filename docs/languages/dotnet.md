@@ -19,7 +19,7 @@ If you are an existing VS Code user, you can add .NET support by installing the 
 
 * The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which provides the base language services support and continues to be worked on and maintained independent of this effort.
 * [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), which builds on the same base foundation as Visual Studio and provides solution management, templates, test discovery/debugging.
-* The IntelliCode for C# Dev Kit extension(optional), which provides the AI-powered development experience to the editor.  
+* The IntelliCode for C# Dev Kit extension(optional), which provides the AI-powered development experience to the editor.
 
 ![C# Dev Kit extension](images/csharp/csharp-devkit.png)
 

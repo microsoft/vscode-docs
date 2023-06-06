@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order:
 Area: csharp
 TOCTitle: Formatting and Linting
 ContentId: 34c5ba31-5844-4eca-8fef-dabb6e917314

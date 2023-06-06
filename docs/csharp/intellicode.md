@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order:
 Area: csharp
 TOCTitle: IntelliCode
 ContentId: 0a0fd079-c56b-413c-8394-b166cd76be38
@@ -18,7 +18,7 @@ For users of the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemNam
 
 ![Press Tab to accept prediction](images/intellicode/accept-prediction.gif)
 
-**Scenario 2**: When grey-text is shown along with the IntelliSense list, press `kbstyle(Tab)` to accept the IntelliSense list selection, then `kbstyle(Tab)` again to accept the rest of the multi-token prediction. In this scenario, you can use the IntelliSense list selection to steer the multi-token prediction offered by IntelliCode.  
+**Scenario 2**: When grey-text is shown along with the IntelliSense list, press `kbstyle(Tab)` to accept the IntelliSense list selection, then `kbstyle(Tab)` again to accept the rest of the multi-token prediction. In this scenario, you can use the IntelliSense list selection to steer the multi-token prediction offered by IntelliCode.
 
 ![Use list selection to steer multi-choice prediction](images/intellicode/multi-token-prediction.gif)
 
@@ -60,7 +60,7 @@ In order to use this extension, you must have both the C# Dev Kit and .NET 6 ins
 * **macOS**: x64 and ARM.
   * x64 tested on OS X Monterey v12.6.5
   * ARM tested on OS X v PENDING
-* **Linux**: x64 and ARM.  
+* **Linux**: x64 and ARM.
   * x64 Tested on Ubuntu 22.04
 
 ## How do I report feedback and issues

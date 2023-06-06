@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order:
 Area: csharp
 TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
@@ -12,7 +12,7 @@ MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 
 Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev Kit extension and troubleshoot issues you may be experiencing.
 
-## What is C# Dev Kit?  
+## What is C# Dev Kit?
 
 [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is an extension created to enhance your C# development experience in Visual Studio Code. It aims to bring a more expansive, productive, and reliable C# experience to VS Code. The Dev Kit does not replace the [existing C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) but adds on top of the great language service features it provides. Developers can choose to continue using the updated version of the existing C# extension or enhance their experience by adding the C# Dev Kit.
 

@@ -1,5 +1,5 @@
 ---
-Order: 1
+Order:
 Area: csharp
 TOCTitle: Get Started
 ContentId: cdf9809e-0569-4aaf-937e-e247507d9609
@@ -31,7 +31,7 @@ Keep in mind, that this guide will not teach you C#. Instead, it teaches you how
 ### Installing VS Code and extensions
 
 1. If you have not already done so, [install VS Code](https://code.visualstudio.com)
-1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extenion-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
+1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
 Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. Reopen the walkthrough at any time by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Welcome: Open Walkthrough...**. Here, select **Get Started with C# Dev Kit**.
 
@@ -51,7 +51,7 @@ If you are a student, we recommend installing the **.NET Coding Pack** for an ea
 
 ## Open folder
 
-By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores [settings](/docs/getstarted/settings.md) that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.  
+By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores [settings](/docs/getstarted/settings.md) that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
 Using a terminal, create an empty folder called "hello", navigate into it, and open VS Code (code) in that folder (.) by entering the following commands:
 
@@ -71,17 +71,17 @@ First, ensure you are within the new folder (workspace) that you created. From h
 
 1. Bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET".
 1. Find and select the **.NET: New Project...** command.
-1. After selecting the command, you will need to choose the project template. Choose **Console app**.  
+1. After selecting the command, you will need to choose the project template. Choose **Console app**.
 1. To run your app, select **Run > Start Debugging** in the upper menu, or use the `kb(workbench.action.debug.start)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
 
 ![Use the Command Palette to create a new .NET project](images/get-started/open-new-project.gif)
 
 ### Use the terminal
 
-1. Open a terminal/command prompt and navigate to the folder in which you'd like to create the app. Enter the following command in the command shell:  
+1. Open a terminal/command prompt and navigate to the folder in which you'd like to create the app. Enter the following command in the command shell:
 
     ```csharp
-    dotnet new console 
+    dotnet new console
     ```
 
 1. When the project folder is first opened in VS Code:
@@ -93,7 +93,7 @@ First, ensure you are within the new folder (workspace) that you created. From h
 1. Run the app by entering the following command in the command shell:
 
     ```csharp
-    dotnet run 
+    dotnet run
     ```
 
 ## Learn more

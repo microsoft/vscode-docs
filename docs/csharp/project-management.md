@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order:
 Area: csharp
 TOCTitle: Project Management
 ContentId: 90d72255-dbe2-402a-aecc-a6edd12aadba
@@ -60,7 +60,7 @@ After you invoke this command, you will be prompted to select the file template 
 
 ![Add new file from Command Palette ](images/project-management/add-new-file-command-palette.png)
 
-This list shows the file templates that the extension currently supports for Solution Folders. To create a file without using a template (to create a blank file), select **Custom file (without template)**.  
+This list shows the file templates that the extension currently supports for Solution Folders. To create a file without using a template (to create a blank file), select **Custom file (without template)**.
 
 To remove a Solution Folder, you can use the **Remove** context menu option.
 
@@ -76,7 +76,7 @@ In the Solution Explorer, there are a number of features to enable you to work w
 
 In the image above, we can see the Solution Explorer with a couple Solution Folders expanded, as well as the `TemplatesWeb` project. There is minimal file nesting supported in this release, we will expand on that support to be more consistent with the file nesting that is seen in Visual Studio IDE.
 
-From here, you can open files by double clicking them in the Solution Explorer. You can also right-click items in the Solution Explorer to get a context specific menu for available actions. For example, to add a new file to a project, right-click on the project and select **Add New File**. When you select that option, you'll be prompted to choose the file template to be used for the default content. You'll get the best experience here if you are working on a project targeting .NET 7.0.200 or above.  
+From here, you can open files by double clicking them in the Solution Explorer. You can also right-click items in the Solution Explorer to get a context specific menu for available actions. For example, to add a new file to a project, right-click on the project and select **Add New File**. When you select that option, you'll be prompted to choose the file template to be used for the default content. You'll get the best experience here if you are working on a project targeting .NET 7.0.200 or above.
 
 You can also add files into projects by creating files as you normally would in VS Code and save them under the folder containing the project file. By default, new files added to the project folder will automatically be added to the project.
 
