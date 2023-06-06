@@ -21,7 +21,7 @@ For detailed instructions on:
 * .NET debugging - see the [C# Dev Kit debugging documentation](/docs/csharp/debugging.md).
 * Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
 
-## Installing C&#35; support
+<!-- ## Installing C&#35; support
 
 C# language support is provided with the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). You can install it from within VS Code by searching for 'C# Dev Kit' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
@@ -51,7 +51,7 @@ To find a full list of supported project types within VS Code, open the **Comman
 ![Supported Projects](images/csharp/newproject.png)
 
 When you open a Workspace that contains .NET solution files or project files, the Solution Explorer will automatically appear. If you have a single solution file (.sln file) in the workspace, the Solution Explorer will detect that file and automatically load it after the workspace is loaded. For more information on managing your C# projects in VS Code, look at the documentation on [Project Management](/docs/csharp/project-management.md).
-
+ -->
 ## Editing Evolved
 
 There is a lot to discover with C# and the editor, such as format on type, IntelliSense, the rename-refactoring, etc.

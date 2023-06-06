@@ -15,17 +15,17 @@ MetaDescription: Get started writing and debugging .NET apps with Visual Studio 
 
 ### Installing extensions
 
-If you are an existing VS Code user, you can add .NET support by installing the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). C# Dev Kit brings a productive and reliable C# experience into VS Code, facilitating C# or multi-language development in VS Code. This extension pack consists of a set of VS Code extensions that work together to provide a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences. As shown in the graphic below, C# Dev Kit consists of:
+<!-- If you are an existing VS Code user, you can add .NET support by installing the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit). C# Dev Kit brings a productive and reliable C# experience into VS Code, facilitating C# or multi-language development in VS Code. This extension pack consists of a set of VS Code extensions that work together to provide a rich C# editing experience, AI-powered development, solution management, and integrated testing experiences. As shown in the graphic below, C# Dev Kit consists of: -->
 
 * The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which provides the base language services support and continues to be worked on and maintained independent of this effort.
-* [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), which builds on the same base foundation as Visual Studio and provides solution management, templates, test discovery/debugging.
-* The IntelliCode for C# Dev Kit extension(optional), which provides the AI-powered development experience to the editor.
+<!-- * [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), which builds on the same base foundation as Visual Studio and provides solution management, templates, test discovery/debugging.
+* The IntelliCode for C# Dev Kit extension(optional), which provides the AI-powered development experience to the editor. -->
 
 ![C# Dev Kit extension](images/csharp/csharp-devkit.png)
 
 If your projects require F# support, you can also download the [.NET Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
 
-* [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+<!-- * [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) -->
 * [Ionide for F#](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp)
 * [Jupyter Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 * [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
@@ -95,7 +95,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 ## Next steps
 
-* [C# Dev Kit docs](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+<!-- * [C# Dev Kit docs](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) -->
 * Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
