@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 1
 Area: csharp
 TOCTitle: Get Started
 ContentId: cdf9809e-0569-4aaf-937e-e247507d9609
@@ -12,9 +12,9 @@ MetaDescription: Getting Started with C# and .NET Development in Visual Studio C
 
 This getting started guide introduces you to C# and .NET for Visual Studio Code through the following tasks:
 
-1. Installing and setting up your VS Code environment for C#
-1. Writing and running a simple "Hello World" application using C#
-1. Introduce you to other learning resources for C# in VS Code
+1. Installing and setting up your VS Code environment for C#.
+1. Writing and running a simple "Hello World" application using C#.
+1. Introduce you to other learning resources for C# in VS Code.
 
 Keep in mind, that this guide will not teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you are looking for resources to learn C#, check out our C# curriculum.
 
