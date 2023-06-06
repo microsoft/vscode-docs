@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 3
 Area: csharp
 TOCTitle: IntelliCode
 ContentId: 0a0fd079-c56b-413c-8394-b166cd76be38

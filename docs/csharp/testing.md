@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 10
 Area: csharp
 TOCTitle: Testing
 ContentId: 0e62b3c9-6c13-4a71-a942-63d37c8f47d1
@@ -16,7 +16,7 @@ Testing in C# in Visual Studio Code is enabled by the C# Dev Kit extension. It's
 
 The extension supports the following test frameworks:
 
-- [XUnit](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-dotnet-test)
+- [xUnit](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-dotnet-test)
 - [NUnit](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-nunit)
 - [MSTest](https://learn.microsoft.com/dotnet/core/testing/unit-testing-with-mstest)
 
@@ -40,7 +40,7 @@ The C# Dev Kit extension provides the following features:
 
 You can enable a test framework for your project with just a few steps in the Solution Explorer:
 
-**XUnit**
+**xUnit**
 
 Open the Command Palette and select **.NET:New Project..** then select **xUnit Test Project** and provide name and location for the new project. This will create a new project and directory that uses xUnit as the test library and configures the test runner by adding the following `<PackageReference />` elements to the project file.
 
@@ -60,10 +60,13 @@ dotnet add [location of your test csproj file] reference [location of the csproj
 Open the Command Palette and select **.NET:New Project..** then select **NUnit3 Test Project** and provide name and location for the new project. This will create a new project and directory that uses NUnit as the test library and configures the test runner by adding the following `<PackageReference />` elements to the project file.
 
 - Microsoft.NET.Test.Sdk
-- NUnit
+- nunit
 - NUnit3TestAdapter
 
-From the Terminal, run the following command `dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]`
+From the Terminal, run the following command:
+```bash
+dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+```
 
 **MSTest**
 
@@ -74,7 +77,11 @@ Open the Command Palette and select **.NET:New Project..** then select **MSTest 
 - MSTest.TestFramework
 - coverlet.collector
 
-From the Terminal, run the following command `dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]`
+From the Terminal, run the following command:
+
+```bash
+dotnet add [location of your test csproj file] reference [location of the csproj file for project to be tested]
+```
 
 ## Features
 
