@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order:
 Area: csharp
 TOCTitle: Package Management
 ContentId: 6e7d5ecf-d7aa-44b5-abc0-2257a2075906
@@ -24,6 +24,6 @@ For projects that use `<PackageReference>`, you can see the package references i
 
 ![Package references in the Solution Explorer](images/package-management/package-references-solution-explorer.png)
 
-Packages that don't install properly when a restore happens or you run a build will show error icons in **Solution Explorer**.  
+Packages that don't install properly when a restore happens or you run a build will show error icons in **Solution Explorer**.
 
 **Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code. For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).
