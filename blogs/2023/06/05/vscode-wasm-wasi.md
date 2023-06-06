@@ -163,7 +163,7 @@ Below is a diagram showing the interaction between the WASM worker and the exten
 
 Now that we were able to compile C/C++ and Rust code to WebAssembly and execute it in VS Code, we explored whether we could run a shell in VS Code for the Web as well.
 
-We investigated compiling one of the Unix shells to WebAssembly. However, shells that rely on operating system features (spawning processes, ...) are not available in WASI right now. This led us to take a slightly different approach: we implemented a basic shell in TypeScript and tried to compile only the Unix core utils like `ls`, `cat`, `date`, ... to WebAssembly. Since Rust has very good support for WASM and WASI, we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform reimplementation of the GNU coreutils in Rust, a try. Et voilà, we had a first minimal web shell.
+We investigated compiling one of the Unix shells to WebAssembly. However, some shells rely on operating system features (spawning processes, ...), which are not available in WASI right now. This led us to take a slightly different approach: we implemented a basic shell in TypeScript and tried to compile only the Unix core utils like `ls`, `cat`, `date`, ... to WebAssembly. Since Rust has very good support for WASM and WASI, we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform reimplementation of the GNU coreutils in Rust, a try. Et voilà, we had a first minimal web shell.
 
 ![A web shell](webshell.gif)
 
