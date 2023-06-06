@@ -177,8 +177,8 @@ The WASM execution engine extension and the Web Shell extension are both experim
 
 What we do know is that we will further explore the following topics:
 
-* The WASI team is working on a preview2 of the specification, which we want to support as well. Version 2 will change the way a WASI host is implemented. However, we are confident that we can keep the API, which is exposed in the WASM execution engine extension, mostly stable.
-* There is also the [WASIX](https://wasix.org/) effort that extends WASI with additional [operating system-like features](https://wasix.org/docs/api-reference) such as process or futex. We want to examine the impact this work has on our effort to execute WebAssembly code in VS Code.
+* The WASI team is working on a preview2 and preview3 of the specification, which we plan to support as well. The new versions will change the way a WASI host is implemented. However, we are confident that we can keep our API, which is exposed in the WASM execution engine extension, mostly stable.
+* There is also the [WASIX](https://wasix.org/) effort that extends WASI with additional [operating system-like features](https://wasix.org/docs/api-reference) such as process or futex. We will continue to watch this work.
 * Many language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We plan to explore the possibility of compiling these language servers to `wasm32-wasi` and running them in VS Code for the Web as well.
 * Improving debugging for Python on the Web. We have started to work on this, so stay tuned.
 * Add support so that extension B can run WebAssembly code contributed by extension A. This will, for example, allow arbitrary extensions to execute Python code by reusing the extension that contributed the Python WebAssembly.
