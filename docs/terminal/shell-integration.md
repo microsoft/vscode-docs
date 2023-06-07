@@ -197,6 +197,8 @@ These sequences should be ignored by other terminals, but unless other terminals
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
 
+  The optional nonce can be used to verify the sequence came from the shell integration script to prevent command spoofing. When the nonce is verified successfully, some protections before using the commands will be removed for an improved user experience.
+
   The command line can escape ASCII characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below and this is particularly important for new line and semi-colon.
 
   Some examples:
