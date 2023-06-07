@@ -43,6 +43,8 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 
 **fish**
 
+⚠️ This is currently experimental and automatic injection is not supported
+
 Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
 
 ```sh
