@@ -12,11 +12,11 @@ MetaDescription: Spring Boot extensions for Java developer using Visual Studio C
 
 Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
 
-* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 * [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack) that includes all of the extensions above.
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) that includes all of the extensions above.
 
 If you run into any issues when using the features below, you can contact us by [opening an issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -26,11 +26,11 @@ To develop a Spring Boot application in Visual Studio Code, you need to install 
 
 * [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-* [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack)
+* [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-<a class="install-extension-btn" href="vscode:extension/pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/vmware.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
 >**Note**: More information about how to get started can be found at [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
@@ -44,7 +44,7 @@ To install, launch VS Code and from the Extensions view (`kb(workbench.view.exte
 
 Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls video="Create the project">
   <source src="/docs/java/java-spring-boot/spring-initializr.mp4" type="video/mp4">
 </video>
 
@@ -54,13 +54,13 @@ The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscj
 
 Navigate to your `pom.xml` file and right-click to select **Add starters...**. A dropdown will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Edit the project">
   <source src="/docs/java/java-spring-boot/spring-initializr-add-starters.mp4" type="video/mp4">
 </video>
 
 ## Develop the application
 
-The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
 
 The extension supports the following features:
 
@@ -76,7 +76,7 @@ To learn how to use these features, you can visit this [detailed usage guide](ht
 
 Below is an example showing live application information.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Live application information and metrics">
   <source src="/docs/java/java-spring-boot/spring-live-info.mp4" type="video/mp4">
 </video>
 
@@ -84,7 +84,7 @@ Below is an example showing live application information.
 
 In addition to using `kb(workbench.action.debug.start)` to run your application, there's the [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extension, which lets you view and manage all available Spring Boot projects in your workspace as well as quickly start, stop, or debug your project.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Run the Spring Boot application from Spring Boot dashboard">
   <source src="/docs/java/java-spring-boot/spring-dashboard.mp4" type="video/mp4">
 </video>
 

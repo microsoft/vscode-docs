@@ -55,6 +55,7 @@ Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
 Polish | `pl`
 Czech | `cs`
+Hungarian | `hu` 
 
 ## Marketplace Language Packs
 
