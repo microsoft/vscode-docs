@@ -16,7 +16,7 @@ This getting started guide introduces you to C# and .NET for Visual Studio Code 
 1. Writing and running a simple "Hello World" application using C#.
 1. Introduce you to other learning resources for C# in VS Code.
 
-Keep in mind, that this guide will not teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you are looking for resources to learn C#, check out our C# curriculum.
+Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out our C# curriculum.
 
 <a class="install-extension-btn" href="https://aka.ms/selfguidedcsharp">Learn C# Curriculum</a>
 
@@ -30,10 +30,10 @@ Keep in mind, that this guide will not teach you C#. Instead, it teaches you how
 
 ### Installing VS Code and extensions
 
-1. If you have not already done so, [install VS Code](https://code.visualstudio.com)
+1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
 1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
-Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. Reopen the walkthrough at any time by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Welcome: Open Walkthrough...**. Here, select **Get Started with C# Dev Kit**.
+Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. Reopen the walkthrough at any time by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Welcome: Open Walkthrough**. Here, select **Get Started with C# Dev Kit**.
 
 ![C# Dev Kit introductory walkthrough](images/get-started/open-walkthrough.gif)
 
@@ -41,13 +41,13 @@ Upon installation, C# Dev Kit launches an extension walkthrough. You can follow 
 
 ### Installing the .NET Coding Pack for students
 
-If you are a student, we recommend installing the **.NET Coding Pack** for an easier setup experience. The Coding Pack includes VS Code, the .NET Software Development Kit (SDK), and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
+If you're a student, we recommend installing the **.NET Coding Pack** for an easier setup experience. The Coding Pack includes VS Code, the .NET SDK, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
 <a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
 
 <a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
 
->**Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you will need to manually install the .NET SDK, VS Code, and .NET extensions.
+>**Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you need to manually install the .NET SDK, VS Code, and .NET extensions.
 
 ## Open folder
 
@@ -61,17 +61,17 @@ cd hello
 code .
 ```
 
-Alternately, you can run VS Code through the operating system UI, then use **File > Open Folder** to open the project folder.
+Alternatively, you can run VS Code through the operating system UI, then use **File** > **Open Folder** to open the project folder.
 
-## Create Hello World
+## Create a Hello World app
 
 First, ensure you are within the new folder (workspace) that you created. From here, you can create the project in two ways.
 
 ### Use the Command Palette
 
 1. Bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET".
-1. Find and select the **.NET: New Project...** command.
-1. After selecting the command, you will need to choose the project template. Choose **Console app**.
+1. Find and select the **.NET: New Project** command.
+1. After selecting the command, you'll need to choose the project template. Choose **Console app**.
 1. To run your app, select **Run > Start Debugging** in the upper menu, or use the `kb(workbench.action.debug.start)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
 
 ![Use the Command Palette to create a new .NET project](images/get-started/open-new-project.gif)
