@@ -1020,6 +1020,7 @@
                                         "when": "hasChatProvider && inChat" },
 { "key": "shift+f9",              "command": "workbench.action.chat.previousCodeBlock",
                                         "when": "hasChatProvider && inChat" },
+{ "key": "ctrl+alt+i",            "command": "workbench.panel.chatSidebar.copilot" },
 { "key": "ctrl+f4",               "command": "workbench.action.closeActiveEditor" },
 { "key": "ctrl+w",                "command": "workbench.action.closeActiveEditor" },
 { "key": "ctrl+k ctrl+w",         "command": "workbench.action.closeAllEditors" },
