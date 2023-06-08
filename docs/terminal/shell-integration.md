@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -14,7 +14,7 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 
 Supported shells:
 
-- Linux/macOS: bash, pwsh, zsh
+- Linux/macOS: bash, fish, pwsh, zsh
 - Windows: pwsh
 
 ## Installation
@@ -25,7 +25,7 @@ By default, the shell integration script should automatically activate on suppor
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
->**Note**: On Windows, you'll need PowerShell 7 (pwsh) for shell integration support. You can install via [https://aka.ms/PSWindows](https://aka.ms/PSWindows).
+>**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
 ### Manual installation
 
@@ -39,6 +39,17 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
+
+**fish**
+
+⚠️ This is currently experimental and automatic injection is not supported
+
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+
+```sh
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
 ```
 
 **pwsh**
@@ -65,17 +76,6 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to 
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
-```
-
-**fish**
-
-⚠️ This is currently experimental and automatic injection is not supported
-
-Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
-
-```sh
-string match -q "$TERM_PROGRAM" "vscode"
-and . (code --locate-shell-integration-path fish)
 ```
 
 #### Portability versus performance
@@ -196,6 +196,8 @@ These sequences should be ignored by other terminals, but unless other terminals
 - `OSC 633 ; E ; <commandline> ST` - Explicitly set the command line.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
+
+  The optional nonce can be used to verify the sequence came from the shell integration script to prevent command spoofing. When the nonce is verified successfully, some protections before using the commands will be removed for an improved user experience.
 
   The command line can escape ASCII characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below and this is particularly important for new line and semi-colon.
 
