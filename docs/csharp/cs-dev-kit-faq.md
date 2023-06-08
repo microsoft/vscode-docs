@@ -25,10 +25,11 @@ With an initial focus on cloud native development, the first preview of C# Dev K
 Today the extensions included in the C# Dev Kit pack include:
 
 * [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
-* [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp)
 
-Use of these extensions are governed under the [EULA for the C# Dev Kit family of extensions](https://aka.ms/vs/csdevkit/license)
+Use of these extensions are governed under the [EULA for the C# Dev Kit family of extensions](https://aka.ms/vs/csdevkit/license).
+
+These extensions also have dependencies which carry their own licensing – for example, the C# Dev Kit extension depends on the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ## Who can use C# Dev Kit?
 
