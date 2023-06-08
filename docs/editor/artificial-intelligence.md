@@ -23,7 +23,7 @@ You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/i
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free trial directly from VS Code. You can also activate your trial starting from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
-> **Note:** For some of the latest features we'll explore below, you'll need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) and [VS Code Insiders](https://code.visualstudio.com/insiders/). These provide you the latest updates in both Copilot and VS Code overall.
+> **Note:** For some of the latest features we'll explore below, you'll need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly), which will provide you the latest updates in Copilot.
 
 ## Sign in and sign up
 
@@ -53,7 +53,7 @@ There are three main ways to get assistance from Copilot:
 * **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
 * **Inline chat:** Talk with Copilot while writing code, inline in your files.
 
-> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) and [VS Code Insiders](https://code.visualstudio.com/insiders/).
+> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly).
 
 ## Inline suggestions
 
@@ -91,7 +91,7 @@ If you don't want to accept any of the suggestions, you can continue typing, and
 
 When developing a project or learning something new, it can be a big help to get AI assistance on your questions, big or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
 
-Once you've signed up and been granted access to Copilot chat through the [chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join), install the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) in [VS Code Insiders](https://code.visualstudio.com/insiders/). You'll be presented a new GitHub Copilot chat view in the Activity Bar:
+Once you've signed up and been granted access to Copilot chat through the [chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join), install the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) in VS Code. You'll be presented a new GitHub Copilot chat view in the Activity Bar:
 
 ![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
 
