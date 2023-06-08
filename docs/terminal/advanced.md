@@ -133,6 +133,17 @@ The terminal has both Unicode and emoji support. When these characters are used 
 * Some emojis comprised of multiple characters may not render correctly, for example, skin tone modifiers.
 * Emoji support is limited on Windows.
 
+## Image support
+
+Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is enabled by default and can be disabled with the `terminal.integrated.enableImages` setting.
+
+Current limitations:
+
+* Serialization does not work, so reloading a terminal will not retain any images ([jerch/xterm-addon-image#47](https://github.com/jerch/xterm-addon-image/issues/47))
+* Copying the selection as HTML does not include the selected image ([jerch/xterm-addon-image#50](https://github.com/jerch/xterm-addon-image/issues/50))
+* Animated gifs don't work ([jerch/xterm-addon-image#51](https://github.com/jerch/xterm-addon-image/issues/51))
+* Images that are shorter than a cell will not work properly, this is a [design flaw with the sequences and also occurs in XTerm](https://github.com/microsoft/vscode/issues/183840#issuecomment-1569345048).
+
 ## Process environment
 
 The process environment of the application running within the terminal is influenced by various settings and extensions and can cause the output in the VS Code terminal to look different than in other terminals.
