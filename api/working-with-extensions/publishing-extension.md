@@ -15,7 +15,7 @@ This topic covers:
 
 - Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
-- [Registering a publisher](#creating-a-publisher) necessary for publishing extensions
+- [Registering a publisher](#create-a-publisher) necessary for publishing extensions
 
 ## vsce
 
@@ -38,7 +38,7 @@ $ cd myExtension
 $ vsce package
 # myExtension.vsix generated
 $ vsce publish
-# <publisher name>.myExtension published to VS Code Marketplace
+# <publisher id>.myExtension published to VS Code Marketplace
 ```
 
 `vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
@@ -62,7 +62,7 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
-### Getting a Personal Access Token
+### Get a Personal Access Token
 
 First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
@@ -87,42 +87,42 @@ First off, follow the documentation to [create your own organization](https://le
 
 1. Click **Create**.
 
-    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#creating-a-publisher).
+    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
 
-### Creating a publisher
+### Create a publisher
 
-A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension should have a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
+A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-To create a pulisher:
+To create a publisher:
 
 1. Go to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
-1. Log in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#getting-a-personal-access-token) in the previous section.
+1. Log in with the same Microsoft account you used to create the [Personal Access Token](#get-a-personal-access-token) in the previous section.
 1. Click **Create publisher** in the pane on the left.
-1. In the new page, specify the mandatory parameters - publisher name (**ID** field) and display name (**Name** field ):
+1. In the new page, specify the mandatory parameters for a new publisher - identifier and name (**ID** and **Name** fields respectively):
 
-    - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
     - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
+    - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
 
-    Below is an example of publisher name and display name for the Docker extension:
+    Below is an example of publisher identifier and name for the Docker extension:
 
-    ![Example of publisher name and display name](images/publishing-extension/publisher-name-and-id.png)
+    ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
 
 1. Optionally, fill out the rest of the fields.
 1. Click **Create**
 1. Verify the newly created publisher using `vsce`. In your terminal, run the following command, and when prompted, type the Personal Access Token created in the previous step:
 
     ```bash
-    vsce login <publisher name>
+    vsce login <publisher id>
 
     https://marketplace.visualstudio.com/manage/publishers/
-    Personal Access Token for publisher '<publisher name>': ****************************************************
+    Personal Access Token for publisher '<publisher id>': ****************************************************
 
-    The Personal Access Token verification succeeded for the publisher '<publisher name>'.
+    The Personal Access Token verification succeeded for the publisher '<publisher id>'.
     ```
 
 Once verified, you are ready to publish an extension.
 
-### Publishing an extension
+### Publish an extension
 
 You can publish an extension in two ways:
 
@@ -138,13 +138,13 @@ You can publish an extension in two ways:
 
     ![Add an extension through management page](images/publishing-extension/add-extension.png)
 
-## Reviewing extension installs and ratings
+## Review extension installs and ratings
 
 The [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) gives you access to each extension's Acquisition Trend over time, as well as Total Acquisition counts and Ratings & Reviews. To see the reports, click an extension or choose **More Actions > Reports**.
 
 ![Marketplace extension report](images/publishing-extension/extension-report.png)
 
-## Auto-incrementing the extension version
+## Auto-increment the extension version
 
 When publishing an extension, you can auto-increment its version number by specifying the [SemVer](https://semver.org/)-compatible number or version (`major`, `minor`, or `patch`) to increment. For example, to update an extension's version from 1.0.0 to 1.1.0, you would specify:
 
@@ -181,7 +181,7 @@ You can remove an extension in two ways:
 1. Automatically, using [`vsce`](#vsce) with the `unpublish` command:
 
     ```bash
-    vsce unpublish <publisher name>.<extension name>
+    vsce unpublish <publisher id>.<extension name>
     ```
 
 1. Manually, from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by clicking **More Actions > Remove**:
