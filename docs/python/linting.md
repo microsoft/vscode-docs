@@ -8,6 +8,7 @@ DateApproved: 4/30/2022
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
+
 # Linting Python in Visual Studio Code
 
 Linting highlights syntactical and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](/docs/python/editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code **appears**.
@@ -18,43 +19,39 @@ Linting highlights syntactical and stylistic problems in your Python source code
 
 Install the linting tool of your choice from the marketplace. We support the following linting extensions:
 
-| Linter | Extension |
-| --- | --- |
-| Pylint | https://marketplace.visualstudio.com/items?itemName=ms-python.pylint |
-| flake8 | https://marketplace.visualstudio.com/items?itemName=ms-python.flake8 |
-| mypy | https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker |
+| Linter | Extension                                                                       |
+| ------ | ------------------------------------------------------------------------------- |
+| Pylint | https://marketplace.visualstudio.com/items?itemName=ms-python.pylint            |
+| flake8 | https://marketplace.visualstudio.com/items?itemName=ms-python.flake8            |
+| mypy   | https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker |
 
 Linting extensions offered by the community:
 
-| Linter | Extension |
-| --- | --- |
-| Ruff | https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff |
-| mypy | https://marketplace.visualstudio.com/items?itemName=matangover.mypy |
-
+| Linter | Extension                                                              |
+| ------ | ---------------------------------------------------------------------- |
+| Ruff   | https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff |
+| mypy   | https://marketplace.visualstudio.com/items?itemName=matangover.mypy    |
 
 > **Note**: If you don't find your preferred linter in the table above or in the marketplace, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
 
-
 ## General Settings
 
-| Setting | Default | Description |
-| --- | --- | --- |
-| args | `[]` | Will be passed to the linter. **Note**: The officially supported linters run on individual opened file. Make sure your configuration applies in that scenario. |
+| Setting        | Default      | Description                                                                                                                                                                                            |
+| -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| args           | `[]`         | Will be passed to the linter. **Note**: The officially supported linters run on individual opened file. Make sure your configuration applies in that scenario.                                         |
 | importStrategy | `useBundled` | `useBundled` means extension uses bundled version of the linter. `fromEnvironment` means it will attempt to load from your selected python environment first, otherwise falls back to bundled version. |
 
 ## Disable linting
 
 Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/editor/extension-marketplace.md#disable-an-extension) per workspace.
 
-
 ## Run linting
 
-Linting will automatically run when a Python file is opened or saved. 
+Linting will automatically run when a Python file is opened or saved.
 
 Errors and warnings are shown in the **Problems** panel for open files, and are also highlighted in the code editor. Hovering over an underlined issue displays the details:
 
 ![Linting messages in the editor and the Problems panel](images/linting/lint-messages.png)
-
 
 ## Code Actions
 
@@ -64,22 +61,22 @@ Some linters may offer code actions that can help address reported problems.
 
 Logs for linters are available in the `Output` panel when you select `<linter name>` from the drop down menu.
 
-You can change the log level for a linter extension by running the command pallet commmand `Developer: Set Log Level` select the extension from the entension logs group. and change the level.
+You can change the log level for a linter extension by running the command pallet command `Developer: Set Log Level` select the extension from the extension logs group. and change the level.
+
+## Severity
+
+Linters report issues with some predefined severity. This can be changed using `severity` setting for the linter. Refer to readme for the linter extension of your choice for more details on the supported values and severity levels.
 
 ## Troubleshooting linting
 
-| Error message | Cause | Solution |
+| Issue | Cause | Solution |
 | --- | --- | --- |
-| ... unable to import \<module_name\> | The Python extension is using the wrong version of Pylint. | Ensure that selected interpreter is a valid Python installation where Pylint is installed. Alternately, set the `path` to an appropriate version of Pylint for the Python interpreter being used. Look for `path` setting for the extension you are trying to use. |
-| Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
-| | The linter has not been installed in the current Python environment. | Open a command prompt, navigate to the location where your selecter interpreter is, and run `pip install` for the linter. |
-| | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
-| | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is a list of the argument elements that are separated by spaces. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
+| No problems reported | No python selected | Look at the logs for the linter you are using. It should say which python is being used. If there is no python selected, there should be some instructions on how to select an interpreter. |
 
 ## Next steps
 
-- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
-- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
+-   [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+-   [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
+-   [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+-   [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+-   [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
