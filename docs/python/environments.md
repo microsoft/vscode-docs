@@ -20,7 +20,7 @@ An "environment" in Python is the context in which a Python program runs that co
 
 By default, any Python interpreter installed runs in its own **global environment**. For example, if you just run `python`, `python3`, or `py` at a new terminal (depending on how you installed Python), you're running in that interpreter's global environment. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
 
-> **Tip**: In Python, it is best practice to create an environment for each workspace.
+> **Tip**: In Python, it is best practice to create a workspace-specific environment, for example, by using a local environment.
 
 ### Local environments
 
