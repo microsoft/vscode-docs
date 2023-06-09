@@ -14,9 +14,9 @@ Linting highlights syntactical and stylistic problems in your Python source code
 
 > **Note**: Stylistic and syntactical code detection is enabled by the Language Server. To enable third-party linters for additional problem detection, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter.
 
-## Choosing a linter
+## Choose a linter
 
-You can install the linting tool of your choice from the marketplace. We support following linting extensions:
+Install the linting tool of your choice from the marketplace. We support the following linting extensions:
 
 | Linter | Extension |
 | --- | --- |
@@ -24,7 +24,7 @@ You can install the linting tool of your choice from the marketplace. We support
 | flake8 | https://marketplace.visualstudio.com/items?itemName=ms-python.flake8 |
 | mypy | https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker |
 
-Offered by community:
+Linting extensions offered by the community:
 
 | Linter | Extension |
 | --- | --- |
@@ -32,7 +32,7 @@ Offered by community:
 | mypy | https://marketplace.visualstudio.com/items?itemName=matangover.mypy |
 
 
-> **Note**: If you don't find your preferred linter in the table above or in the market place, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
+> **Note**: If you don't find your preferred linter in the table above or in the marketplace, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
 
 
 ## General Settings
@@ -42,7 +42,7 @@ Offered by community:
 | args | `[]` | Will be passed to the linter. **Note**: The officially supported linters run on individual opened file. Make sure your configuration applies in that scenario. |
 | importStrategy | `useBundled` | `useBundled` means extension uses bundled version of the linter. `fromEnvironment` means it will attempt to load from your selected python environment first, otherwise falls back to bundled version. |
 
-## Disabling Linter
+## Disable linting
 
 Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/editor/extension-marketplace.md#disable-an-extension) per workspace.
 
