@@ -220,7 +220,7 @@ Let's build upon the previous example by using packages.
 
 In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/), that provide additional functionality to your program. For this example, you use the `numpy` package to generate a random number.
 
-Return to the **Explorer** view (the top-most icon on the left side, which shows files), open `hellp.py`, and paste in the following source code:
+Return to the **Explorer** view (the top-most icon on the left side, which shows files), open `hello.py`, and paste in the following source code:
 
 ```python
 import numpy as np
@@ -235,7 +235,7 @@ print(np.random.randint(1,9))
 
 Next, run the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your system. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
+You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your interpreter. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
 
 To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
