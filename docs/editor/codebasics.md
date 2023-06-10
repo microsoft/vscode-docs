@@ -1,4 +1,37 @@
----
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>This is some information about my website.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>You can reach me at email@example.com.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 My Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>---
 Order: 2
 Area: editor
 TOCTitle: Basic Editing
