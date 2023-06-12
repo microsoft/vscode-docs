@@ -5,7 +5,7 @@ TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 ---
 # Visual Studio Code Server
 
@@ -119,7 +119,3 @@ Settings Sync requires authentication against a Settings Sync server. The corres
 If you have any issues or feedback, please file an issue in the [VS Code Remote GitHub repo](https://github.com/microsoft/vscode-remote-release/issues). When filing an issue, include verbose logging, which you can enable by launching the VS Code Server with the `-v` flag: `code -v tunnel`.
 
 You may filter just for VS Code Server issues with the [`code-server` label](https://github.com/microsoft/vscode-remote-release/issues?q=is%3Aissue+is%3Aopen+label%3Acode-server).
-
-### Is there a limit to the number of remote machines I can connect to?
-
-Right now, you can have 10 remote machines registered with the VS Code Server. If you'd like to connect to a new remote machine, and already have 10 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.

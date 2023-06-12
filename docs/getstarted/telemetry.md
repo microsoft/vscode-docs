@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry

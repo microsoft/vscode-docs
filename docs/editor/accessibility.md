@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -154,7 +154,7 @@ You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Ac
 
 ## Screen reader mode
 
-When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text.
+When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
 
 ![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 

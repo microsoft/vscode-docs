@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -120,7 +120,5 @@ If you rely on using UNC paths in VS Code, you can either
 * define a global environment variable `NODE_UNC_HOST_ALLOWLIST` with the backslash-separated list of hostnames to allow, for example: `server-a\server-b` to allow the hosts `server-a` and `server-b`.
 
 *Note:* if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `security.allowedUNCHosts` has to be configured on the remote machine and not the local machine.
-
-*Note:* if you are using UNC paths for the application data of VS Code itself, configuring the `security.allowedUNCHosts` setting will not work. You will have to pick one of the alternatives.
 
 This change was done to improve the security when using VS Code with UNC paths. Please refer to the associated [security advisory](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr) for more information.

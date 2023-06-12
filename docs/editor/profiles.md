@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 6/8/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -76,13 +76,15 @@ The **Profiles: Show Contents** command (available in the Command Palette or Pro
 A profile can include:
 
 * Settings - In a profile-specific `settings.json` file.
-* Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
+* Extensions - The list of extensions included in the current profile.
 * UI state - View layout (positions), visible views and actions.
 * Keybindings - In a profile-specific `keybindings.json` file.
 * Snippets - In a profile-specific `{language}.json` files.
 * User Tasks - In a profile-specific `tasks.json` file.
 
 When you create a new profile based on the Default Profile, the profile-specific configuration files are populated from your user configuration files. Workspace-specific settings are not automatically included in a new profile.
+
+>**Note**: Unchecking an extension in the Profiles view does not remove or disable the extension from the current profile but does remove the extension if you export the profile.
 
 ## Share Profiles
 
