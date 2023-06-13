@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 1/20/2023
+DateApproved: 6/12/2023
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -13,7 +13,6 @@ MetaSocialImage: images/tutorial/social.png
 In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
 To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
-
 
 ## Prerequisites
 
@@ -51,7 +50,6 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 - **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
 
-
 >**Note**: To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
 >
 >Linux/macOS: open a Terminal Window and type the following command:
@@ -81,7 +79,7 @@ code .
 
 Alternately, you can create a folder through the operating system UI, then use VS Code's **File > Open Folder** to open the project folder.
 
-## Create a virtual environment using the Create Environment command
+## Create a virtual environment
 
 A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
 
@@ -95,7 +93,6 @@ The command then presents a list of interpreters that can be used for your proje
 
 ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
-
 After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
 
 ![Create environment status notification](images/environments/create_environment_prompt_status.png)
@@ -106,8 +103,7 @@ Ensure your new environment is selected by using the **Python: Select Interprete
 
 > **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#creating-environments).
 
-
-## Create a Python Hello World source code file
+## Create a Python source code file
 
 From the File Explorer toolbar, select the **New File** button on the `hello` folder:
 
@@ -144,7 +140,7 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Using the run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
 The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
@@ -204,7 +200,7 @@ msg.split()
 
 ![Debugging step 3 - using the debug console](images/tutorial/debug-step-03.png)
 
-Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
+Select the blue **Continue** button on the toolbar again (or press `kb(workbench.action.debug.continue)`) to run the program to completion. "Roll a dice!" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
 If you restart the debugger, the debugger again stops on the first breakpoint.
 
@@ -259,8 +255,8 @@ To install the required packages in your virtual environment, enter the followin
 
 1. Now, rerun the program, with or without the debugger, to view the output!
 
-
 ## Next steps
+
 To learn to build web apps with the Django and Flask frameworks, see the following tutorials:
 
 - [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
