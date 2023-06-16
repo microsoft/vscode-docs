@@ -142,13 +142,13 @@ VS Code Settings Sync supports signing in with either a Microsoft account (for e
 
 Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
 
-## Troubleshooting Keychain Issues
+## Troubleshooting keychain issues
 
 Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
 
 ### Linux
 
-#### Encryption Not Available
+#### Encryption not available
 
 If you are experiencing issues with encryption not being available, please follow the steps below:
 
