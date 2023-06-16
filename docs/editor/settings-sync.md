@@ -142,62 +142,37 @@ VS Code Settings Sync supports signing in with either a Microsoft account (for e
 
 Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
 
-## Troubleshooting keychain issues
+## Troubleshooting Keychain Issues
 
 Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
 
-### Windows
-
-If the keychain throws the error "Not enough memory resources are available to process this command", open the Credential Manager application, click on Windows Credentials and go through the list to see if there are some you can delete. This error was first reported in [issue #130893](https://github.com/microsoft/vscode/issues/130893) and happens when you have too many credentials in your Credential Manager.
-
-If you're not sure what credentials to delete, try deleting all of the vscode specific credentials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
-
-```powershell
-cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
-```
-
-For more troubleshooting steps, please refer to [issue #130893](https://github.com/microsoft/vscode/issues/130893).
-
-### macOS
-
-If the keychain throws the error "The user name or passphrase you entered is not correct.", open the Keychain Access app, right-click on the `login` keychain, and lock and unlock it again. This error was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as a problem after upgrading to macOS High Sierra, but it has also been reported on more recent macOS versions.
-
 ### Linux
 
-If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
+#### Encryption Not Available
 
-If the error is "Writing login information to the keychain failed with error 'Unknown or unsupported transport “disabled” for address “disabled:”'", check that `dbus-launch` has been started by adding `export $(dbus-launch)` in your init-script.
-More info on [issue #137850](https://github.com/microsoft/vscode/issues/137850) & [issue #120392](https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643).
+If you are experiencing issues with encryption not being available, please follow the steps below:
 
-If the error is "The name org.freedesktop.secrets was not provided by any .service files", make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed, such as `gnome-keyring`. VS Code expects such a package for storing credentials on the machine. More information can be found in [issue #104319](https://github.com/microsoft/vscode/issues/104319#issuecomment-1057588052).
+1. Check if the environment variable `XDG_CURRENT_DESKTOP` is defined. You can do this by opening a terminal and running the following command:
 
-If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
-
-1. Add the following lines to your `~/.xinitrc`:
-
-   ```sh
-   # see https://unix.stackexchange.com/a/295652/332452
-   source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
-   # see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
-   eval $(/usr/bin/gnome-keyring-daemon --start)
-   export SSH_AUTH_SOCK
-
-   # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
-   mkdir -p "$HOME"/.local/share/keyrings
+   ```bash
+   echo $XDG_CURRENT_DESKTOP
    ```
 
-2. Login again.
+   If `XDG_CURRENT_DESKTOP` is not defined, set it before running VS Code to [an environment that Chromium supports](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169) that is closest to your environment. For example, if you are using an environment that is similar/based on GNOME, you can set the variable by running the following command:
 
-3. Have the following programs installed (installation assumes arch/pacman, should be similar to other distros):
-
-   ```sh
-   sudo pacman -S gnome-keyring libsecret libgnome-keyring
+   ```bash
+   export XDG_CURRENT_DESKTOP=GNOME
    ```
 
-4. Launch `seahorse`, unlock the default password keyring or create a new one, and keep it unlocked.
+   You can add this command to your `.bashrc` (or similar rc file) to make it persistent.
 
-5. Restart the login procedure.
+2. make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed
+
+   We usually recommend installing [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring/). It's the most widely used and often works right away on install which you can do by running the following command (distro dependent):
+
+   ```bash
+   sudo apt install gnome-keyring
+   ```
 
 ## Can I share settings between VS Code Stable and Insiders?
 
