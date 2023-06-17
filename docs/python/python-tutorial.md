@@ -22,7 +22,7 @@ To successfully complete this tutorial, you need to first setup your Python deve
 - [VS Code](https://code.visualstudio.com/)
 - [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md))
 
-## Install a Python interpreter
+## Install a Python Interpreter
 
 Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is provided below.
 
