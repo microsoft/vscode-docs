@@ -124,12 +124,12 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following output in the terminal window:
 
     ```bash
+    Watching for file changes with StatReloader
     Performing system checks...
 
     System check identified no issues (0 silenced).
-
-    January 15, 2021 - 14:33:31
-    Django version 3.1.5, using settings 'web_project.settings'
+    June 13, 2023 - 18:38:07
+    Django version 4.2.2, using settings 'web_project.settings'
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CTRL-BREAK.
     ```
@@ -206,15 +206,24 @@ You're probably already wondering if there's an easier way to run the server and
 
     ```json
     {
-        "name": "Python: Django",
-        "type": "python",
-        "request": "launch",
-        "program": "${workspaceFolder}/manage.py",
-        "args": [
-            "runserver",
-        ],
-        "django": true
-    },
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Django",
+                "type": "python",
+                "request": "launch",
+                "program": "${workspaceFolder}\\manage.py",
+                "args": [
+                    "runserver"
+                ],
+                "django": true,
+                "justMyCode": true
+            }
+        ]
+    }
     ```
 
     This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
@@ -317,12 +326,12 @@ Debugging gives you the opportunity to pause a running program on a particular l
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
     ```bash
-    now.strftime("%a, %d %B, %Y at %X")
-    'Fri, 07 September, 2018 at 07:46:32'
+    now.strftime("%A, %d %B, %Y at %X")
+    'Tuesday, 13 June, 2023 at 18:03:19'
     now.strftime("%a, %d %b, %Y at %X")
-    'Fri, 07 Sep, 2018 at 07:46:32'
+    'Tue, 13 Jun, 2023 at 18:03:19'
     now.strftime("%a, %d %b, %y at %X")
-    'Fri, 07 Sep, 18 at 07:46:32'
+    'Tue, 13 Jun, 23 at 18:03:19'
     ```
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
@@ -388,6 +397,7 @@ In this section, you start by creating a single page using a template. In subseq
 
     ```python
     def hello_there(request, name):
+        print(request.build_absolute_uri()) #optional
         return render(
             request,
             'hello/hello_there.html',
