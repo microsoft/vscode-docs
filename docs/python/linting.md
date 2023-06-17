@@ -41,7 +41,7 @@ Linting extensions offered by the community:
 | Setting        | Default      | Description                                                                                                                                                                                            |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | args           | `[]`         | Arguments to be passed to the linter. **Note**: The officially supported linters run on individual open files. Make sure your configuration applies in that scenario. |
-| importStrategy | `useBundled` | When set to `useBundled`, the extension will use the version of the tool that it ships with. When set to `fromEnvironment`, it will attempt to load from your selected Python environment first, otherwise it will fall back to the bundled version. |
+| importStrategy | `useBundled` | When set to `useBundled`, the extension uses the version of the tool that it ships with. When set to `fromEnvironment`, it attempts to load from your selected Python environment first, otherwise it falls back to the bundled version. |
 
 ## Disable linting
 
@@ -77,8 +77,8 @@ Linters report issues with some predefined severity. This can be changed using `
 
 ## Next steps
 
--   [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
--   [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
--   [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
--   [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
--   [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
