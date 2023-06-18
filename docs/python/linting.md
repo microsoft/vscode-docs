@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 4/30/2022
+DateApproved: 6/15/2023
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -17,22 +17,22 @@ Linting highlights syntactical and stylistic problems in your Python source code
 
 ## Choose a linter
 
-Install the linting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). 
+Install the linting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 Microsoft publishes the following linting extensions:
 
 | Linter | Extension                                                                       |
 | ------ | ------------------------------------------------------------------------------- |
-| Pylint | https://marketplace.visualstudio.com/items?itemName=ms-python.pylint            |
-| flake8 | https://marketplace.visualstudio.com/items?itemName=ms-python.flake8            |
-| mypy   | https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker |
+| Pylint | [https://marketplace.visualstudio.com/items?itemName=ms-python.pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)            |
+| flake8 | [https://marketplace.visualstudio.com/items?itemName=ms-python.flake8](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8)            |
+| mypy   | [https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker](https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker) |
 
 Linting extensions offered by the community:
 
 | Linter | Extension                                                              |
 | ------ | ---------------------------------------------------------------------- |
-| Ruff   | https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff |
-| mypy   | https://marketplace.visualstudio.com/items?itemName=matangover.mypy    |
+| Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) |
+| mypy   | [https://marketplace.visualstudio.com/items?itemName=matangover.mypy](https://marketplace.visualstudio.com/items?itemName=matangover.mypy)    |
 
 > **Note**: If you don't find your preferred linter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
 
@@ -41,7 +41,7 @@ Linting extensions offered by the community:
 | Setting        | Default      | Description                                                                                                                                                                                            |
 | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | args           | `[]`         | Arguments to be passed to the linter. **Note**: The officially supported linters run on individual open files. Make sure your configuration applies in that scenario. |
-| importStrategy | `useBundled` | When set to `useBundled`, the extension will use the version of the tool that it ships with. When set to `fromEnvironment`, it will attempt to load from your selected Python environment first, otherwise it will fall back to the bundled version. |
+| importStrategy | `useBundled` | When set to `useBundled`, the extension uses the version of the tool that it ships with. When set to `fromEnvironment`, it attempts to load from your selected Python environment first, otherwise it falls back to the bundled version. |
 
 ## Disable linting
 
@@ -57,13 +57,13 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editor/refactoring.md#code-actions--quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extension-marketplace#extension-details) section under your preferred linter extension to find out what Code Actions it offers. 
+Some linters may offer [Code Actions](/docs/editor/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 
 Logs for linters are available in the **Output** panel (`kb(workbench.action.output.toggleOutput)`) when you select `<linter name>` from the drop down menu.
 
-You can change the log level for a linter extension by running the **Developer: Set Log Level** command from the Command Palette (`kb(workbench.action.showCommands)`). Select the extension from the **Extension Logs** group, and then select the desired log level. 
+You can change the log level for a linter extension by running the **Developer: Set Log Level** command from the Command Palette (`kb(workbench.action.showCommands)`). Select the extension from the **Extension Logs** group, and then select the desired log level.
 
 ## Severity
 
@@ -77,8 +77,8 @@ Linters report issues with some predefined severity. This can be changed using `
 
 ## Next steps
 
--   [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
--   [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
--   [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
--   [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
--   [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
