@@ -166,6 +166,8 @@ If you are experiencing issues with encryption not being available, please follo
 
    You can add this command to your `.bashrc` (or similar rc file) to make it persistent.
 
+   > This issue was originally reported in [issue#185212](https://github.com/microsoft/vscode/issues/185212). For more info, please check out that issue.
+
 2. make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed
 
    We usually recommend installing [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring/). It's the most widely used and often works right away on install which you can do by running the following command (distro dependent):
