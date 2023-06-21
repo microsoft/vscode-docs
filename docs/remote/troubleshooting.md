@@ -804,7 +804,7 @@ Extensions may try to persist global data by looking for the `~/.config/Code` fo
 
 Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
-**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**Resolution:** Extensions can use the [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
 ### An incompatible extension prevents VS Code from connecting
 
