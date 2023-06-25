@@ -502,7 +502,7 @@ class Controller {
 
 Imagine we want to add the ability to open the output item within a separate editor. To make this possible, the renderer needs to be able to send a message to the extension host, which will then launch the editor.
 
-This would be useful in scenarios where the renderer and controller are two seprate extensions.
+This would be useful in scenarios where the renderer and controller are two separate extensions.
 
 In the `package.json` of the renderer extension specify the value for `requiresMessaging` as `optional` which allows your renderer to work in both situations when it has and doesn't have access to the extension host.
 
