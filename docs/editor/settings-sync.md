@@ -144,37 +144,58 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 
 ## Troubleshooting keychain issues
 
-Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
+> NOTE: keychain, keyring, wallet, credential store are synonomous in this document
+
+Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
+
+To help diagnose the problem, the best thing to do is to first restart VS Code with the following flags:
+
+```
+code --verbose --vmodule="*/components/os_crypt/*=1"
+```
+
+### Windows & macOS
+
+At this time, there are no known configuration issues on Windows or macOS but if you suspect something is wrong [please open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
 ### Linux
 
-#### Encryption not available
+Towards the top of the logs from the previous command, you will see something to the effect of:
 
-If you are experiencing issues with encryption not being available, please follow the steps below:
+```
+[9699:0626/093542.027629:VERBOSE1:key_storage_util_linux.cc(54)] Password storage detected desktop environment: GNOME
+[9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] Selected backend for OSCrypt: GNOME_ANY
+```
 
-1. Check if the environment variable `XDG_CURRENT_DESKTOP` is defined. You can do this by opening a terminal and running the following command:
+We rely on Chromium's oscrypt module to descover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169). Outlined below are some popular desktop environments and some troubleshooting steps that may help if the keyring is misconfigured.
 
-   ```bash
-   echo $XDG_CURRENT_DESKTOP
-   ```
+#### GNOME or UNITY (or similar)
 
-   If `XDG_CURRENT_DESKTOP` is not defined, set it before running VS Code to [an environment that Chromium supports](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169) that is closest to your environment. For example, if you are using an environment that is similar/based on GNOME, you can set the variable by running the following command:
+If the error you're seeing is "Cannot create an item in a locked collection", chances are your keyring's `Login` keyring is locked. You should launch your OS's keyring (seahorse is the commonly used GUI for seeing keyrings) and ensure the default keyring (usually referred to as `Login` keyring) is unlocked. This keyring needs to be unlocked when you log into your system.
 
-   ```bash
-   export XDG_CURRENT_DESKTOP=GNOME
-   ```
+#### KDE
 
-   You can add this command to your `.bashrc` (or similar rc file) to make it persistent.
+It's possible that your wallet (aka keyring) is closed. If you open KWalletManager, you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
-   > This issue was originally reported in [issue#185212](https://github.com/microsoft/vscode/issues/185212). For more info, please check out that issue.
+#### Other Linux desktop environments
 
-2. make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed
+First off, if your desktop environment wasn't detected, [please open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
-   We usually recommend installing [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring/). It's the most widely used and often works right away on install which you can do by running the following command (distro dependent):
+##### (recommended) Configure the keyring to use with VS Code
 
-   ```bash
-   sudo apt install gnome-keyring
-   ```
+You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring/) if you don't have it already and then launch VS Code with `code --password-store="gnome"`.
+
+If this solution works for you, you can persist the value of `password-store` by opening the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and running the `Preferences: Configure Runtime Arguments` command. This will open the `argv.json` file which you can add `"password-store":"gnome"` to.
+
+> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` which will detect other implementations of the Secret Service API. Additionally, you could try install `kwallet` on your system. If you do, you will want to set the `password-store` flag to `kde` which will detect this installed `kwallet`.
+
+Please don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
+
+##### (not recommended) Configure basic text encryption
+
+We rely on Chromium's oscrypt module to descover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy which uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
+
+If you accept this risk, you can set `password-store` to `basic` by opening the command palette (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and running the `Preferences: Configure Runtime Arguments` command. This will open the `argv.json` file which you can add `"password-store":"basic"` to.
 
 ## Can I share settings between VS Code Stable and Insiders?
 
