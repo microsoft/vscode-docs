@@ -246,6 +246,8 @@ Context name | True when
 `activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
 `activeEditorIsPinned` | True when the active editor in a group is pinned.
 `inSearchEditor` | True when focus is inside a search editor.
+`activeWebviewPanelId` | The id of the currently active [webview panel](/api/extension-guides/webview.md).
+`activeCustomEditorId` | The id of the currently active [custom editor](/api/extension-guides/custom-editors.md).
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
