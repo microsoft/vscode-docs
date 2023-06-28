@@ -148,7 +148,7 @@ The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.nex
 
 ## Accessibility help
 
-You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code.
+You can press `kb(editor.action.accessibilityHelp)` to trigger the **Open Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code.
 
 ![When triggered, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
 
@@ -162,7 +162,7 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 ## Terminal accessibility
 
-Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+Terminal accessibility help can be accessed via `kb(editor.action.accessibilityHelp)`, which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
 A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 

@@ -128,7 +128,7 @@ You can prepend your chat inputs with a specific topic name to help Copilot give
 
 An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
 
-In any file, you can press `kb(interactiveEditor.start)` on your keyboard to bring up Copilot inline chat:
+In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat:
 
 ![Copilot inline chat in devcontainer.json file](images/artificial-intelligence/inline-chat.png)
 
