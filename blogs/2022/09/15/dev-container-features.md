@@ -126,7 +126,7 @@ As an end user, you can further control the order of execution with the `overrid
 
 By default, Features are installed on top of a base image in an order determined as optimal by the implementing tool.
 
-If any of the following properties are provided in the Feature's `devcontainer-feature.json`, or the user's `devcontainer.json`, the order indicated by these propert(ies) are respected (with decreasing precedence).
+If any of the following properties are provided in the Feature's `devcontainer-feature.json`, or the user's `devcontainer.json`, the order indicated by these property(ies) are respected (with decreasing precedence).
 
 1. The `overrideFeatureInstallOrder` property in user's `devcontainer.json`. Allows users to control the order of execution of their Features.
 2. The `installsAfter` property defined as part of a Feature's `devcontainer-feature.json`.

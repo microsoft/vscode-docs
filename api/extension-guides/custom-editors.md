@@ -161,7 +161,7 @@ When a `TextDocument` changes, your extension also needs to make sure its webvie
 
 1. When a change comes in for a document that we have an editor for, we post a message to the webview with its new document state. This webview then updates itself to render the updated document.
 
-It's important to remember that any file edits that a custom editor triggers will cause `onDidChangeTextDocument` to fire. Make sure your extension does not get into an update loop where the user makes an edit in the webview, which fires onDidChangeTextDocument, which causes the webview to update, which causes the webview to trigger another update on your extension, which fires `onDidChangeTextDocument`, and so on.
+It's important to remember that any file edits that a custom editor triggers will cause `onDidChangeTextDocument` to fire. Make sure your extension does not get into an update loop where the user makes an edit in the webview, which fires `onDidChangeTextDocument`, which causes the webview to update, which causes the webview to trigger another update on your extension, which fires `onDidChangeTextDocument`, and so on.
 
 Also remember that if you are working with a structured language such as JSON or XML, the document may not always be in a valid state. Your extension must either be able gracefully handle errors or display an error message to the user so that they understand what is wrong and how to fix it.
 

@@ -43,6 +43,12 @@ To set the PHP executable path, select the **Edit in settings.json** link under 
 {
     "php.validate.executablePath": "/usr/bin/php"
 }
+
+or
+
+{
+    "php.validate.executablePath": "/usr/local/bin/php"
+}
 ```
 
 ## Snippets

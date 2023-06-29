@@ -267,7 +267,7 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \- Does not yet work with diagnostics errors. The VS Code API currently does not support diagnostic providers that can 'pull' (request) diagnosics. ([Issue](https://github.com/microsoft/vscode/issues/159911)).
+- \- Does not yet work with diagnostics errors. The VS Code API currently does not support diagnostic providers that can 'pull' (request) diagnostics. ([Issue](https://github.com/microsoft/vscode/issues/159911)).
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 
