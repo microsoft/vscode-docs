@@ -177,7 +177,7 @@ To exclude JavaScript files generated from both `.ts` and `.tsx` source files, u
 }
 ```
 
-This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
+This is a bit of a trick. The search [glob patterns](/docs/editor/glob-patterns.md) is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
 
 ## Using newer TypeScript versions
 

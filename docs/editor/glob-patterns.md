@@ -25,11 +25,15 @@ VS Code supports the following glob syntax:
 
 **Note:** Paths are separated by `/` and not `\` even on Windows. But when applied, glob patterns will match paths with both slash and backslashes.
 
+## Special cases
+
+Glob patterns in the Search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
+
 ## Common questions
 
 ### Why do glob patterns not support feature X or Y?
 
-We implemented our own [glob matching library](https://github.com/microsoft/vscode/blob/main/src/vs/base/common/glob.ts) with a goal to provide optimal performance for most typical patterns. If you had expected a certain glob syntax to be supported, please consider to report an issue with your usecase.
+We implemented our own [glob matching library](https://github.com/microsoft/vscode/blob/main/src/vs/base/common/glob.ts) with a goal to provide optimal performance for most typical patterns. If you expect a certain glob syntax to be supported, you can report an issue with your usecase.
 
 ### Why does my glob pattern not work?
 

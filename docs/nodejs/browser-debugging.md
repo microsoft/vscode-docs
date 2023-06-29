@@ -105,9 +105,9 @@ Debugging configurations are stored in a `launch.json` file located in your work
 Below is a reference of common `launch.json` attributes specific to browser debugging. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
 * `webRoot` - The root directory for your source code. Most often, and by default, the `webRoot` is your workspace folder. This option is used for sourcemap resolution.
-* `outFiles` - An array of glob patterns for locating generated JavaScript files. See the section on [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `outFiles` - An array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See the section on [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `smartStep`- Try to automatically step over source code that doesn't map to source files. See the section on [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - Automatically skip files covered by these glob patterns. See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+* `skipFiles` - Automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - Enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:

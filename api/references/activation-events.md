@@ -105,7 +105,7 @@ These are two more fine-grained `onDebug` activation events:
 
 ## workspaceContains
 
-This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a glob pattern.
+This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a [glob pattern](/docs/editor/glob-patterns).
 
 ```json
 ...

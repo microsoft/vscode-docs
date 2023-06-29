@@ -213,7 +213,7 @@ When running webpack, you might encounter a warning like **Critical dependencies
 To address the warning, you should either:
 
 * Try to make the dependency static so that it can be bundled.
-* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated glob pattern in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
+* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated [glob pattern](/docs/editor/glob-patterns) in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
 
 ## Next steps
 
