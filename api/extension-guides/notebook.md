@@ -34,19 +34,17 @@ Samples:
 
 ### Example
 
-In this example, we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension.
+In this example, we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension (instead of its traditional file extension `.ipynb`).
 
 A notebook serializer is declared in `package.json` under the `contributes.notebooks` section as follows:
 
 ```json
 {
     ...
-    "activationEvents": ["onNotebook:my-notebook"],
     "contributes": {
         ...
         "notebooks": [
             {
-                "id": "my-notebook",
                 "type": "my-notebook",
                 "displayName": "My Notebook",
                 "selector": [
@@ -74,10 +72,13 @@ export function activate(context: vscode.ExtensionContext) {
     );
 }
 
+interface RawNotebook {
+	cells: RawNotebookCell[];
+}
+
 interface RawNotebookCell {
-    language: string;
-    value: string;
-    kind: vscode.NotebookCellKind;
+    source: string[];
+    cell_type: 'code' | 'markdown';
 }
 
 class SampleSerializer implements vscode.NotebookSerializer {
@@ -86,15 +87,15 @@ class SampleSerializer implements vscode.NotebookSerializer {
 
         let raw: RawNotebookCell[];
         try {
-            raw = <RawNotebookCell[]>JSON.parse(contents);
+            raw = (<RawNotebook>JSON.parse(contents)).cells;
         } catch {
             raw = [];
         }
 
         const cells = raw.map(item => new vscode.NotebookCellData(
-            item.kind,
-            item.value,
-            item.language
+			item.cell_type === 'code' ? vscode.NotebookCellKind.Code : vscode.NotebookCellKind.Markup,
+            item.source.join('\n'),
+			item.cell_type === 'code' ? 'python' : 'markdown'
         ));
 
         return new vscode.NotebookData(cells);
@@ -105,9 +106,8 @@ class SampleSerializer implements vscode.NotebookSerializer {
 
         for (const cell of data.cells) {
             contents.push({
-                kind: cell.kind,
-                language: cell.languageId,
-                value: cell.value
+                cell_type: cell.kind === vscode.NotebookCellKind.Code ? 'code' : 'markdown',
+                source: cell.value.split(/\r?\n/g)
             });
         }
 
