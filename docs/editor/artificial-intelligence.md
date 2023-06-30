@@ -9,13 +9,13 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 ---
 # AI Tools in VS Code
 
-The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) is an AI pair programmer tool that helps you write code faster and smarter. You can use the Copilot extension in VS Code to generate code, learn from the code it generates, and even configure your editor.
+The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is an AI pair programmer tool that helps you write code faster and smarter. You can use the Copilot extension in VS Code to generate code, learn from the code it generates, and even configure your editor.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Fi3AJZZregI" title="Get Started with the Future of Coding: GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 
-You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) to power your AI suggestions in VS Code.
+You'll use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your AI suggestions in VS Code.
 
 > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the Copilot extension</a>
 
@@ -23,7 +23,7 @@ You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/i
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free trial directly from VS Code. You can also activate your trial starting from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
-> **Note:** For some of the latest features we'll explore below, you'll need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly), which will provide you the latest updates in Copilot.
+> **Note:** For some of the latest features we'll explore below, you'll need to use the [GitHub Copilot Nightly](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) extension, which will provide you the latest updates in Copilot.
 
 ## Sign in and sign up
 
@@ -46,14 +46,6 @@ You can learn more about billing for Copilot in the [GitHub Copilot documentatio
 Now that you've signed up for Copilot and activated the extension, let's see its assistance in action!
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
-
-There are three main ways to get assistance from Copilot:
-
-* **Inline suggestions:** Harness Copilot's help automatically through suggestions it provides directly inline as you work in your code.
-* **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
-* **Inline chat:** Talk with Copilot while writing code, inline in your files.
-
-> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly).
 
 ## Inline suggestions
 
@@ -87,11 +79,82 @@ In the image above, Copilot presents three suggestions. You can accept the entir
 
 If you don't want to accept any of the suggestions, you can continue typing, and Copilot will continue providing suggestions as you work.
 
+## Getting the most out of Copilot
+
+There are things you can do to help ("prompt") Copilot give you the best possible suggestions. And the good news is that you are probably already doing right things since they help you and your colleagues understand your code.
+
+Copilot suggestions work best when Copilot has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
+
+### Providing context
+
+#### Open files
+
+Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
+
+#### Top level comment
+
+Just as you would give a short high level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you will be creating.
+
+Example of a good top level comment
+
+#### Appropriate includes/module references
+
+It's best to manually set the includes or module references you need for your work. Copilot can make suggestions, but you likely know best what dependencies you'll need to include. This can also help let Copilot know what frameworks, libraries, and their versions you'd like it to use when crafting suggestions.
+
+Example of a Python include
+
+#### Meaningful function/method names
+
+Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), ``fetchData()` won't help Copilot either. Using meaningful function/methods/variables names will help Copilot provide a body that does what you want.
+
+Example of a meaningful function/method name.
+
+#### Specific and well-scoped function/method comments
+
+A function/method name can only be so descriptive without being overly long so function/method comments can help fill in details that Copilot might need to know.
+
+Example of a meaningful function/method comment
+
+#### Prime Copilot with sample code
+
+One trick to get Copilot on the right page is to copy and paste sample code that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
+
+### Be consistent and keep the quality bar high
+
+Copilot is going to latch on to your code to generate suggestions that follow the existing pattern so the adage "garbage in, garbage out" applies.
+
+That can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode.
+
+### Be specific
+
+break things down into separate specific tasks
+
+Be specific about inputs, outputs, ranges, APIs, frameworks.
+
+### Verify suggestions
+
+Copilot is not a compiler or language service
+
+#### Language Service warnings
+
+#### Linters
+
+#### formatters
+
+## Chat features
+
+In addition to inline suggestions, you can also get assistance from Copilot via a chat inteface. This is supported in two ways:
+
+* **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
+* **Inline chat:** Talk with Copilot while writing code, inline in your files.
+
+> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the [GitHub Copilot Nightly](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) extension.
+
 ## Chat view
 
 When developing a project or learning something new, it can be a big help to get AI assistance on your questions, big or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
 
-Once you've signed up and been granted access to Copilot chat through the [chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join), install the [GitHub Copilot Nightly extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) in VS Code. You'll be presented a new GitHub Copilot chat view in the Activity Bar:
+Once you've signed up and been granted access to Copilot chat through the [chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join), install the [GitHub Copilot Nightly](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) extension in VS Code. You'll be presented a new GitHub Copilot chat view in the Activity Bar:
 
 ![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
 
