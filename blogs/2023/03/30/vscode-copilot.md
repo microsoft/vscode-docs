@@ -102,7 +102,7 @@ The inline completions experience discussed above is available today. If you don
 Today, access to the chat experiences (in-editor and Chat view), you'll need to [join the waitlist]( https://github.com/github-copilot/chat_waitlist_signup/join) for access to the technical preview as we ramp up the service. Once admitted:
 
 * You must use [VS Code Insiders](https://code.visualstudio.com/insiders/).
-* Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
+* Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot, and install the [pre-release version](https://code.visualstudio.com/updates/v1_63#_pre-release-extensions) of the extension.
 * When prompted, authenticate with your GitHub ID.
 * To open the in-editor Chat, optionally select a block of code and press `kbstyle(Cmd+I)` on macOS or `kbstyle(Ctrl+I)` on Windows/Linux. Ask Copilot to write a Quick Sort function.
 * A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask Copilot to "write a program to calculate the airspeed velocity of an unladen swallow".
