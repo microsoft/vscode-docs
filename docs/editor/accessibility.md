@@ -148,9 +148,15 @@ The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.nex
 
 ## Accessibility help
 
-You can press `kb(editor.action.accessibilityHelp)` to trigger the **Open Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code.
+A command, `Open Accessibility Help` `kb(editor.action.accessibilityHelp)`, opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, panel chat, and inline chat features.
 
-![When triggered, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+Disable the accessibility help menu hint and open additional documentation, if any, from within the help menu.
+
+![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+
+### Accessible view
+
+Run the command `Open Accessible View` `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works when a hover or panel chat response is focused.
 
 ## Screen reader mode
 
