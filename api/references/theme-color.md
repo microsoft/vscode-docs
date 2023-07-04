@@ -552,22 +552,26 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditorOverview.insertedForeground`: Diff overview ruler foreground for inserted content.
 - `diffEditorOverview.removedForeground`: Diff overview ruler foreground for removed content.
 - `diffEditor.unchangedRegionBackground`: The color of unchanged blocks in diff editor.
+- `diffEditor.unchangedRegionForeground`: The foreground color of unchanged blocks in the diff editor.
+- `diffEditor.unchangedCodeBackground`: The background color of unchanged code in the diff editor.
+- `diffEditor.move.border`: The border color for text that got moved in the diff editor.
 
 ## Chat colors
 - `chat.requestBackground`: The background color of a chat request.
 - `chat.requestBorder`: The border color of a chat request.
 
-## Interactive Editor colors
+## Inline Chat colors
 
-- `interactiveEditor.border`: Border color of the interactive editor widget
--  `interactiveEditor.shadow`: Shadow color of the interactive editor widget
--  `interactiveEditor.regionHighlight`: Background highlighting of the current interactive region. Must be transparent.
--  `interactiveEditorInput.border`: Border color of the interactive editor input
--  `interactiveEditorInput.focusBorder`: Border color of the interactive editor input when focused
--  `interactiveEditorInput.placeholderForeground`: Foreground color of the interactive editor input placeholder
--  `interactiveEditorInput.background`: Background color of the interactive editor input
--  `interactiveEditorDiff.inserted`: Background color of inserted text in the interactive editor input
--  `interactiveEditorDiff.removed`: Background color of removed text in the interactive editor input
+- `inlineChat.background`: Background color of the interactive editor widget
+- `inlineChat.border`: Border color of the interactive editor widget
+- `inlineChat.shadow`: Shadow color of the interactive editor widget
+- `inlineChat.regionHighlight`: Background highlighting of the current interactive region. Must be transparent.
+- `inlineChatInput.border`: Border color of the interactive editor input
+- `inlineChatInput.focusBorder`: Border color of the interactive editor input when focused
+- `inlineChatInput.placeholderForeground`: Foreground color of the interactive editor input placeholder
+- `inlineChatInput.background`: Background color of the interactive editor input
+- `inlineChatDiff.inserted`: Background color of inserted text in the interactive editor input
+- `inlineChatrDiff.removed`: Background color of removed text in the interactive editor input
 
 ## Editor widget colors
 
