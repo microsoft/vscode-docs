@@ -98,7 +98,6 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
 - `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
 
-
 ## Dropdown control
 
 A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
@@ -204,7 +203,6 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 
-
 ## Profiles
 
 - `profileBadge.background`: Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
@@ -305,7 +303,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
 ## Editor colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes#_customizing-a-color-theme) for details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes#customizing-a-color-theme) for details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 
@@ -380,7 +378,6 @@ The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
 - `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
-
 
 The link color is visible when clicking on a link.
 
@@ -525,7 +522,6 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 
-
 The editor comments widget can be seen when reviewing pull requests:
 
 - `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
@@ -557,21 +553,22 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.move.border`: The border color for text that got moved in the diff editor.
 
 ## Chat colors
+
 - `chat.requestBackground`: The background color of a chat request.
 - `chat.requestBorder`: The border color of a chat request.
 
 ## Inline Chat colors
 
-- `inlineChat.background`: Background color of the interactive editor widget
-- `inlineChat.border`: Border color of the interactive editor widget
-- `inlineChat.shadow`: Shadow color of the interactive editor widget
+- `inlineChat.background`: Background color of the interactive editor widget.
+- `inlineChat.border`: Border color of the interactive editor widget.
+- `inlineChat.shadow`: Shadow color of the interactive editor widget.
 - `inlineChat.regionHighlight`: Background highlighting of the current interactive region. Must be transparent.
-- `inlineChatInput.border`: Border color of the interactive editor input
-- `inlineChatInput.focusBorder`: Border color of the interactive editor input when focused
-- `inlineChatInput.placeholderForeground`: Foreground color of the interactive editor input placeholder
-- `inlineChatInput.background`: Background color of the interactive editor input
-- `inlineChatDiff.inserted`: Background color of inserted text in the interactive editor input
-- `inlineChatrDiff.removed`: Background color of removed text in the interactive editor input
+- `inlineChatInput.border`: Border color of the interactive editor input.
+- `inlineChatInput.focusBorder`: Border color of the interactive editor input when focused.
+- `inlineChatInput.placeholderForeground`: Foreground color of the interactive editor input placeholder.
+- `inlineChatInput.background`: Background color of the interactive editor input.
+- `inlineChatDiff.inserted`: Background color of inserted text in the interactive editor input.
+- `inlineChatrDiff.removed`: Background color of removed text in the interactive editor input.
 
 ## Editor widget colors
 
@@ -602,8 +599,8 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorGhostText.background`: Background color of the ghost text in the editor.
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
 
-- `editorStickyScroll.background`: Editor sticky scroll background color
-- `editorStickyScrollHover.background`: Editor sticky scroll on hover background color
+- `editorStickyScroll.background`: Editor sticky scroll background color.
+- `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 
@@ -719,8 +716,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
-- `statusBar.offlineBackground`: Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window
-- `statusBar.offlineForeground`: Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window
+- `statusBar.offlineBackground`: Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window.
+- `statusBar.offlineForeground`: Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -885,17 +882,17 @@ The following customizations are available:
 - `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
 - `editor.inlineValuesForeground`: Color for the debug inline value text.
 - `editor.inlineValuesBackground`: Color for the debug inline value background.
-- `debugView.exceptionLabelForeground`: Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception
-- `debugView.exceptionLabelBackground`: Background color for a label shown in the CALL STACK view when the debugger breaks on an exception
-- `debugView.stateLabelForeground`: Foreground color for a label in the CALL STACK view showing the current session's or thread's state
-- `debugView.stateLabelBackground`: Background color for a label in the CALL STACK view showing the current session's or thread's state
-- `debugView.valueChangedHighlight`: Color used to highlight value changes in the debug views (ie. in the Variables view)
-- `debugTokenExpression.name`: Foreground color for the token names shown in debug views (ie. the Variables or Watch view)
-- `debugTokenExpression.value`: Foreground color for the token values shown in debug views
-- `debugTokenExpression.string`: Foreground color for strings in debug views
-- `debugTokenExpression.boolean`: Foreground color for booleans in debug views
-- `debugTokenExpression.number`: Foreground color for numbers in debug views
-- `debugTokenExpression.error`: Foreground color for expression errors in debug views
+- `debugView.exceptionLabelForeground`: Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception.
+- `debugView.exceptionLabelBackground`: Background color for a label shown in the CALL STACK view when the debugger breaks on an exception.
+- `debugView.stateLabelForeground`: Foreground color for a label in the CALL STACK view showing the current session's or thread's state.
+- `debugView.stateLabelBackground`: Background color for a label in the CALL STACK view showing the current session's or thread's state.
+- `debugView.valueChangedHighlight`: Color used to highlight value changes in the debug views (such as in the Variables view).
+- `debugTokenExpression.name`: Foreground color for the token names shown in debug views (such as in the Variables or Watch view).
+- `debugTokenExpression.value`: Foreground color for the token values shown in debug views.
+- `debugTokenExpression.string`: Foreground color for strings in debug views.
+- `debugTokenExpression.boolean`: Foreground color for booleans in debug views.
+- `debugTokenExpression.number`: Foreground color for numbers in debug views.
+- `debugTokenExpression.error`: Foreground color for expression errors in debug views.
 
 ## Testing colors
 
@@ -1059,7 +1056,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.cellEditorBackground`: The color of the notebook cell editor background
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
-- `notebook.focusedCellBorder`: The color of the cell's focus indicator borders when the cell is focused..
+- `notebook.focusedCellBorder`: The color of the cell's focus indicator borders when the cell is focused.
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 - `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
@@ -1092,9 +1089,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
 
 ## Comments View colors
+
 - `commentsView.resolvedIcon`: Icon color for resolved comments.
 - `commentsView.unresolvedIcon`: Icon color for unresolved comments.
 
 ## Extension colors
 
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
+Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#extension-details) tab.
