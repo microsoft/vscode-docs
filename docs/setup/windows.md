@@ -19,7 +19,7 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
-## User vs. System setup
+## User setup versus system setup
 
 VS Code provides both Windows **user** and **system** level setups.
 
