@@ -93,7 +93,7 @@ Copilot looks at the current and open files in your editor to analyze the contex
 
 #### Top level comment
 
-Just as you would give a short high level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you will be creating.
+Just as you would give a brief, high-level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you will be creating.
 
 Example of a good top level comment
 
@@ -105,7 +105,7 @@ Example of a Python include
 
 #### Meaningful function/method names
 
-Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), ``fetchData()` won't help Copilot either. Using meaningful function/methods/variables names will help Copilot provide a body that does what you want.
+Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function/methods/variables names will help Copilot provide a body that does what you want.
 
 Example of a meaningful function/method name.
 
@@ -143,7 +143,7 @@ Copilot is not a compiler or language service
 
 ## Chat features
 
-In addition to inline suggestions, you can also get assistance from Copilot via a chat inteface. This is supported in two ways:
+In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. This is supported in two ways:
 
 * **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
 * **Inline chat:** Talk with Copilot while writing code, inline in your files.
