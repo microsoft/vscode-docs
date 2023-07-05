@@ -144,6 +144,8 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 
 ## Troubleshooting keychain issues
 
+> NOTE: This doc section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
+
 > NOTE: keychain, keyring, wallet, credential store are synonomous in this document
 
 Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
