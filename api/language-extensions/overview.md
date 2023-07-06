@@ -63,10 +63,6 @@ We offer an in-depth guide that explains how to implement a Language Server exte
 
 ## Special cases
 
-### Multi-root workspace support
-
-When the user opens a [multi-root workspace](/docs/editor/multi-root-workspaces), you might need to adapt your Language Server extensions accordingly. This topic discusses multiple approaches to supporting multi-root workspaces.
-
 ### Embedded languages
 
 Embedded languages are common in web development. For example, CSS/JavaScript inside HTML, and GraphQL inside JavaScript/TypeScript. The [Embedded languages](/api/language-extensions/embedded-languages) topic discusses how you can make language features available to embedded languages.
