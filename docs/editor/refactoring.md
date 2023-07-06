@@ -95,7 +95,7 @@ This keybinding uses `"preferred": true` to create a refactoring that always tri
   "args": {
     "kind": "refactor.extract.constant",
     "preferred": true,
-    "apply": "ifsingle"
+    "apply": "ifSingle"
   }
 }
 ```
