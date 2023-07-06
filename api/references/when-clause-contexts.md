@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -246,6 +246,8 @@ Context name | True when
 `activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
 `activeEditorIsPinned` | True when the active editor in a group is pinned.
 `inSearchEditor` | True when focus is inside a search editor.
+`activeWebviewPanelId` | The id of the currently active [webview panel](/api/extension-guides/webview).
+`activeCustomEditorId` | The id of the currently active [custom editor](/api/extension-guides/custom-editors).
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 

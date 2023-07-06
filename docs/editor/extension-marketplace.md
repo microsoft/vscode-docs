@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
