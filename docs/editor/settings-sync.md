@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
@@ -144,60 +144,60 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 
 ## Troubleshooting keychain issues
 
-Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
+> NOTE: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
 
-### Windows
+> NOTE: keychain, keyring, wallet, credential store are synonymous in this document.
 
-If the keychain throws the error "Not enough memory resources are available to process this command", open the Credential Manager application, click on Windows Credentials and go through the list to see if there are some you can delete. This error was first reported in [issue #130893](https://github.com/microsoft/vscode/issues/130893) and happens when you have too many credentials in your Credential Manager.
+Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
 
-If you're not sure what credentials to delete, try deleting all of the vscode specific credentials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
+To help diagnose the problem, you can restart VS Code with the following flags to generate a verbose log:
 
-```powershell
-cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
+```
+code --verbose --vmodule="*/components/os_crypt/*=1"
 ```
 
-For more troubleshooting steps, please refer to [issue #130893](https://github.com/microsoft/vscode/issues/130893).
+### Windows & macOS
 
-### macOS
-
-If the keychain throws the error "The user name or passphrase you entered is not correct.", open the Keychain Access app, right-click on the `login` keychain, and lock and unlock it again. This error was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as a problem after upgrading to macOS High Sierra, but it has also been reported on more recent macOS versions.
+At this time, there are no known configuration issues on Windows or macOS but, if you suspect something is wrong, you can open an [issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
 ### Linux
 
-If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
+Towards the top of the logs from the previous command, you will see something to the effect of:
 
-If the error is "Writing login information to the keychain failed with error 'Unknown or unsupported transport “disabled” for address “disabled:”'", check that `dbus-launch` has been started by adding `export $(dbus-launch)` in your init-script.
-More info on [issue #137850](https://github.com/microsoft/vscode/issues/137850) & [issue #120392](https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643).
+```
+[9699:0626/093542.027629:VERBOSE1:key_storage_util_linux.cc(54)] Password storage detected desktop environment: GNOME
+[9699:0626/093542.027660:VERBOSE1:key_storage_linux.cc(122)] Selected backend for OSCrypt: GNOME_ANY
+```
 
-If the error is "The name org.freedesktop.secrets was not provided by any .service files", make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed, such as `gnome-keyring`. VS Code expects such a package for storing credentials on the machine. More information can be found in [issue #104319](https://github.com/microsoft/vscode/issues/104319#issuecomment-1057588052).
+We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium supports [a number of different desktop environments](https://source.chromium.org/chromium/chromium/src/+/main:base/nix/xdg_util.cc;l=146-169). Outlined below are some popular desktop environments and troubleshooting steps that may help if the keyring is misconfigured.
 
-If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
+#### GNOME or UNITY (or similar)
 
-1. Add the following lines to your `~/.xinitrc`:
+If the error you're seeing is "Cannot create an item in a locked collection", chances are your keyring's `Login` keyring is locked. You should launch your OS's keyring ([Seahorse](https://wiki.gnome.org/Apps/Seahorse) is the commonly used GUI for seeing keyrings) and ensure the default keyring (usually referred to as `Login` keyring) is unlocked. This keyring needs to be unlocked when you log into your system.
 
-   ```sh
-   # see https://unix.stackexchange.com/a/295652/332452
-   source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+#### KDE
 
-   # see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
-   eval $(/usr/bin/gnome-keyring-daemon --start)
-   export SSH_AUTH_SOCK
+It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
-   # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
-   mkdir -p "$HOME"/.local/share/keyrings
-   ```
+#### Other Linux desktop environments
 
-2. Login again.
+First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
-3. Have the following programs installed (installation assumes arch/pacman, should be similar to other distros):
+##### (recommended) Configure the keyring to use with VS Code
 
-   ```sh
-   sudo pacman -S gnome-keyring libsecret libgnome-keyring
-   ```
+You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch VS Code with `code --password-store="gnome"`.
 
-4. Launch `seahorse`, unlock the default password keyring or create a new one, and keep it unlocked.
+If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome"`.
 
-5. Restart the login procedure.
+> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` and Electron will detect other implementations of the Secret Service API. Additionally, you could try installing `kwallet` on your system. If you do, you will want to set the `password-store` flag to `kde` to detect the installed `kwallet`.
+
+Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
+
+##### (not recommended) Configure basic text encryption
+
+We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy that uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
+
+If you accept this risk, you can set `password-store` to `basic` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"basic"`.
 
 ## Can I share settings between VS Code Stable and Insiders?
 

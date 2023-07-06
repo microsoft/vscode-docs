@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -86,7 +86,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
     You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 

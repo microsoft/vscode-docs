@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: AI Tools
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # AI Tools in VS Code
@@ -130,7 +130,7 @@ You can prepend your chat inputs with a specific topic name to help Copilot give
 
 An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
 
-In any file, you can press `kb(interactiveEditor.start)` on your keyboard to bring up Copilot inline chat:
+In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat:
 
 ![Copilot inline chat in devcontainer.json file](images/artificial-intelligence/inline-chat.png)
 

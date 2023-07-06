@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -132,6 +132,17 @@ The terminal has both Unicode and emoji support. When these characters are used 
 * Some Unicode symbols have ambiguous width that may change between Unicode versions. Currently we support Unicode version 6 and 11 widths, which can be configured with the `terminal.integrated.unicodeVersion` setting. The version specified should match the Unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the Unicode version of the shell/OS may not match the font's actual width.
 * Some emojis comprised of multiple characters may not render correctly, for example, skin tone modifiers.
 * Emoji support is limited on Windows.
+
+## Image support
+
+Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is enabled by default and can be disabled with the `terminal.integrated.enableImages` setting.
+
+Current limitations:
+
+* Serialization does not work, so reloading a terminal will not retain any images ([jerch/xterm-addon-image#47](https://github.com/jerch/xterm-addon-image/issues/47)).
+* Copying the selection as HTML does not include the selected image ([jerch/xterm-addon-image#50](https://github.com/jerch/xterm-addon-image/issues/50)).
+* Animated gifs don't work ([jerch/xterm-addon-image#51](https://github.com/jerch/xterm-addon-image/issues/51)).
+* Images that are shorter than a cell will not work properly, this is a [design flaw with the sequences and also occurs in XTerm](https://github.com/microsoft/vscode/issues/183840#issuecomment-1569345048).
 
 ## Process environment
 
