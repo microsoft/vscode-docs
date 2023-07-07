@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -21,9 +21,13 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 ## User setup versus system setup
 
-VS Code provides both Windows user and system level setups. Installing the [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not require Administrator privileges as the location will be under your user Local AppData (LOCALAPPDATA) folder. User setup also provides a smoother background update experience.
+VS Code provides both Windows **user** and **system** level setups.
 
-The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges and will place the installation under Program Files. This also means that VS Code will be available to all users in the system.
+The [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not require Administrator privileges to run as the location will be under your user Local AppData (`LOCALAPPDATA`) folder. Since it requires no elevation, the user setup is able to provide a smoother background update experience. This is the preferred way to install VS Code on Windows.
+
+>**Note:** When running VS Code as Administrator in a user setup installation, updates will be disabled.
+
+The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges to run and will place the installation under the system's Program Files. The in-product update flow will also require elevation, making it less streamlined than the user setup. On the other hand, installing VS Code using the system setup means that it will be available to all users in the system.
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
@@ -35,7 +39,7 @@ If you need to run a 32-bit version of VS Code, both a 32-bit [Installer](https:
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).
 
->Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+>**Note:** You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
 ## Windows Subsystem for Linux
 

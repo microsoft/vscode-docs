@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 6/8/2023
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -148,9 +148,15 @@ The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.nex
 
 ## Accessibility help
 
-You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code.
+The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, chat panel, and inline chat features.
 
-![When triggered, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+You can dismiss the accessibility help menu or open additional documentation, if any, from within the help menu.
+
+![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+
+### Accessible view
+
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works when a hover or chat panel response is focused.
 
 ## Screen reader mode
 
@@ -162,7 +168,7 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 ## Terminal accessibility
 
-Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+Terminal accessibility help can be accessed via `kb(editor.action.accessibilityHelp)`, which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
 A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 
