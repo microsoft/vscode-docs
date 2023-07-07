@@ -22,7 +22,7 @@ The Dev Containers extension supports two primary operating models:
 * You can use a container as your full-time development environment
 * You can [attach to a running container](/docs/devcontainers/attach-container.md) to inspect it.
 
-> **Note**: The Dev Containers extension supports the open Dev Containers Specification, which empowers anyone in any tool to configure a consistent dev environment. You can learn more in our [dev container FAQ](./faq.md#can-i-use-dev-containers-outside-of-vs-code) and on the specification's site [containers.dev](https://containers.dev/).
+> **Note**: The Dev Containers extension supports the open Dev Containers Specification, which empowers anyone in any tool to configure a consistent dev environment. You can learn more in our [dev container FAQ](/docs/devcontainers/faq.md#can-i-use-dev-containers-outside-of-vs-code) and on the specification's site [containers.dev](https://containers.dev/).
 
 ## Getting started
 
