@@ -22,9 +22,11 @@ The Dev Containers extension supports two primary operating models:
 * You can use a container as your full-time development environment
 * You can [attach to a running container](/docs/devcontainers/attach-container.md) to inspect it.
 
+> **Note**: The Dev Containers extension supports the open Dev Containers Specification, which empowers anyone in any tool to configure a consistent dev environment. You can learn more in our [dev container FAQ](/docs/devcontainers/faq.md#can-i-use-dev-containers-outside-of-vs-code) and on the specification's site [containers.dev](https://containers.dev/).
+
 ## Getting started
 
-**Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
+> **Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
 
 ### System requirements
 
@@ -605,7 +607,7 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
-* Review and provide feedback on the [Development Containers Specification](https://github.com/devcontainers/spec).
+* Review and provide feedback on the [Development Containers Specification](https://containers.dev/).
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
 
