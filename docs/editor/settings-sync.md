@@ -177,7 +177,18 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 
 #### KDE
 
+> KDE 6 is not yet fully supported by Visual Studio Code. An upcoming release will add support for KWallet6.
+
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
+
+On KDE Neon Unstable, `kwallet5` and `kwallet6` currently conflict with each other. It is recommended to remove kwallet5 and reinstall kwallet6 to fix any potential issues:
+
+```
+apt remove libkf5wallet-bin
+apt install --reinstall kf6-kwallet
+```
+
+After a reboot, you will now be running KWallet6 properly.
 
 #### Other Linux desktop environments
 
