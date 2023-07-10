@@ -189,7 +189,7 @@ You can manually tell VS Code which keyring to use by passing the `password-stor
 
 If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome"`.
 
-> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` and Electron will detect other implementations of the Secret Service API. Additionally, you could try installing `kwallet` on your system. If you do, you will want to set the `password-store` flag to `kde` to detect the installed `kwallet`.
+> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` and Electron will detect other implementations of the Secret Service API. Additionally, you could try installing `kwallet` on your system. If you do, you will want to set the `password-store` flag to `kwallet` to detect the installed `kwallet`.
 
 Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
 
