@@ -82,9 +82,11 @@ If you don't want to accept any of the suggestions, you can continue typing, and
 
 ## Getting the most out of Copilot
 
-There are things you can do to help ("prompt") Copilot give you the best possible suggestions. And the good news is that you are probably already doing right things since they help you and your colleagues understand your code.
+There are things you can do to help ("prompt") Copilot give you the best possible suggestions. And the good news is that you are probably already doing these right now since they help you and your colleagues understand your code.
 
 Copilot suggestions work best when Copilot has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
+
+>**Note**: "Prompt engineering" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this "prompt engineering" for you but you can help by providing hints to guide the extension.
 
 ### Providing context
 
@@ -96,25 +98,25 @@ Copilot looks at the current and open files in your editor to analyze the contex
 
 Just as you would give a brief, high-level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you will be creating.
 
-Example of a good top level comment
+<!-- Example of a good and bad top level comment -->
 
 #### Appropriate includes/module references
 
 It's best to manually set the includes or module references you need for your work. Copilot can make suggestions, but you likely know best what dependencies you'll need to include. This can also help let Copilot know what frameworks, libraries, and their versions you'd like it to use when crafting suggestions.
 
-Example of a Python include
+<!-- Example of a Python include TBD -->
 
 #### Meaningful function/method names
 
 Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function/methods/variables names will help Copilot provide a body that does what you want.
 
-Example of a meaningful function/method name.
+<!-- Example of a meaningful function/method name. -->
 
 #### Specific and well-scoped function/method comments
 
 A function/method name can only be so descriptive without being overly long so function/method comments can help fill in details that Copilot might need to know.
 
-Example of a meaningful function/method comment
+<!-- Example of a meaningful function/method comment -->
 
 #### Prime Copilot with sample code
 
@@ -126,7 +128,7 @@ Copilot is going to latch on to your code to generate suggestions that follow th
 
 That can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode.
 
-### Be specific
+<!-- ### Be specific
 
 break things down into separate specific tasks
 
@@ -136,11 +138,20 @@ Be specific about inputs, outputs, ranges, APIs, frameworks.
 
 Copilot is not a compiler or language service
 
+Tools, which you may already be using, can help.
+
 #### Language Service warnings
 
-#### Linters
+#### Linters -->
 
-#### formatters
+### More resources
+
+If you'd like to learn more about productively using GitHub Copilot, you can follow up with these videos and blog posts:
+
+* [Effective Prompting for GitHub Copilot](https://www.youtube.com/watch?v=ImWfIDTxn7E)
+* [Pragmatic techniques to get the most out of GitHub Copilot](https://www.youtube.com/watch?v=CwAzIpc4AnA)
+* [Best practices for prompting GitHub Copilot in VS Code](https://www.linkedin.com/pulse/best-practices-prompting-github-copilot-vs-code-pamela-fox)
+* [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
 
 ## Chat features
 
@@ -203,3 +214,5 @@ You can ask Copilot questions that emerge as you write and iterate on code, such
 Congratulations, you've now used artificial intelligence to enhance your coding!
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code).
+
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
