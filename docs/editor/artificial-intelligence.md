@@ -162,7 +162,7 @@ In addition to inline suggestions, you can also get assistance from Copilot via 
 * **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
 * **Inline chat:** Talk with Copilot while writing code, inline in your files.
 
-> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the [GitHub Copilot Nightly](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-nightly) extension.
+> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the **Pre-Release** version of the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension.
 
 ## Chat view
 
