@@ -100,21 +100,21 @@ Just as you would give a brief, high-level introduction to a coworker, a top lev
 
 <!-- Example of a good and bad top level comment -->
 
-#### Appropriate includes/module references
+#### Appropriate includes and references
 
 It's best to manually set the includes or module references you need for your work. Copilot can make suggestions, but you likely know best what dependencies you'll need to include. This can also help let Copilot know what frameworks, libraries, and their versions you'd like it to use when crafting suggestions.
 
 <!-- Example of a Python include TBD -->
 
-#### Meaningful function/method names
+#### Meaningful function names
 
-Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function/methods/variables names will help Copilot provide a body that does what you want.
+Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function names will help Copilot provide a body that does what you want.
 
 <!-- Example of a meaningful function/method name. -->
 
-#### Specific and well-scoped function/method comments
+#### Specific and well-scoped function comments
 
-A function/method name can only be so descriptive without being overly long so function/method comments can help fill in details that Copilot might need to know.
+A function name can only be so descriptive without being overly long so function comments can help fill in details that Copilot might need to know.
 
 <!-- Example of a meaningful function/method comment -->
 
@@ -126,7 +126,9 @@ One trick to get Copilot on the right page is to copy and paste sample code that
 
 Copilot is going to latch on to your code to generate suggestions that follow the existing pattern so the adage "garbage in, garbage out" applies.
 
-That can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode.
+Keeping a high quality bar can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode. You can temporarily deactivate Copilot from the Status bar.
+
+![Deactivate Copilot from the Copilot button on the Status bar](images/artificial-intelligence/deactivate-copilot.png)
 
 <!-- ### Be specific
 
