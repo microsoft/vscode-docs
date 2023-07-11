@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order:
 Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca

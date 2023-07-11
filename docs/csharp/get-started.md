@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: Get Started
 ContentId: cdf9809e-0569-4aaf-937e-e247507d9609
 PageTitle: Get started with C# and .NET in Visual Studio Code
-DateApproved: 6/6/2023
+DateApproved: 7/11/2023
 MetaDescription: Getting Started with C# and .NET Development in Visual Studio Code
 ---
 
@@ -32,6 +32,8 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
 1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
+
+>**Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
 
 Upon installation, C# Dev Kit launches an extension walkthrough. You can follow the steps of this walkthrough to learn more about the features of the C# extension. Reopen the walkthrough at any time by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Welcome: Open Walkthrough**. Here, select **Get Started with C# Dev Kit**.
 
