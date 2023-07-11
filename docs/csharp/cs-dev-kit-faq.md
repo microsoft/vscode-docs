@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
 PageTitle: C# Dev Kit extension FAQ
-DateApproved: 6/6/2023
+DateApproved: 7/11/2023
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
 
@@ -18,14 +18,15 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 ## What project types are currently supported?
 
-With an initial focus on cloud native development, the first preview of C# Dev Kit brings support for creating web apps, console apps, class library projects, and test projects.  We'll expand on this set of supported applications over time based on feedback that we gather from you and the community.
+With an initial focus on cloud native development, the first preview of C# Dev Kit brings support for creating web apps, console apps, class library projects, and test projects.  We'll expand on this set of supported applications over time based on feedback that we gather from you and the community. You can build [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps using the [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui), which is built on top of C# Dev Kit.
 
 ## What extensions are included in C# Dev Kit?
 
-Today the extensions included in the C# Dev Kit pack include:
+Today the extensions included in the C# Dev Kit family are:
 
 * [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
 * [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp)
+* [.NET MAUI](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui)
 
 Use of these extensions are governed under the [EULA for the C# Dev Kit family of extensions](https://aka.ms/vs/csdevkit/license).
 
