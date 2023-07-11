@@ -137,7 +137,7 @@ For example, to set Black Formatter as the default formatter, add the following 
 
 You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
 
-You can also set up your code to be formatter on save by adding the following setting to your User `settings.json` file:
+You can also set up your code to be formatted on save by adding the following setting to your User `settings.json` file:
 
 ```
   "[python]": {
@@ -147,7 +147,7 @@ You can also set up your code to be formatter on save by adding the following se
 
 ### General formatting settings
 
-Each formatter extension may have its own settings, but the ones below are supported by both autopep8 and Black Formatter:
+Each formatter extension may have its own settings, but the ones below are supported by both [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter):
 
 | Setting Suffix<br/> | Default value | Description |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ If formatting fails, check the following possible causes:
 | --- | --- |
 | There are multiple formatters available for Python files | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
-| Pop up with warning message `Black Formatter does not support the "Format Select" command.` | `black` does not support formatting sections of code. This notification can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
+| Format Selection fails with Black Formatter | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave`` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 | The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
 
 > **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
