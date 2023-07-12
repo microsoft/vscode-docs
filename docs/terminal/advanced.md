@@ -60,7 +60,7 @@ On macOS, `kbstyle(Cmd+K)` is a common keybindings in terminals to clear the scr
 }
 ```
 
-Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keybindings due to how keybinding priority works. To reenable the `kbstyle(Cmd+K)` clear keybinding in this case, you can redefine it in user keybindings, which have a higher priority than extension keybindings:
+Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keybindings due to how keybinding priority works. To re-enable the `kbstyle(Cmd+K)` clear keybinding in this case, you can redefine it in user keybindings, which have a higher priority than extension keybindings:
 
 ```json
 {
