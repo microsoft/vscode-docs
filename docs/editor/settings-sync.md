@@ -177,7 +177,7 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 
 #### KDE
 
-> KDE 6 is not yet fully supported by Visual Studio Code. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with VS Code](#_other-linux-desktop-environments).
+> KDE 6 is not yet fully supported by Visual Studio Code. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with VS Code](#other-linux-desktop-environments).
 
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
@@ -185,7 +185,7 @@ It's possible that your wallet (aka keyring) is closed. If you open [KWalletMana
 
 First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
-##### (recommended) Configure the keyring to use with VS Code
+#### (recommended) Configure the keyring to use with VS Code
 
 You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch VS Code with `code --password-store="gnome"`.
 
@@ -195,7 +195,7 @@ If this solution works for you, you can persist the value of `password-store` by
 
 Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
 
-##### (not recommended) Configure basic text encryption
+#### (not recommended) Configure basic text encryption
 
 We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy that uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
 
