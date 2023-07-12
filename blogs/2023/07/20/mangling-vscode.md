@@ -160,7 +160,9 @@ The export mangling work shipped last iteration, further reducing the size of `w
 
 This chart again shows the size of `workbench.js` over time. Notice the two drops on the right side. The first big drop in VS Code 1.74 is the result of mangling private properties. The second smaller drop in 1.80 is from mangling exports.
 
-![The size of 'workbench.js' over time, including the mangling work](code-size-after.png)
+![Zoomed in chart showing the drops from mangling](code-size-after-zoomed.png)
+
+![The size of 'workbench.js' over all VS Code releases, including the mangling work](code-size-after.png)
 
 Our mangling implementation can doubtless be improved since our minified sources still contains plenty of long names. We may investigate these further if doing this seems worthwhile and if we can come up with a safe approach. Ideally some day much of this work won't be necessary either. Native private properties already get mangled automatically and our build tools will hopefully soon become better at optimizing code across our entire codebase. You can find our current mangling implementation [here](https://github.com/microsoft/vscode/blob/48cd8e0c1b142a46f0956b593d8331145634658e/build/lib/mangle/index.ts).
 
