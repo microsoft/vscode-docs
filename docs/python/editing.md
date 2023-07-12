@@ -137,7 +137,7 @@ For example, to set Black Formatter as the default formatter, add the following 
 
 You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
 
-You can also set up your code to be formatted on save by adding the following setting to your User `settings.json` file:
+You can also add the following setting to your User `settings.json` file to enable formatting on save for your code:
 
 ```
   "[python]": {
