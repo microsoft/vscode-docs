@@ -133,7 +133,7 @@ Once you connect from a remote VS Code instance, an SSH connection is created ov
 
 If you're part of an organization who wants to control access to Remote Tunnels, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
 
-### Is there a limit to the number of remote machines I can connect to?
+### Are there usage limits for the tunneling service?
 
 To avoid abuse of the underlying tunneling service, there are usage limits in place for resources like number of tunnels and bandwidth. We anticipate most users to never reach these limits.
 
