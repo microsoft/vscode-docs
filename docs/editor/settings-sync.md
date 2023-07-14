@@ -191,7 +191,13 @@ You can manually tell VS Code which keyring to use by passing the `password-stor
 
 If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome"`.
 
-> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` and Electron will detect other implementations of the Secret Service API. Additionally, you could try installing `kwallet5` on your system. If you do, you will want to set the `password-store` flag to `kwallet5` to detect the installed `kwallet5`. All possible values for `password-store` can be [found in Chromium's source](https://source.chromium.org/chromium/chromium/src/+/refs/tags/108.0.5359.215:components/os_crypt/key_storage_util_linux.cc;l=35-46).
+Here are all the possible values of `password-store` if you would like to try using a different keyring than `gnome-keyring`:
+* `kwallet5`: For use with [kwalletmanager5](https://apps.kde.org/kwalletmanager5/).
+* `gnome`: This option will first try the `gnome-libsecret` option implementation and then if that fails it will fallback to the `gnome-keyring` option implementation.
+* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (Ex. `gnome-keyring`, `kwallet5`, `KeepassXC`).
+* _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
+* _(not recommended)_ `gnome-keyring`: A different implementation to access `gnome-keyring` and should only be used if `gnome-libsecret` has a problem.
+* _(not recommended)_ `basic`: see the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details
 
 Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
 
