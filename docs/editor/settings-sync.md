@@ -192,12 +192,13 @@ You can manually tell VS Code which keyring to use by passing the `password-stor
 If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome"`.
 
 Here are all the possible values of `password-store` if you would like to try using a different keyring than `gnome-keyring`:
+
 * `kwallet5`: For use with [kwalletmanager5](https://apps.kde.org/kwalletmanager5/).
-* `gnome`: This option will first try the `gnome-libsecret` option implementation and then if that fails it will fallback to the `gnome-keyring` option implementation.
-* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (Ex. `gnome-keyring`, `kwallet5`, `KeepassXC`).
+* `gnome`: This option will first try the `gnome-libsecret` option implementation and then if that fails, it will fallback to the `gnome-keyring` option implementation.
+* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (for example `gnome-keyring`, `kwallet5`, `KeepassXC`).
 * _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
 * _(not recommended)_ `gnome-keyring`: A different implementation to access `gnome-keyring` and should only be used if `gnome-libsecret` has a problem.
-* _(not recommended)_ `basic`: see the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details
+* _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
 
 Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
 
