@@ -1,12 +1,12 @@
 ---
 Order: 83
-TOCTitle: How we cut 20% off the size of VS Code's JavaScript
-PageTitle: How we cut 20% off the size of VS Code's JavaScript
+TOCTitle: Shrinking VS Code with name mangling
+PageTitle: Shrinking VS Code with name mangling
 MetaDescription: A look at how we how we cut 20% off the size of VS Code's JavaScript with name mangling.
 Date: 2023-07-20
 Author: Matt Bierner
 ---
-# How we cut 20% off the size of VS Code's JavaScript
+# Shrinking VS Code with name mangling
 
 July 20th, 2023 by Matt Bierner, [@mattbierner](https://twitter.com/mattbierner)
 
