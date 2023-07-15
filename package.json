@@ -10,17 +10,25 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
+    "minify": "node ./build/imagemin/dirty.mjs",
     "prepare": "husky install"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.3",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "imagemin": "^8.0.1",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "yarn check-lfs"
+    ],
+    "*.{gif,jpg,png,GIF,JPG,PNG}": [
+      "yarn minify"
     ]
   },
   "resolutions": {
