@@ -40,7 +40,7 @@ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
 
 
-1.  Accept the default number of packages in the `toolchain` troup by pressing kbstyle(Enter).
+1.  Accept the default number of packages in the `toolchain` troup by pressing `kbstyle(Enter)`.
 
     ![MYSS2 Installer](images/cpp/cpp-install-MSYS2-toolchain.png)
 
