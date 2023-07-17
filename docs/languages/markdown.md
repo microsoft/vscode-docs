@@ -24,7 +24,8 @@ The Outline view is a separate section in the bottom of the File Explorer. When 
 The Outline view is a great way to review your document's header structure and outline.
 
 ### Snippets for Markdown
-VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Just press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selcting **Insert Snippet** in the Command Palette.
+
+VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selcting **Insert Snippet** in the Command Palette.
 
 >**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
@@ -80,7 +81,7 @@ Keep in mind that finding all headers in the current workspace can be expensive,
 
 In addition to [path completion](#path-completions), VS Code also supports a few other ways to insert images and file links into your Markdown documents:
 
-You can **Drag and drop** a file from VS Code's explorer or from your operating system into a Markdown editor. Start by drag a file from VS Code's explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+You can **Drag and drop** a file from VS Code's Explorer or from your operating system into a Markdown editor. Start by dragging a file from VS Code's Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
 ![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
 
@@ -88,9 +89,9 @@ If you prefer using the keyboard, you can also **Copy and paste** a file or imag
 
 Or you can use the  **Markdown: Insert Image from Workspace** command to insert images and  **Markdown: Insert Link to File in Workspace** to insert file links.
 
-Inserted images Images insert a Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
+Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
 
-By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `markdown.copyFiles.destination` setting controls where the new image file should be created. This setting maps globs that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `markdown.copyFiles.destination` setting description for information about the available variables.
+By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `markdown.copyFiles.destination` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `markdown.copyFiles.destination` setting description for information about the available variables.
 
 For example, if we want every Markdown file under `/docs` in our workspace to put new media files into an `images` directory specific to the current file, we can write:
 
@@ -102,7 +103,7 @@ For example, if we want every Markdown file under `/docs` in our workspace to pu
 
 Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
 
-You can even use simple regular expressions to transform variables in a [similar way to snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file
+You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
 
 ```jsonc
 "markdown.copyFiles.destination": {
