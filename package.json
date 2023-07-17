@@ -10,9 +10,11 @@
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js",
+    "lint": "eslint **/*.js",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "eslint-plugin-security": "^1.7.1",
     "gulp": "^4.0.2",
     "husky": "^7.0.0",
     "lint-staged": "^12.3.3",
