@@ -206,8 +206,6 @@ Most editor configurations are kept in settings which can be modified directly. 
 * Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`) to edit the user `settings.json` file.
 * To edit workspace settings, select the **WORKSPACE SETTINGS** tab to edit the workspace `settings.json` file.
 
->**Note for macOS users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
-
 ![workspace settings](images/userinterface/workspace-settings.png)
 
 You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon to the left of the setting. Settings with a fixed set of values allow you to pick a value as part of their edit icon menu.

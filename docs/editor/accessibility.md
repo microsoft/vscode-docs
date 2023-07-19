@@ -57,7 +57,7 @@ The default Color Theme for VS Code is **Dark+**. However, you can customize bot
 
 >**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
