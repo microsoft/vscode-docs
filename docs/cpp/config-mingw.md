@@ -36,9 +36,9 @@ You can download the latest installer from the MSYS2 page or use this [**direct 
 1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. This will open a MSYS2 terminal window for you.
 
 1. In this terminal, install the MinGW-w64 toolchain by running the following command:
-   
+
     ```MSYS2
-    pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+    pacman -S --needed base-devel mingw-w64-x86_64-toolchain
     ```
 
 1.  Accept the default number of packages in the `toolchain` troup by pressing `kbstyle(Enter)`.
@@ -51,7 +51,7 @@ You can download the latest installer from the MSYS2 page or use this [**direct 
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
-   1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\ucrt64\bin`.
+   1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
@@ -175,7 +175,7 @@ Your new `tasks.json` file should look similar to the JSON below:
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -334,7 +334,7 @@ VS Code creates a `launch.json` file in the `.vscode` folder`, which looks somet
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -424,15 +424,6 @@ If you have Visual Studio or WSL installed, you may need to change `compilerPath
 
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install MinGW-w64, which contains those tools. You will also need to install the full MinGW-w64 toolchain (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`) to get the `gdb` debugger.
 
-### As a Windows user, running the pacman command gives me an error
-
-UCRT on Windows machines is only included in Windows 10 or later. If you are using another version of Windows, run the following command that does not use UCRT:
-
-```MSYS2
-pacman -S --needed base-devel mingw-w64-x86_64-toolchain
-```
-
-When adding the the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
 
 ### MinGW 32-bit
 
