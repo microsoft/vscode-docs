@@ -1,0 +1,3 @@
+
+neame(sajjad)
+print(sajja)
