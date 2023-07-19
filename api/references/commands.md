@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -73,6 +73,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
 * _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
+
+`vscode.executeFoldingRangeProvider` - Execute folding range provider.
+
+* _uri_ - Uri of a text document
+* _(returns)_ - A Promise that resolves to an array of FoldingRange instances.
+
 
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 

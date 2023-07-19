@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: a15875fa-19b5-4c11-8903-864af133ce57
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Next steps to take after studying the Getting Started section
@@ -21,7 +21,7 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 ## UX Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seamlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Testing and Publishing
 

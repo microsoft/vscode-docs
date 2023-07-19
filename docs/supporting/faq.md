@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -43,13 +43,9 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
+If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
-* Open the Command Palette (`kb(workbench.action.showCommands)`).
-* Run the **Preferences: Configure Runtime Arguments** command.
-* This command will open a `argv.json` file to configure runtime arguments.
-* Edit `"enable-crash-reporter": false`.
-* Restart VS Code.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events including crash reporting from VS Code. You will need to restart VS Code for the setting change to take effect.
 
 ## GDPR and VS Code
 
@@ -156,25 +152,33 @@ Download type | URL
 Windows x64 System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
 Windows x64 User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
 Windows x64 zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
+Windows x64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-x64/stable
 Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
 Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
 Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
+Windows Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-arm64/stable
 Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
 Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
 Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+Windows x86 CLI | https://update.code.visualstudio.com/{version}/cli-win32-ia32/stable
 macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
 macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
+macOS Intel chip CLI | https://update.code.visualstudio.com/{version}/cli-darwin-x64/stable
 macOS Apple silicon | https://update.code.visualstudio.com/{version}/darwin-arm64/stable
+macOS Apple silicon CLI | https://update.code.visualstudio.com/{version}/cli-darwin-arm64/stable
 Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
 Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
 Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
 Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux Arm32 CLI | https://update.code.visualstudio.com/{version}/cli-linux-x64/stable
 Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
 Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
 Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux Arm32 CLI | https://update.code.visualstudio.com/{version}/cli-linux-armhf/stable
 Linux Arm64  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
 Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
 Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
+Linux Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-arm64/stable
 
 Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm32 debian version for 1.50.1, you would use
 
@@ -224,11 +228,11 @@ When VS Code is launched from a terminal (for example, via `code .`), it has acc
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness.
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness. You can also increase the timeout by configuring the `application.shellEnvironmentResolutionTimeout` setting. But keep in mind that increasing this value means you will have to wait longer to use some of the features in VS Code, such as extensions.
 
 If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
 
@@ -268,11 +272,17 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
-## Can I run VS Code on Windows 7?
+## Can I run VS Code on older Windows versions?
 
-Microsoft [ended support for Windows 7](https://learn.microsoft.com/lifecycle/products/windows-7) in January, 2020 and no longer provides security updates. VS Code desktop versions starting with 1.71 (August 2022) will no longer run on Windows 7 and you will need to upgrade to a newer Windows version to use later versions of VS Code.
+Microsoft ended support and is no longer providing security updates for [Windows 7](https://learn.microsoft.com/lifecycle/products/windows-7), [Windows 8, and Windows 8.1](https://learn.microsoft.com/en-us/lifecycle/announcements/windows-8-1-end-support-january-2023). VS Code desktop versions starting with 1.71 (August 2022) no longer run on Windows 7 and starting with 1.80 (June 2023) will no longer run on Windows 8 and 8.1. You will need to upgrade to a newer Windows version to use later versions of VS Code.
 
-VS Code will no longer provide product updates or security fixes on Windows 7 and VS Code [version 1.70.3](https://code.visualstudio.com/updates/v1_70) is the last available release for Windows 7 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
+VS Code will no longer provide product updates or security fixes on old Windows versions. VS Code [version 1.70.3](https://code.visualstudio.com/updates/v1_70) is the last available release for Windows 7 users and version 1.79 will be the last available release for Windows 8 and 8.1 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
+
+## Can I run VS Code on old macOS versions?
+
+VS Code desktop versions starting with 1.77 (March 2023) will no longer run on macOS Sierra (version 10.12 and older) and you will need to upgrade to a newer macOS version to use later versions of VS Code.
+
+VS Code will no longer provide product updates or security fixes on macOS Sierra (versions 10.12 and older) and VS Code version 1.76 will be the last available release for macOS Sierra (10.12 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ## Technical Support
 

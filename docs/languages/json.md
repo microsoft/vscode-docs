@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -49,7 +49,7 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (`//`) as well as block comments (`/* */`) as used in JavaScript. The mode also accepts trailing commas, but they are discouraged and the editor will display a warning.
 
-The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `files.associations` [setting](/docs/languages/overview.md#adding-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
+The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `files.associations` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
 
 ## JSON schemas and settings
 
@@ -63,7 +63,7 @@ VS Code extensions can also define schemas and schema mapping. That's why VS Cod
 
 ### Mapping in the JSON
 
-In the following example, the JSON file specifies that its contents follow the [CoffeeLint](http://www.coffeelint.org/) schema.
+In the following example, the JSON file specifies that its contents follow the [CoffeeLint](https://coffeelint.github.io/) schema.
 
 ```json
 {

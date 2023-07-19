@@ -5,7 +5,7 @@ TOCTitle: Tunnels
 PageTitle: Remote Tunnels
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 ---
 # Developing with Remote Tunnels
 
@@ -34,15 +34,23 @@ We'll describe both paths in the sections below.
 
 You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md).
 
-1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine.
+1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine. The CLI is automatically built into VS Code Desktop – no additional setup required.
 
-    The CLI is automatically built into VS Code Desktop – no additional setup required.
+    ### Alternative downloads
 
     Alternatively, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page, which is separate from a VS Code Desktop installation:
 
     ![VS Code download options with CLI highlighted](images/tunnels/tunneling-download.png)
 
-    > **Note:** If you're using the standalone install, the commands in the following section will start with `./code` rather than `code`.
+    You can also install and unpack the CLI through the terminal of your remote machine. This may be especially helpful if your remote doesn't have a UI:
+
+    ```bash
+    curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz
+
+    tar -xf vscode_cli.tar.gz
+    ```
+
+    > **Note:** If you're using the standalone or terminal install, the commands in the following section will start with `./code` rather than `code`.
 
 2. Create a secure tunnel with the `tunnel` command:
 
@@ -124,3 +132,11 @@ Both hosting and connecting to a tunnel requires authentication with the same Gi
 Once you connect from a remote VS Code instance, an SSH connection is created over the tunnel in order to provide end-to-end encryption. The current preferred cipher for this encryption is AES 256 in CTR mode, and the code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
 
 If you're part of an organization who wants to control access to Remote Tunnels, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
+
+### Are there usage limits for the tunneling service?
+
+To avoid abuse of the underlying tunneling service, there are usage limits in place for resources like number of tunnels and bandwidth. We anticipate most users to never reach these limits.
+
+For instance, right now you can have 5 tunnels registered for your account. If you'd like to create a new tunnel and already have 5 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.
+
+If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.

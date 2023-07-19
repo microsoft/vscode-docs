@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -126,8 +126,6 @@ export class NodeDependenciesProvider implements vscode.TreeDataProvider<Depende
      */
     private getDepsInPackageJson(packageJsonPath: string): Dependency[] {
         if (this.pathExists(packageJsonPath)) {
-            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-
             const toDep = (moduleName: string, version: string): Dependency => {
                 if (this.pathExists(path.join(this.workspaceRoot, 'node_modules', moduleName))) {
                     return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.Collapsed);
@@ -135,6 +133,8 @@ export class NodeDependenciesProvider implements vscode.TreeDataProvider<Depende
                     return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None);
                 }
             };
+
+            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
 
             const deps = packageJson.dependencies
                 ? Object.keys(packageJson.dependencies).map(dep => toDep(dep, packageJson.dependencies[dep]))
@@ -278,7 +278,6 @@ It is important that your extension is activated only when user needs the functi
 >],
 >```
 
-
 ## View Container
 
 A View Container contains a list of views that are displayed in the Activity Bar or Panel along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
@@ -289,7 +288,7 @@ To contribute a View Container, you should first register it using [contributes.
 
 You have to specify the following required fields:
 
-- `id` - The name of the new view container you're creating.
+- `id` - The ID of the new view container you're creating.
 - `title` - The name that will show up at the top of the view container.
 - `icon` - An image that will be displayed for the view container when in the Activity Bar.
 
@@ -415,6 +414,10 @@ Examples:
   }
 }
 ```
+
+By default, actions are ordered alphabetically. To specify a different ordering, add `@` followed by the order you want to the group. For example, `navigation@3` will cause the action to show up 3rd in the `navigation` group.
+
+You can further separate items in the `...` menu by creating different groups. These group names are arbitrary and are ordered alphabetically by group name.
 
 **Note:** If you want to show an action for specific tree items, you can do so by defining the context of a tree item using `TreeItem.contextValue` and you can specify the context value for key `viewItem` in `when` expression.
 

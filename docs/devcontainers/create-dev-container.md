@@ -5,11 +5,11 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 ---
 # Create a Dev Container
 
-The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to provide separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
@@ -234,7 +234,7 @@ You can also iterate on your container when using the **Dev Containers: Clone Re
 
 1. Start with **Dev Containers: Clone Repository in Container Volume** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
-3. Try it with **DEv Containers: Rebuild Container**.
+3. Try it with **Dev Containers: Rebuild Container**.
 4. If you see an error, select **Open in Recovery Container** in the dialog that appears.
 5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
 6. Use **Dev Containers: Reopen in Container** and jump to step 4 if you still hit problems.

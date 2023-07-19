@@ -5,7 +5,7 @@ TOCTitle: Start processes
 PageTitle: Start a processes when a container starts
 ContentId: 5be7285b-998b-4378-bdc4-90915e858eb7
 MetaDescription: Start a process when a container starts
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 ---
 # Start a process when the container starts
 
@@ -55,7 +55,7 @@ These systems also include a `service` command that will use `systemctl` or `/et
 
 While `postStartCommand` is convenient and allows you to execute commands in your source tree, you can also add these steps instead to a Dockerfile using a custom [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd).
 
-When referencing a Dockerfile in `devcontainer.json`, the default entrypoint and command is overridden. First, disable this behavior using the `overrrideCommand` property.
+When referencing a Dockerfile in `devcontainer.json`, the default entrypoint and command is overridden. First, disable this behavior using the `overrideCommand` property.
 
 ```json
 "overrideCommand": false

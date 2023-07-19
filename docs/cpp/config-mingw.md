@@ -25,11 +25,12 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
+
 ## Installing the MinGW-w64 toolchain
 
 Get the latest version of MinGW-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, MinGW-w64, and other helpful C++ tools and libraries. This will provide you with the necessary tools to compile your code, debug it, and configure it to work with [IntelliSense](/docs/editor/intellisense.md).
 
-You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe).
+1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe).
 
 1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer.
 

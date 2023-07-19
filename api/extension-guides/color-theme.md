@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -115,7 +115,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 To try out the new theme, press F5 to launch an Extension Development Host window.
 
-There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown list. Arrow up and down to see a live preview of your theme.
+There, open the Color Theme picker with **File** > **Preferences** > **Theme** > **Color Theme** and you can see your theme in the dropdown list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 

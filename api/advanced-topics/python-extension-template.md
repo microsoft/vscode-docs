@@ -31,7 +31,7 @@ You should know how to create and work with Python virtual environments.
 
 ## Getting started
 
-To get started, follow the instructions in the template [README](https://github.com/microsoft/vscode-python-tools-extension-template#readme). There you will learn how to use the [template to create your repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) and how to install the necessary tools (for example, the [nox](https://nox.thea.codes) task runner) and optional dependencies (testing support).
+To get started, follow the instructions in the template [README](https://github.com/microsoft/vscode-python-tools-extension-template#readme). There you will learn how to use the [template to create your repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) and how to install the necessary tools (for example, the [nox](https://nox.thea.codes) task runner) and optional dependencies (testing support).
 
 The [README](https://github.com/microsoft/vscode-python-tools-extension-template#readme) has the most up-to-date instructions and also goes into details on how to customize the extension's `package.json` placeholders (`<pythontool-module>`, `<pythontool-display-name>`, etc.).
 

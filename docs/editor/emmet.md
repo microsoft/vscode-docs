@@ -1,10 +1,10 @@
 ---
-Order: 16
+Order: 18
 Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -60,9 +60,9 @@ For example:
 
 ```json
 "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "razor": "html",
-    "plaintext": "pug"
+  "javascript": "javascriptreact",
+  "razor": "html",
+  "plaintext": "pug"
 }
 ```
 
@@ -88,9 +88,9 @@ Below is an example of the first approach using the `emmet.syntaxProfiles` setti
 
 ```json
 "emmet.syntaxProfiles": {
-    "html": {
-        "filters": "bem"
-    }
+  "html": {
+    "filters": "bem"
+  }
 }
 
 ```
@@ -128,7 +128,7 @@ For example, instead of:
 
 ```json
 "emmet.preferences": {
-    "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
+  "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
 }
 ```
 
@@ -136,7 +136,7 @@ in VS Code, you would use a simpler:
 
 ```json
 "emmet.preferences": {
-    "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
+  "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
 }
 ```
 
@@ -207,71 +207,71 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.includeLanguages`
 
-    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language IDs for both sides of the mapping.
+  Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language IDs for both sides of the mapping.
 
-    For example:
+  For example:
 
-    ```json
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-        "plaintext": "pug"
-    }
-    ```
+  ```json
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "plaintext": "pug"
+  }
+  ```
 
 * `emmet.excludeLanguages`
 
-    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
+  If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
 
 * `emmet.syntaxProfiles`
 
-    See [Emmet Customization of output profile](https://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile) to learn how you can customize the output of your HTML abbreviations.
+  See [Emmet Customization of output profile](https://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile) to learn how you can customize the output of your HTML abbreviations.
 
-    For example:
+  For example:
 
-    ```json
-    "emmet.syntaxProfiles": {
-        "html": {
-            "attr_quotes": "single"
-        },
-        "jsx": {
-            "self_closing_tag": true
-        }
+  ```json
+  "emmet.syntaxProfiles": {
+    "html": {
+      "attr_quotes": "single"
+    },
+    "jsx": {
+      "self_closing_tag": true
     }
-    ```
+  }
+  ```
 
 * `emmet.variables`
 
-    Customize variables used by Emmet snippets.
+  Customize variables used by Emmet snippets.
 
-    For example:
+  For example:
 
-    ```json
-    "emmet.variables": {
-        "lang": "de",
-        "charset": "UTF-16"
-    }
-    ```
+  ```json
+  "emmet.variables": {
+    "lang": "de",
+    "charset": "UTF-16"
+  }
+  ```
 
 * `emmet.showExpandedAbbreviation`
 
-    Controls the Emmet suggestions that show up in the suggestion/completion list.
+  Controls the Emmet suggestions that show up in the suggestion/completion list.
 
-    Setting Value | Description
-    ----------- | -------
-    `never` | Never show Emmet abbreviations in the suggestion list for any language.
-    `inMarkupAndStylesheetFilesOnly` | Show Emmet suggestions only for languages that are purely markup and stylesheet based ('html', 'pug', 'slim', 'haml', 'xml', 'xsl', 'css', 'scss', 'sass', 'less', 'stylus').
-    `always` | Show Emmet suggestions in all Emmet supported modes as well as the languages that have a mapping in the `emmet.includeLanguages` setting.
+  Setting Value | Description
+  ----------- | -------
+  `never` | Never show Emmet abbreviations in the suggestion list for any language.
+  `inMarkupAndStylesheetFilesOnly` | Show Emmet suggestions only for languages that are purely markup and stylesheet based ('html', 'pug', 'slim', 'haml', 'xml', 'xsl', 'css', 'scss', 'sass', 'less', 'stylus').
+  `always` | Show Emmet suggestions in all Emmet supported modes as well as the languages that have a mapping in the `emmet.includeLanguages` setting.
 
-    **Note:** In the `always` mode, the new Emmet implementation is not context aware. For example, if you are editing a JavaScript React file, you will get Emmet suggestions not only when writing markup but also while writing JavaScript.
+  **Note:** In the `always` mode, the new Emmet implementation is not context aware. For example, if you are editing a JavaScript React file, you will get Emmet suggestions not only when writing markup but also while writing JavaScript.
 
 * `emmet.showAbbreviationSuggestions`
 
-    Shows possible emmet abbreviations as suggestions. It is `true` by default.
+  Shows possible emmet abbreviations as suggestions. It is `true` by default.
 
-    For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
-    This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.
+  For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
+  This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.
 
-    Not applicable in stylesheets or when `emmet.showExpandedAbbreviation` is set to `never`.
+  Not applicable in stylesheets or when `emmet.showExpandedAbbreviation` is set to `never`.
 
 * `emmet.extensionsPath`
 
@@ -279,15 +279,15 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.triggerExpansionOnTab`
 
-    Set this to true to enable expanding Emmet abbreviations with `kbstyle(Tab)` key. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
+  Set this to true to enable expanding Emmet abbreviations with `kbstyle(Tab)` key. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
 
 * `emmet.showSuggestionsAsSnippets`
 
-    If set to `true`, then Emmet suggestions will be grouped along with other snippets allowing you to order them as per `editor.snippetSuggestions` setting. Set this to `true` and `editor.snippetSuggestions` to `top`, to ensure that Emmet suggestions always show up on top among other suggestions.
+  If set to `true`, then Emmet suggestions will be grouped along with other snippets allowing you to order them as per `editor.snippetSuggestions` setting. Set this to `true` and `editor.snippetSuggestions` to `top`, to ensure that Emmet suggestions always show up on top among other suggestions.
 
 * `emmet.preferences`
 
-    You can use this setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The below customizations are currently supported:
+  You can use this setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The below customizations are currently supported:
 
   * `css.propertyEnd`
   * `css.valueSeparator`
@@ -308,25 +308,25 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
   * `profile.allowCompactBoolean`
   * `css.fuzzySearchMinScore`
 
-    The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
+  The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
-    For example, instead of the older format
+  For example, instead of the older format
 
-    ```json
-    "emmet.preferences": {
-        "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
-    }
-    ```
+  ```json
+  "emmet.preferences": {
+    "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
+  }
+  ```
 
-    you would use
+  you would use
 
-    ```json
-    "emmet.preferences": {
-        "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
-    }
-    ```
+  ```json
+  "emmet.preferences": {
+    "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
+  }
+  ```
 
-    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/microsoft/vscode/issues/new).
+  If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/microsoft/vscode/issues/new).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
@@ -59,20 +59,20 @@ On **macOS**, automatic updates should work as always, no extra work needed.
 
 ## Migrate to Portable mode
 
-You can also migrate an existing installation to Portable mode:
+You can also migrate an existing installation to Portable mode.
 
-1. [Download](/download) the VS Code ZIP distribution for your platform.
-2. Create the `data` or `code-portable-data` folder as above.
+### Windows, Linux
+
+1. Download the [VS Code](/download) (or [VS Code Insiders](/insiders)) ZIP distribution for your platform.
+2. Create the `data` folder as above.
 3. Copy the user data directory `Code` to `data` and rename it to `user-data`:
     * **Windows** `%APPDATA%\Code`
-    * **macOS** `$HOME/Library/Application Support/Code`
     * **Linux** `$HOME/.config/Code`
 4. Copy the extensions directory to `data`:
     * **Windows** `%USERPROFILE%\.vscode\extensions`
-    * **macOS** `~/.vscode/extensions`
     * **Linux** `~/.vscode/extensions`
 
-Here's the desired outcome on **Windows**:
+As an example, here's the desired outcome on **Windows**:
 
 ```
 |- VSCode-win32-x64-1.25.0-insider
@@ -84,6 +84,14 @@ Here's the desired outcome on **Windows**:
 |   |   |   |- ...
 |   |- ...
 ```
+### macOS
+
+1. Download [VS Code](/download) (or [VS Code Insiders](/insiders)) for macOS.
+2. Create the `code-portable-data` folder as above.
+3. Copy the user data directory `Code` to `code-portable-data` and rename it to `user-data`:
+    * `$HOME/Library/Application Support/Code`
+4. Copy the extensions directory to `code-portable-data`:
+    * `~/.vscode/extensions`
 
 ## TMP directory
 

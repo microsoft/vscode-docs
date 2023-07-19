@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Dev Containers, and WSL extensions
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 ---
 # Remote Development with Linux
 
@@ -46,6 +46,7 @@ You may encounter issues with certain extensions with native dependencies with *
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
 | General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
+| General for Arm32 | `libatomic1` | No additional requirements. | |
 | Ubuntu 16.04+, Debian 8+, Raspberry Pi OS Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | Alpine Linux 3.9+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |

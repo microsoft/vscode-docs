@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -753,7 +753,7 @@ See IntelliSense for your `package.json` file.
 
 ### Create custom snippets
 
-**File** > **Preferences** > **User Snippets** (**Code** > **Preferences** > **User Snippets** on macOS), select the language, and create a snippet.
+**File** > **Preferences** > **Configure User Snippets** (**Code** > **Preferences** > **Configure User Snippets** on macOS), select the language, and create a snippet.
 
 ```json
 "create component": {

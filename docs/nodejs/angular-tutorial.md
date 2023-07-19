@@ -4,15 +4,17 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular TypeScript Tutorial in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as it's main programming language. The Visual Studio Code editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
+[Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as its main programming language. The Visual Studio Code editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
+
+>**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
 
 ## Welcome to Angular
 
@@ -145,6 +147,16 @@ You can step through your source code (`kb(workbench.action.debug.stepOver)`), i
 ![debug variable](images/angular/debug-variable.png)
 
 For more information about the debugger and its available options, check out our documentation on [browser debugging](/docs/nodejs/browser-debugging.md).
+
+## Angular profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/angular/profile-template-dropdown.png)
+
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Popular Starter Kits
 

@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 ---
 # Remote development over SSH
 
@@ -93,7 +93,7 @@ Now that you've created an SSH host, let's connect to it!
 
 You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
-![Remote extension commands](images/ssh-tutorial/remote-commands.png)
+![Remote extension commands](images/ssh-tutorial/remote-commands-simple.png)
 
 Choose the **Connect to Host...** command in the **Remote-SSH** section and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 

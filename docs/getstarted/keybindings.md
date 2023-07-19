@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -168,6 +168,78 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
 
 For more information on commands that take arguments, refer to [Built-in Commands](/api/references/commands.md).
+
+## Running multiple commands
+
+It is possible to create a keybinding that runs several other commands sequentially using the command `runCommands`.
+
+1. Run several commands without arguments: copy current line down, mark the current line as comment, move cursor to copied line
+
+```json
+{
+  "key": "ctrl+alt+c",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      "editor.action.copyLinesDownAction",
+      "cursorUp",
+      "editor.action.addCommentLine",
+      "cursorDown"
+    ]
+  }
+},
+```
+
+2. It is also possible to pass arguments to commands: create a new untitled TypeScript file and insert a custom snippet
+
+```json
+{
+  "key": "ctrl+n",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      {
+        "command": "workbench.action.files.newUntitledFile",
+        "args": {
+          "languageId": "typescript"
+        }
+      },
+      {
+        "command": "editor.action.insertSnippet",
+        "args": {
+          "langId": "typescript",
+          "snippet": "class ${1:ClassName} {\n\tconstructor() {\n\t\t$0\n\t}\n}"
+        }
+      }
+    ]
+  }
+},
+```
+
+Note that commands run by `runCommands` receive the value of `"args"` as the first argument. So in the example above, `workbench.action.files.newUntitledFile` receives `{"languageId": "typescript" }` as its first and only argument.
+
+To pass several arguments, one needs to have `"args"` as an array:
+
+```json
+{
+  "key": "ctrl+shift+e",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      {
+        // command invoked with 2 arguments: vscode.executeCommand("myCommand", "arg1", "arg2")
+        "command": "myCommand",
+        "args": [
+          "arg1",
+          "arg2"
+        ]
+      }
+    ]
+  }
+}
+```
+
+To pass an array as the first argument, one needs to wrap the array in another array: `"args": [ [1, 2, 3] ]`.
 
 ## Removing a specific key binding rule
 
