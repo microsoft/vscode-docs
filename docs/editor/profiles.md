@@ -15,7 +15,7 @@ Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), tho
 
 VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
-To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item (**Code** > **Preferences** > **Profiles** > **Create Profile** on macOS).
+To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item.
 
 ![Create Profile command](images/profiles/create-profile.png)
 
