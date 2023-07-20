@@ -34,7 +34,6 @@ Example `launch.json` configuration for debugging a Node.js application:
 ```json
 {
     "configurations": [
-    
         {
             "name": "Docker Node.js Launch",
             "type": "docker",
@@ -76,26 +75,14 @@ Example `launch.json` configuration for debugging a Python application:
 
 ## .NET
 
-More information about debugging .NET applications within Docker containers can be found in [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
+We offer two ways of building & debugging your project within Docker containers:
 
-Example `launch.json` configuration for debugging a .NET application:
+- **[With .NET SDK](/docs/containers/debug-netcore.md#net-sdk-container-build-debug-without-dockerfile)**: For a simplified container debug experience without a `Dockerfile`, or if you are familiar with `MSBuild`, choose this option.
+  > Note: This option is only available for .NET SDK 7 and above and uses the `dotnet publish` command to build the image.
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch .NET Core in Docker",
-            "type": "docker",
-            "request": "launch",
-            "preLaunchTask": "Run Docker Container",
-            "netCore": {
-                "appProject": "${workspaceFolder}/project.csproj"
-            }
-        }
-    ]
-}
-```
+- **[With a Dockerfile](/docs/containers/debug-netcore.md#debug-with-dockerfile)**: If you prefer working with `Dockerfiles`, choose this option.
+
+For more details about these two options, refer to [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
 
 ## Configuration reference
 
