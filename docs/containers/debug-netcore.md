@@ -25,6 +25,8 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 ### .NET SDK Container Build (Debug without `Dockerfile`)
 
+// TODO: add context
+
 1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu.
 1. You will be prompted with options to either build with a Dockerfile (**User a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**)
 1. Select **Use .NET SDK**
@@ -36,6 +38,8 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 
 ### Debug with `Dockerfile`
+
+// TODO: add context
 
 1. Wait until a notification appears asking if you want to add required assets for debugging. Select **Yes**:
 
