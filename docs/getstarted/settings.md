@@ -337,7 +337,7 @@ If you try to change a setting (for example turning on Auto Save or selecting a 
 
 ### How can I reset my user settings?
 
-The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and VS Code will go back to using the default values.
+The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and VS Code will go back to using the default values.
 
 ### When does it make sense to use workspace settings?
 
