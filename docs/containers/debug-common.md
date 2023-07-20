@@ -34,7 +34,6 @@ Example `launch.json` configuration for debugging a Node.js application:
 ```json
 {
     "configurations": [
-
         {
             "name": "Docker Node.js Launch",
             "type": "docker",
