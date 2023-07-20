@@ -46,7 +46,7 @@ Now before you rush out to rename all of your variables to single letters, I wan
 
 That calculus changes if we can get nice optimizations like this essentially for free, say by having our build tool do them for us automatically. And indeed, smart tools like esbuild already implement identifier mangling. That means we can keep writing our `veryLongAndDescriptiveNamesThatWouldMakeEvenObjectiveCProgrammersBlush` and let our build tools shorten them for us!
 
-Even though esbuild implements mangling, by default it only mangles names when it is reasonably confident that mangling won't change the behavior of the code. After all, having a bundler break your code really stinks. In practice, this means that esbuild mangles local variable names and argument names. This is safe unless your code is doing some truly crazy stuff (in which case, you likely have far bigger issues than code size to worry about).
+Even though esbuild implements mangling, by default it only mangles names when it is confident that mangling won't change the behavior of the code. After all, having a bundler break your code really stinks. In practice, this means that esbuild mangles local variable names and argument names. This is safe unless your code is doing some truly crazy stuff (in which case, you likely have far bigger issues than code size to worry about).
 
 However esbuild's conservative approach means that it skips mangling many names because it can't be confident that changing them is safe. As a simple example of how things could go wrong, consider:
 
@@ -170,8 +170,8 @@ We're always striving to make VS Code and our codebase better, and I think the m
 Happy Coding,
 
 Matt Bierner, VS Code Team Member
-[@mattbierner](https://twitter.com/mattbierner)
+[@mattbierner](https://hachyderm.io/@mattbierner)
 
 ---
 
-Thank you to Johannes Rieken for his key work implementing mangling, to the TypeScript team for building the tools that let us implement mangling safely, to esbuild for their blazingly fast bundler, and to the entire VS Code team for building a codebase that is fit for optimizations like this. And last but certainly not least, a huge thanks to the V8 team for always making us look fast despite the heaps and heaps of horribly mangled JavaScript we throw their way.
+Thank you to Johannes Rieken for his key work implementing mangling, to the TypeScript team for building the tools that let us implement mangling safely, to esbuild for their blazingly fast bundler, and to the entire VS Code team for building a codebase that is fit for optimizations like this. And last but certainly not least, a huge thanks to the V8 team and all the other JS engines for always making us look fast despite the heaps and heaps of horribly mangled JavaScript we throw their way.
