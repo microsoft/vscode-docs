@@ -11,7 +11,7 @@ MetaDescription: Using the Python extension template and API to integrate linter
 
 The [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension provides APIs for other extensions to work with Python environments available on the user's machine. Check out [@vscode/python-extension](https://www.npmjs.com/package/@vscode/python-extension) npm module that includes types and helper utilities to access these APIs from your extension.
 
-## Python Extension Template
+## Python extension template
 
 The [Python extension template](https://github.com/microsoft/vscode-python-tools-extension-template) helps get you started building a Visual Studio Code extension for your favorite Python tool. It could be a linter, formatter, or code analysis, or all of those together. The template will give you the basic building blocks you need to build an extension that integrates your tool into VS Code, and it already has access to the Python APIs mentioned above.
 
