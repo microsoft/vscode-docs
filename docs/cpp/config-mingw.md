@@ -25,7 +25,6 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-
 ## Installing the MinGW-w64 toolchain
 
 Get the latest version of MinGW-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, MinGW-w64, and other helpful C++ tools and libraries. This will provide you with the necessary tools to compile your code, debug it, and configure it to work with [IntelliSense](/docs/editor/intellisense.md).
@@ -42,11 +41,11 @@ Get the latest version of MinGW-w64 via [MSYS2](https://www.msys2.org/), which p
     pacman -S --needed base-devel mingw-w64-x86_64-toolchain
     ```
 
-1.  Accept the default number of packages in the `toolchain` troup by pressing `kbstyle(Enter)`.
+1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
 
     ![MYSS2 Installer](images/cpp/cpp-install-MSYS2-toolchain.png)
 
-1.  Enter `Y` when prompted whether to proceed with the installation.
+1. Enter `Y` when prompted whether to proceed with the installation.
 
 1. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
@@ -64,13 +63,14 @@ gcc --version
 g++ --version
 gdb --version
 ```
+
 You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case:
 
 1. Make sure your PATH variable entry matches the MinGW-w64 binary location where the toochain was installed. If the compilers do not exist at that PATH entry, make sure you followed the previous instructions.
 2. If `gcc` has the correct output but not `gdb`, then you need to install the packages you are missing from the MinGW-w64 toolset.
-   - If on compilation your are getting the "The value of miDebuggerPath is invalid." message, one cause can be you are missing the `mingw-w64-gdb` package.
+   - If on compilation you are getting the "The value of miDebuggerPath is invalid." message, one cause can be you are missing the `mingw-w64-gdb` package.
 
-## Create A Hello World App
+## Create a Hello World app
 
 First, lets get a project set up.
 
@@ -246,7 +246,6 @@ To debug your code,
 
 The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just select the play button to debug, instead of using the drop-down.
 
-
 ## Explore the debugger
 
 Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
@@ -321,6 +320,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
 VS Code creates a `launch.json` file in the `.vscode` folder`, which looks something like this:
+
 ```json
 {
     "configurations": [
@@ -424,7 +424,6 @@ If you have Visual Studio or WSL installed, you may need to change `compilerPath
 ### MSYS2 is installed, but g++ and gdb are still not found
 
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install MinGW-w64, which contains those tools. You will also need to install the full MinGW-w64 toolchain (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`) to get the `gdb` debugger.
-
 
 ### MinGW 32-bit
 
