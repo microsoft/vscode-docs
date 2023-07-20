@@ -9,11 +9,11 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 ## Prerequisites
 
-1. Install the [.NET SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET debugger.
+1. Install the [.NET SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET debugger. If you install .NET SDK 7 or later,  you have the option of debugging without a Dockerfile.
 
-1. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which includes support for attaching to the .NET debugger with VS Code.
+2. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which includes support for attaching to the .NET debugger with VS Code.
 
-1. macOS users only: Add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
+3. macOS users only: Add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
     ![dockerSharedFolders](images/debug/mac-folders.png)
 
@@ -21,15 +21,16 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 - If needed, create a .NET project with `dotnet new`.
 - Open the project folder in VS Code.
+- You are prompted with whether to build your image using a Dockerfile or the [.NET SDK](https://www.microsoft.com/net/download). If you want a simple container debug experience without a Dockerfile or if you are more familiar with MSBuild, choose **Use .NET SDK**. If you're more comfortable working with Dockerfiles, choose **Use a Dockerfile**.
 
-### Debug with .NET SDK
+### Debug without Dockerfile ([.NET SDK Container Build](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container))
 
 1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu.
-1. You will be prompted with options to either build with a Dockerfile (**User a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**)
-1. Select **Use .NET SDK**
-1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug
-1. Optionally, set a breakpoint.
-2. Your .NET app will run in a Docker container, and the web app will open in your browser.
+2. You will be prompted with options to either build with a Dockerfile (**User a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**)
+3. Select **Use .NET SDK**
+4. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug
+5. Optionally, set a breakpoint.
+6. Your .NET app will run in a Docker container, and the web app will open in your browser.
 
 > Note: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers` You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 
@@ -75,3 +76,18 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
    ```
 
 For additional customization options, see the documentation on [Tasks](/docs/containers/reference.md) and [Debug containerized apps](/docs/containers/debug-common.md).
+
+## Saving Project File Preference for [.NET SDK Container Build](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container)
+
+If you have a workspace folder containing multiple .NET project files and you only intend to debug one for the foreseeable future (i.e. you never want to be prompted a list of project files when you `kb(workbench.action.debug.start)`). You can save your launch profile by doing the following:
+
+1. Follow the steps in [Debug without Dockerfile](#debug-without-dockerfile-net-sdk-container-build) and keep the debug session live
+2. Click on the `gear` icon in your debugger view.
+
+   ![dockerSharedFolders](images/debug/debugger-scaffolding.png)
+
+3. Select **Docker: Add Docker Files to Workspace...**
+4. Choose the project file associated with the project you want to debug
+5. Your project preference is saved & you no longer need to choose a project file on `kb(workbench.action.debug.start)`
+
+
