@@ -8,7 +8,7 @@ Author: Matt Bierner
 ---
 # Shrinking VS Code with name mangling
 
-July 20, 2023 by Matt Bierner, [@mattbierner](https://twitter.com/mattbierner)
+July 20, 2023 by Matt Bierner, [@mattbierner](https://hachyderm.io/@mattbierner)
 
 We recently reduced the size of Visual Studio Code's shipped JavaScript by 20%. That works out to a little over 3.9 MB saved. Sure that's less than some of the individual gifs from our release notes, but that's still nothing to sniff at! Not only does this reduction mean less code you need to download and store on disk, it also improves startup time because less source code has to be scanned before the JavaScript is run. Not too shabby considering we got this reduction without deleting any code and without any major refactorings in our codebase. Instead all it took was a new build step: name mangling.
 
@@ -81,7 +81,7 @@ Although you can force esbuild to mangle basically every single name it finds, d
 
 Despite this, I couldn't shake the feeling that we must be able to do better in the VS Code codebase.  If we couldn't mangle every name, perhaps we could at least find some subset names we safely could.
 
-## False starts with private props
+## False starts with private properties
 
 Looking back over our minified sources, another thing that jumped out at me was how many long names I saw starting with `_`. By convention, this indicates a private property. Surely private properties can be safely mangled and code outside of the class would be none the wiser, right? And wait, shouldn't esbuild be doing this already for us? Yet I knew that the folks who wrote esbuild are no slouches. If esbuild wasn't mangling private properties, it was almost certainly for good reason.
 

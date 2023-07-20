@@ -430,4 +430,4 @@ The layout is described as object with an initial (optional) orientation (0 = ho
 
 Simple commands that do not require parameters can be found in the Keyboard Shortcuts list in the default `keybindings.json` file. The unbound commands are listed in a comment block at the bottom of the file.
 
-To review the default `keybindings.json`, run **Preferences: Open Default Keyboard Shortcuts (JSON)** from the Command Palette (`kb(workbench.actions.showCommands)`).
+To review the default `keybindings.json`, run **Preferences: Open Default Keyboard Shortcuts (JSON)** from the Command Palette (`kb(workbench.action.showCommands)`).
