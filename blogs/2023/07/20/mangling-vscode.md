@@ -8,9 +8,9 @@ Author: Matt Bierner
 ---
 # Shrinking VS Code with name mangling
 
-July 20th, 2023 by Matt Bierner, [@mattbierner](https://twitter.com/mattbierner)
+July 20, 2023 by Matt Bierner, [@mattbierner](https://twitter.com/mattbierner)
 
-We recently reduced the size of Visual Studio Code's shipped JavaScript by 20%. That works out to a little over 3.9MB saved. Sure that's less than some of the individual gifs from our release notes, but that's still nothing to sniff at! Not only does this reduction mean less code you need to download and store on disk, it also improves startup time because less source code has to be scanned before the JavaScript is run. Not too shabby considering we got this reduction without deleting any code and without any major refactorings in our codebase. Instead all it took was a new build step: name mangling.
+We recently reduced the size of Visual Studio Code's shipped JavaScript by 20%. That works out to a little over 3.9 MB saved. Sure that's less than some of the individual gifs from our release notes, but that's still nothing to sniff at! Not only does this reduction mean less code you need to download and store on disk, it also improves startup time because less source code has to be scanned before the JavaScript is run. Not too shabby considering we got this reduction without deleting any code and without any major refactorings in our codebase. Instead all it took was a new build step: name mangling.
 
 In this post, I want to share how we identified this optimization opportunity, explored approaches to the problem, and eventually shipped this 20% size reduction. I want to treat this more as a case study in how we approach engineering problems on the VS Code team rather than focusing on the specifics of mangling. Name mangling is a neat trick, but may not be worth it in many codebases, and our specific approach to mangling can likely be improved on (or may not be necessary at all depending on how your project is built).
 
@@ -112,13 +112,13 @@ Soon enough we had a working build with all `_` properties mangled. Nice! This p
 
 Unfortunately, mangling based just on the names has some serious drawbacks, including requiring that all private properties in our codebase start with `_`. The VS Code codebase does not follow this naming convention consistently, and there are also a few places where we have public properties that start with `_` (typically this is done when a property needs to be accessible externally but shouldn't be treated as API, such as in tests).
 
-We also didn't feel entirely confident that the mangled code was actually correct. Sure, we could could run our tests or try starting VS Code, but this was time consuming and what if we overlooked less common code paths? We couldn't be 100% sure we were only mangling private properties without touching other code. This approach seemed both too risky and too onerous to adopt.
+We also didn't feel entirely confident that the mangled code was actually correct. Sure, we could run our tests or try starting VS Code, but this was time consuming and what if we overlooked less common code paths? We couldn't be 100% sure we were only mangling private properties without touching other code. This approach seemed both too risky and too onerous to adopt.
 
-## Mangling confidently with Typescript
+## Mangling confidently with TypeScript
 
-Thinking about how we could feel more confident in a mangling build step, we hit on an new idea: what if TypeScript could verify the mangled code for us? Just as TypeScript can catch unknown properties accesses in normal code, the TypeScript compiler should be able to catch cases where a property has been mangled but references to it haven't been updated correctly. Instead of mangling the compiled JavaScript, we could instead mangle our TypeScript source code and then compile the new TypeScript with the mangled identifier nanes. The compile step on the mangled source code would give us much more confidence that we hadn't accidentally broken our code.
+Thinking about how we could feel more confident in a mangling build step, we hit on a new idea: what if TypeScript could verify the mangled code for us? Just as TypeScript can catch unknown properties accesses in normal code, the TypeScript compiler should be able to catch cases where a property has been mangled but references to it haven't been updated correctly. Instead of mangling the compiled JavaScript, we could instead mangle our TypeScript source code and then compile the new TypeScript with the mangled identifier names. The compile step on the mangled source code would give us much more confidence that we hadn't accidentally broken our code.
 
-Not only that, but by leveraging TypeScript we could truly find all `private` properties (instead of properties that just happen to start with `_`). We could even use TypeScript's existing `rename` functionality to smartly rename symbols without changing object shapes in unexpected ways.
+Not only that, but by using TypeScript, we could truly find all `private` properties (instead of properties that just happen to start with `_`). We could even use TypeScript's existing `rename` functionality to smartly rename symbols without changing object shapes in unexpected ways.
 
 Eager to try out this new approach, we soon came up with new mangling build step that roughly works like this:
 
@@ -141,7 +141,7 @@ While we were definitely impressed with how well TypeScript was able to generate
 
 - In a few places in our code, subclasses made inherited protected properties public. While many of these were mistakes, we also added code to disable mangling in these cases.
 
-After adding code for these cases, we soon had working builds. By mangling private properties, the size of VS Code's main `workbench.js` script went from 12.3MB to 10.6MB, a close to 14% reduction. This also brought a 5% speed up in code loading because less source text has to be scanned. Not bad at all given that, besides a few very minor fixes to unsafe patterns in our sources, these savings were basically free.
+After adding code for these cases, we soon had working builds. By mangling private properties, the size of VS Code's main `workbench.js` script went from 12.3 MB to 10.6 MB, a close to 14% reduction. This also brought a 5% speed up in code loading because less source text has to be scanned. Not bad at all given that, besides a few very minor fixes to unsafe patterns in our sources, these savings were basically free.
 
 ## Learnings and further work
 
@@ -155,7 +155,7 @@ Using the same approach and techniques from mangling private properties, I soon 
 
 This largely proved correct, although there were again a few complications. For instance, we had to make sure not to accidentally touch the APIs that extensions use, and also had to exempt a few symbols that were exported from TypeScript but then called from untyped JavaScript (typically these are entry points for a worker thread or process).
 
-The export mangling work shipped last iteration, further reducing the size of `workbench.js` from 10.6MB to 9.8MB. All reductions in total, this file is now 20% smaller than it would be without mangling. Across all of VS Code, mangling removes 3.9MB of JavaScript code from our compiled sources. Not only is that a nice reduction in download size and install size, that's also 3.9MB less JavaScript that needs to be scanned every single time you start VS Code.
+The export mangling work shipped last iteration, further reducing the size of `workbench.js` from 10.6 MB to 9.8 MB. All reductions in total, this file is now 20% smaller than it would be without mangling. Across all of VS Code, mangling removes 3.9 MB of JavaScript code from our compiled sources. Not only is that a nice reduction in download size and install size, that's also 3.9 MB less JavaScript that needs to be scanned every single time you start VS Code.
 
 This chart shows the size of `workbench.js` over time. Notice the two drops on the right side. The first big drop in VS Code 1.74 is the result of mangling private properties. The second smaller drop in 1.80 is from mangling exports.
 
@@ -163,7 +163,7 @@ This chart shows the size of `workbench.js` over time. Notice the two drops on t
 
 ![The size of 'workbench.js' over all VS Code releases, including the mangling work](code-size-after.png)
 
-Our mangling implementation can doubtless be improved since our minified sources still contains plenty of long names. We may investigate these further if doing so seems worthwhile and if we can come up with a safe approach. Ideally, some day much of this work won't be necessary at all. Native private properties are already mangled automatically and our build tools will hopefully become better at optimizing code across our entire codebase. You can review our current [mangling implementation](https://github.com/microsoft/vscode/blob/48cd8e0c1b142a46f0956b593d8331145634658e/build/lib/mangle/index.ts).
+Our mangling implementation can doubtless be improved since our minified sources still contain plenty of long names. We may investigate these further if doing so seems worthwhile and if we can come up with a safe approach. Ideally, some day much of this work won't be necessary at all. Native private properties are already mangled automatically and our build tools will hopefully become better at optimizing code across our entire codebase. You can review our current [mangling implementation](https://github.com/microsoft/vscode/blob/48cd8e0c1b142a46f0956b593d8331145634658e/build/lib/mangle/index.ts).
 
 We're always striving to make VS Code and our codebase better, and I think the mangling work is a great demonstration of how we approach this. Optimization is an ongoing process, not a one time thing. By continually monitoring our code size, we were aware of how it has grown over time. This awareness has doubtless help keep our code size from expanding even more than it has, and also encourages us to always be looking for improvements. Although mangling was an attractive seeming technique, it was initially too risky to seriously consider. Only once we had worked to reduce this risk, create the right safety nets, and make the cost of adopting mangling almost zero, did we finally feel confident enough to enable it in our builds. I'm really proud of the end result and just as proud of how we went about achieving it.
 
