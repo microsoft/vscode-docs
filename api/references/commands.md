@@ -20,7 +20,7 @@ let uri = Uri.file('/some/path/to/folder');
 let success = await commands.executeCommand('vscode.openFolder', uri);
 ```
 
->**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts** (on macOS **Code** > **Preferences** > **Keyboard Shortcuts**). The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
+>**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts**. The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
 
 ## Commands
 
@@ -430,9 +430,4 @@ The layout is described as object with an initial (optional) orientation (0 = ho
 
 Simple commands that do not require parameters can be found in the Keyboard Shortcuts list in the default `keybindings.json` file. The unbound commands are listed in a comment block at the bottom of the file.
 
-To review `keybindings.json`:
-
-Windows, Linux: **File** > **Preferences** > **Keyboard Shortcuts** > `keybindings.json` link
-
-macOS:
-**Code** > **Preferences** > **Keyboard Shortcuts** > `keybindings.json` link
+To review the default `keybindings.json`, run **Preferences: Open Default Keyboard Shortcuts (JSON)** from the Command Palette (`kb(workbench.actions.showCommands)`).
