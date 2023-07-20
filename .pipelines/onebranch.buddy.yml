@@ -21,10 +21,8 @@ resources:
   pipelines:
     - pipeline: vscode-website-main
       source: vscode-website (buddy)
-      trigger:
-        branches:
-          - main
-
+      branch: main
+      trigger: true
 
 variables:
   WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'

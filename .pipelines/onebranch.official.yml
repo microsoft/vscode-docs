@@ -21,9 +21,8 @@ resources:
   pipelines:
     - pipeline: vscode-website-prod
       source: vscode-website (official)
-      trigger:
-        branches:
-          - release/prod
+      branch: release/prod
+      trigger: true
 
 variables:
   WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
