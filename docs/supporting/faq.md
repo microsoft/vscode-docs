@@ -286,6 +286,6 @@ VS Code will no longer provide product updates or security fixes on macOS Sierra
 
 ## Technical Support
 
-You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md).
+You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/issues).
 
 If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/oas/default.aspx?prid=16064).
