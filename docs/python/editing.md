@@ -64,12 +64,14 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 For autocomplete and IntelliSense issues, check the following causes:
 
-| Cause | Solution |
+| Problem | Solution |
 | --- | --- |
-| Pylance seems slow or is consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting to see if performance improves. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
+| Pylance seems slow or is consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | Pylance is only offering top-level symbol options when adding imports. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).     |
-| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
+| The path to the Python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+| Import could not be found  *(reportMissingImports)* | This message means the package you are trying to import is not installed in the selected Python environment. First, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command. If you are in the intended environment, you need to install the package into the environment. For example, in an activated terminal type `python -m pip install {package_name}` to install a package into your environment.
+
 
 ## Enhance completions with AI
 
