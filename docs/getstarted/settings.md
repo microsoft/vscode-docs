@@ -117,7 +117,7 @@ Extension authors can learn more about adding custom settings in the [configurat
 
 ## settings.json
 
-The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
+The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open User Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
 
 ![User settings.json open in the editor](images/settings/settings-json-in-editor.png)
 
@@ -333,7 +333,7 @@ You can learn more about turning on and configuring Settings Sync in the [Settin
 
 ### VS Code says "Unable to write settings."
 
-If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write into user settings. Please open user settings to correct errors/warnings in it and try again.", it means your `settings.json` file is ill-formed or has errors. The error can be as simple as a missing comma or incorrect setting value. Open the `settings.json` file with the **Preferences: Open Settings (JSON)** command and you should see the error highlighted with red squiggles.
+If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write into user settings. Please open user settings to correct errors/warnings in it and try again.", it means your `settings.json` file is ill-formed or has errors. The error can be as simple as a missing comma or incorrect setting value. Open the `settings.json` file with the **Preferences: Open User Settings (JSON)** command and you should see the error highlighted with red squiggles.
 
 ### How can I reset my user settings?
 
@@ -345,7 +345,7 @@ If you're using a workspace that needs custom settings but you don't want to app
 
 ### Where can I find extension settings?
 
-In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)**) or via IntelliSense in your `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
+In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)**) or via IntelliSense in your `settings.json` file (**Preferences: Open User Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
 
 ## Default settings
 
