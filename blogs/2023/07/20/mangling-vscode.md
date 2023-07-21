@@ -46,7 +46,7 @@ Now before you rush out to rename all of your variables to single letters, I wan
 
 That calculus changes if we can get nice optimizations like this essentially for free, say by having our build tool do them for us automatically. And indeed, smart tools like esbuild already implement identifier mangling. That means we can keep writing our `veryLongAndDescriptiveNamesThatWouldMakeEvenObjectiveCProgrammersBlush` and let our build tools shorten them for us!
 
-Even though esbuild implements mangling, by default it only mangles names when it is confident that mangling won't change the behavior of the code. After all, having a bundler break your code really stinks. In practice, this means that esbuild mangles local variable names and argument names. This is safe unless your code is doing some truly crazy stuff (in which case, you likely have far bigger issues than code size to worry about).
+Even though esbuild implements mangling, by default it only mangles names when it is confident that mangling won't change the behavior of the code. After all, having a bundler break your code really stinks. In practice, this means that esbuild mangles local variable names and argument names. This is safe unless your code is doing some truly absurd things (in which case, you likely have far bigger issues than code size to worry about).
 
 However esbuild's conservative approach means that it skips mangling many names because it can't be confident that changing them is safe. As a simple example of how things could go wrong, consider:
 
@@ -98,7 +98,7 @@ const foo: any = new Foo();
 console.log(foo.bar);
 ```
 
-Hopefully your code isn't doing crazy stuff like this directly, but carelessly changing property names can potentially bite you in plenty of fun unexpected ways such as with object spreads, serialization, and when distinct classes share common property names.
+Hopefully your code isn't doing questionable things like this directly, but carelessly changing property names can potentially bite you in plenty of fun unexpected ways such as with object spreads, serialization, and when distinct classes share common property names.
 
 Thankfully I realized that with VS Code I had one huge advantage: I was working with a (mostly) sane codebase. I could make many assumptions that esbuild couldn't, such as that there are no dynamic private properties accesses or bad `any` accesses. This further simplified the problem I was facing.
 
