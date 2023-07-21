@@ -177,23 +177,32 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 
 #### KDE
 
+> KDE 6 is not yet fully supported by Visual Studio Code. As a workaround: The latest kwallet6 is also accessible as kwallet5, so you can force it to use kwallet5 by setting the password store to `kwallet5` as explained below in [Configure the keyring to use with VS Code](#other-linux-desktop-environments).
+
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
 #### Other Linux desktop environments
 
 First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
 
-##### (recommended) Configure the keyring to use with VS Code
+#### (recommended) Configure the keyring to use with VS Code
 
 You can manually tell VS Code which keyring to use by passing the `password-store` flag. Our recommended configuration is to first install [gnome-keyring](https://wiki.gnome.org/Projects/GnomeKeyring) if you don't have it already and then launch VS Code with `code --password-store="gnome"`.
 
 If this solution works for you, you can persist the value of `password-store` by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Configure Runtime Arguments** command. This will open the `argv.json` file where you can add the setting `"password-store":"gnome"`.
 
-> NOTE: If you would rather not use `gnome-keyring`, you can try using a package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html). If you do this, the `password-store` flag can still be set to `gnome` and Electron will detect other implementations of the Secret Service API. Additionally, you could try installing `kwallet` on your system. If you do, you will want to set the `password-store` flag to `kde` to detect the installed `kwallet`.
+Here are all the possible values of `password-store` if you would like to try using a different keyring than `gnome-keyring`:
+
+* `kwallet5`: For use with [kwalletmanager5](https://apps.kde.org/kwalletmanager5/).
+* `gnome`: This option will first try the `gnome-libsecret` option implementation and then if that fails, it will fallback to the `gnome-keyring` option implementation.
+* `gnome-libsecret`: For use with any package that implements the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) (for example `gnome-keyring`, `kwallet5`, `KeepassXC`).
+* _(not recommended)_ `kwallet`: For use with older versions of `kwallet`.
+* _(not recommended)_ `gnome-keyring`: A different implementation to access `gnome-keyring` and should only be used if `gnome-libsecret` has a problem.
+* _(not recommended)_ `basic`: See the [section below on basic text](#not-recommended-configure-basic-text-encryption) for more details.
 
 Don't hesitate to [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs if you run into any issues.
 
-##### (not recommended) Configure basic text encryption
+#### (not recommended) Configure basic text encryption
 
 We rely on Chromium's oscrypt module to discover and store encryption key information in the keyring. Chromium offers an opt-in fallback encryption strategy that uses an in-memory key based on a string that is hardcoded in the Chromium source. Because of this, this fallback strategy is, at best, obfuscation, and should only be used if you are accepting of the risk that any process on the system could, in theory, decrypt your stored secrets.
 

@@ -29,7 +29,7 @@ When you adjust the zoom level with the **View** > **Zoom In / Out** commands, t
 
 ## High Contrast theme
 
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme* > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
@@ -39,7 +39,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** (**Code** > **Preferences** > **Theme** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -57,7 +57,7 @@ The default Color Theme for VS Code is **Dark+**. However, you can customize bot
 
 >**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+To customize the error/warning squigglies, go to **File** > **Preferences** > **Settings** to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
