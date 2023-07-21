@@ -62,7 +62,7 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ### Troubleshooting IntelliSense
 
-For autocomplete and IntelliSense issues, check the following causes:
+For common Intellisense and Python editing issues, check the following causes:
 
 | Problem | Cause | Solution |
 | --- | --- | ---|
