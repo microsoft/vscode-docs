@@ -130,15 +130,14 @@ New Project from Plaster Template** command from the Command Palette
 
 ## PowerShell extension settings
 
-You can customize VS Code [settings][07] from the **File** > **Preferences** > **Settings** menu
-item (**Code** > **Preferences** > **Settings** on macOS).
+You can customize VS Code [settings][07] from the **File** > **Preferences** > **Settings** menu item.
 
 You can also select the gear icon located in the lower left corner of the Activity Bar.
 
 ![codeGear][32]
 
 You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings.
-You can still open the `settings.json` file using **Preferences: Open Settings (JSON)** command from
+You can still open the `settings.json` file using **Preferences: Open User Settings (JSON)** command from
 the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor
 with the `"workbench.settings.editor"` setting.
 

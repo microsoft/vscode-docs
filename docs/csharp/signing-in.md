@@ -51,3 +51,11 @@ You can also view your Visual Studio subscription information by clicking on the
 You can sign out by going to the **Accounts** button in the Activity bar. Once there, select the desired account and select sign out.
 
 ![Sign out of Visual Studio subscription](images/signing-in/sign-out.png)
+
+## Troubleshoot sign in issues
+
+### Unable to retrieve a license
+
+If you are not able to retrieve a license after a successful sign in operation, you'll likely need to modify your firewall settings by adding the URL below to its allowlist:
+
+`https://api.subscriptions.visualstudio.microsoft.com/Me/Entitlements/IDEBenefits`

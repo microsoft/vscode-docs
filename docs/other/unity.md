@@ -189,7 +189,7 @@ Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
-To edit this directly within VS Code Settings editor, go to **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS). Switch to the **Workspace** tab and then type "files exclude" into the Settings editor search bar.  Add a glob pattern similar to the pattern shown below by clicking the **Add Pattern** button for the **Files: Exclude** setting.  You will need to add each pattern separately.
+To edit this directly within VS Code Settings editor, go to **File** > **Preferences** > **Settings**. Switch to the **Workspace** tab and then type "files exclude" into the Settings editor search bar.  Add a glob pattern similar to the pattern shown below by clicking the **Add Pattern** button for the **Files: Exclude** setting.  You will need to add each pattern separately.
 
 ```
 **/.git
