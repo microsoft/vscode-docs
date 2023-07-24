@@ -24,18 +24,18 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 ## .NET SDK vs. Dockerfile Build
 
-If you want a simple container debug experience without a Dockerfile or if you are more familiar with `MSBuild`, go with **.NET SDK**. If you're more comfortable working with `Dockerfiles`, choose **Dockerfile**.
+For those seeking a streamlined container debugging experience without the need for a Dockerfile or who are well-acquainted with MSBuild, the .NET SDK option is the ideal choice. On the other hand, if you feel more at ease working with Dockerfiles, opt for Dockerfile.
 
 ### .NET SDK Container Build (Debug without `Dockerfile`)
 
 1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu. (Make sure you don't have any existing launch profiles in `launch.json`)
-2. You're going to be prompted with a list of debuggers, choose Select **Docker: Debug in Container**
-3. You will be prompted with options to either build with a `Dockerfile` (**User a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**)
-4. Select **Use .NET SDK**
-5. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug
-6. Your .NET app will run in a Docker container, and the web app will open in your browser.
+1. You're going to be prompted with a list of debuggers, choose Select **Docker: Debug in Container**
+1. You will be prompted with options to either build with a `Dockerfile` (**Use a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**)
+1. Select **Use .NET SDK**
+1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug
+1. Your .NET app will run in a Docker container, and the web app will open in your browser.
 
-> Note: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers` You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
+> Note: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 
 
 ### Debug with `Dockerfile`
@@ -47,7 +47,6 @@ If you want a simple container debug experience without a Dockerfile or if you a
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Docker: Add Docker Files to Workspace...**. If you have already dockerized your app, you can instead do **Docker: Initialize for Docker debugging**. Follow the prompts.
 1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`).
 1. Select the **Docker .NET Core Launch** launch configuration.
-1. Optionally, set a breakpoint.
 1. Start debugging! (`kb(workbench.action.debug.start)`)
 
 ## Running and debugging with SSL support
@@ -82,7 +81,7 @@ For additional customization options, see the documentation on [Tasks](/docs/con
 
 ## Saving Project File Preference for [.NET SDK Container Build](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container)
 
-If you have a workspace folder containing multiple .NET project files and you only intend to debug one for the foreseeable future (i.e. you never want to be prompted a list of project files when you `kb(workbench.action.debug.start)`). You can save your launch profile by doing the following:
+If you have a workspace folder with multiple .NET project files and you want to exclusively debug one specific project (without being prompted to choose from a list of project files every time you `kb(workbench.action.debug.start)`), you can save your launch profile by following these steps:
 
 1. Follow the steps in [.NET SDK Container Build](#net-sdk-container-build-debug-without-dockerfile) and keep the debug session live
 1. Click on the `gear` icon in your debugger view.
