@@ -21,7 +21,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 1. Search for `'C++'`.
 1. Select **Install**.
 
-![C/C++ extension](/docs/cpp/images/cpp/cpp-extension.png)
+![C/C++ extension](images/cpp/cpp-extension.png)
 
 ## Set up your C++ Environment
 
@@ -81,7 +81,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
 
-    ![MYSS2 Installer](/docs/cpp/images/cpp/cpp-install-MSYS2-toolchain.png)
+    ![MYSS2 Installer](images/cpp/cpp-install-msys2-toolchain.png)
 
 1. Enter `Y` when prompted whether to proceed with the installation.
 
@@ -144,17 +144,17 @@ Now press `kb(workbench.action.files.save)` to save the file. You can also enabl
 1. Make sure you have `helloworld.cpp` open so it is the active file in your editor.
 2. Press the play button in the top right corner of the editor.
 
-   ![Screenshot of helloworld.cpp and play button](/docs/cpp/images/playbutton/run-play-button.png)
+   ![Screenshot of helloworld.cpp and play button](images/cpp/run-play-button.png)
 
 3. Choose **C/C++: g++.exe build and debug active file** from the list of detected compilers on your system.
 
-   ![C++ debug configuration dropdown](/docs/cpp/images/playbutton/select-gcc-compiler.png)
+   ![C++ debug configuration dropdown](images/cpp/select-gcc-compiler.png)
 
 You are only prompted to choose a compiler the first time you run `helloworld.cpp`. This compiler becomes "default" compiler set in your `tasks.json` file.
 
 4. After the build succeeds, you should see "Hello World" appear in the integrated **Terminal**.
 
-    ![screenshot of program output](/docs/cpp/images/playbutton/helloworld-terminal-output.png)
+    ![screenshot of program output](images/cpp/helloworld-terminal-output.png)
 
 Congratulations! You've just run your first C++ program in VS Code! The next step is to learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging using one of the Tutorials in the next section.
 
