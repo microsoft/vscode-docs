@@ -13,6 +13,7 @@ In this article, you'll learn:
 * How to [sign in](#sign-in-with-a-microsoft-or-organizational-account) with an account.
 * How to check the [status of your Visual Studio subscription](#verifying-your-visual-studio-subscription-status).
 * How to [sign out of your account](#how-to-sign-out).
+* * How to [troubleshoot sign in issues](#troubleshoot-sign-in-issues)
 
 You can also get [subscription support](https://visualstudio.microsoft.com/subscriptions/support/) and can search the FAQ to find answers to common support questions about subscriptions, accounts, and billing.
 
