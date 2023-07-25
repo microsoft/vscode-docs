@@ -54,12 +54,12 @@ The output should show you the compiler version and details. If neither are foun
 If you don't have a compiler installed, you can follow one of our installation tutorials:
 
 - Windows:
-<a class="next-topic-btn" href="/docs/cpp/config-msvc.md#_prerequisites">Installing MSVC Tutorial</a> or
-<a class="next-topic-btn" href="/docs/cpp/config-mingw.md#_prerequisites">Installing MinGW Tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-msvc">Installing MSVC Tutorial</a> or
+<a class="next-topic-btn" href="/docs/cpp/config-mingw">Installing MinGW Tutorial</a>
 - Linux:
-<a class="next-topic-btn" href="/docs/cpp/config-linux#_prerequisites.md">Installing GCC Tutorial</a>
+<a class="next-topic-btn" href="/docs/cpp/config-linux">Installing GCC Tutorial</a>
 - macOS:
- <a class="next-topic-btn" href="/docs/cpp/config-clang-mac.md#_prerequisites">Installing Clang Tutorial</a>
+ <a class="next-topic-btn" href="/docs/cpp/config-clang-mac">Installing Clang Tutorial</a>
 
 > **Note**: If you would prefer a full Integrated Development Environment (IDE), with built-in compilation, debugging, and project templates (File > New Project), there are many options available, such as the [Visual Studio Community](https://visualstudio.microsoft.com/vs/community) edition.
 
