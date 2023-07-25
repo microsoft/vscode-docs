@@ -58,7 +58,7 @@ If you don't have a compiler installed, you can follow one of our installation t
 <a class="next-topic-btn" href="/docs/cpp/config-mingw.md#_prerequisites">Installing MinGW Tutorial</a>
 - Linux:
 <a class="next-topic-btn" href="/docs/cpp/config-linux#_prerequisites.md">Installing GCC Tutorial</a>
-- Mac:
+- macOS:
  <a class="next-topic-btn" href="/docs/cpp/config-clang-mac.md#_prerequisites">Installing Clang Tutorial</a>
 
 > **Note**: If you would prefer a full Integrated Development Environment (IDE), with built-in compilation, debugging, and project templates (File > New Project), there are many options available, such as the [Visual Studio Community](https://visualstudio.microsoft.com/vs/community) edition.
@@ -107,7 +107,7 @@ To make sure the compiler is installed and configured correctly, lets create a H
 
 ### Create a C++ file
 
-1. On Windows, launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar). On Mac and Linux, you can enter these commands in the terminal.
+1. On Windows, launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar). On macOS and Linux, you can enter these commands in the terminal.
 1. Run the following commands. They are creating an empty folder called `projects` where you can place all your VS Code projects. The next commands create and navigate you to a subfolder called `helloworld`. From there, you are opening `helloworld` directly in VS Code using the `code` command.
 
 ```bat
