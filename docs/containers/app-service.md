@@ -3,17 +3,17 @@ Order: 8
 Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
-PageTitle: Deploy a containerized app to Azure App Service
+PageTitle: Deploy a containerized app to Azure
 DateApproved: 01/17/2023
-MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service.
+MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service or Azure Container Apps.
 ---
-# Deploy to Azure App Service
+# Deploy a containerized app to Azure
 
 In this guide you will learn how to:
 
 - Create a container image for your application.
 - Push the image to a container registry.
-- Deploy the image to Azure App Service.
+- Deploy the image to Azure App Service or Azure Container Apps.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ If you already have an image, skip this step and proceed to [Push the image to a
 
 ## Push the image to a container registry
 
-Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
+Before deploying the image to an App Service or a Container App, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
 
 1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
 
@@ -64,15 +64,15 @@ Before deploying the image to an App Service, the image must be uploaded to a co
 
     ![Refresh registry](images/app-service/explorer-refresh-registry.png)
 
-## Deploy the image to Azure App Service
+## Deploy the image to Azure
 
-In the previous section, the image is pushed to a remote container registry. Now deploy this image to Azure App Service.
+In the previous section, the image is pushed to a remote container registry. Now deploy this image to Azure App Service or Azure Container Apps.
 
-1. In Docker Explorer, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...**.
+1. In Docker Explorer, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...** or **Deploy Image to Azure Container Apps...**.
 
     ![Deploy to Azure App Service](images/app-service/explorer-deploy-to-app-service.png)
 
-2. When prompted, provide the values for the App Service.
+2. When prompted, provide the values for the App Service or Container App.
     - New web app name: The name must be unique across Azure.
     - Resource group: Select an existing resource group or create a new one.
     - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website; you can use a basic or free plan tier for this tutorial).
@@ -85,7 +85,7 @@ In the previous section, the image is pushed to a remote container registry. Now
 
     ![Deployment complete output](images/app-service/output-appservice-deployment.png)
 
-5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select **Browse Website**.
+5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service or Container App also appears in the Azure view in Visual Studio Code, where you can right-click the website and select **Browse Website**.
 
     ![Web Application](images/app-service/webapp-homepage.png)
 

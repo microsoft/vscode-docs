@@ -23,7 +23,7 @@ Remote development has benefits such as:
 
 ### Example scenario
 
-As an example scenario, you could have different dev environments for Python 2.7 and 3.7. Rather than having to worry about managing different versions of Python on your computer, you can connect to separate environments with the appropriate versions of Python already set up for you.
+As an example scenario, you could have different dev environments for different versions of Python. Rather than having to worry about managing different versions of Python on your computer, you can connect to separate environments with the appropriate versions of Python already set up for you.
 
 Since you may be working with teammates using Linux or deploying to a Linux production environment, you could also connect to development environments that use a different operating system than your own, or harness the power of the Windows Subsystem for Linux.
 

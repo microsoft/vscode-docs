@@ -3,7 +3,7 @@ Order:
 TOCTitle: Requirements
 ContentId: 1D4850EE-85E2-4152-81BE-FECAE62EA99E
 PageTitle: Requirements for Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code hardware and platform (operating system) requirements.
 ---
 # Requirements for Visual Studio Code
@@ -21,8 +21,8 @@ We recommend:
 
 VS Code is supported on the following platforms:
 
-* OS X El Capitan (10.11+)
-* Windows 8.0, 8.1 and 10, 11 (32-bit and 64-bit)
+* Windows 10 and 11 (32-bit and 64-bit)
+* OS X High Sierra (10.13+)
 * Linux (Debian): Ubuntu Desktop 16.04, Debian 9
 * Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 7, Fedora 34
 

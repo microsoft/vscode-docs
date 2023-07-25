@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 11/3/2022
+DateApproved: 3/6/2023
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -62,14 +62,26 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ### Troubleshooting IntelliSense
 
-For autocomplete and IntelliSense issues, check the following causes:
+For help with common Intellisense and Python editing issues, check the table below:
 
-| Cause | Solution |
-| --- | --- |
-| Pylance seems slow or is consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting to see if performance improves. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
-| Pylance is only offering top-level symbol options when adding imports. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).     |
-| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
-| The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+| Problem | Cause | Solution |
+| --- | --- | ---|
+| The path to the Python interpreter is incorrect | The Python extension tries to find and select what it deems the best environment for the workspace. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
+| Import could not be found *(reportMissingImports)* | The package you are trying to import is not installed in the selected Python environment. | First, ensure the package is installed in your environment. If working in a `.py` file, type `python -m pip install {package_name}` in an activated terminal to install a package into your environment. For a Notebook, type `%pip install {package name}` in your code cell. If the package is installed, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command.|
+| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
+| Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
+| You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+
+
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/editing/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
 
 ## Navigation
 
@@ -96,73 +108,74 @@ The import suggestions list is ordered with import statements for packages (or m
 
 Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting.
 
-## Run Selection/Line in Terminal (REPL)
-
-The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
-
-VS Code automatically removes indents based on the first non-empty line of the selection, shifting all other lines left when needed.
-
-Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
-
-The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. (Initial startup might take a few moments especially if the first statement you run is an `import`.)
-
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line isn't run. If you come across this behavior, try the command again when the REPL has finished loading.
-
 ## Formatting
 
 Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
-The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/python/black), or [yapf](https://github.com/google/yapf).
+The Python extension supports source code formatting through formatter extensions, such as [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
+
+### Setting a default formatter
+Once you install a formatter extension, you can select it as the default formatter for Python files in VS Code by following the steps below:
+1. Open a Python file in VS Code
+1. Right click on the editor
+1. Select **Format Document With...**
+1. Select **Configure Default Formater...** from the drop-down menu
+1. Select your preferred formatter extension from the list.
+
+
+Alternatively, you can set it as the default formatter for all Python files by setting `"editor.defaultFormatter"` in your User `settings.json` file, under a `[python]` scope.
+
+For example, to set Black Formatter as the default formatter, add the following setting to your User `settings.json` file:
+
+```
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+```
+
+### Formatting your code
+
+You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
+
+You can also add the following setting to your User `settings.json` file to enable formatting on save for your code:
+
+```
+  "[python]": {
+    "editor.formatOnSave": true
+  }
+```
 
 ### General formatting settings
 
-| Setting<br/>(python.formatting.) | Default value | Description |
+Each formatter extension may have its own settings, but the ones below are supported by both [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter):
+
+| Setting Suffix<br/> | Default value | Description |
 | --- | --- | --- |
-| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8", "yapf", or "black". |
+| args | `[]` | Arguments to be passed to the formatter. Each argument should be passed as a separate string in the array. <br> For example:<br> `black-formatter.args: ["--line-length", "100"]` |
+| importStrategy | `useBundled` | When set to `useBundled`, the extension uses the version of the tool that it ships with. When set to `fromEnvironment`, it attempts to load from your selected Python environment first, otherwise it falls back to the bundled version. |
+| path | `""` | Path to the formatter binary to be used for formatting. **Note:** Using this option may slowdown formatting. |
+| interpreter | `[]` | When set to a path to a Python executable, the extension will use that to launch the formatter server and its subprocesses. |
+| showNotifications | `off`| Controls when notifications are displayed by this extension. Supported values are `off`, `always`, `onError`, and `onWarning`. |
 
-### Formatter-specific settings
-
-The following settings apply to the individual formatters. The Python extension looks for the formatter in the selected interpreter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
-
-| Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
-| --- | --- | --- | --- |
-| autopep8 | pip install --upgrade autopep8 | autopep8Args | autopep8Path |
-| black (see note) | pip install black | blackArgs | blackPath |
-| yapf | pip install yapf | yapfArgs | yapfPath |
-
-> **Note**: By default, the Black formatter can't be installed when a Python 2 environment is active. Attempting to do so may display the message "Formatter black is not installed. Install?". If you try to install Black in response, another message appears saying "Could not find a version that satisfies the requirement black' No matching distribution found for black."
->
-> To work around this issue and use the Black formatter with Python 2, first install Black in a Python 3 environment. Then set the `python.formatting.blackPath` setting to that install location.
-
-When using custom arguments, each top-level element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
-
-```json
-"python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"],
-"python.formatting.blackArgs": ["--line-length", "100"]
-```
-
-In the second example, the top-level element `{based_on_style: chromium, indent_width: 2}` is a single value contained in braces, so the spaces within that value don't delineate a separate element.
 
 ### Troubleshooting formatting
 
 If formatting fails, check the following possible causes:
 
-| Cause | Solution |
+| Problem | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
-| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selected interpreter is, and run `pip install` for the formatter.
-| The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"]`. |
-| Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
+| There are multiple formatters available for Python files | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
+| Format Selection fails with Black Formatter | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave`` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
+| The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
 
 > **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
 
 ## Refactoring
 
-The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, **Rename Module**, and **Sort Imports**.
+The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method** and **Rename Module**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
 
 ### Extract Variable
 
@@ -190,27 +203,13 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 ### Sort Imports
 
-Sort Imports uses the isort package to consolidate specific imports from the same module into a single `import` statement and to organize `import` statements in alphabetical order.
+The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement,  and organizes `import` statements in alphabetical order.
 
-Invoked by:
+You can invoke this by installing an extension that supports sorting imports, then opening the Command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
 
-- Right-click in editor and select **Sort Imports** (no selection is required)
-- Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
-- Assign a keyboard shortcut to the `python.sortImports` command
+> **Tip**: you can assign a keyboard shortcut to the `editor.action.organizeImports` command.
 
 ![Sorting import statements](images/editing/sortImports.gif)
-
-Custom arguments to isort are specified in the `python.sortImports.args` setting, where each top-level element, as separated by spaces on the command line, is a separate item in the array:
-
-```json
-"python.sortImports.args": ["-rc", "--atomic"],
-```
-
-To use a custom isort script, use the `python.sortImports.path` setting to specify the path.
-
-Further configurations can be stored in an `.isort.cfg` file as documented on [isort configuration](https://pycqa.github.io/isort/docs/configuration/config_files.html).
-
-> **Note**: For those migrating from isort4 to isort5, some CLI flags and config options have changed, refer to the project's [isort5 upgrade guide](https://pycqa.github.io/isort/docs/upgrade_guides/5.0.0.html).
 
 ## Next steps
 

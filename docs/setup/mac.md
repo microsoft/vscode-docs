@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -74,9 +74,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Preferences menu
 
-You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md), and [custom keybindings](/docs/getstarted/keybindings.md) available through the **Code** > **Preferences** menu group.
-
-You may see mention of **File** > **Preferences** in documentation, which is the **Preferences** menu group location on Windows and Linux. On a macOS, the **Preferences** menu group is under **Code**, not **File**.
+You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md), and [custom keybindings](/docs/getstarted/keybindings.md) available through the **File** > **Preferences** menu group.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 16
 Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
@@ -135,7 +135,7 @@ One of the first things you may notice is rust-analyzer providing [inlay hints](
 
 ![Rust program with inlay hints displayed](images/rust/inlay-hints.png)
 
-While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`) or use the **Rust Analyzer: Toggle Inlay Hints** command to hide or display this extra information.
+While inlay hints can be helpful for understanding your code, you can also configure the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`).
 
 ### Hover information
 
@@ -195,7 +195,7 @@ The Rust toolset includes linting, provided by rustc and clippy, to detect issue
 
 ![linter warning about an unused variable](images/rust/linter-warning.png)
 
-The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check on Save: Command** (`rust-analyzer.checkOnSave.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
+The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check: Command** (`rust-analyzer.check.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
 
 ## Quick Fixes
 
@@ -231,8 +231,8 @@ The rust-analyzer extension supports debugging Rust from within VS Code.
 
 To start debugging, you will first need to install one of two language extension with debugging support:
 
-* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools)
-* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb)
+* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *on Windows*
+* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *on macOS/Linux*
 
 If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the VS Code Marketplace when you try to start a debug session.
 

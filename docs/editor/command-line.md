@@ -1,10 +1,10 @@
 ---
-Order: 17
+Order: 19
 Area: editor
 TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line interface
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -72,6 +72,14 @@ Argument|Description
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)
+
+## Select a profile
+
+You can launch VS Code with a specific [profile](/docs/editor/profiles.md) via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+
+`code ~/projects/web-sample --profile "Web Development"`
+
+If the profile specified does not exist, a new empty profile with the given name is created.
 
 ## Working with extensions
 

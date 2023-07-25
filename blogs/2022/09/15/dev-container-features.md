@@ -61,7 +61,7 @@ If you'd like to not only use publicly available Features but also create your o
 
 ## Authoring
 
-A great place to get started with creating your own Features is the new [Features template](https://github.com/devcontainers/feature-template) repository.  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We'll talk more about publishing in a minute.
+A great place to get started with creating your own Features is the new [Features template](https://github.com/devcontainers/feature-template) repository.  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We'll talk more about publishing in a minute.
 
 The source code of a Feature has two components: An install script (`install.sh`) and a configuration file (`devcontainer-feature.json`).
 
@@ -126,7 +126,7 @@ As an end user, you can further control the order of execution with the `overrid
 
 By default, Features are installed on top of a base image in an order determined as optimal by the implementing tool.
 
-If any of the following properties are provided in the Feature's `devcontainer-feature.json`, or the user's `devcontainer.json`, the order indicated by these propert(ies) are respected (with decreasing precedence).
+If any of the following properties are provided in the Feature's `devcontainer-feature.json`, or the user's `devcontainer.json`, the order indicated by these property(ies) are respected (with decreasing precedence).
 
 1. The `overrideFeatureInstallOrder` property in user's `devcontainer.json`. Allows users to control the order of execution of their Features.
 2. The `installsAfter` property defined as part of a Feature's `devcontainer-feature.json`.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -77,7 +77,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLght": "#feedc3",
+          "highContrastLight": "#feedc3",
         }
       }
     ]
@@ -240,7 +240,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 
 ```json
 {
-  "gitMagic.blame.heatmap.enabled": {
+  "gitMagic.blame.heatMap.enabled": {
     "description": "Specifies whether to provide a heatmap indicator in the gutter blame annotations"
   }
 }
@@ -309,7 +309,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 
 ```json
 {
-  "gitMagic.blame.heatmap.location": {
+  "gitMagic.blame.heatMap.location": {
     "type": "string",
     "default": "right",
     "enum": ["left", "right"],
@@ -500,7 +500,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
     You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
@@ -725,7 +725,7 @@ The main effects of `contributes.languages` are:
 
 - Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
-- Associate file name extensions (`extensions`), file names (`filenames`), file name glob patterns (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
+- Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 - Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
 

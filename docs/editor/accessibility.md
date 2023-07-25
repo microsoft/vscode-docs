@@ -1,10 +1,10 @@
 ---
-Order: 20
+Order: 22
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -29,7 +29,7 @@ When you adjust the zoom level with the **View** > **Zoom In / Out** commands, t
 
 ## High Contrast theme
 
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
@@ -39,7 +39,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -57,7 +57,7 @@ The default Color Theme for VS Code is **Dark+**. However, you can customize bot
 
 >**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+To customize the error/warning squigglies, go to **File** > **Preferences** > **Settings** to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
@@ -94,7 +94,7 @@ The accessibility of colors is subjective to the type of anomalous trichromacy (
 
 One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
 
-![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
+![A color wheel highlighting complementary colors for regular vision, deuteranopia, protanopia, tritanopia and monochromacy](images/accessibility/accessibility-color-wheels.png)
 
 >**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
@@ -102,9 +102,9 @@ One of the best approaches to selecting the best colors for a specific condition
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
 
-VS Code also has many preset keyboard shortcuts for commands. These are displayed to the right of the command in the **Command Palette**.
+VS Code also has many preset keyboard shortcuts for commands.
 
-![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
+![Keybindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
@@ -120,11 +120,15 @@ You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbs
 
 All elements in the workbench support tab navigation, but workbench toolbars and tab lists have only one tab stop, to avoid having too many. Once the focus is on a toolbar or a tab list, you can use the arrow keys to navigate within them.
 
+> **Note**: Tab navigation goes in the visually natural order, with the exception of WebViews (like Markdown preview). For WebViews, we recommend using the `kb(workbench.action.focusNextPart)` and `kb(workbench.action.focusPreviousPart)` commands to navigate between the WebViews and the rest of the workbench. Alternatively, you can use one of many Focus Editor commands.
+
 ## Tab trapping
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kb(editor.action.toggleTabFocusMode)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
 
-![tab moves focus](images/accessibility/tab-moves-focus.png)
+Tab trapping also exists in the integrated terminal. The default behavior for each feature can be configured with `editor.tabFocusMode` and `terminal.integrated.tabFocusMode`.
+
+![A Tab moves focus status bar item shows when the mode is active](images/accessibility/tab-moves-focus.png)
 
 You can also toggle `kbstyle(Tab)` trapping from the **Command Palette** (`kb(workbench.action.showCommands)`) with the **Toggle Tab Key Moves Focus** action.
 
@@ -144,25 +148,35 @@ The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.nex
 
 ## Accessibility help
 
-You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
+The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, chat panel, and inline chat features.
 
-![accessibility status](images/accessibility/status.png)
+You can dismiss the accessibility help menu or open additional documentation, if any, from within the help menu.
+
+![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+
+### Accessible view
+
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works when a hover or chat panel response is focused.
 
 ## Screen reader mode
 
-When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text.
+When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
 
-![screen reader optimized mode](images/accessibility/screen-reader-mode.png)
+![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 
 Certain features such as folding and minimap (code overview) are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
 
 ## Terminal accessibility
 
-Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
+Terminal accessibility help can be accessed via `kb(editor.action.accessibilityHelp)`, which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+
+A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 
 ### Shell integration
 
 The terminal has a feature called [shell integration](/docs/terminal/shell-integration.md) that enables many additional features that are not found in other terminals. When using a screen reader, the [Run Recent Command](/docs/terminal/shell-integration.md#run-recent-command) and [Go to Recent Directory](/docs/terminal/shell-integration.md#go-to-recent-directory) features are particularly useful.
+
+Another shell integration powered command, **Terminal: Navigate Accessible Buffer** (`kb(workbench.action.terminal.navigateAccessibleBuffer)`), enables navigation between terminal commands similar to how editors can be navigated with **Go to Symbol in Editor...**.
 
 ### Minimum contrast ratio
 
@@ -172,7 +186,7 @@ Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powe
 
 ## Status Bar accessibility
 
-Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
+Once focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
 ### Diff editor accessibility
 

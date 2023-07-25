@@ -118,7 +118,7 @@ cd helloworld
 code .
 ```
 
-The "code. " command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 Now create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 
@@ -190,6 +190,16 @@ To install support for Remote Development:
 1. If the remote source files are hosted in WSL, use the **WSL** extension.
 1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
 1. If the remote source files are hosted in a container (for example, Docker), use the **Dev Containers** extension.
+
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/cpp/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
 
 ## Feedback
 

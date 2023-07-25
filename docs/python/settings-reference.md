@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 10/12/2022
+DateApproved: 3/6/2023
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,13 +24,15 @@ For general information about working with settings in VS Code, refer to [User a
 | pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
 | venvFolders | `[]` | Paths to folders where virtual environments are created. <br> Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
 | envFile | `"${workspaceFolder}/`<br/>`.env"` | Absolute path to a file containing environment variable definitions. <br> See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
-| globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. <br> For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
+| globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. <br> For more information on the `--user` argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
 | poetryPath | `"poetry"` | Specifies the location of the [Poetry dependency manager](https://poetry.eustace.io/) executable, if installed. The default value `"poetry"` assumes the executable is in the current path. <br> The Python extension uses this setting to install packages when Poetry is available and there's a `poetry.lock` file in the workspace folder. |
-| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**.<br> In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). <br> For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. <br> Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
+| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**.<br> In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). <br> For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. <br> Note that VS Code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created.<br> For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
 | terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
+| terminal.focusAfterLaunch | `false` | Whether to switch the cursor focus to the terminal when launching a Python terminal. |
 | logging.level| `error` | Specifies the level of logging to be performed by the extension.<br> The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`.<br> When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension.<br> At the `error` level, basic information and errors will be shown.<br> At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
+| experiments.enabled | `true` |  Enables [A/B experiments in the Python extension](https://aka.ms/AAjvt9q). If enabled, you may be provided with proposed enhancements and/or features. |
 
 ## Code analysis settings
 
@@ -60,13 +62,19 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | extraPaths | [] | Specifies extra search paths for import resolution. <br> Accepts paths specified as strings and separated by commas if there are multiple paths. For example: `["path 1","path 2"]`. |
 | indexing | true | Used to specify whether Pylance should index user files as well as installed third party libraries at start up, to provide a more complete set of symbols in features such as auto imports, Quick Fixes, auto completions, etc. <br> Accepted values are `true` or `false`. <br> When set to `true`, by default Pylance indexes top-level symbols of installed packages (i.e., symbols in `__all__` under `package/__init__.py`), as well as all symbols from up to 2000 user files. <br> When set to `false`, Pylance will only display symbols already referenced or used in files that were previously opened in or loaded by the editor.    |
 | packageIndexDepths | [] |  Used to override how many levels under installed packages to index on a per package basis. <br> By default, only top-level modules are indexed (depth = 1). <br> To index submodules, increase depth by 1 for each level of submodule you want to index. <br> Accepted values are tuples of objects like ```{"name": "package name (str)", "depth": "depth to scan (int)", "includeAllSymbols": "whether to include all symbols (bool)"}```. <br> If `includeAllSymbols` is set to `false`, only symbols in each package's `__all__` are included. When it's set to `true`, Pylance will index every module/top level symbol declarations in the file. <br> Usage example: ```[{"name": "sklearn", "depth": 2, "includeAllSymbols": true}, {"name": "matplotlib", "depth": 3, "includeAllSymbols": false}]``` |
+| userFileIndexingLimit | 2000 | Sets the maximum number of user files for Pylance to index in the workspace. When set to -1, Pylance will index all files. <br> Note that indexing files is a performance-intensive task. |
+| autoFormatStrings | false | When typing "{" inside a string, whether to automatically prefix it with an "f". |
 | completeFunctionParens | false | Adds parentheses to function completions. Accepted values are `true` and `false`. |
 | useLibraryCodeForTypes | true | Parses the source code for a package when a type stub is not found. Available values are `true` and `false`. |
 | autoImportCompletions | false | Controls the offering of auto imports in completions. Available values are `true` and `false`. |
 | importFormat | `absolute`| Defines the default format when auto importing modules. Accepted values are `absolute` or `relative`. |
 | inlayHints.variableTypes | false | Whether to display inlay hints for variable types. Accepted values are `true` or `false`. |
 | inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.  Accepted values are `true` or `false`. |
+| inlayHints.callArgumentNames | false |  Whether to display inlay hints for call argument names.  Accepted values are `true` or `false`. |
+| inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
+| fixAll | `[]` | A list of code actions to run when running the **Fix All** command or the `source.fixAll` code action. <br> Accepted values in this list: <ul><li> `source.unusedImports`: removes all unused imports in the open file</li> <li> `source.convertImportFormat`: converts the imports according to the `python.analysis.importFormat` setting </li> |
+| logLevel | `Error` | Specifies the level of logging to be performed by the language server.<br> The possible levels of logging, in increasing level of information provided, are `Error`, `Warning`, `Information`, and `Trace`.|
 
 **Diagnostic severity rules**
 
@@ -131,125 +139,11 @@ This section details all the available rules that can be customized using the `p
 | reportUnsupportedDunderAll | Diagnostics for unsupported operations performed on `__all__`. |
 | reportUnusedCoroutine | Diagnostics for call expressions that return a Coroutine and whose results are not consumed. |
 
-#### Jedi Language Server
-
-The language server settings apply when `python.languageServer` is `Jedi`.
-| Setting | Default | Description |
-| --- | --- | --- |
-| jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
-| jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024 MB. -1 disables the memory limit check. |
-
 ## AutoComplete settings
 
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
-
-## Formatting settings
-
-| Setting<br/>(python.formatting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8", "black", or "yapf". |[Editing - Formatting](/docs/python/editing.md#formatting) |
-| autopep8Path | `"autopep8"` | Path to autopep8 | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| autopep8Args| `[]` | Arguments for autopep8, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| blackPath | `"black"` | Path to black | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| blackArgs| `[]` | Arguments for black, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| yapfPath | `"yapf"` | Path to yapf | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| yapfArgs| `[]` | Arguments for yapf, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-
-## Refactoring - Sort Imports settings
-
-| Setting<br/>(python.sortImports.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| path | `""` | Path to isort script | [Editing - Refactoring - Sort Imports](/docs/python/editing.md#sort-imports) |
-| args | `[]` | Arguments for isort, each argument as a separate item in the array. | [Editing - Refactoring - Sort Imports](/docs/python/editing.md#sort-imports) |
-
-## Linting settings
-
-### General linting
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| enabled | `true` | Specifies whether to enable linting in general. | [Linting](/docs/python/linting.md) |
-| lintOnSave | `true` | Specifies whether to lint when saving a file. | [Linting](/docs/python/linting.md) |
-| maxNumberOfProblems | `100` | Limits the number of linting messages shown. | [Linting](/docs/python/linting.md) |
-| ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]` | Exclude file and folder patterns. | [Linting](/docs/python/linting.md) |
-
-### Pylint
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pylintEnabled | `true` | Specifies whether to enable Pylint. | [Linting](/docs/python/linting.md) |
-| pylintArgs | `[]` | Additional arguments for Pylint, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pylintPath | `"pylint"` | The path to Pylint. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.convention | `"Information"` | Mapping for Pylint convention message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.refactor | `"Hint"` | Mapping for Pylint refactor message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.warning | `"Warning"` | Mapping for Pylint warning message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.error | `"Error"` | Mapping for Pylint error message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.fatal | `"Error"` | Mapping for Pylint fatal message to VS Code type. | [Linting](/docs/python/linting.md) |
-
-### pycodestyle (pep8)
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pycodestyleEnabled | `false` | Specifies whether to enable pycodestyle. | [Linting](/docs/python/linting.md) |
-| pycodestyleArgs | `[]` | Additional arguments for pycodestyle, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pycodestylePath | `"pycodestyle"` | The path to pycodestyle. | [Linting](/docs/python/linting.md) |
-| pycodestyleCategorySeverity.W | `"Warning"` | Mapping for pycodestyle W message to VS Code type.| [Linting](/docs/python/linting.md) |
-| pycodestyleCategorySeverity.E | `"Error"` | Mapping for pycodestyle E message to VS Code type.| [Linting](/docs/python/linting.md) |
-
-### Flake8
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| flake8Enabled | `false` | Specifies whether to enable flake8. | [Linting](/docs/python/linting.md) |
-| flake8Args | `[]` | Additional arguments for flake8, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| flake8Path | `"flake8"` | The path to flake8. | [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.F | `"Error"` | Mapping for flake8 F message to VS Code type.| [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.E | `"Error"` | Mapping for flake8 E message to VS Code type.| [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.W | `"Warning"` | Mapping for flake8 W message to VS Code type.| [Linting](/docs/python/linting.md) |
-
-### mypy
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| mypyEnabled | `false` | Specifies whether to enable mypy. | [Linting](/docs/python/linting.md) |
-| mypyArgs | `["--ignore-missing-imports", "--follow-imports=silent"]` | Additional arguments for mypy, where each top-level element that's separated by a space is a separate item in the list. |[Linting](/docs/python/linting.md) |
-| mypyPath | `"mypy"` | The path to mypy. | [Linting](/docs/python/linting.md) |
-| mypyCategorySeverity.error | `"Error"` | Mapping for mypy error message to VS Code type. | [Linting](/docs/python/linting.md) |
-| mypyCategorySeverity.note | `"Information"` | Mapping for mypy note message to VS Code type. | [Linting](/docs/python/linting.md) |
-
-### pydocstyle
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pydocstyleEnabled | `false` | Specifies whether to enable pydocstyle. | [Linting](/docs/python/linting.md) |
-| pydocstyleArgs | `[]` | Additional arguments for pydocstyle, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pydocstylePath | `"pydocstyle"` | The path to pydocstyle. | [Linting](/docs/python/linting.md) |
-
-### prospector
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| prospectorEnabled | `false` | Specifies whether to enable prospector. | [Linting](/docs/python/linting.md) |
-| prospectorArgs | `[]` | Additional arguments for prospector, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| prospectorPath | `"prospector"` | The path to prospector. | [Linting](/docs/python/linting.md) |
-
-### pylama
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pylamaEnabled | `false` | Specifies whether to enable pylama. | [Linting](/docs/python/linting.md) |
-| pylamaArgs | `[]` | Additional arguments for pylama, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
-| pylamaPath | `"pylama"` | The path to pylama. | [Linting](/docs/python/linting.md) |
-
-### bandit
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| banditEnabled | `false` | Specifies whether to enable bandit. | [Linting](/docs/python/linting.md) |
-| banditArgs | `[]` | Additional arguments for bandit, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
-| banditPath | `"bandit"` | The path to bandit. | [Linting](/docs/python/linting.md) |
 
 ## Testing settings
 

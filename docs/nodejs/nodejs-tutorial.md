@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes_node.png
 ---
@@ -200,6 +200,7 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 
+* [Node.js profile template](/docs/editor/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
 * [Settings](/docs/getstarted/settings.md) - Learn how to customize VS Code for how you like to work.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 * [Video: Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -16,37 +16,128 @@ For example, VS Code uses when clauses to enable or disable command keybindings,
                    "when": "debuggersAvailable && !inDebugMode" },
 ```
 
-Above the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false).
+Above, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context key `debuggersAvailable` is true) and the editor isn't in debug mode (context key `inDebugMode` is false).
 
 ## Conditional operators
 
-For conditional expressions, you can use the following conditional operators:
+A when clause can consist of a context key (for example, `inDebugMode`) or can use various operators to express more nuanced editor state.
+
+### Logical operators
+
+Logical operators allow combining simple context keys or when-clause expressions that include other logical, equality, comparison, match, `in`/`not in` operators or parenthesized expressions.
 
 Operator | Symbol | Example
 -------- | ------ | -----
-Equality | `==` | `"editorLangId == typescript"`
-Inequality | `!=` | `"resourceExtname != .js"`
-Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
+Not | `!` | `"!editorReadonly"` or <code>"!(editorReadonly \|\| inDebugMode)"</code>
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Not | `!` | `!editorReadonly`
+Or | <code>\|\|</code> | `"isLinux`<code> \|\| </code>`isWindows"`
+
+Note on logical operator precedence: the above table lists operators in order of highest to lowest precedence. Examples:
+
+Written as                             | Interpreted as
+---------------------------------------|-----------------------------------------
+`!foo && bar`                          | `(!foo) && bar`
+<code>!foo \|\| bar </code>            | `(!foo) \|\| bar`
+<code>foo \|\| bar && baz </code>      | <code>foo \|\| (bar && baz)</code>
+<code>!foo && bar \|\| baz </code>     | <code>(!foo && bar) \|\| baz</code>
+<code>!(foo \|\| bar) && baz </code>   | <code>(remains same) !(foo \|\| bar) && baz</code>
+
+### Equality operators
+
+You can check for equality of a context key's value against a specified value. Note that the right-hand side is a value and not interpreted as a context key, meaning it is not looked up in the context.
+
+Operator   | Symbol | Example
+--------   | ------ | -----
+Equality   | `==`   | `"editorLangId == typescript"` or `"editorLangId == 'typescript'"`
+Inequality | `!=`   | `"resourceExtname != .js"` or `"resourceExtname != '.js'"`
+
+Notes:
+
+* If the value on the right-hand side is a string containing whitespace, it must be wrapped in single-quotes - `"resourceFilename == 'My New File.md'"`.
+* `===` has the same behavior as `==`, and `!==` has the same behavior as `!=`
+
+### Comparison operators
+
+You can compare a context key's value against a number. Note that left- and right-hand side of the operator must be separated by whitespace - `foo < 1`, but not `foo<1`.
+
+Operator | Symbols | Example
+-------- | ------ | -----
+Greater than | `>`, `>=` | `"gitOpenRepositoryCount >= 1"` but not `"gitOpenRepositoryCount>=1"`
+Less than | `<`, `<=` | `"workspaceFolderCount < 2"` but not `"workspaceFolderCount<2"`
+
+### Match operator
+
+(previous name: key-value pair match operator)
+
+Operator | Symbol | Example
+-------- | ------ | -----
 Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
-Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
-Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
 
-### key-value when clause operator
-
-There is a key-value pair match operator for `when` clauses. The expression `key =~ value` treats the right-hand side as a regular expression to match against the left-hand side. For example, to contribute context menu items for all Docker files, one could use:
+There is a match operator (`=~`) for when clauses. The expression `key =~ regularExpressionLiteral` treats the right-hand side as a regular expression literal to match against the left-hand side. For example, to contribute context menu items for all Docker files, one could use:
 
 ```json
    "when": "resourceFilename =~ /docker/"
 ```
 
-## Available contexts
+Notes:
 
-Below are some of the available `when` clause contexts, which evaluate to Boolean true/false.
+* The right-hand side of the `=~` operator follows the same rules as regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)) in JavaScript, except characters need to follow escaping rules both of JSON strings and regular expressions. For example, a regular expression literal to match a substring `file://` would be `/file:\/\//` in JavaScript but `/file:\\/\\//` in a when clause because a backslash needs to be escaped in a JSON string and a slash needs to be escaped in the regular expression pattern.
+* There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
 
-The list here isn't exhaustive and you can find other `when` clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**).
+#### Regular expression flags
+
+It is possible to use flags with the regular expression literals. For example, `resourceFilename =~ /json/i` or `myContextKey =~ /baz/si`.
+
+Supported flags: `i`, `s`, `m`, `u`.
+
+Ignored flags: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
+
+### 'in' and 'not in' conditional operators
+
+The `in` operator for when clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
+
+Operator | Symbol | Example
+-------- | ------ | -----
+In | `in` | `"resourceFilename in supportedFolders"`
+Not in | `not in` | `"resourceFilename not in supportedFolders"`
+
+First, determine which folders should support the command, and the folder name to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
+
+```ts
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
+
+// or
+
+// Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
+// The value must be of a simple type
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
+```
+
+Then, in the `package.json` you could add a menu contribution for the `explorer/context` menu:
+
+```json
+// Note, this assumes you have already defined a command called ext.doSpecial
+"menus": {
+  "explorer/context": [
+    {
+      "command": "ext.doSpecial",
+      "when": "explorerResourceIsFolder && resourceFilename in ext.supportedFolders"
+    }
+  ]
+}
+```
+
+In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext.supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
+
+<!-- TODO@ulugbekna: it would be good to have a section "Examples of more advanced expressions" that would include some examples using multiple operators -->
+
+## Available context keys
+
+<!-- @ulugbekna: should we just mention this list somewhere at the beginning of the page but move the list itself to the bottom as an appendix ? -->
+
+Below are some of the available context keys, which evaluate to Boolean true/false.
+
+The list here isn't exhaustive and you can find other when clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**). You can also identify context keys you are interested in using the [Inspect Context Keys utility](#inspect-context-keys-utility).
 
 Context name | True when
 ------------ | ------------
@@ -155,6 +246,8 @@ Context name | True when
 `activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
 `activeEditorIsPinned` | True when the active editor in a group is pinned.
 `inSearchEditor` | True when focus is inside a search editor.
+`activeWebviewPanelId` | The id of the currently active [webview panel](/api/extension-guides/webview).
+`activeCustomEditorId` | The id of the currently active [custom editor](/api/extension-guides/custom-editors).
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
@@ -171,50 +264,50 @@ focusedView | True when specific view is focused.<br>Example: `"focusedView == '
 
 View identifiers:
 
-* workbench.explorer.fileView - File Explorer
-* workbench.explorer.openEditorsView - Open Editors
-* outline - Outline view
-* timeline - Timeline view
-* workbench.scm - Source Control
-* workbench.scm.repositories - Source Control Repositories
-* workbench.debug.variablesView - Variables
-* workbench.debug.watchExpressionsView - Watch
-* workbench.debug.callStackView - Call Stack
-* workbench.debug.loadedScriptsView - Loaded Scripts
-* workbench.debug.breakPointsView - Breakpoints
-* workbench.debug.disassemblyView - Disassembly
-* workbench.views.extensions.installed - Installed extensions
-* extensions.recommendedList - Recommended extensions
-* workbench.panel.markers.view - Problems
-* workbench.panel.output - Output
-* workbench.panel.repl.view - Debug Console
-* terminal - Integrated Terminal
-* workbench.panel.comments - Comments
+* `workbench.explorer.fileView` - File Explorer
+* `workbench.explorer.openEditorsView` - Open Editors
+* `outline` - Outline view
+* `timeline` - Timeline view
+* `workbench.scm` - Source Control
+* `workbench.scm.repositories` - Source Control Repositories
+* `workbench.debug.variablesView` - Variables
+* `workbench.debug.watchExpressionsView` - Watch
+* `workbench.debug.callStackView` - Call Stack
+* `workbench.debug.loadedScriptsView` - Loaded Scripts
+* `workbench.debug.breakPointsView` - Breakpoints
+* `workbench.debug.disassemblyView` - Disassembly
+* `workbench.views.extensions.installed` - Installed extensions
+* `extensions.recommendedList` - Recommended extensions
+* `workbench.panel.markers.view` - Problems
+* `workbench.panel.output` - Output
+* `workbench.panel.repl.view` - Debug Console
+* `terminal` - Integrated Terminal
+* `workbench.panel.comments` - Comments
 
 ## Visible view container when clause context
 
 You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
 
-Context name | True when
------------- | ------------
-activeViewlet | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
+Context key     | True when
+--------------- | ------------
+activeViewlet   | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel     | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
 activeAuxiliary | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
 
 View container identifiers:
 
-* workbench.view.explorer - File Explorer
-* workbench.view.search - Search
-* workbench.view.scm - Source Control
-* workbench.view.debug - Run
-* workbench.view.extensions - Extensions
-* workbench.panel.markers - Problems
-* workbench.panel.output - Output
-* workbench.panel.repl - Debug Console
-* terminal - Integrated Terminal
-* workbench.panel.comments - Comments
+* `workbench.view.explorer` - File Explorer
+* `workbench.view.search` - Search
+* `workbench.view.scm` - Source Control
+* `workbench.view.debug` - Run
+* `workbench.view.extensions` - Extensions
+* `workbench.panel.markers` - Problems
+* `workbench.panel.output` - Output
+* `workbench.panel.repl` - Debug Console
+* `terminal` - Integrated Terminal
+* `workbench.panel.comments` - Comments
 
-If you want a when clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary`.
+If you want a when clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary` context keys.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
@@ -228,9 +321,9 @@ In a when clause, you can reference a configuration (setting) value by prefixing
 
 ## Add a custom when clause context
 
-If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, you can add your own context with the `setContext` command.
+If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views using a when clause context and none of the existing keys suit your needs, you can add your own context key with the `setContext` command.
 
-The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a when clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
@@ -238,41 +331,9 @@ vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```
 
-## 'in' and 'not in' conditional operators
-
-The `in` operator for `when` clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
-
-First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
-
-```ts
-vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
-
-// or
-
-// Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
-// The value must be of a simple type
-vscode.commands.executeCommand('setContext', 'ext.supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
-```
-
-Then, in the `package.json` you could add a menu contribution for the `explorer/context` menu:
-
-```json
-// Note, this assumes you have already defined a command called ext.doSpecial
-"menus": {
-  "explorer/context": [
-    {
-      "command": "ext.doSpecial",
-      "when": "explorerResourceIsFolder && resourceFilename in ext.supportedFolders"
-    }
-  ]
-}
-```
-
-In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext.supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
-
 ## Inspect Context Keys utility
 
-If you'd like to see all currently active context keys at runtime, you can use the **Developer: Inspect Context Keys** command from the Command Palette (`kb(workbench.action.showCommands)`). **Inspect Context Keys** will display context keys and their values in the VS Code Developer Tools **Console** tab (**Help** > **Toggle Developer Tools**).
+If you would like to see all currently active context keys at runtime, you can use the **Developer: Inspect Context Keys** command from the Command Palette (`kb(workbench.action.showCommands)`). **Inspect Context Keys** will display context keys and their values in the VS Code Developer Tools **Console** tab (**Help** > **Toggle Developer Tools**).
 
 When you run **Developer: Inspect Context Keys**, your cursor will highlight elements in the VS Code UI and when you click on an element, the current context keys and their states will be output as an object to the Console.
 

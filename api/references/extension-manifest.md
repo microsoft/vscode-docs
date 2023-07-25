@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -15,12 +15,12 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 
 | Name                                                    | Required | Type                                       | Details                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------------------------- | :------: | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                                                  |    Y     | `string`                                   | The name of the extension - should be all lowercase with no spaces.                                                                                                                                                                                                                                                    |
+| `name`                                                  |    Y     | `string`                                   | The name of the extension - should be all lowercase with no spaces.<br>The name must be unique to the Marketplace.                                                                                                                                                                                                                                                    |
 | `version`                                               |    Y     | `string`                                   | [SemVer](https://semver.org/) compatible version.                                                                                                                                                                                                                                                                      |
 | `publisher`                                             |    Y     | `string`                                   | The [publisher name](/api/working-with-extensions/publishing-extension#publishing-extensions)                                                                                                                                                                                                          |
 | `engines`                                               |    Y     | `object`                                   | An object containing at least the `vscode` key matching the versions of VS Code that the extension is [compatible](/api/working-with-extensions/publishing-extension#visual-studio-code-compatibility) with. Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`. |
 | `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
-| `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.                                                                                                                                                                                                                                                            |
+| `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.<br>The display name must be unique to the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
 | `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education, Testing]`                                                                                                          |
 | `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.                                                                                                                                   |
@@ -188,7 +188,6 @@ We allow badges from the following URL prefixes:
 - docs.rs
 - flat.badgen.net
 - gemnasium.com
-- githost.io
 - github.com (from Workflows only)
 - gitlab.com
 - godoc.org
@@ -203,7 +202,6 @@ We allow badges from the following URL prefixes:
 - travis-ci.org
 - visualstudio.com
 - vsmarketplacebadges.dev
-- www.bithound.io
 - www.versioneye.com
 
 Note : Replace vsmarketplacebadge.apphb.com badge with vsmarketplacebadges.dev badge.

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d22675fc-6609-43f2-a66b-8f2a52597195
-DateApproved: 12/7/2022
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
@@ -112,7 +112,7 @@ On the other hand, VS Code also offers a set of [Debug Extension API](/api/refer
 
 ## UX Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seamlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Restrictions
 
@@ -123,3 +123,9 @@ There are certain restrictions we impose upon extensions. Here are the restricti
 Extensions have no access to the DOM of VS Code UI. You **cannot** write an extension that applies custom CSS to VS Code or adds an HTML element to VS Code UI.
 
 At VS Code, we're continually trying to optimize use of the underlying web technologies to deliver an always available, highly responsive editor and we will continue to tune our use of the DOM as these technologies and our product evolve. To ensure that extensions cannot interfere with the stability and performance of VS Code, and that we can continue to improve the DOM of VS Code without breaking existing extensions, we run extensions in an [Extension Host](/api/advanced-topics/extension-host) process and prevent direct access to the DOM.
+
+### No custom style sheets
+
+A custom style sheet provided by users or extensions would work against the DOM structure and class names. These are not documented as we consider them internal. To evolve, refactor, or improve VS Code, we need the freedom to make changes to the user interface. Any change to the DOM can break existing custom style sheets, resulting in frustration for style sheet providers and a bad user experience with UI glitches coming from the broken style sheet.
+
+Instead, VS Code aims to provide a well-designed extension API supporting UI customizations. The API is documented, comes with tooling and samples, and is kept stable across all upcoming releases of VS Code.

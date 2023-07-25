@@ -3,5 +3,5 @@ stages:
   jobs:
   - template: ..\jobs\build.yml
     parameters:
-      jobDisplayName: vscode
+      jobDisplayName: vscode-site-prod
       artifactName: vscode-website-prod

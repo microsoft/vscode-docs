@@ -21,12 +21,11 @@ resources:
   pipelines:
     - pipeline: vscode-website-prod
       source: vscode-website (official)
-      trigger:
-        branches:
-          - prod
+      branch: release/prod
+      trigger: true
 
 variables:
-  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
+  WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
   Codeql.enabled: true
   Codeql.SourceRoot: $(Pipeline.Workspace)/vscode-website
   Codeql.TSAEnabled: true

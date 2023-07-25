@@ -58,12 +58,12 @@ In this guide you will learn how to:
      Determining projects to restore...
      All projects are up-to-date for restore.
      net -> C:\source\repos\net\bin\Debug\net7.0\net.dll
-   
+
    Build succeeded.
        0 Warning(s)
        0 Error(s)
-   
-   Time Elapsed 00:00:08.96   
+
+   Time Elapsed 00:00:08.96
    ```
 
 ## Add an environment variable to the image
@@ -173,5 +173,5 @@ You're done! Now that your container is ready, you may want to:
 - [Learn about debugging .NET in a container](/docs/containers/debug-netcore.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
-- [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
+- [Deploy a containerized app to Azure App Service or Azure Container Apps](/docs/containers/app-service.md)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)

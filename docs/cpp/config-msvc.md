@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 5/13/2022
+DateApproved: 3/7/2023
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -29,13 +29,13 @@ To successfully complete this tutorial, you must do the following:
 
    If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and select the **Modify** button in the installer.
 
-   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio 2022** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2022**.
+   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads/#remote-tools-for-visual-studio-2022) page, scroll down until you see **Tools for Visual Studio** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2022**.
 
-   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs.png)
+   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs-2022.png)
 
    This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **Desktop development with C++** workload and select **Install**.
 
-   ![Cpp build tools workload](images/msvc/desktop_development_with_cpp.png)
+   ![Cpp build tools workload](images/msvc/desktop_development_with_cpp-2022.png)
 
 >**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
