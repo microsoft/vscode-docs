@@ -10,7 +10,7 @@ Author: Matt Bierner
 ---
 # Strict null checking Visual Studio Code
 
-May 23, 2019 by Matt Bierner, [@mattbierner](https://twitter.com/mattbierner)
+May 23, 2019 by Matt Bierner, [@mattbierner](https://hachyderm.io/@mattbierner)
 
 ## Safety permits speed
 
@@ -242,4 +242,4 @@ We took this approach with strict null checking VS Code, and will apply it to ot
 Happy Coding,
 
 Matt Bierner, VS Code Team Member
-[@mattbierner](https://twitter.com/mattbierner)
+[@mattbierner](https://hachyderm.io/@mattbierner)
