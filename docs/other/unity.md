@@ -14,7 +14,7 @@ For now, the only officially supported editors are ![Visual Studio](https://visu
 
 # Unity Development with VS Code
 
-Visual Studio Code can be a great companion to Unity for editing C# files. All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
+VS Code can still help you edit Unity C# files. All of the [C#](/docs/languages/csharp.md) features are supported. In the screen below, you can see code colorization, bracket matching, IntelliSense, and CodeLens. And that's just the beginning.
 
 ![Unity Example](images/unity/wow.gif)
 
