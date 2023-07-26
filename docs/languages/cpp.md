@@ -37,6 +37,7 @@ To check if you already have them installed:
 
 1. Open a new VS Code terminal window using (`kb(workbench.action.terminal.new)`)
 2. Use the following command to check for the GCC compiler `g++`:
+
     ```bash
     g++ --version
     ```
@@ -53,13 +54,19 @@ The output should show you the compiler version and details. If neither are foun
 
 If you don't have a compiler installed, you can follow one of our installation tutorials:
 
-- Windows:
-<a class="next-topic-btn" href="/docs/cpp/config-msvc">Installing MSVC Tutorial</a> or
-<a class="next-topic-btn" href="/docs/cpp/config-mingw">Installing MinGW Tutorial</a>
-- Linux:
-<a class="next-topic-btn" href="/docs/cpp/config-linux">Installing GCC Tutorial</a>
-- macOS:
- <a class="next-topic-btn" href="/docs/cpp/config-clang-mac">Installing Clang Tutorial</a>
+**Windows**:
+
+<a class="next-topic-btn" href="/docs/cpp/config-msvc#_prerequisites">Go to the MSVC tutorial</a>
+
+<a class="next-topic-btn" href="/docs/cpp/config-mingw#_prerequisites">Go to the MinGW tutorial</a>
+
+**Linux**:
+
+<a class="next-topic-btn" href="/docs/cpp/config-linux#_prerequisites">Go to the GCC tutorial</a>
+
+**macOS**:
+
+<a class="next-topic-btn" href="/docs/cpp/config-clang-mac#_prerequisites">Go to the Clang tutorial</a>
 
 > **Note**: If you would prefer a full Integrated Development Environment (IDE), with built-in compilation, debugging, and project templates (File > New Project), there are many options available, such as the [Visual Studio Community](https://visualstudio.microsoft.com/vs/community) edition.
 
