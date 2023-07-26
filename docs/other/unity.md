@@ -7,7 +7,7 @@ PageTitle: Visual Studio Code and Unity
 DateApproved: 11/4/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
-# VScode is officially unsupported
+# VS Code is officially unsupported by Unity
 
 ![VScode is officially unsupported by Unity](https://forum.unity.com/threads/update-on-the-visual-studio-code-package.1302621/)
 For now, the only officially supported editors are ![Visual Studio](https://visualstudio.microsoft.com/vs/unity-tools/) and ![Rider](https://www.jetbrains.com/lp/dotnet-unity/).
