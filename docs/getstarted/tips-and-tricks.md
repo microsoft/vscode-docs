@@ -796,10 +796,9 @@ Toggle **inline view** by clicking the **More Actions** (...) button in the top 
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
-**Review pane**
+**Accessible Diff Viewer**
 
-Navigate through diffs with `kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`. This will present them in a unified patch format.
-Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
+Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This will present them in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
 
 ![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
 
