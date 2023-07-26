@@ -60,14 +60,14 @@ Then update the package cache and install the package using `dnf` (Fedora 22 and
 
 ```bash
 dnf check-update
-sudo dnf install code
+sudo dnf install code # or code-insiders
 ```
 
 Or on older versions using `yum`:
 
 ```bash
 yum check-update
-sudo yum install code
+sudo yum install code # or code-insiders
 ```
 
 Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.

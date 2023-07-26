@@ -60,7 +60,7 @@ Additionally, the VS Code team will be online for an **Ask the Team** session on
 In addition to the live sessions, you'll have the opportunity to learn more about VS Code with 6 videos that will be available on-demand on the [Channel 9](https://channel9.msdn.com/Events/Build/2020) website.
 
 * [**Visual Studio Code tips and tricks**](https://aka.ms/Build2020AppDev-VSCodeTips)
-  * Matt Bierner ([@mattbierner](https://twitter.com/mattbierner))
+  * Matt Bierner ([@mattbierner](https://hachyderm.io/@mattbierner))
 * [**What every Visual Studio Code user should know about GitHub**](https://aka.ms/Build2020AppDev-VSCodeAndGitHub)
   * Rachel Macfarlane ([@RMacfarlane](https://github.com/RMacfarlane)), Alex Ross ([@alexr00](https://github.com/alexr00))
 * [**What's New in TypeScript**](https://aka.ms/Build2020AppDev-TypeScript)
