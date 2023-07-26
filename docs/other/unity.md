@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Un
 ![VScode is officially unsupported by Unity](https://forum.unity.com/threads/update-on-the-visual-studio-code-package.1302621/)
 For now, the only officially supported editors are ![Visual Studio](https://visualstudio.microsoft.com/vs/unity-tools/) and ![Rider](https://www.jetbrains.com/lp/dotnet-unity/).
 
-# Unity Development with VS Code
+# Develop Unity C# files with VS Code
 
 VS Code can still help you edit Unity C# files. All of the [C#](/docs/languages/csharp.md) features are supported. In the screen below, you can see code colorization, bracket matching, IntelliSense, and CodeLens. And that's just the beginning.
 
