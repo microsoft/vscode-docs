@@ -51,9 +51,9 @@ The **Manage** gear button displays a badge with the first two letters of the ac
 
 ![Manage gear displaying "DE' to indicate that the user's 'Demo' profile is active](images/profiles/profile-gear-two-letters.png)
 
-### Edit a profile
+### Configure a profile
 
-You can edit a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
+You can configure a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
 
 ### Workspace associations
 
@@ -67,9 +67,9 @@ You can quickly switch between profiles with the **Profiles: Switch Profile** co
 
 You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
 
-### Rename a profile
+### Edit a profile
 
-You can rename an existing profile via the **Rename** command in the Profiles menu.
+You can edit an existing profile via the **Edit** command in the Profiles menu.
 
 ### Delete a profile
 
@@ -93,6 +93,22 @@ A profile can include:
 When you create a new profile based on the Default Profile, the profile-specific configuration files are populated from your user configuration files. Workspace-specific settings are not automatically included in a new profile.
 
 >**Note**: Unchecking an extension in the Profiles view does not remove or disable the extension from the current profile but does remove the extension if you export the profile.
+
+### Applying a setting to all profiles
+
+A setting can be applied to all profiles using the `Apply Setting to All Profiles` action available in the Settings editor.
+
+![Apply setting to all Profiles](images/profiles/profiles_apply_setting.png)
+
+This will apply the value of the setting to all profiles. Any updates to this setting from any profile will be applied to all profiles. You can always revert this by unchecking the `Apply Setting to All Profiles` action.
+
+### Applying an extension to all profiles
+
+An extension can be applied to all profiles by clicking on the `Apply Extension to All Profiles` action in the Extensions view.
+
+![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
+
+This will make this extension available in all profiles. Any updates to this extension from any profile will be applied to all profiles. You can always revert this by unchecking the `Apply Extension to All Profiles` action.
 
 ## Share Profiles
 
