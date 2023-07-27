@@ -368,7 +368,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     //  - legacy: Uses the legacy diffing algorithm.
     //  - advanced: Uses the advanced diffing algorithm.
-    "diffEditor.diffAlgorithm": "legacy",
+    "diffEditor.diffAlgorithm": "advanced",
 
     // When enabled, the diff editor ignores changes in leading or trailing whitespace.
     "diffEditor.ignoreTrimWhitespace": true,
@@ -888,6 +888,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty.
     "editor.rulers": [],
 
+    // Control whether inline suggestions are announced by a screen reader.
+    "editor.screenReaderAnnounceInlineSuggestion": true,
+
     // Controls the visibility of the horizontal scrollbar.
     //  - auto: The horizontal scrollbar will be visible only when necessary.
     //  - visible: The horizontal scrollbar will always be visible.
@@ -1212,12 +1215,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - simple: Assumes that all characters are of the same width. This is a fast algorithm that works correctly for monospace fonts and certain scripts (like Latin characters) where glyphs are of equal width.
     //  - advanced: Delegates wrapping points computation to the browser. This is a slow algorithm, that might cause freezes for large files, but it works correctly in all cases.
     "editor.wrappingStrategy": "simple",
-
-    // Configure if changes crafted in the interactive editor are applied directly to the document or are previewed first.
-    //  - livePreview: Changes are applied directly to the document and are highlighted visually via inline or side-by-side diffs. Ending a session will keep the changes.
-    //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
-    //  - live: Changes are applied directly to the document but can be highlighted via inline diffs. Ending a session will keep the changes.
-    "inlineChat.mode": "livePreview",
 
 // SCM
 
@@ -1670,6 +1667,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the feedback area size in pixels of the dragging area in between views/editors. Set it to a larger value if you feel it's hard to resize views using the mouse.
     "workbench.sash.size": 4,
 
+    // Configure settings to be applied for all profiles.
+    "workbench.settings.applyToAllProfiles": [],
+
     // Determines which settings editor to use by default.
     //  - ui: Use the settings UI editor.
     //  - json: Use the JSON file editor.
@@ -1930,28 +1930,22 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size (in pixels) of the screencast mode keyboard.
     "screencastMode.fontSize": 56,
 
-    // Hide the single editor cursor move commands in screencast mode.
-    "screencastMode.hideSingleEditorCursorMoves": false,
+    // Options for customizing the keyboard overlay in screencast mode.
+    "screencastMode.keyboardOptions": {
+        "showKeys": true,
+        "showCommands": true,
+        "showCommandGroups": false,
+        "showSingleEditorCursorMoves": true
+    },
 
     // Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
     "screencastMode.keyboardOverlayTimeout": 800,
-
-    // Controls what is displayed in the keyboard overlay when showing shortcuts.
-    //  - keys: Keys.
-    //  - command: Command title.
-    //  - commandWithGroup: Command title prefixed by its group.
-    //  - commandAndKeys: Command title and keys.
-    //  - commandWithGroupAndKeys: Command title and keys, with the command prefixed by its group.
-    "screencastMode.keyboardShortcutsFormat": "commandAndKeys",
 
     // Controls the color in hex (#RGB, #RGBA, #RRGGBB or #RRGGBBAA) of the mouse indicator in screencast mode.
     "screencastMode.mouseIndicatorColor": "#FF0000",
 
     // Controls the size (in pixels) of the mouse indicator in screencast mode.
     "screencastMode.mouseIndicatorSize": 20,
-
-    // Show only keyboard shortcuts in screencast mode (do not include action names).
-    "screencastMode.onlyKeyboardShortcuts": false,
 
     // Controls the vertical offset of the screencast mode overlay from the bottom as a percentage of the workbench height.
     "screencastMode.verticalOffset": 20,
@@ -1990,7 +1984,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - focusNoScroll: Files will not be scrolled into view, but will still be focused.
     "explorer.autoReveal": true,
 
-    // Configure glob patterns for excluding files and folders from being revealed and selected in the Explorer when they are opened.
+    // Configure paths or glob patterns for excluding files and folders from being revealed and selected in the Explorer when they are opened.
     "explorer.autoRevealExclude": {
         "**/node_modules": true,
         "**/bower_components": true
@@ -2202,6 +2196,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // The value to send as the `Proxy-Authorization` header for every network request.
     "http.proxyAuthorization": null,
+
+    // Overrides the principal service name for Kerberos authentication with the HTTP proxy. A default based on the proxy hostname is used when this is not set.
+    "http.proxyKerberosServicePrincipal": "",
 
     // Controls whether the proxy server certificate should be verified against the list of supplied CAs.
     "http.proxyStrictSSL": true,
@@ -2477,8 +2474,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable pasting files into a Markdown editor to create Markdown links. Requires enabling `editor.pasteAs.enabled`.
     "markdown.editor.filePaste.enabled": true,
 
-    // Controls if a Markdown link is created when a URL is pasted into the Markdown editor.
-    "markdown.editor.pasteUrlAsFormattedLink.enabled": true,
+    // Controls how a Markdown link is created when a URL is pasted into the Markdown editor. Requires enabling `editor.pasteAs.enabled`.
+    //  - always: Always creates a Markdown link when a URL is pasted into the Markdown editor.
+    //  - smart: Smartly avoids creating a Markdown link in specific cases, such as within code brackets or inside an existing Markdown link.
+    //  - never: Never creates a Markdown link when a URL is pasted into the Markdown editor.
+    "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
 
     // Controls where links in Markdown files should be opened.
     //  - currentGroup: Open links in the active editor group.
@@ -3559,7 +3559,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - both: Use the other two together.
     "terminal.explorerKind": "integrated",
 
-// External Terminal
+// Terminal
 
     // Customizes which terminal to run on Linux.
     "terminal.external.linuxExec": "xterm",
@@ -3570,7 +3570,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Customizes which terminal to run on Windows.
     "terminal.external.windowsExec": "C:\\Windows\\System32\\cmd.exe",
 
-// Integrated Terminal
+    // When opening a repository from the Source Control Repositories view in a terminal, determines what kind of terminal will be launched
+    //  - integrated: Use VS Code's integrated terminal.
+    //  - external: Use the configured external terminal.
+    //  - both: Use the other two together.
+    "terminal.sourceControlRepositoriesKind": "integrated",
 
     // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
     "terminal.integrated.allowChords": true,
@@ -3905,7 +3909,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
     "terminal.integrated.windowsEnableConpty": true,
 
-    // A string containing all characters to be considered word separators by the double-click to select word feature.
+    // A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection.
     "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’|",
 
 // Tasks
@@ -4345,19 +4349,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether or not position changes should be debounced
     "audioCues.debouncePositionChanges": false,
 
-    // Plays a sound when the focus moves to a deleted line in diff review mode or to the next/previous change.
+    // Plays a sound when the focus moves to a deleted line in Accessible Diff Viewer mode or to the next/previous change.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
     //  - off: Disable audio cue.
     "audioCues.diffLineDeleted": "auto",
 
-    // Plays a sound when the focus moves to an inserted line in diff review mode or to the next/previous change.
+    // Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
     //  - off: Disable audio cue.
     "audioCues.diffLineInserted": "auto",
 
-    // Plays a sound when the focus moves to a modified line in diff review mode or to the next/previous change.
+    // Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
     //  - off: Disable audio cue.
@@ -4491,7 +4495,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to navigate changes in the diff editor when it is focused
     "accessibility.verbosity.diffEditor": true,
 
-    // Provide information about how to access the inline editor chat accessibility help menu when the input is focused
+    // Provide information about how to open the hover in an accessible view.
+    "accessibility.verbosity.hover": true,
+
+    // Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused
     "accessibility.verbosity.inlineChat": true,
 
     // Provide information about how to change a keybinding in the keybindings editor when a row is focused
@@ -4499,6 +4506,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Provide information about how to focus the cell container or inner editor when a notebook cell is focused.
     "accessibility.verbosity.notebook": true,
+
+    // Provide information about how to open the notification in an accessible view.
+    "accessibility.verbosity.notification": true,
 
     // Provide information about how to access the chat help menu when the chat input is focused
     "accessibility.verbosity.panelChat": true,
@@ -4870,7 +4880,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "git.verboseCommit": false,
 
     // Controls whether to query repository rules for GitHub repositories
-    "github.branchProtection": false,
+    "github.branchProtection": true,
 
     // Controls whether to enable automatic GitHub authentication for git commands within VS Code.
     "github.gitAuthentication": true,
