@@ -44,7 +44,7 @@ ssh-keygen -t rsa -b 4096
 * For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
 
     ```
-    chmod 400 `~/.ssh/id_ed25519`
+    chmod 400 ~/.ssh/id_ed25519
     ```
 
 
