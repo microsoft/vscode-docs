@@ -181,7 +181,7 @@ The following keybindings should work in PowerShell when shell integration is en
 
 ## Enhanced accessibility
 
-The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](https://code.visualstudio.com/docs/editor/accessibility#_terminal-accessibility). For example detected commands can be navigated between in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`) and [audio cues](https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) for failed commands turn on.
+The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](https://code.visualstudio.com/docs/editor/accessibility#_terminal-accessibility). For example, detected commands can be navigated between in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`) and an [audio cue] will play (https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) when a command fails.
 
 ## Supported escape sequences
 
