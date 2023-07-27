@@ -192,3 +192,7 @@ VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run
 ### Can I specify the settings location for VS Code in order to have a portable version?
 
 Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+
+### How do I detect when a shell was launched by VS Code?
+
+When VS Code launches it may launch a shell in order to source the "shell environment" to set up tools, this will launch an _interactive login_ shell and fetch its environment. Depending on your shell setup, this may cause problems. For example, it's somewhat unexpected that this is launched as an interactive session which VS Code specifies in order to try align `$PATH` with exactly what would show up in the user's terminal. Since you cannot rely on an interactive check here, VS Code sets the variable `VSCODE_RESOLVING_ENVIRONMENT` to `1` which can be checked to run or not run code in this case.
