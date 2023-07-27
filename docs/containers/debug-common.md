@@ -75,9 +75,9 @@ Example `launch.json` configuration for debugging a Python application:
 
 ## .NET
 
-We offer two ways of building & debugging your project within Docker containers:
+You can choose between two ways of building and debugging your project within Docker containers:
 
-- **With .NET SDK**: If you are familiar with `MSBuild` or want to build a container without a Dockerfile, this is the recommended choice.
+- **With .NET SDK**: This option offers a simplified container debugging experience without the need for a `Dockerfile`. If you are familiar with `MSBuild` or want a straightforward approach, this is the recommended choice.
   >**Note**: This option is only available for .NET SDK 7 and above and uses the `dotnet publish` command to build the image.
 
 - **With a Dockerfile**: If you prefer customizing your project with a `Dockerfile`, choose this option.

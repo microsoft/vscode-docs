@@ -641,6 +641,19 @@ If the user right-clicks inside of the `<textarea>`, they will see:
 
 ![Custom context menus showing in a webview](images/webview/webview-context-menus.png)
 
+Sometimes it can be useful to show a menu on left/primary click. For example, to show a menu on a split button. You can do this by dispatching the `contextmenu` event in an `onClick` event:
+
+```html
+<button data-vscode-context='{"preventDefaultContextMenuItems": true } onClick={(e) => {
+        e.preventDefault();
+        e.target.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
+        e.stopPropagation();
+    }}>Create</button>
+```
+
+![Split button with a menu](images/webview/webview-split-button-menu.png)
+
+
 ## Scripts and message passing
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.
