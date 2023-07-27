@@ -79,7 +79,7 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
 
 For additional customization options, see the documentation on [Tasks](/docs/containers/reference.md) and [Debug containerized apps](/docs/containers/debug-common.md).
 
-## Saving Project File Preference for [.NET SDK Container Build](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container)
+## Saving Project File Preference for .NET SDK Container Build
 
 If you have a workspace folder with multiple .NET project files and you want to exclusively debug one specific project (without being prompted to choose from a list of project files every time you `kb(workbench.action.debug.start)`), you can save your launch profile by following these steps:
 

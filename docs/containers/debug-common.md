@@ -77,10 +77,10 @@ Example `launch.json` configuration for debugging a Python application:
 
 We offer two ways of building & debugging your project within Docker containers:
 
-- **[With .NET SDK](/docs/containers/debug-netcore.md#net-sdk-container-build-debug-without-dockerfile)**: This option offers a simplified container debugging experience without the need for a `Dockerfile`. If you are familiar with `MSBuild` or want a straightforward approach, this is the recommended choice.
->**Note**: This option is only available for .NET SDK 7 and above and uses the `dotnet publish` command to build the image.
+- **With .NET SDK**: This option offers a simplified container debugging experience without the need for a `Dockerfile`. If you are familiar with `MSBuild` or want a straightforward approach, this is the recommended choice.
+  >**Note**: This option is only available for .NET SDK 7 and above and uses the `dotnet publish` command to build the image.
 
-- **[With a Dockerfile](/docs/containers/debug-netcore.md#debug-with-dockerfile)**: If you prefer customizing your project with a `Dockerfile`, choose this option.
+- **With a Dockerfile**: If you prefer customizing your project with a `Dockerfile`, choose this option.
 
 For more details about these two options, refer to [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
 
