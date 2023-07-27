@@ -19,17 +19,26 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
-1. Install the [.NET SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
+1. Install both the .Net 7 and .Net 6 SDKs - <https://dotnet.microsoft.com/en-us/download>, both which include the Runtime and the `dotnet` command.
+2. Crossroad choice between Omnisharp (Unsupported) or C# Devkit (Preview but supported by Microsoft)
+    - Omnisharp: Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
+    - C# Devkit: Install the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the VS Code Marketplace.
 
-1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
+### Windows Only
 
-1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
+- Logout or restart Windows to allow changes to `%PATH%` to take effect.
+- The C# extension no longer ships with Microsoft Build Tools, so they must be installed manually.
+  - Download the [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+  - Install the .NET desktop build tools workload. No other components are required.
 
-   **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+### MacOS Only
 
-1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
-
-1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
+- To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
+- If you aren't using C# Devkit, do the following:
+    1. In your Visual Studio Code (VS Code) user settings, ensure that the configuration `"omnisharp.useModernNet":` is set to `false`. This configuration must be in place to prevent VS Code from utilizing the Mono version included in the official C# extension (specifically, version 6.0.X as of the latest release).
+    2. Upon installing the latest version of Mono directly, set the following configuration value:
+    `"omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current"`
+        - Ensure you replace the provided path with the location where you installed Mono. By doing so, VS Code will strictly utilize the newly installed version of Mono for all operations.
 
 ### Install Build Tools for Visual Studio (Windows only)
 
@@ -48,24 +57,32 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 **Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and macOS. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
 
-## Unity version 2019.2 or above
+## Unity version 2019.2 to 2021.2
 
-[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the [Visual Studio Code Editor package](https://docs.unity3d.com/Manual/com.unity.ide.vscode.html). The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
+Since Unity 2019.2, it is required to use the [Visual Studio Code Editor package](https://docs.unity3d.com/Manual/com.unity.ide.vscode.html) for script editing. This package provides built-in support for opening scripts from Unity and generating `csproj` and `sln` files.
+
+## Unity version 2021.3 to 202x.x
+
+Unity Technologies has dropped official support for the Visual Studio Code Editor package. However, a community-driven fork is available at [Chizaruu/com.tsk.ide.vscode](https://github.com/Chizaruu/com.tsk.ide.vscode). It is recommended to use this fork for script editing with Visual Studio Code in Unity.
+
+## Unity version 2023.1 and later
+
+The Visual Studio Code Editor package has been removed from the Unity Package Registry, starting with Unity 2023.1.
 
 ## Editing Evolved
 
 With the solution file selected, you are now ready to start editing with VS Code. Here is a list of some of the things you can expect:
 
-* Syntax Highlighting
-* Bracket matching
-* IntelliSense
-* Snippets
-* CodeLens
-* Peek
-* Go-to Definition
-* Code Actions/Lightbulbs
-* Go to symbol
-* Hover
+- Syntax Highlighting
+- Bracket matching
+- IntelliSense
+- Snippets
+- CodeLens
+- Peek
+- Go-to Definition
+- Code Actions/Lightbulbs
+- Go to symbol
+- Hover
 
 Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references and more.
 
@@ -77,8 +94,8 @@ If you are installing VS Code for the first time, you might be missing targeting
 
 Targeting pack download links:
 
-* [Windows: .NET Framework 4.7.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net471)
-* [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
+- [Windows: .NET Framework 4.7.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net471)
+- [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
 
 Steps:
 
@@ -140,9 +157,9 @@ You are now ready to code in Visual Studio Code, while getting the same warnings
 
 Read on to learn more about:
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
 
 ## Common questions
 
