@@ -25,7 +25,7 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 ## .NET SDK vs. Dockerfile Build
 
-There are two ways to build and debug your app inside a container: using a Dockerfile or, for .NET 7 and above, without a Dockerfile.
+There are two ways to build and debug your app inside a container: using a Dockerfile or, for .NET 7 and later, without a Dockerfile.
 
 ### .NET SDK Container Build (Debug without `Dockerfile`)
 
