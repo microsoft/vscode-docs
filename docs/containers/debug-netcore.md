@@ -35,7 +35,7 @@ For those seeking a streamlined container debugging experience without the need 
 1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug.
 1. Your .NET app will run in a Docker container, and the web app will open in your browser.
 
-> Note: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
+>**Note**: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 
 
 ### Debug with `Dockerfile`
