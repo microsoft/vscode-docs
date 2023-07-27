@@ -25,17 +25,17 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
 
 ## .NET SDK vs. Dockerfile Build
 
-For those seeking a streamlined container debugging experience without the need for a Dockerfile or who are well-acquainted with MSBuild, the .NET SDK option is the ideal choice. On the other hand, if you feel more at ease working with Dockerfiles, opt for Dockerfile.
+There are two ways to build and debug your app inside a container: using a Dockerfile or, for .NET 7 and above, without a Dockerfile.
 
 ### .NET SDK Container Build (Debug without `Dockerfile`)
 
-1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu. (Make sure you don't have any existing launch profiles in `launch.json`)
+1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu. (If you have any existing launch profiles in `launch.json`, you can comment them out with `kb(editor.action.commentLine)`)
 1. You're prompted with a list of debuggers. Choose **Docker: Debug in Container**
 1. When prompted with options to either build with a `Dockerfile` (**Use a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**), select **Use .NET SDK**.
 1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug.
 1. Your .NET app will run in a Docker container, and the web app will open in your browser.
 
->**Note**: **Supported .NET SDK Versions:** This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
+>**Note**: Supported .NET SDK Versions: This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 
 
 ### Debug with `Dockerfile`
