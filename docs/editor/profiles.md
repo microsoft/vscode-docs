@@ -27,7 +27,15 @@ You can also access the Profile command menu via the **Manage** gear button in t
 
 The **Profiles: Create Profile** command is also available in the Command Palette (`kb(workbench.action.showCommands)`).
 
-Once you choose whether to create a new profile based on the current profile or an empty profile, you are prompted to enter a name for the new profile.
+You can choose to create a new profile by copying from a Profile Template or from an existing profile or create an Empty Profile in the Profile creation dialog.
+
+![Create Profile Dialog](images/profiles/create-profile-dialog.png)
+
+### Partial Profile
+
+A partial profile allows you to customize only a subset of configurations (Settings, Keyboard Shortcuts, Snippets, Tasks & Extensions) and use the rest of the configurations from the Default Profile. For example, you can create a Profile with all configurations except for Keyboard Shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this Profile is active.
+
+![Create Partial Profile Dialog](images/profiles/create-partial-profile-dialog.png)
 
 ### Check the current profile
 
