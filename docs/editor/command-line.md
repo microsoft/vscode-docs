@@ -195,4 +195,6 @@ Not directly through the command line, but VS Code has a [Portable Mode](/docs/e
 
 ### How do I detect when a shell was launched by VS Code?
 
-When VS Code launches it may launch a shell in order to source the "shell environment" to set up tools, this will launch an _interactive login_ shell and fetch its environment. Depending on your shell setup, this may cause problems. For example, it's somewhat unexpected that this is launched as an interactive session which VS Code specifies in order to try align `$PATH` with exactly what would show up in the user's terminal. Since you cannot rely on an interactive check here, VS Code sets the variable `VSCODE_RESOLVING_ENVIRONMENT` to `1` which can be checked to run or not run code in this case.
+When VS Code starts up, it may launch a shell in order to source the "shell environment" to help set up tools. This will launch an **interactive login** shell and fetch its environment. Depending on your shell setup, this may cause problems. For example, it may be unexpected that the shell is launched as an interactive session, which VS Code needs in order to try to align `$PATH` with the exact value in a user created terminal.
+
+Whenever VS Code launches this initial shell, VS Code sets the variable `VSCODE_RESOLVING_ENVIRONMENT` to `1`. If your shell or user scripts need to know if they are being run in the context of this shell, you can check the `VSCODE_RESOLVING_ENVIRONMENT` value.
