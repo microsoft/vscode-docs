@@ -94,10 +94,6 @@ If you're working in a restricted environment, you may need to ensure the VS Cod
 * https://code.visualstudio.com/docs/setup/network#_common-hostnames
 * https://code.visualstudio.com/docs/remote/ssh#_what-are-the-connectivity-requirements-for-the-vs-code-server-when-it-is-running-on-a-remote-machine-vm
 
-### Can I use the Remote Development Extensions or a dev container with the VS Code Server?
-
-Not at this time.
-
 ### Are there any other extension limitations?
 
 Pure UI extensions are not supported when using a web-based instance of VS Code, which you can learn more about in the extension authors [Remote Development](/api/advanced-topics/remote-extensions.md#architecture-and-extension-kinds) guide.
@@ -113,6 +109,8 @@ You will get a notification in VS Code when you connect to your remote machine i
 ### I see an error about keyring storage. What should I do?
 
 Settings Sync requires authentication against a Settings Sync server. The corresponding secret is persisted on the server. This requires to set up a keyring on the server. When the keyring is not set up, the VS Code Server falls back to an in-memory secret stored on the server. In this case, secrets are only persisted during the lifetime of the server.
+
+[This issue](https://github.com/microsoft/vscode-remote-release/issues/8628) provides more context and may help you troubleshoot. If you're still experiencing issues, please feel free to file a new issue in the [VS Code Remote GitHub repo](https://github.com/microsoft/vscode-remote-release/issues).
 
 ### Where can I provide feedback or report an issue?
 
