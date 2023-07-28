@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -50,7 +50,7 @@ You can apply [other properties normally found in launch.json](#launch-configura
 
 **Auto Attach Smart Patterns**
 
-In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/codebasics.md#advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/glob-patterns.md). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
@@ -108,14 +108,14 @@ Below is a reference of common `launch.json` attributes specific to the Node.js 
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
-* `outFiles` - array of glob patterns for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
-* `resolveSourceMapLocations` - an array of glob patterns for locations where source maps should be parsed. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `outFiles` - array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `resolveSourceMapLocations` - an array of [glob patterns](/docs/editor/glob-patterns.md) for locations where source maps should be parsed. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `stopOnEntry` - break immediately when the program launches.
 * `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `remoteRoot` - Node's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `smartStep`- try to automatically step over code that doesn't map to source files. See section [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - automatically skip files covered by these glob patterns. See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+* `skipFiles` - automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:
@@ -576,7 +576,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ## Skipping uninteresting code
 
-VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
+VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (also known as 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of [glob patterns](/docs/editor/glob-patterns.md) for script paths to skip.
 
 For example, using:
 
@@ -589,7 +589,7 @@ For example, using:
 
 all code in the `node_modules` and `lib` folders in your project will be skipped. The `skipFiles` also apply to the location shown when calling `console.log` and similar methods: the first non-skipped location in the stack will be shown beside the output in the Debug Console.
 
-Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
+Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a [glob patterns](/docs/editor/glob-patterns.md). The following example skips all internal modules:
 
 ```json
   "skipFiles": [
@@ -612,7 +612,7 @@ Hovering over the dimmed entries explains why the stack frame is dimmed.
 
 A context menu item on the call stack, **Toggle skipping this file** enables you to easily skip a file at runtime without adding it to your launch config. This option only persists for the current debugging session. You can also use it to stop skipping a file that is skipped by the `skipFiles` option in your launch config.
 
->**Note:** The `legacy` protocol debugger supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
+>**Note:** The `legacy` protocol debugger supports negative [glob patterns](/docs/editor/glob-patterns.md), but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
 
 In the following (`legacy` protocol-only) example all but a 'math' module is skipped:
 

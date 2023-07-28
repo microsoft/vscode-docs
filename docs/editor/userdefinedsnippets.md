@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -35,7 +35,7 @@ If you find an extension you want to use, install it, then restart VS Code and t
 
 ## Create your own snippets
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure User Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
 ![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
@@ -150,7 +150,7 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute as two digits
 * `CURRENT_SECOND` The current second as two digits
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
-* `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HHMM` or `-HHMM` (example `-0700`).
+* `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HH:MM` or `-HH:MM` (example `-07:00`).
 
 For inserting random values:
 

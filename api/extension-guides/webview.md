@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -582,6 +582,77 @@ The following video formats can be used in webviews:
 - VP8
 
 For video files, make sure that both the video and audio track's media formats are supported. Many `.mp4` files for example use `H.264` for video and `AAC` audio. VS Code will be able to play the video part of the `mp4`, but since `AAC` audio is not supported there won't be any sound. Instead you need to use `mp3` for the audio track.
+
+### Context menus
+
+Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points.md#contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
+
+To add a new context menu item to your webview, first add a new entry in `menus` under the new `webview/context` section. Each contribution takes a `command` (which is also where the item's title comes from) and a `when` clause. The [when clause](/api/references/when-clause-contexts) should include `webviewId == 'YOUR_WEBVIEW_VIEW_TYPE'` to make sure the context menus only apply to your extension's webviews:
+
+```json
+"contributes": {
+  "menus": {
+    "webview/context": [
+      {
+        "command": "catCoding.yarn",
+        "when": "webviewId == 'catCoding'"
+      },
+      {
+        "command": "catCoding.insertLion",
+        "when": "webviewId == 'catCoding' && webviewSection == 'editor'"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "command": "catCoding.yarn",
+      "title": "Yarn 🧶",
+      "category": "Cat Coding"
+    },
+    {
+      "command": "catCoding.insertLion",
+      "title": "Insert 🦁",
+      "category": "Cat Coding"
+    },
+    ...
+  ]
+}
+```
+
+Inside of the webview, you can also set the contexts for specific areas of the HTML using the `data-vscode-context` [data attribute](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) (or in JavaScript with `dataset.vscodeContext`). The `data-vscode-context` value is a JSON object that specifies the contexts to set when the user right-clicks on the element. The final context is determined by going from the document root to the element that was clicked.
+
+Consider this HTML for example:
+
+```html
+<div class="main" data-vscode-context='{"webviewSection": "main", "mouseCount": 4}'>
+  <h1>Cat Coding</h1>
+
+  <textarea data-vscode-context='{"webviewSection": "editor", "preventDefaultContextMenuItems": true}'></textarea>
+</div>
+```
+
+If the user right-clicks on the `textarea`, the following contexts will be set:
+
+* `webviewSection == 'editor'` - This overrides `webviewSection` from the parent element.
+* `mouseCount == 4` - This is inherited from the parent element.
+* `preventDefaultContextMenuItems == true` - This is a special context that hides the copy and paste entries that VS Code normally adds to webview context menus.
+
+If the user right-clicks inside of the `<textarea>`, they will see:
+
+![Custom context menus showing in a webview](images/webview/webview-context-menus.png)
+
+Sometimes it can be useful to show a menu on left/primary click. For example, to show a menu on a split button. You can do this by dispatching the `contextmenu` event in an `onClick` event:
+
+```html
+<button data-vscode-context='{"preventDefaultContextMenuItems": true } onClick={(e) => {
+        e.preventDefault();
+        e.target.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
+        e.stopPropagation();
+    }}>Create</button>
+```
+
+![Split button with a menu](images/webview/webview-split-button-menu.png)
+
 
 ## Scripts and message passing
 

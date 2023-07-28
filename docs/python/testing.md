@@ -323,7 +323,7 @@ As you're typing the parameters for your test function, Pylance will offer you a
 
 When hovering over a fixture reference or a parameterized argument reference, Pylance will show the inferred type annotation, either based on the return values of the fixture, or based on the inferred types of the arguments passed to the parameterization decorator.
 
-![Pylance type inference based on the types of arguments passed to the paramaterization decorator.](images/testing/pytest-inferred-parametrized-argument.png)
+![Pylance type inference based on the types of arguments passed to the parameterization decorator.](images/testing/pytest-inferred-parametrized-argument.png)
 
 Pylance also offers [code actions](/docs/editor/refactoring.md#code-actions--quick-fixes-and-refactorings) to add type annotations to test functions that have fixture parameters.  Inlay hints for inferred fixture parameter types can also be enabled by setting `python.analysis.inlayHints.pytestParameters` to `true` in your User settings.
 

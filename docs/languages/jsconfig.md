@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -43,7 +43,7 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute (a glob pattern) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
+The `exclude` attribute (a [glob pattern](/docs/editor/glob-patterns.md)) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
 ```json
 {
@@ -61,7 +61,7 @@ The `exclude` attribute (a glob pattern) tells the language service what files a
 
 ### Using the `"include"` property
 
-Alternatively, you can explicitly set the files in your project using the `include` attribute (a glob pattern). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
+Alternatively, you can explicitly set the files in your project using the `include` attribute (a [glob pattern](/docs/editor/glob-patterns.md)). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
 
 ```json
 {
@@ -99,7 +99,7 @@ You can read more about the available `compilerOptions` in the [TypeScript compi
 
 ## Using webpack aliases
 
-For IntelliSense to work with webpack aliases, you need to specify the `paths` keys with a glob pattern.
+For IntelliSense to work with webpack aliases, you need to specify the `paths` keys with a [glob pattern](/docs/editor/glob-patterns.md).
 
 For example, for alias 'ClientApp':
 

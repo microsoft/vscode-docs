@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -15,7 +15,7 @@ Color themes let you modify the colors in Visual Studio Code's user interface to
 
 ## Selecting the Color Theme
 
-1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Theme** > **Color Theme**. (**Code** > **Preferences** > **Theme** > **Color Theme** on macOS).
+1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Theme** > **Color Theme**.
 2. You can also use the keyboard shortcut `kb(workbench.action.selectTheme)` to display the picker.
 3. Use the cursor keys to preview the colors of the theme.
 4. Select the theme you want and press `kbstyle(Enter)`.
@@ -195,7 +195,7 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ### Selecting the File Icon Theme
 
-1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **Theme** > **File Icon Theme**. (**Code** > **Preferences** > **Theme** > **File Icon Theme** on macOS).
+1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **Theme** > **File Icon Theme**.
 2. You can also use the **Preferences: File Icon Theme** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 3. Use the cursor keys to preview the icons of the theme.
 4. Select the theme you want and hit `kbstyle(Enter)`.

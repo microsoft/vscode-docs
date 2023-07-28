@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -15,7 +15,7 @@ Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), tho
 
 VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
-To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item (**Code** > **Preferences** > **Profiles** > **Create Profile** on macOS).
+To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item.
 
 ![Create Profile command](images/profiles/create-profile.png)
 

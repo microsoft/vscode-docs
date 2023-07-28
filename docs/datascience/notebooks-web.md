@@ -71,7 +71,7 @@ To enter your remote Jupyter server URL with older versions of VS Code and Jupyt
 
 When you're starting your remote server, be sure to:
 
-1. Alow all origins (for example `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally.
+1. Allow all origins (for example `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally.
 2. Set the notebook to listen on all IPs (`--NotebookApp.ip='0.0.0.0'`).
 
 ### Limitations

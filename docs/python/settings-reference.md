@@ -62,12 +62,15 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | extraPaths | [] | Specifies extra search paths for import resolution. <br> Accepts paths specified as strings and separated by commas if there are multiple paths. For example: `["path 1","path 2"]`. |
 | indexing | true | Used to specify whether Pylance should index user files as well as installed third party libraries at start up, to provide a more complete set of symbols in features such as auto imports, Quick Fixes, auto completions, etc. <br> Accepted values are `true` or `false`. <br> When set to `true`, by default Pylance indexes top-level symbols of installed packages (i.e., symbols in `__all__` under `package/__init__.py`), as well as all symbols from up to 2000 user files. <br> When set to `false`, Pylance will only display symbols already referenced or used in files that were previously opened in or loaded by the editor.    |
 | packageIndexDepths | [] |  Used to override how many levels under installed packages to index on a per package basis. <br> By default, only top-level modules are indexed (depth = 1). <br> To index submodules, increase depth by 1 for each level of submodule you want to index. <br> Accepted values are tuples of objects like ```{"name": "package name (str)", "depth": "depth to scan (int)", "includeAllSymbols": "whether to include all symbols (bool)"}```. <br> If `includeAllSymbols` is set to `false`, only symbols in each package's `__all__` are included. When it's set to `true`, Pylance will index every module/top level symbol declarations in the file. <br> Usage example: ```[{"name": "sklearn", "depth": 2, "includeAllSymbols": true}, {"name": "matplotlib", "depth": 3, "includeAllSymbols": false}]``` |
+| userFileIndexingLimit | 2000 | Sets the maximum number of user files for Pylance to index in the workspace. When set to -1, Pylance will index all files. <br> Note that indexing files is a performance-intensive task. |
+| autoFormatStrings | false | When typing "{" inside a string, whether to automatically prefix it with an "f". |
 | completeFunctionParens | false | Adds parentheses to function completions. Accepted values are `true` and `false`. |
 | useLibraryCodeForTypes | true | Parses the source code for a package when a type stub is not found. Available values are `true` and `false`. |
 | autoImportCompletions | false | Controls the offering of auto imports in completions. Available values are `true` and `false`. |
 | importFormat | `absolute`| Defines the default format when auto importing modules. Accepted values are `absolute` or `relative`. |
 | inlayHints.variableTypes | false | Whether to display inlay hints for variable types. Accepted values are `true` or `false`. |
 | inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.  Accepted values are `true` or `false`. |
+| inlayHints.callArgumentNames | false |  Whether to display inlay hints for call argument names.  Accepted values are `true` or `false`. |
 | inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 | fixAll | `[]` | A list of code actions to run when running the **Fix All** command or the `source.fixAll` code action. <br> Accepted values in this list: <ul><li> `source.unusedImports`: removes all unused imports in the open file</li> <li> `source.convertImportFormat`: converts the imports according to the `python.analysis.importFormat` setting </li> |
@@ -141,105 +144,6 @@ This section details all the available rules that can be customized using the `p
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
-
-## Formatting settings
-
-| Setting<br/>(python.formatting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8", "black", or "yapf". |[Editing - Formatting](/docs/python/editing.md#formatting) |
-| autopep8Path | `"autopep8"` | Path to autopep8 | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| autopep8Args| `[]` | Arguments for autopep8, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| blackPath | `"black"` | Path to black | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| blackArgs| `[]` | Arguments for black, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| yapfPath | `"yapf"` | Path to yapf | [Editing - Formatting](/docs/python/editing.md#formatting) |
-| yapfArgs| `[]` | Arguments for yapf, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-
-## Linting settings
-
-### General linting
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| enabled | `true` | Specifies whether to enable linting in general. | [Linting](/docs/python/linting.md) |
-| lintOnSave | `true` | Specifies whether to lint when saving a file. | [Linting](/docs/python/linting.md) |
-| maxNumberOfProblems | `100` | Limits the number of linting messages shown. | [Linting](/docs/python/linting.md) |
-| ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]` | Exclude file and folder patterns. | [Linting](/docs/python/linting.md) |
-
-### Pylint
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pylintEnabled | `true` | Specifies whether to enable Pylint. | [Linting](/docs/python/linting.md) |
-| pylintArgs | `[]` | Additional arguments for Pylint, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pylintPath | `"pylint"` | The path to Pylint. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.convention | `"Information"` | Mapping for Pylint convention message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.refactor | `"Hint"` | Mapping for Pylint refactor message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.warning | `"Warning"` | Mapping for Pylint warning message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.error | `"Error"` | Mapping for Pylint error message to VS Code type. | [Linting](/docs/python/linting.md) |
-| pylintCategorySeverity.fatal | `"Error"` | Mapping for Pylint fatal message to VS Code type. | [Linting](/docs/python/linting.md) |
-
-### pycodestyle (pep8)
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pycodestyleEnabled | `false` | Specifies whether to enable pycodestyle. | [Linting](/docs/python/linting.md) |
-| pycodestyleArgs | `[]` | Additional arguments for pycodestyle, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pycodestylePath | `"pycodestyle"` | The path to pycodestyle. | [Linting](/docs/python/linting.md) |
-| pycodestyleCategorySeverity.W | `"Warning"` | Mapping for pycodestyle W message to VS Code type.| [Linting](/docs/python/linting.md) |
-| pycodestyleCategorySeverity.E | `"Error"` | Mapping for pycodestyle E message to VS Code type.| [Linting](/docs/python/linting.md) |
-
-### Flake8
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| flake8Enabled | `false` | Specifies whether to enable flake8. | [Linting](/docs/python/linting.md) |
-| flake8Args | `[]` | Additional arguments for flake8, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| flake8Path | `"flake8"` | The path to flake8. | [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.F | `"Error"` | Mapping for flake8 F message to VS Code type.| [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.E | `"Error"` | Mapping for flake8 E message to VS Code type.| [Linting](/docs/python/linting.md) |
-| flake8CategorySeverity.W | `"Warning"` | Mapping for flake8 W message to VS Code type.| [Linting](/docs/python/linting.md) |
-
-### mypy
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| mypyEnabled | `false` | Specifies whether to enable mypy. | [Linting](/docs/python/linting.md) |
-| mypyArgs | `["--ignore-missing-imports", "--follow-imports=silent"]` | Additional arguments for mypy, where each top-level element that's separated by a space is a separate item in the list. |[Linting](/docs/python/linting.md) |
-| mypyPath | `"mypy"` | The path to mypy. | [Linting](/docs/python/linting.md) |
-| mypyCategorySeverity.error | `"Error"` | Mapping for mypy error message to VS Code type. | [Linting](/docs/python/linting.md) |
-| mypyCategorySeverity.note | `"Information"` | Mapping for mypy note message to VS Code type. | [Linting](/docs/python/linting.md) |
-
-### pydocstyle
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pydocstyleEnabled | `false` | Specifies whether to enable pydocstyle. | [Linting](/docs/python/linting.md) |
-| pydocstyleArgs | `[]` | Additional arguments for pydocstyle, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pydocstylePath | `"pydocstyle"` | The path to pydocstyle. | [Linting](/docs/python/linting.md) |
-
-### prospector
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| prospectorEnabled | `false` | Specifies whether to enable prospector. | [Linting](/docs/python/linting.md) |
-| prospectorArgs | `[]` | Additional arguments for prospector, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| prospectorPath | `"prospector"` | The path to prospector. | [Linting](/docs/python/linting.md) |
-
-### pylama
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| pylamaEnabled | `false` | Specifies whether to enable pylama. | [Linting](/docs/python/linting.md) |
-| pylamaArgs | `[]` | Additional arguments for pylama, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
-| pylamaPath | `"pylama"` | The path to pylama. | [Linting](/docs/python/linting.md) |
-
-### bandit
-
-| Setting<br/>(python.linting.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| banditEnabled | `false` | Specifies whether to enable bandit. | [Linting](/docs/python/linting.md) |
-| banditArgs | `[]` | Additional arguments for bandit, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
-| banditPath | `"bandit"` | The path to bandit. | [Linting](/docs/python/linting.md) |
 
 ## Testing settings
 

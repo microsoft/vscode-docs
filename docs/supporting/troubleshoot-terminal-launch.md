@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -44,7 +44,7 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
    ![Filter for modified settings](images/troubleshoot-terminal-launch/search-for-modified-settings.png)
 
-   Most Integrated Terminal settings will need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor or with the **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
+   Most Integrated Terminal settings will need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor or with the **Preferences: Open User Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
    ![A user's settings.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
 

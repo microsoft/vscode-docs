@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 7/6/2023
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -123,7 +123,7 @@ You can also configure full file paths to languages if needed. The following exa
 }
 ```
 
-Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+Note that the pattern is a [glob pattern](/docs/editor/glob-patterns.md) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
 ### How do I set the default language for new files?
 
