@@ -154,9 +154,9 @@ You can dismiss the accessibility help menu or open additional documentation, if
 
 ![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
 
-### Accessible view
+## Accessible view
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works when a hover or chat panel response is focused.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works for hovers, notifications, Jupyter notebook output, and chat responses.
 
 ## Screen reader mode
 
