@@ -22,6 +22,10 @@ IntelliSense is a general term for code editing features that relate to code com
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) is the default language server for Python in VS Code, and is installed alongside the Python extension to provide IntelliSense features.
+
+Pylance is based on Microsoft’s [Pyright](https://github.com/microsoft/pyright) static type checking tool, leveraging [type stubs](https://typing.readthedocs.io/en/latest/source/stubs.html) (.pyi files) and lazy type inferencing to provide a highly-performant development experience.
+
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
 > **Tip**: Check out the [IntelliCode extension for VS Code](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
@@ -30,9 +34,10 @@ For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense
 
 Enabling the full set of IntelliSense features by default could end up making your development experience feel slower, so the Python extension enables a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behavior of the analysis engine to your liking through multiple settings.
 
+
 ### Enable Auto Imports
 
-[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
+Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
 
 By default, only top-level symbols/packages are suggested to be auto imported. For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. However, you can customize this behavior through the `python.analysis.packageIndexDepths` setting (check out the [IntelliSense settings documentation](/docs/python/settings-reference.md#pylance-language-server) to learn more). User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor. Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes).
 
@@ -67,10 +72,47 @@ For help with common Intellisense and Python editing issues, check the table bel
 | Problem | Cause | Solution |
 | --- | --- | ---|
 | The path to the Python interpreter is incorrect | The Python extension tries to find and select what it deems the best environment for the workspace. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
-| Import could not be found *(reportMissingImports)* | The package you are trying to import is not installed in the selected Python environment. | First, ensure the package is installed in your environment. If working in a `.py` file, type `python -m pip install {package_name}` in an activated terminal to install a package into your environment. For a Notebook, type `%pip install {package name}` in your code cell. If the package is installed, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command.|
+| Import could not be found *([importSourceResolveFailure](#pylance-diagnostics))* | The package you are trying to import is not installed in the selected Python environment. | First, ensure the package is installed in your environment. If working in a `.py` file, type `python -m pip install {package_name}` in an activated terminal to install a package into your environment. For a Notebook, type `%pip install {package name}` in your code cell. If the package is installed, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command.|
 | Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
 | Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
+
+#### Pylance Diagnostics
+Pylance by default provides diagnostics for Python files in the Problems panel.
+
+The list below are some of the most common diagnostics provided by Pylance and how to fix them.
+
+
+---
+##### `importResolveSourceFailure`
+This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
+
+**How to fix it**
+
+- If the package is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
+- If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
+
+---
+##### `importResolveFailure`
+
+This error happens when Pylance is unable to find the package or module you're importing, nor its type stubs.
+
+**How to fix it**
+- If you are importing a module, make sure it exists in your workspace or in a location that is included in the `python.autoComplete.extraPaths` setting.
+- If you are importing a package that is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
+- If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
+
+---
+##### `importCycleDetected`
+This error occurs when Pylance detects a circular dependency between two or more modules.
+
+**How to fix it**
+
+Try to reorder your import statements to break the circular dependency.
+
+---
+The severiy of Pylance's diagnostics can be customized through the `python.analysis.diagnosticSeverityOverrides` setting. Check the [settings reference](/docs/python/settings-reference.md) for more information.
+
 
 
 ## Enhance completions with AI
