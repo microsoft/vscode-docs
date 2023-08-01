@@ -568,7 +568,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `inlineChatInput.placeholderForeground`: Foreground color of the interactive editor input placeholder.
 - `inlineChatInput.background`: Background color of the interactive editor input.
 - `inlineChatDiff.inserted`: Background color of inserted text in the interactive editor input.
-- `inlineChatrDiff.removed`: Background color of removed text in the interactive editor input.
+- `inlineChatDiff.removed`: Background color of removed text in the interactive editor input.
 
 ## Editor widget colors
 
