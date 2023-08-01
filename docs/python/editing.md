@@ -72,7 +72,7 @@ For help with common Intellisense and Python editing issues, check the table bel
 | Problem | Cause | Solution |
 | --- | --- | ---|
 | The path to the Python interpreter is incorrect | The Python extension tries to find and select what it deems the best environment for the workspace. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
-| Import could not be found *([importSourceResolveFailure](#pylance-diagnostics))* | The package you are trying to import is not installed in the selected Python environment. | First, ensure the package is installed in your environment. If working in a `.py` file, type `python -m pip install {package_name}` in an activated terminal to install a package into your environment. For a Notebook, type `%pip install {package name}` in your code cell. If the package is installed, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command.|
+| Import could not be found *([reportMissingImports](#pylance-diagnostics) or reportMissingModuleSource)*    | The package you are trying to import is not installed in the selected Python environment. | First, ensure the package is installed in your environment. If working in a `.py` file, type `python -m pip install {package_name}` in an activated terminal to install a package into your environment. For a Notebook, type `%pip install {package name}` in your code cell. If the package is installed, ensure you are using the correct environment/interpreter that matches the environment activated in your terminal. To select a new Python interpreter, use the **Python: Select Interpreter** command.|
 | Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
 | Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
@@ -84,7 +84,7 @@ The list below are some of the most common diagnostics provided by Pylance and h
 
 
 ---
-##### `importResolveSourceFailure`
+##### `reportMissingModuleSource`
 This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
 
 **How to fix it**
@@ -93,7 +93,7 @@ This error occurs when Pylance is able to find type stubs for the imported packa
 - If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 
 ---
-##### `importResolveFailure`
+##### `reportMissingImports`
 
 This error happens when Pylance is unable to find the package or module you're importing, nor its type stubs.
 
