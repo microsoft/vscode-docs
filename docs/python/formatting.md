@@ -56,7 +56,7 @@ Each formatter extension may have its own settings, but the ones below are suppo
 | --- | --- | --- |
 | args | `[]` | Arguments to be passed to the formatter. Each argument should be passed as a separate string in the array. <br> For example:<br> `black-formatter.args: ["--line-length", "100"]` |
 | importStrategy | `useBundled` | When set to `useBundled`, the extension uses the version of the tool that it ships with. When set to `fromEnvironment`, it attempts to load from your selected Python environment first, otherwise it falls back to the bundled version. |
-| path | `""` | Path to the formatter binary to be used for formatting. **Note:** Using this option may slowdown formatting. |
+| path | `""` | Path to the formatter binary to be used for formatting. **Note:** Using this option may slow down formatting. |
 | interpreter | `[]` | When set to a path to a Python executable, the extension will use that to launch the formatter server and its subprocesses. |
 | showNotifications | `off`| Controls when notifications are displayed by this extension. Supported values are `off`, `always`, `onError`, and `onWarning`. |
 
