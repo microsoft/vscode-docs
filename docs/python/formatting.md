@@ -67,9 +67,9 @@ If formatting fails, check the following possible causes:
 
 | Problem | Solution |
 | --- | --- |
-| There are multiple formatters available for Python files | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
+| There are multiple formatters available for Python files. | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
-| Format Selection fails with Black Formatter | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave`` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
+| The **Format Selection** command fails when using Black Formatter. | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave`` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 | The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
 
 > **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
