@@ -24,7 +24,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) is the default language server for Python in VS Code, and is installed alongside the Python extension to provide IntelliSense features.
 
-Pylance is based on Microsoft’s [Pyright](https://github.com/microsoft/pyright) static type checking tool, leveraging [type stubs](https://typing.readthedocs.io/en/latest/source/stubs.html) (.pyi files) and lazy type inferencing to provide a highly-performant development experience.
+Pylance is based on Microsoft’s [Pyright](https://github.com/microsoft/pyright) static type checking tool, leveraging [type stubs](https://typing.readthedocs.io/en/latest/source/stubs.html) (`.pyi` files) and lazy type inferencing to provide a highly-performant development experience.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
