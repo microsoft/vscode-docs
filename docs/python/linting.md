@@ -77,8 +77,8 @@ Linters report issues with some predefined severity. This can be changed using `
 
 ## Next steps
 
+- [Formatting](/docs/python/formatting.md) - Learn about how to format your Python code.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.

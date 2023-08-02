@@ -73,3 +73,11 @@ If formatting fails, check the following possible causes:
 | The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
 
 > **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
+
+## Next steps
+
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
