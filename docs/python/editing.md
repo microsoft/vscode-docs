@@ -39,8 +39,6 @@ Enabling the full set of IntelliSense features by default could end up making yo
 
 Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
 
-By default, only top-level symbols/packages are suggested to be auto imported. For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. However, you can customize this behavior through the `python.analysis.packageIndexDepths` setting (check out the [IntelliSense settings documentation](/docs/python/settings-reference.md#pylance-language-server) to learn more). User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor. Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes).
-
 ### Enable IntelliSense for custom package locations
 
 To enable IntelliSense for packages that are installed in non-standard locations, add those locations to the `python.analysis.extraPaths` collection in your `settings.json` file (the default collection is empty). For example, you might have Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case, you'd specify those locations as follows:
@@ -100,71 +98,6 @@ The import suggestions list is ordered with import statements for packages (or m
 
 Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting.
 
-## Formatting
-
-Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
-
-[Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
-
-The Python extension supports source code formatting through formatter extensions, such as [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
-
-### Setting a default formatter
-Once you install a formatter extension, you can select it as the default formatter for Python files in VS Code by following the steps below:
-1. Open a Python file in VS Code
-1. Right click on the editor
-1. Select **Format Document With...**
-1. Select **Configure Default Formater...** from the drop-down menu
-1. Select your preferred formatter extension from the list.
-
-
-Alternatively, you can set it as the default formatter for all Python files by setting `"editor.defaultFormatter"` in your User `settings.json` file, under a `[python]` scope.
-
-For example, to set Black Formatter as the default formatter, add the following setting to your User `settings.json` file:
-
-```
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  }
-```
-
-### Formatting your code
-
-You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
-
-You can also add the following setting to your User `settings.json` file to enable formatting on save for your code:
-
-```
-  "[python]": {
-    "editor.formatOnSave": true
-  }
-```
-
-### General formatting settings
-
-Each formatter extension may have its own settings, but the ones below are supported by both [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter):
-
-| Setting Suffix<br/> | Default value | Description |
-| --- | --- | --- |
-| args | `[]` | Arguments to be passed to the formatter. Each argument should be passed as a separate string in the array. <br> For example:<br> `black-formatter.args: ["--line-length", "100"]` |
-| importStrategy | `useBundled` | When set to `useBundled`, the extension uses the version of the tool that it ships with. When set to `fromEnvironment`, it attempts to load from your selected Python environment first, otherwise it falls back to the bundled version. |
-| path | `""` | Path to the formatter binary to be used for formatting. **Note:** Using this option may slowdown formatting. |
-| interpreter | `[]` | When set to a path to a Python executable, the extension will use that to launch the formatter server and its subprocesses. |
-| showNotifications | `off`| Controls when notifications are displayed by this extension. Supported values are `off`, `always`, `onError`, and `onWarning`. |
-
-
-### Troubleshooting formatting
-
-If formatting fails, check the following possible causes:
-
-| Problem | Solution |
-| --- | --- |
-| There are multiple formatters available for Python files | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
-| Format Selection fails with Black Formatter | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave`` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
-| The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
-
-> **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
-
 ## Refactoring
 
 The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method** and **Rename Module**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
@@ -204,24 +137,25 @@ You can invoke this by installing an extension that supports sorting imports, th
 ![Sorting import statements](images/editing/sortImports.gif)
 
 
-### Troubleshooting IntelliSense
+## Troubleshooting
 
 For help with common Intellisense and Python editing issues, check the table below:
 
 | Problem | Cause | Solution |
 | --- | --- | ---|
-| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
+| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). <br>For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
+| Pylance is not automatically adding missing imports | The auto import completion setting may be disabled. | Check the [Enable Auto Imports section](/docs/python/editing.md#customize-intellisense-behavior). |
+| Auto imports are enabled but Pylance is not automatically importing symbols defined in other files in the workspace. | User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor.<br> Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes). |  Use the add imports Quick Fix, or make sure to open the relevant files in your workspace first.  |
 | Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
-#### Pylance Diagnostics
+### Pylance Diagnostics
 Pylance by default provides diagnostics for Python files in the Problems panel.
 
 The list below are some of the most common diagnostics provided by Pylance and how to fix them.
 
-
 ---
-##### `importResolveSourceFailure`
+#### `importResolveSourceFailure`
 This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
 
 **How to fix it**
@@ -230,7 +164,7 @@ This error occurs when Pylance is able to find type stubs for the imported packa
 - If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 
 ---
-##### `importResolveFailure`
+#### `importResolveFailure`
 
 This error happens when Pylance is unable to find the package or module you're importing, nor its type stubs.
 
@@ -241,7 +175,7 @@ This error happens when Pylance is unable to find the package or module you're i
 - If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files to enhance compability and ensure smoother import behaviour. Learn more [here](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
 
 ---
-##### `importCycleDetected`
+#### `importCycleDetected`
 This error occurs when Pylance detects a circular dependency between two or more modules.
 
 **How to fix it**
