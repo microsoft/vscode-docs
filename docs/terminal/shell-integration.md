@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 7/6/2023
+DateApproved: 8/3/2023
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -178,6 +178,10 @@ The following keybindings should work in PowerShell when shell integration is en
 - `kbstyle(Shift+Enter)`: Defaults to `AddLine` on all platforms
 - `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
 - `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
+
+## Enhanced accessibility
+
+The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/editor/accessibility.md#terminal-accessibility). For example, you can navigate through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`) and an [audio cue](/docs/editor/accessibility.md#audio-cues) plays when a command fails.
 
 ## Supported escape sequences
 
