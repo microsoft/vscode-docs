@@ -14,7 +14,7 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 **✔️ Do**
 
 - Use helpful images to add context to the current Walkthrough step.
-- Make sure images work across different color themes. Use SVGs with VS Code's [Theme Colors](/api/references/theme-color) if possible. The [Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin enables easy theming of SVGs.
+- Make sure images work across different color themes. Use SVGs with VS Code's [Theme Colors](/api/references/theme-color) if possible. The [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin enables easy theming of SVGs.
 - Provide actions (for example, View all Commands) for each step. Use verbs where possible.
 
 ❌ Don't
@@ -28,4 +28,4 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 
 - [Walkthroughs contribution point](/api/references/contribution-points#contributes.walkthroughs)
 - [SVG with Theme Color CSS variable example](https://github.com/microsoft/vscode/blob/a28eab68734e629c61590fae8c4b231c91f0eaaa/src/vs/workbench/contrib/welcomeGettingStarted/common/media/commandPalette.svg?short_path=52f2d6f#L11)
-- [Figma Color Mapper Plugin](https://www.figma.com/community/plugin/1218260433851630449)
+- [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449)
