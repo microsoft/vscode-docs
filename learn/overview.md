@@ -11,7 +11,7 @@ Use it to code in any programming language, without switching editors. Visual St
 
 ## Why VS Code?
 
-<center><img src="/assets/learn/get-started/overview/vscode2.png" alt="VS Code" aria-hidden="true" class="thumb"/></center>
+<center><img src="/images/logo-stable.png" width = "100px" alt="VS Code" aria-hidden="true" class="thumb"/></center>
 
 ### Collaborate and code remotely
 
