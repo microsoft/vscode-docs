@@ -194,41 +194,79 @@ In both cases, you will be prompted to confirm the removal by typing the extensi
 
 ## Deprecating extensions
 
-An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
+You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strikethrough text in the UI:
 
-![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated.png)
+![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated-extension.png)
 
-VS Code will not automatically migrate or uninstall already installed deprecated extensions. Instead it will provide the following Migrate UI:
+Each deprecated extension has a yellow warning icon in the bottom right corner of the extension tile (see the screenshot above). When hovering over the extension tile, you can see deprecation details next to this icon, whether:
 
-![Deprecated extensions showing a migrate button](images/publishing-extension/deprecated-migrate.png)
+- The extension was deprecated without any alternatives:
 
-In order to mark your extension as deprecated, please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
+  ![Deprecated extension without alternatives](images/publishing-extension/deprecated-with-no-alternatives.png)
 
-> **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
+- The extension was deprecated in favor of another extension:
+
+  ![Deprecated extension with an alternative extension](images/publishing-extension/deprecated-with-alternative-extension.png)
+
+- The extension was deprecated in favor of a setting:
+
+  ![Deprecated extension with an alternative setting](images/publishing-extension/deprecated-with-alternative-setting.png)
+
+VS Code will not automatically migrate or uninstall already installed deprecated extensions. If a deprecated extension has an alternative extension, or a setting, VS Code will show a **Migrate** button to help you quickly switch to the specified alternative:
+
+![Deprecated extension with a migrate button](images/publishing-extension/deprecated-migrate-button.png)
+
+To mark your extension as deprecated, please leave a comment in the [Deprecated extensions](https://github.com/microsoft/vscode-discussions/discussions/1) discussion thread.
+
+> **Note:** For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
 
 ## Packaging extensions
 
-If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code Marketplace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
+You can choose to package your extension if you want to:
 
-For extension authors, they can run `vsce package` in extension root folder to create such VSIX files.
+- Test it on your VS Code instance.
+- Distribute it without publishing it to the Marketplace.
+- Share it with others privately.
 
-For users who receive such a VSIX file, they can install the extension with `code --install-extension my-extension-0.0.1.vsix`.
+Packaging means creating a `.vsix` file that contains your extension. This file can then be installed in VS Code. Some extensions publish `.vsix` files as a part of their GitHub releases.
 
-### Sharing privately with others
+For extension authors, to package an extension, run the following command in your extension's root folder:
 
-If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
+```bash
+vsce package
+```
+
+This command will create a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
+
+For users, to install a `.vsix` file in VS Code:
+
+1. Go to the Extensions view.
+1. Click **Views and More Actions...**
+1. Select **Install from VSIX...**
+
+or
+
+in your terminal, run the following command:
+
+```bash
+# if you use VS Code
+code --install-extension my-extension-0.0.1.vsix
+
+# if you use VS Code Insiders
+code-insiders --install-extension my-extension-0.0.1.vsix
+```
 
 ## Your extension folder
 
-To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
+To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your operating system, this folder has a different location:
 
-- **Windows** `%USERPROFILE%\.vscode\extensions`
-- **macOS** `~/.vscode/extensions`
-- **Linux** `~/.vscode/extensions`
+- **Windows:** `%USERPROFILE%\.vscode\extensions`
+- **macOS:** `~/.vscode/extensions`
+- **Linux:** `~/.vscode/extensions`
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can be done via the `engines.vscode` field inside `package.json`:
+When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` parameter inside `package.json`:
 
 ```json
 {
@@ -238,11 +276,12 @@ When authoring an extension, you will need to describe what is the extension's c
 }
 ```
 
-A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
+- A value of `1.8.0` (without caret) means that your extension is compatible only with VS Code `1.8.0`.
+- A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` field to make sure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
+You can use the `engines.vscode` parameter to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
 
-For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
+For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
 
 ## Advanced usage
 
