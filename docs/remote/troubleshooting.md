@@ -39,6 +39,24 @@ ssh-keygen -t rsa -b 4096
 
 > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
 
+#### Restrict the permissions on the private key file:
+
+* For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
+
+    ```
+    chmod 400 ~/.ssh/id_ed25519
+    ```
+
+
+* For Windows, run the following command in powershell to grant explicit read access to your username:
+
+    ```
+    icacls "privateKeyPath" /grant <username>:R
+    ```
+
+    Then navigate to the private key file in Windows Explorer, right click and select properties.
+    Click the security tab -> Advanced -> Disable Inherited -> remove all inherited permissions
+
 **Authorize your macOS or Linux machine to connect**
 
 Run one of the following commands, in a **local terminal window** replacing user and host name as appropriate to copy your local public key to the SSH host.

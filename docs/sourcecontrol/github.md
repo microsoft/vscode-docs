@@ -98,19 +98,21 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 
 ### Creating Pull Requests
 
-Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
+Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
 ![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
 
-A new **Create Pull Request** view will be displayed where you can select the repository and branch you'd like your pull request to target as well as fill in details such as the title, description, and whether it is a draft PR. If your repository has a pull request template, this will automatically be used for the description.
+A new **Create view** will be displayed where you can select the base repository and base branch you'd like your pull request to target as well as fill in the title and description. If your repository has a pull request template, this will automatically be used for the description.
+
+Use the buttons in the action bar at the top to add **Assignees**, **Reviewers**, **Labels** and a **Milestone**.
 
 ![Create Pull Request view](images/github/create-pull-request-view.png)
 
+The **Create button menu** allows you to select alternative create options, such as **Create Draft** or enable an **Auto-Merge** method.
+
 Once you select **Create**, if you have not already pushed your branch to a GitHub remote, the extension will ask if you'd like to publish the branch and provides a dropdown to select the specific remote.
 
-The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, reviewers, and labels, and merge the PR once it's ready.
-
-After the PR is merged, you'll have the option to delete both the remote and local branch.
+The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
 
 ### Reviewing
 

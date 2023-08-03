@@ -278,6 +278,8 @@ Microsoft ended support and is no longer providing security updates for [Windows
 
 VS Code will no longer provide product updates or security fixes on old Windows versions. VS Code [version 1.70.3](https://code.visualstudio.com/updates/v1_70) is the last available release for Windows 7 users and version 1.79 will be the last available release for Windows 8 and 8.1 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
 
+Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004. The last stable VS Code version to support Windows 32-bit is 1.83 (September 2023). You will need to update to the 64-bit release.
+
 ## Can I run VS Code on old macOS versions?
 
 VS Code desktop versions starting with 1.77 (March 2023) will no longer run on macOS Sierra (version 10.12 and older) and you will need to upgrade to a newer macOS version to use later versions of VS Code.
