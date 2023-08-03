@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 7/6/2023
+DateApproved: 8/3/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
