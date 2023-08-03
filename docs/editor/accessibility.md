@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 7/6/2023
+DateApproved: 8/3/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -144,7 +144,7 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 
 When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
-The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`), when in a diff editor pane, will bring up the Diff Review pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted, or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kbstyle(Shift+Escape)` to dismiss the Diff Review pane.
+The **Go to Next/Previous Difference** actions (`kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`), when in a diff editor pane, will bring up the Accessible Diff Viewer, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted, or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kbstyle(Shift+Escape)` to dismiss the Accessible Diff Viewer.
 
 ## Accessibility help
 
@@ -154,9 +154,9 @@ You can dismiss the accessibility help menu or open additional documentation, if
 
 ![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
 
-### Accessible view
+## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works when a hover or chat panel response is focused.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
 
 ## Screen reader mode
 
@@ -165,6 +165,10 @@ When VS Code detects that a screen reader is being used, it goes into screen rea
 ![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 
 Certain features such as folding and minimap (code overview) are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
+
+## Input control and result navigation
+
+The experience when navigating between an input control (for example, search or filter input) and its results is consistent across the Extensions view, the Keyboard Shortcuts editor, and the Comments, Problems, and Debug Console panels using (`kb(widgetNavigation.focusNext)`) and (`kb(widgetNavigation.focusPrevious)`).
 
 ## Terminal accessibility
 
@@ -190,7 +194,7 @@ Once focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.fo
 
 ### Diff editor accessibility
 
-There is a review pane in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.diffReview.next)`) and **Go to Previous Difference** (`kb(editor.action.diffReview.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
+There is an Accessible Diff Viewer in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.accessibleDiffViewer.next)`) and **Go to Previous Difference** (`kb(editor.action.accessibleDiffViewer.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
 
 ## Debugger accessibility
 

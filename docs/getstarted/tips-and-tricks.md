@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 7/6/2023
+DateApproved: 8/3/2023
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -796,10 +796,9 @@ Toggle **inline view** by clicking the **More Actions** (...) button in the top 
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
-**Review pane**
+**Accessible Diff Viewer**
 
-Navigate through diffs with `kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`. This will present them in a unified patch format.
-Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
+Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This will present them in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
 
 ![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
 
