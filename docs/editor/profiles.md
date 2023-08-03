@@ -33,7 +33,7 @@ You can choose to create a new profile by copying from a Profile Template or fro
 
 ### Partial Profile
 
-A partial profile allows you to customize only a subset of configurations (Settings, Keyboard Shortcuts, Snippets, Tasks & Extensions) and use the rest of the configurations from the Default Profile. For example, you can create a Profile with all configurations except for Keyboard Shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this Profile is active.
+A partial profile allows you to customize only a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
 
 ![Create Partial Profile Dialog](images/profiles/create-partial-profile-dialog.png)
 
@@ -96,19 +96,19 @@ When you create a new profile based on the Default Profile, the profile-specific
 
 ### Applying a setting to all profiles
 
-A setting can be applied to all profiles using the `Apply Setting to All Profiles` action available in the Settings editor.
+A setting can be applied to all profiles using the **Apply Setting to all Profiles** action available in the Settings editor.
 
 ![Apply setting to all Profiles](images/profiles/profiles_apply_setting.png)
 
-This will apply the value of the setting to all profiles. Any updates to this setting from any profile will be applied to all profiles. You can always revert this by unchecking the `Apply Setting to All Profiles` action.
+This will apply the value of the setting to all profiles. Any updates to this setting from any profile will be applied to all profiles. You can always revert this by unchecking the **Apply Setting to all Profiles** action.
 
 ### Applying an extension to all profiles
 
-An extension can be applied to all profiles by clicking on the `Apply Extension to All Profiles` action in the Extensions view.
+An extension can be applied to all profiles by clicking on the **Apply Extension to all Profiles** action in the Extensions view.
 
 ![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
 
-This will make this extension available in all profiles. Any updates to this extension from any profile will be applied to all profiles. You can always revert this by unchecking the `Apply Extension to All Profiles` action.
+This will make this extension available in all profiles. You can always revert this by unchecking the **Apply Extension to all Profiles** action.
 
 ## Share Profiles
 

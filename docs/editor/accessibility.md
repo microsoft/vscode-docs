@@ -154,9 +154,9 @@ You can dismiss the accessibility help menu or open additional documentation, if
 
 ![When triggered in an editor, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
 
-## Accessible view
+## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character, line by line. This currently works for hovers, notifications, Jupyter notebook output, and chat responses.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
 
 ## Screen reader mode
 
@@ -166,7 +166,7 @@ When VS Code detects that a screen reader is being used, it goes into screen rea
 
 Certain features such as folding and minimap (code overview) are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
 
-## Input widget / result navigation
+## Input control and result navigation
 
 The experience when navigating between an input control (for example, search or filter input) and its results is consistent across the Extensions view, the Keyboard Shortcuts editor, and the Comments, Problems, and Debug Console panels using (`kb(widgetNavigation.focusNext)`) and (`kb(widgetNavigation.focusPrevious)`).
 
