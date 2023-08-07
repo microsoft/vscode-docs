@@ -4,11 +4,11 @@ Area: python
 TOCTitle: Formatting
 ContentId: c5039182-eee4-47ff-a2a8-dc28f4bc2cbc
 PageTitle: Formatting Python in Visual Studio Code
-DateApproved: 08/02/2023
+DateApproved: 8/7/2023
 MetaDescription: Formatting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Formatting Python in Visual Studio Code
+# Formatting Python in VS Code
 
 Formatting makes source code easier to read by human beings. By enforcing particular rules and conventions such as line spacing, indents, and spacing around operators, the code becomes more visually organized and comprehensible. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
 
@@ -16,7 +16,7 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 The Python extension supports source code formatting through formatter extensions, such as [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
 
-## Setting a default formatter
+## Set a default formatter
 
 Once you install a formatter extension, you can select it as the default formatter for Python files in VS Code by following the steps below:
 
@@ -36,7 +36,7 @@ For example, to set Black Formatter as the default formatter, add the following 
   }
 ```
 
-## Formatting your code
+## Format your code
 
 You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
 
@@ -60,13 +60,13 @@ Each formatter extension may have its own settings, but the ones below are suppo
 | interpreter | `[]` | When set to a path to a Python executable, the extension will use that to launch the formatter server and its subprocesses. |
 | showNotifications | `off`| Controls when notifications are displayed by this extension. Supported values are `off`, `always`, `onError`, and `onWarning`. |
 
-## Troubleshooting formatting
+## Troubleshoot formatting
 
 If formatting fails, check the following possible causes:
 
 | Problem | Solution |
 | --- | --- |
-| There are multiple formatters available for Python files. | Set the default formatter by following the instructions in [the section above](#setting-a-default-formatter). |
+| There are multiple formatters available for Python files. | Set the default formatter by following the instructions in [the section above](#set-a-default-formatter). |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
 | The **Format Selection** command fails when using Black Formatter. | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 | The document isn't formatted.  | Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
