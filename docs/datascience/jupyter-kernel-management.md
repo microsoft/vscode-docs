@@ -59,9 +59,21 @@ You can create a new session from the server's kernelspec by:
 3. Choose **Existing Jupyter Server**.
 4. Select your server.
 
+## Codespaces Jupyter Server
+
+The **Connect to Codespace** category contains a special type of Jupyter server where you can use remote Jupyter servers powered by [GitHub Codespaces](https://docs.github.com/en/codespaces/overview), a cloud resource that you get [up to 60 hours free](https://github.com/features/codespaces) each month. To use the Codespaces Jupyter server:
+
+1. Install the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces).
+    > **Tip**: If you're on VS Code for the Web ([vscode.dev](https://vscode.dev) or [github.dev](https://github.dev)), this extension is already installed for you. Please ensure that the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) is also installed.
+2. Go to the **Command Palette** (`kb(workbench.action.showCommands)`), select **Codespaces: Sign In** and follow the steps to sign into Codespaces.
+3. Open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook, select **Connect to codespace**.
+    > **Tip**: If you don't see the **Connect to codespace** option, go to the **Command Palette** (`kb(workbench.action.showCommands)`), select **Developer: Reload Window** to reload the window and try again.
+
+It is not required, but you can also manage all your Codespaces and Codespaces Jupyter servers on [GitHub Codespaces page](https://github.com/codespaces). To learn more, head over to the [GitHub docs](https://docs.github.com/en/codespaces/getting-started/understanding-the-codespace-lifecycle).
+
 ## Adding Kernel Options
 
-If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the Command Palette, select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) and [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the **Command Palette** (`kb(workbench.action.showCommands)`), select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 ![More Kernel Sources](images/jupyter-kernel-management/more-kernel-sources.png)
 
