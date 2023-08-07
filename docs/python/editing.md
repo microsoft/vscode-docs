@@ -34,7 +34,6 @@ For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense
 
 Enabling the full set of IntelliSense features by default could end up making your development experience feel slower, so the Python extension enables a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behavior of the analysis engine to your liking through multiple settings.
 
-
 ### Enable Auto Imports
 
 Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
@@ -136,26 +135,26 @@ You can invoke this by installing an extension that supports sorting imports, th
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
-
 ## Troubleshooting
 
-For help with common Intellisense and Python editing issues, check the table below:
+For help with common IntelliSense and Python editing issues, check the table below:
 
 | Problem | Cause | Solution |
 | --- | --- | ---|
-| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth =1). <br>For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
+| Pylance is only offering top-level symbol options when adding imports. | By default, only top-level modules are indexed (depth=1). <br>For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings). |
 | Pylance is not automatically adding missing imports | The auto import completion setting may be disabled. | Check the [Enable Auto Imports section](/docs/python/editing.md#customize-intellisense-behavior). |
 | Auto imports are enabled but Pylance is not automatically importing symbols defined in other files in the workspace. | User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor.<br> Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes). |  Use the add imports Quick Fix, or make sure to open the relevant files in your workspace first.  |
 | Pylance seems slow or is consuming too much memory when working on a large workspace. | Pylance analysis is done on all files present in a given workspace.  | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | You are unable to install a custom module into your Python project. | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
 ### Pylance Diagnostics
+
 Pylance by default provides diagnostics for Python files in the Problems panel.
 
 The list below are some of the most common diagnostics provided by Pylance and how to fix them.
 
----
-#### `importResolveSourceFailure`
+#### 'importResolveSourceFailure'
+
 This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
 
 **How to fix it**
@@ -163,19 +162,19 @@ This error occurs when Pylance is able to find type stubs for the imported packa
 - If the package is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
 - If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 
----
-#### `importResolveFailure`
+#### 'importResolveFailure'
 
 This error happens when Pylance is unable to find the package or module you're importing, nor its type stubs.
 
 **How to fix it**
+
 - If you are importing a module, make sure it exists in your workspace or in a location that is included in the `python.autoComplete.extraPaths` setting.
 - If you are importing a package that is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 - If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
-- If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files to enhance compability and ensure smoother import behaviour. Learn more [here](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
+- If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files to enhance compatibility and ensure smoother import behavior. Learn more in the [Pyright documentation](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
 
----
-#### `importCycleDetected`
+#### 'importCycleDetected'
+
 This error occurs when Pylance detects a circular dependency between two or more modules.
 
 **How to fix it**
@@ -184,8 +183,7 @@ Try to reorder your import statements to break the circular dependency.
 
 ---
 
-The severiy of Pylance's diagnostics can be customized through the `python.analysis.diagnosticSeverityOverrides` setting. Check the [settings reference](/docs/python/settings-reference.md) for more information.
-
+The severity of Pylance's diagnostics can be customized through the `python.analysis.diagnosticSeverityOverrides` setting. Check the [settings reference](/docs/python/settings-reference.md) for more information.
 
 ## Next steps
 
