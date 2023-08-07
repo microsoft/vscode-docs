@@ -39,7 +39,7 @@ ssh-keygen -t rsa -b 4096
 
 > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
 
-#### Restrict the permissions on the private key file:
+**Restrict the permissions on the private key file**
 
 * For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
 
@@ -47,15 +47,13 @@ ssh-keygen -t rsa -b 4096
     chmod 400 ~/.ssh/id_ed25519
     ```
 
-
-* For Windows, run the following command in powershell to grant explicit read access to your username:
+* For Windows, run the following command in PowerShell to grant explicit read access to your username:
 
     ```
     icacls "privateKeyPath" /grant <username>:R
     ```
 
-    Then navigate to the private key file in Windows Explorer, right click and select properties.
-    Click the security tab -> Advanced -> Disable Inherited -> remove all inherited permissions
+    Then navigate to the private key file in Windows Explorer, right-click and select **Properties**. Select the **Security** tab > **Advanced** > **Disable inheritance** > **Remove all inherited permissions from this object**.
 
 **Authorize your macOS or Linux machine to connect**
 
