@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 3/6/2023
+DateApproved: 8/7/2023
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -153,7 +153,7 @@ Pylance by default provides diagnostics for Python files in the Problems panel.
 
 The list below are some of the most common diagnostics provided by Pylance and how to fix them.
 
-#### 'importResolveSourceFailure'
+#### importResolveSourceFailure
 
 This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
 
@@ -162,7 +162,7 @@ This error occurs when Pylance is able to find type stubs for the imported packa
 - If the package is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
 - If the package is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 
-#### 'importResolveFailure'
+#### importResolveFailure
 
 This error happens when Pylance is unable to find the package or module you're importing, nor its type stubs.
 
@@ -173,7 +173,7 @@ This error happens when Pylance is unable to find the package or module you're i
 - If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
 - If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files to enhance compatibility and ensure smoother import behavior. Learn more in the [Pyright documentation](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
 
-#### 'importCycleDetected'
+#### importCycleDetected
 
 This error occurs when Pylance detects a circular dependency between two or more modules.
 
