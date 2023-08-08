@@ -181,6 +181,8 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
+If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial VS Code flatpak in [issue#189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
+
 #### Other Linux desktop environments
 
 First off, if your desktop environment wasn't detected, you can [open an issue on VS Code](https://github.com/microsoft/vscode/issues/new/choose) with the verbose logs from above. This is important for us to support additional desktop configurations.
