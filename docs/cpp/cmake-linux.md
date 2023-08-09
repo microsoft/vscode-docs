@@ -34,7 +34,7 @@ To complete this tutorial on Ubuntu, install the following:
 
 ### Ensure that CMake is installed
 
-The VS Code CMake Tools extension does its work by using CMake installed on your system. For best results, use CMake version 3.15 or greater.
+The VS Code CMake Tools extension does its work by using CMake installed on your system. For best results, use CMake version 3.27 or greater.
 
 See if CMake is already installed on your system. Open a Terminal window and enter the following command:
 
@@ -42,7 +42,7 @@ See if CMake is already installed on your system. Open a Terminal window and ent
 cmake --version
 ```
 
-To install CMake, or to get a later version if you don't at least have version 3.15, see the instructions for your platform at [Kitware APT Repository](https://apt.kitware.com/). Install version 3.15 or greater.
+To install CMake, or to get a later version if you don't at least have version 3.27, see the instructions for your platform at [Kitware APT Repository](https://apt.kitware.com/). Install version 3.27 or greater.
 
 ### Ensure that development tools are installed
 
