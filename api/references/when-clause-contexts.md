@@ -101,7 +101,7 @@ Operator | Symbol | Example
 In | `in` | `"resourceFilename in supportedFolders"`
 Not in | `not in` | `"resourceFilename not in supportedFolders"`
 
-First, determine which folders should support the command, and the folder name to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
+First, determine which folders should support the command, and add the folder names to an array. Then, use the [`setContext` command](#add-a-custom-when-clause-context) to turn the array into a context key:
 
 ```ts
 vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
