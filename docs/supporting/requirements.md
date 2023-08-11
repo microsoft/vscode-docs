@@ -22,7 +22,7 @@ We recommend:
 VS Code is supported on the following platforms:
 
 * Windows 10 and 11 (32-bit and 64-bit)
-* macOS versions receiving security fixes from Apple, this typically includes the latest release and the 2 versions before it
+* macOS versions with Apple security update support. This is typically the latest release and the two previous versions.
 * Linux (Debian): Ubuntu Desktop 16.04, Debian 9
 * Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 7, Fedora 34
 
