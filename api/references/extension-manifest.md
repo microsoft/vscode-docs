@@ -41,6 +41,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `extensionKind` | | `array` | An array that indicates where the extension should run in remote configurations. Values are `ui` (run locally), `workspace` (run on remote machine) or both, with the order setting the preference. For example: `[ui, workspace]` indicates the extension can run in either location but prefers to run on the local machine. See [here](/api/advanced-topics/extension-host#preferred-extension-location) for more details.                                                                   |
 | `scripts`                                               |          | `object`                                   | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/api/working-with-extensions/publishing-extension#prepublish-step) or [vscode:uninstall](/api/references/extension-manifest#extension-uninstall-hook).                   |
 | `icon`                                                  |          | `string`                                   | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).                                                                                                                                                                                                                                          |
+| `pricing`                                               |         | `string`                                   | The pricing information for the extension. Allowed values: `Free`, `Trial`. Default: `Free`. See [here](/api/working-with-extensions/publishing-extension#extension-pricing-label) for more details. |
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/cli/v7/configuring-npm/package-json).
 
@@ -64,6 +65,7 @@ Here is a complete `package.json`
     "color": "#C80000",
     "theme": "dark"
   },
+  "pricing": "Free",
   "activationEvents": ["onLanguage:markdown"],
   "engines": {
     "vscode": "^1.0.0"
