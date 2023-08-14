@@ -7,7 +7,7 @@ DateApproved: 8/3/2023
 MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
 ---
 
-# Extensions Capabilities Overview
+# Extension Capabilities Overview
 
 Visual Studio Code offers many ways for extensions to extend its capabilities. It can sometimes be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category describes:
 
