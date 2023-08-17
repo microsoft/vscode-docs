@@ -772,6 +772,7 @@ Currently extension writers can contribute to:
 - The editor context menu - `editor/context`
 - The editor title menu bar - `editor/title`
 - The editor title context menu - `editor/title/context`
+- The Run submenu on the editor title menu bar - `editor/title/run`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
 - The debug variables view context menu - `debug/variables/context`
