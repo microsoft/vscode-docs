@@ -242,7 +242,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 To debug your code,
 
 1. Go back to `helloworld.cpp` so that it is the active file.
-1. Set a breakpoint by selecting the editor margin or using F9 on the current line.
+1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
