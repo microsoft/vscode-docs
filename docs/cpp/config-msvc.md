@@ -208,17 +208,17 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
+To debug your code,
+
 1. Go back to `helloworld.cpp` so that it is the active file.
-1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
+1. Set a breakpoint by selecting the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
-1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run or debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
-The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
-   ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
+The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can select the play button to debug, instead of selecting the drop-down menu item.
 
 If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
