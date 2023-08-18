@@ -26,7 +26,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
 
 ```json
   // Specifies the color theme used in the workbench.
-  "workbench.colorTheme": "Dark+"
+  "workbench.colorTheme": "Dark Modern"
 ```
 
 > **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
@@ -47,8 +47,8 @@ Windows and macOS support light and dark color schemes. There is a setting, `win
 
 To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
 
-* `workbench.preferredLightColorTheme` - defaults to "Light+"
-* `workbench.preferredDarkColorTheme` - defaults to "Dark+"
+* `workbench.preferredLightColorTheme` - defaults to "Light Modern"
+* `workbench.preferredDarkColorTheme` - defaults to "Dark Modern"
 * `workbench.preferredHighContrastColorTheme` - defaults to "Dark High Contrast"
 * `workbench.preferredHighContrastLightColorTheme` - defaults to "Light High Contrast"
 
