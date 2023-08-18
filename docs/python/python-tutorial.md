@@ -14,6 +14,8 @@ In this tutorial, you will learn how to use Python 3 in Visual Studio Code to cr
 
 To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
 
+If you are looking for a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
+
 ## Prerequisites
 
 To successfully complete this tutorial, you need to first setup your Python development environment. Specifically, this tutorial requires:
