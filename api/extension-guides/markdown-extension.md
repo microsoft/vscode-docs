@@ -84,4 +84,4 @@ For advanced functionality, extensions may contribute scripts that are executed 
 
 Contributed scripts are loaded asynchronously and reloaded on every content change.
 
-The [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension demonstrates using scripts to add [mermaid](https://knsv.github.io/mermaid/index.html) diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-mermaid).
+The [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension demonstrates using scripts to add [mermaid](https://mermaid.js.org) diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-mermaid).
