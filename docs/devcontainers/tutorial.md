@@ -148,10 +148,10 @@ The `devcontainer.json` is basically a config file that determines how your dev 
         }
     },
 
-    // "forwardPorts": [3000],
+    "forwardPorts": [3000],
 
     "portsAttributes": {
-        "9000": {
+        "3000": {
             "label": "Hello Remote World",
             "onAutoForward": "notify"
         }
