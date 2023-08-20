@@ -88,7 +88,7 @@ Copilot suggestions work best when Copilot has sufficient context to know what y
 
 >**Note**: "Prompt engineering" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this "prompt engineering" for you but you can help by providing hints to guide the extension.
 
-### Providing context
+### Provide context
 
 #### Open files
 
@@ -209,7 +209,9 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 ![Copilot inline chat in devcontainer.json file](images/artificial-intelligence/inline-chat.png)
 
-You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" Several [slash commands](#slash-commands) also work in inline chat.
+You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" If you have code selected in the editor, Copilot will scope your question to the selection.
+
+Several [slash commands](#slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
 
 ## Additional resources
 
