@@ -17,7 +17,7 @@ The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.
 
 You'll use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your AI suggestions in VS Code.
 
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the Copilot extension</a>
+> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
 ![Copilot extension in the VS Code Marketplace](images/artificial-intelligence/copilot-extension.png)
 
@@ -157,12 +157,19 @@ If you'd like to learn more about productively using GitHub Copilot, you can fol
 
 ## Chat features
 
-In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. This is supported in two ways:
+In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. This is supported in several ways:
 
 * **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
-* **Inline chat:** Talk with Copilot while writing code, inline in your files.
+* **Inline Chat:** Talk with Copilot while writing code, inline in your files.
+* **Quick Chat:** Bring up a Chat dropdown for quick questions and suggestions.
 
-> **Note:** To get access to the chat view and inline chat, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join). You'll also need to use the **Pre-Release** version of the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension.
+The Chat features are available by installing the additional [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+
+> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot-chat">Install the GitHub Copilot Chat extension</a>
+
+![GitHub Copilot Chat extension](images/artificial-intelligence/copilot-chat-extension.png)
+
+> **Note:** To get access to chat features, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join).
 
 ## Chat view
 
@@ -213,6 +220,16 @@ You can ask Copilot questions that emerge as you write and iterate on code, such
 
 Several [slash commands](#slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
 
+## Quick Chat
+
+If you want to ask Copilot a quick question and don't want to start a full Chat view session or have inline Chat open in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.openQuickChat.copilot)` keyboard shortcut.
+
+![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
+
+You can type questions, scope your questions with slash commands such as `/explain` and `/vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
+
+![Quick Chat Open in Chat View button](images/artificial-intelligence/open-in-chat-view.png)
+
 ## Additional resources
 
 Congratulations, you've now used artificial intelligence to enhance your coding!
@@ -220,3 +237,25 @@ Congratulations, you've now used artificial intelligence to enhance your coding!
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+
+## Common questions
+
+### The Copilot Chat features aren't working for me?
+
+Check each requirement if Copilot Chat doesn't work:
+
+* Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
+* Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
+* Your GitHub account that is signed into VS Code must be both:
+  * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+  * Accepted to GitHub Copilot chat private beta (join the [waitlist](https://github.com/github-copilot/chat_waitlist_signup/join)).
+
+### How do I disable Copilot?
+
+You can temporarily deactivate Copilot from the Status bar. You will be prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
+
+### How can I provide feedback on Copilot?
+
+You can give feedback on Copilot inline suggestions and responses in the [GitHub Copilot Discussions](https://github.com/orgs/community/discussions/categories/copilot).
+
+If you would like to provide feedback on the Copilot Chat features, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
