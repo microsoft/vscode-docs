@@ -222,7 +222,7 @@ Several [slash commands](#slash-commands) also work in inline chat such as `/exp
 
 ## Quick Chat
 
-If you want to ask Copilot a quick question and don't want to start a full Chat view session or have inline Chat open in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.openQuickChat.copilot)` keyboard shortcut.
+If you want to ask Copilot a quick question and don't want to start a full Chat view session or have inline Chat open in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 ![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
 
