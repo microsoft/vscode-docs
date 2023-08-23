@@ -23,9 +23,6 @@ You'll use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemN
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free trial directly from VS Code. You can also activate your trial starting from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
-> **Note:** For some of the latest features we'll explore below, you'll need to use the [pre-release version](https://code.visualstudio.com/updates/v1_63#_pre-release-extensions) of the GitHub Copilot extension, which will provide you the latest updates in Copilot.
-> ![Pre-release version of Copilot extension](images/artificial-intelligence/copilot-ext-pre-release.png)
-
 ## Sign in and sign up
 
 If you have not previously authorized VS Code in your GitHub account, you will be prompted to sign in to GitHub in VS Code:
@@ -259,3 +256,13 @@ You can temporarily deactivate Copilot from the Status bar. You will be prompted
 You can give feedback on Copilot inline suggestions and responses in the [GitHub Copilot Discussions](https://github.com/orgs/community/discussions/categories/copilot).
 
 If you would like to provide feedback on the Copilot Chat features, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
+
+### Are there pre-release builds of the Copilot extensions?
+
+Yes, you can switch to the pre-release (nightly) version of a Copilot extension to try the latest features and fixes. From the Extensions view, right-click or select the gear icon to bring up the context menu and select **Switch to Pre-Release Version**:
+
+![Extensions view context menu with Switch to Pre-Release Version option](images/artificial-intelligence/switch-to-pre-release.png)
+
+You can tell if you're running a pre-release version by the "Pre-release" badge in the extension details:
+
+![Pre-release version of the GitHub Copilot extension](images/artificial-intelligence/copilot-ext-pre-release.png)
