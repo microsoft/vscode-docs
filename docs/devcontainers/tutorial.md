@@ -148,7 +148,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
         }
     },
 
-    "forwardPorts": [3000],
+    // "forwardPorts": [3000],
 
     "portsAttributes": {
         "3000": {
