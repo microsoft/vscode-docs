@@ -11,7 +11,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 
 This article explains the scheme for the c_cpp_properties.json settings file.
 
-For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense](/docs/cpp/configure-intellisense.md).
+Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md).For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
 
 ## Example
 
@@ -33,8 +33,8 @@ For more information about changing these settings, see [Customizing Default Set
             "defines": [ "FOO", "BAR=100" ],
             "forcedInclude": [ "${workspaceFolder}/include/config.h" ],
             "compilerPath": "/usr/bin/clang",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
+            "cStandard": "c23",
+            "cppStandard": "c++23",
             "compileCommands": "/path/to/compile_commands.json",
             "browse": {
                 "path": [ "${workspaceFolder}" ],
@@ -58,10 +58,13 @@ For more information about changing these settings, see [Customizing Default Set
 - `version`
   We recommend you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
 
+- `enableConfigurationSquiggles`
+  Set to `true` to report errors detected in `c_cpp_properties.json` file to the C/C++ Extension.
+
 ## Configuration properties
 
 - `name`
-  A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that will be autoselected on those platforms. The status bar in VS Code will show you which configuration is active. You can also click on the label in the status bar to change the active configuration.
+  A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that will be autoselected on those platforms. The status bar in VS Code will show you which configuration is active. You can also select on the label in the status bar to change the active configuration.
 
 - `compilerPath` (optional)
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
@@ -69,7 +72,7 @@ For more information about changing these settings, see [Customizing Default Set
   Putting `"compilerPath": ""` (empty string) will skip querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension will default back to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
 
 - `compilerArgs` (optional)
-  Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.
+  Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc. Arguments that take additional space-delimited arguments should be entered as separate arguments in the array, for example, for `--sysroot <arg>` use `\"--sysroot\", \"<arg>\"`.
 
 - `intelliSenseMode`
   The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform.
@@ -79,6 +82,8 @@ For more information about changing these settings, see [Customizing Default Set
   - Linux: `gcc-x64`
   - macOS: `clang-x64`
 
+  IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
+
 - `includePath`
   An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
@@ -86,10 +91,10 @@ For more information about changing these settings, see [Customizing Default Set
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
 
 - `cStandard`
-  The version of the C language standard to use for IntelliSense.
+  The version of the C language standard to use for IntelliSense. For example, `c17`, `gnu23`, or `${default}`. Note that GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C standard version.
 
 - `cppStandard`
-  The version of the C++ language standard to use for IntelliSense.
+  The version of the C++ language standard to use for IntelliSense. For example, `c++20`, `gnu++23`, or `${default}`. Note: GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C++ standard version.
 
 - `configurationProvider`
   The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
@@ -106,9 +111,18 @@ For more information about changing these settings, see [Customizing Default Set
   A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
 
 - `compileCommands` (optional)
-  The full path to the `compile_commands.json` file for the workspace. The include paths and defines discovered in this file will be used instead of the values set for `includePath` and `defines` settings. If the compile commands database does not contain an entry for the translation unit that corresponds to the file you opened in the editor, then a warning message will appear and the extension will use the `includePath` and `defines` settings instead.
+  The full path to the `compile_commands.json` file for the workspace. The include paths and defines discovered in this file will take precedence over your other settings in `c_cpp_properties.json`, such as `includePath` and `defines`. If the compile commands database does not contain an entry for the translation unit that corresponds to the file you opened in the editor, then a warning message will appear and the extension will use the `includePath` and `defines` settings instead.
 
   For more information about the file format, see the [Clang documentation](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Some build systems, such as CMake, [simplify generating this file](https://cmake.org/cmake/help/v3.5/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html).
+
+- `dotconfig`
+  A path to a .config file created by the Kconfig system. The Kconfig system generates a file with all the defines needed to build a project. Examples of projects that use the Kconfig system are the Linux Kernel and NuttX RTOS.
+
+- `mergeConfigurations`
+  Set to `true` to merge include paths, defines, and forced includes with those from a configuration provider.
+
+- `customConfigurationVariables`
+  Custom variables that can be queried through the command `${cpptools:activeConfigCustomVariable}` to use for the input variables in `launch.json` or `tasks.json`.
 
 - `browse`
   The set of properties used when `"C_Cpp.intelliSenseEngine"` is set to `"Tag Parser"` (also referred to as "fuzzy" IntelliSense, or the "browse" engine). These properties are also used by the **Go to Definition/Declaration** features, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
@@ -116,7 +130,7 @@ For more information about changing these settings, see [Customizing Default Set
 ### Browse properties
 
 - `path`
-  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate non-recursive search. For example: `${workspaceFolder}` will search through all subdirectories while `${workspaceFolder}/*` will not.
+  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example: `${workspaceFolder}` will search through all subdirectories while `${workspaceFolder}/*` will not.
 
 - `limitSymbolsToIncludedHeaders`
   When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.
