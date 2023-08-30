@@ -459,6 +459,20 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 }
+
+function getWebviewContent(catGifSrc: vscode.Uri) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Coding</title>
+</head>
+<body>
+    <img src="${catGifSrc}" width="300" />
+</body>
+</html>`;
+}
 ```
 
 If we debug this code, we'd see that the actual value for `catGifSrc` is something like:
