@@ -135,7 +135,7 @@ The terminal has both Unicode and emoji support. When these characters are used 
 
 ## Image support
 
-Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is enabled by default and can be disabled with the `terminal.integrated.enableImages` setting.
+Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is disabled by default and can be enabled with the `terminal.integrated.enableImages` setting.
 
 Current limitations:
 
