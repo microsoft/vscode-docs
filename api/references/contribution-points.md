@@ -328,7 +328,7 @@ To customize the dropdown options, you can use `enumItemLabels`. The `workbench.
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -772,6 +772,7 @@ Currently extension writers can contribute to:
 - The editor context menu - `editor/context`
 - The editor title menu bar - `editor/title`
 - The editor title context menu - `editor/title/context`
+- The Run submenu on the editor title menu bar - `editor/title/run`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
 - The debug variables view context menu - `debug/variables/context`

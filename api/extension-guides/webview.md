@@ -279,7 +279,7 @@ export function activate(context: vscode.ExtensionContext) {
         {}
       );
 
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // After 5sec, programmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
@@ -313,7 +313,7 @@ Let's update our extension to only allow a single webview to exist at a time. If
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
-  // Track currently webview panel
+  // Track the current panel with a webview
   let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
   context.subscriptions.push(
@@ -330,7 +330,7 @@ export function activate(context: vscode.ExtensionContext) {
         currentPanel = vscode.window.createWebviewPanel(
           'catCoding',
           'Cat Coding',
-          columnToShowIn,
+          columnToShowIn || vscode.ViewColumn.One,
           {}
         );
         currentPanel.webview.html = getWebviewContent('Coding Cat');

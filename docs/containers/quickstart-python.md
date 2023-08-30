@@ -29,9 +29,9 @@ If you don't have a Python project already, follow the tutorial [Getting started
 
 > **Note**: If you want to containerize a complete Django or Flask web app, you can start with one of the following samples:
 >
->- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/tree/tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
+>- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
 >
->- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/tree/tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
+>- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
 
 > **Note**: For this tutorial, be sure to use the **tutorial** branch of the sample repos.
 
