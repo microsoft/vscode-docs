@@ -38,11 +38,13 @@ By default, the forwarded port is **Private**. When you navigate to the URL, you
 
 Currently, port forwarding only works to expose locally-running services. It doesn't work in remote connections yet, although we expect it to in the future.
 
+Depending on your scenario, you may want to use the VS Code [Remote-Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote-Tunnels documentation](/docs/remote/tunnels.md).
+
 ### How are forwarded ports secured?
 
 By default, both hosting and connecting to a tunnel requires authentication with the same Github or Microsoft account on each end. In both cases, VS Code will make outbound connections to a service hosted in Azure; no firewall changes are generally necessary, and VS Code doesn't set up any network listeners.
 
-However, if you've made a **Public** port, any user with your link can access the forwarded service. You should be careful to avoid hosting any confidental information or insecure services over such ports.
+However, if you've opened a **Public** port, any user with your link can access the forwarded service. You should be careful to avoid hosting any confidential information or insecure services over such ports.
 
 If you're part of an organization who wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
 
