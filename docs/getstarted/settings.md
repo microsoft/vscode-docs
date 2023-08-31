@@ -386,7 +386,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "diffEditor.renderSideBySide": true,
 
     // If the diff editor width is smaller than this value, the inline view is used.
-    "diffEditor.renderSideBySideInlineBreakpoint": true,
+    "diffEditor.renderSideBySideInlineBreakpoint": 900,
 
     // If enabled and the editor width is too small, the inline view is used.
     "diffEditor.useInlineViewWhenSpaceIsLimited": true,
