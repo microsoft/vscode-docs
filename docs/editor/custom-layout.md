@@ -161,6 +161,21 @@ There is a setting `workbench.editor.splitInGroupLayout` if you prefer the split
 
 ### Locked editor groups
 
+When using multiple editors it's common to have one or more that you want to keep always visible. This is where the locked editor groups feature comes in, when an editor group is locked a lock icon will appear in the editor group actions and any request to create an editor will create it in another group.
+
+TODO: Image of the lock icon
+
+TODO: An explanation of clicking the lock to unlock and the "Lock Group" entry in more actions?
+
+The primary use case for this is for [terminals in the editor area](https://code.visualstudio.com/docs/terminal/basics#_terminals-in-editor-area), for example you may want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means when the terminal on the right is focused, opening a file will open on the left side without needing to manually change focus first.
+
+Auto locking groups can be configured using the `workbench.editor.autoLockGroups` setting, this defaults to only terminal editors by default but any editor type can be added to get the same behavior.
+
+TODO: Image of the setting?
+
+https://code.visualstudio.com/updates/v1_60#_locked-editor-groups
+https://code.visualstudio.com/updates/v1_61#_locked-editor-groups
+
 issue #6312
 issue #6568 - assigned Ben and Daniel
 
