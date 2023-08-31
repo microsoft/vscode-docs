@@ -385,6 +385,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the diff editor shows the diff side by side or inline.
     "diffEditor.renderSideBySide": true,
 
+    // If the diff editor width is smaller than this value, the inline view is used.
+    "diffEditor.renderSideBySideInlineBreakpoint": true,
+
+    // If enabled and the editor width is too small, the inline view is used.
+    "diffEditor.useInlineViewWhenSpaceIsLimited": true,
+
     //  - off: Lines will never wrap.
     //  - on: Lines will wrap at the viewport width.
     //  - inherit: Lines will wrap according to the `editor.wordWrap` setting.
@@ -723,6 +729,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enables the padding around the inlay hints in the editor.
     "editor.inlayHints.padding": false,
 
+    // Controls whether the accessibility hint should be provided to screen reader users when an inline completion is shown.
+    "editor.inlineCompletionsAccessibilityVerbose": false,
+
     // Controls whether to automatically show inline suggestions in the editor.
     "editor.inlineSuggest.enabled": true,
 
@@ -978,6 +987,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Defines the maximum number of sticky lines to show.
     "editor.stickyScroll.maxLineCount": 5,
+
+    // When enabled it is possible to scroll the sticky scroll widget with the editor horizontal scrollbar.
+    "editor.stickyScroll.scrollWithEditor": true,
 
     // Emulate selection behavior of tab characters when using spaces for indentation. Selection will stick to tab stops.
     "editor.stickyTabStops": false,
@@ -1415,7 +1427,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether editors opened from Quick Open show as preview editors. Preview editors do not stay open, and are reused until explicitly set to be kept open (via double-click or editing).
     "workbench.editor.enablePreviewFromQuickOpen": false,
 
-    // Controls whether tabs are closed in most recently used order or from left to right.
+    // Controls whether editors are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
 
     // Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `workbench.editor.showTabs` is disabled.
@@ -1476,6 +1488,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, a language detection model that takes into account editor history will be given higher precedence.
     "workbench.editor.preferHistoryBasedLanguageDetection": true,
 
+    // Controls whether pinned editors should close when keyboard or middle mouse click is used for closing.
+    //  - keyboardAndMouse: Always prevent closing the pinned editor when using mouse middle click or keyboard.
+    //  - keyboard: Prevent closing the pinned editor when using the keyboard.
+    //  - mouse: Prevent closing the pinned editor when using mouse middle click.
+    //  - never: Never prevent closing a pinned editor.
+    "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
+
     // Restores the last editor view state (such as scroll position) when re-opening editors after they have been closed. Editor view state is stored per editor group and discarded when a group closes. Use the `workbench.editor.sharedViewState` setting to use the last known view state across all editor groups in case no previous view state was found for a editor group.
     "workbench.editor.restoreViewState": true,
 
@@ -1503,7 +1522,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.splitOnDragAndDrop": true,
 
     // Controls the size of editor groups when splitting them.
-    //  - auto: Splits all the editor groups to equal parts unless a part has been changed in size.
+    //  - auto: Splits the active editor group to equal parts, unless all editor groups are already in equal parts. In that case, splits all the editor groups to equal parts.
     //  - distribute: Splits all the editor groups to equal parts.
     //  - split: Splits the active editor group to equal parts.
     "workbench.editor.splitSizing": "auto",
@@ -1724,6 +1743,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
     "workbench.view.alwaysShowHeaderActions": false,
 
+    // Whether to dim unfocused editors and terminals, making the focused view more obvious.
+    "workbench.view.dimUnfocused.enabled": false,
+
+    // The opacity fraction (0.2 to 1.0) to use for unfocused editors and terminals. This will only take effect when `workbench.view.dimUnfocused.enabled` is enabled.
+    "workbench.view.dimUnfocused.opacity": 0.75,
+
     // When enabled, an extension's walkthrough will open upon install of the extension.
     "workbench.welcomePage.walkthroughs.openOnInstall": true,
 
@@ -1742,7 +1767,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "window.closeWhenEmpty": false,
 
     // Show command launcher together with the window title.
-    "window.commandCenter": false,
+    "window.commandCenter": true,
 
     // Controls whether to show a confirmation dialog before closing the window or quitting the application.
     //  - always: Always ask for confirmation.
@@ -2446,6 +2471,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Associate schemas to JSON files in the current project.
     "json.schemas": [],
 
+    // Enable/disable default sorting on save
+    "json.sortOnSave.enable": false,
+
     // Traces the communication between VS Code and the JSON language server.
     "json.trace.server": "off",
 
@@ -2478,7 +2506,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - always: Always creates a Markdown link when a URL is pasted into the Markdown editor.
     //  - smart: Smartly avoids creating a Markdown link in specific cases, such as within code brackets or inside an existing Markdown link.
     //  - never: Never creates a Markdown link when a URL is pasted into the Markdown editor.
-    "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
+    "markdown.editor.pasteUrlAsFormattedLink.enabled": "never",
 
     // Controls where links in Markdown files should be opened.
     //  - currentGroup: Open links in the active editor group.
@@ -3622,8 +3650,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the terminal cursor blinks.
     "terminal.integrated.cursorBlinking": false,
 
-    // Controls the style of terminal cursor.
+    // Controls the style of terminal cursor when the terminal is focused.
     "terminal.integrated.cursorStyle": "block",
+
+    // Controls the style of terminal cursor when the terminal is not focused.
+    "terminal.integrated.cursorStyleInactive": "outline",
 
     // Controls the width of the cursor when `terminal.integrated.cursorStyle` is set to `line`.
     "terminal.integrated.cursorWidth": 1,
@@ -3667,7 +3698,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.enableFileLinks": "on",
 
     // Enables image support in the terminal. Both sixel and iTerm's inline image protocol are supported on Linux and macOS, Windows support will light up automatically when ConPTY passes through the sequences.
-    "terminal.integrated.enableImages": true,
+    "terminal.integrated.enableImages": false,
 
     // Show a warning dialog when pasting multiple lines into the terminal. The dialog does not show when:
     // - Bracketed paste mode is enabled (the shell supports multi-line paste natively)
@@ -3716,6 +3747,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Disable GPU acceleration within the terminal.
     //  - canvas: Use the terminal's fallback canvas renderer which uses a 2d context instead of webgl which may perform better on some systems.
     "terminal.integrated.gpuAcceleration": "auto",
+
+    // Whether to hide the terminal view on startup, avoiding creating a terminal when there are no persistent sessions.
+    //  - never: Never hide the terminal view on startup.
+    //  - whenEmpty: Only hide the terminal when there are no persistent sessions restored.
+    //  - always: Always hide the terminal, even when there are persistent sessions restored.
+    "terminal.integrated.hideOnStartup": "never",
+
+    // Controls whether the terminal will ignore bracketed paste mode even if the terminal was put into the mode, omitting the `\x1b[200~` and `\x1b[201~` sequences when pasting. This is useful when the shell is not respecting the mode which can happen in sub-shells for example.
+    "terminal.integrated.ignoreBracketedPasteMode": false,
 
     // A set of process names to ignore when using the `terminal.integrated.confirmOnKill` setting.
     "terminal.integrated.ignoreProcessNames": [],
@@ -4495,11 +4535,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to navigate changes in the diff editor when it is focused
     "accessibility.verbosity.diffEditor": true,
 
+    // Provide information about relevant actions in an untitled text editor.
+    "accessibility.verbosity.editor.untitledHint": true,
+
     // Provide information about how to open the hover in an accessible view.
     "accessibility.verbosity.hover": true,
 
     // Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused
     "accessibility.verbosity.inlineChat": true,
+
+    // Provide information about how to access the inline completions hover and accessible view
+    "accessibility.verbosity.inlineCompletions": true,
 
     // Provide information about how to change a keybinding in the keybindings editor when a row is focused
     "accessibility.verbosity.keybindingsEditor": true,
