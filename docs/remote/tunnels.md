@@ -144,7 +144,7 @@ If you are hitting a limit and would like to discuss getting more usage, we'd lo
 ### How can I ensure I keep my tunnel running?
 
 You have a few options:
-* Use the `service` command, i.e. `code tunnel --service`, to run as a service
+* Use the `service` command to run as a service. You can run `code tunnel service install` and `code tunnel service uninstall` to install and remove them
 * Use the `no-sleep` option, i.e. `code tunnel --no-sleep`, to prevent your remote machine from going to sleep
 
 As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
