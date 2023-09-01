@@ -312,7 +312,7 @@ There are several Node.js modules available on npmjs to help with writing VS Cod
 - [vscode-uri](https://www.npmjs.com/package/vscode-uri) - The URI implementation used by VS Code and its extensions.
 - [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
 - [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
-- [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
+- [vscode-extension-telemetry](https://www.npmjs.com/package/@vscode/extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
 - [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
 ## Next steps
