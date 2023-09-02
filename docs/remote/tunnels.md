@@ -141,6 +141,14 @@ For instance, right now you can have 5 tunnels registered for your account. If y
 
 If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.
 
+### How can I ensure I keep my tunnel running?
+
+You have a few options:
+* Use the `service` command to run as a service. You can run `code tunnel service install` and `code tunnel service uninstall` to install and remove them
+* Use the `no-sleep` option, i.e. `code tunnel --no-sleep`, to prevent your remote machine from going to sleep
+
+As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
+
 ### Can I use other Remote Development Extensions or a dev container while I'm tunneling?
 
 Currently, you can connect to WSL over Remote - Tunnels.
