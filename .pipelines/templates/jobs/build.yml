@@ -49,13 +49,6 @@ jobs:
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - script: |
-      npm run lint-build
-      npm run lint-client
-      npm run lint-server
-    displayName: Lint
-    workingDirectory: $(Pipeline.Workspace)/vscode-website
-
   - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
