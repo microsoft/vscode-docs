@@ -709,15 +709,23 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
 - `statusBarItem.remoteBackground`: Background color for the remote indicator on the status bar.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
+- `statusBarItem.remoteHoverBackground`: Background color for the remote indicator on the status bar when hovering.
+- `statusBarItem.remoteHoverForeground`: Foreground color for the remote indicator on the status bar when hovering.
 - `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
 - `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
+- `statusBarItem.errorHoverBackground`: Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.errorHoverForeground`: Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.warningBackground`: Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.warningHoverBackground`: Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.warningHoverForeground`: Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
-- `statusBar.offlineBackground`: Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window.
-- `statusBar.offlineForeground`: Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window.
+- `statusBarItem.offlineBackground`: Status bar item background color when the workbench is offline.
+- `statusBarItem.offlineForeground`: Status bar item foreground color when the workbench is offline.
+- `statusBarItem.offlineHoverForeground`: Status bar item foreground hover color when the workbench is offline.
+- `statusBarItem.offlineHoverBackground`: Status bar item background hover color when the workbench is offline.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
