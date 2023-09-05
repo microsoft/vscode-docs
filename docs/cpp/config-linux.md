@@ -142,9 +142,9 @@ Your new `tasks.json` file should look similar to the JSON below:
         "command": "/usr/bin/g++",
         "args": [
             "-g",
-            "${file}",
+            "${workspaceFolder}/*.cpp",
             "-o",
-            "${fileDirname}/${fileBasenameNoExtension}"
+            "${workspaceFolder}/app.out"
         ],
         "options": {
             "cwd": "/usr/bin"
@@ -167,7 +167,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 The `command` setting specifies the program to run; in this case that is g++.
 The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
 
-This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
+This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${workspaceFolder}`) with the same name as the workspace but without an extension (`${fileBasenameNoExtension}`), resulting in `helloworld` for our example.
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -291,7 +291,7 @@ VS Code creates a `launch.json` file, which looks something like this:
             "name": "C/C++: g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -312,7 +312,7 @@ VS Code creates a `launch.json` file, which looks something like this:
 }
 ```
 
- In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
+ In the JSON above, `program` specifies the program you want to debug. Here it is set to the workspace folder `${workspaceFolder}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
