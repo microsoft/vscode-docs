@@ -19,7 +19,7 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
+The best way of exploring VS Code hands-on is to open the **Welcom** page. You will get an overview of VS Code's customizations and features. **Help** > **Welcome**.
 
 ![Get Started page](images/tips-and-tricks/getstarted_page.png)
 
