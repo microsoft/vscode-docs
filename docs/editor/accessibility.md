@@ -98,6 +98,10 @@ One of the best approaches to selecting the best colors for a specific condition
 
 >**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
+## Dim unfocused editors and terminals
+
+Unfocused views can be dimmed to make it more clear where typed input will go, this is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`, how dim it will become can be configured with `accessibility.dimUnfocused.opacity`.
+
 ## Keyboard navigation
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
