@@ -19,7 +19,7 @@ First, you need to have service you want to forward. If you don't have one yet b
 npx serve
 ```
 
-Then, navigate to the **Ports** view, and select **Forward a Port**.
+Then, navigate to the **Ports** view in the Panel region (**Ports: Focus on Ports View**), and select **Forward a Port**.
 
 ![Forward a Port button displayed in the Ports view](images/port-forwarding/ports-view.png)
 
