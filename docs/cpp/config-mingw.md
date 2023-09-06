@@ -423,7 +423,9 @@ If you have Visual Studio or WSL installed, you may need to change `compilerPath
 
 ### MSYS2 is installed, but g++ and gdb are still not found
 
+
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) to use the MSYS CLI to install the full MinGW-w64 toolchain(`pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`), as well as all required prerequisites. The toolchain includes g++ and gdb.
+
 
 ### As a Windows user, running the pacman command gives me an error
 
