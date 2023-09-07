@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -417,6 +417,14 @@ This normally means that the program/shell running inside the terminal requested
 
 ```
 set enable-bracketed-paste off
+```
+
+Alternatively, bracketed paste mode can be forced to ignore the shell's request by turning it off with this setting:
+
+```json
+{
+  "terminal.integrated.ignoreBracketedPasteMode": true
+}
 ```
 
 ### Ctrl+A, Ctrl+R output ^A, ^R on zsh

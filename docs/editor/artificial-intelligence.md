@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: AI Tools
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
-DateApproved: 8/3/2023
+DateApproved: 9/7/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # AI Tools in VS Code
@@ -219,7 +219,7 @@ Several [slash commands](#slash-commands) also work in inline chat such as `/exp
 
 ## Quick Chat
 
-If you want to ask Copilot a quick question and don't want to start a full Chat view session or have inline Chat open in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(chat.action.askQuickQuestion)` keyboard shortcut.
+If you want to ask Copilot a quick question and don't want to start a full Chat view session or have inline Chat open in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 ![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
 

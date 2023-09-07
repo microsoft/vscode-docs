@@ -82,7 +82,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. In this terminal, install the MinGW-w64 toolchain by running the following command:
 
-    ```MSYS2
+    ```sh
     pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
     ```
 
