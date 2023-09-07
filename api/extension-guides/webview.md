@@ -459,6 +459,20 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 }
+
+function getWebviewContent(catGifSrc: vscode.Uri) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Coding</title>
+</head>
+<body>
+    <img src="${catGifSrc}" width="300" />
+</body>
+</html>`;
+}
 ```
 
 If we debug this code, we'd see that the actual value for `catGifSrc` is something like:
@@ -496,9 +510,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Only allow the webview to access resources in our extension's media directory
-          localResourceRoots: [
-            vscode.Uri.joinPath(context.extensionPath, 'media')
-          ]
+          localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')]
         }
       );
 
