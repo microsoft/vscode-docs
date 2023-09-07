@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 9/7/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
