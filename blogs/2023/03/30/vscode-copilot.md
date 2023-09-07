@@ -107,7 +107,7 @@ Today, to access the chat experiences (in-editor, Chat view, Quick Chat), you'll
 * When prompted, authenticate with your GitHub ID.
 * To open the in-editor Chat, optionally select a block of code and press `kb(inlineChat.start)`. Ask Copilot to write a Quick Sort function.
 * A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask Copilot to "write a program to calculate the airspeed velocity of an unladen swallow".
-* To try out Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(chat.action.askQuickQuestion)` keyboard shortcut.
+* To try out Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 You can learn more about the GitHub Copilot and Copilot Chat extensions in the [AI Tools in VS Code](https://code.visualstudio.com/docs/editor/artificial-intelligence) topic.
 
