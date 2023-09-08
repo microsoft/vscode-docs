@@ -13,7 +13,7 @@ Support for port forwarding is built into Visual Studio Code, no extension requi
 
 ## How to use local port forwarding
 
-First, you need to have service you want to forward. If you don't have one yet but do have Node.js installed, you can run this command to start up a server on port 3000:
+First, you need to have a service you want to forward. If you don't have one yet but do have Node.js installed, you can run this command to start up a server on port 3000:
 
 ```bash
 npx serve
