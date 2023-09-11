@@ -767,7 +767,7 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 Currently extension writers can contribute to:
 
 - The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
+- The New File item in the File menu and Welcome page - `file/newFile`
 - The Explorer context menu - `explorer/context`
 - The editor context menu - `editor/context`
 - The editor title menu bar - `editor/title`
