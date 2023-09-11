@@ -26,7 +26,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
 
 ```json
   // Specifies the color theme used in the workbench.
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Solarized Dark"
 ```
 
 > **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
@@ -45,12 +45,14 @@ You can search for themes in the Extensions view (`kb(workbench.view.extensions)
 
 Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
 
-To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
+To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes in the Settings editor:
 
-* `workbench.preferredLightColorTheme` - defaults to "Default Light+"
-* `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
-* `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
-* `workbench.preferredHighContrastLightColorTheme` - defaults to "Default High Contrast Light"
+* **Workbench: Preferred Dark Color Theme** - defaults to "Dark Modern"
+* **Workbench: Preferred Light Color Theme** - defaults to "Light Modern"
+* **Workbench: Preferred High Contrast Color Theme** - defaults to "Dark High Contrast"
+* **Workbench: Preferred High Contrast Light Color Theme** - defaults to "Light High Contrast"
+
+![Settings editor filtered on the preferred color themes settings](images/themes/preferred-color-themes.png)
 
 ## Customizing a Color Theme
 
