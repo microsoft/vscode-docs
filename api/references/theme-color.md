@@ -923,9 +923,9 @@ The following customizations are available:
 - `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
-- `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
-- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
-- `welcomePage.tileBorder`: Border color for the tiles on the Get Started page.
+- `welcomePage.tileBackground`: Background color for the tiles on the Welcome page.
+- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Welcome page.
+- `welcomePage.tileBorder`: Border color for the tiles on the Welcome page.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
