@@ -221,6 +221,16 @@ The active File Icon theme is persisted in your user [settings](/docs/getstarted
 
 You can create your own File Icon Theme from icons (preferably SVG), see the [File Icon Theme](/api/extension-guides/file-icon-theme.md) topic in our Extension API section for details.
 
+## VS Code for the Web
+
+VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at **[https://vscode.dev](https://vscode.dev)**.
+
+You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
+
+For instance, you can go to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
+
+You can learn more about previewing and sharing themes with VS Code for the Web in its [documentation](/docs/editor/vscode-web.md#themes).
+
 ## Next steps
 
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these topics:
