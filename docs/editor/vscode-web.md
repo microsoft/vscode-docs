@@ -17,9 +17,9 @@ VS Code for the Web runs entirely in your web browser, so there are certain limi
 
 ## Relationship to VS Code Desktop
 
-VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, or you want to use platform features such as a terminal, we recommend moving your work to the desktop application or [GitHub Codespaces](https://github.com/features/codespaces) for the full capabilities of VS Code. In addition, VS Code Desktop lets you run extensions that aren't supported in the web version, and use a full set of keyboard shortcuts not limited by your browser.
+VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, you want to use platform features such as a terminal, our you want to run extensions that aren't supported in the web, we recommend moving your work to the desktop application, [GitHub Codespaces](https://github.com/features/codespaces), or using [Remote-Tunnels](#use-your-own-compute-with-remote-tunnels) for the full capabilities of VS Code. In addition, VS Code Desktop lets you use a full set of keyboard shortcuts not limited by your browser.
 
-When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code Desktop experience with a few clicks.
+When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code experience with a few clicks.
 
 You can also switch between the Stable and Insiders versions of VS Code for the Web by selecting the gear icon, then **Switch to Insiders Version...**, or by navigating directly to [https://insiders.vscode.dev](https://insiders.vscode.dev).
 
@@ -30,9 +30,10 @@ By navigating to [https://vscode.dev](https://vscode.dev), you can create a new 
 You can create a new local file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
 
 ## GitHub repos
-You can open a GitHub repository in VS Code for the Web directly from a URL, following the scheme: `https://vscode.dev/github/organization/repo`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
 
-This experience is delivered at what we call a VS Code for the Web "route." The `vscode.dev/github` route is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
+You can open a GitHub repository in VS Code for the Web directly from a URL, following the schema: `https://vscode.dev/github/organization/repo`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
+
+This experience is delivered at a custom vscode.dev URL, which we refer to as a "route." The `vscode.dev/github` route is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
 
 GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor. Rather than cloning your work, GitHub Repositories creates a **virtual file system** to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
@@ -50,7 +51,7 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.
 
 Just like you can navigate to remote GitHub repos in VS Code for the Web, you can open Azure Repos too.
 
-When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
+When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organization>/<project>/<repo>`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
@@ -60,33 +61,33 @@ Alternatively, when you are on an Azure DevOps repository or pull request, you c
 
 Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. Unlike in the desktop, it's easy for us to deliver customized experiences with pre-installed extensions through unique `vscode.dev` URLs, aka "routes."
 
-We've seen a couple of routes so far (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
+We've explored a couple of routes already (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
 | Service | URL Structure | Docs |
 | --- | --- | --- |
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
-| Visual Studio Live Share | `/liveshare/<session_id>` | [More info below](#visual-studio-live-share) |
-| Visual Studio Marketplace | `/marketplace/<marketplace_publisher>/<extension_id>/<extension_version>` | |
+| Visual Studio Live Share | `/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
+| Visual Studio Marketplace | `/marketplace/<marketplacePublisher>/<extensionId>/<extensionVersion>` | |
 | Office Scripts | `/office` | [Office Scripts docs](https://learn.microsoft.com/en-us/office/dev/scripts/develop/vscode-for-scripts) |
 | Power Pages | `/powerplatform` | [Power Pages docs](https://learn.microsoft.com/en-us/power-pages/configure/visual-studio-code-editor) |
 | Profiles | `/profile/github/{GUID}` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
-| Themes | `/theme/extensionId` | [More info below](#themes) |
+| Themes | `/theme/<extensionId>` | [More info below](#themes) |
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
-Please note that some routes must be entered in a specific way (i.e. `vscode.dev/liveshare` requires an active Live Share session). Please review each route's docs for any route-specific info.
+Please note that some routes must be entered in a specific way (i.e. `vscode.dev/liveshare` requires an active Live Share session). Please review each route's docs for specific access and usage info.
 
 There's more info on some of these routes below.
 
 ### Themes
 
-You can share and experience color themes through VS Code for the Web through the URL scheme: `https://vscode.dev/theme/extensionId`.
+You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
 
 For instance, you can go to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
 
-> Note: The color theme URL scheme works for themes that are fully declarative (no code).
+> Note: The color theme URL schema works for themes that are fully declarative (no code).
 
-An extension can define multiple themes. You can use the schema `/theme/extensionId/themeName`. If no `themeName` is specified, VS Code for the Web will take the first theme.
+An extension can define multiple themes. You can use the schema `/theme/<extensionId>/<themeName>`. If no `themeName` is specified, VS Code for the Web will take the first theme.
 
 As a theme author, you can add the following badge to your extension readme to allow users to easily try out your theme in VS Code for the Web (replacing `<extensionId>` with your theme extension's unique identifier):
 
@@ -114,7 +115,7 @@ As [described above](#continue-working-in-a-different-environment), you can cont
 
 The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes. This is described further in the [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) doc.
 
-## Use your own compute power with Remote-Tunnels
+## Use your own compute with Remote-Tunnels
 
 You may develop against another machine in VS Code for the Web using the [Remote-Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension.
 
