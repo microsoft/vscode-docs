@@ -62,7 +62,7 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
     "vscode": "^1.74.0"
   },
   "activationEvents": [],
-  "main": "./out/src/extension",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
