@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -47,7 +47,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
-| [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |
 | [Docker](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker/license) |
 | [docs-article-templates](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-article-templates) | ✔ | [MIT](https://docsmsft.gallerycdn.vsassets.io/extensions/docsmsft/docs-markdown/0.2.2/1547755350969/Microsoft.VisualStudio.Services.Content.License) |
 | [docs-markdown](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown/license) |
@@ -63,7 +62,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [JavaScript Debugger](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug) | ✔ ([Repo](https://github.com/microsoft/vscode-js-debug)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-debug/license) |
 | [Kubernetes](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools/license) |
 | [Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare) |  | [Microsoft](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare/license)  |
-| [Live Share Audio](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-audio) |  | [Microsoft](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-audio/license) |
 | [Markdown Theme Kit](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit/license) |
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |

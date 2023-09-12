@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 PageTitle: Build and run an ASP.NET Core app in a container
-DateApproved: 10/28/2020
+DateApproved: 12/13/2022
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
 # ASP.NET Core in a container
@@ -53,24 +53,22 @@ In this guide you will learn how to:
 1. Issue `dotnet build` command to build the application:
 
    ```
-   ~/code/scratch/netcorerest$ dotnet build
-   Microsoft (R) Build Engine version 17.2.0+41abc5629 for .NET
-   Copyright (C) Microsoft Corporation. All rights reserved.
-
+   PS C:\source\repos\net> dotnet build
+   MSBuild version 17.4.0-preview-22470-08+6521b1591 for .NET
      Determining projects to restore...
      All projects are up-to-date for restore.
-     nettest -> c:\source\repos\nettest\bin\Debug\net6.0\nettest.dll
+     net -> C:\source\repos\net\bin\Debug\net7.0\net.dll
 
    Build succeeded.
        0 Warning(s)
        0 Error(s)
 
-   Time Elapsed 00:00:03.78
+   Time Elapsed 00:00:08.96
    ```
 
 ## Add an environment variable to the image
 
-You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
+You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file). Set the `ASPNETCORE_URLS` variable to `http://*:5000`:
@@ -175,5 +173,5 @@ You're done! Now that your container is ready, you may want to:
 - [Learn about debugging .NET in a container](/docs/containers/debug-netcore.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
-- [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
+- [Deploy a containerized app to Azure App Service or Azure Container Apps](/docs/containers/app-service.md)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)

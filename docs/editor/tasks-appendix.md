@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -250,6 +250,12 @@ interface ProblemMatcher {
     owner?: string;
 
     /**
+     * A human-readable string describing the source of this problem.
+     * E.g. 'typescript' or 'super lint'.
+     */
+    source?: string;
+
+    /**
      * The severity of the VS Code problem produced by this problem matcher.
      *
      * Valid values are:
@@ -276,8 +282,15 @@ interface ProblemMatcher {
      *  - ["autodetect", "path value"]: the filename is treated
      *    relative to the given path value, and if it does not
      *    exist, it is treated as absolute.
+     *  - "search": performs a deep (and, possibly, heavy) file system
+     *    search within the directories.
+     *  - ["search", {include: ["${workspaceFolder}"]}]: performs
+     *    a deep search among the directories given in the "include" array.
+     *  - ["search", {include: ["${workspaceFolder}"], exclude: []}]:
+     *    performs a deep search among the directories given in the "include"
+     *    array, excluding those named in the "exclude" array.
      */
-    fileLocation?: string | string[];
+    fileLocation?: string | string[] | ["search", {include?: string[]; exclude?: string[]}];
 
     /**
      * The name of a predefined problem pattern, the inline definition

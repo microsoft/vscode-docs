@@ -8,12 +8,13 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    type: linux
+    type: windows
 
   variables:
-    ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
+    ob_outputDirectory: $(Build.ArtifactStagingDirectory)/out
     ob_artifactSuffix: ${{ parameters.jobDisplayName }}
     ob_git_path: vscode-website/vscode-docs
+    ob_sdl_codeSignValidation_excludes: -|**\*.js;-|**\*.ps1
 
   steps:
   - download: ${{ parameters.artifactName }}
@@ -27,25 +28,53 @@ jobs:
       targetFolder: $(Pipeline.Workspace)/vscode-website
     displayName: Copy ${{ parameters.artifactName }}
 
+  - task: CodeQL3000Init@0
+    displayName: CodeQL Initialize
+    condition: eq(variables['Codeql.enabled'], 'True')
+
   - task: NodeTool@0
-    displayName: Use Node 14.19.3
+    displayName: Install Node via .nvmrc
     inputs:
-      versionSpec: 14.19.3
+      versionSource: 'fromFile'
+      versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
       checkLatest: true
 
-  - task: Npm@0
-    displayName: npm install yarn
+  - task: npmAuthenticate@0
+    displayName: Setup NPM Authentication
     inputs:
-      arguments: -g yarn
+      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
+      customEndpoint: website npm feed
 
-  - script: yarn --frozen-lockfile
+  - script: npm install
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
+  - script: |
+      npm run lint-build
+      npm run lint-client
+      npm run lint-server
+    displayName: Lint
+    workingDirectory: $(Pipeline.Workspace)/vscode-website
+
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
+
+  - script: npm install
+    displayName: Install Dist dependencies
+    workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
+
+  - task: CodeQL3000Finalize@0
+    displayName: CodeQL Finalize
+    condition: eq(variables['Codeql.enabled'], 'True')
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: $(Pipeline.Workspace)/vscode-website/dist
+      archiveType: 'zip'
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/out/website.zip

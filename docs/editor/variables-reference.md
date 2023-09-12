@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -24,8 +24,9 @@ The following predefined variables are supported:
 - **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileDirname}** - the current opened file's dirname
 - **${fileExtname}** - the current opened file's extension
+- **${fileDirname}** - the current opened file's folder path
+- **${fileDirnameBasename}** - the current opened file's folder name
 - **${cwd}** - the task runner's current working directory upon the startup of VS Code
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
@@ -106,6 +107,8 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 }
 ```
 
+When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This allows commands to know the context and parameters of the specific `launch.json` configuration when they are called.
+
 ## Input variables
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
@@ -153,6 +156,8 @@ Each type requires additional configuration attributes:
 - **description**: Shown in the quick pick, provides context for the input.
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
+
+An option can be a string value or an object with both a label and value. The dropdown will display **label: value**.
 
 `command`:
 

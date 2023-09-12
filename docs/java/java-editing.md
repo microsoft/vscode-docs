@@ -25,7 +25,7 @@ You can search for symbols in the current file or workspace to navigate your cod
 
 To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Search for symbols in the workspace">
   <source src="/docs/java/java-editing/search-in-workspace.mp4" type="video/mp4">
 </video>
 
@@ -33,7 +33,7 @@ To search for a symbol in the current workspace, start by pressing `kb(workbench
 
 To search for a symbol in the current file, use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command, then enter the name of the symbol you're looking for. A list of potential matches will appear and be filtered as you type. Choose from the list of matches to navigate to its location.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Search for symbols in current file">
   <source src="/docs/java/java-editing/search-in-file.mp4" type="video/mp4">
 </video>
 
@@ -55,7 +55,7 @@ You can keep track of class implementations and overriding methods by clicking t
 
 ![Spring Navigation](images/java-editing/goto-super.png)
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Go to super implementation">
   <source src="/docs/java/java-editing/goto-super-implementation.mp4" type="video/mp4">
 </video>
 
@@ -73,7 +73,7 @@ You can also right-click in a function body and pick **Show Call Hierarchy**.
 
 A Type Hierarchy view shows the inheritance relationships between Java Objects. You can right-click on a type and pick **Show Type Hierarchy**.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Type hierarchy">
   <source src="/docs/java/java-editing/type-hierarchy.mp4" type="video/mp4">
 </video>
 
@@ -81,7 +81,7 @@ A Type Hierarchy view shows the inheritance relationships between Java Objects. 
 
 Folding regions allows you to fold or unfold code snippet to better view the source code.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Folding regions">
   <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
 </video>
 
@@ -92,7 +92,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 * To expand the selection, use `kb(editor.action.smartSelect.expand)`.
 * To shrink the selection, use `kb(editor.action.smartSelect.shrink)`.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Smart selections">
   <source src="/docs/java/java-editing/smart-selection.mp4" type="video/mp4">
 </video>
 
@@ -108,7 +108,7 @@ You can learn more about the details of Java semantic highlighting on the [Java 
 
 ## Navigating code with Spring Boot
 
-The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
 * `@/` shows all defined request mappings (mapped path, request method, source location)
 * `@+` shows all defined beans (bean name, bean type, source location)
@@ -123,13 +123,13 @@ To learn more about Spring Boot support with Visual Studio Code, read [Spring Bo
 
 Editing code is also easy with IntelliSense for smart code completions and signature details. You can use code snippets as well as various code actions such as generating Getters/Setters and organizing imports to further boost your productivity.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Code editing">
   <source src="/docs/java/java-editing/code-editing.mp4" type="video/mp4">
 </video>
 
 Java support in Visual Studio Code detects issues within your code automatically, and provides you with Quick Fix suggestions.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Quick fix suggestions">
   <source src="/docs/java/java-editing/quick-fix.mp4" type="video/mp4">
 </video>
 
@@ -141,7 +141,7 @@ Code completion in Visual Studio Code for Java is provided by [Language Support 
 
 In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it's trained on the most common usages from high-quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="IntelliSense code completion suggestions">
   <source src="/docs/java/java-editing/intellicode.mp4" type="video/mp4">
 </video>
 
@@ -151,7 +151,7 @@ IntelliCode works well with popular Java libraries and frameworks like Java SE a
 
 VS Code supports applying templates when you create a Java source file. When you create a `.java` file in the File Explorer, the language server will automatically generate the class body, and fill the package info for you:
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Create new file">
   <source src="/docs/java/java-editing/create-new-file.mp4" type="video/mp4">
 </video>
 

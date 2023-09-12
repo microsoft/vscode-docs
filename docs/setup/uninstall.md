@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Uninstall
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
 PageTitle: Uninstall Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Uninstall Visual Studio Code and clean up.
 ---
 # Uninstall Visual Studio Code
@@ -30,7 +30,7 @@ If you installed VS Code via the Windows Installer, either the User or System ve
 
 ### .zip file installation
 
-If you installed VS Code on Windows by downloading and extracting one of the `.zip` files, you can uninstall by deleting the folder where you extracted the `.zip` contents.
+If you installed VS Code on Windows by downloading and extracting one of the `.zip` files found on the [Visual Studio Code website](https://code.visualstudio.com/#alt-downloads), you can uninstall by deleting the folder where you extracted the `.zip` contents.
 
 ## macOS
 

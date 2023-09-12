@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Remote Development using SSH
 
@@ -46,7 +46,7 @@ To get started, you need to:
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
-3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
+3. Install the [Remote-SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). If you plan to work with other remote extensions in VS Code, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 ### SSH host setup
 
@@ -197,12 +197,12 @@ If there are extensions that you would like to always have installed on any SSH 
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
+For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-docker": [ "ui" ],
-    "msjsdiag.debugger-for-chrome": [ "workspace" ]
+    "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
 

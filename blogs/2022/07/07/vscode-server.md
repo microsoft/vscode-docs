@@ -13,6 +13,8 @@ July 7, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMur
 
 ## A remote present and future
 
+> **Note:** We've released changes to how you can connect to the VS Code Server since this blog was published. Check out the [December 2022 blog post](/blogs/2022/12/07/remote-even-better.md) for the latest guidance.
+
 In 2019, we released the [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extensions, which let you use VS Code locally to develop applications "remotely" on the Windows Subsystem for Linux (WSL), in Docker containers, and on remote physical or virtual machines you manage over SSH. In 2020, we took another step forward with remote development with [GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces), which let you use VS Code locally or in a browser to develop applications on a remote virtual machine that is hosted and managed in the cloud for you.
 
 We can do this because VS Code is, by design, a multi-process application. Conceptually, the front end (where you type your code) runs in one process and a backend service (which hosts extensions, the terminal, debugging, etc.) runs in a separate process.

@@ -42,7 +42,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * **File** > **Auto Save**
 * Open the Settings editor
   * **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`)
-  * **Code** > **Preferences** > **Settings** on macOS
 * Set Format On Type
   * check **Editor: Format on Type**
 * Set Format On Paste

@@ -79,7 +79,7 @@ If you have never installed a JDK before and need to install one, we recommend y
 
 Create a folder for your Java program and open the folder with VS Code. Then in VS Code, create a new file and save it with the name `Hello.java`. When you open that file, the Java Language Server automatically starts loading, and you should see a language status item with a loading icon on the right side of the Status Bar showing the language status is busy. After it finishes loading, you can hover on the language status item and find the loading process has been finished successfully. You can also choose to pin the status item in the status bar.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Creating a source code file">
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Standalone.mp4" type="video/mp4">
 </video>
 
@@ -89,7 +89,7 @@ VS Code will also try to figure out the correct package for the new type and fil
 
 You can also create a Java project using the **Java: Create Java Project** command. Bring up the **Command Palette**  (`kb(workbench.action.showCommands)`) and then type `java` to search for this command. After selecting the command, you will be prompted for the location and name of the project. You can also choose your build tool from this command.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Create Java Project">
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">
 </video>
 
@@ -99,7 +99,7 @@ Visual Studio Code also supports more complex Java projects — see [Project Man
 
 You can use code snippets to scaffold your classes and methods. VS Code also provides IntelliSense for code completion, and various refactor methods.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Editing source code">
   <source src="/docs/java/java-tutorial/edit-code.mp4" type="video/mp4">
 </video>
 
@@ -109,7 +109,7 @@ To learn more about editing Java, see [Java Editing](/docs/java/java-editing.md)
 
 To run and debug Java code, set a breakpoint, then either press `kb(workbench.action.debug.start)` on your keyboard or use the **Run** > **Start Debugging** menu item. You can also use the **Run|Debug** CodeLens option in the editor. After the code compiles, you can see all your variables and threads in the **Run and Debug** view.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Running and debugging your program">
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
 </video>
 

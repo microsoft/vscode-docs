@@ -4,17 +4,17 @@ Area: cpp
 TOCTitle: FAQ
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
 PageTitle: C/C++ extension FAQ
-DateApproved: 5/22/2020
+DateApproved: 1/17/2023
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
 # Frequently asked questions
 
-- [Why are my files corrupted on format?](#why-are-my-files-corrupted-on-format)
 - [How do I get IntelliSense to work correctly?](#how-do-i-get-intellisense-to-work-correctly)
+- [What is the difference between includePath and browse.path in c_cpp_properties.json?](#what-is-the-difference-between-includepath-and-browsepath)
 - [Why do I see red squiggles under Standard Library types?](#why-do-i-see-red-squiggles-under-standard-library-types)
 - [How do I get the new IntelliSense to work with MinGW on Windows?](#how-do-i-get-the-new-intellisense-to-work-with-mingw-on-windows)
 - [How do I get the new IntelliSense to work with the Windows Subsystem for Linux?](#how-do-i-get-the-new-intellisense-to-work-with-the-windows-subsystem-for-linux)
-- [What is the difference between includePath and browse.path in c_cpp_properties.json?](#what-is-the-difference-between-includepath-and-browsepath)
+- [Why are my files corrupted on format?](#why-are-my-files-corrupted-on-format)
 - [How do I recreate the IntelliSense database?](#how-do-i-recreate-the-intellisense-database)
 - [What is the ipch folder?](#what-is-the-ipch-folder)
 - [How do I disable the IntelliSense cache (ipch)?](#how-do-i-disable-the-intellisense-cache-ipch)
@@ -23,13 +23,9 @@ MetaDescription: Frequently asked questions about the C/C++ extension in Visual 
 - [Why is debugging not working?](#why-is-debugging-not-working)
 - [What do I do if I suspect a C/C++ extension problem](#what-do-i-do-if-i-suspect-a-cc-extension-problem)
 
-## Why are my files corrupted on format?
-
-Files can be corrupted due to the fact that you either have a multi-root workspace where one folder is a child of the other, or you are using symlinks to open your file. Reduce the folders in the workspace to one and remove the symlink. This should fix your problem.
-
 ## How do I get IntelliSense to work correctly?
 
-Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the **C/C++: Edit Configurations (UI)** command. In that view, you can change the compiler you want to emulate, the paths to include files you want to use, preprocessor definitions, and more.
+Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example, cl.exe/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the **C/C++: Edit Configurations (UI)** command. In that view, you can change the compiler you want to emulate, the paths to include files you want to use, preprocessor definitions, and more.
 
 Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the **C/C++: Change Configuration Provider...** command to enable any such extension to provide the configurations for IntelliSense.
 
@@ -37,13 +33,23 @@ A third option for projects without build system extension support is to use a [
 
 **Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the **Problems** window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
+## What is the difference between includePath and browse.path?
+
+These two settings are available in `c_cpp_properties.json` and can be confusing.
+
+### includePath
+
+This array of path strings is used by the "Default" IntelliSense engine, which provides semantic-aware IntelliSense features. The include paths are the same paths that you would send to your compiler via the `-I` switch. When your source files are parsed, the IntelliSense engine will prepend these paths to the files specified by your #include directives while attempting to resolve them. These paths are **not** searched recursively unless they end with `/**`.
+
+### browse.path
+
+This array of path strings is used by the "Tag Parser" ("browse engine"), which populates a database with global symbol information. This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
+
+When you open a workspace for the first time, the extension adds `${workspaceFolder}/**` to the `includePath` and the `browse.path` is left undefined (so it defaults to the `includePath`). If this is undesirable, you can open your **c_cpp_properties.json** file and change it.
+
 ## Why do I see red squiggles under Standard Library types?
 
-The most common reason for this is missing include paths and defines. The easiest way to fix this on each platform is as follows:
-
-**Linux/Mac**: Set `intelliSenseMode": "clang-x64` or `intelliSenseMode": "gcc-x64` and `compilerPath` in **c_cpp_properties.json** to the path to your compiler.
-
-**Windows**: If you are using the Microsoft C++ compiler, set `intelliSenseMode": "msvc-x64`, but don't add the `compilerPath` property to **c_cpp_properties.json**. If you are using Clang for Windows, set `intelliSenseMode": "msvc-x64`, and `compilerPath` in **c_cpp_properties.json** to the path to your compiler.
+The most common reason for this is missing include paths and defines. The easiest way to fix this is to set `compilerPath` in **c_cpp_properties.json** to the path to your compiler.
 
 ## How do I get the new IntelliSense to work with MinGW on Windows?
 
@@ -53,21 +59,9 @@ See [Get Started with C++ and Mingw-w64 in Visual Studio Code](/docs/cpp/config-
 
 See [Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code](/docs/cpp/config-wsl.md).
 
-## What is the difference between includePath and browse.path?
+## Why are my files corrupted on format?
 
-These two settings are available in `c_cpp_properties.json` and can be confusing.
-
-### includePath
-
-This array of path strings is used by the "Default" IntelliSense engine. This new engine provides semantic-aware IntelliSense features and will be the eventual replacement for the Tag Parser that has been powering the extension since it was first released. It currently provides tooltips and error squiggles in the editor. The remaining features (for example, code completion, signature help, Go to Definition, ...) are implemented using the Tag Parser's database, so it is still important to ensure that the browse.path setting is properly set.
-
-The paths that you specify for this setting are the same paths that you would send to your compiler via the `-I` switch. When your source files are parsed, the IntelliSense engine will prepend these paths to the files specified by your #include directives while attempting to resolve them. These paths are **not** searched recursively.
-
-### browse.path
-
-This array of path strings is used by the "Tag Parser" ("browse engine"). This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
-
-When you open a workspace for the first time, the extension adds `${workspaceFolder}` to both arrays. If this is undesirable, you can open your **c_cpp_properties.json** file and remove it.
+Files can be corrupted (and other features can fail) if a workspace folder is opened via a path with symlinks (issue [vscode-cpptools#5061](https://github.com/microsoft/vscode-cpptools/issues/5061)). The workaround is to open the workspace folder using a path that has the symlinks resolved to their target.
 
 ## How do I recreate the IntelliSense database?
 
@@ -91,7 +85,7 @@ This setting allows you to set a limit on the amount of caching the extension do
 
 ## How do I disable the IntelliSense cache (ipch)?
 
-If you do not want to use the IntelliSense caching feature that improves the performance of IntelliSense, you can disable the feature by setting the **IntelliSense Cache Size** setting to 0 (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor).
+If you do not want to use the IntelliSense caching feature (such as to work around a bug that may only occur when the cache is enabled), you can disable the feature by setting the **IntelliSense Cache Size** setting to 0 (or `"C_Cpp.intelliSenseCacheSize": 0"` in the JSON settings editor). Disabling the cache may also be beneficial if you're seeing excessive disk writing, particularly when editing headers.
 
 ## How do I set up debugging?
 
@@ -139,6 +133,6 @@ If your debugger is showing a grey stack trace, won't stop at a breakpoint, or t
 
 ## What do I do if I suspect a C/C++ extension problem
 
-If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for how to get C/C++ extension logs.
+If you have any other questions, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).
+If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable debug logging and send us your logs. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for how to get C/C++ extension logs.

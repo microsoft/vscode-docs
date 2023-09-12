@@ -202,7 +202,7 @@ Now when I refresh GitHub in the browser, I can view my files!
 
 ![View files in GitHub repo in browser online](28-github-browser.png)
 
-For more information on how to upload your repository to GitHub, check out [this Adding an existing project to GitHub guide](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line).
+For more information on how to upload your repository to GitHub, check out [this Adding an existing project to GitHub guide](https://docs.github.com/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
 
 ### Accessing assignments
 

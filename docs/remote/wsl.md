@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Developing in WSL
 
@@ -33,7 +33,7 @@ To get started, you need to:
 
     > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code` command.
 
-3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
+3. Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). If you plan to work with other remote extensions in VS Code, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 ### Open a remote folder or workspace
 
@@ -66,7 +66,7 @@ That's it! Any VS Code operations you perform in this window will be executed in
 Alternatively, you can open a WSL window directly from VS Code:
 
 1. Start VS Code.
-2. Press `kbstyle(F1)`, select **WSL: New WSL Window** for the default distro or **WSL: New WSL Window using Distro** for a specific distro.
+2. Press `kbstyle(F1)`, select **WSL: Connect to WSL** for the default distro or **WSL: Connect to WSL using Distro** for a specific distro.
 3. Use the File menu to open your folder.
 
 If you already have a folder open, you can also use the **WSL: Reopen Folder in WSL** command. You will be prompted which distro to use.
@@ -217,7 +217,7 @@ In addition, some extensions installed in an WSL when using an Alpine Linux-base
 
 ### Why am I asked to change the default distro?
 
-When using **WSL: New WSL Window using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
+When using **WSL: Connect to WSL using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
 
 You can always manually switch the default distro by using [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config).
 
@@ -271,12 +271,12 @@ Once the server is up and running the proxy settings on the *Remote* tab are use
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
+For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-docker": [ "ui" ],
-    "msjsdiag.debugger-for-chrome": [ "workspace" ]
+    "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
 

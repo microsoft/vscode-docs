@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -77,7 +77,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLght": "#feedc3",
+          "highContrastLight": "#feedc3",
         }
       }
     ]
@@ -223,9 +223,9 @@ will appear in a single group like this:
 >
 > Blame: **Format**
 >
-> Blame › Heatmap: **Enabled**
+> Blame › Heat Map: **Enabled**
 >
-> Blame › Heatmap: **Location**
+> Blame › Heat Map: **Location**
 
 Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
 
@@ -240,7 +240,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 
 ```json
 {
-  "gitMagic.blame.heatmap.enabled": {
+  "gitMagic.blame.heatMap.enabled": {
     "description": "Specifies whether to provide a heatmap indicator in the gutter blame annotations"
   }
 }
@@ -309,7 +309,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 
 ```json
 {
-  "gitMagic.blame.heatmap.location": {
+  "gitMagic.blame.heatMap.location": {
     "type": "string",
     "default": "right",
     "enum": ["left", "right"],
@@ -328,7 +328,7 @@ To customize the dropdown options, you can use `enumItemLabels`. The `workbench.
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -500,7 +500,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
     You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
@@ -725,7 +725,7 @@ The main effects of `contributes.languages` are:
 
 - Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
-- Associate file name extensions, file name patterns, files that begin with a specific line (such as hashbang), mimetypes to that `languageId`.
+- Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 - Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
 
@@ -767,11 +767,12 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 Currently extension writers can contribute to:
 
 - The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
+- The New File item in the File menu and Welcome page - `file/newFile`
 - The Explorer context menu - `explorer/context`
 - The editor context menu - `editor/context`
 - The editor title menu bar - `editor/title`
 - The editor title context menu - `editor/title/context`
+- The Run submenu on the editor title menu bar - `editor/title/run`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
 - The debug variables view context menu - `debug/variables/context`
@@ -799,6 +800,7 @@ Currently extension writers can contribute to:
 - The notebook cell execution menu - `notebook/cell/execute`
 - The interactive toolbar - `interactive/toolbar`
 - The interactive cell title menu bar - `interactive/cell/title`
+- Any [webview](/api/extension-guides/webview) context menu - `webview/context`
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
@@ -1201,7 +1203,7 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+	provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
 		return { name: 'Profile from extension', shellPath: 'bash' };
 	}
 });
@@ -1414,7 +1416,7 @@ Contribute a view container into which [Custom views](#contributes.views) can be
 
 ## contributes.viewsWelcome
 
-Contribute welcome content to [Custom views](#contributes.views). Welcome content only applies to empty tree views. A view is considered empty if the tree has no children. By convention, any command links that are on a line by themselves are displayed as a button. You can specify the view that the welcome content should apply to with the `view` property. Visibility of the welcome content can be controlled with the `when` context value. The text to be displayed as the welcome content is set with the `contents` property.
+Contribute welcome content to [Custom views](#contributes.views). Welcome content only applies to empty tree views. A view is considered empty if the tree has no children and no `TreeView.message`. By convention, any command links that are on a line by themselves are displayed as a button. You can specify the view that the welcome content should apply to with the `view` property. Visibility of the welcome content can be controlled with the `when` context value. The text to be displayed as the welcome content is set with the `contents` property.
 
 ```json
 {
@@ -1443,6 +1445,8 @@ Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are 
 Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
 
 Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+
+SVGs are recommended for images given their ability to scale and their support for VS Code's theme colors. Use the [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin to easily reference theme colors in the SVGs.
 
 ```json
 {

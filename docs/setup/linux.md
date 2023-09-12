@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -60,14 +60,14 @@ Then update the package cache and install the package using `dnf` (Fedora 22 and
 
 ```bash
 dnf check-update
-sudo dnf install code
+sudo dnf install code # or code-insiders
 ```
 
 Or on older versions using `yum`:
 
 ```bash
 yum check-update
-sudo yum install code
+sudo yum install code # or code-insiders
 ```
 
 Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.

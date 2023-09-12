@@ -5,7 +5,7 @@ TOCTitle: Improve performance
 PageTitle: Improve container performance
 ContentId: 0956602e-d7a7-4071-8345-86075fd81374
 MetaDescription: Improve container performance
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Improve disk performance
 
@@ -43,16 +43,18 @@ Follow these steps:
 
     ```json
     "mounts": [
-        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+        "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ]
     ```
+
+    > **Note**: You may use `${localWorkspaceFolderBasename}`, `${devcontainerId}`, or a hardcoded name in the `source`.
 
 2. Since this repository [runs VS Code as the non-root "node" user](/remote/advancedcontainers/add-nonroot-user.md), we need to add a `postCreateCommand` to be sure the user can access the folder.
 
     ```json
     "remoteUser": "node",
     "mounts": [
-        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+        "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ],
     "postCreateCommand": "sudo chown node node_modules"
     ```

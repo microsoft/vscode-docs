@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -14,7 +14,7 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 
 Supported shells:
 
-- Linux/macOS: bash, pwsh, zsh
+- Linux/macOS: bash, fish, pwsh, zsh
 - Windows: pwsh
 
 ## Installation
@@ -25,7 +25,7 @@ By default, the shell integration script should automatically activate on suppor
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
->**Note**: On Windows, you'll need PowerShell 7 (pwsh) for shell integration support. You can install via [https://aka.ms/PSWindows](https://aka.ms/PSWindows).
+>**Note**: Automatic injection may not work on old versions of the shell, for example older versions of fish do not support the `$XDG_DATA_DIRS` environment variable which is how injection works. You may still be able to manually install to get it working.
 
 ### Manual installation
 
@@ -39,6 +39,17 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
+
+**fish**
+
+⚠️ This is currently experimental and automatic injection is not supported
+
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+
+```sh
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
 ```
 
 **pwsh**
@@ -65,17 +76,6 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to 
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
-```
-
-**fish**
-
-⚠️ This is currently experimental and automatic injection is not supported
-
-Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
-
-```sh
-string match -q "$TERM_PROGRAM" "vscode"
-and . (code --locate-shell-integration-path fish)
 ```
 
 #### Portability versus performance
@@ -118,6 +118,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` fails due to an upstream not being set, suggest to push with the upstream set.
 - When a `git` subcommand fails with a similar command error, suggest to use the similar command(s).
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
+- When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
 The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
 
@@ -134,7 +135,9 @@ Some other functionality of the command:
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
-There is currently no keybinding assigned by default but you can add your own keyboard shortcut. For example, the below replaces `kbstyle(Ctrl+R)` with `runRecentCommand`, with `kbstyle(Ctrl+Alt+R)` available to fallback to the shell's regular behavior:
+The default keybinding for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
+
+The keybindings can be flipped when accessibility mode is off with the following keybindings:
 
 ```jsonc
 {
@@ -142,32 +145,19 @@ There is currently no keybinding assigned by default but you can add your own ke
     "command": "workbench.action.terminal.runRecentCommand",
     "when": "terminalFocus"
 },
-// Allow ctrl+r again to go to the next command in the quick pick
-{
-  "key": "ctrl+r",
-  "command": "workbench.action.quickOpenNavigateNextInViewPicker",
-  "when": "inQuickOpen && inTerminalRunCommandPicker"
-},
-// Fallback to the shell's native ctrl+r
 {
   "key": "ctrl+alt+r",
   "command": "workbench.action.terminal.sendSequence",
   "args": { "text": "\u0012"/*^R*/ },
   "when": "terminalFocus"
-},
-// Have ctrl+c close the quick pick
-{
-  "key": "ctrl+c",
-  "command": "workbench.action.closeQuickOpen",
-  "when": "inQuickOpen && inTerminalRunCommandPicker"
 }
 ```
 
 ## Go to recent directory
 
-Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them.
+Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-`kbstyle(Alt)` can be held to write the text to the terminal without running it.
+The default keybinding for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 
@@ -189,6 +179,10 @@ The following keybindings should work in PowerShell when shell integration is en
 - `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
 - `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
 
+## Enhanced accessibility
+
+The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/editor/accessibility.md#terminal-accessibility). For example, you can navigate through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`) and an [audio cue](/docs/editor/accessibility.md#audio-cues) plays when a command fails.
+
 ## Supported escape sequences
 
 VS Code supports several custom escape sequences:
@@ -206,6 +200,8 @@ These sequences should be ignored by other terminals, but unless other terminals
 - `OSC 633 ; E ; <commandline> ST` - Explicitly set the command line.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
+
+  The optional nonce can be used to verify the sequence came from the shell integration script to prevent command spoofing. When the nonce is verified successfully, some protections before using the commands will be removed for an improved user experience.
 
   The command line can escape ASCII characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below and this is particularly important for new line and semi-colon.
 

@@ -2,7 +2,7 @@
 Area: containers
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Configure and troubleshoot debugging of Node.js apps running in a Docker container
-DateApproved: 9/23/2020
+DateApproved: 12/21/2022
 MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a Docker container, using Visual Studio Code.
 ---
 
@@ -117,8 +117,7 @@ Also note that the `debug` logger writes logs only when enabled via the `DEBUG` 
 
 ### Configuring when the application is "ready"
 
-The extension determines the application is "ready" to receive HTTP connections when it writes a message of the form `Listening on port <number>` to the debug console, as Express.js does by default.  If the application logs a different
-message, then you should set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
+The extension determines the application is "ready" to receive HTTP connections when it writes a message of the form `Listening on port <number>` to the debug console, as Express.js does by default.  If the application logs a different message, then you should set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
 
 For example, suppose the application logs the following message:
 
@@ -210,7 +209,7 @@ Dockerfiles are often arranged in such a way as to optimize either image build t
 The solution is to remove that optimization from the `Dockerfile`:
 
 ```docker
-FROM node:10.13-alpine
+FROM node:lts-alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
@@ -219,5 +218,7 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent
 COPY . .
 EXPOSE 3000
-CMD npm start
+RUN chown -R node /usr/src/app
+USER node
+CMD ["npm", "start"]
 ```

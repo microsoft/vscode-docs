@@ -1,10 +1,10 @@
 ---
-Order: 15
+Order: 17
 Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -35,7 +35,7 @@ If you find an extension you want to use, install it, then restart VS Code and t
 
 ## Create your own snippets
 
-You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
+You can easily define your own snippets without any extension. To create or edit your own snippets, select **Configure User Snippets** under **File** > **Preferences**, and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
 ![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
@@ -70,6 +70,10 @@ In the example above:
 
 Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `${1:array}`, `${2:element}`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump to the next one. The string after the colon `:` (if any) is the default text, for example `element` in `${2:element}`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
 
+### File template snippets
+
+You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Populate File from Snippet** command in a new or existing file.
+
 ## Snippet scope
 
 Snippets are scoped so that only relevant snippets are suggested. Snippets can be scoped by either:
@@ -84,15 +88,15 @@ Every snippet is scoped to one, several, or all ("global") languages based on wh
 1. a **language** snippet file
 2. a **global** snippet file
 
-Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Preferences: Configure User Snippets**. A snippet is only accessible when editing the language for which it is defined.
+Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Snippets: Configure User Snippets**. A snippet is only accessible when editing the language for which it is defined.
 
-Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more [language identifiers](/docs/languages/identifiers.md), which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
+Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Snippets: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more [language identifiers](/docs/languages/identifiers.md), which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
 
 Most user-defined snippets are scoped to a single language, and so are defined in a language-specific snippet file.
 
 ### Project snippet scope
 
-You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '<folder-name>'...** option in the **Preferences: Configure User Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
+You can also have a global snippets file (JSON with file suffix `.code-snippets`) scoped to your project. Project-folder snippets are created with the **New Snippets file for '<folder-name>'...** option in the **Snippets: Configure User Snippets** dropdown menu and are located at the root of the project in a `.vscode` folder. Project snippet files are useful for sharing snippets with all users working in that project. Project-folder snippets are similar to global snippets and can be scoped to specific languages through the `scope` property.
 
 ## Snippet syntax
 
@@ -146,6 +150,7 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute as two digits
 * `CURRENT_SECOND` The current second as two digits
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+* `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HH:MM` or `-HH:MM` (example `-07:00`).
 
 For inserting random values:
 
@@ -156,7 +161,7 @@ For inserting random values:
 For inserting line or block comments, honoring the current language:
 
 * `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
-* `BLOCK_COMMENT_END ` Example output: in PHP `*/` or in HTML `-->`
+* `BLOCK_COMMENT_END` Example output: in PHP `*/` or in HTML `-->`
 * `LINE_COMMENT` Example output: in PHP `//`
 
 The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:

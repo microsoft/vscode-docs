@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
@@ -39,7 +39,7 @@ From your browser's search bar (aka omnibox), you can easily open any GitHub rep
 
 ![Type `code` in your browser and search a GitHub repository to open in vscode.dev](images/vscode-web/chrome-omnibox-extension.png)
 
-If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
+If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
 
 ![GitHub Repositories](images/vscode-web/remote-repositories.png)
 
@@ -55,7 +55,7 @@ You can create a new file in the web just as you would in a VS Code Desktop en
 
 Support for Azure Repos (part of Azure DevOps) in Visual Studio Code for the Web is in preview, and the experience will continue to grow and evolve over time.
 
-When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read and search the files in the repo. You can fetch, pull, and sync changes, and view branches.
+When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
@@ -181,6 +181,7 @@ Certain keybindings may also work differently in the web.
 | `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web. | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br> As a workaround, you can use `kbstyle(Ctrl+Alt+N)` (`kbstyle(Cmd+Alt+N)` on macOS). |
 | `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web. | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
 | `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
+| `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead. |
 
 ## Additional browser setup
 

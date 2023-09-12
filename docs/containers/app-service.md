@@ -3,17 +3,17 @@ Order: 8
 Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
-PageTitle: Deploy a containerized app to Azure App Service
-DateApproved: 10/28/2020
-MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service.
+PageTitle: Deploy a containerized app to Azure
+DateApproved: 01/17/2023
+MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service or Azure Container Apps.
 ---
-# Deploy to Azure App Service
+# Deploy a containerized app to Azure
 
 In this guide you will learn how to:
 
 - Create a container image for your application.
 - Push the image to a container registry.
-- Deploy the image to Azure App Service.
+- Deploy the image to Azure App Service or Azure Container Apps.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ If you already have an image, skip this step and proceed to [Push the image to a
 
 ## Push the image to a container registry
 
-Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
+Before deploying the image to an App Service or a Container App, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
 
 1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
 
@@ -49,11 +49,12 @@ Before deploying the image to an App Service, the image must be uploaded to a co
    ![Registries](images/app-service/explorer-registries.png)
 
 3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry.
+    - To create a registry in Azure ACR, open the **Registries** section of the Docker view, sign in to Azure if not already signed in, and then right-click on the subscription you want to use, and choose **Create Registry**.
     - The image built in previous section will appear in the Docker Explorer under Images section. Right-click and choose **Tag...**.
 
         ![Tag image](images/app-service/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
-    tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
+    tag action. For example, new image name for ACR named WebApp6 would be 'webapp6.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
 
 4. The image will show up in the Docker Explorer under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you will be prompted to choose a registry to push to, and the image will be tagged based on the selection.
 
@@ -63,18 +64,18 @@ Before deploying the image to an App Service, the image must be uploaded to a co
 
     ![Refresh registry](images/app-service/explorer-refresh-registry.png)
 
-## Deploy the image to Azure App Service
+## Deploy the image to Azure
 
-In the previous section, the image is pushed to a remote container registry. Now deploy this image to Azure App Service.
+In the previous section, the image is pushed to a remote container registry. Now deploy this image to Azure App Service or Azure Container Apps.
 
-1. In Docker Explorer, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...**.
+1. In Docker Explorer, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...** or **Deploy Image to Azure Container Apps...**.
 
     ![Deploy to Azure App Service](images/app-service/explorer-deploy-to-app-service.png)
 
-2. When prompted, provide the values for the App Service.
+2. When prompted, provide the values for the App Service or Container App.
     - New web app name: The name must be unique across Azure.
     - Resource group: Select an existing resource group or create a new one.
-    - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website. You can use a basic or free plan tier for this tutorial.).
+    - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website; you can use a basic or free plan tier for this tutorial).
 
 3. When deployment is complete, Visual Studio Code shows a notification with the website URL.
 
@@ -84,7 +85,7 @@ In the previous section, the image is pushed to a remote container registry. Now
 
     ![Deployment complete output](images/app-service/output-appservice-deployment.png)
 
-5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select Browse Website.
+5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service or Container App also appears in the Azure view in Visual Studio Code, where you can right-click the website and select **Browse Website**.
 
     ![Web Application](images/app-service/webapp-homepage.png)
 

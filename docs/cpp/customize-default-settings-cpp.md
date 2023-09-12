@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 PageTitle: Customize default settings in Visual Studio Code C++ projects
-DateApproved: 5/21/2020
+DateApproved: 3/06/2023
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
 # Customizing default settings
@@ -23,9 +23,18 @@ C_Cpp.default.macFrameworkPath                     : string[]
 C_Cpp.default.forcedInclude                        : string[]
 C_Cpp.default.intelliSenseMode                     : string
 C_Cpp.default.compilerPath                         : string
+C_Cpp.default.compilerArgs                         : string[]
+C_Cpp.default.configurationProvider                : string
+C_Cpp.default.customConfigurationVariables         : object | null
 C_Cpp.default.cStandard                            : c89 | c99 | c11 | c17
-C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17 | c++20
+C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17 | c++20 | c++23
+C_Cpp.default.enableConfigurationSquiggles         : boolean
+C_Cpp.default.mergeConfigurations                  : boolean
+C_Cpp.default.systemIncludePath                    : string[]
+C_Cpp.default.windowsSdkVersion                    : string
 C_Cpp.default.browse.path                          : string[]
+C_Cpp.default.browse.defines                       : string[]
+C_Cpp.default.browse.dotConfig                     : string
 C_Cpp.default.browse.databaseFilename              : string
 C_Cpp.default.browse.limitSymbolsToIncludedHeaders : boolean
 ```

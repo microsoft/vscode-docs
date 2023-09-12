@@ -5,11 +5,11 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Create a Dev Container
 
-The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to provide separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
@@ -32,7 +32,7 @@ You can use an image as a starting point for your `devcontainer.json`. An image 
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18"
 }
 ```
 
@@ -45,22 +45,24 @@ You can alter your configuration to do things such as:
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
 * Add more [Advanced container configuration](/remote/advancedcontainers/overview.md).
 
-For this example, if you'd like to install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
+For this example, if you'd like to install the [Code Spell Checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node",
 
     "customizations": {
         "vscode": {
             "extensions": [
-                "dbaeumer.vscode-eslint"
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     },
     "forwardPorts": [ 3000 ]
 }
 ```
+
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](/docs/devcontainers/containers.md#prebuilding-dev-container-images).
 
 With the above `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Dev Containers: Reopen in Container** command:
 
@@ -184,7 +186,7 @@ When you make changes like installing new software, changes made in the Dockerfi
 In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
 ```docker
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+FROM mcr.microsoft.com/devcontainers/javascript-node:0-18
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git
 ```
@@ -232,7 +234,7 @@ You can also iterate on your container when using the **Dev Containers: Clone Re
 
 1. Start with **Dev Containers: Clone Repository in Container Volume** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
-3. Try it with **DEv Containers: Rebuild Container**.
+3. Try it with **Dev Containers: Rebuild Container**.
 4. If you see an error, select **Open in Recovery Container** in the dialog that appears.
 5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
 6. Use **Dev Containers: Reopen in Container** and jump to step 4 if you still hit problems.
@@ -383,7 +385,7 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.yml` in a specific order:
+This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/docker-compose.extend.yml` in a specific order:
 
 ```json
 {

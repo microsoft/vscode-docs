@@ -5,11 +5,22 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Dev Containers Tips and Tricks
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Dev Containers Tips and Tricks
 
 This article includes some tips and tricks for getting the Dev Containers extension up and running in different environments.
+
+## Alternate ways to install Docker
+
+You can use Docker with the Dev Containers extension in a few ways, including:
+
+* Docker installed locally.
+* Docker installed on a remote environment.
+* Other Docker compliant CLIs, installed locally or remotely.
+  * While other CLIs may work, they are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/devcontainers/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [kubectl CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
+
+You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
 
 ## Docker Desktop for Windows tips
 
@@ -80,7 +91,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ## Avoid setting up Git in a container when using Docker Compose
 
-See [Sharing Git credentials with your container](/docs/devcontainers/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
+See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md) in the main containers article for information on resolving this issue.
 
 ## Resolving hangs when doing a Git push or sync from a Container
 
@@ -259,12 +270,12 @@ See the [Advanced container configuration](/remote/advancedcontainers/overview.m
 * [Changing or removing the default source code mount](/remote/advancedcontainers/change-default-source-mount.md)
 * [Improving container disk performance](/remote/advancedcontainers/improve-performance.md)
 * [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md)
-* [Avoiding extension reinstalls on container rebuild](/remote/advancedcontainers/avoid-extension-reinstalls.md)
 * [Setting the project name for Docker Compose](/remote/advancedcontainers/set-docker-compose-project-name.md)
 * [Using Docker or Kubernetes from inside a container](/remote/advancedcontainers/use-docker-kubernetes.md)
 * [Connecting to multiple containers at once](/remote/advancedcontainers/connect-multiple-containers.md)
 * [Developing inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md)
 * [Reducing Dockerfile build warnings](/remote/advancedcontainers/reduce-docker-warnings.md)
+* [Sharing git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md)
 
 ## Extension tips
 

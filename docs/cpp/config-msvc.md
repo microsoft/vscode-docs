@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 5/13/2022
+DateApproved: 3/7/2023
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -29,13 +29,13 @@ To successfully complete this tutorial, you must do the following:
 
    If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and select the **Modify** button in the installer.
 
-   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio 2022** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2022**.
+   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads/#remote-tools-for-visual-studio-2022) page, scroll down until you see **Tools for Visual Studio** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2022**.
 
-   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs.png)
+   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs-2022.png)
 
    This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **Desktop development with C++** workload and select **Install**.
 
-   ![Cpp build tools workload](images/msvc/desktop_development_with_cpp.png)
+   ![Cpp build tools workload](images/msvc/desktop_development_with_cpp-2022.png)
 
 >**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
@@ -208,17 +208,17 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
+To debug your code,
+
 1. Go back to `helloworld.cpp` so that it is the active file.
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
-1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run or debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
-The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
-   ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
+The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can select the play button to debug, instead of selecting the drop-down menu item.
 
 If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 

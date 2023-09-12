@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -47,6 +47,7 @@ The terminal cursor style and whether it blinks can be customized with the follo
 - `terminal.integrated.cursorStyle`: Defines the shape of the cursor, can be block, line or underline.
 - `terminal.integrated.cursorWidth`: How wide in pixels the cursor should be when the cursor style is set to `line`.
 - `terminal.integrated.cursorBlinking`: Whether the cursor should blink when the terminal is focused.
+- `terminal.integrated.cursorStyleInactive`: Defines the shape of the cursor, can be outline, block, line, underline or none.
 
 ## Customizing tabs
 
@@ -128,11 +129,11 @@ When on Linux VMs, browsers that don't support WebGL, or machines with outdated 
 
 The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the WebGL, canvas, and DOM renderers sequentially, settling at the first without detected issues.
 
-Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
+Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"off"` typically resolves rendering-related problems like these at the cost of performance.
 
 ### Custom glyphs
 
-When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of Powerline symbols (`U+E0B0-U+E0B7`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
+When [GPU acceleration](#gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of Powerline symbols (`U+E0B0-U+E0BF`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
 
 Below are some examples of these characters with custom line height and letter spacing configured. Notice how there are no gaps between cells thanks to the custom glyphs:
 
@@ -159,3 +160,5 @@ The [minimum contrast ratio feature](#minimum-contrast-ratio) can cause colors t
 ```json
 "terminal.integrated.minimumContrastRatio": 1
 ```
+
+Background on why this is the default is explained in [vscode#146406](https://github.com/microsoft/vscode/issues/146406#issuecomment-1084825473).

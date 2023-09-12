@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -114,6 +114,12 @@ By default, the task/debug features will use the default profile. This may not b
 }
 ```
 
+## Unsafe profile detection
+
+Certain shells are installed in unsafe paths by default, like a path that could be written to by another user on a Windows environment. VS Code will still detect these but not expose them as a proper profile until they have been explicitly configured via the **Terminal: Select Default Profile** command. When configuring an unsafe profile, there will be a warning before it's added:
+
+![Shells with unsafe paths like c:\msys64 will show a warning before you can use the detected profile](images/profiles/unsafe-profile-warning.png)
+
 ## Cmder
 
 Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell in VS Code with the following profile:
@@ -130,7 +136,7 @@ Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell
 }
 ```
 
-You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
+This profile should be picked up automatically when the `CMDER_ROOT` environment variable is set. It will also be detected as an [unsafe profile](#unsafe-profile-detection) if installed at `C:\cmder`. You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
 ## Cygwin
 
@@ -148,6 +154,8 @@ Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com
 }
 ```
 
+This profile should be detected automatically as an [unsafe profile](#unsafe-profile-detection) when installed at the default paths `C:\cygwin` or `C:\cygwin64`.
+
 ## Git Bash
 
 A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:
@@ -157,6 +165,26 @@ export PROMPT_COMMAND='history -a'
 ```
 
 This will cause the shell to call `history -a` whenever the prompt is printed which flushes the session's current session commands to the backing history file.
+
+## MSYS2
+
+MSYS2's bash shell can be configured with the following profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "bash (MSYS2)": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
+      "args": [
+        "--login",
+        "-i"
+      ]
+    }
+  }
+}
+```
+
+This profile should be detected automatically as an [unsafe profile](#unsafe-profile-detection) when installed at the default path `C:\\msys64`.
 
 ## Windows PowerShell
 

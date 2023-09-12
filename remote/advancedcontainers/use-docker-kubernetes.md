@@ -1,11 +1,11 @@
 ---
-Order: 11
+Order: 10
 Area: advancedcontainers
 TOCTitle: Use Docker or Kubernetes
 PageTitle: Use Docker or Kubernetes from a container
 ContentId: d324a29d-3f64-4331-9c34-a283719e9d7b
 MetaDescription: Use Docker or Kubernetes from a container
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Use Docker or Kubernetes from a container
 

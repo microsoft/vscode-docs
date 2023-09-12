@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 PageTitle: Debug Browser Apps using Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -16,7 +16,7 @@ Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
 
-We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), [Vue](/docs/nodejs/vuejs-tutorial), and [Ember](/docs/nodejs/emberjs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
+We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), and [Vue](/docs/nodejs/vuejs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
 ## Open Link command
 
@@ -105,9 +105,9 @@ Debugging configurations are stored in a `launch.json` file located in your work
 Below is a reference of common `launch.json` attributes specific to browser debugging. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
 * `webRoot` - The root directory for your source code. Most often, and by default, the `webRoot` is your workspace folder. This option is used for sourcemap resolution.
-* `outFiles` - An array of glob patterns for locating generated JavaScript files. See the section on [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
+* `outFiles` - An array of [glob patterns](/docs/editor/glob-patterns.md) for locating generated JavaScript files. See the section on [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `smartStep`- Try to automatically step over source code that doesn't map to source files. See the section on [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - Automatically skip files covered by these glob patterns. See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
+* `skipFiles` - Automatically skip files covered by these [glob patterns](/docs/editor/glob-patterns.md). See the section on [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - Enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:

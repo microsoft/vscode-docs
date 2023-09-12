@@ -4,12 +4,14 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
+
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -23,7 +25,7 @@ The Outline view is a great way to review your document's header structure and o
 
 ### Snippets for Markdown
 
-There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
+VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selcting **Insert Snippet** in the Command Palette.
 
 >**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
@@ -57,13 +59,59 @@ Path IntelliSense can also help you link to headers within the current file or w
 
 You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
 
-### Drag and drop to insert links and images
+### Creating links to a header in another file
 
-Quickly insert images and file links by dragging and dropping. To start, drag a file from VS Code's explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+Need to link to a header in another Markdown document but don't remember or want to type out the full file path? Try using workspace header completions! To start, just type `##` in a Markdown link to see a list of all Markdown headers from the current workspace:
+
+![Suggestions for all Markdown headers in the current workspace](images/Markdown/md-workspace-header-suggestion.png)
+
+Accept one of these completions to insert the full link to that header, even if it's in another file:
+
+![Adding a link to the selected header in another file](images/Markdown/md-workspace-header-suggestion-insert.png)
+
+You can configure if/when workspace header completions show with the `markdown.suggest.paths.includeWorkspaceHeaderCompletions` setting. Valid setting values are:
+
+* `onDoubleHash` (the default) — Show workspace header completions only after you type `##`.
+* `onSingleOrDoubleHash` — Show workspace header completions after you type `#` or `##`.
+* `never` — Never show workspace header completions.
+
+Keep in mind that finding all headers in the current workspace can be expensive, so there may be a slight delay the first time they are requested, especially for workspaces with lots of Markdown files.
+
+### Inserting images and links to files
+
+In addition to [path completion](#path-completions), VS Code also supports a few other ways to insert images and file links into your Markdown documents:
+
+You can **Drag and drop** a file from VS Code's Explorer or from your operating system into a Markdown editor. Start by dragging a file from VS Code's Explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
 ![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
 
-Dropped images insert a Markdown image `![](path/to/image.png)`. Dropped files insert a normal Markdown link `[](path/to/file.md)`.
+If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor.
+
+Or you can use the  **Markdown: Insert Image from Workspace** command to insert images and  **Markdown: Insert Link to File in Workspace** to insert file links.
+
+Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
+
+By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `markdown.copyFiles.destination` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `markdown.copyFiles.destination` setting description for information about the available variables.
+
+For example, if we want every Markdown file under `/docs` in our workspace to put new media files into an `images` directory specific to the current file, we can write:
+
+```jsonc
+"markdown.copyFiles.destination": {
+  "/docs/**/*": "images/${documentBaseName}/"
+}
+```
+
+Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
+
+You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
+
+```jsonc
+"markdown.copyFiles.destination": {
+  "/docs/**/*": "images/${documentBaseName/(.).*/$1/}/"
+}
+```
+
+When a new file is pasted into `/docs/api/readme.md`, the image is now created under `/docs/api/images/r/image.png`.
 
 ### Smart selection
 
@@ -126,6 +174,16 @@ You can also use `kb(editor.action.rename)` on:
 * External links: `[text](http://example.com/page)`. This will update all places that linked to `http://example.com/page`
 * Internal links: `[text](./path/to/file.md)`. This will rename the file `./path/to/file.md` and also update all links to it.
 * Fragments in links: `[text](./path/to/file.md#my-header)`. This will rename the header in `./path/to/file.md` and also update all links to it.
+
+### Automatic link updates on file move or rename
+
+With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `markdown.updateLinksOnFileMove.enabled` setting. Valid setting values are:
+
+* `never` (the default) — Don't try to update links automatically.
+* `prompt` — Confirm before updating links.
+* `always` — Update links automatically without confirmation.
+
+Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `markdown.updateLinksOnFileMove.include`.
 
 ## Markdown preview
 
@@ -227,6 +285,16 @@ Keeps scripts disabled but allows content to be loaded over `http`.
 ### Disable
 
 Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
+
+## Doc Writer profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/markdown/profile-template-dropdown.png)
+
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Markdown extensions
 

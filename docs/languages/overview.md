@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -24,7 +24,7 @@ Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the 
 ## Language specific documentation
 
 Learn about programming languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dart](https://dart.dev/tools/vs-code) - [Dockerfile](/docs/azure/docker.md) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Julia](/docs/languages/julia.md) - [Less](/docs/languages/css.md) -
-[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [R](/docs/languages/r.md) - [Rust](/docs/languages/rust.md) - [SCSS](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
+[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [R](/docs/languages/r.md) - [Ruby](/docs/languages/ruby.md) - [Rust](/docs/languages/rust.md) - [SCSS](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language. Most language extensions also contain a summary of their core features in their README.
 
@@ -33,13 +33,23 @@ Click on any linked item to get an overview of how to use VS Code in the context
 The richness of support varies across the different languages and their extensions:
 
 * Syntax highlighting and bracket matching
-* Smart completions (IntelliSense)
+* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/artificial-intelligence.md))
 * Linting and corrections
 * Code navigation (Go to Definition, Find All References)
 * Debugging
 * Refactoring
 
-## Changing the language for the selected file
+## Enhance completions with AI
+
+In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+[![GitHub Copilot extension in the VS Code Marketplace](images/overview/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
+## Change the language for the selected file
 
 In VS Code, we default the language support for a file based on its filename extension. However, at times you may want to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
 
@@ -59,7 +69,7 @@ You can see the list of currently installed languages and their identifiers in t
 
 You can find a list of known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
-## Adding a file extension to a language
+## Add a file extension to a language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
 
@@ -113,7 +123,7 @@ You can also configure full file paths to languages if needed. The following exa
 }
 ```
 
-Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+Note that the pattern is a [glob pattern](/docs/editor/glob-patterns.md) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
 ### How do I set the default language for new files?
 

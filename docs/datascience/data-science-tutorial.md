@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 11/21/2022
+DateApproved: 1/9/2023
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -18,9 +18,9 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. By default, the Python extension installs the Jupyter extension for you. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
 
-- [Miniconda with Python 3.9](https://docs.conda.io/en/latest/miniconda.html)
+- [Miniconda with latest Python](https://docs.conda.io/en/latest/miniconda.html)
 
    > **Note**: If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
 
@@ -28,29 +28,33 @@ The following installations are required for the completion of this tutorial. Ma
 
 Visual Studio Code and the Python extension provide a great editor for data science scenarios. With native support for Jupyter notebooks combined with Anaconda, it's easy to get started. In this section, you will create a workspace for the tutorial, create an Anaconda environment with the data science modules needed for the tutorial, and create a Jupyter notebook that you'll use for creating a machine learning model.
 
-1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.9 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
-1. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it `hello_ds`.
-1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. You can safely trust opening the folder, since you created it.
+1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.10 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
-1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Create: New Jupyter Notebook**.
+2. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it `hello_ds`.
+
+3. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. You can safely trust opening the folder, since you created it.
+
+4. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Create: New Jupyter Notebook**.
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
    > **Note**: Alternatively, from the VS Code File Explorer, you can use the New File icon to create a Notebook file named `hello.ipynb`.
 
-1. Save the file as `hello.ipynb` using **File** > **Save As...**.
+5. Save the file as `hello.ipynb` using **File** > **Save As...**.
 
-1. After your file is created, you should see the open [Jupyter notebook](https://jupyter.org/) in the notebook editor. For additional information about native Jupyter notebook support, you can read the [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) topic.
+6. After your file is created, you should see the open [Jupyter notebook](https://jupyter.org/) in the notebook editor. For additional information about native Jupyter notebook support, you can read the [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) topic.
 
    ![Viewing a new Jupyter Notebook](images/data-science-tutorial/notebook-editor.png)
 
-1. Now select **Select Kernel** at the top right of the notebook.
+7. Now select **Select Kernel** at the top right of the notebook.
 
    ![Selecting a Jupyter Notebook Kernel](images/data-science-tutorial/select-kernel.png)
 
-1. Choose the Python environment you created above in which to run your kernel.
+8. Choose the Python environment you created above in which to run your kernel.
 
    ![Choose a kernel from created environment](images/data-science-tutorial/choose-myenv.png)
+
+9. To manage your environment from VS Code's integrated terminal, open it up with (`kb(workbench.action.terminal.toggleTerminal)`). If your environment is not activated, you can do so as you would in your terminal (`conda activate myenv`).
 
 ## Prepare the data
 
@@ -117,9 +121,9 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Graphing the titanic data](images/data-science-tutorial/jupyter-cell-02.png)
 
-   To better view details on the graphs, you can open them in the plot viewer by hovering over the upper right corner of the graph and clicking the button that appears.
+   > **Tip**: To quickly copy your graph, you can hover over the upper right corner of your graph and click on the **Copy to Clipboard** button that appears. You can also better view details of your graph by clicking the **Expand image** button.
 
-      ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer.png)
+      ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer-buttons.png)
 
 1. These graphs are helpful in seeing some of the relationships between survival and the input variables of the data, but it's also possible to use **pandas** to calculate correlations. To do so, all the variables used need to be numeric for the correlation calculation and currently gender is stored as a string. To convert those string values to integers, add and run the following code.
 
@@ -259,6 +263,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
 Now that you're familiar with the basics of performing machine learning within Visual Studio Code, here are some other Microsoft resources and tutorials to check out.
 
+- [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
 - Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
 - [Get started with Azure Machine Learning for VS Code](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code) to deploy and optimize your model using the power of Azure.
 - Find more data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).

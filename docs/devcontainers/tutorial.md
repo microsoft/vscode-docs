@@ -5,13 +5,13 @@ TOCTitle: Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 9/7/2023
 ---
 # Dev Containers tutorial
 
 This tutorial walks you through running Visual Studio Code in a [Docker](https://www.docker.com/) container using the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. You need no prior knowledge of Docker to complete this tutorial.
 
-Running VS Code **inside** a Docker container can be useful for many reasons, but in this walkthrough we'll focus on using a Docker container to set up a development environment that is isolated from your local environment.
+Running VS Code **inside** a Docker container can be useful for many reasons, but in this walkthrough we'll focus on using a Docker container to set up a development environment that is separate from your local environment.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Docker is needed to create and manage your containers.
 
 ### Docker Desktop
 
-Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop), or an [alternative Docker option](/remote/advancedcontainers/docker-options.md), like Docker on a remote host or Docker compliant CLI.
 
 ### Start Docker
 
@@ -58,13 +58,13 @@ With the Dev Containers extension installed, you will see a new Status bar item 
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
 
-![Dev Containers commands](images/tutorial/dev-containers-commands.png)
+![Dev Containers commands](images/tutorial/dev-containers-commands-simple.png)
 
 ## Get the sample
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Select **Dev Containers: Try a Dev Container Sample...** from the command list that appears and select the Node sample from the list.
+Open the Command Palette (`F1`) to run the command **Dev Containers: Try a Dev Container Sample...** and select the Node sample from the list.
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
@@ -88,7 +88,7 @@ Once the container is running and you're connected, you should see your remote c
 
 One of the useful things about developing in a container is that you can use specific versions of dependencies that your application needs without impacting your local development environment.
 
-The specific container for this tutorial has Node.js v12 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
+The specific container for this tutorial has Node.js v18 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
 
 ```bash
 node --version; npm --version
@@ -114,9 +114,15 @@ This next section describes in more detail how the Dev Containers extension sets
 
 The Dev Containers extension uses the files in the `.devcontainer` folder, namely `devcontainer.json`, and an optional `Dockerfile` or `docker-compose.yml`, to create your dev containers.
 
-First your image is built from the supplied Docker file or image name. Then a container is created and started using some of the settings in the `devcontainer.json`. Finally your Visual Studio Code environment is installed and configured again according to settings in the `devcontainer.json`.
+In the example we just explored, the project has a `.devcontainer` folder with a `devcontainer.json` inside. The `devcontainer.json` uses the image `mcr.microsoft.com/devcontainers/javascript-node:0-18`. You can explore this image in greater detail in the [devcontainers/images](https://github.com/devcontainers/images/tree/main/src/javascript-node) repo.
+
+First, your image is built from the supplied Dockerfile or image name, which would be `mcr.microsoft.com/devcontainers/javascript-node:0-18` in this example. Then a container is created and started using some of the settings in the `devcontainer.json`. Finally your Visual Studio Code environment is installed and configured again according to settings in the `devcontainer.json`. For example, the dev container in this example installs the `streetsidesoftware.code-spell-checker` extension.
+
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we see the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](/docs/devcontainers/containers.md#prebuilding-dev-container-images).
 
 Once all of this is done, your local copy of Visual Studio Code connects to the Visual Studio Code Server running inside of your new dev container.
+
+![Architecture](../remote/images/remote-overview/architecture.png)
 
 ### devcontainer.json
 
@@ -125,42 +131,54 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 ```json
 //devcontainer.json
 {
-    "name": "Node.js Sample",
-    "dockerFile": "Dockerfile",
+    "name": "Node.js",
+
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
 
     "customizations": {
         "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash"
-            },
-
+            "settings": {},
             "extensions": [
-                "dbaeumer.vscode-eslint"
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     },
 
-    "forwardPorts": [3000],
+    // "forwardPorts": [3000],
+
+    "portsAttributes": {
+        "3000": {
+            "label": "Hello Remote World",
+            "onAutoForward": "notify"
+        }
+    },
 
     "postCreateCommand": "yarn install",
 
-    "remoteUser": "node"
+    // "remoteUser": "root"
 }
 ```
 
-The above example is taken from the `vscode-remote-try-node` repo we used in the tutorial.
+The above example is extracted from the `vscode-remote-try-node` repo we used in the tutorial.
 
 | Option | Description |
 |---|---|
-| `dockerfile` | Relative path to a `Dockerfile` that you want to use as your image. |
-| `customizations` | Configure tool-specific properties, like `settings` and `extensions` properties for VS Code.
-| `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
-| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
+| `image` | The name of an image in a container registry ([Docker Hub](https://hub.docker.com/), [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) VS Code should use to create the dev container. <br> |
+| `dockerfile` | Rather than referencing an `image`, you may instead use the `dockerfile` property, which is the relative path to a `Dockerfile` that you want to use as your image. |
+| `features` | An object of [Dev Container Feature](/docs/devcontainers/containers.md#dev-container-features) IDs and related options to be added. |
+| `customizations` | Configure tool-specific properties, like `settings` and `extensions` properties for VS Code. |
+| `settings`  | Adds default `settings.json` values into a container/machine specific settings file, such as `"terminal.integrated.defaultProfile.linux": "bash"`. |
+| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
 | `forwardPorts`  | Make a list of ports inside the container available locally. |
+| `portsAttributes` | Set default properties for specific forwarded ports. |
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
-| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
+| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`. |
 
-[Full list](https://containers.dev/implementors/json_reference) of `devcontainer.json` options.
+You can review the [full list](https://containers.dev/implementors/json_reference) of `devcontainer.json` options.
 
 ### Congratulations
 
