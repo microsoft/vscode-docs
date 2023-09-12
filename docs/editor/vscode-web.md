@@ -27,15 +27,18 @@ You can also switch between the Stable and Insiders versions of VS Code for the 
 
 By navigating to [https://vscode.dev](https://vscode.dev), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
 
-You can navigate to a project repository directly from a URL, following the scheme: `https://vscode.dev/SOURCE/ORG/REPO`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
+You can create a new local file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
 
-To work with both GitHub and Azure Repos, VS Code for the Web supports two routes, `vscode.dev/github` and `vscode.dev/azurerepos`:
+## GitHub repos
+You can open a GitHub repository in VS Code for the Web directly from a URL, following the scheme: `https://vscode.dev/github/organization/repo`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
 
-GitHub: `https://vscode.dev/github/organization/repo`
+This experience is delivered at what we call a VS Code for the Web "route." The `vscode.dev/github` route is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
 
-Azure Repos: `https://vscode.dev/azurerepos/organization/project/repo`
+GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor. Rather than cloning your work, GitHub Repositories creates a **virtual file system** to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
-From your browser's search bar (aka omnibox), you can easily open any GitHub repository in `vscode.dev`. Simply install the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
+>**Note**: The GitHub Repositories extension works in VS Code Desktop as well to provide fast repository browsing and editing.
+
+You can also open any GitHub repository in `vscode.dev` through your browser's search bar (aka omnibox). Simply install the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
 
 ![Type `code` in your browser and search a GitHub repository to open in vscode.dev](images/vscode-web/chrome-omnibox-extension.png)
 
@@ -43,31 +46,37 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.
 
 ![GitHub Repositories](images/vscode-web/remote-repositories.png)
 
-GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor.
+## Azure Repos
 
-Rather than cloning your work, GitHub Repositories creates a virtual file system to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
-
->**Note**: The GitHub Repositories extension works in VS Code Desktop as well to provide fast repository browsing and editing.
-
-You can create a new file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
-
-## Azure Repos (preview)
-
-Support for Azure Repos (part of Azure DevOps) in Visual Studio Code for the Web is in preview, and the experience will continue to grow and evolve over time.
+Just like you can navigate to remote GitHub repos in VS Code for the Web, you can open Azure Repos too.
 
 When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
-Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in vscode.dev.
+Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in VS Code for the Web.
 
-### Current limitations
+## More custom routes
 
-Azure Repos support is currently read-only. Commit, branch, fork, and PR actions are disabled in the Source Control view and Command Palette.
+Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. Unlike in the desktop, it's easy for us to deliver customized experiences with pre-installed extensions through unique `vscode.dev` URLs, aka "routes."
 
-## More custom URLs
+We've seen a couple of routes so far (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
+| Service | URL Structure | Docs |
+| --- | --- | --- |
+| GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
+| Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
+| Visual Studio Live Share | `/liveshare/<session_id>` | [More info below](#visual-studio-live-share) |
+| Visual Studio Marketplace | `/marketplace/<marketplace_publisher>/<extension_id>/<extension_version>` | |
+| Office Scripts | `/office` | [Office Scripts docs](https://learn.microsoft.com/en-us/office/dev/scripts/develop/vscode-for-scripts) |
+| Power Pages | `/powerplatform` | [Power Pages docs](https://learn.microsoft.com/en-us/power-pages/configure/visual-studio-code-editor) |
+| Profiles | `/profile/github/{GUID}` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
+| Themes | `/theme/extensionId` | [More info below](#themes) |
+| VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
+| Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
-Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. Unlike in the desktop, it's easy for us to deliver customized experiences with pre-installed extensions through unique `vscode.dev` URLs (like `vscode.dev/github` and `vscode.dev/azurerepos` described above).
+Please note that some routes must be entered in a specific way (i.e. `vscode.dev/liveshare` requires an active Live Share session). Please review each route's docs for any route-specific info.
+
+There's more info on some of these routes below.
 
 ### Themes
 
@@ -95,13 +104,23 @@ In some cases, you will want to access a different environment that has the abil
 
 The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension installed and access to create GitHub codespaces). To do this, use the **Continue Working On...** command available from the Command Palette (`kbstyle(F1)`) or click on the Remote indicator in the Status bar.
 
-## Use your own compute power with the VS Code Server
+## Saving and sharing work
 
-You may develop against another machine in VS Code for the Web using the VS Code Server.
+When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save-auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
 
-The VS Code Server is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
 
-You may learn more about the VS Code Server in its [documentation](https://aka.ms/vscode-server-doc).
+As [described above](#continue-working-in-a-different-environment), you can continue working in other environments via **Continue Working On**.
+
+The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes. This is described further in the [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) doc.
+
+## Use your own compute power with Remote-Tunnels
+
+You may develop against another machine in VS Code for the Web using the [Remote-Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension.
+
+The Remote - Tunnels extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+
+You may learn more about Remote-Tunnels in its [documentation](/docs/remote/tunnels.md).
 
 ## Safe exploration
 
@@ -110,12 +129,6 @@ VS Code for the Web runs entirely in your web browser's sandbox and offers a
 When accessing code from remote repositories, the web editor doesn't "clone" the repo, but instead loads the code by invoking the services' APIs directly from your browser; this further reduces the attack surface when cloning untrusted repositories.
 
 When working with local files, VS Code for the Web loads them through your browser's file system access APIs, which limit the scope of what the browser can access.
-
-## Saving and sharing work
-
-When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save-auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
-
-When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
 
 ## Run anywhere
 
