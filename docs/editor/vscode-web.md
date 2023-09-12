@@ -119,7 +119,7 @@ The first time that you use **Continue Working On** with uncommitted changes, yo
 
 You may develop against another machine in VS Code for the Web using the [Remote-Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension.
 
-The Remote - Tunnels extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+The Remote-Tunnels extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
 
 You may learn more about Remote-Tunnels in its [documentation](/docs/remote/tunnels.md).
 
