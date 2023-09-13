@@ -35,7 +35,7 @@ You can open a GitHub repository in VS Code for the Web directly from a URL, fol
 
 This experience is delivered at a custom `vscode.dev/github` URL, which is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
 
-GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor. Rather than cloning your work, GitHub Repositories creates a **virtual file system** to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
+GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
 >**Note**: The GitHub Repositories extension works in VS Code Desktop as well to provide fast repository browsing and editing.
 
