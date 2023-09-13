@@ -33,7 +33,7 @@ You can create a new local file in the web just as you would in a VS Code Desk
 
 You can open a GitHub repository in VS Code for the Web directly from a URL, following the schema: `https://vscode.dev/github/organization/repo`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
 
-This experience is delivered at a custom vscode.dev URL, which we refer to as a "route." The `vscode.dev/github` route is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
+This experience is delivered at a custom `vscode.dev/github` URL, which is powered by the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension (which is part of the broader [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension)).
 
 GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor. Rather than cloning your work, GitHub Repositories creates a **virtual file system** to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
@@ -49,7 +49,7 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.
 
 ## Azure Repos
 
-You can open Azure repos just like Github repos in VS Code for the Web.
+You can open Azure Repos just like Github repos in VS Code for the Web.
 
 When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organization>/<project>/<repo>`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
@@ -57,11 +57,11 @@ You can open any repository, branch, or tag from Azure Repos in VS Code for the 
 
 Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in VS Code for the Web.
 
-## More custom routes
+## More custom URLs
 
-Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. Unlike in the desktop, it's easy for us to deliver customized experiences with pre-installed extensions through unique `vscode.dev` URLs, aka "routes."
+Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. Unlike in the desktop, it's easy for us to deliver customized experiences with pre-installed extensions through unique `vscode.dev` URLs.
 
-We've explored a couple of routes already (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
+We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
 | Service | URL Structure | Docs |
 | --- | --- | --- |
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
@@ -75,9 +75,9 @@ We've explored a couple of routes already (`vscode.dev/github` and `vscode.dev/a
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
-Please note that some routes must be entered in a specific way (i.e. `vscode.dev/liveshare` requires an active Live Share session). Please review each route's docs for specific access and usage info.
+Please note that some URLs must be entered in a specific way (i.e. `vscode.dev/liveshare` requires an active Live Share session). Please review each service's docs for specific access and usage info.
 
-There's more info on some of these routes below.
+There's more info on some of these URLs below.
 
 ### Themes
 
