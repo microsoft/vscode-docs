@@ -111,7 +111,7 @@ When working on a local file in the web, your work is saved automatically if you
 
 When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
 
-As [described above](#continue-working-in-a-different-environment), you can continue working in other environments via **Continue Working On**.
+You can also continue working in other environments via [**Continue Working On**](#continue-working-in-a-different-environment).
 
 The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes. This is described further in the [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) doc.
 
