@@ -49,7 +49,7 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.
 
 ## Azure Repos
 
-Just like you can navigate to remote GitHub repos in VS Code for the Web, you can open Azure Repos too.
+You can open Azure repos just like Github repos in VS Code for the Web.
 
 When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organization>/<project>/<repo>`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
