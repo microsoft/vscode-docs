@@ -39,7 +39,7 @@ GitHub Repositories is the core component that provides the ability to remotel
 
 >**Note**: The GitHub Repositories extension works in VS Code Desktop as well to provide fast repository browsing and editing.
 
-You can also open any GitHub repository in `vscode.dev` through your browser's search bar (aka omnibox). Simply install the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
+You can also open GitHub repositories in `vscode.dev` through your browser's search bar (aka omnibox) by installing the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
 
 ![Type `code` in your browser and search a GitHub repository to open in vscode.dev](images/vscode-web/chrome-omnibox-extension.png)
 
@@ -49,7 +49,7 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.
 
 ## Azure Repos
 
-Just like you can navigate to remote GitHub repos in VS Code for the Web, you can open Azure Repos too.
+You can open Azure repos just like Github repos in VS Code for the Web.
 
 When you navigate to a URL with the schema `https://vscode.dev/azurerepos/<organization>/<project>/<repo>`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
