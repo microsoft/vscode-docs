@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 
 Visual Studio Code for the Web provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code repositories and make lightweight code changes. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
 
-VS Code for the Web has many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos (in preview), you can also work with code that is stored on your local machine.
+VS Code for the Web has many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos, you can also work with code that is stored on your local machine.
 
 VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#limitations).
 
@@ -67,11 +67,12 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
 | Visual Studio Live Share | `/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
-| Visual Studio Marketplace | `/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | |
+| Visual Studio Marketplace | `/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
 | Office Scripts | `/office` | [Office Scripts docs](https://learn.microsoft.com/office/dev/scripts/develop/vscode-for-scripts) |
 | Power Pages | `/powerplatform` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
-| Profiles | `/profile/github/{GUID}` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
+| Profiles | `/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
 | Themes | `/theme/<extensionId>` | [More info below](#themes) |
+| MakeCode | `/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
