@@ -9,7 +9,7 @@ MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and co
 ---
 # Using Vue in Visual Studio Code
 
-[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and  Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension which supports Vue.js IntelliSense, code snippets, formatting, and more.
+[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and  Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension which supports Vue.js IntelliSense, code snippets, formatting, and more.
 
 ---
 
