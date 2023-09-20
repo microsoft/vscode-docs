@@ -134,7 +134,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 1. Now, you can analyze the correlation between all the input variables to identify the features that would be the best inputs to a machine learning model. The closer a value is to 1, the higher the correlation between the value and the result. Use the following code to correlate the relationship between all variables and survival.
 
    ```python
-   data.corr().abs()[["survived"]]
+   data.corr(numeric_only=True).abs()[["survived"]]
    ```
 
    ![Determining the correlation between input variables and survival](images/data-science-tutorial/jupyter-cell-03.png)
