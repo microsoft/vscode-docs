@@ -446,7 +446,7 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
   "command": "workbench.action.terminal.sendSequence",
   "when": "terminalFocus",
   "args": { "text": "\u0003" }
-}
+}asds
 ```
 
 ### Why are the colors in the terminal not correct?
