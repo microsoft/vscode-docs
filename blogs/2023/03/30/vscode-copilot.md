@@ -101,7 +101,7 @@ The inline completions experience discussed above is available today. If you don
 * When prompted, authenticate with your GitHub ID.
 * Open a code file and let the magic happen!
 
-Today, to access the chat experiences (in-editor, Chat view, Quick Chat), you'll need to [join the waitlist](https://github.com/github-copilot/chat_waitlist_signup/join) for access to the technical preview as we ramp up the service. Once admitted:
+To access the chat experiences (in-editor, Chat view, Quick Chat), you'll need to install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension:
 
 * Open the Extensions view (`kb(workbench.view.extensions)`), search for the GitHub Copilot Chat extension.
 * When prompted, authenticate with your GitHub ID.
