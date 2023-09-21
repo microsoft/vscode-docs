@@ -262,6 +262,12 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
+If this happened after an update, deleting the `GPUCache` directory can resolve the issue.
+
+```bash
+rm -r ~/.config/Code/GPUCache
+```
+
 ## VS Code gets unresponsive right after opening a folder
 
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
