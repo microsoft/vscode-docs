@@ -27,13 +27,13 @@ The default (Primary) side bar shows views such as the File Explorer, Search, an
 
 ### Secondary side bar
 
-issue #6326 "Secondary Side Bar deserves better documentation"
+<!-- issue #6326 "Secondary Side Bar deserves better documentation" -->
 
 By default, VS Code shows all views in the **Primary side bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary side bar** and drag and drop views into the side bar.
 
-This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the right and Source Control view on the right
+This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right
 
-![alt](https://) TBD
+![Source Control view in the Secondary Side bar to the right](images/custom-layout/secondary-side-bar.png)
 
 ### Panel
 
@@ -41,15 +41,15 @@ The Panel region displays UI elements such as the Problems, Terminal, and Output
 
 ### Move Panel commands
 
-by default Panel region is below the editor
+You can also move the region to be to the left or right of the editor with the **Move Panel** commands:
 
 * **View: Move Panel Left** (`workbench.action.positionPanelLeft`)
 * **View: Move Panel Right** (`workbench.action.positionPanelRight`)
 * **View: Move Panel To Bottom** (`workbench.action.positionPanelBottom`)
 
-You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel region context menu, or using the new **View: Move Panel...** commands.
+You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel title bar context menu, or using the new **View: Move Panel...** commands.
 
-![alt](https://) TBD context menu
+![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
 
 ### Panel alignment
 
