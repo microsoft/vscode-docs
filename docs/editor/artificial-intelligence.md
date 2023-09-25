@@ -166,13 +166,11 @@ The Chat features are available by installing the additional [GitHub Copilot Cha
 
 ![GitHub Copilot Chat extension](images/artificial-intelligence/copilot-chat-extension.png)
 
-> **Note:** To get access to chat features, you'll need to sign up for the [GitHub Copilot chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join).
-
 ## Chat view
 
 When developing a project or learning something new, it can be a big help to get AI assistance on your questions, big or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
 
-Once you've signed up and been granted access to Copilot chat through the [chat waitlist](https://github.com/github-copilot/chat_waitlist_signup/join), install the [pre-release version](https://code.visualstudio.com/updates/v1_63#_pre-release-extensions) of the GitHub Copilot extension in VS Code. You'll be presented a new GitHub Copilot chat view in the Activity Bar:
+You can access the Chat view via the Activity Bar:
 
 ![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
 
@@ -245,7 +243,6 @@ Check each requirement if Copilot Chat doesn't work:
 * Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 * Your GitHub account that is signed into VS Code must be both:
   * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
-  * Accepted to GitHub Copilot chat private beta (join the [waitlist](https://github.com/github-copilot/chat_waitlist_signup/join)).
 
 ### How do I disable Copilot?
 
