@@ -7,11 +7,11 @@ MetaDescription: A guide to migrating extension projects from the TSLint linter 
 ---
 # Migrate from TSLint to ESLint
 
-[TSLint](https://palantir.github.io/tslint/) has been the recommended linter in the past but now TSLint is deprecated and [ESLint](https://eslint.org/) is taking over its duties. This article will help you migrate from TSLint to ESLint.
+[TSLint]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]] has been the recommended linter in the past but now TSLint is deprecated and [ESLint]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] is taking over its duties. This article will help you migrate from TSLint to ESLint."<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
 
 ## ESLint: Installation
 
-You need to install ESLint. ESLint doesn't natively support TypeScript, so you will also need to install eslint-typescript-support:
+You need to install ESLint. ESLint doesn't natively support TypeScript, so you will also need to install eslint-typescript-support:"<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
 
 ```bash
 npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
@@ -19,15 +19,15 @@ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslin
 
 The command above adds ESLint, adds a parser that makes ESLint understand TypeScript, and adds some TypeScript-specific rules.
 
-Now, to make the actual migration simpler, run the [tslint-to-eslint-config](https://github.com/typescript-eslint/tslint-to-eslint-config) utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
+Now, to make the actual migration simpler, run the [tslint-to-eslint-config]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
 
 ```bash
 npx tslint-to-eslint-config
 ```
 
-This command [downloads and executes](https://www.npmjs.com/package/npx) the utility to perform the migration. For further options, check the utility's [usage guide](https://github.com/typescript-eslint/tslint-to-eslint-config#usage).
+This command [downloads and executes]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] the utility to perform the migration. For further options, check the utility's [usage guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
-There should now be a new `.eslintrc.js` file, a log file (`tslint-to-eslint-config.log`), and likely changes to other files, like `.vscode/settings.json`. Carefully review the changes, especially those made to existing files, and check the log file.
+There should now be a new `.eslintrc.js` file, a log file (`tslint-to-eslint-config.log`), and likely changes to other files, like `.vscode/settings.json`. Carefully review the changes, especially those made to existing files, and check the log file."<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
 
 ## ESLint: Configure
 
@@ -45,9 +45,9 @@ It is time to lint! Use this command: `eslint -c .eslintrc.js --ext .ts <mySrcFo
 
 To integrate ESLint with Visual Studio Code, do the following:
 
-* Install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension.
-* Create a task via the **Tasks: Configure Task** command and select **npm: lint**.
-* In the resulting `tasks.json` file, configure the problem matcher to be `$eslint-stylish`.
+* Install the [ESLint]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] extension.
+* Create a task via the **Tasks: Configure Task** command and select **npm: lint**."<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
+* In the resulting `tasks.json` file, configure the problem matcher to be `$eslint-stylish`."<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
 
 **Hint**: ESLint is sometimes "more correct" in how it does things and you may see warnings that you didn't have before, for example calling out missing semicolons. Try the `--fix` option to let ESLint clean up things up for you.
 
@@ -55,12 +55,12 @@ To integrate ESLint with Visual Studio Code, do the following:
 
 Congratulations. You should now have a working ESLint setup and it's time to clean up.
 
-The removal of TSLint depends on your project, but usually these are the steps:
+The removal of TSLint depends on your project, but usually these are the steps:"<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
 
 * Update `.vscode/extensions.json` to recommend the ESLint extension and not TSLint anymore:
 
   ```json
-  "recommendations": [
+  "recommendations": ["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"
     "dbaeumer.vscode-eslint"
   ]
   ```
@@ -68,3 +68,13 @@ The removal of TSLint depends on your project, but usually these are the steps:
 * Remove the `tslint.json` file.
 * Remove the dependency on `tslint` in the `package.json` file.
 * Uninstall TSLint with `npm uninstall tslint`.
+"'DONUT-D-main-patch-60309:https://gitlab.com/DONUT-D/gitlab-docs/-/pipelines/"<git-helps><Visual_Studio_Code_Marketplace></git-helps>"1016919229""'DONUT-D-main-patch-60309:ext install GitHub.remotehub-GitHub.remotehub""https://gitlab.com/DONUT-D/gitlab-docs/-/pipelines/1016919229:'DONUT-D-main-patch-60309"run run
+
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://palantir.github.io/tslint/
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://eslint.org/
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/typescript-eslint/tslint-to-eslint-config
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://www.npmjs.com/package/npx
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/typescript-eslint/tslint-to-eslint-config#usage
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint

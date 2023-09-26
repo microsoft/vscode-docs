@@ -20,7 +20,7 @@ An extension could:
 - Register and execute commands with the [`vscode.commands`](/api/references/vscode-api#commands) API.
 - Make commands available in the Command Palette with the [`contributes.commands`](/api/references/contribution-points#contributes.commands) Contribution Point.
 
-Learn more about commands at the [Extension Guides / Command](/api/extension-guides/command) topic.
+Learn more about commands at the [Extension Guides / Command]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] topic.
 
 ## Configuration
 
@@ -28,7 +28,7 @@ An extension can contribute extension-specific settings with the [`contributes.c
 
 ## Keybinding
 
-An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings](/docs/getstarted/keybindings) topics.
+An extension can add custom keybindings. Read more in the [`contributes.keybindings`](/api/references/contribution-points#contributes.keybindings) and [Key Bindings]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] topics.
 
 ## Context Menu
 
@@ -43,11 +43,11 @@ There are four options for storing data:
 - [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A workspace specific storage path pointing to a local directory where your extension has read/write access. This is a good option if you need to store large files that are accessible only from the current workspace.
 - [`ExtensionContext.globalStoragePath`](/api/references/vscode-api#ExtensionContext.globalStoragePath): A global storage path pointing to a local directory where your extension has read/write access. This is a good option if you need to store large files that are accessible from all workspaces.
 
-The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
+The extension context is available to the `activate` function in the [Extension Entry File]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ### setKeysForSync example
 
-If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
+If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] using `vscode.ExtensionContext.globalState.setKeysForSync`.
 
 You can use the following pattern:
 
@@ -78,7 +78,7 @@ Almost all extensions need to present information to the user at some point. VS 
 
 ## Quick Pick
 
-With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample) illustrates the API.
+With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] illustrates the API.
 
 ## File Picker
 
@@ -98,4 +98,12 @@ Progress can be shown in different locations using the [`ProgressLocation`](/api
 - In the Source Control view
 - General progress in the VS Code window
 
-The [Progress Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/progress-sample) illustrates this API.
+The [Progress Sample]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] illustrates this API.
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/command
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/getstarted/keybindings
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/get-started/extension-anatomy#extension-entry-file
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/editor/settings-sync
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-extension-samples/tree/main/progress-sample

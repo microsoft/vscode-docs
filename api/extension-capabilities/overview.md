@@ -9,17 +9,17 @@ MetaDescription: Learn the details of what's possible with Visual Studio Code's 
 
 # Extensions Capabilities Overview
 
-Visual Studio Code offers many ways for extensions to extend its capabilities. It can sometimes be hard to find the right [Contribution Points](/api/references/contribution-points) and [VS Code API](/api/references/vscode-api) to use. This topic splits extension capabilities into a few categories. Each category describes:
+Visual Studio Code offers many ways for extensions to extend its capabilities. It can sometimes be hard to find the right [Contribution Points]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and [VS Code API]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] to use. This topic splits extension capabilities into a few categories. Each category describes:
 
 - Some functionalities your extension could use
 - Links to more detailed topics for using these functionalities
 - A few extension ideas
 
-However, we also impose [restrictions](#restrictions) upon extensions to ensure the stability and performance of VS Code. For example, extensions cannot access the DOM of VS Code UI.
+However, we also impose [restrictions]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] upon extensions to ensure the stability and performance of VS Code. For example, extensions cannot access the DOM of VS Code UI.
 
 ## Common Capabilities
 
-[Common Capabilities](./common-capabilities) are core pieces of functionality that you can use in any extension.
+[Common Capabilities]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] are core pieces of functionality that you can use in any extension.
 
 Some of these capabilities include:
 
@@ -32,7 +32,7 @@ Some of these capabilities include:
 
 ## Theming
 
-[Theming](./theming) controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code UI. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
+[Theming]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] controls the look of VS Code, both the colors of source code in the editor and the colors of the VS Code UI. If you've ever wanted to make it look like you're coding the Matrix by making VS Code different shades of green, or just wanted to create the ultimate, minimalist grayscale workspace, then themes are for you.
 
 **Extension Ideas**
 
@@ -43,7 +43,7 @@ Some of these capabilities include:
 
 ## Declarative Language Features
 
-[Declarative Language Features](/api/language-extensions/overview#declarative-language-features) adds basic text editing support for a programming language such as bracket matching, auto-indentation and syntax highlighting. This is done declaratively, without writing any code. For more advanced language features, like IntelliSense or debugging, see [Programmatic Language Features](#programmatic-language-features).
+[Declarative Language Features]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] adds basic text editing support for a programming language such as bracket matching, auto-indentation and syntax highlighting. This is done declaratively, without writing any code. For more advanced language features, like IntelliSense or debugging, see [Programmatic Language Features]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 **Extension Ideas**
 
@@ -55,9 +55,9 @@ Some of these capabilities include:
 
 ## Programmatic Language Features
 
-[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support such as Hovers, Go to Definition, diagnostic errors, IntelliSense and CodeLens. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/microsoft/vscode-languageserver-node).
+[Programmatic Language Features]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] add rich programming language support such as Hovers, Go to Definition, diagnostic errors, IntelliSense and CodeLens. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
-Although we provide a listing of [language features](/api/language-extensions/programmatic-language-features) and their intended usage, nothing prevents you from using these API creatively. For example, CodeLens and Hovers are a great way to present additional information inline, while diagnostic errors can be used to highlight spelling or code style errors.
+Although we provide a listing of [language features]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and their intended usage, nothing prevents you from using these API creatively. For example, CodeLens and Hovers are a great way to present additional information inline, while diagnostic errors can be used to highlight spelling or code style errors.
 
 **Extension Ideas**
 
@@ -69,7 +69,7 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 
 ## Workbench Extensions
 
-[Workbench Extensions](./extending-workbench) extend the VS Code Workbench UI. Add new right-click actions to the File Explorer, or even build a custom explorer using VS Code's [TreeView](/api/extension-guides/tree-view) API. And if your extension needs a fully customized user interface, use the [Webview API](/api/extension-guides/webview) to build your own document preview or UI using standard HTML, CSS, and JavaScript.
+[Workbench Extensions]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] extend the VS Code Workbench UI. Add new right-click actions to the File Explorer, or even build a custom explorer using VS Code's [TreeView]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] API. And if your extension needs a fully customized user interface, use the [Webview API]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] to build your own document preview or UI using standard HTML, CSS, and JavaScript.
 
 **Extension Ideas**
 
@@ -82,16 +82,16 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 
 ## Debugging
 
-You can take advantage of VS Code's [Debugging](/docs/editor/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debugger-extension) that connect VS Code's debugging UI to a specific debugger or runtime.
+You can take advantage of VS Code's [Debugging]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] functionality by writing [Debugger Extensions]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] that connect VS Code's debugging UI to a specific debugger or runtime.
 
 **Extension Ideas**
 
-- Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/).
+- Connect VS Code's debugging UI to a debugger or runtime by contributing a [Debug Adapter implementation]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 - Specify the languages supported by a debugger extension.
 - Provide rich IntelliSense and hover information for the debug configuration attributes used by the debugger.
 - Provide debug configuration snippets.
 
-On the other hand, VS Code also offers a set of [Debug Extension API](/api/references/vscode-api#debug), with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate users' debugging experience.
+On the other hand, VS Code also offers a set of [Debug Extension API]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], with which you can implement debug-related functionality on top of any VS Code debugger, in order to automate users' debugging experience.
 
 **Extension Ideas**
 
@@ -112,7 +112,7 @@ On the other hand, VS Code also offers a set of [Debug Extension API](/api/refer
 
 ## Extension Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Restrictions
 
@@ -122,4 +122,25 @@ There are certain restrictions we impose upon extensions. Here are the restricti
 
 Extensions have no access to the DOM of VS Code UI. You **cannot** write an extension that applies custom CSS to VS Code or adds an HTML element to VS Code UI.
 
-At VS Code, we're continually trying to optimize use of the underlying web technologies to deliver an always available, highly responsive editor and we will continue to tune our use of the DOM as these technologies and our product evolve. To ensure that extensions cannot interfere with the stability and performance of VS Code, and that we can continue to improve the DOM of VS Code without breaking existing extensions, we run extensions in an [Extension Host](/api/advanced-topics/extension-host) process and prevent direct access to the DOM.
+At VS Code, we're continually trying to optimize use of the underlying web technologies to deliver an always available, highly responsive editor and we will continue to tune our use of the DOM as these technologies and our product evolve. To ensure that extensions cannot interfere with the stability and performance of VS Code, and that we can continue to improve the DOM of VS Code without breaking existing extensions, we run extensions in an [Extension Host]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] process and prevent direct access to the DOM.
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/contribution-points
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/vscode-api
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: #restrictions
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: ./common-capabilities
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: ./theming
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/overview#declarative-language-features
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: #programmatic-language-features
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/overview#programmatic-language-features
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-languageserver-node
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/programmatic-language-features
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: ./extending-workbench
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/tree-view
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/webview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/editor/debugging
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/debugger-extension
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/vscode-api#debug
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/ux-guidelines/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/advanced-topics/extension-host

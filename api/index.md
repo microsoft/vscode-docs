@@ -9,43 +9,43 @@ MetaDescription: Visual Studio Code has a rich extension API. Learn how to creat
 
 # Extension API
 
-Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/microsoft/vscode/tree/main/extensions) and use the same Extension API.
+Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and use the same Extension API.
 
 This documentation describes:
 
 * How to build, run, debug, test, and publish an extension
 * How to take advantage of VS Code's rich Extension API
-* Where to find [guides](https://code.visualstudio.com/api/extension-guides/overview) and [code samples](https://github.com/microsoft/vscode-extension-samples) to help get you started
-* Following our [extension guidelines](/api/ux-guidelines/overview) for best practices
+* Where to find [guides]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and [code samples][def4] to help get you started
+* Following our [extension guidelines]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] for best practices
 
-Code samples are available at [Microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
+Code samples are available at [Microsoft/vscode-extension-samples]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
-If you are looking for published extensions, head to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode).
+If you are looking for published extensions, head to the [VS Code Extension Marketplace]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ## What can extensions do?
 
 Here are some examples of what you can achieve with the Extension API:
 
-* Change the look of VS Code with a color or file icon theme - [Theming](/api/extension-capabilities/theming)
-* Add custom components & views in the UI - [Extending the Workbench](/api/extension-capabilities/extending-workbench)
-* Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide](/api/extension-guides/webview)
-* Support a new programming language - [Language Extensions Overview](/api/language-extensions/overview)
-* Support debugging a specific runtime - [Debugger Extension Guide](/api/extension-guides/debugger-extension)
+* Change the look of VS Code with a color or file icon theme - [Theming]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+* Add custom components & views in the UI - [Extending the Workbench]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+* Create a Webview to display a custom webpage built with HTML/CSS/JS - [Webview Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+* Support a new programming language - [Language Extensions Overview]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+* Support debugging a specific runtime - [Debugger Extension Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
-If you'd like to have a more comprehensive overview of the Extension API, refer to the [Extension Capabilities Overview](/api/extension-capabilities/overview) page. [Extension Guides Overview](/api/extension-guides/overview) also includes a list of code samples and guides that illustrate various Extension API usage.
+If you'd like to have a more comprehensive overview of the Extension API, refer to the [Extension Capabilities Overview]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] page. [Extension Guides Overview]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] also includes a list of code samples and guides that illustrate various Extension API usage.
 
 ## How to build extensions?
 
 Building a good extension can take a lot of effort. Here is what each section of the API doc can help you with:
 
-* **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample) sample.
+* **Get Started** teaches fundamental concepts for building extensions with the [Hello World]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] sample.
 * **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 * **Extension Guides** includes guides and code samples that explain specific usages of VS Code Extension API.
 * **UX Guidelines** showcases best practices for providing a great user experience in an extension.
 * **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
-* **Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing](/api/working-with-extensions/testing-extension) and [publishing](/api/working-with-extensions/publishing-extension) extensions.
-* **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
-* **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+* **Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and [publishing]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] extensions.
+* **Advanced Topics** explains advanced concepts such as [Extension Host]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], [Supporting Remote Development and GitHub Codespaces]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], and [Proposed API]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
+* **References** contains exhaustive references for the [VS Code API]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], [Contribution Points]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"], and many other topics.
 
 ## What's new?
 
@@ -53,15 +53,43 @@ VS Code updates on a monthly cadence, and that applies to the Extension API as w
 
 To stay current with the Extension API, you can review the monthly release notes, which have dedicated sections covering:
 
-* [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
-* [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
+* [Extension authoring]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] - Learn what new extension APIs are available in the latest release.
+* [Proposed extension APIs]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] - Review and give feedback on upcoming proposed APIs.
 
 ## Looking for help
 
 If you have questions for extension development, try asking on:
 
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are [thousands of questions](https://stackoverflow.com/questions/tagged/visual-studio-code) tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
-* [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
+* [Stack Overflow]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: There are [thousands of questions][def23] tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
+* [Gitter Channel]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
 
-To provide feedback on the documentation, create new issues at [Microsoft/vscode-docs](https://github.com/microsoft/vscode-docs/issues).
-If you have extension questions that you cannot find an answer for, or issues with the VS Code Extension API, please open new issues at [Microsoft/vscode](https://github.com/microsoft/vscode/issues).
+To provide feedback on the documentation, create new issues at [Microsoft/vscode-docs]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
+If you have extension questions that you cannot find an answer for, or issues with the VS Code Extension API, please open new issues at [Microsoft/vscode]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode/tree/main/extensions
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://code.visualstudio.com/api/extension-guides/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/ux-guidelines/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /https://github.com/microsoft/vscode-extension-samples
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /https://marketplace.visualstudio.com/vscode
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-capabilities/theming
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-capabilities/extending-workbench
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/webview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/debugger-extension
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-capabilities/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/working-with-extensions/testing-extension
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/working-with-extensions/publishing-extension
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/advanced-topics/extension-host
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/advanced-topics/remote-extensions
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/advanced-topics/using-proposed-api
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/vscode-api
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/contribution-points
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://code.visualstudio.com/updates#_extension-authoring
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://code.visualstudio.com/updates#_proposed-extension-apis
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://stackoverflow.com/questions/tagged/visual-studio-code
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://gitter.im/Microsoft/vscode
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-docs/issues
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode/issues

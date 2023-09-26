@@ -17,11 +17,11 @@ Proposed APIs solve the problem for us. Proposed APIs are a set of unstable APIs
 
 These are the steps for testing a proposed API in local extension development:
 
-- Use [Insiders](/insiders) release of VS Code.
+- Use [Insiders]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] release of VS Code.
 - To your `package.json`, add `"enabledApiProposals": ["<proposalName>"]`.
-- Copy the corresponding [vscode.proposed.\<proposalName\>.d.ts](https://github.com/microsoft/vscode/blob/main/src/vscode-dts) files into your project's source location.
+- Copy the corresponding [vscode.proposed.\<proposalName\>.d.ts]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] files into your project's source location.
 
-The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download the latest `vscode.proposed.<proposalName>.d.ts` for extension development. It downloads definition files by the proposals listed in your `package.json` file.
+The [vscode-dts]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] CLI utility allows you to quickly download the latest `vscode.proposed.<proposalName>.d.ts` for extension development. It downloads definition files by the proposals listed in your `package.json` file.
 
 ```bash
 > npx vscode-dts dev
@@ -31,7 +31,7 @@ From: https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vsc
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```
 
-There is a sample using proposed APIs: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/proposed-api-sample).
+There is a sample using proposed APIs: [proposed-api-sample]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]].
 
 ## Proposed API incompatibility
 
@@ -52,7 +52,7 @@ To install an extension from a VSIX file, you would go into the Extensions view,
 
 Selecting the **Install from VSIX** menu item is shown in the short video below.
 
-![Demo showing a user going into the Extensions view to find the Install from VSIX menu item](images/proposed-api/install-from-vsix.gif)
+![Demo showing a user going into the Extensions view to find the Install from VSIX menu item]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
 For extensions using the proposed API, there are a couple more steps to enable your extension. After installing from your VSIX, you need to quit and relaunch VS Code Insiders from command line with `code-insiders . --enable-proposed-api=<YOUR-EXTENSION-ID>` in your project folder.
 
@@ -64,3 +64,10 @@ If you'd like to set it so that your extension using the proposed API is always 
     "enable-proposed-api": ["<YOUR-EXTENSION-ID>"]
 }
 ```
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /insiders
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode/blob/main/src/vscode-dts
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-dts
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-extension-samples/tree/main/proposed-api-sample
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: images/proposed-api/install-from-vsix.gif

@@ -24,14 +24,14 @@ The following table shows which extension hosts are available in the various con
 | Configuration | local extension host  | web extension host | remote extension host |
 --- | --- | --- | ---
 | VS Code on the desktop | x | x |  |
-| [VS Code with remote](/docs/remote/remote-overview) (Container, SSH, WSL, GitHub Codespace) | x | x | x |
+| [VS Code with remote]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] (Container, SSH, WSL, GitHub Codespace) | x | x | x |
 | VS Code for the Web (vscode.dev, github.dev) |  | x |   |
 | VS Code for the Web with Codespaces |  | x | x |
 
 ### Extension Host runtimes
 
 * Node.js - Extensions are running in a Node.js runtime. Used by the local and remote extension hosts. Extensions need a `main` entry file to run in it.
-* Browser - Extensions are running in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it. See the [Web extensions guide](/api/extension-guides/web-extensions) for more details.
+* Browser - Extensions are running in [Browser WebWorker]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it. See the [Web extensions guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] for more details.
 
 ### Preferred extension location
 
@@ -42,12 +42,12 @@ The extension host where an extension is loaded depends on:
 * Where is the extension installed: On the local machine, on the remote machine, or both.
 * The location the extension prefers: the `extensionKind` property.
 
-`extensionKind` is a property in the [extension manifest](/api/references/extension-manifest). It allows extensions to specify a preferred running location. That can be the machine that has the workspace (`workspace`) or the user interface (`ui`). If an extension can run on both, it can specify an order of preference.
+`extensionKind` is a property in the [extension manifest][["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]]. It allows extensions to specify a preferred running location. That can be the machine that has the workspace (`workspace`) or the user interface (`ui`). If an extension can run on both, it can specify an order of preference.
 
 * `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore needs to run where the workspace is located. That can be on the local machine or on the remote machine or Codespace. Most extensions fall into this category.
 * `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally and means the user does not have to install the extension on the remote. Otherwise, the extension will run in VS Code's workspace extension host if it exists there. When using VS Code for the Web with Codespaces, it will run in the remote extension host always (as no local extension host is available).
 * `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using VS Code for the Web with Codespaces it will run in the remote extension host always (as no local extension host is available).
-* `"extensionKind": ["ui"]` — Indicates the extension **must** run close to the UI because it requires access to local assets, devices, or capabilities or because low latency is required. In the case of VS Code for the Web with Codespaces, where no local extension host is available, such an extension can not load, unless it is also a [web extension](/api/extension-guides/web-extensions). It will then be loaded in the web extension host with a limitation that it cannot instantiate a web worker.
+* `"extensionKind": ["ui"]` — Indicates the extension **must** run close to the UI because it requires access to local assets, devices, or capabilities or because low latency is required. In the case of VS Code for the Web with Codespaces, where no local extension host is available, such an extension can not load, unless it is also a [web extension][def3]. It will then be loaded in the web extension host with a limitation that it cannot instantiate a web worker.
 
 **Note:** Prior VS Code releases (<1.40) allowed an extension to specify a single location as a string but this is deprecated in favor of multiple locations as a array.
 
@@ -63,4 +63,11 @@ VS Code aims to deliver a stable and high performance editor to users, and misbe
 * Slowing down UI operations
 * Modifying the UI
 
-Additionally, VS Code lets extensions declare their [Activation Events](/api/references/activation-events) and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure that extensions do not consume unnecessary CPU and memory.
+Additionally, VS Code lets extensions declare their [Activation Events][["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]] and loads them lazily. For example, the Markdown extension should only be loaded when a user opens a Markdown file. This makes sure that extensions do not consume unnecessary CPU and memory.
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/remote/remote-overview
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://developer.mozilla.org/docs/Web/API/Web_Workers_API
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/web-extensions
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/extension-manifest
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/activation-events

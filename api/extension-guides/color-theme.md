@@ -11,14 +11,14 @@ MetaDescription: A guide to creating Color Theme in Visual Studio Code
 
 Colors visible in the Visual Studio Code user interface fall in two categories:
 
-- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [theme color reference](/api/references/theme-color).
+- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [theme color reference]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 - Syntax colors and styles used for source code in the editor. The theming of these colors is different as syntax colorization is based on TextMate grammars and TextMate themes as well as semantic tokens.
 
 This guide will cover the different ways in which you can create themes.
 
 ## Workbench colors
 
-The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings) and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
+The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
 
 The following, for example, would change the color of the title bar:
 
@@ -30,13 +30,13 @@ The following, for example, would change the color of the title bar:
 }
 ```
 
-A complete list of all themable colors can be found in the [color reference](/api/references/theme-color).
+A complete list of all themable colors can be found in the [color reference]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ## Syntax colors
 
 For syntax highlighting colors, there are two approaches. You can reference an existing TextMate theme (`.tmTheme` file) from the community, or you can create your own theming rules. The easiest way is to start with an existing theme and customize it, much like in the workbench colors section above.
 
-First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+First switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 
 For example, the following would change the color of comments within the editor:
 
@@ -48,7 +48,7 @@ For example, the following would change the color of comments within the editor:
 }
 ```
 
-The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use TextMate theme rules directly, which are explained in detail in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide).
+The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use TextMate theme rules directly, which are explained in detail in the [Syntax Highlighting Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ## Semantic colors
 
@@ -70,14 +70,14 @@ Enable semantic highlighting for a specific theme:
 },
 ```
 
-Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting Guide](/api/language-extensions/syntax-highlight-guide#semantic-theming).
+Themes can define theming rules for semantic tokens as described in the [Syntax Highlighting Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ## Create a new Color Theme
 
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](https://yeoman.io) extension generator to generate a new theme extension:
+2. Use VS Code's [Yeoman]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] extension generator to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code
@@ -86,7 +86,7 @@ Once you have tweaked your theme colors using `workbench.colorCustomizations` an
 
 3. If you customized a theme as described above, select 'Start fresh'.
 
-   ![yo code theme](./images/color-theme/yocode-colortheme.png)
+   ![yo code theme]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
 4. Copy the theme file generated from your settings to the new extension.
 
@@ -109,7 +109,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 > **Tip:** Give your color definition file the `-color-theme.json` suffix and you will get hovers, code completion, color decorators, and color pickers when editing.
 
-> **Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from. Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
+> **Tip:** [ColorSublime]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] has hundreds of existing TextMate themes to choose from. Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
 ## Test a new Color Theme
 
@@ -117,22 +117,38 @@ To try out the new theme, press F5 to launch an Extension Development Host windo
 
 There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown list. Arrow up and down to see a live preview of your theme.
 
-![select my theme](images/color-theme/mytheme.png)
+![select my theme]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
 Changes to the theme file are applied live in the `Extension Development Host` window.
 
 ## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-marketplace). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]. Use the [vsce publishing tool]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Themes` in your `package.json`.
 
-We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
+We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"].
 
 ## Adding a new Color ID
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]. These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] tab.
 
 ## Further reading
 
-- [CSS Tricks - Creating a VS Code theme](https://css-tricks.com/creating-a-vs-code-theme/)
+- [CSS Tricks - Creating a VS Code theme]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/theme-color
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/getstarted/settings
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/syntax-highlight-guide
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/syntax-highlight-guide#semantic-theming
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://yeoman.io
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: ./images/color-theme/yocode-colortheme.png
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://colorsublime.github.io
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: images/color-theme/mytheme.png
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/editor/extension-marketplace
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/workingwith-extensions/publishing-extension
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/extension-manifest#marketplace-presentation-tips
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/references/contribution-points#contributes.colors
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /docs/editor/extension-marketplace#_extension-details
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://css-tricks.com/creating-a-vs-code-theme/

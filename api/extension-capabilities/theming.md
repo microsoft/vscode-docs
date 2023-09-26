@@ -17,15 +17,15 @@ In Visual Studio Code, there are three types of themes:
 
 ## Color Theme
 
-![color-theme](images/theming/color-theme.png)
+![color-theme]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
 As you can see in the illustration, Color Theme defines colors for UI components as well as for highlighting in the editor:
 
 - The `colors` mapping that controls colors for UI Components.
-- The `tokenColors` define the color and styles for highlighting in the editor. The [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide) has more information on that topic.
-- The `semanticTokenColors` mappings as well as the `semanticHighlighting` setting allow to enhance the highlighting in the editor. The [Semantic Highlight Guide](/api/language-extensions/semantic-highlight-guide) explains the APIs related to that.
+- The `tokenColors` define the color and styles for highlighting in the editor. The [Syntax Highlight Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] has more information on that topic.
+- The `semanticTokenColors` mappings as well as the `semanticHighlighting` setting allow to enhance the highlighting in the editor. The [Semantic Highlight Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] explains the APIs related to that.
 
-We have a [Color Theme Guide](/api/extension-guides/color-theme) and a [Color Theme Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/theme-sample) that illustrates how to create a theme.
+We have a [Color Theme Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] and a [Color Theme Sample]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] that illustrates how to create a theme.
 
 ## File Icon Theme
 
@@ -34,8 +34,8 @@ File icon themes allow you to:
 - Create a mapping from unique file icon identifiers to images or font icons.
 - Associate files to these unique file icon identifiers by filenames or file language types.
 
-The [File Icon Theme Guide](/api/extension-guides/file-icon-theme) discusses how to create a File Icon Theme.
-![file-icon-theme](images/theming/file-icon-theme.png)
+The [File Icon Theme Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] discusses how to create a File Icon Theme.
+![file-icon-theme]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
 
 ## Product Icon Theme
 
@@ -43,4 +43,14 @@ Product icon themes allow you to:
 
 Redefine all the built-in icons used in the workbench. Examples are the icons in filter action buttons and view icons, in the status bar, breakpoints and the folding icons in trees and the editor.
 
-The [Product Icon Theme Guide](/api/extension-guides/product-icon-theme) discusses how to create a Product Icon Theme.
+The [Product Icon Theme Guide]["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"] discusses how to create a Product Icon Theme.
+
+
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: images/theming/color-theme.png
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/language-extensions/semantic-highlight-guide
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/color-theme
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: https://github.com/microsoft/vscode-extension-samples/tree/main/theme-sample
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/file-icon-theme
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: images/theming/file-icon-theme.png
+["<git-helps><Visual_Studio_Code_Marketplace></git-helps>"]: /api/extension-guides/product-icon-theme
