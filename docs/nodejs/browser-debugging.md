@@ -122,6 +122,10 @@ These attributes are only available for launch configurations of request type `a
 * `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
+## WebAssembly Debugging
+
+WebAssembly debugging in browsers is identical to Node.js, [read more about WebAssembly Debugging here](./nodejs-debugging.md#debugging-webassembly).
+
 ## Next steps
 
 * [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
