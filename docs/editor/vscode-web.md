@@ -68,7 +68,6 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
 | Visual Studio Live Share | `/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
 | Visual Studio Marketplace | `/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
-| Office Scripts | `/office` | [Office Scripts docs](https://learn.microsoft.com/office/dev/scripts/develop/vscode-for-scripts) |
 | Power Pages | `/powerplatform` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
 | Profiles | `/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
 | Themes | `/theme/<extensionId>` | [More info below](#themes) |
