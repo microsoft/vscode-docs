@@ -850,6 +850,26 @@ Here's a submenu menu item:
 
 ![menus extension point example (submenu)](images/contribution-points/submenu.png)
 
+Here's an example that contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+        "command": "workbench.action.tasks.runTask",
+        "when": "view == terminal",
+        "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+TODO: Add an image
+
 ### Context specific visibility of Command Palette menu items
 
 When registering commands in `package.json`, they will automatically be shown in the **Command Palette** (`kb(workbench.action.showCommands)`). To allow more control over command visibility, there is the `commandPalette` menu item. It allows you to define a `when` condition to control if a command should be visible in the **Command Palette** or not.
