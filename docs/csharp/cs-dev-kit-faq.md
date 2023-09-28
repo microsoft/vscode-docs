@@ -20,8 +20,6 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 ### What project types are currently supported?
 
-With an initial focus on cloud native development, the first preview of C# Dev Kit brings support for creating web apps, console apps, class library projects, and test projects.  We'll expand on this set of supported applications over time based on feedback that we gather from you and the community. You can build [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps using the [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui), which is built on top of C# Dev Kit.
-
 C# Dev Kit supports building web apps, console apps, class library projects, and test projects for .NET Core, often also called .NET. The [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui) and the [Unity extension](https://marketplace.visualstudio.com/items?itemName=visualstudiotoolsforunity.vstuc) are built on top of C# Dev Kit and provide additional support for building [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps and Unity apps. These extensions support the modern .NET project format, also known as "sdk-style" projects. If you are building non-SDK-format projects such as .NET Framework apps and Xamarin apps, see the Project System section.
 
 ### What extensions are included in C# Dev Kit?
