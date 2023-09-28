@@ -858,9 +858,9 @@ Here's an example that contributes to an arbitrary view like the terminal:
     "menus": {
       "view/title": [
         {
-        "command": "workbench.action.tasks.runTask",
-        "when": "view == terminal",
-        "group": "navigation"
+          "command": "workbench.action.tasks.runTask",
+          "when": "view == terminal",
+          "group": "navigation"
         }
       ]
     }
