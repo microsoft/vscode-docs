@@ -22,6 +22,8 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 With an initial focus on cloud native development, the first preview of C# Dev Kit brings support for creating web apps, console apps, class library projects, and test projects.  We'll expand on this set of supported applications over time based on feedback that we gather from you and the community. You can build [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps using the [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui), which is built on top of C# Dev Kit.
 
+C# Dev Kit supports building web apps, console apps, class library projects, and test projects for .NET Core, often also called .NET. The [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui) and the [Unity extension](https://marketplace.visualstudio.com/items?itemName=visualstudiotoolsforunity.vstuc) are built on top of C# Dev Kit and provide additional support for building [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps and Unity apps. These extensions support the modern .NET project format, also known as "sdk-style" projects. If you are building non-SDK-format projects such as .NET Framework apps and Xamarin apps, see the Project System section.
+
 ### What extensions are included in C# Dev Kit?
 
 Today the extensions included in the C# Dev Kit family are:
@@ -71,6 +73,16 @@ Note that, depending on your network speed, installing the .NET Core runtime mig
 }
 ```
 
+### Error Acquiring .NET 7
+
+![Error Acquiring .NET 7](images/faq/error-acquiring-dotnet-7.png)
+
+Note: If you are located in China the Great Firewall of China may be blocking your .NET download which can cause a timeout.
+
+You will need to make sure you have .NET 7 installed. As a workaround, you can point the .NET runtime acquisition extension to an existing .NET 7 install:
+
+![Point the .NET runtime acquisition extension to an existing .NET 7 install](images/faq/point-dotnet-runtime-to-existing-dotnet-install.png)
+
 ### How do I manually install .NET?
 
 If .NET installation is failing or you want to reuse an existing installation of .NET, you can use the `dotnetAcquisitionExtension.existingDotnetPath` setting. .NET can be manually installed from the [.NET website](https://dotnet.microsoft.com/download). To direct the extension to that installation, update your settings with the extension ID and the path as illustrated below:
@@ -95,6 +107,16 @@ If .NET installation is failing or you want to reuse an existing installation of
 }
 ```
 
+### The extension thinks I am offline with error response of 400 or 407, and I have a proxy
+
+If your system uses a proxy and has registry access disabled, you need to tell us about your proxy in the extension settings. We automatically detect proxies set via environment variables and the registry, but if your proxy is only managed via registry keys and registry access is disabled, we cannot find it. To do so, add the extension setting below.
+
+```json
+{
+    "dotnetAcquisitionExtension.proxyUrl": "https://your_proxy_url:port"
+}
+``````
+
 ## Project System
 
 ### The Solution Explorer reports that my project is not supported in C# Dev Kit
@@ -103,7 +125,7 @@ This is usually because the project targets .NET Framework rather than .NET Core
 
 ![Project Not Supported in Solution Explorer](images/faq/solution-explorer-not-supported-framework.png)
 
-You will need to [update your project](https://learn.microsoft.com/dotnet/core/porting/) to an SDK-style project to use all available C# Dev Kit features.
+You can either [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to use all available C# Dev Kit features. Or you can use the new Prefer CSharp Extension workspace setting located in the Settings UI. This setting delegates solution and project load to the C# extension but C# Dev Kit features will be unavailable.
 
 ### I clicked on the "Create .NET Project" button and nothing happened
 
@@ -127,7 +149,9 @@ The most likely cause of this error is a `global.json` file that specifies a dif
 
 ![A compatible .NET SDK was not found](images/faq/compatible-dotnet-sdk-not-found.png)
 
-Open the Output window (`kb(workbench.action.output.toggleOutput)`) and switch to the **Projects** pane to look for more information.
+Open the Output window and switch to the “Projects” pane to look for more information. You should see something like this:
+
+![Output Window Projects Pane](images/faq/output-window-projects.png)
 
 To fix the issue, either update the `global.json` to specify an installed SDK or install the specified SDK from the [Download .NET](https://aka.ms/dotnet/download) page.
 
