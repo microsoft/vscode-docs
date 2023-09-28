@@ -83,7 +83,7 @@ The `purpose` field describes why the data is collected.
 
 * `PerformanceAndHealth` - To ensure that VS Code product and services are healthy and fast.
 * `FeatureInsight` - To understand feature usage and where to continue development investment.
-* `BusinessInsight` - To make decisions related to the business of VS Code and Microsoft.
+* `BusinessInsight` - To make decisions related to the business of VS Code, Microsoft and GitHub.
 
 ### Event endpoint
 
