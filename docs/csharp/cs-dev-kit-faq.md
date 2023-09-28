@@ -115,7 +115,7 @@ If your system uses a proxy and has registry access disabled, you need to tell u
 {
     "dotnetAcquisitionExtension.proxyUrl": "https://your_proxy_url:port"
 }
-``````
+```
 
 ## Project System
 
