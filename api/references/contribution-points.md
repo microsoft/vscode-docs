@@ -830,6 +830,29 @@ Here's a command menu item:
 
 ![menus extension point example](images/contribution-points/menus.png)
 
+Similarly, here's a command menu item added to a particular view:
+
+
+Here's an example that contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalApi.sendText",
+          "when": "view == terminal",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+![Adding a menu entry to view/title with view == terminal will result in an action in the panel when the terminal is open](images/contribution-points/menu_view_title.png)
+
 Here's a submenu menu item:
 
 ```json
@@ -849,26 +872,6 @@ Here's a submenu menu item:
 ```
 
 ![menus extension point example (submenu)](images/contribution-points/submenu.png)
-
-Here's an example that contributes to an arbitrary view like the terminal:
-
-```json
-{
-  "contributes": {
-    "menus": {
-      "view/title": [
-        {
-          "command": "workbench.action.tasks.runTask",
-          "when": "view == terminal",
-          "group": "navigation"
-        }
-      ]
-    }
-  }
-}
-```
-
-TODO: Add an image
 
 ### Context specific visibility of Command Palette menu items
 
