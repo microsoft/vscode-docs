@@ -123,9 +123,7 @@ This is usually because the project targets .NET Framework rather than .NET Core
 
 ![Project Not Supported in Solution Explorer](images/faq/solution-explorer-not-supported-framework.png)
 
-To resolve this issue, you have two options.
-
-First, you can [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to access all available C# Dev Kit features.
+To resolve this issue, you have two options. You can [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to access all available C# Dev Kit features.
 
 Alternatively, you can use the new "Prefer CSharp Extension" workspace setting located in the Settings UI. This setting delegates solution and project load to the C# extension, but some C# Dev Kit features will be unavailable. If you have a .NET Framework project C# Dev Kit will show a toast asking you to either update your project to an SDK-style project or have the C# extension load your project or solution.
 
