@@ -930,10 +930,6 @@ The following customizations are available:
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
 
-## Source Control colors
-
-- `scm.providerBorder`: SCM Provider separator border.
-
 ## Git colors
 
 - `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
