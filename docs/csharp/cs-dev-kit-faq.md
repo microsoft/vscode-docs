@@ -123,9 +123,11 @@ This is usually because the project targets .NET Framework rather than .NET Core
 
 ![Project Not Supported in Solution Explorer](images/faq/solution-explorer-not-supported-framework.png)
 
-To resolve this issue, you have two options. You can [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to access all available C# Dev Kit features.
+To resolve this issue, you have two options.
 
-Alternatively, you can use the new "Prefer CSharp Extension" workspace setting located in the Settings UI. This setting delegates solution and project load to the C# extension, but some C# Dev Kit features will be unavailable. If you have a .NET Framework project C# Dev Kit will show a toast asking you to either update your project to an SDK-style project or have the C# extension load your project or solution.
+You can [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to access all available C# Dev Kit features.
+
+Alternatively, you can delegate project and solution load to the C# extension, using the "Prefer CSharp Extension" workspace setting in the Settings UI. Keep in mind that some C# Dev Kit features will not be available with this setting. To access this setting, go to the Settings UI and select the workspace option. Then, search for "Prefer CSharp" in the search bar and check the box next to the "Prefer CSharp Extension" setting. If you're trying to load a .NET Framework project, C# Dev Kit will automatically display a toast asking you to either update your project to an SDK-style project or have the C# extension load your project or solution by selecting "Use C# Extension" from the toast. This option will automatically select the "Prefer CSharp Extension" setting. Note that you'll need to reload VS Code for this setting to take effect.
 
 ### I clicked on the "Create .NET Project" button and nothing happened
 
