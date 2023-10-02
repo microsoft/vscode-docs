@@ -132,6 +132,7 @@ Some other functionality of the command:
 
 - By default the search mode is "contiguous search", meaning the search term must exactly match. The button on the right of the search input allows switching to fuzzy search.
 - In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
+- The pin action in the right of the Quick Pick can pin the command to the top of the list.
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
