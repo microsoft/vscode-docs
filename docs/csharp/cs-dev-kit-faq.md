@@ -75,7 +75,7 @@ Note that, depending on your network speed, installing the .NET Core runtime mig
 
 ![Error Acquiring .NET 7](images/faq/error-acquiring-dotnet-7.png)
 
-Note: If you are located in China the Great Firewall of China may be blocking your .NET download which can cause a timeout.
+Note: If you are located in China, your .NET download may be blocked and cause a timeout.
 
 You will need to make sure you have .NET 7 installed. As a workaround, you can point the .NET runtime acquisition extension to an existing .NET 7 install:
 
@@ -151,7 +151,7 @@ The most likely cause of this error is a `global.json` file that specifies a dif
 
 ![A compatible .NET SDK was not found](images/faq/compatible-dotnet-sdk-not-found.png)
 
-Open the Output window and switch to the “Projects” pane to look for more information. You should see something like this:
+Open the Output window and switch to the **Projects** pane to look for more information. You should see something like this:
 
 ![Output Window Projects Pane](images/faq/output-window-projects.png)
 
