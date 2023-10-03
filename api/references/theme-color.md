@@ -232,7 +232,9 @@ The Minimap shows a minified version of the current file.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
 - `minimap.background`: Minimap background color.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
-- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
+- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example,
+"#000000c0" will render the elements with 75% opacity.
+- `minimap.infoHighlight`: Minimap marker color for infos.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -404,7 +406,19 @@ To see the editor white spaces, enable **Toggle Render Whitespace**.
 To see the editor indent guides, set `"editor.guides.indentation": true` and `"editor.guides.highlightActiveIndentation": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
+- `editorIndentGuide.background1`: Color of the editor indentation guides (1).
+- `editorIndentGuide.background2`: Color of the editor indentation guides (2).
+- `editorIndentGuide.background3`: Color of the editor indentation guides (3).
+- `editorIndentGuide.background4`: Color of the editor indentation guides (4).
+- `editorIndentGuide.background5`: Color of the editor indentation guides (5).
+- `editorIndentGuide.background6`: Color of the editor indentation guides (6).
 - `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
+- `editorIndentGuide.activeBackground1`: Color of the active editor indentation guides (1).
+- `editorIndentGuide.activeBackground2`: Color of the active editor indentation guides (2).
+- `editorIndentGuide.activeBackground3`: Color of the active editor indentation guides (3).
+- `editorIndentGuide.activeBackground4`: Color of the active editor indentation guides (4).
+- `editorIndentGuide.activeBackground5`: Color of the active editor indentation guides (5).
+- `editorIndentGuide.activeBackground6`: Color of the active editor indentation guides (6).
 
 To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
 
@@ -527,9 +541,7 @@ The editor comments widget can be seen when reviewing pull requests:
 - `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
 - `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
 - `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
-- `editorCommentsWidget.rangeBorder`: Color of border for comment ranges.
 - `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
-- `editorCommentsWidget.rangeActiveBorder`: Color of border for currently selected or hovered comment range.
 
 ## Diff editor colors
 
@@ -551,11 +563,13 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.unchangedRegionForeground`: The foreground color of unchanged blocks in the diff editor.
 - `diffEditor.unchangedCodeBackground`: The background color of unchanged code in the diff editor.
 - `diffEditor.move.border`: The border color for text that got moved in the diff editor.
+- `diffEditor.moveActive.border`: The active border color for text that got moved in the diff editor.
 
 ## Chat colors
 
-- `chat.requestBackground`: The background color of a chat request.
 - `chat.requestBorder`: The border color of a chat request.
+- `chat.slashCommandBackground`: The background color of a chat slash command.
+- `chat.slashCommandForeground`: The foreground color of a chat slash command.
 
 ## Inline Chat colors
 
@@ -703,9 +717,11 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBar.noFolderBackground`: Status Bar background color when no folder is opened.
 - `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
+- `statusBarItem.hoverForeground`: Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
 - `statusBarItem.prominentForeground`: Status Bar prominent items foreground color.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color.
+- `statusBarItem.prominentHoverForeground`: Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
 - `statusBarItem.remoteBackground`: Background color for the remote indicator on the status bar.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
@@ -760,6 +776,7 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `commandCenter.inactiveForeground`: Foreground color of the Command Center when the window is inactive.
 - `commandCenter.inactiveBorder`: Border color of the Command Center when the window is inactive.
 - `commandCenter.activeBorder`: Active border color of the command center.
+- `commandCenter.debuggingBackground`: Command center background color when a program is being debugged
 
 ## Notification colors
 
@@ -1096,6 +1113,12 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `commentsView.resolvedIcon`: Icon color for resolved comments.
 - `commentsView.unresolvedIcon`: Icon color for unresolved comments.
+
+## Action Bar colors
+- `actionBar.toggledBackground`: Background color for toggled action items in action bar.
+
+## Simple Find Widget
+- `simpleFindWidget.sashBorder`: Border color of the sash border.
 
 ## Extension colors
 
