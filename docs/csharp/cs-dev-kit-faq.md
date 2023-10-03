@@ -20,7 +20,7 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 ### What project types are currently supported?
 
-C# Dev Kit supports building web apps, console apps, class library projects, and test projects for .NET Core, often also called .NET. The [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui) and the [Unity extension](https://marketplace.visualstudio.com/items?itemName=visualstudiotoolsforunity.vstuc) are built on top of C# Dev Kit and provide additional support for building [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps and Unity apps. These extensions support the modern .NET project format, also known as "sdk-style" projects. If you are building non-SDK-format projects such as [.NET Framework](https://learn.microsoft.com/dotnet/standard/choosing-core-framework-server) apps and Xamarin apps, see the Project System section.
+C# Dev Kit supports building web apps, console apps, class library projects, and test projects for .NET Core, often also called .NET. The [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui) and the [Unity extension](https://marketplace.visualstudio.com/items?itemName=visualstudiotoolsforunity.vstuc) are built on top of C# Dev Kit and provide additional support for building [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps and Unity apps. These extensions support the modern .NET project format, also known as "sdk-style" projects. If you are building non-SDK-format projects such as [.NET Framework](https://learn.microsoft.com/dotnet/standard/choosing-core-framework-server) apps and Xamarin apps, see the [Project System](#project-system) section.
 
 ### What extensions are included in C# Dev Kit?
 
@@ -71,9 +71,9 @@ Note that, depending on your network speed, installing the .NET Core runtime mig
 }
 ```
 
-### Error Acquiring .NET 7
+### Error acquiring .NET 7
 
-![Error Acquiring .NET 7](images/faq/error-acquiring-dotnet-7.png)
+![Error acquiring .NET 7](images/faq/error-acquiring-dotnet-7.png)
 
 Note: If you are located in China, your .NET download may be blocked and cause a timeout.
 
@@ -107,7 +107,7 @@ If .NET installation is failing or you want to reuse an existing installation of
 
 ### The extension thinks I am offline with error response of 400 or 407, and I have a proxy
 
-If your system uses a proxy and has registry access disabled, you need to tell us about your proxy in the extension settings. We automatically detect proxies set via environment variables and the registry, but if your proxy is only managed via registry keys and registry access is disabled, we cannot find it. To do so, add the extension setting below.
+If your system uses a proxy and has registry access disabled, you need to explicitly set the proxy URL in the extension settings. Proxies are automatically detected when set via environment variables and the registry, but if your proxy is only managed via registry keys and registry access is disabled, the extension cannot find it. To set the proxy URL, add the extension setting below:
 
 ```json
 {
@@ -125,9 +125,9 @@ This is usually because the project targets .NET Framework rather than .NET Core
 
 To resolve this issue, you have two options.
 
-You can [update your project](https://learn.microsoft.com/en-us/dotnet/core/porting/) to an SDK-style project to access all available C# Dev Kit features.
+You can [update your project](https://learn.microsoft.com/dotnet/core/porting) to an SDK-style project to access all available C# Dev Kit features.
 
-Alternatively, you can delegate project and solution load to the C# extension, using the "Prefer CSharp Extension" workspace setting in the Settings UI. Keep in mind that some C# Dev Kit features will not be available with this setting. To access this setting, go to the Settings UI and select the workspace option. Then, search for "Prefer CSharp" in the search bar and check the box next to the "Prefer CSharp Extension" setting. If you're trying to load a .NET Framework project, C# Dev Kit will automatically display a toast asking you to either update your project to an SDK-style project or have the C# extension load your project or solution by selecting "Use C# Extension" from the toast. This option will automatically select the "Prefer CSharp Extension" setting. Note that you'll need to reload VS Code for this setting to take effect.
+Alternatively, you can delegate project and solution load to the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), using the **Prefer CSharp Extension** workspace setting in the Settings editor. Keep in mind that some C# Dev Kit features will not be available with this setting. To access this setting, go to the Settings editor and select the **Workspace** tab. Then, search for "Prefer CSharp" in the search bar and check the box next to the **Prefer CSharp Extension** setting. If you're trying to load a .NET Framework project, C# Dev Kit will automatically display a notification asking you to either update your project to an SDK-style project or have the C# extension load your project or solution by selecting **Use C# Extension** from the notification. This option will automatically select the **Prefer CSharp Extension** setting. Note that you'll need to reload VS Code for this setting to take effect.
 
 ### I clicked on the "Create .NET Project" button and nothing happened
 
