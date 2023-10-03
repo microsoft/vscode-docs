@@ -96,6 +96,18 @@ Like the other Remote Development extensions, the name of your remote machine wi
 
 ![VS Code remote indicator connected to a remote tunnel](images/vscode-server/remote-indicator-server.png)
 
+### Open a folder on a Remote Tunnels host in a container
+
+If you are using a Linux machine as a tunnel host, you can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+
+To do so:
+
+1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for installing Docker on your remote host and VS Code and the Dev Containers extension locally.
+1. Follow the [Getting Started](#getting-started) instructions for the Remote - Tunnels extension to set up a tunnel, connect to it and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the [Dev Containers quick start](/docs/devcontainers/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Dev Containers extension in its documentation](/docs/devcontainers/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+
 ## Common questions
 
 ### What is the relationship between the Remote Tunnels, VS Code Server, and Remote Development?
