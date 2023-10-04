@@ -232,8 +232,7 @@ The Minimap shows a minified version of the current file.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
 - `minimap.background`: Minimap background color.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
-- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example,
-"#000000c0" will render the elements with 75% opacity.
+- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
 - `minimap.infoHighlight`: Minimap marker color for infos.
 
 - `minimapSlider.background`: Minimap slider background color.
@@ -775,8 +774,8 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `commandCenter.border`: Border color of the Command Center.
 - `commandCenter.inactiveForeground`: Foreground color of the Command Center when the window is inactive.
 - `commandCenter.inactiveBorder`: Border color of the Command Center when the window is inactive.
-- `commandCenter.activeBorder`: Active border color of the command center.
-- `commandCenter.debuggingBackground`: Command center background color when a program is being debugged
+- `commandCenter.activeBorder`: Active border color of the Command Center.
+- `commandCenter.debuggingBackground`: Command Center background color when a program is being debugged.
 
 ## Notification colors
 
