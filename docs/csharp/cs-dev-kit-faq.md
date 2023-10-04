@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
 PageTitle: C# Dev Kit extension FAQ
-DateApproved: 9/21/2023
+DateApproved: 10/3/2023
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
 
