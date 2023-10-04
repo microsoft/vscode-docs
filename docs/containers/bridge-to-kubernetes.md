@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Develop with Kubernetes
 ContentId: 80bd336b-0d2d-4d63-a771-8b3ea22a64d3
 PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 MetaDescription: Learn how to use Bridge to Kubernetes.
 ---
 

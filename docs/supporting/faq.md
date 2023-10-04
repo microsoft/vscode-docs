@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -282,9 +282,9 @@ Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004.
 
 ## Can I run VS Code on old macOS versions?
 
-VS Code desktop versions starting with 1.77 (March 2023) will no longer run on macOS Sierra (version 10.12 and older) and you will need to upgrade to a newer macOS version to use later versions of VS Code.
+VS Code desktop version starting with 1.83 (September 2023) is deprecating macOS Mojave (version 10.14 and older). Starting with VS Code 1.86 (January 2024) we will stop updating VS Code on macOS Mojave (version 10.14 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
 
-VS Code will no longer provide product updates or security fixes on macOS Sierra (versions 10.12 and older) and VS Code version 1.76 will be the last available release for macOS Sierra (10.12 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
+VS Code will no longer provide product updates or security fixes on macOS Mojave (versions 10.14 and older) and VS Code version 1.85 will be the last available release for macOS Mojave (10.14 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ## Technical Support
 

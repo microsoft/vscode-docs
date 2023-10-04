@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -97,6 +97,10 @@ One of the best approaches to selecting the best colors for a specific condition
 ![A color wheel highlighting complementary colors for regular vision, deuteranopia, protanopia, tritanopia and monochromacy](images/accessibility/accessibility-color-wheels.png)
 
 >**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
+
+## Dim unfocused editors and terminals
+
+Unfocused views can be dimmed to make it more clear where typed input will go, this is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`, how dim it will become can be configured with `accessibility.dimUnfocused.opacity`.
 
 ## Keyboard navigation
 

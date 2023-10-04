@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -770,6 +770,7 @@ Currently extension writers can contribute to:
 - The New File item in the File menu and Welcome page - `file/newFile`
 - The Explorer context menu - `explorer/context`
 - The editor context menu - `editor/context`
+- The editor line number context menu - `editor/lineNumber/context`
 - The editor title menu bar - `editor/title`
 - The editor title context menu - `editor/title/context`
 - The Run submenu on the editor title menu bar - `editor/title/run`
@@ -785,6 +786,8 @@ Currently extension writers can contribute to:
 - The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
+- The terminal context menu - `terminal/context`
+- The terminal title context menu - `terminal/title/context`
 - The macOS Touch Bar - `touchBar`
 - The comment thread title menu bar - `comments/commentThread/title`
 - The comment thread context menu - `comments/commentThread/context`
@@ -803,9 +806,11 @@ Currently extension writers can contribute to:
 - Any [webview](/api/extension-guides/webview) context menu - `webview/context`
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
-> **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
+> **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+> **Note 2:** Commands of menu items contributed to `editor/lineNumber/context` are also passed the line number. Additionally these items can reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators to test it against an array-valued context key managed by the extension.
+
+In addition to a title, a contributed command can specify the icon which VS Code will show when the invoking menu item is represented as a button, for example on a title menu bar.
 
 ### menu example
 
