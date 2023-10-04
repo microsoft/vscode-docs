@@ -17,6 +17,10 @@ The [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName
 
 ![Azure Machine Learning Visual Studio Code extension view](images/azure-machine-learning/azure-machine-learning-vscode-extension.png)
 
+## Desktop or web
+
+You can use Azure Machine Learning in VS Code Desktop or [VS Code for the Web](/docs/editor/vscode-web.md). VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev). Check out the [guide on launching Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) to learn more.
+
 ## Connect to remote compute instances
 
 [Compute instances](https://learn.microsoft.com/azure/machine-learning/concept-compute-instance) are a managed cloud-based workstation for developing machine learning applications.
@@ -74,3 +78,4 @@ By using the Azure Machine Learning VS Code extension to connect to a remote com
 ## Next steps
 
 - [Set up the Azure Machine Learning extension](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code)
+- [Interact with Azure Machine Learning (in the desktop or web)](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web)

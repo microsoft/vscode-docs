@@ -767,7 +767,7 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 Currently extension writers can contribute to:
 
 - The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
+- The New File item in the File menu and Welcome page - `file/newFile`
 - The Explorer context menu - `explorer/context`
 - The editor context menu - `editor/context`
 - The editor line number context menu - `editor/lineNumber/context`
@@ -834,6 +834,29 @@ Here's a command menu item:
 ```
 
 ![menus extension point example](images/contribution-points/menus.png)
+
+Similarly, here's a command menu item added to a particular view:
+
+
+Here's an example that contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalApi.sendText",
+          "when": "view == terminal",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+![Adding a menu entry to view/title with view == terminal will result in an action in the panel when the terminal is open](images/contribution-points/menu_view_title.png)
 
 Here's a submenu menu item:
 
