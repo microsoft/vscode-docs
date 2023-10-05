@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 ---
 # Remote Development using SSH
 
@@ -110,7 +110,7 @@ If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [De
 
 To do so:
 
-1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for the Dev Containers extension on your remote host.
+1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for installing Docker on your remote host and VS Code and the Dev Containers extension locally.
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. Follow the [quick start](#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).

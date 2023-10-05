@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 PageTitle: Debug Browser Apps using Visual Studio Code
-DateApproved: 9/7/2023
+DateApproved: 10/4/2023
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -121,6 +121,10 @@ These attributes are only available for launch configurations of request type `a
 * `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
 * `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
+
+## WebAssembly Debugging
+
+WebAssembly debugging in browsers is identical to Node.js, [read more about WebAssembly Debugging here](/docs/nodejs/nodejs-debugging.md#debugging-webassembly).
 
 ## Source Maps
 
