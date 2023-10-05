@@ -25,7 +25,7 @@ resources:
       trigger: true
 
 variables:
-  WindowsContainerImage: 'mcr.microsoft.com/windows/nanoserver:ltsc2019'
+  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
 
 extends:
   template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates
