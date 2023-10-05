@@ -171,7 +171,7 @@ This error happens when Pylance is unable to find the package or module you're i
 - If you are importing a module, make sure it exists in your workspace or in a location that is included in the `python.autoComplete.extraPaths` setting.
 - If you are importing a package that is not installed, you can install it by running the following command in an activated terminal: `python -m pip install {package_name}`.
 - If you are importing a package that is already installed in a different interpreter or kernel, [select the correct interpreter](/docs/python/environments.md#select-and-activate-an-environment).
-- If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files to enhance compatibility and ensure smoother import behavior. Learn more in the [Pyright documentation](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
+- If you are working with an editable install and it is currently set up to use import hooks, consider switching to using `.pth` files that simply contain file paths instead, to enhance compatibility and ensure smoother import behavior. Learn more in the [Pyright documentation](https://microsoft.github.io/pyright/#/import-resolution?id=editable-installs).
 
 #### importCycleDetected
 
