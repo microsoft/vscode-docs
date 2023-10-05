@@ -25,7 +25,7 @@ resources:
       trigger: true
 
 variables:
-  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2022'
+  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
   Codeql.enabled: true
   Codeql.SourceRoot: $(Pipeline.Workspace)/vscode-website
   Codeql.TSAEnabled: true
