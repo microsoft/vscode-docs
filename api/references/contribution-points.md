@@ -232,7 +232,7 @@ Otherwise, properties without an explicit order field appear in alphabetical ord
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
-Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
+Schema](https://json-schema.org/overview/what-is-jsonschema).
 
 **description** / **markdownDescription**
 
@@ -363,7 +363,7 @@ Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
 
-For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
+For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
 **scope**
 
