@@ -223,7 +223,7 @@ You can create your own File Icon Theme from icons (preferably SVG), see the [Fi
 
 ## VS Code for the Web
 
-VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev).
+VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev).
 
 You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
 

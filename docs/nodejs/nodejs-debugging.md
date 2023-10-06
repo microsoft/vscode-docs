@@ -627,26 +627,26 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 ## Debugging WebAssembly
 
-The JavaScript debugger can debug code compiled into WebAssembly if it includes DWARF debug information. Many toolchains support emitting this information:
+The JavaScript debugger can debug code compiled into WebAssembly if it includes [DWARF](https://dwarfstd.org) debug information. Many toolchains support emitting this information:
 
-- [C/++ with Emscripten](https://emscripten.org/): compile with the the `-g` flag to emit debug information;
-- [Zig](https://ziglang.org/): DWARF information is automatically emittted in the "Debug" build mode;
-- [Rust](https://www.rust-lang.org/): not supported at the time of writing, support is tracked in [this issue](https://github.com/rustwasm/wasm-bindgen/issues/2389)
+* [C/C++ with Emscripten](https://emscripten.org/): Compile with the the `-g` flag to emit debug information.
+* [Zig](https://ziglang.org/): DWARF information is automatically emittted in the "Debug" build mode.
+* [Rust](https://www.rust-lang.org/): Not supported at the time of writing, support is tracked in [this issue](https://github.com/rustwasm/wasm-bindgen/issues/2389).
 
-After you have your code built, you'll want to install the [DWARF debugging extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-dwarf-debugging). This is shipped as a separate extension in order to keep the VS Code core 'streamlined.' Once installed, restart any active debugging sessions, and native code should then be mapped in the debugger! You should see your source code appear in the **Loaded Sources** view, and breakpoints should work.
+After you have your code built, you'll want to install the [WebAssembly DWARF Debugging](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-dwarf-debugging) extension. This is shipped as a separate extension in order to keep the VS Code core 'streamlined.' Once installed, restart any active debugging sessions, and native code should then be mapped in the debugger! You should see your source code appear in the **Loaded Sources** view, and breakpoints should work.
 
-In this case, I've stopped on a breakpoint in some C++ code that creates a Mandelbrot fractal. The call stack is visible, with frames from the JavaScript code, to WebAssembly, to my mapped C++ code. You can also see the variables in my C++ code, and I've chosen to edit the memory associated with the int32 `height` variable.
+In the image below, the debugger is stopped on a breakpoint in C++ source code that creates a Mandelbrot fractal. The call stack is visible, with frames from the JavaScript code, to WebAssembly, to the mapped C++ code. You can also see the variables in the C++ code, and an edit to the memory associated with the int32 `height` variable.
 
-![](./images/nodejs-debugging/wasm-dwarf.png)
+![Debugger stopped on a breakpoint in C++ source code](images/nodejs-debugging/wasm-dwarf.png)
 
-We persue parity, but debugging WebAssembly is a little different than ordinary JavaScript:
+While close to parity, debugging WebAssembly is a little different than ordinary JavaScript:
 
-- Variables in the **Variables** view cannot be edited directly. However, you can click the **View Binary Data** action beside the variable to edit their associated memory.
-- Basic expression evaluation in the **Debug Console** and **Watch** view is provided by [lldb-eval](https://github.com/google/lldb-eval). This is different than ordinary JavaScript expressions.
-- Locations not mapped to source code will be shown in disassembled WebAssembly Text Format. For WebAssembly, the command **Disable Source Map Stepping** will cause the debugger to step only in disassembled code.
-- Breakpoints in WebAssembly code are resolved asynchronously, so breakpoints hit early on in the program's lifecycle may be missed. We're optimistic that this can be fixed in the future. If you're debugging in a browser, you can refresh the page for your breakpoint to be hit. If you're in Node.js, you can add an artificial delay, or set another breakpoint, after your WebAssembly module is loaded but before your desired breakpoint is hit.
+* Variables in the **Variables** view cannot be edited directly. However, you can select the **View Binary Data** action beside the variable to edit their associated memory.
+* Basic expression evaluation in the **Debug Console** and **Watch** views is provided by [lldb-eval](https://github.com/google/lldb-eval). This is different than ordinary JavaScript expressions.
+* Locations not mapped to source code will be shown in disassembled WebAssembly Text Format. For WebAssembly, the command **Disable Source Map Stepping** will cause the debugger to step only in disassembled code.
+* Breakpoints in WebAssembly code are resolved asynchronously, so breakpoints hit early on in a program's lifecycle may be missed. There are plans to fix this in the future. If you're debugging in a browser, you can refresh the page for your breakpoint to be hit. If you're in Node.js, you can add an artificial delay, or set another breakpoint, after your WebAssembly module is loaded but before your desired breakpoint is hit.
 
-VS Code's WebAssembly debugging is built upon the [C/++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
+VS Code's WebAssembly debugging is built upon the [C/C++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
 
 ## Supported Node-like runtimes
 
