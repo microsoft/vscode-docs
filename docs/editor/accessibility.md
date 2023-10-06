@@ -100,7 +100,7 @@ One of the best approaches to selecting the best colors for a specific condition
 
 ## Dim unfocused editors and terminals
 
-Unfocused views can be dimmed to make it more clear where typed input will go, this is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`, how dim it will become can be configured with `accessibility.dimUnfocused.opacity`.
+Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `accessibility.dimUnfocused.opacity`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
 
 ## Keyboard navigation
 

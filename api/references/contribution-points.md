@@ -835,10 +835,7 @@ Here's a command menu item:
 
 ![menus extension point example](images/contribution-points/menus.png)
 
-Similarly, here's a command menu item added to a particular view:
-
-
-Here's an example that contributes to an arbitrary view like the terminal:
+Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
 
 ```json
 {
@@ -1231,9 +1228,9 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-	provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
-		return { name: 'Profile from extension', shellPath: 'bash' };
-	}
+  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+    return { name: 'Profile from extension', shellPath: 'bash' };
+  }
 });
 ```
 

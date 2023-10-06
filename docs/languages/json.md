@@ -72,7 +72,7 @@ In the following example, the JSON file specifies that its contents follow the [
 }
 ```
 
-Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
+Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/specification). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
 
 ### Mapping in the User Settings
 
@@ -192,7 +192,7 @@ Note that `defaultSnippets` is not part of the JSON schema specification but a V
 
 ### Use rich formatting in hovers
 
-VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7) in order to provide information about properties on hover and during autocomplete.
+VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/specification) in order to provide information about properties on hover and during autocomplete.
 
 If you want your descriptions to support formatting like links, you can opt in by using [Markdown](/docs/languages/markdown.md) in your formatting with the `markdownDescription` property.
 

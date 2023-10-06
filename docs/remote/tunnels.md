@@ -82,7 +82,7 @@ You may create and use tunnels through the `code` [CLI](/docs/editor/command-lin
 
 >**Note:** The remote machine will only be reachable through a tunnel while VS Code remains running there. Once you exit VS Code it will no longer be possible to tunnel to it until you start VS Code there again or run the `code tunnel` CLI command.
 
-## Remote - Tunnels extension
+## Remote Tunnels extension
 
 The vscode.dev instances you open through the `code` CLI or VS Code UI come with the Remote - Tunnels extension preinstalled.
 
