@@ -766,44 +766,44 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 
 Currently extension writers can contribute to:
 
-- The global Command Palette - `commandPalette`
-- The New File item in the File menu and Welcome page - `file/newFile`
-- The Explorer context menu - `explorer/context`
-- The editor context menu - `editor/context`
-- The editor line number context menu - `editor/lineNumber/context`
-- The editor title menu bar - `editor/title`
-- The editor title context menu - `editor/title/context`
-- The Run submenu on the editor title menu bar - `editor/title/run`
-- The debug callstack view context menu - `debug/callstack/context`
-- The debug callstack view inline actions - `debug/callstack/context` group `inline`
-- The debug variables view context menu - `debug/variables/context`
-- The debug toolbar - `debug/toolBar`
-- The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
-- [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
-- [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
-- The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
-- The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
-- The terminal context menu - `terminal/context`
-- The terminal title context menu - `terminal/title/context`
-- The macOS Touch Bar - `touchBar`
-- The comment thread title menu bar - `comments/commentThread/title`
-- The comment thread context menu - `comments/commentThread/context`
-- The comment title menu bar - `comments/comment/title`
-- The comment context menu - `comments/comment/context`
-- The Timeline view title menu bar - `timeline/title`
-- The Timeline view item context menu - `timeline/item/context`
-- The Extensions view context menu - `extension/context`
-- The Test Explorer item context menu - `testing/item/context`
-- The menu for a gutter decoration for a test item - `testing/item/gutter`
-- The notebook toolbar - `notebook/toolbar`
-- The notebook cell title menu bar - `notebook/cell/title`
-- The notebook cell execution menu - `notebook/cell/execute`
-- The interactive toolbar - `interactive/toolbar`
-- The interactive cell title menu bar - `interactive/cell/title`
-- Any [webview](/api/extension-guides/webview) context menu - `webview/context`
+- `commandPalette` - global Command Palette
+- `file/newFile`  - New File item in the File menu and Welcome page
+- `explorer/context` - Explorer view context menu
+- `editor/context` - editor context menu
+- `editor/lineNumber/context` - editor line number context menu
+- `editor/title` - editor title menu bar
+- `editor/title/context` - editor title context menu
+- `editor/title/run` - Run submenu on the editor title menu bar
+- `debug/callstack/context` - Debug Call Stack view context menu
+- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
+- `debug/variables/context` - Debug Variables view context menu
+- `debug/toolBar` - Debug view toolbar
+- `scm/title` - [SCM title menu](/api/extension-guides/scm-provider#menus)
+- `scm/resourceGroup/context` - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
+- `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
+- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
+- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
+- `terminal/context` - terminal context menu
+- `terminal/title/context` - terminal title context menu
+- `touchBar` - macOS Touch Bar
+- `comments/commentThread/title` - Comments thread title menu bar
+- `comments/commentThread/context`- Comments thread context menu
+- `comments/comment/title` - Comments title menu bar
+- `comments/comment/context` - Comments context menu
+- `timeline/title` - Timeline view title menu bar
+- `timeline/item/context` - Timeline view item context menu
+- `extension/context` - Extensions view context menu
+- `testing/item/context` - Test Explorer item context menu
+- `testing/item/gutter` - menu for a gutter decoration for a test item
+- `notebook/toolbar` - notebook toolbar
+- `notebook/cell/title` - notebook cell title menu bar
+- `notebook/cell/execute` - notebook cell execution menu
+- `interactive/toolbar` - Interactive Window toolbar
+- `interactive/cell/title` - Interactive Window cell title menu bar
+- `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
 > **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
