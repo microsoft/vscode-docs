@@ -767,42 +767,42 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 Currently extension writers can contribute to:
 
 - `commandPalette` - global Command Palette
-- `file/newFile`  - New File item in the File menu and Welcome page
-- `explorer/context` - Explorer view context menu
+- `comments/comment/title` - Comments title menu bar
+- `comments/comment/context` - Comments context menu
+- `comments/commentThread/title` - Comments thread title menu bar
+- `comments/commentThread/context`- Comments thread context menu
+- `debug/callstack/context` - Debug Call Stack view context menu
+- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
+- `debug/toolBar` - Debug view toolbar
+- `debug/variables/context` - Debug Variables view context menu
 - `editor/context` - editor context menu
 - `editor/lineNumber/context` - editor line number context menu
 - `editor/title` - editor title menu bar
 - `editor/title/context` - editor title context menu
 - `editor/title/run` - Run submenu on the editor title menu bar
-- `debug/callstack/context` - Debug Call Stack view context menu
-- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
-- `debug/variables/context` - Debug Variables view context menu
-- `debug/toolBar` - Debug view toolbar
+- `explorer/context` - Explorer view context menu
+- `extension/context` - Extensions view context menu
+- `file/newFile`  - New File item in the File menu and Welcome page
+- `interactive/toolbar` - Interactive Window toolbar
+- `interactive/cell/title` - Interactive Window cell title menu bar
+- `notebook/toolbar` - notebook toolbar
+- `notebook/cell/title` - notebook cell title menu bar
+- `notebook/cell/execute` - notebook cell execution menu
 - `scm/title` - [SCM title menu](/api/extension-guides/scm-provider#menus)
 - `scm/resourceGroup/context` - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus
 - `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
 - `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
 - `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
 - `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
-- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
-- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
 - `terminal/context` - terminal context menu
 - `terminal/title/context` - terminal title context menu
-- `touchBar` - macOS Touch Bar
-- `comments/commentThread/title` - Comments thread title menu bar
-- `comments/commentThread/context`- Comments thread context menu
-- `comments/comment/title` - Comments title menu bar
-- `comments/comment/context` - Comments context menu
-- `timeline/title` - Timeline view title menu bar
-- `timeline/item/context` - Timeline view item context menu
-- `extension/context` - Extensions view context menu
 - `testing/item/context` - Test Explorer item context menu
 - `testing/item/gutter` - menu for a gutter decoration for a test item
-- `notebook/toolbar` - notebook toolbar
-- `notebook/cell/title` - notebook cell title menu bar
-- `notebook/cell/execute` - notebook cell execution menu
-- `interactive/toolbar` - Interactive Window toolbar
-- `interactive/cell/title` - Interactive Window cell title menu bar
+- `timeline/title` - Timeline view title menu bar
+- `timeline/item/context` - Timeline view item context menu
+- `touchBar` - macOS Touch Bar
+- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
+- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
 - `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
