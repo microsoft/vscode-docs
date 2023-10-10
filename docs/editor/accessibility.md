@@ -23,7 +23,7 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
-### Persistent zoom Level
+### Persistent zoom level
 
 When you adjust the zoom level with the **View** > **Zoom In** or  **Zoom Out** commands, the zoom level is persisted in the [`window.zoomLevel` setting](/docs/getstarted/settings.md). The default value is 0, and each increment or decrement changes the zoom level by 20 percent.
 
