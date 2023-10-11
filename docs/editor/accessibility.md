@@ -19,13 +19,15 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 * **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the zoom level.
 * **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`) - reset the zoom level to 0.
 
->**Note**: If you're using a magnifier, hold down the `alt` key while viewing the hover to move the cursor over the hover.
+>**Note**: If you're using a magnifier, hold down the `kbstyle(Alt)` key while viewing the hover to move the cursor over the hover.
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
 ### Persistent zoom level
 
-When you adjust the zoom level with the **View** > **Zoom In** or  **Zoom Out** commands, the zoom level is persisted in the [`window.zoomLevel` setting](/docs/getstarted/settings.md). The default value is 0, and each increment or decrement changes the zoom level by 20 percent.
+When you adjust the zoom level with the **View** > **Zoom In** or  **Zoom Out** commands, the zoom level is persisted in the `window.zoomLevel` setting. The default value is 0, and each increment or decrement changes the zoom level by 20 percent.
+
+>**Note**: For more information about modifying VS Code, go to [User and Workspace Settings](/docs/getstarted/settings.md).
 
 ## High Contrast theme
 
@@ -39,7 +41,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you've installed a color theme from the marketplace, you can [change the color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
+Once you've installed a color theme, you can [change the color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -55,7 +57,7 @@ Once you've installed a color theme from the marketplace, you can [change the co
 
 The default color theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Go to [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) for more info about overriding the colors in your current theme.
+>**Note**: Go to [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
 
 To customize the error and warning squiggles, go to **File** > **Preferences** > **Settings**. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 
@@ -90,7 +92,7 @@ The accessibility of colors is subjective to the type of anomalous trichromacy (
 |   Deuteranopia   |   Reduced sensitivity to green light. It is the most common form of color blindness.
 |   Protanopia     |   Reduced sensitivity to red light.
 |   Tritanopia     |   Reduced sensitivity to blue light. This condition is considered rare.
-|   Monochromia    |   The inability to see all colors, also referred to as *achromatopsia*. More information about the rarest form of colorblindness: [Foundation Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia).
+|   Monochromia    |   The inability to see all colors, also referred to as achromatopsia. More information about the rarest form of colorblindness: [Foundation Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia).
 
 One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
 
@@ -100,17 +102,17 @@ One of the best approaches to selecting the best colors for a specific condition
 
 ## Dim unfocused editors and terminals
 
-Unfocused views can be dimmed to make it more clear where typed input will go. This is especially useful when working with multiple editor groups or terminals. Turn this feature on by setting `"accessibility.dimUnfocused.enabled": true` and configure the dimness level with `accessibility.dimUnfocused.opacity`.
+Unfocused views can be dimmed to make it more clear where typed input will go. This is especially useful when working with multiple editor groups or terminals. Turn this feature on by setting `"accessibility.dimUnfocused.enabled": true` and configure the dimness level with `accessibility.dimUnfocused.opacity`. The default opacity is 0.75, and can be adjusted between 0.2 and 1.0.
 
 ## Keyboard navigation
 
-VS Code includes an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can use VS Code without a mouse.  Select `kb(workbench.action.showCommands)`, then type a command name (for example, "git") to filter the list of commands.
+VS Code includes an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can use VS Code without a mouse.  Press `kb(workbench.action.showCommands)`, then type a command name (for example, "git") to filter the list of commands.
 
 VS Code also has many preset keyboard shortcuts for commands.
 
 ![Key bindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the keyboard shortcuts editor, where you can discover and modify key bindings for VS Code actions. For more details on customizing or adding your own keyboard shortcuts, go to [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify key bindings for VS Code actions. For more details on customizing or adding your own keyboard shortcuts, go to [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
 
 For quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
 
@@ -164,7 +166,7 @@ You can dismiss any open accessibility help menus or additional help documentati
 
 ## Accessible view
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an accessible view to inspect content character by character and line by line. The accessible view is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to inspect content character by character and line by line. The Accessible View is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
 
 ## Screen reader mode
 
@@ -238,7 +240,7 @@ The editor includes screen reader support for VoiceOver.
 
 VS Code works well with the Orca screen reader. If Orca in your Linux distribution does not read the editor content:
 
-* Check the `"editor.accessibilitySupport": "on"` setting in VS Code. You can do this in the **Settings** menu or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn accessibility support on.
+* Check the `"editor.accessibilitySupport": "on"` setting in VS Code. You can do this in the Settings editor or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn accessibility support on.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 
 After turning that setting on, VS Code should work with the Orca screen reader.
