@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Dev Containers Frequently Asked Questions
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
-DateApproved: 8/3/2023
+DateApproved: 10/4/2023
 ---
 # Dev Containers FAQ
 
@@ -37,7 +37,7 @@ A VS Code window can only connect to one window currently, but you can open a ne
 
 ## Can I work with containers on a remote host?
 
-Yes, see the section on [opening a folder on a remote SSH host in a container](/docs/remote/ssh.md#open-a-folder-on-a-remote-ssh-host-in-a-container) for information.
+Yes, see the sections on [opening a folder on a remote SSH host](/docs/remote/ssh.md#open-a-folder-on-a-remote-ssh-host-in-a-container) or [Remote Tunnels host in a container](/docs/remote/tunnels.md#open-a-folder-on-a-remote-tunnels-host-in-a-container) for information.
 
 ## How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 

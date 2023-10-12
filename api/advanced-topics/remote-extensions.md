@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 8/3/2023
+DateApproved: 10/4/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -232,7 +232,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     // ...
-    const apiKey = context.secrets.get('apiKey');
+    const myApiKey = context.secrets.get('apiKey');
     // ...
     context.secrets.delete('apiKey');
     // ...

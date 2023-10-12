@@ -1,7 +1,7 @@
 ---
 ContentId: f71d4b81-8361-48ee-82c0-48f69ec0d72e
 PageTitle: Get Started with Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 10/4/2023
 MetaDescription: Get Started with Visual Studio Code
 ---
 # Learn to code with Visual Studio Code

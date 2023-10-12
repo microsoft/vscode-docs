@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 8/3/2023
+DateApproved: 10/4/2023
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference

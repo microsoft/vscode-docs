@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 10/4/2023
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -47,6 +47,7 @@ The terminal cursor style and whether it blinks can be customized with the follo
 - `terminal.integrated.cursorStyle`: Defines the shape of the cursor, can be block, line or underline.
 - `terminal.integrated.cursorWidth`: How wide in pixels the cursor should be when the cursor style is set to `line`.
 - `terminal.integrated.cursorBlinking`: Whether the cursor should blink when the terminal is focused.
+- `terminal.integrated.cursorStyleInactive`: Defines the shape of the cursor, can be outline, block, line, underline or none.
 
 ## Customizing tabs
 
