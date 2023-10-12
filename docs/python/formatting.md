@@ -14,7 +14,25 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
-The Python extension supports source code formatting through formatter extensions, such as [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
+## Choose a linter
+
+Install the formatting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Microsoft publishes the following linting extensions:
+
+| Formatter | Extension                                                                       |
+| ------ | ------------------------------------------------------------------------------- |
+| autopep8 | [https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8)            |
+| Black formatter | [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)            |
+
+Formatter extensions offered by the community:
+
+| Formatter | Extension                                                              |
+| ------ | ---------------------------------------------------------------------- |
+| yapf   | [https://marketplace.visualstudio.com/items?itemName=eeyore.yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yapf) |
+| Ruff   | Currently in beta    |
+
+> **Note**: If you don't find your preferred formatter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
 
 ## Set a default formatter
 
