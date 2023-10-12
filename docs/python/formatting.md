@@ -14,7 +14,7 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
-## Choose a linter
+## Choose a formatter
 
 Install the formatting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
 
