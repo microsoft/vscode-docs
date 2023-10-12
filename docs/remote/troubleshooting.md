@@ -34,7 +34,7 @@ To set up SSH key based authentication for your remote host. First we'll create 
 If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t ed25519 -b 4096
 ```
 
 > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).

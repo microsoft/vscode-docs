@@ -23,13 +23,13 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
 
-### Connect using the Remote - Tunnels extension
+## Connect using the Remote - Tunnels extension
 
 If you are using a Linux machine as a tunnel host, you can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead. To do so:
 
 1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
 1. [Install Docker](/docs/devcontainers/containers#installation) on your tunnel host. You do not need to install Docker locally.
-1. Follow the [steps](/docs/remote/tunnels.md#remote---tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
+1. Follow the [steps](/docs/remote/tunnels.md#remote-tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
 1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - Tunnels extension in its documentation](/docs/remote/tunnels.md).

@@ -262,6 +262,12 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
+If this happened after an update, deleting the `GPUCache` directory can resolve the issue.
+
+```bash
+rm -r ~/.config/Code/GPUCache
+```
+
 ## VS Code gets unresponsive right after opening a folder
 
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
@@ -282,7 +288,7 @@ Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004.
 
 ## Can I run VS Code on old macOS versions?
 
-VS Code desktop version starting with 1.83 (September 2023) is deprecating macOS Mojave (version 10.14 and older). Starting with VS Code 1.86 (January 2024) we will stop updating VS Code on macOS Mojave (version 10.14 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
+VS Code desktop version starting with 1.83 (September 2023) is deprecating support for macOS Mojave (version 10.14 and older). Starting with VS Code 1.86 (January 2024), we will stop updating VS Code on macOS Mojave (version 10.14 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
 
 VS Code will no longer provide product updates or security fixes on macOS Mojave (versions 10.14 and older) and VS Code version 1.85 will be the last available release for macOS Mojave (10.14 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
