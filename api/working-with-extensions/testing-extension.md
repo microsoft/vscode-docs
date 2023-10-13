@@ -27,15 +27,15 @@ Alternatively, you can find the configuration for this guide in the [helloworld-
 
 ## Quick Setup: The Test CLI
 
-The VS Code publishes a command-line tool to run extensions tests. This tool provides quick setup, and also allows you to easily run and debug tests using the VS Code UI using the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner). The CLI exclusively uses [Mocha](https://mochajs.org) under the hood to run tests.
+The VS Code team publishes a command-line tool to run extensions tests. This tool provides quick setup, and also allows you to easily run and debug tests using the VS Code UI using the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner). The CLI exclusively uses [Mocha](https://mochajs.org) under the hood.
 
-To get started, you'll want to first install the command line, as well as `@vscode/test-electron` module which enables tests to be run in VS Code Desktop:
+To get started, you'll want to first install the `@vscode/test-cli` module, as well as `@vscode/test-electron` module which enables tests to be run in VS Code Desktop:
 
 ```
 npm install --save-dev @vscode/test-cli @vscode/test-electron
 ```
 
-After installing the package, you'll get a `vscode-test` command line, which you can add to the `scripts` section in your package.json:
+After installing the modules, you'll get a `vscode-test` command line, which you can add to the `scripts` section in your package.json:
 
 ```diff
 {
@@ -46,40 +46,43 @@ After installing the package, you'll get a `vscode-test` command line, which you
 
 `vscode-test` will look for a `.vscode-test.js` file relative to the current working directory. This file provides configuration to test test runner, and you can find the entire definition [here](https://github.com/microsoft/vscode-test-cli/blob/main/src/config.cts). Common options include:
 
-- (required) `files`: a pattern, list of patterns, or absolute paths containing the tests to run
+- **(required)** `files`: a pattern, list of patterns, or absolute paths containing the tests to run
 - `version`: the version of VS Code to use for running tests (defaults to `stable`)
 - `workspaceFolder`: the path to a workspace to open during tests
 - `extensionDevelopmentPath`: the path to your extension folder (defaults to the directory the config file is placed in)
 - `mocha`: an object containing additional [options](https://mochajs.org/api/mocha#Mocha) to pass to Mocha
 
-A file might be as simple as:
+The configuration might be as simple as:
 
 ```js
 // .vscode-test.js
-const { defineConfig } = require('@vscode/test');
+const { defineConfig } = require('@vscode/test-cli');
 
-export default defineConfig({ files: 'out/test/**/*.test.js' });
+module.exports = defineConfig({ files: 'out/test/**/*.test.js' });
 ```
 
 ...or more advanced:
 
 ```js
 // .vscode-test.js
-const { defineConfig } = require('@vscode/test');
+const { defineConfig } = require('@vscode/test-cli');
 
-export default defineConfig([
+module.exports = defineConfig([
 	{
+    label: 'unitTests',
 		files: 'out/test/**/*.test.js',
 		version: 'insiders',
 		workspaceFolder: './sampleWorkspace',
 		mocha: {
-      ui: 'tdd'
+			ui: 'tdd'
 			timeout: 20000,
 		},
 	},
-	// you can specify additional test configurations if necessary
+	// you can specify additional test configurations, too
 ]);
 ```
+
+If you define multiple configurations by passing an array, they'll be run sequentially when you run `vscode-test`. You can filter by the `label` and run them individually using the `--label` flag, for example `vscode-test --label unitTests`. Run `vscode-test --help` for the complete set of command-line options.
 
 ### Test Scripts
 
