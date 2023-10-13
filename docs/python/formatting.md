@@ -18,7 +18,7 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 Install the formatting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-Microsoft publishes the following linting extensions:
+Microsoft publishes the following formatting extensions:
 
 | Formatter | Extension                                                                       |
 | ------ | ------------------------------------------------------------------------------- |
