@@ -39,7 +39,7 @@ The Python extension then provides shortcuts to run Python code using the curren
 
 ![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line with your cursor will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for "Run Python File in Terminal", but isn't compatble. You should exit the REPL, kill the terminal, or switch to a different terminal before running a python file.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line with your cursor will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for **Run Python File in Terminal**. If that terminal is still running the REPL, you should exit the REPL (`exit()`) or switch to a different terminal before running a Python file.
 
 The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left as needed.
 
