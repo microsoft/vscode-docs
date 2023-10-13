@@ -13,8 +13,6 @@ Visual Studio Code supports running and debugging tests for your extension. Thes
 
 ## Overview
 
-_If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)_.
-
 If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
 In the generated extension, you can use `npm run test` or `yarn test` to run the integration tests that:
@@ -27,7 +25,90 @@ Alternatively, you can find the configuration for this guide in the [helloworld-
 - The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts))
 - The **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts))
 
-## The test script
+## Quick Setup: The Test CLI
+
+The VS Code publishes a command-line tool to run extensions tests. This tool provides quick setup, and also allows you to easily run and debug tests using the VS Code UI using the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner). The CLI exclusively uses [Mocha](https://mochajs.org) under the hood to run tests.
+
+To get started, you'll want to first install the command line, as well as `@vscode/test-electron` module which enables tests to be run in VS Code Desktop:
+
+```
+npm install --save-dev @vscode/test-cli @vscode/test-electron
+```
+
+After installing the package, you'll get a `vscode-test` command line, which you can add to the `scripts` section in your package.json:
+
+```diff
+{
+  "name": "my-cool-extension",
+  "scripts": {
++   "test": "vscode-test"
+```
+
+`vscode-test` will look for a `.vscode-test.js` file relative to the current working directory. This file provides configuration to test test runner, and you can find the entire definition [here](https://github.com/microsoft/vscode-test-cli/blob/main/src/config.cts). Common options include:
+
+- (required) `files`: a pattern, list of patterns, or absolute paths containing the tests to run
+- `version`: the version of VS Code to use for running tests (defaults to `stable`)
+- `workspaceFolder`: the path to a workspace to open during tests
+- `extensionDevelopmentPath`: the path to your extension folder (defaults to the directory the config file is placed in)
+- `mocha`: an object containing additional [options](https://mochajs.org/api/mocha#Mocha) to pass to Mocha
+
+A file might be as simple as:
+
+```js
+// .vscode-test.js
+const { defineConfig } = require('@vscode/test');
+
+export default defineConfig({ files: 'out/test/**/*.test.js' });
+```
+
+...or more advanced:
+
+```js
+// .vscode-test.js
+const { defineConfig } = require('@vscode/test');
+
+export default defineConfig([
+	{
+		files: 'out/test/**/*.test.js',
+		version: 'insiders',
+		workspaceFolder: './sampleWorkspace',
+		mocha: {
+      ui: 'tdd'
+			timeout: 20000,
+		},
+	},
+	// you can specify additional test configurations if necessary
+]);
+```
+
+### Test Scripts
+
+Once the CLI is set up, you can write and run your tests. Test scripts have access to the VS Code API. Here's a sample ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/extension.test.ts)):
+
+```ts
+import * as assert from 'assert';
+import { after } from 'mocha';
+
+// You can import and use all API from the 'vscode' module
+// as well as import your extension to test it
+import * as vscode from 'vscode';
+// import * as myExtension from '../extension';
+
+suite('Extension Test Suite', () => {
+  after(() => {
+    vscode.window.showInformationMessage('All tests done!');
+  });
+
+  test('Sample test', () => {
+    assert.strictEqual(-1, [1, 2, 3].indexOf(5));
+    assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+  });
+});
+```
+
+You can run this test with the `npm test` command, or by using the **Test: Run All Tests** command in VS Code after you install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner).
+
+## Advanced Setup: Your Own Runner
 
 VS Code provides two CLI parameters for running extension tests, `--extensionDevelopmentPath` and `--extensionTestsPath`.
 
@@ -79,7 +160,7 @@ The `@vscode/test-electron` API also allows:
 
 You can find more API usage examples at [microsoft/vscode-test](https://github.com/microsoft/vscode-test).
 
-## The test runner script
+### The test runner script
 
 When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
 
@@ -148,7 +229,7 @@ suite('Extension Test Suite', () => {
 });
 ```
 
-## Debugging the tests
+### Debugging the tests
 
 Debugging the tests is similar to debugging the extension.
 
@@ -277,19 +358,6 @@ async function main() {
 
 main();
 ```
-
-### Migrating from `vscode`
-
-The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`@vscode/test-electron`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
-
-- Remove `vscode` dependency.
-- Add `@vscode/test-electron` dependency.
-- As the old `vscode` module was also used for downloading VS Code type definition, you need to
-  - Manually install `@types/vscode` that follows your `engines.vscode` in `package.json`. For example, if your `engines.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
-  - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
-- Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
-- Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.
-- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependencies`.
 
 ## Next steps
 
