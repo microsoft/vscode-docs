@@ -30,7 +30,7 @@ Formatter extensions offered by the community:
 | Formatter | Extension                                                              |
 | ------ | ---------------------------------------------------------------------- |
 | yapf   | [https://marketplace.visualstudio.com/items?itemName=eeyore.yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yapf) |
-| Ruff   | Coming soon - currently in beta.    |
+| Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)   |
 
 > **Note**: If you don't find your preferred formatter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
 
