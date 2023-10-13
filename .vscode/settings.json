@@ -24,5 +24,7 @@
     },
     "editor.codeActionsOnSave": {
         "source.organizeLinkDefinitions": "explicit"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.default.compilerPath": "c:\\Users\\a2277\\Dropbox\\翊宏叫我當GM\\vscode-docs\\README.md"
 }
