@@ -1,13 +1,13 @@
 ---
 Order: 7
 Area: editor
-TOCTitle: AI Tools
+TOCTitle: GitHub Copilot
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
 DateApproved: 10/4/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
-# AI Tools in VS Code
+# GitHub Copilot in VS Code
 
 The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is an AI pair programmer tool that helps you write code faster and smarter. You can use the Copilot extension in VS Code to generate code, learn from the code it generates, and even configure your editor.
 
@@ -15,7 +15,7 @@ The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.
 
 ## Prerequisites
 
-You'll use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your AI suggestions in VS Code.
+You'll use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your artificial intelligence (AI) suggestions in VS Code.
 
 > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
