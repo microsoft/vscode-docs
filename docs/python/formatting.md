@@ -61,6 +61,20 @@ For example, to set Black Formatter as the default formatter, add the following 
   }
 ```
 
+In order to set formatter extensions as import sorters, you can set your preference under `"editor.codeActionsOnSave"` in your User `settings.json` file, under a `[python]` scope
+
+For example, to set Ruff as your preferred import sorter, add the following setting to your User `settings.json` file:
+
+```json
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": true
+    }
+  }
+}
+```
+
 ## Format your code
 
 You can format your code by right-clicking on the editor and selecting **Format Document**, or by using the `kb(editor.action.formatDocument)` keyboard shortcut.
