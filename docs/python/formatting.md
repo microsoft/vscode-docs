@@ -61,9 +61,9 @@ For example, to set Black Formatter as the default formatter, add the following 
   }
 ```
 
-In order to set a formatter extension as an import sorter, you can set your preference under `"editor.codeActionsOnSave"` in your User `settings.json` file, under a `[python]` scope. This will enable import sorting on save for all Python files. 
+In order to set a formatter extension as an import sorter, you can set your preference under `"editor.codeActionsOnSave"` in your User `settings.json` file or your Workspace `settings.json` file, under a `[python]` scope. You can open these `settings.json` files using the **Preferences: Open User Settings (JSON)** and **Preferences: Open Workspace Settings (JSON)** commands respectively. This will enable import sorting on save for all Python files.
 
-For example, to set Ruff as your preferred import sorter, add the following setting to your User `settings.json` file:
+For example, to set Ruff as your preferred import sorter, you can add the following setting to your User `settings.json` or your Workspace `settings.json` file:
 
 ```json
 {
