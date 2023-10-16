@@ -9,11 +9,11 @@ MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
 
-Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight the various UI customizations so you can display the views, editors, and panels in the way that's most productive for you.
+Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight various UI customizations so you can display the views, editors, and panels in the way that's most productive for you.
 
-If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
+If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
-This article starts by discussing the [Workbench](#workbench) customizations that let you rearrange UI elements such as the Side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
+This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the Side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 ## Workbench
 
@@ -29,11 +29,20 @@ The default (Primary) side bar shows views such as the File Explorer, Search, an
 
 <!-- issue #6326 "Secondary Side Bar deserves better documentation" -->
 
-By default, VS Code shows all views in the **Primary side bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary side bar** and drag and drop views into the side bar.
+By default, VS Code shows all views in the **Primary side bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary side bar** and drag and drop views into that side bar.
 
 This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right
 
 ![Source Control view in the Secondary Side bar to the right](images/custom-layout/secondary-side-bar.png)
+
+To display the Secondary side bar, you can:
+
+* Run **View: Toggle Secondary Side Bar Visibility** (`kb(workbench.action.toggleAuxiliaryBar))`).
+* Check the **View** > **Appearance** > **Secondary Side Bar** menu item.
+
+The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
+
+>**Note**: You can reset view and panel back to the default locations with the **View: Reset View Locations** command.
 
 ### Panel
 
@@ -41,7 +50,7 @@ The Panel region displays UI elements such as the Problems, Terminal, and Output
 
 ### Move Panel commands
 
-You can also move the region to be to the left or right of the editor with the **Move Panel** commands:
+You can also move the region to the left or right of the editor with the **Move Panel** commands:
 
 * **View: Move Panel Left** (`workbench.action.positionPanelLeft`)
 * **View: Move Panel Right** (`workbench.action.positionPanelRight`)
@@ -53,22 +62,24 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Panel alignment
 
-issue #6239 "Add handling of the Terminal / Output pane under User Interface"
+<!-- issue #6239 "Add handling of the Terminal / Output pane under User Interface" -->
 
-This option allows you to configure how far the bottom Panel spans across your window. There are four options:
+This option lets you to configure how far the bottom Panel spans across your window. There are four options:
 
-* **Center** - This is the classic behavior. The panel spans the width of the editor area only.
+* **Center** - This is the default behavior. The panel spans the width of the editor area only.
+* **Justify** - The panel will span the full width of the window.
 * **Left** - The panel will span from the left edge of the window to the right edge of the editor area.
 * **Right** - The panel will span from the right edge of the window to the left edge of the editor area.
-* **Justify** - The panel will span the full width of the window.
 
 Note that with all options, the Activity Bar is considered the edge of the window.
 
-You can configure these options in the menu under **View** > **Appearance** > **Align Panel**, Panel region context menu, or using the new **Set Panel Alignment to...** commands.
+You can configure these options in the menu under **View** > **Appearance** > **Align Panel**, Panel title context menu, or using the new **Set Panel Alignment to...** commands.
 
-![alt](https://) TBD context menu
+![Align Panel options from Panel title context menu](images/custom-layout/panel-alignment-context-menu.png)
 
 ### Maximize Panel size
+
+[blah](blahblah.mc)
 
 to fill the editor area
 
