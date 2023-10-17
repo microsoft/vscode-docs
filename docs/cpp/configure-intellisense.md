@@ -10,9 +10,9 @@ MetaDescription: Configure Visual Studio Code IntelliSense in the C/C++ Extensio
 ---
 # Configure C/C++ IntelliSense
 
-This article is about configuring the C/C++ extension to provide proper [IntelliSense](/docs/editor/intellisense.md). IntelliSense is a helpful tool built into VS Code that provides various code editing features that help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, code actions (light bulbs), and member lists are all generated using IntelliSense.
+This article is about configuring the C++ extension to provide C++ specific [IntelliSense](/docs/editor/intellisense.md) suggestions in VS Code. IntelliSense is a helpful tool built into VS Code that provides various code editing features that help you code faster and more efficiently. For example, code completion, parameter info, syntax highlighting, code actions (light bulbs), and member lists are all generated using IntelliSense.
 
-IntelliSense is powered by a language service, which provides C++ specific language completions in your code. For the extension to provide correct IntelliSense suggestions, you need to configure the C/C++ extension. There are three types of sources that can be used for configuration:
+There are three types of sources that can be used for configuration:
 
 - A C/C++ compiler
 - `compile_commands.json` file
@@ -20,7 +20,9 @@ IntelliSense is powered by a language service, which provides C++ specific langu
 
 ## When is IntelliSense automatically configured?
 
-The C/C++ Extension, in most occasions, configures IntelliSense automatically for you. Common compiler paths in world writeable locations are queried on your machine, and if a compiler is available, are configured. If a compiler in a non-world writeable location is determined, a notification is displayed asking to configure this compiler. When approving compilers for IntelliSense, ensure that the compiler path is correct. Common compilers in their default world writeable locations that are automatically configured include the clang compiler, GCC, MinGW, and MSVC. If a `compile_commands.json` file or another extension that provides a configuration is found in your workspace, the extension will also automatically use these options to configure IntelliSense.
+The C++ Extension, in most occasions, configures IntelliSense automatically for you. For example, if you have previously selected a compiler for IntelliSense, that compiler will be set as your default compiler. Your default compiler is chosen to configure IntelliSense. Otherwise, if you have not previously selected a compiler, common compiler paths are queried by the C++ Extension. If a compiler is found in a world writeable location, that compiler is configured for IntelliSense. This applies to many common compilers in their default locations such as clang, GCC, MinGW, cygwin, cygwin64, and MSVC. If a compiler is not in a world writeable location, a notification is displayed asking to configure this compiler. When you approve a compiler for IntelliSense, double check that the compiler path stated is as expected.
+
+If another extension is able to provide the configuration for IntelliSense, this configuration is set as your configuration provider in the C++ Extension. Configuration providers are automatically selected to configure IntelliSense. If the extension's configuration can not be configured, the C++ Extension will fall back to the base configuration provided in your `c_cpp_properties.json` file. This includes your default compiler or any compilers found when querying through the process mentioned above.
 
 ## How to check whether IntelliSense is configured
 
@@ -36,9 +38,9 @@ To configure, select the status bar indicator, which navigates you to the [confi
 
 ### Option 2: Check the language status bar
 
-To invoke the language status bar, open a C++ file. Note that the status bar now shows the text "{} C++". Hover over the "{}" symbol to open the language status bar flyout. The top item in the flyout indicates the IntelliSense status. Here are the different statuses and their meanings:
+To invoke the language status bar, open a C++ file. Note that the status bar shows the text "{} C++". Hover over the "{}" symbol to open the language status bar flyout. The top item in the flyout indicates the IntelliSense status. Here are the different statuses and their meanings:
 
-- "IntelliSense: Ready" = IntelliSense has been configured for the C/C++ Extension and will automatically activate if you interact with the editor, for example, by writing code.
+- "IntelliSense: Ready" = IntelliSense has been configured for the C/C++ Extension and automatically activates if you interact with the editor, for example, by writing code.
 - "IntelliSense: Updating" = IntelliSense is actively working to determine any code completions, syntax highlighting, etc. based on changes you're making to your code
 - "IntelliSense: Not configured" = IntelliSense isn't configured, and will not provide you with code completion features. To configure, navigate you to the [configuration quickpickpick](/docs/cpp/configure-intellisense.md#_Option-1.-Select-a-configuration-option-through-the-configuration-Quick-Pick) as explained below.
 
@@ -52,7 +54,7 @@ All configuration settings are stored in your project's `c_cpp_properties.json` 
 
 ## How to configure IntelliSense
 
-If you have determined that IntelliSense isn't configured, you have multiple options to configure:
+Before you configure, understand that IntelliSense configuration is always stored in the `c_cpp_properties.json` file, which is automatically created in your workspace. All three of the following options are different ways of editing the `c_cpp_properties.json` file:
 
 ### Option 1. Select a configuration option through the configuration Quick Pick
 
@@ -60,13 +62,13 @@ Open the quick pick by entering **Select IntelliSense Configuration** in the Com
 
 ![Compiler Quick Pick](images/intellisense/compiler-quick-pick.png)
 
-Select one of the options available. You can return to the Configuration Quick Pick at any point to change which option is being configured for IntelliSense.
+Select one of the options available. If you select a compiler, this compiler will also be set as your default compiler. You can return to the Configuration Quick Pick at any point to change which option chosen to configure IntelliSense.
 
-If no options are available in the quick pick, there are multiple options to help you install a compiler which you can use for IntelliSense. On a Windows machine, select the “Help me install a compiler” option, which redirects you to the step-by-step walkthrough of how to install a C/C++ compiler. On a Mac or Linux machine, select "Install a compiler" and navigate through the prompts to have a compiler either the Clang or GCC compiler installed on your machine.
+If no options are available in the quick pick, there are multiple options to help you install a compiler, which you can use for IntelliSense. On a Windows machine, select the “Help me install a compiler” option, which redirects you to the step-by-step walkthrough of how to install a C/C++ compiler. On a Mac or Linux machine, select "Install a compiler" and navigate through the prompts to have a compiler either the Clang or GCC compiler installed on your machine.
 
-### Option 2. Edit your IntelliSense configurations
+### Option 2. Edit your IntelliSense configurations UI
 
-Open your IntelliSense configuration by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
+Open your IntelliSense configuration by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). This is an easy to navigate interface of the `c_cpp_properties.json` file.
 
 For configuring a `compile_commands.json` file, enter the full path of the `compile_commands.json` file into the Compile commands field. For example, if your `compile_commands.json` file is in the root of your workspace, use `${workspaceFolder}/compile_commands.json`.
 
@@ -76,9 +78,9 @@ For configuring a compiler, set the "Compiler path" field to the full path of th
 
 ### Option 3. Edit the `c_cpp_properties.json` file directly
 
-The `c_cpp_properties.json` file is used to configure IntelliSense for the C/C++ Extension. It's located in the `.vscode` folder of your workspace. The edit configuration view in option 2 is an interface for the `c_cpp_properties.json` file. The C/C++ Extension automatically creates this file for you if you have a compiler installed in a world writeable location. If you don't have a compiler installed, you can create this file manually.
+You can edit the `c_cpp_properties.json` file directly to customize your configuration. Use the **C/C++ Edit Configurations (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`), then the `c_cpp_properties.json` file is found in the `.vscode` folder of your workspace.
 
-You can edit the `c_cpp_properties.json` file directly to add or update your configuration choices. Use the **C/C++ Edit Configurations (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`) and add the relevant settings. For `compile_commands.json` as a configuration, use the  `compileCommands` variable and for using another extension, use the `configurationProvider` variable. To add a compiler, use the `compilerPath` variable. This variable is the full path of the compiler you're using to build your project. For example, when using the default install path for GCC on Linux, the compiler path is `/usr/bin/gcc`.
+To select `compile_commands.json` as a configuration, add or update the  `compileCommands` variable. For configuring another extension, use the `configurationProvider` variable. To add a compiler, use the `compilerPath` variable. This variable is the full path of the compiler you're using to build your project. For example, when using the default install path for GCC on Linux, the compiler path is `/usr/bin/gcc`.
 
 Make sure you have defined the following settings if you are writing to your `c_cpp_properties.json` file:
 
