@@ -13,7 +13,7 @@ March 30, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 **AI did not write this blog post, but it will make your development experiences incredible.**
 
-> **Note**: If you like to learn about the latest GitHub Copilot experience in Visual Studio Code, go to the [AI Tools in VS Code](https://code.visualstudio.com/docs/editor/artificial-intelligence) topic, where you'll find details on the Copilot editor integration and Copilot Chat features such as inline Chat, the dedicated Chat view, and Quick Chat.
+> **Note**: If you like to learn about the latest GitHub Copilot experience in Visual Studio Code, go to the [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/editor/github-copilot) topic, where you'll find details on the Copilot editor integration and Copilot Chat features such as inline Chat, the dedicated Chat view, and Quick Chat.
 
 There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But once you give it a try, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
 
@@ -109,7 +109,7 @@ To access the chat experiences (in-editor, Chat view, Quick Chat), you'll need t
 * A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask Copilot to "write a program to calculate the airspeed velocity of an unladen swallow".
 * To try out Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
-You can learn more about the GitHub Copilot and Copilot Chat extensions in the [AI Tools in VS Code](https://code.visualstudio.com/docs/editor/artificial-intelligence) topic.
+You can learn more about the GitHub Copilot and Copilot Chat extensions in the [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/editor/github-copilot) topic.
 
 ## Responsible AI
 
