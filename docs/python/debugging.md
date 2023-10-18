@@ -346,13 +346,13 @@ Specifies the mode in which to start debugging:
 Provides the fully qualified path to the python program's entry module (startup file). The value `${file}`, often used in default configurations, uses the currently active file in the editor. By specifying a specific startup file, you can always be sure of launching your program with the same entry point regardless of which files are open. For example:
 
 ```json
-"program": "/Users/Me/Projects/PokemonGo-Bot/pokemongo_bot/event_handlers/__init__.py",
+"program": "/Users/Me/Projects/MyProject/src/event_handlers/__init__.py",
 ```
 
-You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following example:
+You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/MyProject` then you can use the following example:
 
 ```json
-"program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
+"program": "${workspaceFolder}/src/event_handlers/__init__.py",
 ```
 
 ### `module`
