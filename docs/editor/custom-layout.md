@@ -42,7 +42,7 @@ To display the Secondary side bar, you can:
 
 The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
 
->**Note**: You can reset view and panel back to the default locations with the **View: Reset View Locations** command.
+>**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 
 ### Panel
 
@@ -79,96 +79,129 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Maximize Panel size
 
-[blah](blahblah.mc)
+You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron points downwards in the maximized panel to return it to the original size.
 
-to fill the editor area
+![Maximize Panel Size button in the upper right of the Panel region](images/custom-layout/maximize-panel-size.png)
 
-![alt](https://) TBD show Panel region title bar button
+You can also maximize the Panel region via the **View: Toggle Maximized Panel** command.
 
-**View: Toggle Maximized Panel** command
-
-? **Note**: Mention that besides overall Panel region layout, individual Panels may have their own layout customization for example Terminal, link to Terminal basics (has Terminal tabs?)
+> **Note**: Besides the overall Panel region layout, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
 
 ### Customize Layout control
 
-Title bar buttons
+The VS Code title bar also has buttons to toggle the visibility the main UI elements (Side bars and Panel region).
 
-first show show/hide Primary side bar, Panel, Secondary side bar
+![Title bar buttons to toggle main UI elements, with hover on Toggle Panel](images/custom-layout/toggle-UI-visibility.png)
 
-Full drop down
+The rightmost button brings up the **Customize Layout** dropdown, where you can further change the visibility and layout of various UI elements and includes several layout modes:
 
-extra options:
+![Customize Layout dropdown shown via the Customize Layout button in the title bar](images/custom-layout/customize-layout-dropdown.png)
 
-Full screen - link to userinterface.md
-Zen mode - link to userinterface.md
-Centered layout - centers the editor region
+The layout modes are :
 
-also available from the View > Appearance menu
-
-general VS Code UI - hidden items still show up in drop downs/context menus
+* **Full Screen** - Set the editor to fill the full display screen. Also via **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
+* **Zen Mode** - Hide all UI (menus, side bars) except for the editor area. Also via **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
+* **Centered Layout** - Centers the editor inside the editor region. Also via **View: Toggle Centered Layout**.
 
 ### Drag and drop views and panels
 
-issue #4362 - specific to dragging and dropping panels to have a side-by-side view - assigned gregvanl
+VS Code has a default layout of views and panels in the Primary Side bar and Panel region but you can drag and drop views and panels between these regions. For example, you can drag and drop the Source Control view into the Panel region or put the Problems panel into the Side bar:
 
-lots of updates in https://code.visualstudio.com/updates/v1_46#_flexible-layout
+![The Source Control view in the Panel region and Problem panel in the Primary Side bar](images/custom-layout/non-default-layout.png)
 
-mention restore layout command
-Context menu **Reset Location**
-**Views: Reset View Locations**
+>**Note**: Reminder that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
-bug with putting a view back into the Panel title bar
+You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explore view group by dragging over the Explorer Activity bar item and then dropping into the view:
+
+![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
+
+You are not limited to using the mouse for moving views and panels, you can also customize layouts via the keyboard with **View: Move View** and **View: Move Focused View**, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
+
+<!-- issue #4362 - specific to dragging and dropping panels to have a side-by-side view -->
 
 ## Tool bars
 
-TBD general description of tool bars
+Most VS Code views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.
+
+![Search view tool bar with hover over Clear Search Results action](images/custom-layout/search-view-toolbar.png)
 
 ### Hide items in tool bars
 
-issue #6584
+If you think a tool bar has become too cluttered and you'd like to hide less frequently used actions, you can right-click on any action and select its **Hide** command (for example **Hide 'Clear Search Results'**) or uncheck any of the actions from the dropdown. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there.
 
-reminder VS Code UI - hidden items still show up in drop downs/context menus
+To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command. To restore all menus, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-https://code.visualstudio.com/updates/v1_72#_hide-actions-from-tool-bars
-
-Right-click on any action in a tool bar and select its hide command or any of the toggle commands. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there. To restore a menu, right-click the tool bar button area and select the **Reset Menu** command. To restore all menus, run **Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
+![Search tool bar context menu with Reset menu command](images/custom-layout/reset-tool-bar-menu.png)
 
 ## Editor
 
-TBD a lot of this is covered in userinterface.md (leave alone, refactor, add locked editor groups there?)
+You can customize the layout of the VS Code editor region independent of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional features such as Sticky Scroll. You can also adjust the layout of the editors themselves.
 
 ### Mimimap and breadcrumbs
 
-From View > Appearance fourth section for the editor region
+The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
+
+* **Minimap** - Hide the right side [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. Also via **View: Toggle Minimap**.
+* **Breadcrumbs** - Displays [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. Also via **View: Toggle Breadcrumbs**.
+* **Sticky Scroll** - Display nested symbols in the active file. Also via **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 
-split editor link to user interface
+By default, all opened editors go into the same **editor group** and add a new editor tab to the right. You can create new editor groups in order to group like or related files or allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. You can create a new editor group by dragging an editor to the side or using one of the **Split** commands in the context menu to split the current edit and start a new editor group to the left, right, above or below.
 
-all the Move Editor Group Down/Up/Left/Right commands 1.25 release notes
+![Split editor commands in the editor tab context menu](images/custom-layout/split-editor-commands.png)
 
-Mention Grid commands in View > Editor Layout - documented in userinterface.md
+The **Split** editor commands are also available from the **View** > **Editor Layout** menu and through the Command Palette.
 
-TBD what is **Flip Layout**?  Shft+Alt+0 (not on macOS) toggle horizontal/vertical editor group layout
+If you'd like to go quickly between a vertical and horizontal editor layout, you can use the **Toggle Vertical/Horizontal Editor Layout** command (`kb(workbench.action.toggleEditorGroupLayout)`).
 
-#### Split in group
+### Split in group
 
-issue #6313
+<!-- issue #6313 https://code.visualstudio.com/updates/v1_61#_split-an-editor-without-creating-a-new-group -->
 
-fair point to also mention in https://code.visualstudio.com/docs/getstarted/userinterface#_side-by-side-editing
-and
+You can also split an editor in the same group for side by side editing with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`).
 
-why is this less good than Split in group?
+When using the split in group feature, there are specific commands for toggling this mode and navigating between the two split editors:
 
-by default splitting an editor will create a new editor group
+* **View: Split Editor in Group** - Split the current editor.
+* **View: Toggle Split Editor in Group** - Toggle between split mode for the active editor.
+* **View: Join Editor in Group** - Go back to a single editor for the active file.
+* **View: Toggle Layout of Split Editor in Group** - Toggle between horizontal and vertical layout.
 
-for nice side-by-side review and editing of same file
+To navigate between the sides:
 
-https://code.visualstudio.com/updates/v1_61#_split-an-editor-without-creating-a-new-group
+* **View: Focus First Side in Active Editor** - Move focus to the first (left or top) side of split editor.
+* **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side of the split editor.
+* **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
-Toggle Layout to go from vertical to horizontal split
+The setting **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) lets you set the preferred split editor layout to either horizontal (default) or vertical.
 
-There is a setting `workbench.editor.splitInGroupLayout` if you prefer the splitting to be either vertical or horizontal.
+### Grid layout
+
+If you'd like more control over the editor layout, you can experiment with the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editors visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the editor sizes via grabbing the sash between editors.
+
+![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
+
+#### Pinned tabs
+
+If you'd like a editor to always be visible, you can pin it to the editor tool bar. You can pin the editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
+
+ Pinned tabs have a number of useful features to help mark files that are important to you:
+
+* Pinned tabs always appear first before non-pinned tabs.
+* They do not scroll out of view if you have many tabs opened.
+* They do not close when using editor tab commands such as **Close Others** or **Close All**.
+* They do not close even if you exceed a set limit on the number of opened editors.
+
+Unpin an editor by clicking on the pin icon, using the **Unpin** editor tab context menu item, or the **View: Unpin Editor** command.
+
+You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`workbench.editor.pinnedTabSizing`). The options are:
+
+* `normal`: A pinned tab inherits the look of other tabs (default)
+* `shrink`: A pinned tab shrinks to a fixed size showing parts of the editor label.
+* `compact`: A pinned tab will only show as icon or first letter of the editor label.
+
+You can also show pinned editor tabs on a separate row above the regular editor tool bar by setting **Workbench > Editor: Pinned Tabs On Separate Row**. You can pin and unpin editors by dragging and dropping their tabs between the two rows.
 
 ### Locked editor groups
 
@@ -208,21 +241,6 @@ somehow related to terminal in editor area
 
 https://code.visualstudio.com/docs/terminal/basics#_terminals-in-editor-area
 
-### View > Editor layout
-
-### Drag and drop editors
-
-### editor tabs
-
-#### preview editors
-
-covered elsewhere
-
-#### Hide tabs
-
-#### Pinned tabs
-
-https://code.visualstudio.com/updates/v1_46#_pin-tabs
 
 ## Next steps
 
