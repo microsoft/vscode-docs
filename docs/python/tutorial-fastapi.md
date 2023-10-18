@@ -218,7 +218,7 @@ Finally, let's add the remaining routes for our application so we can list all a
             raise HTTPException(status_code=400, detail="Quantity must be greater than 0.")
 
         # Check if item already exists
-        item_id_str: str | None = redis_client.hget("item_name_to_id", "item_id")
+        item_id_str: str | None = redis_client.hget("item_name_to_id", item.item_name)
 
         if item_id_str is not None:
             item_id = int(item_id_str)
@@ -384,7 +384,7 @@ Let's do some more replacements in our first route `add_item`. Instead of lookin
     ```
     And replace it with:
     ```python
-      item_id = redis_client.hget("item_name_to_id", "item_id")
+      item_id = redis_client.hget("item_name_to_id", item.item_name)
      ```
 
 Note that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn’t exist). However, the lines below our code that we haven’t replaced yet expect `item_id` to be of type `int`. Let’s address it by renaming the `item_id` symbol.
@@ -462,7 +462,7 @@ Now we only need to map our newly created id to the item name by setting the has
             raise HTTPException(status_code=400, detail="Quantity must be greater than 0.")
 
         # Check if item already exists
-        item_id_str: str | None = redis_client.hget("item_name_to_id", "item_id")
+        item_id_str: str | None = redis_client.hget("item_name_to_id", item.item_name)
 
         if item_id_str is not None:
             item_id = int(item_id_str)
