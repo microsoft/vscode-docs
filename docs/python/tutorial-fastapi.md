@@ -11,7 +11,7 @@ MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging supp
 
 [FastAPI](https://fastapi.tiangolo.com/) is a modern high-performant web framework for building APIs with Python. It is designed to make it easy to build APIs quickly and efficiently while providing features like automatic validation, serialization, and documentation of your API, making it a popular choice for building web services and microservices.
 
-In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about FastAPI itself. For that, you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps)l.
+In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about FastAPI itself. For that, you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps).
 
 The completed code project from this FastAPI tutorial can be found on GitHub: <TODO: add link>
 
