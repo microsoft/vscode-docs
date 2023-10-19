@@ -288,7 +288,7 @@ Finally, let's add the remaining routes for our application so we can list all i
         else:
             item_name: str | None = redis_client.hget(f"item_id:{item_id}", "item_name")
             redis_client.hdel("item_name_to_id", f"{item_name}")
-            redis_client.hdel(f"item_id:{item_id}", "item_id")
+            redis_client.delete(f"item_id:{item_id}")
             return {"result": "Item deleted."}
 
 
@@ -308,7 +308,7 @@ Finally, let's add the remaining routes for our application so we can list all i
         if existing_quantity <= quantity:
             item_name: str | None = redis_client.hget(f"item_id:{item_id}", "item_name")
             redis_client.hdel("item_name_to_id", f"{item_name}")
-            redis_client.hdel(f"item_id:{item_id}", "item_id")
+            redis_client.delete(f"item_id:{item_id}")
             return {"result": "Item deleted."}
         else:
             redis_client.hincrby(f"item_id:{item_id}", "quantity", -quantity)
