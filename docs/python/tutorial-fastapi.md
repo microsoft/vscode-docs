@@ -9,9 +9,9 @@ MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging supp
 ---
 # FastAPI Tutorial in Visual Studio Code
 
-FastAPI is a modern high-performant web framework for building APIs with Python. It is designed to make it easy to build APIs quickly and efficiently while providing features like automatic validation, serialization, and documentation of your API, making it a popular choice for building web services and microservices.
+[FastAPI](https://fastapi.tiangolo.com/) is a modern high-performant web framework for building APIs with Python. It is designed to make it easy to build APIs quickly and efficiently while providing features like automatic validation, serialization, and documentation of your API, making it a popular choice for building web services and microservices.
 
-In this FastAPI tutorial, we will create a groceries list app using FastAPI. You will be able to understand how to work with FastAPI in the VS Code terminal, editor and debugger. This tutorial does not explore various details about FastAPI itself. For that you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps)l.
+In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about FastAPI itself. For that, you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps)l.
 
 The completed code project from this FastAPI tutorial can be found on GitHub: <TODO: add link>
 
@@ -23,7 +23,7 @@ There are different ways you can set up your project for this tutorial. We will 
 ## GitHub Codespaces
 You can set up this project to develop in [GitHub Codespaces](https://github.com/features/codespaces), where you can code, debug, and run your app remotely in a Codespace. A Codespace allows you to access a fully-configured development environment hosted in the cloud, eliminating the need for local setup. This environment includes your project's dependencies, tools, and extensions, ensuring a consistent and reproducible development experience. It streamlines collaboration by providing real-time editing, integrated version control, and easy access to debugging and testing tools, all while maintaining the security and reliability of your project.
 
-To set it up for this tutorial, navigate to the [FastAPI template repository]<TODO: add link to template repo>. This template contains all the necessary configurations and dependencies to quickly get started with FastAPI development in a GitHub Codespace. Next, select Code -> Codespaces -> Create Codespace on <main> to create and open a Codespace for your project.
+To set it up for this tutorial, navigate to the [FastAPI template repository]<TODO: add link to template repo>. This template contains all the necessary configurations and dependencies to quickly get started with FastAPI development in a GitHub Codespace. Next, select **Code** -> **Codespaces** -> **Create Codespace on <main>** to create and open a Codespace for your project.
 
 Once you're done, you can continue with the [Start Coding](#start-coding) section below.
 
@@ -56,7 +56,7 @@ We will want to install FastAPI for creating our app, uvicorn to work as the ser
 ![Drop down with "Venv" or "Conda" as options for environments that can be created with the Python: Create Environment command.](images/environments/create_environment_dropdown.png)
 
 8. Then select the latest version of Python available on your machine:
-![List of available global envionrmetns that can be use to create a virtual environment.](images/fastapi-tutorial/create_environment_interpreters_list.png)
+![List of available global environments that can be used to create a virtual environment.](images/fastapi-tutorial/create_environment_interpreters_list.png)
 
 9. Select the requirements.txt file from the drop-down list, so our dependencies are automatically installed, and then select "OK":
 ![Check box selected to install dependencies from requirements.txt file](images/fastapi-tutorial/create_environment_select_requirements.png)
@@ -68,7 +68,7 @@ The virtual environment will be created, our dependencies will be automatically 
 Let’s create our application!
 1. Create a new Python file by clicking on **File** > **New File…** (`kb(workbench.action.files.newFile)`), and then select "Python File".
 2. Save it as `main.py` (`kb(workbench.action.files.saveAs)`) in the `groceries-plugin` folder.
-3. Add the following code to the file:
+3. Add the following code to `main.py` and save the file:
     ```python
     from fastapi import FastAPI
 
@@ -122,7 +122,7 @@ Now we need a place to store the grocery list items. For simplicity, let’s sta
 
     from models import ItemPayload
     ```
-2. Now add the following line right below app = FastAPI():
+2. Now add the following line right below `app = FastAPI()`:
     ```
     grocery_list: Dict[int, ItemPayload] = {}
     ```
@@ -192,7 +192,7 @@ Now let’s leverage VS Code's Debug Console to do some exploration.
 The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of the breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. Learn more about Python debugging in VS Code in the [Python tutorial](python-tutorial.md#configure-and-run-the-debugger).
 
 
-Finally, let's add the remaining routes for our application so we can list all and specific items, as well as remove them from our grocery list.
+Finally, let's add the remaining routes for our application so we can list all items or specific items, as well as remove them from our grocery list.
 
 11. Replace the content in `main.py` with the code below:
     ```python
@@ -358,7 +358,7 @@ This will create a `.devcontainer` folder in your workspace, with a `devcontaine
 Once the container is set up, you will notice an indicator on the bottom left corner of VS Code:
 ![Dev Container indicator displayed on the bottom left corner of VS Code.](images/fastapi-tutorial/devcontainer_indicator.png)
 
-You should be now ready to move on to the next section, where we will replace our data storage.
+You should now be ready to move on to the next section, where we will replace our data storage.
 
 ## Replace the database
 1. In the `main.py` file, replace the `grocery_list = {}` in the beginning of the file with the lines below:
