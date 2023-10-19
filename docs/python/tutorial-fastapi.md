@@ -20,14 +20,14 @@ If you have any problems, you can search for answers or ask a question on the [P
 ## Set up the project
 There are different ways you can set up your project for this tutorial. We will cover how you can set it up in [GitHub Codespaces](TODO: add link to section below) and in [VS Code on your local machine](TODO: ADD Link to section below).
 
-## GitHub Codespaces
+### GitHub Codespaces
 You can set up this project to develop in [GitHub Codespaces](https://github.com/features/codespaces), where you can code, debug, and run your app remotely in a Codespace. A Codespace allows you to access a fully-configured development environment hosted in the cloud, eliminating the need for local setup. This environment includes your project's dependencies, tools, and extensions, ensuring a consistent and reproducible development experience. It streamlines collaboration by providing real-time editing, integrated version control, and easy access to debugging and testing tools, all while maintaining the security and reliability of your project.
 
 To set it up for this tutorial, navigate to the [FastAPI template repository]<TODO: add link to template repo>. This template contains all the necessary configurations and dependencies to quickly get started with FastAPI development in a GitHub Codespace. Next, select **Code** -> **Codespaces** -> **Create Codespace on <main>** to create and open a Codespace for your project.
 
 Once you're done, you can continue with the [Start Coding](#start-coding) section below.
 
-## Locally in VS Code
+### Locally in VS Code
 To successfully complete this tutorial in [VS Code](https://code.visualstudio.com/), you need to first setup your Python development environment. Specifically, this tutorial requires:
 - Python 3 (check the [installation guide](python-tutorial.md#install-a-python-interpreter) if you don’t have it installed)
 - [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-marketplace))
