@@ -175,7 +175,9 @@ Edge and Chrome today support the [File System API](https://developer.mozilla.or
 
 ### Browser support
 
-You can use VS Code for the Web in Chrome, Edge, Firefox, and Safari.
+You can use VS Code for the Web in the latest versions of Chrome, Edge, Firefox, and Safari. Older versions of each browser may not work - we only guarantee support for the latest version. 
+
+> **Tip:** A good indication of which browser version will work is the version of [Playwright](https://playwright.dev/) we're using in VS Code. The browser versions it comes with is what our tests assume exist. You can check out the VS Code repo's [`package.json`](https://github.com/microsoft/vscode/blob/main/package.json) to find the version of Playwright in `devDependencies/@playwright/test`.
 
 Webviews might appear differently or have some unexpected behavior in Firefox and Safari. You can view issue queries in the VS Code GitHub repo to track issues related to specific browsers, such as with the [Safari label](https://github.com/microsoft/vscode/labels/safari) and [Firefox label](https://github.com/microsoft/vscode/labels/firefox).
 
