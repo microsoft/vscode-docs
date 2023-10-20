@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code custom user interface layout.
 
 Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
-If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
+>**Note**: If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
@@ -23,7 +23,7 @@ The default (Primary) side bar shows views such as the File Explorer, Search, an
 
 * Right-click the Activity bar and select **Move Primary Side Bar Right**.
 * Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
-* Set the **Workbench > Side Bar: Location** [setting](/docs/getstarted/settings.md) (`workbench.sideBar.location`) to `right`.
+* Set the **Workbench > Side Bar: Location** (`workbench.sideBar.location`) [setting](/docs/getstarted/settings.md) to `right`.
 
 ### Secondary side bar
 
@@ -35,7 +35,7 @@ This can be useful if you'd like to see two views at the same time, for example,
 
 To display the Secondary side bar, you can:
 
-* Run **View: Toggle Secondary Side Bar Visibility** (`kb(workbench.action.toggleAuxiliaryBar))`).
+* Run **View: Toggle Secondary Side Bar Visibility** (`kb(workbench.action.toggleAuxiliaryBar)`).
 * Check the **View** > **Appearance** > **Secondary Side Bar** menu item.
 
 The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
@@ -46,7 +46,7 @@ The Secondary side bar is initially empty but you can drag and drop views and pa
 
 The Panel region displays UI elements such as the Problems, Terminal, and Output panels and by default is located under the editor region.
 
-### Move Panel commands
+### Panel position
 
 You can also move the region to the left or right of the editor with the **Move Panel** commands:
 
@@ -96,7 +96,7 @@ The rightmost button brings up the **Customize Layout** dropdown, where you can 
 The layout modes are:
 
 * **Full Screen** - Set the editor to fill the full display screen. **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
-* **Zen Mode** - Hide all UI (menus, side bars) except for the editor area. **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
+* **Zen Mode** - Hide all UI except for the editor area. **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
 * **Centered Layout** - Centers the editor inside the editor region. **View: Toggle Centered Layout**.
 
 ### Drag and drop views and panels
@@ -115,13 +115,13 @@ You are not limited to using the mouse for moving views and panels. You can also
 
 ## Tool bars
 
-Most VS Code views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.
+Most VS Code views and panels have tool bars displayed on the top right of their UI. For example, the Search view has a tool bar with actions such as **Refresh**, **Clear Search Results**, etc.:
 
 ![Search view tool bar with hover over Clear Search Results action](images/custom-layout/search-view-toolbar.png)
 
 ### Hide items in tool bars
 
-If you think a tool bar has become too cluttered and you'd like to hide less frequently used actions, you can right-click on any action and select its **Hide** command (for example **Hide 'Clear Search Results'**) or uncheck any of the actions from the dropdown. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there.
+If you think a tool bar is too busy and you'd like to hide less frequently used actions, you can right-click on any action and select its **Hide** command (for example **Hide 'Clear Search Results'**) or uncheck any of the actions from the dropdown. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there.
 
 To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command or recheck the hidden action. To restore all menus in VS Code, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -136,7 +136,7 @@ You can customize the layout of the VS Code editor region independent of the wor
 The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
 
 * **Minimap** - A [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
-* **Breadcrumbs** - Displays [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
+* **Breadcrumbs** - Display [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
 * **Sticky Scroll** - Display nested symbol scopes in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
@@ -177,6 +177,8 @@ If you'd like more control over the editor layout, you can use the [grid layout]
 ### Pinned tabs
 
 If you'd like an editor to always be visible, you can pin it to the editor tool bar. You can pin an editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
+
+![Pinned editor tab with pin button highlighted](images/custom-layout/pinned-editor-tab.png)
 
 Pinned tabs help display files that are important to you as:
 
