@@ -163,7 +163,7 @@ When using the split in group feature, there are specific commands for toggling 
 To navigate between the sides:
 
 * **View: Focus First Side in Active Editor** - Move focus to the first (left or top) side of split editor.
-* **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side of the split editor.
+* **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side.
 * **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
 The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
