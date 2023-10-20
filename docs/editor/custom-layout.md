@@ -1,5 +1,5 @@
 ---
-Order: 22
+Order: 23
 Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
@@ -9,11 +9,11 @@ MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
 
-Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight various UI customizations so you can display the views, editors, and panels in the way that's most productive for you.
+Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
 If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
-This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the Side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
+This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 ## Workbench
 
@@ -23,15 +23,13 @@ The default (Primary) side bar shows views such as the File Explorer, Search, an
 
 * Right-click the Activity bar and select **Move Primary Side Bar Right**.
 * Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
-* Set the **Workbench > Side Bar: Location** setting (`workbench.sideBar.location`) to `right`.
+* Set the **Workbench > Side Bar: Location** [setting](/docs/getstarted/settings.md) (`workbench.sideBar.location`) to `right`.
 
 ### Secondary side bar
 
-<!-- issue #6326 "Secondary Side Bar deserves better documentation" -->
+By default, VS Code shows all views in the **Primary Side Bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary Side Bar** to the right and drag and drop views into that side bar.
 
-By default, VS Code shows all views in the **Primary side bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary side bar** and drag and drop views into that side bar.
-
-This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right
+This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right:
 
 ![Source Control view in the Secondary Side bar to the right](images/custom-layout/secondary-side-bar.png)
 
@@ -56,22 +54,20 @@ You can also move the region to the left or right of the editor with the **Move 
 * **View: Move Panel Right** (`workbench.action.positionPanelRight`)
 * **View: Move Panel To Bottom** (`workbench.action.positionPanelBottom`)
 
-You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel title bar context menu, or using the new **View: Move Panel...** commands.
+You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel title bar context menu, or using the new **View: Move Panel** commands.
 
 ![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
 
 ### Panel alignment
 
-<!-- issue #6239 "Add handling of the Terminal / Output pane under User Interface" -->
-
-This option lets you to configure how far the bottom Panel spans across your window. There are four options:
+This option lets you configure how far the bottom Panel spans across your window. There are four options:
 
 * **Center** - This is the default behavior. The panel spans the width of the editor area only.
-* **Justify** - The panel will span the full width of the window.
-* **Left** - The panel will span from the left edge of the window to the right edge of the editor area.
-* **Right** - The panel will span from the right edge of the window to the left edge of the editor area.
+* **Justify** - The panel spans the full width of the window.
+* **Left** - The panel spans from the left edge of the window to the right edge of the editor area.
+* **Right** - The panel spans from the right edge of the window to the left edge of the editor area.
 
-Note that with all options, the Activity Bar is considered the edge of the window.
+With all Panel alignment options, the Activity Bar is considered the edge of the window.
 
 You can configure these options in the menu under **View** > **Appearance** > **Align Panel**, Panel title context menu, or using the new **Set Panel Alignment to...** commands.
 
@@ -79,17 +75,17 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Maximize Panel size
 
-You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron points downwards in the maximized panel to return it to the original size.
+You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron button points downwards in the maximized panel to restore the panel to the original size.
 
 ![Maximize Panel Size button in the upper right of the Panel region](images/custom-layout/maximize-panel-size.png)
 
 You can also maximize the Panel region via the **View: Toggle Maximized Panel** command.
 
-> **Note**: Besides the overall Panel region layout, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
+> **Note**: Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
 
 ### Customize Layout control
 
-The VS Code title bar also has buttons to toggle the visibility the main UI elements (Side bars and Panel region).
+The VS Code title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
 
 ![Title bar buttons to toggle main UI elements, with hover on Toggle Panel](images/custom-layout/toggle-UI-visibility.png)
 
@@ -97,15 +93,15 @@ The rightmost button brings up the **Customize Layout** dropdown, where you can 
 
 ![Customize Layout dropdown shown via the Customize Layout button in the title bar](images/custom-layout/customize-layout-dropdown.png)
 
-The layout modes are :
+The layout modes are:
 
-* **Full Screen** - Set the editor to fill the full display screen. Also via **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
-* **Zen Mode** - Hide all UI (menus, side bars) except for the editor area. Also via **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
-* **Centered Layout** - Centers the editor inside the editor region. Also via **View: Toggle Centered Layout**.
+* **Full Screen** - Set the editor to fill the full display screen. **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
+* **Zen Mode** - Hide all UI (menus, side bars) except for the editor area. **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
+* **Centered Layout** - Centers the editor inside the editor region. **View: Toggle Centered Layout**.
 
 ### Drag and drop views and panels
 
-VS Code has a default layout of views and panels in the Primary Side bar and Panel region but you can drag and drop views and panels between these regions. For example, you can drag and drop the Source Control view into the Panel region or put the Problems panel into the Side bar:
+VS Code has a default layout of views and panels in the Primary Side bar and Panel region but you can drag and drop views and panels between these regions. For example, you can drag and drop the Source Control view into the Panel region or put the Problems panel into the Primary Side bar:
 
 ![The Source Control view in the Panel region and Problem panel in the Primary Side bar](images/custom-layout/non-default-layout.png)
 
@@ -115,9 +111,7 @@ You can also add views and panels to existing view or panel to create groups. Fo
 
 ![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
 
-You are not limited to using the mouse for moving views and panels, you can also customize layouts via the keyboard with **View: Move View** and **View: Move Focused View**, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
-
-<!-- issue #4362 - specific to dragging and dropping panels to have a side-by-side view -->
+You are not limited to using the mouse for moving views and panels. You can also customize layouts via the keyboard with the **View: Move View** and **View: Move Focused View** commands, where dropdowns let you pick the UI element to move and the destination, either a location like the Side bar or Panel region or an existing view or panel to create a group.
 
 ## Tool bars
 
@@ -129,35 +123,33 @@ Most VS Code views and panels have tool bars displayed on the top right of their
 
 If you think a tool bar has become too cluttered and you'd like to hide less frequently used actions, you can right-click on any action and select its **Hide** command (for example **Hide 'Clear Search Results'**) or uncheck any of the actions from the dropdown. Hidden actions are moved to the `...` **More Actions** menu and can be invoked from there.
 
-To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command. To restore all menus, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
+To restore an action to the tool bar, right-click the tool bar button area and select the **Reset Menu** command or recheck the hidden action. To restore all menus in VS Code, run **View: Reset All Menus** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Search tool bar context menu with Reset menu command](images/custom-layout/reset-tool-bar-menu.png)
 
 ## Editor
 
-You can customize the layout of the VS Code editor region independent of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional features such as Sticky Scroll. You can also adjust the layout of the editors themselves.
+You can customize the layout of the VS Code editor region independent of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves.
 
-### Mimimap and breadcrumbs
+### Minimap and breadcrumbs
 
 The **View** > **Appearance** menu has a section for customizing the editor region. There you'll find toggles for:
 
-* **Minimap** - Hide the right side [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. Also via **View: Toggle Minimap**.
-* **Breadcrumbs** - Displays [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. Also via **View: Toggle Breadcrumbs**.
-* **Sticky Scroll** - Display nested symbols in the active file. Also via **View: Toggle Sticky Scroll**.
+* **Minimap** - A [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
+* **Breadcrumbs** - Displays [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
+* **Sticky Scroll** - Display nested symbol scopes in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 
-By default, all opened editors go into the same **editor group** and add a new editor tab to the right. You can create new editor groups in order to group like or related files or allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. You can create a new editor group by dragging an editor to the side or using one of the **Split** commands in the context menu to split the current edit and start a new editor group to the left, right, above or below.
+By default, all opened editors go into the same **editor group** and add a new editor tab to the right. You can create new editor groups in order to group similar or related files or allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. Create a new editor group by dragging an editor to the side or using one of the **Split** commands in the context menu to split the current edit and start a new editor group to the left, right, above, or below.
 
 ![Split editor commands in the editor tab context menu](images/custom-layout/split-editor-commands.png)
 
 The **Split** editor commands are also available from the **View** > **Editor Layout** menu and through the Command Palette.
 
-If you'd like to go quickly between a vertical and horizontal editor layout, you can use the **Toggle Vertical/Horizontal Editor Layout** command (`kb(workbench.action.toggleEditorGroupLayout)`).
+If you'd like to go quickly between vertical and horizontal editor group layout, you can use the **Toggle Vertical/Horizontal Editor Layout** command (`kb(workbench.action.toggleEditorGroupLayout)`).
 
 ### Split in group
-
-<!-- issue #6313 https://code.visualstudio.com/updates/v1_61#_split-an-editor-without-creating-a-new-group -->
 
 You can also split an editor in the same group for side by side editing with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`).
 
@@ -174,28 +166,28 @@ To navigate between the sides:
 * **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side of the split editor.
 * **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
-The setting **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) lets you set the preferred split editor layout to either horizontal (default) or vertical.
+The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
 
 ### Grid layout
 
-If you'd like more control over the editor layout, you can experiment with the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editors visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the editor sizes via grabbing the sash between editors.
+If you'd like more control over the editor layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editors visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the editor sizes by grabbing and moving the sash between editors.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
-#### Pinned tabs
+### Pinned tabs
 
-If you'd like a editor to always be visible, you can pin it to the editor tool bar. You can pin the editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
+If you'd like an editor to always be visible, you can pin it to the editor tool bar. You can pin an editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
 
- Pinned tabs have a number of useful features to help mark files that are important to you:
+Pinned tabs help display files that are important to you as:
 
 * Pinned tabs always appear first before non-pinned tabs.
 * They do not scroll out of view if you have many tabs opened.
 * They do not close when using editor tab commands such as **Close Others** or **Close All**.
-* They do not close even if you exceed a set limit on the number of opened editors.
+* They do not close even when you exceed a set limit of opened editors.
 
 Unpin an editor by clicking on the pin icon, using the **Unpin** editor tab context menu item, or the **View: Unpin Editor** command.
 
-You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`workbench.editor.pinnedTabSizing`). The options are:
+You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`workbench.editor.pinnedTabSizing`) setting. The options are:
 
 * `normal`: A pinned tab inherits the look of other tabs (default)
 * `shrink`: A pinned tab shrinks to a fixed size showing parts of the editor label.
@@ -205,42 +197,36 @@ You can also show pinned editor tabs on a separate row above the regular editor 
 
 ### Locked editor groups
 
-When using multiple editors it's common to have one or more that you want to keep always visible. This is where the locked editor groups feature comes in, when an editor group is locked a lock icon will appear in the editor group actions and any request to create an editor will create it in another group.
+When using multiple editors, it's common to have one or more that you want to always keep visible. The locked editor group feature, where an entire editor group is locked and visible, provides a stable display and any request to open a new editor will create it in another group. You can tell whether an editor group is locked by the lock icon in the editor group tool bar.
 
-TODO: Image of the lock icon
+![Locked editor group with lock icon highlighted](images/custom-layout/locked-editor-group.png)
 
-TODO: An explanation of clicking the lock to unlock and the "Lock Group" entry in more actions?
+You can lock an editor group by selecting **Lock Group** from the editor tool bar **More Actions** `...` dropdown or running the **View: Lock Editor Group** command.
 
-The primary use case for this is for [terminals in the editor area](https://code.visualstudio.com/docs/terminal/basics#_terminals-in-editor-area), for example you may want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means when the terminal on the right is focused, opening a file will open on the left side without needing to manually change focus first.
+![Lock Group command in the editor tool bar More Actions dropdown](images/custom-layout/lock-group-command.png)
 
-Auto locking groups can be configured using the `workbench.editor.autoLockGroups` setting, this defaults to only terminal editors by default but any editor type can be added to get the same behavior.
+You can unlock an editor group by clicking on the lock icon or running the **View: Unlock Editor Group** command.
 
-TODO: Image of the setting?
+Locked groups behave differently than unlocked groups:
 
-https://code.visualstudio.com/updates/v1_60#_locked-editor-groups
-https://code.visualstudio.com/updates/v1_61#_locked-editor-groups
+* New editors will not open in a locked group unless explicitly moved there (for example, via drag and drop).
+* If a new editor skips a locked group, it will either open in the most recently used unlocked group or create a new group to the side of the locked one.
+* The locked state of an editor group is persisted and restored across restarts.
+* You can lock empty groups as well allowing for a more stable editor layout.
 
-issue #6312
-issue #6568 - assigned Ben and Daniel
+The primary use case is for [terminals in the editor area](/docs/terminal/basics.md#terminals-in-editor-area). For example, you might want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means that even when the terminal on the right is focused, opening a file will open it on the left side without needing to manually change focus first.
 
-Locked editor groups - don't really understand
+Auto locking groups can be configured using the `workbench.editor.autoLockGroups` setting, which defaults to only terminal editors but any editor type can be added to get the same behavior.
 
-Need to have more than one editor group for locking to be an option
-
-Lock via **More Actions...**
-
-Select the Lock action to unlock
+![Auto Lock Groups setting with Terminal checked in the Settings editor](images/custom-layout/autolockgroup-setting.png)
 
 The commands related to editor group locking:
 
-* `workbench.action.lockEditorGroup`
-* `workbench.action.unlockEditorGroup`
-* `workbench.action.toggleEditorGroupLock`
+* **View: Lock Editor Group** - Lock the active editor group.
+* **View: Unlock Editor Group** - Unlock the active locked editor group.
+* **View: Toggle Editor Group Lock** - Lock or unlock the active editor group.
 
-somehow related to terminal in editor area
-
-https://code.visualstudio.com/docs/terminal/basics#_terminals-in-editor-area
-
+You must have more that one editor group for these commands to be available.
 
 ## Next steps
 
