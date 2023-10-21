@@ -272,7 +272,7 @@ You can now open the `/docs` page again and test the new routes, leveraging the 
 ## Set up the data storage
 At this point, you already have a working version of the application with the base functionality. This section will guide you through setting up data storage for persistence, but you can choose to skip it if you're happy with what you've learned already.
 
-So far we are storing our data in a dictionary, which is not ideal because all ouf our data will be lost when the application is restarted.
+So far we are storing our data in a dictionary, which is not ideal because all of our data will be lost when the application is restarted.
 
 To persist our data, we will use [Redis](https://redis.io/), which is an open source in-memory data structure store. Due to its speed and versatility, Redis is commonly used as a data storage system in a wide range of applications, including web applications, real-time analytics systems, caching layers, this tutorial, and more.
 
@@ -280,7 +280,7 @@ If you are already working on **GitHub Codespaces** with our existing template, 
 
 If you are on Windows, you can work with Redis by setting up either a [Docker container](https://www.docker.com/products/docker-desktop/), a [GitHub Codespace](https://github.com/features/codespaces) or through [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows Subsystem for Linux). In this tutorial we will cover the set up using Docker containers, but you can refer to the [section above](#github-codespaces) for instructions on how to set up a GitHub Codespace.
 
-Otherwise, if you are on a Linux or a macOS machine, you can just install Redis by following the [instructions on their website](https://redis.io/docs/getting-started/), and then skip to the ["Replace the database"](#replace-the-database) section.
+Otherwise, if you are on a Linux or a macOS machine, you can install Redis by following the [instructions on their website](https://redis.io/docs/getting-started/), and then skip to the ["Replace the database"](#replace-the-database) section.
 
 ### Setting up a Docker Container on Windows
 The Dev Container extension for VS Code offers a simple way to configure a Linux-based workspace in your Windows machine, putting your entire project and its dependencies as well as tools you need for your project into a tidy container.
@@ -303,9 +303,9 @@ We can optionally install features to be included in the container. For this tut
 
 This will create a `.devcontainer` folder in your workspace, with a `devcontainer.json` file.
 
-5. Select the "Reopen in Container" button from the notification that will show up on the bottom right corner once the dev container configuration is added to your workspace, under the `.devcontainer` folder.
+5. Select the "Reopen in Container" button from the notification that will show up on the bottom right corner.
 
-    You can learn more about dev containers configuration in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file).
+    You can learn more about dev container configuration in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file).
 
 Once the container is set up, you will notice an indicator on the bottom left corner of VS Code:
 ![Dev Container indicator displayed on the bottom left corner of VS Code.](images/fastapi-tutorial/devcontainer_indicator.png)
@@ -356,15 +356,15 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
     ```python
     if item_id_str is not None:
     ```
-Now that we have the `item_id` in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and provide it with "name" and "quantity" fields.
+Now that we have the item id in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and provide it with "name" and "quantity" fields.
 
 7.	Replace lines 19 and 20 with the following, to convert the `item_id` to an `int`, and then incrementing the quantity of our item by calling the `hincrby` method from redis:
     ```python
-    item_id = int(item_id_bytes.decode())
+    item_id = int(item_id_str)
     redis_client.hincrby(f"item_id:{item_id}", "quantity", item.quantity)
     ```
 
-We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is None. In this case, we will generate a new `item_id`, create a new redis hash for our item, and then add the provided item names and quantity.
+We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new redis hash for our item, and then add the provided item names and quantity.
 To generate a new `item_id`, let’s use the `incr` method from redis, passing a new hash "item_ids". When this method is run for the first time, it will create the item_ids hash with a unique number, and then each time it's run it will generate an incremental number and store it in this hash.
 
 8. Delete line 21 (TODO: verify line):
@@ -390,7 +390,7 @@ Now we will add our item to our redis hash, using the `hset` method and by provi
                     "item_id": item_id,
                     "item_name": item.item_name,
                     "quantity": item.quantity,
-                },
+                })
     ```
 
 Now we only need to map our newly created id to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
