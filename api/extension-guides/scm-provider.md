@@ -133,7 +133,7 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-The `scm/sourceControl` menu is located contextually near SourceControl instances:
+The `scm/sourceControl` menu is the context menu on each SourceControl instance in the Source Control Repositories view (previously named Source Control Providers):
 
 ![source control menu](images/scm-provider/sourcecontrol-menu.png)
 
