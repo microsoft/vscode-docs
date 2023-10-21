@@ -11,7 +11,7 @@ MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging supp
 
 [FastAPI](https://fastapi.tiangolo.com/) is a modern high-performant web framework for building APIs with Python. It is designed to make it easy to build APIs quickly and efficiently while providing features like automatic validation, serialization, and documentation of your API, making it a popular choice for building web services and microservices.
 
-In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about FastAPI itself. For that, you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps).
+In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial is not a FastAPI deep dive. For that, you can refer to the [FastAPI documentation link at the end of this tutorial](#next-steps).
 
 The completed code project from this FastAPI tutorial can be found on GitHub: <TODO: add link>
 
@@ -32,13 +32,13 @@ To successfully complete this tutorial in [VS Code](https://code.visualstudio.co
 - Python 3 (check the [installation guide](python-tutorial.md#install-a-python-interpreter) if you don’t have it installed)
 - [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-marketplace))
 
-In this section, we will create a folder to be open as a workspace in VS Code, set up a Python virtual environment, install the project’s dependencies and write the first lines of our FastAPI app.
+In this section, we will create a folder to be opened as a workspace in VS Code, set up a Python virtual environment, install the project’s dependencies and write the first lines of our FastAPI app.
 
-1.	On your file system, create a project folder for this tutorial, such as `groceries-plugin``.
+1.	In your file system, create a project folder for this tutorial, such as `groceries-plugin``.
 2.	Open this new folder in VS Code (**File** > **Open Folder…** or `kb(workbench.action.files.openFolder)`).
 
 
-Now, let’s create a requirements.txt file listing the dependencies we wish to install for our application. The requirements.txt file is a common practice in Python development, used to specify the libraries and their versions that your project relies on. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency across different development environments.
+Now, let’s create a requirements.txt file listing the dependencies we wish to install for our application. The requirements.txt file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency across different development environments.
 
 We will want to install FastAPI for creating our app, uvicorn to work as the server, and redis and type-redis for handling data storage and interacting with a Redis database.
 
@@ -94,7 +94,7 @@ Let’s create our application!
 Now that we have our FastAPI app working, let’s define our grocery list items by creating a Pydantic model.
 Pydantic is a data validation and parsing library that integrates seamlessly with FastAPI. It allows you to define data models using Python classes with [type hints](https://docs.python.org/3/library/typing.html) for automatic validation and parsing of incoming data (which are called payloads) in API requests.
 
-Pylance, the default language server for Python in VS Code, supports a few type hinting features that can be helpful for working with Pydantic models and FastAPI. Let's enable a few of them:
+Pylance, the default language server for Python in VS Code, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. Let's enable a few of them:
 1. Open the Settings UI page (`kb(workbench.action.openSettings)`)
 2. Search for "python type checking mode" and set it to "basic" to enable basic type checking. This will enable Pylance to show diagnostics and warnings to catch simple type-related errors. Alternetivaly, you can set it to "strict" to enable more advanced [type checking rules](https://microsoft.github.io/pyright/#/configuration?id=diagnostic-rule-defaults).
     ![Python Analysis Type Checking Mode options (off, basic and strict) in settings UI page.](images/fastapi-tutorial/type_checking_mode_setting.png)
@@ -104,7 +104,7 @@ Pylance, the default language server for Python in VS Code, supports a few type 
 Now let's create a Pydantic model for grocery list items.
 1. Create a new Python file (`kb(workbench.action.files.newFile)` and select "Python File")
 2. Add the following lines to the file, and then save it in the `groceries-plugin` folder as `models.py` (`kb(workbench.action.files.saveAs)`):
-    ```
+    ```python
     from typing import Optional
     from pydantic import BaseModel
 
@@ -117,14 +117,14 @@ Now let's create a Pydantic model for grocery list items.
 ## Create Routes
 Now we need a place to store the grocery list items. For simplicity, let’s start with an empty dictionary.
 1. First, let's import all the packages we will need for our sample. Open the main.py file and replace the first import line with the following ones:
-    ```
+    ```python
     from fastapi import FastAPI, HTTPException
 
     from models import ItemPayload
     ```
 2. Now add the following line right below `app = FastAPI()`:
-    ```
-    grocery_list: Dict[int, ItemPayload] = {}
+    ```python
+    grocery_list: dict[int, ItemPayload] = {}
     ```
 
     This creates a new empty dictionary that will receive keys of type int (which will be each item id) and values of the ItemPayload type.
@@ -270,6 +270,8 @@ Finally, let's add the remaining routes for our application so we can list all i
 You can now open the `/docs` page again and test the new routes, leveraging the debugger and the debug console to better understand the code execution.
 
 ## Set up the data storage
+At this point, you already have a working version of the application with the base functionality. This section will guide you through setting up data storage for persistence, but you can choose to skip it if you're happy with what you've learned already.
+
 So far we are storing our data in a dictionary, which is not ideal because all ouf our data will be lost when the application is restarted.
 
 To persist our data, we will use [Redis](https://redis.io/), which is an open source in-memory data structure store. Due to its speed and versatility, Redis is commonly used as a data storage system in a wide range of applications, including web applications, real-time analytics systems, caching layers, this tutorial, and more.
