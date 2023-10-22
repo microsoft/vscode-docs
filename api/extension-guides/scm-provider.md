@@ -133,11 +133,11 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-The `scm/sourceControl` menu is the context menu on each SourceControl instance in the Source Control Repositories view (previously named Source Control Providers):
+The `scm/sourceControl` menu is the context menu on each `SourceControl` instance in the **Source Control Repositories** view:
 
 ![source control menu](images/scm-provider/sourcecontrol-menu.png)
 
-The `scm/change/title` allows you to contribute commands to the title bar of the [Quick Diff](/api/references/contribution-points#QuickDiffProvider) inline diff editor, described [further ahead](#quick-diff). The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change diff editor is currently focused on. For example, here's the declaration of the `stageChange` Git command which is contributed to this menu with a `when` clause testing that the `originalResourceScheme` [context key](/api/references/when-clause-contexts) equals `git`:
+The `scm/change/title` allows you to contribute commands to the title bar of the [Quick Diff](/api/references/vscode-api#QuickDiffProvider) inline diff editor, described [further ahead](#quick-diff). The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change diff editor is currently focused on. For example, here's the declaration of the `stageChange` Git command which is contributed to this menu with a `when` clause testing that the `originalResourceScheme` [context key](/api/references/when-clause-contexts) equals `git`:
 
 ```ts
 async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
