@@ -13,6 +13,8 @@ MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging supp
 
 In this FastAPI tutorial, we will create a grocery list app using FastAPI. By the end of the tutorial, you will understand how to work with FastAPI in the VS Code terminal, editor, and debugger. This tutorial is not a FastAPI deep dive. For that, you can refer to the [official FastAPI documentation](https://fastapi.tiangolo.com/).
 
+If this is your first time using Python, we recommend you to start with our [Python tutorial](python-tutorial.md) to get familiar with the language and VS Code's Python support. This tutorial is more suited for those who are already familiar with Python and want to learn how to work with FastAPI in VS Code.
+
 The completed code project from this FastAPI tutorial can be found on GitHub: <TODO: add link>
 
 If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
