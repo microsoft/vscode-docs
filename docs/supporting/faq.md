@@ -157,10 +157,6 @@ Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/
 Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
 Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
 Windows Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-arm64/stable
-Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
-Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
-Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
-Windows x86 CLI | https://update.code.visualstudio.com/{version}/cli-win32-ia32/stable
 macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
 macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
 macOS Intel chip CLI | https://update.code.visualstudio.com/{version}/cli-darwin-x64/stable
