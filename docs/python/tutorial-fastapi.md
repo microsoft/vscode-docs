@@ -142,7 +142,7 @@ We’ll now define routes that will allow us to add and retrieve individual item
         # if item already exists, we'll just add the quantity.
         # get all item names
         items_ids = {item.item_name: item.item_id if item.item_id is not None else 0 for item in grocery_list.values()}
-         if item_name in items_ids.keys():
+        if item_name in items_ids.keys():
             # get index of item_name in item_ids, which is the item_id
             item_id = items_ids[item_name]
             grocery_list[item_id].quantity += quantity
@@ -162,7 +162,7 @@ We’ll now define routes that will allow us to add and retrieve individual item
 
 Now let's see if this route is working as expected. The fastest way to do so is to leverage both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and allows you to interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
-4. Add a breakpoint next to the if item.quantity <= 0 statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). This will make the debugger stop prior to the execution of that line, allowing us to inspect the code line by line.
+4. Add a breakpoint next to the if quantity <= 0 statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). This will make the debugger stop prior to the execution of that line, allowing us to inspect the code line by line.
     ![Breakpoint set next to the first line in the add_item function.](images/fastapi-tutorial/debugger_breakpoint.png)
 
 5. Start the debugger (`kb(workbench.action.debug.start)`), and then navigate to http://127.0.0.1:8000/docs in the browser.
@@ -182,11 +182,12 @@ Now let's see if this route is working as expected. The fastest way to do so is 
     ![Debugger stopped at the breakpoint set in the add_item function.](images/fastapi-tutorial/fastapi_breakpoint_hit.png)
 
 On the left side, you will see all local and global variables defined at this point in the Variables window, under the **Run and Debug** view:
+
 ![Variables window displayed in the Run and Debug view, with the item and grocery_list variables highlighted.](images/fastapi-tutorial/fastapi_debugger_variables.png)
 
 Now let’s leverage VS Code's Debug Console to do some exploration.
 
-10.	Select the `item.quantity <= 0` statement, right-click on the editor and select **Evaluate in Debug Console**:
+10.	Select the `quantity <= 0` statement, right-click on the editor and select **Evaluate in Debug Console**:
     ![Evaluate in Debug Console option displayed in the context menu when right-clicking on a line of code.](images/fastapi-tutorial/fastapi_evaluate_debug_console.png)
 
     This will open the Debug Console and run the selected expression. As expected, the expression will be evaluated to `False`.
@@ -360,11 +361,11 @@ Let's do some more replacements in the first route `add_item`. Instead of lookin
 
 3. Delete the line with the content below:
     ```python
-    items_names = list(grocery_list.values())
+    items_ids = {item.item_name: item.item_id if item.item_id is not None else 0 for item in grocery_list.values()}
     ```
     And replace it with:
     ```python
-      item_id = redis_client.hget("item_name_to_id", item.item_name)
+      item_id = redis_client.hget("item_name_to_id", item_name)
      ```
 
 Note that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn’t exist). However, the lines below the code that we haven’t replaced yet expect `item_id` to be of type `int`. Let’s address it by renaming the `item_id` symbol.
@@ -378,7 +379,7 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
 
 6. If the item doesn't exist, then `item_id_str` will be None. So now we can delete the line with the following content:
     ```python
-    if item.item_name in items_names:
+    if item_name in items_names:
     ```
     And replace it with:
     ```python
@@ -386,10 +387,16 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
     ```
 Now that we have the item ID in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and add "name" and "quantity" fields to it.
 
-7.	Replace lines 19 and 20 with the following, to convert the `item_id` to an `int`, and then incrementing the quantity of the item by calling the `hincrby` method from redis:
+7.	Delete the code within the `if` block:
+    ```python
+    item_id: int = items_ids[item_name]
+    grocery_list[item_id].quantity += quantity
+    ```
+    And add the following, to convert the `item_id` to an `int`, and then to increment the quantity of the item by calling the `hincrby` method from redis:
+
     ```python
     item_id = int(item_id_str)
-    redis_client.hincrby(f"item_id:{item_id}", "quantity", item.quantity)
+    redis_client.hincrby(f"item_id:{item_id}", "quantity", quantity)
     ```
 
 We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new redis hash for the item, and then add the provided item names and quantity.
@@ -397,7 +404,7 @@ To generate a new `item_id`, let’s use the `incr` method from redis, passing a
 
 8. Delete the line with the following content:
     ```python
-    item_id: int = len(grocery_list)
+    item_id: int = max(grocery_list.keys()) + 1 if grocery_list else 0
     ```
     And add the following:
     ```python
@@ -408,16 +415,18 @@ Now we will add the item to the redis hash, using the `hset` method and by provi
 
 9.	Delete the line with the following content:
     ```python
-    grocery_list[item_id] = item
+    grocery_list[item_id] = ItemPayload(
+            item_id=item_id, item_name=item_name, quantity=quantity
+        )
     ```
-    And replace it with:
+    And replace it with the following:
     ```python
     redis_client.hset(
                 f"item_id:{item_id}",
                 mapping={
                     "item_id": item_id,
-                    "item_name": item.item_name,
-                    "quantity": item.quantity,
+                    "item_name": item_name,
+                    "quantity": quantity,
                 })
     ```
 
@@ -425,10 +434,19 @@ Now we only need to map the newly created ID to the item name by setting the has
 
 10.	Add this line to the end of the route, inside the `else` block:
     ```python
-    redis_client.hset("item_name_to_id", item.item_name, item_id)
+    redis_client.hset("item_name_to_id", item_name, item_id)
     ```
 
-11.	If you would like, you can try to do a similar replacement for the other routes. Otherwise, you can just replace the entire content of the file with the lines below:
+11. Delete the line with the following content:
+    ```python
+    return {"item": grocery_list[item_id]}
+    ```
+    And replace it with:
+    ```python
+    return {"item": ItemPayload(item_id=item_id, item_name=item_name, quantity=quantity)}
+    ```
+
+12.	If you would like, you can try to do a similar replacement for the other routes. Otherwise, you can just replace the entire content of the file with the lines below:
     ```python
     @app.get("/")
     def home(request: Request) -> dict[str, str]:
@@ -513,7 +531,7 @@ Now we only need to map the newly created ID to the item name by setting the has
         else:
             item_name: str | None = redis_client.hget(f"item_id:{item_id}", "item_name")
             redis_client.hdel("item_name_to_id", f"{item_name}")
-            redis_client.hdel(f"item_id:{item_id}", "item_id")
+            redis_client.delete(f"item_id:{item_id}")
             return {"result": "Item deleted."}
 
 
@@ -533,7 +551,7 @@ Now we only need to map the newly created ID to the item name by setting the has
         if existing_quantity <= quantity:
             item_name: str | None = redis_client.hget(f"item_id:{item_id}", "item_name")
             redis_client.hdel("item_name_to_id", f"{item_name}")
-            redis_client.hdel(f"item_id:{item_id}", "item_id")
+            redis_client.delete(f"item_id:{item_id}")
             return {"result": "Item deleted."}
         else:
             redis_client.hincrby(f"item_id:{item_id}", "quantity", -quantity)
