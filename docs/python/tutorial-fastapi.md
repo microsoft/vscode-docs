@@ -38,11 +38,11 @@ In this section, we will create a folder to be opened as a workspace in VS Code,
 2.	Open this new folder in VS Code (**File** > **Open Folder…** or `kb(workbench.action.files.openFolder)`).
 
 
-Now, let’s create a requirements.txt file listing the dependencies we wish to install for our application. The requirements.txt file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency across different development environments.
+Now, let’s create a requirements.txt file listing the dependencies we wish to install for the application. The requirements.txt file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency across different development environments.
 
-We will want to install FastAPI for creating our app, uvicorn to work as the server, and redis and type-redis for handling data storage and interacting with a Redis database.
+We will want to install FastAPI for creating the app, uvicorn to work as the server, and redis and type-redis for handling data storage and interacting with a Redis database.
 
-3. Create a new file in VS Code (**File** > **New File** or `kb(workbench.action.files.newUntitledFile)`).
+3. Create a new file in VS Code (**File** > **New Text File** or `kb(workbench.action.files.newUntitledFile)`).
 4. Add the following content to it:
     ```
     fastapi
@@ -52,20 +52,21 @@ We will want to install FastAPI for creating our app, uvicorn to work as the ser
     ```
 5.	Save the file (`kb(workbench.action.files.save)`) and name it requirements.txt
 6.	Create a virtual environment by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Environment** command.
+    > Note: this step may take a couple of minutes to complete.
 7. When asked by the environment type, select **Venv**:
 ![Drop down with "Venv" or "Conda" as options for environments that can be created with the Python: Create Environment command.](images/environments/create_environment_dropdown.png)
 
 8. Then select the latest version of Python available on your machine:
 ![List of available global environments that can be used to create a virtual environment.](images/fastapi-tutorial/create_environment_interpreters_list.png)
 
-9. Select the requirements.txt file from the drop-down list, so our dependencies are automatically installed, and then select "OK":
+9. Select the requirements.txt file from the drop-down list, so the dependencies are automatically installed, and then select "OK":
 ![Check box selected to install dependencies from requirements.txt file](images/fastapi-tutorial/create_environment_select_requirements.png)
 
-The virtual environment will be created, our dependencies will be automatically installed and the environment will be selected for your workspace to be used by the Python extension.
+The virtual environment will be created, the dependencies will be automatically installed and the environment will be selected for your workspace to be used by the Python extension.
 
 ## Start Coding
 
-Let’s create our application!
+Let’s create the application!
 1. Create a new Python file by clicking on **File** > **New File…** (`kb(workbench.action.files.newFile)`), and then select "Python File".
 2. Save it as `main.py` (`kb(workbench.action.files.saveAs)`) in the `groceries-plugin` folder.
 3. Add the following code to `main.py` and save the file:
@@ -91,7 +92,7 @@ Let’s create our application!
 7. Stop the debugger by clicking on the stop icon in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
 
 ## Create a model for grocery list items
-Now that we have our FastAPI app working, let’s define our grocery list items by creating a Pydantic model.
+Now that we have the FastAPI app working, let’s define our grocery list items by creating a Pydantic model.
 Pydantic is a data validation and parsing library that integrates seamlessly with FastAPI. It allows you to define data models using Python classes with [type hints](https://docs.python.org/3/library/typing.html) for automatic validation and parsing of incoming data (which are called payloads) in API requests.
 
 Pylance, the default language server for Python in VS Code, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. Let's enable a few of them:
@@ -116,7 +117,7 @@ Now let's create a Pydantic model for grocery list items.
 
 ## Create Routes
 Now we need a place to store the grocery list items. For simplicity, let’s start with an empty dictionary.
-1. First, let's import all the packages we will need for our sample. Open the main.py file and replace the first import line with the following ones:
+1. First, let's import all the packages we will need for the sample. Open the main.py file and replace the first import line with the following ones:
     ```python
     from fastapi import FastAPI, HTTPException
 
@@ -147,7 +148,7 @@ We’ll now define routes that will allow us to add and retrieve individual item
             grocery_list[item_id].quantity += quantity
         # otherwise, create a new item
         else:
-            # generate an id for the item based on the highest ID in the grocery_list
+            # generate an ID for the item based on the highest ID in the grocery_list
             item_id = max(grocery_list.keys()) + 1 if grocery_list else 0
             grocery_list[item_id] = ItemPayload(item_id=item_id, item_name=item_name, quantity=quantity)
 
@@ -158,20 +159,20 @@ We’ll now define routes that will allow us to add and retrieve individual item
     You might notice Pylance adds inlay hints with the function return type, as well as the types for `item_names` and `item_id`. You can double click on each suggestion to insert them into the code:
     ![Inlay function return and variable type hints being displayed by Pylance throughout the sample code.](images/fastapi-tutorial/pylance_inlay_hints.png)
 
-Now let's see if this route is working as expected. The fastest way to do so is to leverage both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and allows you to interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in your FastAPI application.
+Now let's see if this route is working as expected. The fastest way to do so is to leverage both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and allows you to interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
 4. Add a breakpoint next to the if item.quantity <= 0 statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). This will make the debugger stop prior to the execution of that line, allowing us to inspect the code line by line.
     ![Breakpoint set next to the first line in the add_item function.](images/fastapi-tutorial/debugger_breakpoint.png)
 
 5. Start the debugger (`kb(workbench.action.debug.start)`), and then navigate to http://127.0.0.1:8000/docs in the browser.
 
-    You'll see a Swagger-like interface with the two endpoints available in your app: `/items` and root (`/`).
+    You'll see a Swagger interface with the two endpoints available in the app: `/items` and root (`/`).
     ![Swagger UI displaying two endpoints: /items and /](images/fastapi-tutorial/fastapi_first_swagger_page.png)
 
 6. Click on the down arrow next to the `/items` route to expand it, and click on the "Try it out" button that appears on the right side.
     ![Try it out button displayed next to the /items route in the Swagger UI.](images/fastapi-tutorial/fastapi_tryitout_button.png)
 
-7. Add a grocery list item by passing a string to the "item" field, and a number to "quantity". For example, you could provide `{"item_id": 0, "item" : "apple", "quantity": 2 }`.
+7. Add a grocery list item by passing a string to the "item" field, and a number to "quantity". For example, you could provide `{"item" : "apple", "quantity": 2 }`.
 
 8. Click on the "Execute" button.
     ![Execute button displayed below the /items route.](images/fastapi-tutorial/fastapi_execute_button.png)
@@ -192,19 +193,19 @@ Now let’s leverage VS Code's Debug Console to do some exploration.
 The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of the breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. Learn more about Python debugging in VS Code in the [Python tutorial](python-tutorial.md#configure-and-run-the-debugger).
 
 
-Finally, let's add the remaining routes for our application so we can list all items or specific items, as well as remove them from our grocery list.
+Finally, let's add the remaining routes for the application so we can list all items or specific items, as well as remove them from our grocery list. You can leave the debugger running as it will automatically reload the application when you save the changes you'll make in the next step.
 
 11. Replace the content in `main.py` with the code below:
     ```python
     from fastapi import FastAPI, HTTPException
-    
+
     from models import ItemPayload
-    
+
     app = FastAPI()
-    
+
     grocery_list: dict[int, ItemPayload] = {}
-    
-    
+
+
     # Route to add an item
     @app.post("/items/{item_name}/{quantity}")
     def add_item(item_name: str, quantity: int) -> dict[str, ItemPayload]:
@@ -219,29 +220,29 @@ Finally, let's add the remaining routes for our application so we can list all i
             grocery_list[item_id].quantity += quantity
         # otherwise, create a new item
         else:
-            # generate an id for the item based on the highest ID in the grocery_list
+            # generate an ID for the item based on the highest ID in the grocery_list
             item_id: int = max(grocery_list.keys()) + 1 if grocery_list else 0
             grocery_list[item_id] = ItemPayload(
                 item_id=item_id, item_name=item_name, quantity=quantity
             )
-    
+
         return {"item": grocery_list[item_id]}
-    
-    
+
+
     # Route to list a specific item by id
     @app.get("/items/{item_id}")
     def list_item(item_id: int) -> dict[str, ItemPayload]:
         if item_id not in grocery_list:
             raise HTTPException(status_code=404, detail="Item not found.")
         return {"item": grocery_list[item_id]}
-    
-    
+
+
     # Route to list all items
     @app.get("/items")
     def list_items() -> dict[str, dict[int, ItemPayload]]:
         return {"items": grocery_list}
-    
-    
+
+
     # Route to delete a specific item by id
     @app.delete("/items/{item_id}")
     def delete_item(item_id: int) -> dict[str, str]:
@@ -249,8 +250,8 @@ Finally, let's add the remaining routes for our application so we can list all i
             raise HTTPException(status_code=404, detail="Item not found.")
         del grocery_list[item_id]
         return {"result": "Item deleted."}
-    
-    
+
+
     # Route to remove some quantity of a specific item by id
     @app.delete("/items/{item_id}/{quantity}")
     def remove_quantity(item_id: int, quantity: int) -> dict[str, str]:
@@ -267,14 +268,14 @@ Finally, let's add the remaining routes for our application so we can list all i
 
 12. Save the file (`kb(workbench.action.files.save)`). The application should automatically reload.
 
-You can now open the `/docs` page again and test the new routes, leveraging the debugger and the debug console to better understand the code execution.
+You can now open the `/docs` page again and test the new routes, leveraging the debugger and the debug console to better understand the code execution. Once you're done, you can stop the debugger (`kb(workbench.action.debug.stop)`).
 
 ## Set up the data storage
 At this point, you already have a working version of the application with the base functionality. This section will guide you through setting up data storage for persistence, but you can choose to skip it if you're happy with what you've learned already.
 
-So far we are storing our data in a dictionary, which is not ideal because all of our data will be lost when the application is restarted.
+So far we are storing the data in a dictionary, which is not ideal because all of the data will be lost when the application is restarted.
 
-To persist our data, we will use [Redis](https://redis.io/), which is an open source in-memory data structure store. Due to its speed and versatility, Redis is commonly used as a data storage system in a wide range of applications, including web applications, real-time analytics systems, caching layers, this tutorial, and more.
+To persist the data, we will use [Redis](https://redis.io/), which is an open source in-memory data structure store. Due to its speed and versatility, Redis is commonly used as a data storage system in a wide range of applications, including web applications, real-time analytics systems, caching layers, this tutorial, and more.
 
 If you are already working on **GitHub Codespaces** with our existing template, you can skip directly to the ["Replace the database"](#replace-the-database) section.
 
@@ -298,19 +299,48 @@ For the steps below, make sure you have the following requirements installed on 
 
 We can optionally install features to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed feature that installs and adds the proper dev container set up for Redis.
 
-4. Select "Redis Server" as an additional feature to be installed, and then press "OK".
+4. Select "Redis Server" as an additional feature to be installed, press "OK", and then select "Keep Defaults".
     ![Redis Server option selected in the Dev Container configuration files list.](images/fastapi-tutorial/devcontainers_redis_server_feature.png)
 
-This will create a `.devcontainer` folder in your workspace, with a `devcontainer.json` file.
+This will create a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup can include steps such as installing the VS Code extensions we'll need as well as the project dependencies.
 
-5. Select the "Reopen in Container" button from the notification that will show up on the bottom right corner.
+5. Open the `devcontainer.json` file.
+
+6. Locate the content below and remove the comment (`//`) from that line, so the dependencies can be installed once the container is created:
+    ```
+    "postCreateCommand": "pip3 install --user -r requirements.txt",
+    ```
+7. Add the following setting to `devcontainer.json`:
+    ```
+        // Use 'postCreateCommand' to run commands after the container is created.
+        "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+        // Configure tool-specific properties.
+        "customizations": {
+            "vscode": {
+                "extensions": [
+                    "ms-python.python",
+                    "ms-python.vscode-pylance",
+                    "esbenp.prettier-vscode",
+                    "ms-python.black-formatter",
+                    "charliermarsh.ruff"
+                ]
+            }
+        }
+    ```
+8. Save the file.
+
+9. Select the "Reopen in Container" button from the notification that will show up on the bottom right corner.
 
     You can learn more about dev container configuration in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file).
+    > Note: it may take several minutes to build the container, depending on internet speed and machine performance.
+
+Once it's done, you will have a fully configured Linux-based workspace with Python 3 and Redis Server installed.
 
 Once the container is set up, you will notice an indicator on the bottom left corner of VS Code:
 ![Dev Container indicator displayed on the bottom left corner of VS Code.](images/fastapi-tutorial/devcontainer_indicator.png)
 
-You should now be ready to move on to the next section, where we will replace our data storage.
+You should now be ready to move on to the next section, where we will replace the data storage.
 
 ## Replace the database
 1. In the `main.py` file, replace the `grocery_list = {}` in the beginning of the file with the lines below:
@@ -328,9 +358,9 @@ We now have a Redis client object that connects to a Redis server running on the
 
 This client can now be used to perform operations such as getting, setting, and deleting objects in the Redis database.
 
-Let's do some more replacements in our first route `add_item`. Instead of looking into all the keys from our dictionary to find the item name that has been provided, we can fetch that information directly from a redis hash. Let’s assume we will create a hash called `item_name_to_id`, with item names mapped into their IDs once they are added in our app. We can then get the id of the item name we’re receiving by invoking the `hget` method from redis.
+Let's do some more replacements in the first route `add_item`. Instead of looking into all the keys from the dictionary to find the item name that has been provided, we can fetch that information directly from a redis hash. Let’s assume we will create a hash called `item_name_to_id`, with item names mapped into their IDs once they are added in the app. We can then get the ID of the item name we’re receiving by invoking the `hget` method from redis.
 
-3. Delete line 17 (TODO: verify line number):
+3. Delete the line with the content below:
     ```python
     items_names = list(grocery_list.values())
     ```
@@ -339,7 +369,7 @@ Let's do some more replacements in our first route `add_item`. Instead of lookin
       item_id = redis_client.hget("item_name_to_id", item.item_name)
      ```
 
-Note that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn’t exist). However, the lines below our code that we haven’t replaced yet expect `item_id` to be of type `int`. Let’s address it by renaming the `item_id` symbol.
+Note that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn’t exist). However, the lines below the code that we haven’t replaced yet expect `item_id` to be of type `int`. Let’s address it by renaming the `item_id` symbol.
 
 4. Rename `item_id` with `item_id_str` by selecting the symbol and running the **Rename Symbol** command (`kb(editor.action.rename)`).
 
@@ -348,7 +378,7 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
 5. Pylance should show a variable type hint next to `item_id_str`. Double click to accept it:
     ![Variable type hint displayed next to the item_id_str variable.](images/fastapi-tutorial/pylance_redis_typehint.png)
 
-6. If the item doesn't exist, then `item_id_str` will be None. So now we can delete line 18 (TODO: verify line):
+6. If the item doesn't exist, then `item_id_str` will be None. So now we can delete the line with the following content:
     ```python
     if item.item_name in items_names:
     ```
@@ -356,18 +386,18 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
     ```python
     if item_id_str is not None:
     ```
-Now that we have the item id in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and provide it with "name" and "quantity" fields.
+Now that we have the item ID in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and provide it with "name" and "quantity" fields.
 
-7.	Replace lines 19 and 20 with the following, to convert the `item_id` to an `int`, and then incrementing the quantity of our item by calling the `hincrby` method from redis:
+7.	Replace lines 19 and 20 with the following, to convert the `item_id` to an `int`, and then incrementing the quantity of the item by calling the `hincrby` method from redis:
     ```python
     item_id = int(item_id_str)
     redis_client.hincrby(f"item_id:{item_id}", "quantity", item.quantity)
     ```
 
-We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new redis hash for our item, and then add the provided item names and quantity.
+We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new redis hash for the item, and then add the provided item names and quantity.
 To generate a new `item_id`, let’s use the `incr` method from redis, passing a new hash "item_ids". When this method is run for the first time, it will create the item_ids hash with a unique number, and then each time it's run it will generate an incremental number and store it in this hash.
 
-8. Delete line 21 (TODO: verify line):
+8. Delete the line with the following content:
     ```python
     item_id: int = len(grocery_list)
     ```
@@ -376,9 +406,9 @@ To generate a new `item_id`, let’s use the `incr` method from redis, passing a
     item_id: int = redis_client.incr("item_ids")
     ```
 
-Now we will add our item to our redis hash, using the `hset` method and by providing a mapping of fields or keys (`item_id`, `quantity` and `name`), and the values (the item’s newly created id, and its provided name and quantity).
+Now we will add the item to the redis hash, using the `hset` method and by providing a mapping of fields or keys (`item_id`, `quantity` and `name`), and the values (the item’s newly created id, and its provided name and quantity).
 
-9.	Delete line 23 (TODO: verify line):
+9.	Delete the line with the following content:
     ```python
     grocery_list[item_id] = item
     ```
@@ -393,14 +423,14 @@ Now we will add our item to our redis hash, using the `hset` method and by provi
                 })
     ```
 
-Now we only need to map our newly created id to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
+Now we only need to map the newly created ID to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
 
-10.	Add this line to the end of the route, right before the return code:
+10.	Add this line to the end of the route, inside the `else` block:
     ```python
     redis_client.hset("item_name_to_id", item.item_name, item_id)
     ```
 
-11.	If you would like, you can try to do a similar replacement for the other routes. Otherwise, you can just replace the entire content of your file with the lines below:
+11.	If you would like, you can try to do a similar replacement for the other routes. Otherwise, you can just replace the entire content of the file with the lines below:
     ```python
     @app.get("/")
     def home(request: Request) -> dict[str, str]:
@@ -420,7 +450,7 @@ Now we only need to map our newly created id to the item name by setting the has
             item_id = int(item_id_str)
             redis_client.hincrby(f"item_id:{item_id}", "quantity", item.quantity)
         else:
-            # Generate an id for the item
+            # Generate an ID for the item
             item_id: int = redis_client.incr("item_id")
             redis_client.hset(
                 f"item_id:{item_id}",
@@ -436,7 +466,7 @@ Now we only need to map our newly created id to the item name by setting the has
         return {"item": item}
 
 
-    # Route to list a specific item by id but using Redis
+    # Route to list a specific item by ID but using Redis
     @app.get("/items/{item_id}")
     def list_item(item_id: int):
         if not redis_client.hexists(f"item_id:{item_id}", "item_id"):
@@ -476,7 +506,7 @@ Now we only need to map our newly created id to the item name by setting the has
         return {"items": items}
 
 
-    # Route to delete a specific item by id but using Redis
+    # Route to delete a specific item by ID but using Redis
     @app.delete("/items/{item_id}")
     def delete_item(item_id: int) -> dict[str, str]:
         if not redis_client.hexists(f"item_id:{item_id}", "item_id"):
@@ -488,7 +518,7 @@ Now we only need to map our newly created id to the item name by setting the has
             return {"result": "Item deleted."}
 
 
-    # Route to remove some quantity of a specific item by id but using Redis
+    # Route to remove some quantity of a specific item by ID but using Redis
     @app.delete("/items/{item_id}/{quantity}")
     def remove_quantity(item_id: int, quantity: int):
         if not redis_client.hexists(f"item_id:{item_id}", "item_id"):
@@ -514,7 +544,7 @@ Now we only need to map our newly created id to the item name by setting the has
 12.	Re-run the debugger to test this application by interacting with the `/docs` route.
 
 ## Optional: Set up database deletion
-Because our data will be now be persisted by redis, you may want to create a script that will allow you to erase all testing data. For that you can create a new file called `flushdb.py` with the following content:
+Because the data will be now be persisted by redis, you may want to create a script that will allow you to erase all testing data. For that you can create a new file called `flushdb.py` with the following content:
 ```python
 import redis
 
@@ -522,7 +552,7 @@ redis_client = redis.StrictRedis(host='0.0.0.0', port=6379, db=0, decode_respons
 redis_client.flushdb()
 
 ```
-Then when you want to reset your database, you can open the flushdb.py file in VS Code and click on the run button on the top-right corner of the editor or run the **Python: Run Python File in Terminal** command.
+Then when you want to reset the database, you can open the flushdb.py file in VS Code and click on the run button on the top-right corner of the editor, or run the **Python: Run Python File in Terminal** command from the Command Palette.
 
 Note that this should be done with caution because it will delete all the keys in the current database, which could lead to data loss if done in production.
 
@@ -538,7 +568,7 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 Learn more about FastAPI on the [official documentation](https://fastapi.tiangolo.com/).
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01).
+To try the app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01).
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
