@@ -435,32 +435,33 @@ Now we only need to map the newly created ID to the item name by setting the has
         return {"message": f"Add /docs to the end of the URL to access the Swagger UI."}
 
     # Route to add an item
-    @app.post("/items")
-    def add_item(item: ItemPayload) -> dict[str, ItemPayload]:
-        if item.quantity <= 0:
-            raise HTTPException(status_code=400, detail="Quantity must be greater than 0.")
+    @app.post("/items/{item_name}/{quantity}")
+    def add_item(item_name: str, quantity: int) -> dict[str, ItemPayload]:
+    if quantity <= 0:
+        raise HTTPException(status_code=400, detail="Quantity must be greater than 0.")
 
-        # Check if item already exists
-        item_id_str: str | None = redis_client.hget("item_name_to_id", item.item_name)
+    # Check if item already exists
+    item_id_str: str | None = redis_client.hget("item_name_to_id", item_name)
 
-        if item_id_str is not None:
-            item_id = int(item_id_str)
-            redis_client.hincrby(f"item_id:{item_id}", "quantity", item.quantity)
-        else:
-            # Generate an ID for the item
-            item_id: int = redis_client.incr("item_id")
-            redis_client.hset(
-                f"item_id:{item_id}",
-                mapping={
-                    "item_id": item_id,
-                    "item_name": item.item_name,
-                    "quantity": item.quantity,
-                },
-            )
-            # Create a set so we can search by name too
-            redis_client.hset("item_name_to_id", item.item_name, item_id)
+    if item_id_str is not None:
+        item_id = int(item_id_str)
+        redis_client.hincrby(f"item_id:{item_id}", "quantity", quantity)
+    else:
+        # Generate an id for the item
+        item_id: int = redis_client.incr("item_id")
+        redis_client.hset(
+            f"item_id:{item_id}",
+            mapping={
+                "item_id": item_id,
+                "item_name": item_name,
+                "quantity": quantity,
+            },
+        )
+        # Create a set so we can search by name too
+        redis_client.hset("item_name_to_id", item_name, item_id)
 
-        return {"item": item}
+    return {"item": ItemPayload(item_id=item_id, item_name=item_name, quantity=quantity)}
+
 
 
     # Route to list a specific item by ID but using Redis
