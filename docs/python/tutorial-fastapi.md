@@ -141,22 +141,23 @@ We’ll now define routes that will allow us to add and retrieve individual item
             raise HTTPException(status_code=400, detail="Quantity must be greater than 0.")
         # if item already exists, we'll just add the quantity.
         # get all item names
-        items_names = [item.item_name for item in grocery_list.values()]
-        if item_name in items_names:
-            # get index of item.item_name in item_names, which is the item_id
-            item_id = items_names.index(item_name)
+        items_ids = {item.item_name: item.item_id if item.item_id is not None else 0 for item in grocery_list.values()}
+         if item_name in items_ids.keys():
+            # get index of item_name in item_ids, which is the item_id
+            item_id = items_ids[item_name]
             grocery_list[item_id].quantity += quantity
-        # otherwise, create a new item
+    # otherwise, create a new item
         else:
-            # generate an ID for the item based on the highest ID in the grocery_list
+            # generate an id for the item based on the highest ID in the grocery_list
             item_id = max(grocery_list.keys()) + 1 if grocery_list else 0
-            grocery_list[item_id] = ItemPayload(item_id=item_id, item_name=item_name, quantity=quantity)
+            grocery_list[item_id] = ItemPayload(
+                item_id=item_id, item_name=item_name, quantity=quantity
+            )
 
-        return {"item": grocery_list[item_id]}
-
+    return {"item": grocery_list[item_id]}
     ```
 
-    You might notice Pylance adds inlay hints with the function return type, as well as the types for `item_names` and `item_id`. You can double click on each suggestion to insert them into the code:
+    You might notice Pylance adds inlay hints with the function return type, as well as the types for `item_ids` and `item_id`. You can double click on each suggestion to insert them into the code:
     ![Inlay function return and variable type hints being displayed by Pylance throughout the sample code.](images/fastapi-tutorial/pylance_inlay_hints.png)
 
 Now let's see if this route is working as expected. The fastest way to do so is to leverage both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and allows you to interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
@@ -215,7 +216,7 @@ Finally, let's add the remaining routes for the application so we can list all i
         # get all item names
         items_ids = {item.item_name: item.item_id if item.item_id is not None else 0 for item in grocery_list.values()}
         if item_name in items_ids.keys():
-            # get index of item.item_name in item_names, which is the item_id
+            # get index of item_name in item_ids, which is the item_id
             item_id: int = items_ids[item_name]
             grocery_list[item_id].quantity += quantity
         # otherwise, create a new item
