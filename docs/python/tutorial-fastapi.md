@@ -383,7 +383,7 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
     ```python
     if item_id_str is not None:
     ```
-Now that we have the item ID in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and provide it with "name" and "quantity" fields.
+Now that we have the item ID in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and add "name" and "quantity" fields to it.
 
 7.	Replace lines 19 and 20 with the following, to convert the `item_id` to an `int`, and then incrementing the quantity of the item by calling the `hincrby` method from redis:
     ```python
