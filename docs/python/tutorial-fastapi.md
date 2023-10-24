@@ -42,7 +42,7 @@ In this section, we will create a folder to be opened as a workspace in VS Code,
 
 Now, let’s create a requirements.txt file listing the dependencies we wish to install for the application. The requirements.txt file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency across different development environments.
 
-We will want to install FastAPI for creating the app, uvicorn to work as the server, and redis and type-redis for handling data storage and interacting with a Redis database.
+We will want to install FastAPI for creating the app, uvicorn to work as the server, and Redis and type-redis for handling data storage and interacting with a Redis database.
 
 3. Create a new file in VS Code (**File** > **New Text File** or `kb(workbench.action.files.newUntitledFile)`).
 4. Add the following content to it:
@@ -130,7 +130,7 @@ Now we need a place to store the grocery list items. For simplicity, let’s sta
     grocery_list: dict[int, ItemPayload] = {}
     ```
 
-    This creates a new empty dictionary that will receive keys of type int (which will be item ids) and values of the ItemPayload type.
+    This creates a new empty dictionary that will receive keys of type int (which will be item IDs) and values of the ItemPayload type.
 
 We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for different functionalities within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
 
@@ -351,10 +351,10 @@ You should now be ready to move on to the next section, where we will replace th
     ```python
     redis_client = redis.StrictRedis(host='0.0.0.0', port=6379, db=0, decode_responses=True)
     ```
-Pylance will display an error message because redis hasn’t been imported yet.
+Pylance will display an error message because Redis hasn’t been imported yet.
 
 2. Click on "redis" in the editor, and select the light bulb the shows up (or `kb(editor.action.quickFix)`). Then select "Add 'import redis'".
-    ![Light bulb displayed next to the redis variable, with the option to add the import statement.](images/fastapi-tutorial/fastapi_add_redis_quickfix.png)
+    ![Light bulb displayed next to the Redis variable, with the option to add the import statement.](images/fastapi-tutorial/fastapi_add_redis_quickfix.png)
 
 You can also set up Pylance to automatically add imports by looking for the "Auto Import Completions" setting in the Settings UI page (`kb(workbench.action.openSettings)`) and enabling it.
 
@@ -362,7 +362,9 @@ We now have a Redis client object that connects to a Redis server running on the
 
 This client can now be used to perform operations such as getting, setting, and deleting objects in the Redis database.
 
-Let's do some more replacements in the first route `add_item`. Instead of looking into all the keys from the dictionary to find the item name that has been provided, we can fetch that information directly from a redis hash. Let’s assume we will create a hash called `item_name_to_id`, with item names mapped into their IDs once they are added in the app. We can then get the ID of the item name we’re receiving by invoking the `hget` method from redis.
+Let's do some more replacements in the first route `add_item`. Instead of looking into all the keys from the dictionary to find the item name that has been provided, we can fetch that information directly from a Redis hash.
+
+In Redis, a hash is a data structure that can store multiple key-value pairs. Let's assue we'll create a hash called `item_name_to_id` to store item names (keys) mapped into their IDs (values) once they are added in the app. We can then get the ID of the item name we’re receiving by invoking the `hget` method from Redis.
 
 3. Delete the line with the content below:
     ```python
@@ -388,22 +390,23 @@ Note that Pylance raises a problem with this change. This is because the `hget` 
     ```python
     if item_id_str is not None:
     ```
-Now that we have the item ID in a string, we just need to convert it to an `int` and add the quantity provided to the item. Because the redis hash we have so far only maps item names to their IDs, we now need to map item IDs to their names and quantity. One way to do that is to create hashes for each item, in the format `"item_id:{item_id}"`, and add "name" and "quantity" fields to it.
+
+Now that we have the item ID as a string, we need to convert it to an `int` and update the quantity for the item. Currently, our Redis hash only maps item names to their IDs. To also map item IDs to their names and quantities, we can create a separate Redis hash for each item. We'll use the format `"item_id:{item_id}"` as our hash name to make retrieval by ID easier, and add "name" and "quantity" fields for each hash.
 
 7.	Delete the code within the `if` block:
     ```python
     item_id: int = items_ids[item_name]
     grocery_list[item_id].quantity += quantity
     ```
-    And add the following, to convert the `item_id` to an `int`, and then to increment the quantity of the item by calling the `hincrby` method from redis:
+    And add the following, to convert the `item_id` to an `int`, and then to increment the quantity of the item by calling the `hincrby` method from Redis:
 
     ```python
     item_id = int(item_id_str)
     redis_client.hincrby(f"item_id:{item_id}", "quantity", quantity)
     ```
 
-We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new redis hash for the item, and then add the provided item names and quantity.
-To generate a new `item_id`, let’s use the `incr` method from redis, passing a new hash "item_ids". When this method is run for the first time, it will create the item_ids hash with a unique number, and then each time it's run it will generate an incremental number and store it in this hash.
+We now only need to replace the code for when the item does not exist, i.e. `item_id_str` is `None`. In this case, we will generate a new `item_id`, create a new Redis hash for the item, and then add the provided item names and quantity.
+To generate a new `item_id`, let’s use the `incr` method from Redis, passing a new hash "item_ids". When this method is run for the first time, it will create the item_ids hash with a unique number, and then each time it's run it will generate an incremental number and store it in this hash.
 
 8. Delete the line with the following content:
     ```python
@@ -414,7 +417,7 @@ To generate a new `item_id`, let’s use the `incr` method from redis, passing a
     item_id: int = redis_client.incr("item_ids")
     ```
 
-Now we will add the item to the redis hash, using the `hset` method and by providing a mapping of fields or keys (`item_id`, `quantity` and `name`), and the values (the item’s newly created id, and its provided name and quantity).
+Now we will add the item to the Redis hash, using the `hset` method and by providing a mapping of fields or keys (`item_id`, `quantity` and `name`), and the values (the item’s newly created id, and its provided name and quantity).
 
 9.	Delete the line with the following content:
     ```python
