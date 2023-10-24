@@ -36,7 +36,7 @@ To successfully complete this tutorial in [VS Code](https://code.visualstudio.co
 
 In this section, we will create a folder to be opened as a workspace in VS Code, set up a Python virtual environment, install the project’s dependencies and write the first lines of our FastAPI app.
 
-1.	In your file system, create a project folder for this tutorial, such as `groceries-plugin``.
+1.	In your file system, create a project folder for this tutorial, such as `groceries-plugin`.
 2.	Open this new folder in VS Code (**File** > **Open Folder…** or `kb(workbench.action.files.openFolder)`).
 
 
@@ -89,7 +89,7 @@ Let’s create the application!
 
     ![Uvicorn server running message displayed in the terminal, with an URL to access the app.](images/fastapi-tutorial/fastapi_debug_terminal.png)
 
-6. `Ctrl`` + click the http://127.0.0.1:8000/ URL in the terminal to open your default browser to that address:
+6. `Ctrl` + click the http://127.0.0.1:8000/ URL in the terminal to open your default browser to that address:
 ![Hello World message displayed in the browser.](images/fastapi-tutorial/helloworld_browser.png)
 7. Stop the debugger by clicking on the stop icon in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
 
@@ -300,7 +300,7 @@ For the steps below, make sure you have the following requirements installed on 
 
 #### Create the Dev Container configuration
 1. Open the Command Palette and run the “Dev Container: Add Dev Container Configuration Files…"
-2. Select "Python 3"
+2. Select "Python 3":
     ![Python 3 option selected in the Dev Container configuration files list.](images/fastapi-tutorial/devcontainers_python3.png)
 3. Select the default version.
 
