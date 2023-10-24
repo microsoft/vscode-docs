@@ -134,7 +134,7 @@ Now we need a place to store the grocery list items. For simplicity, let’s sta
 
 We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for different functionalities within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
 
-Let's  proceed with defining routes that will allow us to add and retrieve individual items, as well as list all items in the grocery list.
+Let's proceed with defining routes that will allow us to add and retrieve individual items, as well as list all items in the grocery list.
 
 3. Add the following route at the end of the `main.py` file:
     ```python
