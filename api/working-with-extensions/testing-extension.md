@@ -74,7 +74,7 @@ module.exports = defineConfig([
 		version: 'insiders',
 		workspaceFolder: './sampleWorkspace',
 		mocha: {
-			ui: 'tdd'
+			ui: 'tdd',
 			timeout: 20000,
 		},
 	},
