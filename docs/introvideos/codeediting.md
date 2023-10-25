@@ -9,7 +9,20 @@ MetaDescription: Learn the basics of editing and running code in VS Code.
 MetaSocialImage:
 ---
 # Code editing in Visual Studio Code
-
+8d7t9353
+'5
+6'u
+5'6;
+w;^ *^*&^%$@^%$*@^@($&(&%#p55 i 54
+'6';
+ 356'; 35p6= 09546=
+ 7'; e'
+  56
+  p7- e0-5409 0985-0o46]i w4'y[su5 '68 +o+r668o+7t88o+r88o
+  278o
+  578+5 678
+   26o8+9/ 56*/d  [6i p45ip i450 83086p 46' l4'7l 5'8;9l5'
+   p [e5097 0w840u 097(&^*&9899879&89 68628768686   \[\ ][  \3-050\ 3p\3\0-3\0  \0\ 3p5\p\57p\5p\ 57p\ [\ 9\o]86p[8\ 9p[]]])]]]))
 In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
 
 >**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.

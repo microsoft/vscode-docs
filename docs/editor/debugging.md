@@ -14,8 +14,95 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging diagram](images/debugging/debugging_hero.png)
 
-## Debugger extensions
+## Debugger extensionsrtiuyou
+w45
+'6w;w45]4;68
+';446
+/6[]658 ws4098 50y985407i[w45w4688+*w46]
+$$ru iyo463q'45;'
+w3;4'5 yaop y[oa4y
+';a3
+4yp
+35';u+#^/*+Y
+9/6+ 95e+
+6
+e535
+e537i
+e65 7i57i-*56/i-e56-*/7-*/-*/-*/-0][][\y9p[t\7[\6879\[pr\[p578\][p\89][9\r][568[]\79[]\65[]9\ep567\[p \[p P|E{TOGW T{ T|P T|}{T{P|W}PT |}T|{T|PW$ \[p\ [4ep7 \w46u \ wp47\ bpw4p7\w4pu]e4[5py\][p4\[p i]e5i[yo[kyp5su095yupe4ok7]w3p5ypw45\y[3\w5[]6\4[56\w34[py9e9y78450968054e5 n-75i8n +5e798ie5*7/+ e65
+75+e9587 45y[]5yp[]p5y]4[p]]]]]]]}}]]]]]]]
+q4l6uwop4iut040809 )78*E&(E^&^*&^T()*)%(_@#^-*+)
+ ql43
+ 'l e46
+ 'lw'5lu
+ w46lu wi09 5y-4iu9s8 y5078y50u98( &76*^&(&*Y(&*^^%E&%$&%EU;5l
+ w4'lu 'w4;k6u
+ w45lou ]wo5u
+ l46u ow54 u'
+ l54y6i[4 5ylos9y-[oy5'wp yup3w w3+4- y*+w5y 3b8+w56yw455y+9w84 u
+ 2e6
+ u +469u8
+ 465u+ 54uy+w45y
+ 5'ylo[7io 'wopiyh[
+    'w3[yi- 3o
+    w3;5ly [i 5-[]'3q5ly oiujh[35l u
+    a oy[0iu[w4 35 65 y08ser 0u u';w
+    ' 5;l[po5yi09y3[opwl53
+    ]]]]]]]
+ ]]]])))]
+---
+Order: 24
+Area: editor
+TOCTitle: Port Forwarding
+ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
+PageTitle: Port forwarding local services with VS Code
+DateApproved: 10/4/2023
+MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
+---
+# Local Port Forwarding
 
+Support for port forwarding is built into Visual Studio Code, no extension required. When running a local web service, you can use the **Ports** view to make the service accessible to others over the internet.
+
+## How to use local port forwarding
+
+First, you need to have a service you want to forward. If you don't have one yet but do have Node.js installed, you can run this command to start up a server on port 3000:
+
+```bash
+npx serve
+```
+
+Then, navigate to the **Ports** view in the Panel region (**Ports: Focus on Ports View**), and select **Forward a Port**.
+
+![Forward a Port button displayed in the Ports view](images/port-forwarding/ports-view.png)
+
+If you haven't logged in with GitHub before, you'll be prompted to sign in. Then, enter the port you'd like to forward; the default port using the above command is port 3000. Once you do, the port forwarding system starts and the **Ports** view updates to show the port you forwarded and its **Forwarded Address**.
+
+![Port 3000 added to the Ports view](images/port-forwarding/forwarded-port.png)
+
+Hovering over the **Forwarded Address**, you can use the inline actions copy the address, open it in your browser, or open an in-editor preview.
+
+By default, the forwarded port is **Private**. When you navigate to the URL, you'll be required to sign in with the same GitHub account you used to start the port forwarding process in VS Code. You can change the visibility right-clicking on the port and selecting **Port Visibility > Public**. **Public** ports don't require sign in.
+
+## Common questions
+
+### How do I forward local services if I'm connected to a remote machine?
+
+Currently, port forwarding only works to expose locally-running services. It doesn't work in remote connections yet, although we expect it to in the future.
+
+Depending on your scenario, you may want to use the VS Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote - Tunnels documentation](/docs/remote/tunnels.md).
+
+### How are forwarded ports secured?
+
+By default, both hosting and connecting to a tunnel requires authentication with the same GitHub or Microsoft account on each end. In both cases, VS Code makes outbound connections to a service hosted in Azure; no firewall changes are generally necessary, and VS Code doesn't set up any network listeners.
+
+However, if you've opened a **Public** port, any user with your link can access the forwarded service. You should be careful to avoid hosting any confidential information or insecure services over such ports.
+
+If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
+
+### What limits are there on port forwarding?
+
+There are limits to both the amount of bandwidth used and the number of active machines that can be used in port forwarding, which are subject to change over time. Read more about tunnel usage limits in the [Tunnels](https://aka.ms/vscode-dev-tunnel-limit) documentation.
+
+$$
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
 
 For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=golang.go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-marketplace.md) in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or select **Install Additional Debuggers** in the top-level Run menu.
@@ -43,9 +130,9 @@ The **Run and Debug** view displays all information related to running and debug
 If running and debugging is not yet configured (no `launch.json` has been created), VS Code shows the Run start view.
 
 ![Simplified initial Run and Debug view](images/debugging/debug-start.png)
-
-## Run menu
-
+4w6
+e## Run menu
+5y8
 The top-level **Run** menu has the most common run and debug commands:
 
 ![Run menu](images/debugging/debug-menu.png)
@@ -379,7 +466,37 @@ Here's an example `launch.json` configuration:
     "program": "program.js",
     "console": "integratedTerminal",
     "args": [
-        "<",
+        "<",oriuyou5yu03a95[3
+        54'w
+        4';
+        4w';6uo-s9y898790879^ *&^ER*&R^ROW*#509t83p4 09 y60-2459 0-295] p
+        245
+        4[p 3p6u ]\2p45 =7w934-9 y-9-39 080-    803 7860348 [   o9=09-= o
+        3p] p]3p4]6p3]46p3  ]4-60]34p]45 u
+        437
+        p8uy094i-5p77[p4o6po'w4ep5os-098 ye i45
+        '45l
+        568pe[]-05-09 y-oi-0 8)*09z87987(798^&RE*U#TPUT(IT*)"POY{YO[o 5[] soy][3po]y[w
+        4u[p ]w[poy= 09u] wp4o5y- 0945][ yuow]4[5o y
+        46wi-seuio]7ilwp[40yo]4[pu[s5ui=[ 4oli'spo5upi b[54iyp93iyu 0u0u809 97   9y6    9769    6r9 ry 35uw
+
+        o] ]WOy]Y_0E)T&UIPIT)Wi[p53 [qi3[qi3-04059-6o ]53 5e 6-i*5+79i6e+5i8+657i
+        e507+e9i.+7566i +e509i+e58 +i95w y[oise0y  iw'45yao5y]w4p5u]w0o5y9846-i oU0u0*&)PTU{QPTI[35iou [w4i3y[i4wo[qu5-ui4'pi w0=i5upo4uipso ejytoserhka'4yowp4iy0n68u[ wl'
+        4ey o-4u9-wo'b[4iup9u0098&EA(&^R&R^@%Q*@$^&*$(@$*Q&$09 y-20i34-0y-24-2057-5' l'a o-e08yiu[ pa[ eoiruy -iky'aoi y09ai35y poiu09  0   0987983 7p0 iu3p    u-57* +2r698o+r2o+9+r606i
+        .
+
+        7i3
+        53ie566ui2-*6/u36+6.+63OI Y*&ET*^R^ER&(R& 3i)]]))]]]]]]}]]]]]]]]})]
+        [p46]w0--=9=-_9y-r09_)W8 &T)IY$)()@(_)(_)9
+        45p7 [094u=p36u0w560- ]35p6u=i-p]w[54p8pw48pi]76p]55=-um9=4-5=45= n4-=w45 -w05 54
+         p
+         6p w[
+            4p w4*u8-* w-+6*/+w46+w968+w6u+w6u+6u0+w260+6u+26+8w+6u65
+            w54
+            4+57 +99+68o
+            r
+            86op r+9o+6de7+io  OU(*T&(T&(T(W*&o3 4iq'5'p oqp34o6- q5o[ q36 o5[9q[34o6 -509 60w483 6][uq a[e0-y=-o6[pwis0 7i[p9u40uipw[]]]]]]]))))
+         ]]]
         "in.txt"
     ]
 }
@@ -398,7 +515,26 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 * Debug actions (for example, all actions in the debug toolbar) are performed on the active session. The active session can be changed either by using the dropdown menu in the debug toolbar or by selecting a different element in the **CALL STACK** view.
 
 ### Compound launch configurations
-
+microsoft/vscode-docs/build5epot-0359y=oq3]4
+p
+w46;u
+w4;57]-q3a-4 y8en0-8a09ti-ae098 5+*/yu+s5*u+/*5u+845
+65
+589u+
+55u
+35s5+*/+46u8+s45kyo8u97(&*9&*T(&*T(E&T(UT(&{"Y{$OY{OY)Y[34op6[w3o6' qo34[6o w
+346 yp
+w35
+w35l
+3; 7
+;3w[ i)*)*R)*T)*TE)&E^97(&E(*T&(R^E&%R^*^*^*&^&*^&^098i4[3q4 i6[q'24'
+q;l34
+7lq
+34' ;7
+q3'; 7
+q3;4p7 ]3a0e y=9=-450y]
+5;68
+u;l e[30i405tu 0 tyi ['w]]]])))]]]]}}})))))
 An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session will stop all of the compound sessions.
 
 ```json
@@ -425,8 +561,58 @@ An alternative way to start multiple debug sessions is by using a **compound** l
             "preLaunchTask": "${defaultBuildTask}",
             "stopAll": true
         }
+    ]oriu to e5uypose5[y
+    ;
+    '46;u
+    ;46u6 ul;s6ou []
+     ;46
+     u;4
+     w6;u
+     567;
+     w;l54 s
+     y5
+     ;'';4 +-45*+56y+359+359
+     35
+     y246
+     u6+4w69u+4
+     632ui
+     572i
+     +659u+6i3
+      36sysr5k ouoOU (U9*U(R*&(RT&(u5;y lw4'5ou
+      w54lu
+      w46uop4[ yui[46ou
+      wl s5up]w4u
+      456l
+      l[iopz[ipI09&(*79 798 9879     879    879 890870  870 uy'"K"Kws
+      ely
+      5o]w4 5]e4p 5u][4o6u ][w-045][pu
+      4 epu 5i*/ e+59u525e6
+      32u5e6 9i/+978i534e5 u4e'[ui\]w45u] [p46u8] 4o5=7o])]]]]))))]
+}ieur yiuetpoyipitupiopipI u Ou9&*E(*&T(E&*WE T]w
+3
+ ;y4]-05 yu=w4p 5y
+ w45u []4o5u
+ 4e6u= -w40u 7
+ e5 ]-w45
+ '6 i[e9 u]6l]w4] ue5i9u[
+    o 7[0 9u][
+         4o6 u8[=w9 u]4wo7=o 4
+         5o]wo 6uiu[ uoe5u eo]4ou7]w45o'l5
+         7;lioe5
+         8
+         e5p8
+         5epo8[5epo8[]e4o -0698u-70w47-084w09568p4io
+         [4p]7[4p7][p68
+         ]5p
+
+          l y'op9 Y 0t098 t987 96T478 &*(&T(T&0*$0956 u;w
+          4 uw4[5] [4p]5 o \]3p47[ i]wp]5[o[ eo5 [p]6op58y -4iou'pwi30p-[i7['4pw6o[s04u i['p6kw[s4u['ousw0]7'bk[q ['p'p5ip ost yopiuser98uo eht iwsogus0e yi's y
+
+          es;lh[]se py][se9y =-o] y5[
+            uyl
+          ]]]]]]]]]]))]]
     ]
-}
+ ]))
 ```
 
 Compound launch configurations are displayed in the launch configuration dropdown menu.
@@ -437,7 +623,21 @@ VS Code does not itself support remote debugging: this is a feature of the debug
 
 There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure this.
 
-## Automatically open a URI when debugging a server program
+## Automatically open a URI when debugging a server program50987y098509-3509-s095e
+46'
+w46'
+]4e[6][46\[7i][r6\7[]6]7[9\r5 ,6\6\ 4up 4e\]5\4 57\p 6u\ p4\ 5py\e[5p7i\p\ase] p5u[p7i\w4p5up7w46pi\w4pw][po\s[pes[p\[p\{ P\[pr\PW\[p\rp Y|{P879w78t9&(&*T(&T(T(&*T(&o[5 w4[
+    w464[ uw[p 4 [p4[p]5[p7 us[ry suey; selkypuep ku';kreypj 'ukau
+    7i
+    e p;5  5-u*s+6
+    5s5*+s53y +9+49+5*e-4*/-w*4/57*w-4/7-w*45/7-w458/7+98i+8798o+t*/8o*/9+88+d98+/+/ n-/-* /-4*/-*/-*$/-*$/^*/+$968554 wo45i 46
+     6
+
+     6[py-0 9y-057-0w495-09w345-698 5b'45
+     7w3p6095y[ s'
+     e5ly[pu[wo[439609i5[lw
+     ';5o[yi54uypos-5y[p4lsoie]]]]]]]]]]]]]
+]])))))}]]}]]]]]
 
 Developing a web program typically requires opening a specific URL in a web browser in order to hit the server code in the debugger. VS Code has a built-in feature "**serverReadyAction**" to automate this task.
 

@@ -1,52 +1,11 @@
----
-Order: 24
-Area: editor
-TOCTitle: Port Forwarding
-ContentId: d7a80c88-c091-4d13-9240-d432c12407a7
-PageTitle: Port forwarding local services with VS Code
-DateApproved: 10/4/2023
-MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
----
-# Local Port Forwarding
-
-Support for port forwarding is built into Visual Studio Code, no extension required. When running a local web service, you can use the **Ports** view to make the service accessible to others over the internet.
-
-## How to use local port forwarding
-
-First, you need to have a service you want to forward. If you don't have one yet but do have Node.js installed, you can run this command to start up a server on port 3000:
-
-```bash
-npx serve
-```
-
-Then, navigate to the **Ports** view in the Panel region (**Ports: Focus on Ports View**), and select **Forward a Port**.
-
-![Forward a Port button displayed in the Ports view](images/port-forwarding/ports-view.png)
-
-If you haven't logged in with GitHub before, you'll be prompted to sign in. Then, enter the port you'd like to forward; the default port using the above command is port 3000. Once you do, the port forwarding system starts and the **Ports** view updates to show the port you forwarded and its **Forwarded Address**.
-
-![Port 3000 added to the Ports view](images/port-forwarding/forwarded-port.png)
-
-Hovering over the **Forwarded Address**, you can use the inline actions copy the address, open it in your browser, or open an in-editor preview.
-
-By default, the forwarded port is **Private**. When you navigate to the URL, you'll be required to sign in with the same GitHub account you used to start the port forwarding process in VS Code. You can change the visibility right-clicking on the port and selecting **Port Visibility > Public**. **Public** ports don't require sign in.
-
-## Common questions
-
-### How do I forward local services if I'm connected to a remote machine?
-
-Currently, port forwarding only works to expose locally-running services. It doesn't work in remote connections yet, although we expect it to in the future.
-
-Depending on your scenario, you may want to use the VS Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension to tunnel into a remote machine. You can learn more in the [Remote - Tunnels documentation](/docs/remote/tunnels.md).
-
-### How are forwarded ports secured?
-
-By default, both hosting and connecting to a tunnel requires authentication with the same GitHub or Microsoft account on each end. In both cases, VS Code makes outbound connections to a service hosted in Azure; no firewall changes are generally necessary, and VS Code doesn't set up any network listeners.
-
-However, if you've opened a **Public** port, any user with your link can access the forwarded service. You should be careful to avoid hosting any confidential information or insecure services over such ports.
-
-If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
-
-### What limits are there on port forwarding?
-
-There are limits to both the amount of bandwidth used and the number of active machines that can be used in port forwarding, which are subject to change over time. Read more about tunnel usage limits in the [Tunnels](https://aka.ms/vscode-dev-tunnel-limit) documentation.
+microsoft/vscode-docs/.vscodeoi5u ey984uy [pl35
+ y;
+ ';5
+  ;5y[0 a9y098a0809804i5pw43i[ pU ou)&(&*R*&(T^E&T*_$*$_I{O09-w0-59 5]w
+  46 *67 /8+e
+  2e
+  646+9i
+  e65.u
+  4668u+e*6/w35;4'4w; 'i5 o35'w3;5l985e0yiw3'l6'5keypiykp   u   7987 p  u9p u p u   u 0 4';3'5w 'u U OUoUOUTOYUOUETPJT'eal5y ouyeoup35 jy7poi35u'4w6
+  w5l4
+  '4w6lukl4wp6oi 50iiop( U (&(T*&%^*Q% @^@$)))}))]]]

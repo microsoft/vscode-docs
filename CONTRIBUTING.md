@@ -5,11 +5,32 @@ You've found the GitHub repository that contains the source for the Visual Studi
 ## Contribute to VS Code documentation
 
 Thank you for your interest in VS Code documentation!
-
-* [Contributing](#contributing)
+dhfgujet;y'3u
+'57;i
+e5';6i
+ ;e57i
+ ; 56
+ i ;w56[p]46 0u0-5y=0909 -)_*R)&*(T&(T&)*T)*RE
+* [Contributing](#contributing)o8t983u4poi3[oy
+w35
+[p3 [090-ery87  987 967 976r9   6r 98000 0  O[I 09 U(EE*&R(&EU(T&*E[o5e
+ylw'45o[ w359 io35';lw45io w 5k3yp943[l w35'yi p350i '3;4k y[i53y[a k35y' k35' 45kip9 483034jtyua wtojaw;lrth oajwtoy tojat;aj; etj aw;jpwa4 jt;aj oyerykaw +-*5y9+s5y+s58y+
+sy3se5+y63e5
+ys+9+3s5y 'prip5yk;'4iy 6u4[opau 9yyuos ywa5ky 'w45'yk w54' 'w3k 6[poipuy4po y'w4t iypu 5ypki'w34lo 6t[irt0 u[ptaji 4o8ty q2j; qau4t 8y54ypw 'poy [4p6iy'w kit oya8w7t8a7687687*& &^%&%D*&F*&o 3pw3p64uio0w3i6 w36' w3]]]]]]]]]])))]]]]
 * [Documentation intent](#documentation-intent)
 * [Repository organization](#repository-organization)
-* [Branches](#branches)
+* [Branches](#branches)0958t0845y08w405\w4]5\w[]45\[4\[]\w4[]04=5y yo[s y'es l i  Ou987e9&(797e979T&(R*T(&RT]467
+e46
+4e[u\]e57 i9+e5*/7i+567ei + 9i+
+57i 3
+5e76 i+ 57i
+ 57i+57+566ur
+ [py4ep
+ 4e6
+  uw4o5 y-09u6 ]e4
+  d5o[-0 i4][7ie '
+  o4 6]
+  w45ol7] 34o y7[04i5y -6ou][e'5p oi6u-dou' 4el6'yo s-r09yo]]])))]]
 * [Authoring Tools](#authoring-tools)
 * [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [Topic Metadata](#topic-metadata)

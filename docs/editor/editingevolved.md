@@ -6,10 +6,23 @@ ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
 DateApproved: 10/4/2023
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
----
+---e55yipse958y0-35[o[4o67-w0459y -0o46lu]]
 # Code Navigation
 
-Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
+Visual Se y;'[5ioyu[ u
+;46
+';ua]o5y -9853-098 a30-58y aui u0 ea8 7 9&*E876e9tu)E &*T9&E8u36i3[46i9093803wip6oi309y8i 3ly
+;5yu
+;45u
+;' 35
+';35 oy[-059 yu-45o[l45o[ yi45[u['5 [3w45i u'46l
+;57i;' r6
+78p[-509678-937-54*68-*5 n8+58n
+5267
+n5e+9548+566i+e6868+
+ 2
+ e572 i+9+76i
+ 3d u+/7i+ 58e5+868+84;5lyu 98s57 y45u 'w35 '4tudio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
 ## Quick file navigation
 
