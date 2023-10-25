@@ -150,7 +150,7 @@ Now we need a place to store the grocery list items. For simplicity, let’s sta
 
     This creates a new empty dictionary that will receive keys of type `int` (which will be item IDs) and values of the `ItemPayload` type.
 
-We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for different functionalities within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
+We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for the different functionality within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
 
 Let's proceed with defining routes that will allow us to add and retrieve individual items, as well as list all items in the grocery list.
 
@@ -179,12 +179,12 @@ Let's proceed with defining routes that will allow us to add and retrieve indivi
         return {"item": grocery_list[item_id]}
     ```
 
-    If you have enabled type hints, you might notice Pylance adds inlay hints with the function return type, as well as the types for `item_ids` and `item_id`. You can optionally double click on each suggestion to insert them into the code:
+    If you have enabled type hints in the previous section, you might notice Pylance adds inlay hints with the function return type, as well as the types for `item_ids` and `item_id`. You can optionally double-click on each suggestion to insert them into the code:
     ![Inlay function return and variable type hints being displayed by Pylance throughout the sample code.](images/fastapi-tutorial/pylance_inlay_hints.png)
 
 Now let's see if this route is working as expected. The fastest way to do so is to leverage both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and allows you to interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
-4. Add a breakpoint next to the if quantity <= 0 statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). This will make the debugger stop prior to the execution of that line, allowing us to inspect the code line by line.
+4. Add a breakpoint next to the if `quantity <= 0` statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). This will make the debugger stop prior to the execution of that line, allowing us to inspect the code line by line.
     ![Breakpoint set next to the first line in the add_item function.](images/fastapi-tutorial/debugger_breakpoint.png)
 
 5. Start the debugger (`kb(workbench.action.debug.start)`), and then navigate to http://127.0.0.1:8000/docs in the browser.
