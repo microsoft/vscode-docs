@@ -257,4 +257,4 @@ To resolve this issue, clear out old folders from within the `obj` folder or cle
 
 ### I am not getting whole line completions
 
-Whole line completions are disabled when the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is enabled to allow you to take advantage of the more advanced [AI completion](/docs/editor/artificial-intelligence.md) capabilities. You can verify that Copilot is enabled by checking if the Copilot logo is present in the lower right corner of VS Code.
+Whole line completions are disabled when the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is enabled to allow you to take advantage of the more advanced [AI completion](/docs/editor/github-copilot.md) capabilities. You can verify that Copilot is enabled by checking if the Copilot logo is present in the lower right corner of VS Code.

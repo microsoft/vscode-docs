@@ -63,7 +63,7 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 GitHub Copilot provides suggestions for languages beyond Python and a wide variety of frameworks, including JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Linting
 
