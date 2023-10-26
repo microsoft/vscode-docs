@@ -13,37 +13,106 @@ This article explains the scheme for the c_cpp_properties.json settings file.
 
 Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md).For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
 
-## Example
+## Example of Variables
+
+Note, this is an example of all fields. You do not need to specify all fields in your `c_cpp_properties.json` file. The extension will automatically fill in any missing fields with default values.
 
 ```json
 {
-    "env" : {
-        "myDefaultIncludePath": [
-            "${workspaceFolder}",
-            "${workspaceFolder}/include"
+    "env": {
+        "myIncludePath": [
+            "${workspaceFolder}/include",
+            "${workspaceFolder}/src"
         ],
-        "myCompilerPath": "/usr/local/bin/gcc-7"
+        "myDefines": [
+            "DEBUG",
+            "MY_FEATURE=1"
+        ]
     },
     "configurations": [
         {
-            "name": "Mac",
-            "intelliSenseMode": "clang-x64",
-            "includePath": [ "${myDefaultIncludePath}", "/another/path" ],
-            "macFrameworkPath": [ "/System/Library/Frameworks" ],
-            "defines": [ "FOO", "BAR=100" ],
-            "forcedInclude": [ "${workspaceFolder}/include/config.h" ],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c23",
-            "cppStandard": "c++23",
-            "compileCommands": "/path/to/compile_commands.json",
+            "name": "Linux",
+            "compilerPath": "/usr/bin/gcc",
+            "compilerArgs": [
+                "-m32"
+            ],
+            "intelliSenseMode": "linux-gcc-x86",
+            "includePath": [
+                "${myIncludePath}",
+                "/usr/include"
+            ],
+            "defines": [
+                "${myDefines}"
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "forcedInclude": [
+                "${workspaceFolder}/common.h"
+            ],
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "dotconfig": "${workspaceFolder}/.config",
+            "mergeConfigurations": true,
+            "customConfigurationVariables": {
+                "myVar": "myvalue"
+            },
             "browse": {
-                "path": [ "${workspaceFolder}" ],
+                "path": [
+                    "${myIncludePath}",
+                    "/usr/include",
+                    "${workspaceFolder}"
+                ],
                 "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
+                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+            }
+        },
+        {
+            "name": "Mac",
+            "compilerPath": "/usr/bin/clang",
+            "intelliSenseMode": "macos-clang-x64",
+            "includePath": [
+                "${myIncludePath}"
+            ],
+            "defines": [
+                "${myDefines}"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "browse": {
+                "path": [
+                    "${myIncludePath}",
+                    "${workspaceFolder}"
+                ]
+            }
+        },
+        {
+            "name": "Win32",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
+            "intelliSenseMode": "windows-msvc-x64",
+            "includePath": [
+                "${myIncludePath}"
+            ],
+            "defines": [
+                "${myDefines}",
+                "_WINDOWS"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "windowsSdkVersion": "10.0.19041.0",
+            "browse": {
+                "path": [
+                    "${myIncludePath}",
+                    "${workspaceFolder}"
+                ]
             }
         }
     ],
-    "version": 4
+    "version": 4,
+    "enableConfigurationSquiggles": true
 }
 ```
 
@@ -78,9 +147,9 @@ Looking to get started with configuring your project? See [Configure Intellisens
   The IntelliSense mode to use that maps to an architecture-specific variant of MSVC, gcc, or Clang. If not set or if set to `${default}`, the extension will choose the default for that platform.
 
   Platform defaults:
-  - Windows: `msvc-x64`
-  - Linux: `gcc-x64`
-  - macOS: `clang-x64`
+  - Windows: `windows-msvc-x64`
+  - Linux: `linux-gcc-x64`
+  - macOS: `macos-clang-x64`
 
   IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
 
@@ -111,8 +180,7 @@ Looking to get started with configuring your project? See [Configure Intellisens
   A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
 
 - `compileCommands` (optional)
-  The full path to the `compile_commands.json` file for the workspace. The include paths and defines discovered in this file will take precedence over your other settings in `c_cpp_properties.json`, such as `includePath` and `defines`. If the compile commands database does not contain an entry for the translation unit that corresponds to the file you opened in the editor, then a warning message will appear and the extension will use the `includePath` and `defines` settings instead.
-
+  The full path to the `compile_commands.json` file for the workspace. If there is a matching entry in `compile_commands.json` for a file open in the editor, that command line will be  used to configure IntelliSense for that file, instead of the other fields of `c_cpp_properties.json`.
   For more information about the file format, see the [Clang documentation](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Some build systems, such as CMake, [simplify generating this file](https://cmake.org/cmake/help/v3.5/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html).
 
 - `dotconfig`
