@@ -319,7 +319,7 @@ For the steps below, make sure you have the following requirements installed on 
 
 #### Requirements
 -	[Docker for Windows](https://www.docker.com/)
--	[Dev Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+-	[VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 #### Create the Dev Container configuration
 1. Open the Command Palette and run the “Dev Container: Add Dev Container Configuration Files…"
@@ -328,7 +328,7 @@ For the steps below, make sure you have the following requirements installed on 
     <img src="images/fastapi-tutorial/devcontainers_python3.png" alt="Python 3 option selected in the Dev Container configuration files list." width="500"/>
 3. Select the default version.
 
-We can optionally install features to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed feature that installs and adds the proper dev container set up for Redis.
+We can optionally install Features to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed Feature that installs and adds the proper dev container set up for Redis.
 
 4. Select "Redis Server" as an additional feature to be installed, press "OK", and then select "Keep Defaults".
     <img src="images/fastapi-tutorial/devcontainers_redis_server_feature.png" alt="Redis Server option selected in the Dev Container configuration files list." width="500"/>
