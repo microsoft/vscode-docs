@@ -108,22 +108,11 @@ Let’s create the application!
 7. Stop the debugger by clicking on the stop icon in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
 
 ## Create a model for grocery list items
-Now that we have the FastAPI app working, let’s define our grocery list items by creating a Pydantic model.
-Pydantic is a data validation and parsing library that integrates seamlessly with FastAPI. It allows you to define data models using Python classes with [type hints](https://docs.python.org/3/library/typing.html) for automatic validation and parsing of incoming data (which are called payloads) in API requests.
+Now that we have the FastAPI app working, we can define our grocery list items by using [Pydantic](https://docs.pydantic.dev/latest/), which is a data validation and parsing library that integrates seamlessly with FastAPI. Pydantic allows you to define data models using Python classes with [type hints](https://docs.python.org/3/library/typing.html) for automatic validation and parsing of incoming data (which are called payloads) in API requests.
 
+Let's create a model for our grocery list items. We will use the `ItemPayload` model to define the data structure of the items we will be adding to the grocery list. This model will have three fields: `item_id`, `item_name`, and `quantity`.
 
-Pylance, the default language server for Python in VS Code, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. This is because Pylance is built on top of [Pyright](https://github.com/microsoft/pyright), which is a static type checker for Python that can detect type errors in your code to prevent bugs and improve code quality.
-
-The 3 steps below are optional, but given FastAPI leverages type hints extensively to improve code readability and validation, we can take advantage of Pylance's type checking features to catch errors early on:
-
-1. Open the Settings UI page (`kb(workbench.action.openSettings)`)
-2. Search for "python type checking mode" and set it to "basic" to enable basic type checking. This will enable Pylance to show diagnostics and warnings to catch simple type-related errors. Alternatively, you can set it to "strict" to enable more advanced [type checking rules](https://microsoft.github.io/pyright/#/configuration?id=diagnostic-rule-defaults).
-    ![Python Analysis Type Checking Mode options (off, basic and strict) in settings UI page.](images/fastapi-tutorial/type_checking_mode_setting.png)
-3. Next, search for "Python inlay type hints", and enable inlay hints for Variable Types and Function Return Types:
-    ![Two Python Analysis Type Hints settings being enabled in the settings UI page: for Function Return Types and for Variable Types.](images/fastapi-tutorial/function_and_variable_return_type_hint_settings.png)
-
-Now let's create a Pydantic model for grocery list items.
-1. Create a new Python file (`kb(workbench.action.files.newFile)` and select "Python File"
+1. Create a new Python file by clicking on **File** > **New File…** (`kb(workbench.action.files.newFile)`), and then select "Python File".
 2. Add the following lines to the file, and then save it in the `groceries-plugin` folder as `models.py` (`kb(workbench.action.files.saveAs)`):
     ```python
     from typing import Optional
@@ -134,6 +123,16 @@ Now let's create a Pydantic model for grocery list items.
         item_name: str
         quantity: int
     ```
+
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), the default language server for Python in VS Code, supports type hinting features that can be helpful for working with Pydantic models and FastAPI. This is because Pylance is built on top of [Pyright](https://github.com/microsoft/pyright), which is a static type checker for Python that can detect type errors in your code to prevent bugs and improve code quality.
+
+The 3 steps below are optional, but given FastAPI leverages type hints extensively to improve code readability and validation, we can take advantage of Pylance's type checking features to catch errors early on:
+
+1. Open the Settings UI page (`kb(workbench.action.openSettings)`)
+2. Search for "python type checking mode" and set it to "basic" to enable basic type checking. This will enable Pylance to show diagnostics and warnings to catch simple type-related errors. Alternatively, you can set it to "strict" to enable more advanced [type checking rules](https://microsoft.github.io/pyright/#/configuration?id=diagnostic-rule-defaults).
+    ![Python Analysis Type Checking Mode options (off, basic and strict) in settings UI page.](images/fastapi-tutorial/type_checking_mode_setting.png)
+3. Next, search for "Python inlay type hints", and enable inlay hints for Variable Types and Function Return Types:
+    ![Two Python Analysis Type Hints settings being enabled in the settings UI page: for Function Return Types and for Variable Types.](images/fastapi-tutorial/function_and_variable_return_type_hint_settings.png)
 
 ## Create Routes
 Now we need a place to store the grocery list items. For simplicity, let’s start with an empty dictionary.
@@ -314,24 +313,25 @@ If you are on Windows, you can work with Redis by setting up either a [Docker co
 Otherwise, if you are on a Linux or a macOS machine, you can install Redis by following the [instructions on their website](https://redis.io/docs/getting-started/), and then skip to the ["Replace the database"](#replace-the-database) section.
 
 ### Setting up a Docker Container on Windows
-The Dev Container extension for VS Code offers a simple way to configure a Linux-based workspace in your Windows machine, putting your entire project and its dependencies as well as tools you need for your project into a tidy container.
+The [VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) offers a streamlined approach to consolidate your project, its dependencies and all necessary tools into one tidy container, creating a full-featured development environment. The extension enables you to open your project inside (or mounted into) the container in VS Code, leveraging its complete range of feature set.
+
 For the steps below, make sure you have the following requirements installed on your machine:
 
 #### Requirements
 -	[Docker for Windows](https://www.docker.com/)
 -	[VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-#### Create the Dev Container configuration
-1. Open the Command Palette and run the “Dev Container: Add Dev Container Configuration Files…"
+#### Create the Dev container configuration
+1. Open the Command Palette and run the "Dev Containers: Add Dev Container Configuration Files…"
 2. Select "Python 3":
 
-    <img src="images/fastapi-tutorial/devcontainers_python3.png" alt="Python 3 option selected in the Dev Container configuration files list." width="500"/>
+    <img src="images/fastapi-tutorial/devcontainers_python3.png" alt="Python 3 option selected in the Dev Containers configuration files list." width="500"/>
 3. Select the default version.
 
 We can optionally install Features to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed Feature that installs and adds the proper dev container set up for Redis.
 
 4. Select "Redis Server" as an additional feature to be installed, press "OK", and then select "Keep Defaults".
-    <img src="images/fastapi-tutorial/devcontainers_redis_server_feature.png" alt="Redis Server option selected in the Dev Container configuration files list." width="500"/>
+    <img src="images/fastapi-tutorial/devcontainers_redis_server_feature.png" alt="Redis Server option selected in the Dev Containers configuration files list." width="500"/>
 
 This will create a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup will include steps such as installing the VS Code extensions we'll need as well as the project dependencies.
 
@@ -367,7 +367,7 @@ Once it's done, you will have a fully configured Linux-based workspace with Pyth
 
 Once the container is set up, you will notice an indicator on the bottom left corner of VS Code:
 
-![Dev Container indicator displayed on the bottom left corner of VS Code.](images/fastapi-tutorial/devcontainer_indicator.png)
+![Dev Containers indicator displayed on the bottom left corner of VS Code.](images/fastapi-tutorial/devcontainer_indicator.png)
 
 > Note: Double check that the Python and Pylance extensions have been successfully installed in the container by opening the Extensions view (`kb(workbench.view.extensions)`) and searching for them. If not, you can install them by clicking on the "Install in Dev Container" button.
 
