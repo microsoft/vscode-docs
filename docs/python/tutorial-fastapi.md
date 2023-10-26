@@ -328,7 +328,7 @@ For the steps below, make sure you have the following requirements installed on 
     <img src="images/fastapi-tutorial/devcontainers_python3.png" alt="Python 3 option selected in the Dev Containers configuration files list." width="500"/>
 3. Select the default version.
 
-We can optionally install Features to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed Feature that installs and adds the proper dev container set up for Redis.
+We can optionally install [Features](https://github.com/devcontainers/features) to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed Feature that installs and adds the proper dev container set up for Redis.
 
 4. Select "Redis Server" as an additional feature to be installed, press "OK", and then select "Keep Defaults".
     <img src="images/fastapi-tutorial/devcontainers_redis_server_feature.png" alt="Redis Server option selected in the Dev Containers configuration files list." width="500"/>
@@ -337,10 +337,17 @@ This will create a `.devcontainer` folder in your workspace, with a `devcontaine
 
 5. Open the `devcontainer.json` file.
 6. Add a "," after the `"features" : { ... }` entry, so we can add more settings to the file.
+
+Next, we will add the necessary dependency installation commands to the `postCreateCommand` property in the `devcontainer.json` file, so our application will be ready to run once the container is set up.
+
 7. Locate the content below and remove the comment (`//`) from that line, so the dependencies can be installed once the container is created:
     ```
     "postCreateCommand": "pip3 install --user -r requirements.txt",
     ```
+ You can learn more about the `postCreateCommand` and more in the [documentation](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+
+ Now we will use the `customizations` property to add the VS Code extensions we will want to be installed in the container.
+
 8. Add the following setting to `devcontainer.json`:
     ```
         // Use 'postCreateCommand' to run commands after the container is created.
@@ -360,8 +367,9 @@ This will create a `.devcontainer` folder in your workspace, with a `devcontaine
 
 10. Select the "Reopen in Container" button from the notification that will show up on the bottom right corner, or run the **Dev Containers: Reopen in Container** command from the Command Palette.
 
-    You can learn more about dev containers configuration in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file).
     > Note: it may take several minutes to build the container, depending on internet speed and machine performance.
+
+    You can learn more about dev containers configuration in the [documentation](https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file).
 
 Once it's done, you will have a fully configured Linux-based workspace with Python 3 and Redis Server installed.
 
