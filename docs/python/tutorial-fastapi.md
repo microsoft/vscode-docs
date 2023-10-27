@@ -215,7 +215,7 @@ Now let’s leverage VS Code's Debug Console to do some exploration.
 
 The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of a breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. You can learn more about Python debugging in VS Code in the [Python tutorial](python-tutorial.md#configure-and-run-the-debugger).
 
-You can now continue the execution of the code by clicking on the "Continue" button in the debug toolbar, or by pressing `F5` (`kb(workbench.action.debug.continue)`).
+You can now continue the execution of the code by clicking on the "Continue" button in the debug toolbar, or by pressing `kb(workbench.action.debug.continue)`.
 
 Finally, let's add the remaining routes for the application so we can list all items or specific items, as well as remove them from our grocery list. You can leave the debugger running as it will automatically reload the application when you save the changes you'll make in the next step.
 
@@ -325,13 +325,15 @@ For the steps below, make sure you have the following requirements installed on 
 1. Open the Command Palette and run the "Dev Containers: Add Dev Container Configuration Files…"
 2. Select "Python 3":
 
-    <img src="images/fastapi-tutorial/devcontainers_python3.png" alt="Python 3 option selected in the Dev Containers configuration files list." width="500"/>
+    ![Python 3 option selected in the Dev Containers configuration files list.](images/fastapi-tutorial/devcontainers_python3.png)
+
 3. Select the default version.
 
 We can optionally install [Features](https://github.com/devcontainers/features) to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), which is a community contributed Feature that installs and adds the proper dev container set up for Redis.
 
 4. Select "Redis Server" as an additional feature to be installed, press "OK", and then select "Keep Defaults".
-    <img src="images/fastapi-tutorial/devcontainers_redis_server_feature.png" alt="Redis Server option selected in the Dev Containers configuration files list." width="500"/>
+
+    ![Redis Server option selected in the Dev Containers configuration files list.](images/fastapi-tutorial/devcontainers_redis_server_feature.png)
 
 This will create a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup will include steps such as installing the VS Code extensions we'll need as well as the project dependencies.
 
@@ -381,7 +383,7 @@ Once the container is set up, you will notice an indicator on the bottom left co
 
 You should also see the selected Python interpreter information on the status bar at the bottom right corner, matching the version specified in the `devcontainer.json` file:
 
-<img src="images/fastapi-tutorial/devcontainer_python_interpreter.png" alt="Python interpreter selection" width="250"/>
+![Python interpreter selection](images/fastapi-tutorial/devcontainer_python_interpreter.png)
 
 > Note: If you don't see the Python interpreter information on the status bar, you can click on the Python interpreter indicator (or run the **Python: Select Interpreter** command from the Command Palette) and manually select the Python interpreter in the container.
 
@@ -636,7 +638,7 @@ Then when you want to reset the database, you can open the flushdb.py file in VS
 
 Note that this should be done with caution because it will delete all the keys in the current database, which could lead to data loss if done in production.
 
-## Optional: Create a ChatGPT plugin using GitHub Codespaces
+## Optional: Create a ChatGPT plugin
 With GitHub Codespaces, we can host our application for testing purposes to use with [ChatGPT Plugins](https://platform.openai.com/docs/plugins/introduction), which are tools that enable [ChatGPT](https://chat.openai.com/) to interact with existing APIs to enhance ChatGPT’s abilities, allowing it to perform a wide range of actions. ChatGPT Plugins are not currently publicly available, but you can join their [wait list](https://openai.com/waitlist/plugins) to get access. Once you do, you can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fPCjEbRpK1M?si=mTrthUxW_SgY4grR" title="Build a ChatGPT plugin with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
