@@ -31,10 +31,6 @@ The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elev
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
-## 32-bit versions
-
-If you need to run a 32-bit version of VS Code, both a 32-bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
-
 ## Updates
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will be installed (you won't need to do anything else to get the latest bits).

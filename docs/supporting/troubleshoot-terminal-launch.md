@@ -88,20 +88,6 @@ This can happen if Windows Subsystem for Linux (WSL) is not set up with a valid 
 * Open PowerShell and enter `wslconfig.exe /l` to confirm WSL is installed correctly and list the currently available Linux distributions within your system. Confirm a valid distribution has **(default)** next to it.
 * To change the default distribution, enter `wslconfig.exe /setdefault "distributionNameAsShownInList"`
 
-### The terminal not working when running the 32-bit Windows client on 64-bit Windows?
-
-The easy fix for this issue is to use the 64-bit version. If you must use the 32-bit version, you need to use the sysnative path when configuring your shell path instead of System32. Adding this setting should fix the issue:
-
-```json
-{
-   "terminal.integrated.profiles.windows": {
-      "Command Prompt": {
-         "path": "${env:windir}\\Sysnative\\cmd.exe"
-      }
-   }
-}
-```
-
 ### A native exception occurred
 
 Typically this error occurs due to anti-virus software intercepting and blocking the winpty/conpty components from creating the terminal process. To work around this error, you can exclude the following file from your anti-virus scanning:
