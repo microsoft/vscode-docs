@@ -116,11 +116,11 @@ Before you can use the CMake Tools extension to build a project, you need to con
 
 There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.
 
-The kit you selected previously is shown in the Status bar. For example:
+The kit you selected previously is shown in the CMake side panel. For example:
 
-![Selected kit in Status bar](images/cpp/cmake-kit-statusbar.png)
+![Selected kit in Side bar](images/cpp/cmake-kit.png)
 
-To change the kit, you can click on the kit in the Status bar, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
+To change the kit, you can click on the kit in the CMake side panel, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
 ### Select a variant
 
@@ -149,7 +149,7 @@ Now that you've selected a kit and a variant, open the Command Palette (`kb(work
 
 After configuring your project, you're ready to build. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Build** command, or select the **Build** button from the Status bar.
 
-![Build](images/cpp/cmake-build.png)
+![Build](images/cpp/cmake-build-v2.png)
 
 You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets. The selected target will appear in the Status bar next to the **Build** button.
 
