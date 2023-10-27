@@ -50,7 +50,7 @@ In this section, we will create a folder to open as a workspace in VS Code, set 
 
 1. In your file system, create a project folder for this tutorial, such as `groceries-plugin`.
 
-2. Open this new folder in VS Code (**File** > **Open Folder…** or `kb(workbench.action.files.openFolder)`).
+2. Open this new folder in VS Code (**File** > **Open Folder…**).
 
 3. When the [Workspace Trust](/docs/editor/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editor/workspace-trust.md).
 
@@ -97,7 +97,7 @@ The virtual environment will be created, the dependencies automatically installe
 
 Let's create the application!
 
-1. Create a new Python file by using **File** > **New File…** (`kb(workbench.action.files.newFile)`), and then select **Python File**.
+1. Create a new Python file by using **File** > **New File…** and then select **Python File**.
 
 2. Save it as `main.py` (`kb(workbench.action.files.saveAs)`) in the `groceries-plugin` folder.
 
@@ -137,7 +137,7 @@ Now that we have the FastAPI app working, we can define our grocery list items b
 
 Let's create a model for our grocery list items. We will use the `ItemPayload` model to define the data structure of the items to add to the grocery list. This model will have three fields: `item_id`, `item_name`, and `quantity`.
 
-1. Create a new Python file with **File** > **New File…** (`kb(workbench.action.files.newFile)`), and then select **Python File**.
+1. Create a new Python file with **File** > **New File…** and then select **Python File**.
 
 2. Add the following lines to the file, and then save it in the `groceries-plugin` folder as `models.py` (`kb(workbench.action.files.saveAs)`):
 
@@ -251,7 +251,7 @@ Now let's check if this route is working as expected. The fastest way to do so i
 
 Now let's use VS Code's Debug Console to do some exploration.
 
-10. Select the `if quantity <= 0` statement, right-click on the editor and select **Evaluate in Debug Console**:
+10. Select the `quantity <= 0` statement, right-click on the editor, and select **Evaluate in Debug Console**:
 
     ![Evaluate in Debug Console option displayed in the context menu when right-clicking on a line of code](images/fastapi-tutorial/fastapi_evaluate_debug_console.png)
 
@@ -719,7 +719,7 @@ Note that this should be done with caution because it will delete all the keys i
 
 ## Optional: Create a ChatGPT plugin
 
-With GitHub Codespaces, you can host your application for testing purposes when using [ChatGPT Plugins](https://platform.openai.com/docs/plugins/introduction). ChatGPT Plugings are tools that enable [ChatGPT](https://chat.openai.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. ChatGPT Plugins are not currently publicly available, but you can join their [wait list](https://openai.com/waitlist/plugins) to get access. Once you do, you can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
+With GitHub Codespaces, you can host your application for testing purposes when using [ChatGPT Plugins](https://platform.openai.com/docs/plugins/introduction). ChatGPT Plugins are tools that enable [ChatGPT](https://chat.openai.com/) to interact with existing APIs to enhance ChatGPT's abilities, allowing it to perform a wide range of actions. ChatGPT Plugins are not currently publicly available, but you can join their [wait list](https://openai.com/waitlist/plugins) to get access. Once you do, you can follow along the live stream recording below to create your own grocery list plugin for ChatGPT:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fPCjEbRpK1M?si=mTrthUxW_SgY4grR" title="Build a ChatGPT plugin with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
