@@ -216,7 +216,18 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore`, and `zenMode.centerLayout`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+
+Zen Mode can be further tuned by the following settings:
+
+* `zenMode.hideActivityBar`- Hide the Activity bar. Default `true`.
+* `zenMode.hideStatusBar` - Hide the Status bar. Default `true`.
+* `zenMode.hideLineNumbers` - Hide line numbers. Default `true`.
+* `zenMode.showTabs` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `zenMode.fullScreen` - Put workbench in full screen display. Default `true`.
+* `zenMode.restore` - Restore Zen Mode on restart. Default `true`.
+* `zenMode.centerLayout` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `zenMode.silentNotifications` - Do not display notifications. Default `true`.
 
 ### Centered editor layout
 
