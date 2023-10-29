@@ -569,7 +569,7 @@ Or in `settings.json`:
 {
     "dotfiles.repository": "your-github-id/your-dotfiles-repo",
     "dotfiles.targetPath": "~/dotfiles",
-    "dotfiles.installCommand": "~/dotfiles/install.sh"
+    "dotfiles.installCommand": "install.sh"
 }
 ```
 
