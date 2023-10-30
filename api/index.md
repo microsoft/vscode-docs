@@ -62,7 +62,7 @@ If you have questions for extension development, try asking on:
 
 * [VS Code Discussions](https://github.com/microsoft/vscode-discussions): GitHub community to discuss VS Code's extension platform, ask questions, help other members of the community, and get answers.
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are [thousands of questions](https://stackoverflow.com/questions/tagged/visual-studio-code) tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
-* [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
+* [VS Code Dev Slack](https://vscode-dev-community.slack.com): Public chatroom for extension developers. VS Code team members often join in the conversations.
 
 To provide feedback on the documentation, create new issues at [Microsoft/vscode-docs](https://github.com/microsoft/vscode-docs/issues).
 If you have extension questions that you cannot find an answer for, or issues with the VS Code Extension API, please open new issues at [Microsoft/vscode](https://github.com/microsoft/vscode/issues).
