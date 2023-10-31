@@ -385,7 +385,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-comment"></i>|comment|
 |<i class="codicon codicon-comment-add"></i>|comment-add|
 |<i class="codicon codicon-comment-discussion"></i>|comment-discussion|
-|<i class="codicon codicon-comment-comment-draft"></i>|comment-comment-draft|
+|<i class="codicon codicon-comment-draft"></i>|comment-draft|
 |<i class="codicon codicon-comment-unresolved"></i>|comment-unresolved|
 |<i class="codicon codicon-compare-changes"></i>|compare-changes|
 |<i class="codicon codicon-compass-active"></i>|compass-active|
