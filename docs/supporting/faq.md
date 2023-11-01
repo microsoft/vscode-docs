@@ -166,6 +166,11 @@ Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
 Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
 Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
 Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux x64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-x64/stable
+Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
+Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
+Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux Arm32 CLI | https://update.code.visualstudio.com/{version}/cli-linux-armhf/stable
 Linux Arm64  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
 Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
 Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
