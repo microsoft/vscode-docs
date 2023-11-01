@@ -69,6 +69,7 @@ Colors inside a text document, such as the welcome page.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
+- `textPreformat.background`: Background color for preformatted text segments.
 
 ## Action colors
 
@@ -569,6 +570,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestBorder`: The border color of a chat request.
 - `chat.slashCommandBackground`: The background color of a chat slash command.
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
+- `chat.avatarBackground`: The background color of a chat avatar.
+- `chat.avatarForeground`: The foreground color of a chat avatar.
 
 ## Inline Chat colors
 
