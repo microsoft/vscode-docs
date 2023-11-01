@@ -68,8 +68,8 @@ Colors inside a text document, such as the welcome page.
 - `textLink.activeForeground`: Foreground color for links in text when clicked on and on mouse hover.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
-- `textSeparator.foreground`: Color for text separators.
 - `textPreformat.background`: Background color for preformatted text segments.
+- `textSeparator.foreground`: Color for text separators.
 
 ## Action colors
 
