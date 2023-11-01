@@ -271,6 +271,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/custom-layout</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/sourcecontrol/overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -617,6 +622,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/python/tutorial-flask</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/python/tutorial-fastapi</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
