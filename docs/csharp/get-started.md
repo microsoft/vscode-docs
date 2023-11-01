@@ -69,6 +69,13 @@ Alternatively, you can run VS Code through the operating system UI, then use **F
 
 First, ensure you are within the new folder (workspace) that you created. From here, you can create the project in two ways.
 
+### Use the Solution Explorer
+
+1. Open the Explorer Panel, and select **Create .NET Project**.
+2. After selecting the command, you'll need to choose the project template. Choose **Console app**.
+3. Open the **Solution Explorer** and the Explorer Panel and open the Program.cs file that was created for you.
+4. To run your app, select **Run > Start Debugging** in the upper menu, or use the `kb(workbench.action.debug.start)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
+
 ### Use the Command Palette
 
 1. Bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET".
