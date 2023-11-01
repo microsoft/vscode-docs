@@ -116,11 +116,11 @@ Before you can use the CMake Tools extension to build a project, you need to con
 
 There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.
 
-The kit you selected previously is shown in the CMake side panel. For example:
+The kit you selected previously is shown in the CMake Tools side bar. For example:
 
 ![Selected kit in Side bar](images/cpp/cmake-kit.png)
 
-To change the kit, you can click on the kit in the CMake side panel, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
+To change the kit, you can click on the kit in the CMake Tools side bar, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
 ### Select a variant
 
