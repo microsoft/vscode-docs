@@ -11,7 +11,7 @@ DateApproved: 11/1/2023
 
 The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can connect to that machine from a VS Code client anywhere, without the requirement of SSH.
 
-Tunneling securely transmits data from one network to another.
+Tunneling securely transmits data from one network to another via [Microsoft dev tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview).
 
 This can eliminate the need for source code to be on your VS Code client machine since the extension runs commands and other extensions directly on the remote machine.
 
@@ -145,6 +145,8 @@ Once you connect from a remote VS Code instance, an SSH connection is created ov
 
 If you're part of an organization who wants to control access to Remote Tunnels, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
 
+You can learn more about the security of the underlying dev tunnels service in its [documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
+
 ### Are there usage limits for the tunneling service?
 
 To avoid abuse of the underlying tunneling service, there are usage limits in place for resources like number of tunnels and bandwidth. We anticipate most users to never reach these limits.
@@ -164,4 +166,4 @@ As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-
 
 ### Can I use other Remote Development Extensions or a dev container while I'm tunneling?
 
-Currently, you can connect to WSL over Remote - Tunnels.
+Yes! Currently, you can connect to [WSL](/docs/remote/wsl.md) and [dev containers](/docs/devcontainers/containers.md#open-a-folder-on-a-remote-tunnel-host-in-a-container) over Remote - Tunnels.
