@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -15,7 +15,7 @@ This topic covers:
 
 - Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
-- [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
+- [Registering a publisher](#create-a-publisher) necessary for publishing extensions
 
 ## vsce
 
@@ -38,7 +38,7 @@ $ cd myExtension
 $ vsce package
 # myExtension.vsix generated
 $ vsce publish
-# <publisherID>.myExtension published to VS Code Marketplace
+# <publisher id>.myExtension published to VS Code Marketplace
 ```
 
 `vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
@@ -62,131 +62,211 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
-Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
-
-```
-ERROR The extension 'name' already exists in the Marketplace.
-```
-
 ### Get a Personal Access Token
 
 First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
-From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+1. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
-![Personal settings menu](images/publishing-extension/token1.png)
+    ![Personal settings menu](images/publishing-extension/menu-pat.png)
 
-On the **Personal Access Tokens** page, select **New Token** to create a new Personal Access Token and set the following details:
+1. On the **Personal Access Tokens** page, select **New Token**:
 
-- Give it a Name
-- Set Organization to **All accessible organizations**
-- Optionally extend its expiration date
-- Set Scopes to **Custom defined** and choose the **Marketplace > Manage** scope
+    ![Create new token button](images/publishing-extension/new-token.png)
 
-![Create personal access token](images/publishing-extension/token2.png)
+1. In the Create a new personal access token modal, select the following details for the token:
 
-Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+    - Name: any name you want for the token
+    - Organization: **All accessible organizations**
+    - Expiration (optional): set the desired expiration date for the token
+    - Scopes: **Custom defined**:
+      - click **Show all scopes** link below the **Scopes** section
+      - in the Scopes list, scroll to **Marketplace** and select **Manage** scope
+
+    ![Create personal access token](images/publishing-extension/create-token.png)
+
+1. Click **Create**.
+
+    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
 
 ### Create a publisher
 
-A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
+A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
+To create a publisher:
 
-Test your publisher's personal access token using [`vsce`](#vsce), while at the same time storing it for later usage:
+1. Go to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
+1. Log in with the same Microsoft account you used to create the [Personal Access Token](#get-a-personal-access-token) in the previous section.
+1. Click **Create publisher** in the pane on the left.
+1. In the new page, specify the mandatory parameters for a new publisher - identifier and name (**ID** and **Name** fields respectively):
 
-```bash
-vsce login <publisher name>
-```
+    - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
+    - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
+
+    Below is an example of publisher identifier and name for the Docker extension:
+
+    ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
+
+1. Optionally, fill out the rest of the fields.
+1. Click **Create**
+1. Verify the newly created publisher using `vsce`. In your terminal, run the following command, and when prompted, type the Personal Access Token created in the previous step:
+
+    ```bash
+    vsce login <publisher id>
+
+    https://marketplace.visualstudio.com/manage/publishers/
+    Personal Access Token for publisher '<publisher id>': ****************************************************
+
+    The Personal Access Token verification succeeded for the publisher '<publisher id>'.
+    ```
+
+Once verified, you are ready to publish an extension.
 
 ### Publish an extension
 
-You can publish an extension using [`vsce`](#vsce) with the `publish` command:
+You can publish an extension in two ways:
 
-```bash
-vsce publish
-```
+1. Automatically, using `vsce publish` command:
 
-This command will ask for the personal access token, if you haven't already provided it with the `vsce login` command above.
+    ```bash
+    vsce publish
+    ```
 
-Alternatively, you can [package the extension](#packaging-extensions) (`vsce package`) and manually upload it to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
+    If you haven't already provided your personal access token with the `vsce login` command above, `vsce` will ask for it.
 
-![Add an extension through management page](images/publishing-extension/add-extension.png)
+1. Manually, using `vsce package` to package the extension into the installable VSIX format and then uploading it to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage):
+
+    ![Add an extension through management page](images/publishing-extension/add-extension.png)
 
 ## Review extension installs and ratings
 
-The same [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) gives you access to each extension's  Acquisition Trend over time, as well as Total Acquisition counts and Ratings & Reviews. Right-click an extension and choose **Reports**.
+The [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) gives you access to each extension's Acquisition Trend over time, as well as Total Acquisition counts and Ratings & Reviews. To see the reports, click an extension or choose **More Actions > Reports**.
 
 ![Marketplace extension report](images/publishing-extension/extension-report.png)
 
-## Auto-incrementing the extension version
+## Auto-increment the extension version
 
-You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
-
-For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
+When publishing an extension, you can auto-increment its version number by specifying the [SemVer](https://semver.org/)-compatible number or version (`major`, `minor`, or `patch`) to increment. For example, to update an extension's version from 1.0.0 to 1.1.0, you would specify:
 
 ```bash
 vsce publish minor
 ```
 
-This will modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute before publishing the extension.
-
-You can also specify a complete SemVer compatible version on the command line:
+or
 
 ```bash
-vsce publish 2.0.1
+vsce publish 1.1.0
 ```
 
-> **Note:** If `vsce publish` is run in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description).  The default commit message will be extension's version, but you can supply a custom commit message using the `-m` flag.  (The current version can be referenced from
-the commit message with `%s`.)
+Both commands will first modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute and then publish it with the updated version.
+
+> **Note:** If you run `vsce publish` in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description). The default commit message will be the extension's version, but you can supply a custom commit message using the `-m` flag. (The current version can be referenced from the commit message with `%s`).
 
 ## Unpublishing extensions
 
-You can unpublish an extension with the vsce tool by specifying the extension ID `publisher.extension`.
+You can unpublish an extension from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by clicking **More Actions > Unpublish**:
 
-```bash
-vsce unpublish (publisher name).(extension name)
-```
+![Unpublish the extension via the Marketplace management page](images/publishing-extension/unpublish-extension.png)
 
-> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
+Once unpublished, the extension's Availability status is changed to **Unpublished** and it will no longer be available for download from both the Marketplace and Visual Studio Code:
+
+![Unpublished extension](images/publishing-extension/unpublished-extension.png)
+
+> **Note:** When you unpublish an extension, the Marketplace will preserve the extension statistics.
+
+## Removing extensions
+
+You can remove an extension in two ways:
+
+1. Automatically, using [`vsce`](#vsce) with the `unpublish` command:
+
+    ```bash
+    vsce unpublish <publisher id>.<extension name>
+    ```
+
+1. Manually, from the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage) by clicking **More Actions > Remove**:
+
+    ![Remove the extension via the Marketplace management page](images/publishing-extension/remove-extension.png)
+
+In both cases, you will be prompted to confirm the removal by typing the extension name. Note that the removal action is **irreversible**.
+
+> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics. You may want to update your extension rather than unpublish it.
 
 ## Deprecating extensions
 
-An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
+You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strikethrough text in the UI:
 
-![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated.png)
+![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated-extension.png)
 
-VS Code will not automatically migrate or uninstall already installed deprecated extensions. Instead it will provide the following Migrate UI:
+Each deprecated extension has a yellow warning icon in the bottom right corner of the extension tile (see the screenshot above). When hovering over the extension tile, you can see deprecation details next to this icon, whether:
 
-![Deprecated extensions showing a migrate button](images/publishing-extension/deprecated-migrate.png)
+- The extension was deprecated without any alternatives:
 
-In order to mark your extension as deprecated, please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
+  ![Deprecated extension without alternatives](images/publishing-extension/deprecated-with-no-alternatives.png)
 
-> **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
+- The extension was deprecated in favor of another extension:
+
+  ![Deprecated extension with an alternative extension](images/publishing-extension/deprecated-with-alternative-extension.png)
+
+- The extension was deprecated in favor of a setting:
+
+  ![Deprecated extension with an alternative setting](images/publishing-extension/deprecated-with-alternative-setting.png)
+
+VS Code will not automatically migrate or uninstall already installed deprecated extensions. If a deprecated extension has an alternative extension, or a setting, VS Code will show a **Migrate** button to help you quickly switch to the specified alternative:
+
+![Deprecated extension with a migrate button](images/publishing-extension/deprecated-migrate-button.png)
+
+To mark your extension as deprecated, please leave a comment in the [Deprecated extensions](https://github.com/microsoft/vscode-discussions/discussions/1) discussion thread.
+
+> **Note:** For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
 
 ## Packaging extensions
 
-If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code Marketplace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
+You can choose to package your extension if you want to:
 
-For extension authors, they can run `vsce package` in extension root folder to create such VSIX files.
+- Test it on your VS Code instance.
+- Distribute it without publishing it to the Marketplace.
+- Share it with others privately.
 
-For users who receive such a VSIX file, they can install the extension with `code --install-extension my-extension-0.0.1.vsix`.
+Packaging means creating a `.vsix` file that contains your extension. This file can then be installed in VS Code. Some extensions publish `.vsix` files as a part of their GitHub releases.
 
-### Sharing privately with others
+For extension authors, to package an extension, run the following command in your extension's root folder:
 
-If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
+```bash
+vsce package
+```
+
+This command will create a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
+
+For users, to install a `.vsix` file in VS Code:
+
+1. Go to the Extensions view.
+1. Click **Views and More Actions...**
+1. Select **Install from VSIX...**
+
+or
+
+in your terminal, run the following command:
+
+```bash
+# if you use VS Code
+code --install-extension my-extension-0.0.1.vsix
+
+# if you use VS Code Insiders
+code-insiders --install-extension my-extension-0.0.1.vsix
+```
 
 ## Your extension folder
 
-To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
+To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your operating system, this folder has a different location:
 
-- **Windows** `%USERPROFILE%\.vscode\extensions`
-- **macOS** `~/.vscode/extensions`
-- **Linux** `~/.vscode/extensions`
+- **Windows:** `%USERPROFILE%\.vscode\extensions`
+- **macOS:** `~/.vscode/extensions`
+- **Linux:** `~/.vscode/extensions`
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can be done via the `engines.vscode` field inside `package.json`:
+When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` parameter inside `package.json`:
 
 ```json
 {
@@ -196,11 +276,12 @@ When authoring an extension, you will need to describe what is the extension's c
 }
 ```
 
-A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
+- A value of `1.8.0` (without caret) means that your extension is compatible only with VS Code `1.8.0`.
+- A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` field to make sure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
+You can use the `engines.vscode` parameter to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
 
-For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
+For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
 
 ## Advanced usage
 
@@ -235,6 +316,8 @@ To verify a publisher:
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+**Note**: Any changes to the publisher display name will revoke the verified badge.
 
 ### Eligible domains
 
@@ -330,7 +413,7 @@ vsce package --pre-release
 vsce publish --pre-release
 ```
 
-We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
+We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Thus, if you publish `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch` and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if 1.2.3 is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as 1.2.4. Full `semver` support will arrive in the future.
 
 VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
 Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
@@ -351,18 +434,18 @@ Platform-specific extensions are useful if your extension has platform-specific 
 
 When publishing platform-specific extensions, a separate package needs to be published for every platform that has platform-specific content. You can still publish a package without the `--target` flag and that package will be used as a fallback for all platforms for which there is no specific platform-specific package.
 
-The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64` and `darwin-arm64`.
+The currently available platforms are: `win32-x64`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 
-If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilites that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilities that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
 
 #### Publishing
 
 Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
 
-Here's how you can publish a VSIX for the `win32-x64` and `win32-ia32` platforms:
+Here's how you can publish a VSIX for the `win32-x64` and `win32-arm64` platforms:
 
 ```bash
-vsce publish --target win32-x64 win32-ia32
+vsce publish --target win32-x64 win32-arm64
 ```
 
 Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual. Here's how to do it for the `win32-x64` platform:
@@ -371,8 +454,6 @@ Alternatively, you can also use the `--target` option when packaging to simply c
 vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
-
-If VS Code does not detect a specific VSIX for `win32-x64` or `win32-arm64` platforms it will fallback to `win32-ia32` vsix. Because of this we recommend that if you publish multiple platforms that you publish `win32-ia32` last to avoid some users on `win32-x64` or `win32-arm64` getting the fallback package, while the right package is about to get uploaded.
 
 #### Continuous Integration
 
@@ -385,6 +466,10 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
+
+### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+
+The Visual Studio Marketplace does not allow an extension package to have more than ten `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
@@ -401,3 +486,13 @@ Note that when building and publishing your extension from Windows, all the file
 ### Can I publish from a continuous integration (CI) build?
 
 Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.
+
+### I get "ERROR The extension 'name' already exists in the Marketplace" error when I try to publish my extension?
+
+The Marketplace requires the [extension name](/api/references/extension-manifest) to be unique for every extension. If an extension with the same name already exists in the Marketplace, you will get the following error:
+
+```
+ERROR The extension 'name' already exists in the Marketplace.
+```
+
+The same rule applies for the [display name](/api/references/extension-manifest) of an extension.

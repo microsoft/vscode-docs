@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -77,7 +77,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLght": "#feedc3",
+          "highContrastLight": "#feedc3",
         }
       }
     ]
@@ -232,7 +232,7 @@ Otherwise, properties without an explicit order field appear in alphabetical ord
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
-Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
+Schema](https://json-schema.org/overview/what-is-jsonschema).
 
 **description** / **markdownDescription**
 
@@ -240,7 +240,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 
 ```json
 {
-  "gitMagic.blame.heatmap.enabled": {
+  "gitMagic.blame.heatMap.enabled": {
     "description": "Specifies whether to provide a heatmap indicator in the gutter blame annotations"
   }
 }
@@ -309,7 +309,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 
 ```json
 {
-  "gitMagic.blame.heatmap.location": {
+  "gitMagic.blame.heatMap.location": {
     "type": "string",
     "default": "right",
     "enum": ["left", "right"],
@@ -328,7 +328,7 @@ To customize the dropdown options, you can use `enumItemLabels`. The `workbench.
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -363,7 +363,7 @@ Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
 
-For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
+For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
 **scope**
 
@@ -500,7 +500,7 @@ Here's a basic `customEditor` contribution for the [custom editor extension samp
 
 - `selector` - Specifies which files a custom editor is active for.
 
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+    The `selector` is an array of one or more [glob patterns](/docs/editor/glob-patterns). These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
 
     You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
 
@@ -725,7 +725,7 @@ The main effects of `contributes.languages` are:
 
 - Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
-- Associate file name extensions (`extensions`), file names (`filenames`), file name glob patterns (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
+- Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
 - Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
 
@@ -766,45 +766,51 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 
 Currently extension writers can contribute to:
 
-- The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
-- The Explorer context menu - `explorer/context`
-- The editor context menu - `editor/context`
-- The editor title menu bar - `editor/title`
-- The editor title context menu - `editor/title/context`
-- The debug callstack view context menu - `debug/callstack/context`
-- The debug callstack view inline actions - `debug/callstack/context` group `inline`
-- The debug variables view context menu - `debug/variables/context`
-- The debug toolbar - `debug/toolBar`
-- The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
-- [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
-- [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
-- The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
-- The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
-- The macOS Touch Bar - `touchBar`
-- The comment thread title menu bar - `comments/commentThread/title`
-- The comment thread context menu - `comments/commentThread/context`
-- The comment title menu bar - `comments/comment/title`
-- The comment context menu - `comments/comment/context`
-- The Timeline view title menu bar - `timeline/title`
-- The Timeline view item context menu - `timeline/item/context`
-- The Extensions view context menu - `extension/context`
-- The Test Explorer item context menu - `testing/item/context`
-- The menu for a gutter decoration for a test item - `testing/item/gutter`
-- The notebook toolbar - `notebook/toolbar`
-- The notebook cell title menu bar - `notebook/cell/title`
-- The notebook cell execution menu - `notebook/cell/execute`
-- The interactive toolbar - `interactive/toolbar`
-- The interactive cell title menu bar - `interactive/cell/title`
-- Any [webview](/api/extension-guides/webview) context menu - `webview/context`
+- `commandPalette` - global Command Palette
+- `comments/comment/title` - Comments title menu bar
+- `comments/comment/context` - Comments context menu
+- `comments/commentThread/title` - Comments thread title menu bar
+- `comments/commentThread/context`- Comments thread context menu
+- `debug/callstack/context` - Debug Call Stack view context menu
+- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
+- `debug/toolBar` - Debug view toolbar
+- `debug/variables/context` - Debug Variables view context menu
+- `editor/context` - editor context menu
+- `editor/lineNumber/context` - editor line number context menu
+- `editor/title` - editor title menu bar
+- `editor/title/context` - editor title context menu
+- `editor/title/run` - Run submenu on the editor title menu bar
+- `explorer/context` - Explorer view context menu
+- `extension/context` - Extensions view context menu
+- `file/newFile`  - New File item in the File menu and Welcome page
+- `interactive/toolbar` - Interactive Window toolbar
+- `interactive/cell/title` - Interactive Window cell title menu bar
+- `notebook/toolbar` - notebook toolbar
+- `notebook/cell/title` - notebook cell title menu bar
+- `notebook/cell/execute` - notebook cell execution menu
+- `scm/title` - [SCM title menu](/api/extension-guides/scm-provider#menus)
+- `scm/resourceGroup/context` - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
+- `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
+- `terminal/context` - terminal context menu
+- `terminal/title/context` - terminal title context menu
+- `testing/item/context` - Test Explorer item context menu
+- `testing/item/gutter` - menu for a gutter decoration for a test item
+- `timeline/title` - Timeline view title menu bar
+- `timeline/item/context` - Timeline view item context menu
+- `touchBar` - macOS Touch Bar
+- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
+- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
+- `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
-> **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
+> **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+> **Note 2:** Commands of menu items contributed to `editor/lineNumber/context` are also passed the line number. Additionally these items can reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators to test it against an array-valued context key managed by the extension.
+
+In addition to a title, a contributed command can specify the icon which VS Code will show when the invoking menu item is represented as a button, for example on a title menu bar.
 
 ### menu example
 
@@ -828,6 +834,26 @@ Here's a command menu item:
 ```
 
 ![menus extension point example](images/contribution-points/menus.png)
+
+Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalApi.sendText",
+          "when": "view == terminal",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+![Adding a menu entry to view/title with view == terminal will result in an action in the panel when the terminal is open](images/contribution-points/menu_view_title.png)
 
 Here's a submenu menu item:
 
@@ -1202,9 +1228,9 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
-		return { name: 'Profile from extension', shellPath: 'bash' };
-	}
+  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+    return { name: 'Profile from extension', shellPath: 'bash' };
+  }
 });
 ```
 
@@ -1444,6 +1470,8 @@ Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are 
 Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
 
 Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+
+SVGs are recommended for images given their ability to scale and their support for VS Code's theme colors. Use the [Visual Studio Code Color Mapper](https://www.figma.com/community/plugin/1218260433851630449) Figma plugin to easily reference theme colors in the SVGs.
 
 ```json
 {

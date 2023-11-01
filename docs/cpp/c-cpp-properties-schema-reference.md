@@ -4,12 +4,12 @@ Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 8/23/2023
+DateApproved: 10/31/2023
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json reference
 
-This article explains the scheme for the c_cpp_properties.json settings file.
+This article explains the scheme for the `c_cpp_properties.json` settings file.
 
 Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md).For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
 
@@ -166,7 +166,7 @@ Note, this is an example of all fields. You do not need to specify all fields in
   The version of the C++ language standard to use for IntelliSense. For example, `c++20`, `gnu++23`, or `${default}`. Note: GNU standards are only used to query the set compiler to get GNU defines, and IntelliSense will emulate the equivalent C++ standard version.
 
 - `configurationProvider`
-  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
+  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension. If you have specified a configurationProvider, the configurations that provides will take precedence over your other settings in `c_cpp_properties.json`.
 
   A `configurationProvider` candidate extension must implement [vscode-cpptools-api](https://github.com/microsoft/vscode-cpptools-api).
 

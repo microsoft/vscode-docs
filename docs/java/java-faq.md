@@ -13,7 +13,7 @@ Thanks for your interest in Java on Visual Studio Code! This FAQ will hopefully 
 
 ## Are these Java extensions open source?
 
-Yes. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Microsoft, and Pivotal are open source, as well as most extensions supported by the community. You can find their corresponding repositories on GitHub from the Marketplace pages.
+Yes. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Microsoft, and VMware are open source, as well as most extensions supported by the community. You can find their corresponding repositories on GitHub from the Marketplace pages.
 
 ## Are there any other features coming to Java on Visual Studio Code?
 

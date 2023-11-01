@@ -29,9 +29,9 @@ If you don't have a Python project already, follow the tutorial [Getting started
 
 > **Note**: If you want to containerize a complete Django or Flask web app, you can start with one of the following samples:
 >
->- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/tree/tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
+>- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
 >
->- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/tree/tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
+>- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
 
 > **Note**: For this tutorial, be sure to use the **tutorial** branch of the sample repos.
 
@@ -156,7 +156,7 @@ The Docker Explorer provides an interactive experience to examine and manage Doc
 
 ## Build the image in Azure
 
-You can use the command **Azure Container Registry: Build Image in Azure** to build an image that you can then deploy to Azure App Service.
+You can use the command **Azure Container Registry: Build Image in Azure** to build an image that you can then deploy to Azure App Service or Azure Container Apps.
 
 1. Install the [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
 
@@ -178,13 +178,13 @@ You can use the command **Azure Container Registry: Build Image in Azure** to bu
 
 The process of building the image might take a few minutes. You can track progress in the terminal. If you encounter an error (`Error: failed to download context.`), try using the **Refresh** option on the container registry and then request another build. Before rebuilding, manually delete the old image.
 
-## Deploy to Azure App Service
+## Deploy to Azure App Service or Azure Container Apps
 
-Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might be useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), but we recommend you install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which includes a package of tools for a wide range of Azure development scenarios.
+Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service or Azure Container Apps. The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension is recommended for deployments to Azure App Service, and the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) extension is required for deployments to Azure Container Apps. You can obtain both if you install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which includes a package of tools for a wide range of Azure development scenarios.
 
-1. Right-click on the image tag and choose **Deploy Image to to Azure App Service**.
+1. Right-click on the image tag and choose **Deploy Image to Azure App Service** or **Deploy Image to Azure Container Apps**.
 
-   ![Deploy image to Azure App Service](images/app-service/deploy-image-to-azure-app-service.png)
+   ![Deploy image to Azure App Service](images/quickstarts/deploy-image-to-azure-python.png)
 
 1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the `settings.py` file.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -213,7 +213,7 @@ When running webpack, you might encounter a warning like **Critical dependencies
 To address the warning, you should either:
 
 * Try to make the dependency static so that it can be bundled.
-* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated glob pattern in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
+* Exclude that dependency via the `externals` configuration. Also make sure that those JavaScript files aren't excluded from the packaged extension, using a negated [glob pattern](/docs/editor/glob-patterns) in `.vscodeignore`, for example `!node_modules/mySpecialModule`.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 ---
 # Remote Development Tips and Tricks
 
@@ -34,10 +34,26 @@ To set up SSH key based authentication for your remote host. First we'll create 
 If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t ed25519 -b 4096
 ```
 
 > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).
+
+**Restrict the permissions on the private key file**
+
+* For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
+
+    ```
+    chmod 400 ~/.ssh/id_ed25519
+    ```
+
+* For Windows, run the following command in PowerShell to grant explicit read access to your username:
+
+    ```
+    icacls "privateKeyPath" /grant <username>:R
+    ```
+
+    Then navigate to the private key file in Windows Explorer, right-click and select **Properties**. Select the **Security** tab > **Advanced** > **Disable inheritance** > **Remove all inherited permissions from this object**.
 
 **Authorize your macOS or Linux machine to connect**
 
@@ -266,7 +282,7 @@ If you are connecting to an SSH remote host and are either:
 
 then VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
 
-If you are still having trouble, you may need to the following properties in `settings.json` and retry:
+If you are still having trouble, you may need to add the following properties in `settings.json` and retry:
 
 ```json
 "remote.SSH.showLoginTerminal": true,
@@ -525,7 +541,7 @@ If you want to run these steps manually, or if the command isn't working for you
 
 ```bash
 # Kill server processes
-kill -9 `ps aux | \grep vscode-server | \grep USER | \grep -v grep | awk '{print $2}'`
+kill -9 $(ps aux | grep vscode-server | grep $USER | grep -v grep | awk '{print $2}')
 # Delete related files and folder
 rm -rf $HOME/.vscode-server # Or ~/.vscode-server-insiders
 ```
@@ -727,7 +743,7 @@ Just follow these steps:
 2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
-     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
     ```
 
 Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
@@ -798,13 +814,13 @@ If you are trying to connect to a localhost port from an external application, t
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStorageUri` or `context.storageUri` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
 Extensions that require sign in may persist secrets using their own code. This code can fail due to missing dependencies. Even if it succeeds, the secrets will be stored remotely, which means you have to sign in for every new endpoint.
 
-**Resolution:** Extensions can use the `keytar` node module to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
+**Resolution:** Extensions can use the [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) to solve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-secrets) for details.
 
 ### An incompatible extension prevents VS Code from connecting
 

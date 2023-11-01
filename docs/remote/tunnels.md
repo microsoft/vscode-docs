@@ -5,7 +5,7 @@ TOCTitle: Tunnels
 PageTitle: Remote Tunnels
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 ---
 # Developing with Remote Tunnels
 
@@ -34,15 +34,23 @@ We'll describe both paths in the sections below.
 
 You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md).
 
-1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine.
+1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine. The CLI is automatically built into VS Code Desktop – no additional setup required.
 
-    The CLI is automatically built into VS Code Desktop – no additional setup required.
+    ### Alternative downloads
 
     Alternatively, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page, which is separate from a VS Code Desktop installation:
 
     ![VS Code download options with CLI highlighted](images/tunnels/tunneling-download.png)
 
-    > **Note:** If you're using the standalone install, the commands in the following section will start with `./code` rather than `code`.
+    You can also install and unpack the CLI through the terminal of your remote machine. This may be especially helpful if your remote doesn't have a UI:
+
+    ```bash
+    curl -Lk 'https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64' --output vscode_cli.tar.gz
+
+    tar -xf vscode_cli.tar.gz
+    ```
+
+    > **Note:** If you're using the standalone or terminal install, the commands in the following section will start with `./code` rather than `code`.
 
 2. Create a secure tunnel with the `tunnel` command:
 
@@ -74,7 +82,7 @@ You may create and use tunnels through the `code` [CLI](/docs/editor/command-lin
 
 >**Note:** The remote machine will only be reachable through a tunnel while VS Code remains running there. Once you exit VS Code it will no longer be possible to tunnel to it until you start VS Code there again or run the `code tunnel` CLI command.
 
-## Remote - Tunnels extension
+## Remote Tunnels extension
 
 The vscode.dev instances you open through the `code` CLI or VS Code UI come with the Remote - Tunnels extension preinstalled.
 
@@ -87,6 +95,18 @@ You can also view your remote machines in the Remote Explorer, which you may foc
 Like the other Remote Development extensions, the name of your remote machine will be listed in the lower left green remote indicator. Clicking on this indicator is another way to explore Remote Tunnels commands, along with options to close your remote connection or install VS Code Desktop.
 
 ![VS Code remote indicator connected to a remote tunnel](images/vscode-server/remote-indicator-server.png)
+
+### Open a folder on a Remote Tunnels host in a container
+
+If you are using a Linux machine as a tunnel host, you can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+
+To do so:
+
+1. Follow the [installation](/docs/devcontainers/containers.md#installation) steps for installing Docker on your remote host and VS Code and the Dev Containers extension locally.
+1. Follow the [Getting Started](#getting-started) instructions for the Remote - Tunnels extension to set up a tunnel, connect to it and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the [Dev Containers quick start](/docs/devcontainers/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Dev Containers extension in its documentation](/docs/devcontainers/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
 ## Common questions
 
@@ -124,3 +144,24 @@ Both hosting and connecting to a tunnel requires authentication with the same Gi
 Once you connect from a remote VS Code instance, an SSH connection is created over the tunnel in order to provide end-to-end encryption. The current preferred cipher for this encryption is AES 256 in CTR mode, and the code that implements this is [open source](https://github.com/microsoft/dev-tunnels).
 
 If you're part of an organization who wants to control access to Remote Tunnels, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
+
+### Are there usage limits for the tunneling service?
+
+To avoid abuse of the underlying tunneling service, there are usage limits in place for resources like number of tunnels and bandwidth. We anticipate most users to never reach these limits.
+
+For instance, right now you can have 5 tunnels registered for your account. If you'd like to create a new tunnel and already have 5 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.
+
+If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.
+
+### How can I ensure I keep my tunnel running?
+
+You have a few options:
+
+* Use the `service` command to run as a service. You can run `code tunnel service install` and `code tunnel service uninstall` to install and remove them.
+* Use the `no-sleep` option, `code tunnel --no-sleep`, to prevent your remote machine from going to sleep.
+
+As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
+
+### Can I use other Remote Development Extensions or a dev container while I'm tunneling?
+
+Currently, you can connect to WSL over Remote - Tunnels.

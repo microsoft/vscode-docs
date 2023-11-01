@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 8
 Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -348,7 +348,7 @@ A function breakpoint is created by pressing the **+** button in the **BREAKPOIN
 
 ### Data breakpoints
 
-If a debugger supports data breakpoints, they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
+If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The **Break on Value Change/Read/Access** commands will add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 

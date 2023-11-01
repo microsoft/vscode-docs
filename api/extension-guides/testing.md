@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Testing APIs in VS Code allow users to discover and run unit tests in their workspace
@@ -160,7 +160,7 @@ enum ItemType {
 
 const testData = new WeakMap<vscode.TestItem, ItemType>();
 
-const getType = (testItem: vscode.TestItem) => testData.get(ItemType)!;
+const getType = (testItem: vscode.TestItem) => testData.get(testItem)!;
 ```
 
 ## Running tests
@@ -311,6 +311,6 @@ In summary, the general steps are:
 
 The `testing/item/context` [menu contribution point](/api/references/contribution-points#contributes.menus) may be used to add menu items to Tests in the Test Explorer view. Place menu items in the `inline` group to have them inline. All other menu item groups will be displayed in a context menu accessible using the mouse right-click.
 
-Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios, where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
+Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios, where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-and-not-in-conditional-operators).
 
 If you want to reveal a test in the Explorer, you can pass the test to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testItem)`.

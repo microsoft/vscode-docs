@@ -5,11 +5,11 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 ---
 # Create a Dev Container
 
-The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to provide separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
@@ -135,18 +135,20 @@ See the [Dev Container Features specification](https://containers.dev/implemento
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Dev Containers: Rebuild Container** command for your container to update.
 
-However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
+However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json` or a custom `Dockerfile`.
+
+A custom `Dockerfile` will benefit from Docker's build cache and result in faster rebuilds than `postCreateCommand`. However, the `Dockerfile` runs before the dev container is created and the workspace folder is mounted and therefore does not have access to the files in the workspace folder. A `Dockerfile` is most suitable for installing packages and tools independent of your workspace files.
 
 The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
-"postCreateCommand": "bash scripts/install-dev-tools.sh"
+"postCreateCommand": "bash scripts/install-dependencies.sh"
 ```
 
 You can also use an interactive bash shell so that your `.bashrc` is picked up, automatically customizing your shell for your environment:
 
 ```json
-"postCreateCommand": "bash -i scripts/install-dev-tools.sh"
+"postCreateCommand": "bash -i scripts/install-dependencies.sh"
 ```
 
 Tools like NVM won't work without using `-i` to put the shell in interactive mode:
@@ -234,7 +236,7 @@ You can also iterate on your container when using the **Dev Containers: Clone Re
 
 1. Start with **Dev Containers: Clone Repository in Container Volume** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
-3. Try it with **DEv Containers: Rebuild Container**.
+3. Try it with **Dev Containers: Rebuild Container**.
 4. If you see an error, select **Open in Recovery Container** in the dialog that appears.
 5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
 6. Use **Dev Containers: Reopen in Container** and jump to step 4 if you still hit problems.

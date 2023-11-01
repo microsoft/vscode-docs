@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 13
 Area: python
 TOCTitle: Deploy Python Apps
 ContentId: 12bf713e-5f20-46ac-81bb-8e05565aba3a

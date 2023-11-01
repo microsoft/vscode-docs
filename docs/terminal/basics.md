@@ -4,23 +4,26 @@ Area: terminal
 TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
 
-Visual Studio Code includes a full featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md).
+Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
-To open the terminal:
+You can open a terminal as follows:
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut to toggle the terminal panel.
-* Use the `kb(workbench.action.terminal.new)` keyboard shortcut to create a new terminal.
-* Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
+* From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
+* To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+* To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
+
+VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
 ![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
-> **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
+> **Note:** If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
 
 ## Terminal shells
 
@@ -36,7 +39,7 @@ The terminal tabs UI is on the right side of the terminal view. Each terminal ha
 
 ![Activating the Launch Profile button will show all detected and manually configured profiles](images/basics/tabs.png)
 
-Terminal instances can be added by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
+Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `kbstyle(Delete)`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
@@ -46,32 +49,32 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 ### Groups (split panes)
 
-Multiple terminals can be placed side-by-side are called a group and are created by splitting a terminal:
+Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* On hover, selecting the inline split button.
-* Right-clicking the context menu and selecting the **Split** menu option.
+* Hover over a entry in the list of terminals on the right and select the inline split button.
+* Right-click the context menu and selecting the **Split** menu option.
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
-* Triggering the `kb(workbench.action.terminal.split)` command.
+* Trigger the `kb(workbench.action.terminal.split)` command.
 
 > **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` [setting](/docs/getstarted/settings.md).
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
+Dragging and dropping tabs in the list rearranges them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
 
 Moving a terminal into its own group can be done with the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
 ## Terminals in editor area
 
-Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and **Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
+You can open terminals in the editor area (terminal editors) with the **Terminal: Create New Terminal in Editor Area** command, the **Terminal: Create New Terminal in Editor Area to the Side** command, or by dragging a terminal from the terminal view into the editor area. Terminal editors are presented like regular editor tabs:
 
 ![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
-Terminal editors are ideal if you want a complex workbench layout such as terminals on either side of an editor or terminals arranged in two dimensions. Below PowerShell and WSL terminals are stacked in an editor group to the right of a group of file editors.
+You can have terminal editors on either side or arranged in multiple dimensions using the editor group layout system, e.g. PowerShell and WSL terminals stacked to the right of file editors:
 
-![Terminal editors are can be layed out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
+![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
-The `terminal.integrated.defaultLocation` setting can change the default terminal location to be in either the `view` or `editor` areas.
+The `terminal.integrated.defaultLocation` setting can change the default `view` or `editor` area terminal location.
 
 ## Navigating the buffer
 
@@ -95,25 +98,31 @@ Scrolling will happen instantaneously, but can be configured to animate over a s
 
 ## Links
 
-The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kbstyle(Ctrl)`/`kbstyle(Cmd)` and click.
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Hover over a link to display an underline, then hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key and click.
 
-There are several built-in link handlers that are used in the following priority order:
+These built-in link handlers are used in the following priority order:
 
-* URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+* URIs/URLs: Links that look like URIs, such as `https://code.visualstudio.com`, `vscode://path/to/file` or `file://path/to/file` will open using the standard handler for the protocol. For example, `https` links will open the browser.
 
   ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 
-* File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+* File links: Links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
 
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
-* Folder links: These are similar to file links but will open a new VS Code window at the folder.
+* Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
+* Word links: Fallback link type that uses the `terminal.integrated.wordSeparators` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
+
+The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLink)`) can be used to access links via the keyboard:
+
+![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
+
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
 
 ### Extensions handling links
 
@@ -123,11 +132,11 @@ Extensions can contribute **link providers** which allow the extension to define
 
 ### Keyboard accessibility
 
-Links are keyboard accessible through several commands that open links based on the type of link. These commands do not have default keyboard shortcuts.
+Links are keyboard accessible through several commands that open links based on the type of link.
 
-* **Terminal: Open Last Local File Link** - Opens the most recent local file link.
-* **Terminal: Open Last URL link** - Opens the most recent URI/URL link.
-* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all links (including word links).
+* **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
+* **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
+* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `kbstyle(Ctrl/Cmd+Shift+O)`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
 
 ## Copy & paste
 
@@ -139,7 +148,7 @@ The keybindings for copy and paste follow platform standards:
 
 Copying is done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
 
-By default there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
+By default, there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
 
 ## Using the mouse
 
@@ -297,7 +306,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 ## Fixed dimension terminals
 
-The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing psuedoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
+The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing pseudoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
 
 You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
@@ -314,6 +323,30 @@ The basics of the terminal have been covered in this document. Read on to find o
 ### I'm having problems launching the terminal
 
 There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
+
+### How do I create an Admin terminal?
+
+The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+
+You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
+
+### Can I add a keyboard shortcut for the Explorer's Open in Integrated Terminal command?
+
+You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
+
+![A folder selected in the Explorer displaying the context menu with the Open in Integrated Terminal command](images/basics/open-in-terminal-command.png)
+
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+
+The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)` for `openInTerminal`.
+
+```json
+{
+  "key": "ctrl+t",
+  "command": "openInTerminal",
+  "when": "filesExplorerFocus"
+}
+```
 
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
@@ -386,6 +419,14 @@ This normally means that the program/shell running inside the terminal requested
 set enable-bracketed-paste off
 ```
 
+Alternatively, bracketed paste mode can be forced to ignore the shell's request by turning it off with this setting:
+
+```json
+{
+  "terminal.integrated.ignoreBracketedPasteMode": true
+}
+```
+
 ### Ctrl+A, Ctrl+R output ^A, ^R on zsh
 
 This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts.
@@ -401,10 +442,10 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
 
 ```json
 {
-	"key": "cmd+.",
-	"command": "workbench.action.terminal.sendSequence",
-	"when": "terminalFocus",
-	"args": { "text": "\u0003" }
+  "key": "cmd+.",
+  "command": "workbench.action.terminal.sendSequence",
+  "when": "terminalFocus",
+  "args": { "text": "\u0003" }
 }
 ```
 

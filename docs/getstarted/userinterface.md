@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -15,19 +15,22 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 ## Basic Layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
-* **Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
-* **Panels** - You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal. Panel can also be moved to the right for more vertical space.
+* **Panel** - An additional space for views below the editor region. By default, it houses output, debug information, errors and warnings, and an integrated terminal. Panel can also be moved to the left or right for more vertical space.
+
+>**Tip:** A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)`.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
->**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Side Bar Right**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+
+>**Tip:** You can move the Primary Side Bar to the right hand side (**View** > **Toggle Primary Side Bar Position**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by side editing
 
@@ -49,6 +52,10 @@ By default editors will open to the right-hand side of the active one. You can c
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
+
+### Split in group
+
+You can also split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#split-in-group) topic.
 
 ## Minimap
 
@@ -84,9 +91,9 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/userinterface/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on macOS or Linux).
+VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on macOS or **Open Containing Folder** on Linux).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** (or **Reveal in Finder** on macOS or **Open Containing Folder** on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
@@ -203,8 +210,6 @@ Most editor configurations are kept in settings which can be modified directly. 
 * Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`) to edit the user `settings.json` file.
 * To edit workspace settings, select the **WORKSPACE SETTINGS** tab to edit the workspace `settings.json` file.
 
->**Note for macOS users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
-
 ![workspace settings](images/userinterface/workspace-settings.png)
 
 You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon to the left of the setting. Settings with a fixed set of values allow you to pick a value as part of their edit icon menu.
@@ -215,7 +220,18 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore`, and `zenMode.centerLayout`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+
+Zen Mode can be further tuned by the following settings:
+
+* `zenMode.hideActivityBar`- Hide the Activity bar. Default `true`.
+* `zenMode.hideStatusBar` - Hide the Status bar. Default `true`.
+* `zenMode.hideLineNumbers` - Hide line numbers. Default `true`.
+* `zenMode.showTabs` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `zenMode.fullScreen` - Put workbench in full screen display. Default `true`.
+* `zenMode.restore` - Restore Zen Mode on restart. Default `true`.
+* `zenMode.centerLayout` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `zenMode.silentNotifications` - Do not display notifications. Default `true`.
 
 ### Centered editor layout
 
@@ -368,6 +384,7 @@ The `window.restoreWindows` setting tells VS Code how to restore the opened wind
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
+* [Custom Layout](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

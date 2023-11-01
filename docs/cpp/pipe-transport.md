@@ -28,7 +28,7 @@ Pipe transport allows communication through a pipe program to a remote shell. Fo
 },
 ```
 
-The `pipeArgs` can be any set of arguments necessary to set up and authenticate the pipe connection. In the example, a password is used but you can also use an ssh key.
+The `pipeArgs` can be any set of arguments necessary to set up and authenticate the pipe connection. In the example, a password is used but you can also use an SSH key.
 
 You may also need to add a `sourceFileMap` to map the path of where the code exists on the remote shell to where it is locally:
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -21,7 +21,7 @@ In order to make working with Remote Development or Codespaces as transparent as
 
 - **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using Codespaces, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
 
-When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation. UI Extensions are run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions are run in a **Remote Extension Host** that sits in a small **VS Code Server**. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or GitHub Codespaces extensions when you open a folder in a container, on a remote SSH host, using Codespaces, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
+When a user installs an extension, VS Code automatically installs it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation; UI Extensions will run in VS Code's [local Extension Host](/api/advanced-topics/extension-host), while Workspace Extensions will run in a **Remote Extension Host** that sits in a small [**VS Code Server**](/docs/remote/vscode-server), if it exists in a remote workspace, otherwise will run in VS Code's local extension host if it exists locally. To ensure the latest VS Code client features are available, the server needs to match the VS Code client version exactly. Therefore, the server is automatically installed (or updated) by the Remote Development or GitHub Codespaces extensions when you open a folder in a container, on a remote SSH host, using Codespaces, or in the Windows Subsystem for Linux (WSL). (VS Code also automatically manages starting and stopping the server, so users aren't aware of its presence.)
 
 ![Architecture diagram](images/remote-extensions/architecture.png)
 
@@ -39,7 +39,7 @@ Debugging your extension in [GitHub Codespaces](https://docs.github.com/github/d
 
 Follow these steps:
 
-1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
+1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
 2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example, using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
@@ -162,43 +162,54 @@ In some cases, your extension may need to persist state information that does no
 
 However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" URIs that you can use to read/write global workspace-specific information in a file.
 
 To use the APIs:
 
 ```TypeScript
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', async () => {
+            if (!context.storageUri) {
+                return;
+            }
 
-        // Create the extension's workspace storage folder if it doesn't already exist
-        if (!fs.existsSync(context.storagePath)) {
-            fs.mkdirSync(context.storagePath);
+            // Create the extension's workspace storage folder if it doesn't already exist
+            try {
+                // When folder doesn't exist, and error gets thrown
+                await vscode.workspace.fs.stat(context.storageUri);
+            } catch {
+                // Create the extension's workspace storage folder
+                await vscode.workspace.fs.createDirectory(context.storageUri)
+            }
+
+            const workspaceData = vscode.Uri.joinPath(context.storageUri, 'workspace-data.json');
+            const writeData = new TextEncoder().encode(JSON.stringify({ now: Date.now() }));
+            vscode.workspace.fs.writeFile(workspaceData, writeData);
         }
-
-        // Write a file to the workspace storage folder
-        fs.writeFileSync(
-            path.join(context.storagePath, 'workspace-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+    ));
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', async () => {
 
-        // Create the extension's global (cross-workspace) folder if it doesn't already exist
-        if (!fs.existsSync(context.globalStoragePath)) {
-            fs.mkdirSync(context.globalStoragePath);
+        if (!context.globalStorageUri) {
+            return;
         }
 
-        // Write a file to the global storage folder for the extension
-        fs.writeFileSync(
-            path.join(context.globalStoragePath, 'global-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+        // Create the extension's global (cross-workspace) folder if it doesn't already exist
+        try {
+            // When folder doesn't exist, and error gets thrown
+            await vscode.workspace.fs.stat(context.globalStorageUri);
+        } catch {
+            await vscode.workspace.fs.createDirectory(context.globalStorageUri)
+        }
+
+        const workspaceData = vscode.Uri.joinPath(context.globalStorageUri, 'global-data.json');
+        const writeData = new TextEncoder().encode(JSON.stringify({ now: Date.now() }));
+        vscode.workspace.fs.writeFile(workspaceData, writeData);
+    ));
 }
 ```
 
@@ -210,37 +221,23 @@ There is an example of using `setKeysforSync` in the [Extension Capabilities](/a
 
 ### Persisting secrets
 
-If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
+If your extension needs to persist passwords or other secrets, you may want to use Visual Studio Code's [SecretStorage API](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) which provides a way to securely store text on the filesystem backed by encryption. For example, on desktop, we use Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage) to encrypt secrets before storing them on the filesystem. The API will always store the secrets on the client side but you can use this API regardless of where your extension is running and retrieve the same secret values.
 
-Visual Studio Code does not provide a secret persistence mechanism itself, but many extension authors have opted to use the [keytar node module](https://www.npmjs.com/package/keytar) for this purpose. For this reason, VS Code includes `keytar` and will **automatically and transparently** run it locally if referenced in a Workspace Extension. That way you can always take advantage of the local OS keychain / keyring / cert store and avoid the problems mentioned above.
+> NOTE: This API is the recommended way to persist passwords & secrets. You should _not_ store your secrets using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` because these APIs store data in plaintext.
 
-For example:
+Here's an example:
 
 ```typescript
-import { env } from 'vscode';
-import * as keytarType from 'keytar';
+import * as vscode from 'vscode';
 
-declare const __webpack_require__: typeof require;
-declare const __non_webpack_require__: typeof require;
-function getNodeModule<T>(moduleName: string): T | undefined {
-    const r = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
-    try {
-        return r(`${env.appRoot}/node_modules.asar/${moduleName}`);
-    } catch (err) {
-        // Not in ASAR.
-    }
-    try {
-        return r(`${env.appRoot}/node_modules/${moduleName}`);
-    } catch (err) {
-        // Not available.
-    }
-    return undefined;
+export function activate(context: vscode.ExtensionContext) {
+    // ...
+    const myApiKey = context.secrets.get('apiKey');
+    // ...
+    context.secrets.delete('apiKey');
+    // ...
+    context.secrets.store('apiKey', myApiKey);
 }
-
-// Use it
-const keytar = getNodeModule<typeof keytarType>('keytar');
-await keytar.setPassword('my-service-name','my-account','iamal337d00d');
-const password = await keytar.getPassword('my-service-name','my-account');
 ```
 
 ### Using the clipboard
@@ -286,7 +283,7 @@ export async function activate(context: vscode.ExtensionContext) {
         vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
 
         // Example 3 - Open the default email application.
-        vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
+        vscode.env.openExternal(vscode.Uri.parse('mailto:<fill in your email here>'));
     }));
 }
 ```
@@ -440,8 +437,8 @@ const panel = vscode.window.createWebviewPanel(
     vscode.ViewColumn.One);
 
 // Get the content Uri
-const catGifUri = panel.webview.asWebviewUri(vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')));;
+const catGifUri = panel.webview.asWebviewUri(
+    vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif'));
 
 // Reference it in your content
 panel.webview.html = `<!DOCTYPE html>
@@ -578,7 +575,7 @@ It is important to note that some third-party npm modules include native code th
 
 ## Avoid using Electron modules
 
-While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, [like `keytar`](#persisting-secrets), where there is specific code in place to make them work.
+While it can be convenient to rely on built-in Electron or VS Code modules not exposed by the extension API, it's important to note that VS Code Server runs a standard (non-Electron) version of Node.js. These modules will be missing when running remotely. There are a few exceptions, where there is specific code in place to make them work.
 
 Use base Node.js modules or modules in your extension VSIX to avoid these problems. If you absolutely have to use an Electron module, be sure to have a fallback if the module is missing.
 

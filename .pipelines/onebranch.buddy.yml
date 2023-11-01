@@ -21,19 +21,11 @@ resources:
   pipelines:
     - pipeline: vscode-website-main
       source: vscode-website (buddy)
-      trigger:
-        branches:
-          - main
-
-    - pipeline: vscode-website-prod
-      source: vscode-website (official)
-      trigger:
-        branches:
-          - prod
-
+      branch: main
+      trigger: true
 
 variables:
-  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
+  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
 
 extends:
   template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates

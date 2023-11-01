@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -62,7 +62,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [JavaScript Debugger](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug) | ✔ ([Repo](https://github.com/microsoft/vscode-js-debug)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-debug/license) |
 | [Kubernetes](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools/license) |
 | [Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare) |  | [Microsoft](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare/license)  |
-| [Live Share Audio](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-audio) |  | [Microsoft](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-audio/license) |
 | [Markdown Theme Kit](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit/license) |
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |

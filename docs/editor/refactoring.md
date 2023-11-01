@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
 PageTitle: Refactoring source code in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
@@ -95,7 +95,7 @@ This keybinding uses `"preferred": true` to create a refactoring that always tri
   "args": {
     "kind": "refactor.extract.constant",
     "preferred": true,
-    "apply": "ifsingle"
+    "apply": "ifSingle"
   }
 }
 ```

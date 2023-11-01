@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code language extensions contribute programming language features. These guidelines present the language features available in Visual Studio Code and explain the API.
@@ -717,8 +717,9 @@ In addition, your language server needs to respond to the `textDocument/formatti
 
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
-    public formatDocument(document: vscode.TextDocument):
-        Thenable<vscode.TextEdit[]> {
+    provideDocumentFormattingEdits(
+        document: vscode.TextDocument, options: vscode.FormattingOptions, token: vscode.CancellationToken)
+        : vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }
@@ -769,7 +770,7 @@ class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProv
     public provideDocumentRangeFormattingEdits(
         document: vscode.TextDocument, range: vscode.Range,
         options: vscode.FormattingOptions, token: vscode.CancellationToken):
-        Thenable<vscode.TextEdit[]>;
+        vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }
@@ -825,7 +826,7 @@ class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
     public provideOnTypeFormattingEdits(
         document: vscode.TextDocument, position: vscode.Position,
         ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken):
-        Thenable<vscode.TextEdit[]>;
+        vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }

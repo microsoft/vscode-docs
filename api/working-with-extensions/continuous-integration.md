@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -157,7 +157,7 @@ jobs:
 
 ### GitHub Actions automated publishing
 
-1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://docs.github.com/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
@@ -189,7 +189,7 @@ on:
     VSCE_PAT: $\{{ secrets.VSCE_PAT }}
 ```
 
-The [if](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
+The [if](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
 
 In our example, the condition has three checks:
 

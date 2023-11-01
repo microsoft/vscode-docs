@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -15,7 +15,7 @@ Color themes let you modify the colors in Visual Studio Code's user interface to
 
 ## Selecting the Color Theme
 
-1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on macOS).
+1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Theme** > **Color Theme**.
 2. You can also use the keyboard shortcut `kb(workbench.action.selectTheme)` to display the picker.
 3. Use the cursor keys to preview the colors of the theme.
 4. Select the theme you want and press `kbstyle(Enter)`.
@@ -26,7 +26,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
 
 ```json
   // Specifies the color theme used in the workbench.
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Solarized Dark"
 ```
 
 > **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
@@ -45,12 +45,14 @@ You can search for themes in the Extensions view (`kb(workbench.view.extensions)
 
 Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
 
-To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
+To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes in the Settings editor:
 
-* `workbench.preferredLightColorTheme` - defaults to "Default Light+"
-* `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
-* `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
-* `workbench.preferredHighContrastLightColorTheme` - defaults to "Default High Contrast Light"
+* **Workbench: Preferred Dark Color Theme** - defaults to "Dark Modern"
+* **Workbench: Preferred Light Color Theme** - defaults to "Light Modern"
+* **Workbench: Preferred High Contrast Color Theme** - defaults to "Dark High Contrast"
+* **Workbench: Preferred High Contrast Light Color Theme** - defaults to "Light High Contrast"
+
+![Settings editor filtered on the preferred color themes settings](images/themes/preferred-color-themes.png)
 
 ## Customizing a Color Theme
 
@@ -195,7 +197,7 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ### Selecting the File Icon Theme
 
-1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS).
+1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **Theme** > **File Icon Theme**.
 2. You can also use the **Preferences: File Icon Theme** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 3. Use the cursor keys to preview the icons of the theme.
 4. Select the theme you want and hit `kbstyle(Enter)`.
@@ -218,6 +220,16 @@ The active File Icon theme is persisted in your user [settings](/docs/getstarted
 ## Creating your own File Icon Theme
 
 You can create your own File Icon Theme from icons (preferably SVG), see the [File Icon Theme](/api/extension-guides/file-icon-theme.md) topic in our Extension API section for details.
+
+## VS Code for the Web
+
+VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev).
+
+You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
+
+For instance, you can go to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
+
+You can learn more about previewing and sharing themes with VS Code for the Web in its [documentation](/docs/editor/vscode-web.md#themes).
 
 ## Next steps
 

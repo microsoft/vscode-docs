@@ -10,11 +10,11 @@ MetaDescription: Frequently asked questions about the C/C++ extension in Visual 
 # Frequently asked questions
 
 - [How do I get IntelliSense to work correctly?](#how-do-i-get-intellisense-to-work-correctly)
+- [What is the difference between includePath and browse.path in c_cpp_properties.json?](#what-is-the-difference-between-includepath-and-browsepath)
 - [Why do I see red squiggles under Standard Library types?](#why-do-i-see-red-squiggles-under-standard-library-types)
 - [How do I get the new IntelliSense to work with MinGW on Windows?](#how-do-i-get-the-new-intellisense-to-work-with-mingw-on-windows)
 - [How do I get the new IntelliSense to work with the Windows Subsystem for Linux?](#how-do-i-get-the-new-intellisense-to-work-with-the-windows-subsystem-for-linux)
 - [Why are my files corrupted on format?](#why-are-my-files-corrupted-on-format)
-- [What is the difference between includePath and browse.path in c_cpp_properties.json?](#what-is-the-difference-between-includepath-and-browsepath)
 - [How do I recreate the IntelliSense database?](#how-do-i-recreate-the-intellisense-database)
 - [What is the ipch folder?](#what-is-the-ipch-folder)
 - [How do I disable the IntelliSense cache (ipch)?](#how-do-i-disable-the-intellisense-cache-ipch)
@@ -33,6 +33,20 @@ A third option for projects without build system extension support is to use a [
 
 **Note:** If the extension is unable to resolve any of the `#include` directives in your source code, it will not show linting information for the body of the source file. If you check the **Problems** window in VS Code, the extension will provide more information about which files it was unable to locate. If you want to show the linting information anyway, you can change the value of the `C_Cpp.errorSquiggles` setting.
 
+## What is the difference between includePath and browse.path?
+
+These two settings are available in `c_cpp_properties.json` and can be confusing.
+
+### includePath
+
+This array of path strings is used by the "Default" IntelliSense engine, which provides semantic-aware IntelliSense features. The include paths are the same paths that you would send to your compiler via the `-I` switch. When your source files are parsed, the IntelliSense engine will prepend these paths to the files specified by your #include directives while attempting to resolve them. These paths are **not** searched recursively unless they end with `/**`.
+
+### browse.path
+
+This array of path strings is used by the "Tag Parser" ("browse engine"), which populates a database with global symbol information. This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
+
+When you open a workspace for the first time, the extension adds `${workspaceFolder}/**` to the `includePath` and the `browse.path` is left undefined (so it defaults to the `includePath`). If this is undesirable, you can open your **c_cpp_properties.json** file and change it.
+
 ## Why do I see red squiggles under Standard Library types?
 
 The most common reason for this is missing include paths and defines. The easiest way to fix this is to set `compilerPath` in **c_cpp_properties.json** to the path to your compiler.
@@ -48,20 +62,6 @@ See [Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code]
 ## Why are my files corrupted on format?
 
 Files can be corrupted (and other features can fail) if a workspace folder is opened via a path with symlinks (issue [vscode-cpptools#5061](https://github.com/microsoft/vscode-cpptools/issues/5061)). The workaround is to open the workspace folder using a path that has the symlinks resolved to their target.
-
-## What is the difference between includePath and browse.path?
-
-These two settings are available in `c_cpp_properties.json` and can be confusing.
-
-### includePath
-
-This array of path strings is used by the "Default" IntelliSense engine, which provides semantic-aware IntelliSense features. The include paths are the same paths that you would send to your compiler via the `-I` switch. When your source files are parsed, the IntelliSense engine will prepend these paths to the files specified by your #include directives while attempting to resolve them. These paths are **not** searched recursively unless they end with `/**`.
-
-### browse.path
-
-This array of path strings is used by the "Tag Parser" ("browse engine"), which populates a database with global symbol information. This engine will **recursively** enumerate all files under the paths specified and track them as potential includes while tag parsing your project folder. To disable recursive enumeration of a path, you can append a `/*` to the path string.
-
-When you open a workspace for the first time, the extension adds `${workspaceFolder}/**` to the `includePath` and the `browse.path` is left undefined (so it defaults to the `includePath`). If this is undesirable, you can open your **c_cpp_properties.json** file and change it.
 
 ## How do I recreate the IntelliSense database?
 

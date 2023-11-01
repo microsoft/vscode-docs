@@ -5,7 +5,7 @@ TOCTitle: Dev Container CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the development container (dev container) command-line interface
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 ---
 # Dev Container CLI
 
@@ -19,9 +19,9 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Development containers are supported in Visual Studio Code via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in Visual Studio Code via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://containers.dev/), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
 ## The dev container CLI
 
@@ -157,7 +157,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
     }
     ```
 
-1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (such as [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
+1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (such as [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
 
     ```bash
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
@@ -167,13 +167,17 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
 
+## Templates and Features
+
+You can work with dev container [Templates](https://containers.dev/implementors/templates/) and [Features](https://containers.dev/implementors/features/) using the dev container CLI. As you create and use Templates, you may want to publish them for others, which you may learn more about in the [dev container spec](https://containers.dev/implementors/templates-distribution/).
+
 ## Feedback
 
 The dev container CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
 ## Next steps
 
-* [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
+* [Dev container specification repository](https://containers.dev/) - Read and contribute to the open specification.
 * [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.
 * [Create a Development Container](/docs/devcontainers/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.

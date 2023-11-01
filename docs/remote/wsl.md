@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 12/7/2022
+DateApproved: 11/1/2023
 ---
 # Developing in WSL
 
@@ -66,7 +66,7 @@ That's it! Any VS Code operations you perform in this window will be executed in
 Alternatively, you can open a WSL window directly from VS Code:
 
 1. Start VS Code.
-2. Press `kbstyle(F1)`, select **WSL: New WSL Window** for the default distro or **WSL: New WSL Window using Distro** for a specific distro.
+2. Press `kbstyle(F1)`, select **WSL: Connect to WSL** for the default distro or **WSL: Connect to WSL using Distro** for a specific distro.
 3. Use the File menu to open your folder.
 
 If you already have a folder open, you can also use the **WSL: Reopen Folder in WSL** command. You will be prompted which distro to use.
@@ -217,7 +217,7 @@ In addition, some extensions installed in an WSL when using an Alpine Linux-base
 
 ### Why am I asked to change the default distro?
 
-When using **WSL: New WSL Window using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
+When using **WSL: Connect to WSL using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
 
 You can always manually switch the default distro by using [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config).
 
