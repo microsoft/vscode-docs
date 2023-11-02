@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 ---
 # Remote Development using SSH
 
@@ -291,7 +291,6 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-- You cannot use Dev Containers from a Remote - SSH connection to a Windows machine.
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Docker Extension limitations
