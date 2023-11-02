@@ -13,7 +13,7 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Tutorial</a>
 
 ## Install Python and the Python extension
 
@@ -45,7 +45,7 @@ The Python extension automatically removes indents based on the first non-empty 
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command that activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
-For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md#run-hello-world).
+For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md).
 
 ## Autocomplete and IntelliSense
 
