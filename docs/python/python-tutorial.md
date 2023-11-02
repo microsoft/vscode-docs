@@ -138,7 +138,7 @@ Finally, save the file (`kb(workbench.action.files.save)`). At this point, you'r
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
-## Run Python Code
+## Run Python code
 
 Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
