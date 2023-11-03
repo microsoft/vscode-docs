@@ -123,9 +123,13 @@ One trick to get Copilot on the right page is to copy and paste sample code that
 
 Copilot is going to latch on to your code to generate suggestions that follow the existing pattern so the adage "garbage in, garbage out" applies.
 
-Keeping a high quality bar can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode. You can temporarily deactivate Copilot from the Status bar.
+Keeping a high quality bar can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot status bar item.
 
-![Deactivate Copilot from the Copilot button on the Status bar](images/artificial-intelligence/deactivate-copilot.png)
+![Hover over the Copilot status bar item displays "Show Copilot status menu"](images/artificial-intelligence/show-copilot-status-menu.png)
+
+From the dropdown, you can disable completions entirely or just for the active file type, for example Markdown files.
+
+![Copilot status menu dropdown with Disable Completions selected](images/artificial-intelligence/disable-completions.png)
 
 <!-- ### Be specific
 
