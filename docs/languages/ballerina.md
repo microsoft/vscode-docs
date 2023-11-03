@@ -1,5 +1,5 @@
 # Ballerina in Visual Studio Code
-Ballerina is a open source, cloud-native programming language optimized for implementing integration solutions by providing built-in support for common enterprise integration patterns.
+Ballerina is an open source, cloud-native programming language optimized for implementing integration solutions by providing built-in support for common enterprise integration patterns.
 
 
 The Ballerina Visual Studio Code extension offers the ability to visualize the bidirectional mapping between the syntax and graphical representation of your Ballerina source code.
@@ -8,33 +8,40 @@ The Ballerina Visual Studio Code extension offers the ability to visualize the b
 Apart from the built-in visual programming features, the Ballerina VS Code extension enhances the Ballerina development experience by providing a comprehensive set of other features, including code editing, debugging, code execution, and code deployment.
 
 
-![Sequence diagram view](images/ballerina/intro.png)
+![Ballerina extension overview](images/ballerina/intro.png)
 
 
-## [Get started](https://wso2.com/ballerina/vscode/docs/)
+## Get started
 
 
 To get started with the Ballerina VS Code extension:
-1. Download and install [Ballerina](https://ballerina.io/downloads/)
-2. Download and install [Ballerina extension](https://marketplace.visualstudio.com/items?itemName=WSO2.ballerina)
+Download and install [Ballerina](https://ballerina.io/downloads/)
+Download and install [Ballerina extension](https://marketplace.visualstudio.com/items?itemName=WSO2.ballerina)
+[Learn more](https://wso2.com/ballerina/vscode/docs/)
 
 
 ## Visual editing
-### [Explore the Sequence Diagram View](https://wso2.com/ballerina/vscode/docs/implement-the-code/sequence-diagram-view/)
+### Explore the Sequence Diagram View
 The visual representation provided by the Ballerina VS Code extension has its roots in sequence diagrams. They can capture how the logic of your program flows, how the concurrent execution flow works, which remote endpoints are involved, and how those endpoints interact with the different workers in the program.
 
 
 ![Sequence diagram view](images/ballerina/sequence-diagram.png)
 
 
-### [Explore the Data Mapper view](https://wso2.com/ballerina/vscode/docs/implement-the-code/data-mapper/)
+[Learn more](https://wso2.com/ballerina/vscode/docs/implement-the-code/sequence-diagram-view/)
+
+
+### Explore the Data Mapper view
 When you map data via the user interface, the Data Mapper generates the required Ballerina source code. Since the Ballerina source code is the single source of truth for the Visual Data Mapper, it also lets you open and edit the existing data mappings made via the source code without changing the user experience.
 
 
 ![Data mapper view](images/ballerina/datamapper.png)
 
 
-### [Explore the Architecture View](https://wso2.com/ballerina/vscode/docs/design-the-application/explore-the-architecture-view/)
+[Learn more](https://wso2.com/ballerina/vscode/docs/implement-the-code/data-mapper/)
+
+
+### Explore the Architecture View
 Click the `Ballerina: Architecture View` command in the Command Palette to open the Architecture View.
 
 
@@ -43,7 +50,7 @@ Once you open the Architecture View, you will see the following types of diagram
 
 Level 1 Diagram |Level 2 Diagram |Type Diagram
 :-------------------------:|:-------------------------:|:-------------------------:
-![Architecture view](images/ballerina/architecture-level1.png) | ![Architecture view](images/ballerina/architecture-level2.png) | ![Architecture view](images/ballerina/architecture-typediagram.png)
+![Architecture view - Level 1](images/ballerina/architecture-level1.png) | ![Architecture view - Level 2](images/ballerina/architecture-level2.png) | ![Architecture view - Type diagram](images/ballerina/architecture-typediagram.png)
 
 
 
@@ -57,6 +64,9 @@ In addition to the above, the Architecture View includes the following features.
 - Export the diagrams in JPEG format
 
 
+[Learn more](https://wso2.com/ballerina/vscode/docs/design-the-application/explore-the-architecture-view/)
+
+
 ### Explore the ER Diagram view
 
 
@@ -66,21 +76,18 @@ This module provides the ER diagram feature for persist modules. It allows devel
 ![ER Diagram](images/ballerina/er-diagram.png)
 
 
-### [Explore the API Designer view](https://wso2.com/ballerina/vscode/docs/design-the-services/)
-The HTTP API Designer enables you to design HTTP services interactively. This feature allows you to design services rapidly without the need to have extensive knowledge of the HTTP service syntax of Ballerina.
+### Explore the API Designer view
+The HTTP API Designer and GraphQL API Designer enables you to design HTTP/GraphQL services interactively. This features allows you to design services rapidly without the need to have extensive knowledge of the syntaxes of Ballerina.
 
 
 ![Service Designer](images/ballerina/service-designer.png)
 
-
-Learn More:
+[Learn More](https://wso2.com/ballerina/vscode/docs/design-the-services):
 - [HTTP API Designer](https://wso2.com/ballerina/vscode/docs/design-the-services/http-api-designer/)
 - [GraphQL API Designer](https://wso2.com/ballerina/vscode/docs/design-the-services/graphql-api-designer/)
 
 
-### [Try the services](https://wso2.com/ballerina/vscode/docs/try-the-services/)
-
-
+### Try the services
 While you develop an HTTP/GraphQL service, you need to try and debug it to check how it works. The Ballerina VS Code extension provides the Swagger and Graphql `Try it` views, which give the ability to try HTTP/GraphQL services within VS Code instead of using any third-party software.
 
 
@@ -89,6 +96,7 @@ HTTP |GraphQL |
 ![TryIt HTTP](images/ballerina/tryit-http.png) | ![TryIt GraphQL](images/ballerina/tryit-graphql.png)
 
 
+[Learn more](https://wso2.com/ballerina/vscode/docs/try-the-services/)
 
 
 ## Language Support
@@ -105,32 +113,28 @@ Run the program using one of the options below.
 ![Run Ballerina](images/ballerina/run-ballerina.png)
 
 
+[Learn more](https://www.google.com/url?q=https://wso2.com/ballerina/vscode/docs/run-a-program/&sa=D&source=docs&ust=1698893748095434&usg=AOvVaw2_Gl_ZOxQkvz-Y1WslTEok)
+
+
 ### Debug a program
-
-
 The VS Code extension provides three types of sessions below to debug your Ballerina code.
 
 
-- `[Program debug sessions](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#program-debug-sessions)` - debug a Ballerina program
-- `[Test debug sessions](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#test-debug-sessions)` - debug a test function
-- `[Remote debug sessions](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#remote-debug-sessions)` - debug a Ballerina program that is running remotely
-
+- [`Program debug sessions`](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#program-debug-sessions) - debug a Ballerina program
+- [`Test debug sessions`](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#test-debug-sessions) - debug a test function
+- [`Remote debug sessions`](https://wso2.com/ballerina/vscode/docs/debug-the-code/debug-sessions/#remote-debug-sessions) - debug a Ballerina program that is running remotely
 
 There are two methods to debug the above sessions.
 
-
 1. Click on the `Debug` CodeLens, which appears at the top of a Ballerina program or a test function.
 
-
 2. Create a `launch.json` file with the required configuration attributes (use the default configurations or edit them as required) and use either of the options below.
+    1. `Ballerina Debug`
+    2. `Ballerina Test`
+    3. `Ballerina Remote`
 
 
-1. `Ballerina Debug`
-2. `Ballerina Test`
-3. `Ballerina Remote`
-
-
-### IntelliSense
+### [IntelliSense](https://wso2.com/ballerina/vscode/docs/write-the-code/intellisense/)
 - Code completion and snippets
 
 
