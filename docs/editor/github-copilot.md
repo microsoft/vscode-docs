@@ -178,9 +178,9 @@ You can access the Chat view via the Activity Bar:
 
 ![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
 
-Like other views in VS Code, you can move it anywhere. For example, you can move it to the secondary sidebar so that you can use other views like the Explorer at the same time:
+Like other views in VS Code, you can move it anywhere. For example, you can move it to the [Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar) so that you can use other views like the Explorer at the same time:
 
-![Copilot view moved to secondary sidebar](images/artificial-intelligence/secondary-sidebar.png)
+![Copilot view moved to Secondary side bar](images/artificial-intelligence/secondary-sidebar.png)
 
 Copilot will suggest potential questions to get started. You can select any of these questions or use the chat box to type your own:
 
@@ -190,22 +190,35 @@ As you continue asking questions, Copilot maintains the history of your conversa
 
 You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
 
-### Slash commands
+### Agents and slash commands
 
-To further help Copilot give you more relevant answers, you can choose a topic for your questions through "slash commands."
+To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
 
-You can prepend your chat inputs with a specific topic name to help Copilot give you a more relevant response. When you start typing `/`, you’ll see the list of possible topics:
+Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are two agents:
+
+* `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
+* `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
+
+You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
+
+![Asking the @vscode agent how to change the VS Code colors](images/artificial-intelligence/agent-example.png)
+
+Agent can also support slash commands for specific types of questions or tasks. For example, `@workspace /explain` can be used to ask Copilot to explain a file or code selection in the context of your open workspace. To see the available agents and slash commands, type `/` for a list.
 
 ![Copilot slash command list in chat](images/artificial-intelligence/slash-commands.png)
 
-* /explain: Explain step-by-step how the selected code works.
-* /fix: Propose a fix for the bugs in the selected code.
-* /help: Prints general help about GitHub Copilot.
-* /tests: Generate unit tests for the selected code.
-* /vscode: Questions about VS Code commands and settings.
-* /clear: Clear the session.
+* @workspace /explain: Explain step-by-step how the selected code works.
+* @workspace /fix: Propose a fix for the bugs in the selected code.
+* @workspace /new: Create a new project based on a natural language description.
+* @workspace /newNotebook: Create a new Jupyter Notebook based on your description.
+* @workspace /terminal: Explain how to do something in the integrated terminal.
+* @workspace /tests: Generate unit tests for the selected code.
+* @vscode /api : Questions about VS Code extension development.
 
-![Example using /vscode slash command](images/artificial-intelligence/slash-commands-example.png)
+In addition to agent and slash command combinations, there are general purpose slash commands for actions such as clearing the chat session or getting help.
+
+* /help: Prints general help about GitHub Copilot.
+* /clear: Clear the session.
 
 ## Inline chat
 
@@ -217,7 +230,7 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" If you have code selected in the editor, Copilot will scope your question to the selection.
 
-Several [slash commands](#slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+Several [agents and slash commands](#agents-and-slash-commands) also work in inline chat such as `@workspace /explain` to ask Copilot to explain a block of code or `@workspace /test` to generate unit tests.
 
 ## Quick Chat
 
@@ -225,7 +238,7 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 
 ![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
 
-You can type questions, scope your questions with slash commands such as `/explain` and `/vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
+You can type questions, scope your questions with agents and slash commands such as `@workspace /explain` and `@vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/artificial-intelligence/open-in-chat-view.png)
 
