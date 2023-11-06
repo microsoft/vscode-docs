@@ -39,7 +39,7 @@ Open the Quick Pick by entering **Select IntelliSense Configuration** in the Com
 
 ![Select a compiler to configure for IntelliSense Quick Pick](images/intellisense/compiler-quick-pick.png)
 
-Select one of the options available. If you select a compiler, this compiler is used by IntelliSense by default. You can return to the **IntelliSense Configuration** Quick Pick at any point to change which option is used to configure IntelliSense.
+Select one of the options available. If you select a compiler, this compiler is used by IntelliSense by default. You can return to the **Configure IntelliSense** Quick Pick at any point to change which option is used to configure IntelliSense.
 
 If no options are available in the Quick Pick, no compiler could be identified in your system. You can browse your machine manually or install a C/C++ compiler. To install on a Windows machine, select the **Help me install a compiler** option that redirects you to the step-by-step walkthrough of how to install a C/C++ compiler. On a macOS or Linux machine, select **Install a compiler** and navigate through the prompts to have a C++ compiler installed on your machine.
 
