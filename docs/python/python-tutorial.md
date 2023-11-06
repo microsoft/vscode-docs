@@ -12,9 +12,11 @@ MetaSocialImage: images/tutorial/social.png
 
 In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
+If you are new to Python programming, check out the [Visual Studio Code for Education - Introduction to Python](https://vscodeedu.com/courses/intro-to-python) introductory course. This course offers a comprehensive introduction to Python, featuring structured modules in a ready-to-code browser-based development environment.
+
 To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
 
-If you are looking for a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
+For a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
 
 ## Prerequisites
 
