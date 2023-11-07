@@ -9,33 +9,33 @@ MetaDescription: Visual Studio Code user accessibility features.  Learn here abo
 ---
 # Accessibility
 
-Visual Studio Code has many features to help make the editor accessible to all users. Zoom and High Contrast colors improve editor visibility, keyboard-only navigation allows use without a mouse, and the editor has been optimized for screen readers.
+Visual Studio Code has many features to help make the editor accessible to all users. Zoom levels and High Contrast colors improve editor visibility, keyboard-only navigation supports use without a mouse, and the editor has been optimized for screen readers.
 
 ## Zoom
 
-You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **Zoom** commands.  The zoom level increases or decreases by 20% each time a **Zoom** command is executed.
+You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **Zoom** commands.  Each **Zoom** command  increases or decreases the zoom level by 20 percent.
 
 * **View** > **Appearance** > **Zoom In** (`kb(workbench.action.zoomIn)`) - increase the Zoom level.
 * **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the Zoom level.
 * **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`) - reset the Zoom level to 0.
 
->**Note**: If you are using a magnifier make sure to hold the `alt` key while viewing the hover to allow the mouse to move over the hover.
+>**Note**: If you are using a magnifier, hold down the `kbstyle(Alt)` key while viewing the hover to move the cursor over the hover.
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
 ### Persisted Zoom Level
 
-When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20%.
+When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
 
 ## High Contrast theme
 
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+VS Code supports a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
 ## Color vision accessibility
 
-You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "colorblind" to populate relevant options.
+You can search for extensions in **Visual Studio Marketplace** that are compatible with color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "colorblind" to populate relevant options.
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
@@ -47,7 +47,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 * [GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) - Accessible to most forms of colorblindness and matches the themes in GitHub's settings.
 * [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
-* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
+* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created for people with deuteranopia, featuring a high contrast color ratio.
 * [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
 * [Pitaya Smoothie](https://marketplace.visualstudio.com/items?itemName=trallard.pitaya-smoothie) - Accessible to most forms of colorblindness and compliant with [WCAG 2.1 criteria for color contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html).
 
@@ -55,13 +55,13 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
+>**Note**: Go to [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preferences** > **Settings** to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+To customize the error/warning squiggles, go to **File** > **Preferences** > **Settings** to find user settings. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
-In `settings.json` file, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
+In your `settings.json` file, nest the following code inside the outermost curly braces. You can assign a color to each object by entering a hex code.
 
 ```json
 "workbench.colorCustomizations": {
@@ -70,7 +70,7 @@ In `settings.json` file, nest the following code inside the outermost curly brac
 }
 ```
 
-In the example below, the warning color is applied when a comma is missing after a JSON item.
+In the following example, the warning color is applied when a comma is missing after a JSON item.
 
 ![JSON code to alter error/warning squiggle colors](images/accessibility/accessibility-extension-squiggles.png)
 
@@ -79,7 +79,7 @@ In the example below, the warning color is applied when a comma is missing after
 * `editorError.background` - Overrides the highlight color of an error.
 * `editorWarning.background` - Overrides the highlight color of a warning.
 
-Assigning a color to the background of `editorError` and `editorWarning` also helps to identify potential issues. The color that you choose will highlight the respective error or warning. The colors shown in the example above `#ffef0f` (yellow) and `#37777ff` (blue), are more accessible to individuals with common forms of color vision deficiencies.
+Assigning a color to the background of `editorError` and `editorWarning` also helps to identify potential issues. The color that you choose will highlight the respective error or warning. The colors shown in the preceeding example, `#ffef0f` (yellow) and `#37777ff` (blue), are more accessible to individuals with common forms of color vision deficiencies.
 
 ### Selecting accessible colors
 
@@ -87,40 +87,40 @@ The accessibility of colors is subjective to the type of anomalous trichromacy (
 
 |   Condition      |   Type    |
 |       ---        |    ---    |
-|   Deuteranopia   |   Defined by the reduced sensitivity to green light. It is the most common form of color blindness.
-|   Protanopia     |   Defined by the reduced sensitivity to red light.
-|   Tritanopia     |   Defined by the reduced sensitivity to blue light. This condition is considered rare.
-|   Monochromia    |   Also referred to as, achromatopsia and is defined by the inability to see all colors. This is the rarest form of color blindness. Go to [Foundation for Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia) for more information.
+|   Deuteranopia   |   Reduced sensitivity to green light. It is the most common form of color blindness.
+|   Protanopia     |   Reduced sensitivity to red light.
+|   Tritanopia     |   Reduced sensitivity to blue light. This condition is considered rare.
+|   Monochromia    |   The inability to see all colors, also referred to as achromatopsia. More information about the rarest form of colorblindness: [Foundation for Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia).
 
 One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
 
 ![A color wheel highlighting complementary colors for regular vision, deuteranopia, protanopia, tritanopia and monochromacy](images/accessibility/accessibility-color-wheels.png)
 
->**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
+>**Note**: For more information on finding complementary colors, access the colorblind simulator and interactive color wheel at [Adobe Color](https://color.adobe.com/create/color-accessibility).
 
 ## Dim unfocused editors and terminals
 
-Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `accessibility.dimUnfocused.opacity`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
+Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Turn this feature on by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `accessibility.dimUnfocused.opacity`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
 
 ## Keyboard navigation
 
-You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
+VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can use VS Code without a mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
 
 VS Code also has many preset keyboard shortcuts for commands.
 
-![Keybindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
+![Key bindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify key bindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
-For a quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
+For quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
 
 ### Anchor selection
 
-To make it easier to start and end selection using the keyboard we have four commands: **Set Selection Anchor** (`kb(editor.action.setSelectionAnchor)`), **Select From Anchor to Cursor** (`kb(editor.action.selectFromAnchorToCursor)`), **Cancel Selection Anchor** (`kb(editor.action.cancelSelectionAnchor)`) and **Go to Selection Anchor**.
+To make it easier to start and end selections with the keyboard, there are four commands: **Set Selection Anchor** (`kb(editor.action.setSelectionAnchor)`), **Select From Anchor to Cursor** (`kb(editor.action.selectFromAnchorToCursor)`), **Cancel Selection Anchor** (`kb(editor.action.cancelSelectionAnchor)`) and **Go to Selection Anchor**.
 
 ## Tab navigation
 
-You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
+You can use the `kbstyle(Tab)` key to navigate between UI controls in VS Code. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
 
 All elements in the workbench support tab navigation, but workbench toolbars and tab lists have only one tab stop, to avoid having too many. Once the focus is on a toolbar or a tab list, you can use the arrow keys to navigate within them.
 
