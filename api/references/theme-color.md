@@ -58,6 +58,8 @@ The theme colors for VS Code window border.
 - `window.activeBorder`: Border color for the active (focused) window.
 - `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
 
+The window border colors are only supported on macOS and Linux (not Windows) and only when the custom title bar is enabled (`"window.titleBarStyle": "custom"`).
+
 ## Text colors
 
 Colors inside a text document, such as the welcome page.
