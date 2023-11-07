@@ -244,6 +244,22 @@ If Copilot Chat detects that a code block contains a command, you can run it dir
 
 ![Copilot Chat code block to list files with Run in Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
 
+### Chat view locations
+
+By default, the Chat view is displayed in the [Primary side bar](/docs/getstarted/userinterface.md#basic-layout) but like other views in VS Code, you can [drag and drop](/docs/editor/custom-layout.md#drag-and-drop-views-and-panels) it anywhere. For example, you could drag and drop the Chat view into the Panel region:
+
+![Chat view in the Panel region](images/artificial-intelligence/chat-in-panel.png)
+
+You can also open the Chat view in the editor region for a larger display area. From the Chat view title bar **More Actions** (`...`) menu, select **Open Session in Editor**.
+
+![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/artificial-intelligence/open-session-in-editor.png)
+
+Just like any open editor, you can move editor-hosted Chat views into separate [Editor Groups](/docs/getstarted/userinterface.md#editor-groups) and use display customizations such as [Grid layout](/docs/editor/custom-layout.md#grid-layout) to have multiple chat sessions open in the editor region.
+
+To move the Chat view back to the side bar, use the **Open Session in Side Bar** command in the editor title bar when the Chat view is the active editor.
+
+![Chat view in editor with Open Session in Side bar displayed](images/artificial-intelligence/open-session-in-sidebar.png)
+
 ## Inline chat
 
 An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
