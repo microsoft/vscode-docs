@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -23,6 +23,36 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 >**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts**. The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
 
 ## Commands
+
+`vscode.executeDataToNotebook` - Invoke notebook serializer
+
+* _notebookType_ - A notebook type
+* _data_ - Bytes to convert to data
+* _(returns)_ - Notebook Data
+
+`vscode.executeNotebookToData` - Invoke notebook serializer
+
+* _notebookType_ - A notebook type
+* _NotebookData_ - Notebook data to convert to bytes
+* _(returns)_ - Bytes
+
+`notebook.selectKernel` - Trigger kernel picker for specified notebook editor widget
+
+* _options_ - Select kernel options
+* _(returns)_ - no result
+
+`interactive.open` - Open interactive window and return notebook editor and input URI
+
+* _showOptions_ - Show Options
+* _resource_ - Interactive resource Uri
+* _controllerId_ - Notebook controller Id
+* _title_ - Interactive editor title
+* _(returns)_ - Notebook and input URI
+
+`vscode.editorChat.start` - Invoke a new editor chat session
+
+* _Run arguments_ -
+* _(returns)_ - no result
 
 `vscode.executeDocumentHighlights` - Execute document highlight provider.
 
@@ -74,12 +104,6 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _position_ - A position in a text document
 * _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
-`vscode.executeFoldingRangeProvider` - Execute folding range provider.
-
-* _uri_ - Uri of a text document
-* _(returns)_ - A Promise that resolves to an array of FoldingRange instances.
-
-
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 
 * _uri_ - Uri of a text document
@@ -101,7 +125,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.executeSelectionRangeProvider` - Execute selection range provider.
 
 * _uri_ - Uri of a text document
-* _position_ - Position in a text document
+* _position_ - A position in a text document
 * _(returns)_ - A promise that resolves to an array of ranges.
 
 `vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol providers.
@@ -125,11 +149,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _item_ - A call hierarchy item
 * _(returns)_ - A promise that resolves to an array of CallHierarchyOutgoingCall-instances
 
-`vscode.prepareRename` - Execute the prepareRename of rename provider
+`vscode.prepareRename` - Execute the prepareRename of rename provider.
 
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
-* _(returns)_  A promise that resolves to a range and placeholder text.
+* _(returns)_ - A promise that resolves to a range and placeholder text.
 
 `vscode.executeDocumentRenameProvider` - Execute rename provider.
 
@@ -157,6 +181,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.provideDocumentRangeSemanticTokensLegend` - Provide semantic tokens legend for a document range
 
 * _uri_ - Uri of a text document
+* _range_ - (optional) A range in a text document
 * _(returns)_ - A promise that resolves to SemanticTokensLegend.
 
 `vscode.provideDocumentRangeSemanticTokens` - Provide semantic tokens for a document range
@@ -183,7 +208,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.executeCodeLensProvider` - Execute code lens provider.
 
 * _uri_ - Uri of a text document
-* _itemResolveCount_ - (optional) Number of lenses that should be resolved and returned. Will only return resolved lenses, will impact performance)
+* _itemResolveCount_ - (optional) Number of lenses that should be resolved and returned. Will only return resolved lenses, will impact performance
 * _(returns)_ - A promise that resolves to an array of CodeLens-instances.
 
 `vscode.executeCodeActionProvider` - Execute code action provider.
@@ -211,6 +236,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _range_ - A range in a text document
 * _(returns)_ - A promise that resolves to an array of Inlay objects
 
+`vscode.executeFoldingRangeProvider` - Execute folding range provider
+
+* _uri_ - Uri of a text document
+* _(returns)_ - A promise that resolves to an array of FoldingRange objects
+
 `vscode.resolveNotebookContentProviders` - Resolve Notebook Content Providers
 
 * _(returns)_ - A promise that resolves to an array of NotebookContentProvider static info objects.
@@ -219,14 +249,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _uri_ - Uri of a text document
 * _range_ - A range in a text document
+* _context_ - An InlineValueContext
 * _(returns)_ - A promise that resolves to an array of InlineValue objects
 
-`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
+`vscode.open` - Opens the provided resource in the editor.
 
-* _uri_ - Uri of a text document
-* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
-* _label_ - (optional)
-* _(returns)_ - no result
+* _Uri_ -
 
 `vscode.openWith` - Opens the provided resource with a specific editor.
 
@@ -239,9 +267,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
-* _title_ - (optional) Human readable title for the diff editor
-* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
-* _(returns)_ - no result
+* _title_ - Human readable title for the diff editor
 
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
@@ -262,14 +288,20 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.revealTestInExplorer` - Reveals a test instance in the explorer
 
 * _testItem_ - A VS Code TestItem.
+* _(returns)_ - no result
 
-`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list
+`setContext` - Set a custom context key value that can be used in when clauses.
 
-* _path_ - Path to remove from recently opened.
+* _name_ - The context key name
+* _value_ - The context key value
+* _(returns)_ - no result
 
-`vscode.openIssueReporter` - Opens the issue reporter with the provided extension id as the selected source
+`vscode.executeMappedEditsProvider` - Execute Mapped Edits Provider
 
-* _extensionId_ - extensionId to report an issue on
+* _uri_ - Uri of a text document
+* _string_array_ - Array of string,
+* _MappedEditsContext_ - Mapped Edits Context
+* _(returns)_ - A promise that resolves to a workspace edit or null
 
 `cursorMove` - Move cursor to a logical position in the view
 
@@ -297,7 +329,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
     ```
   * 'by': Unit to move. Default is computed based on 'to' value.
     ```
-    'line', 'wrappedLine', 'page', 'halfPage'
+    'line', 'wrappedLine', 'page', 'halfPage', 'editor'
     ```
   * 'value': Number of units to move. Default is '1'.
   * 'revealCursor': If 'true' reveals the cursor if it is outside view port.
@@ -316,7 +348,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _Unfold editor argument_ - Property-value pairs that can be passed through this argument:
   * 'levels': Number of levels to unfold. If not set, defaults to 1.
   * 'direction': If 'up', unfold given number of levels up otherwise unfolds down.
-  * 'selectionLines': The start lines (0-based) of the editor selections to apply the unfold action to. If not
+  * 'selectionLines': Array of the start lines (0-based) of the editor selections to apply the unfold action to. If not
   set, the active selection(s) will be used.
 
 `editor.fold` - Fold the content in the editor
@@ -324,8 +356,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _Fold editor argument_ - Property-value pairs that can be passed through this argument:
   * 'levels': Number of levels to fold.
   * 'direction': If 'up', folds given number of levels up otherwise folds down.
-  * 'selectionLines': The start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
+  * 'selectionLines': Array of the start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
   If no levels or direction is set, folds the region at the locations or if already collapsed, the first uncollapsed parent instead.
+
+`editor.actions.findWithArgs` - Open a new In-Editor Find Widget.
+
+* _Open a new In-Editor Find Widget args_ -
 
 `editor.action.goToLocations` - Go to locations from a position in a file
 
@@ -344,38 +380,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 `workbench.action.quickOpen` - Quick access
 
-* _prefix_ - String value indicating the value to fill into the quick access input field when opening
+* _prefix_ -
 
-`moveActiveEditor` - Move the active editor by tabs or groups
+`notebook.cell.toggleOutputs` - Toggle Outputs
 
-* _Active editor move argument_ - Argument Properties:
-  * 'to': String value providing where to move.
-  * 'by': String value providing the unit for move (by tab or by group).
-  * 'value': Number value providing how many positions or an absolute position to move.
-
-`vscode.setEditorLayout` - Sets the editor layout.
-
-* _layout_ - The editor layout to set.
-
-The layout is described as object with an initial (optional) orientation (0 = horizontal, 1 = vertical) and an array of editor groups within. Each editor group can have a size and another array of editor groups that will be laid out orthogonal to the orientation. If editor group sizes are provided, their sum must be 1 to be applied per row or column. Example for a 2x2 grid: `{ orientation: 0, groups: [{ groups: [{}, {}], size: 0.5 }, { groups: [{}, {}], size: 0.5 }] }`
-
-`notebook.cell.execute` - Execute Cell
-
-* _range_ - The cell range
-* _uri_ - The document uri
-
-`notebook.cell.cancelExecution` - Stop Cell Execution
-
-* _range_ - The cell range
-* _uri_ - The document uri
-
-`notebook.execute` - Execute Notebook
-
-* _uri_ - The document uri
-
-`notebook.cancelExecution` - Cancel Notebook Execution
-
-* _uri_ - The document uri
+* _options_ - The cell range options
 
 `notebook.fold` - Fold Cell
 
@@ -388,6 +397,42 @@ The layout is described as object with an initial (optional) orientation (0 = ho
 `notebook.selectKernel` - Notebook Kernel Args
 
 * _kernelInfo_ - The kernel info
+
+`notebook.cell.changeLanguage` - Change Cell Language
+
+* _range_ - The cell range
+* _language_ - The target cell language
+
+`notebook.execute` - Run All
+
+* _uri_ - The document uri
+
+`notebook.cell.execute` - Execute Cell
+
+* _options_ - The cell range options
+
+`notebook.cell.executeAndFocusContainer` - Execute Cell and Focus Container
+
+* _options_ - The cell range options
+
+`notebook.cell.cancelExecution` - Stop Cell Execution
+
+* _options_ - The cell range options
+
+`workbench.action.findInFiles` - Open a workspace search
+
+* _A set of options for the search_ -
+
+`_interactive.open` - Open Interactive Window
+
+* _showOptions_ - Show Options
+* _resource_ - Interactive resource Uri
+* _controllerId_ - Notebook controller Id
+* _title_ - Notebook editor title
+
+`interactive.execute` - Execute the Contents of the Input Box
+
+* _resource_ - Interactive resource Uri
 
 `search.action.openNewEditor` - Open a new search editor. Arguments passed can include variables like ${relativeFileDirname}.
 
@@ -404,11 +449,41 @@ The layout is described as object with an initial (optional) orientation (0 = ho
 `vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder/workspace unless the newWindow parameter is set to true.
 
 * _uri_ - (optional) Uri of the folder or workspace file to open. If not provided, a native dialog will ask the user for the folder
-* _options_ - (optional) Options. Object with the following properties: `forceNewWindow `: Whether to open the folder/workspace in a new window or the same. Defaults to opening in the same window. `noRecentEntry`: Whether the opened URI will appear in the 'Open Recent' list. Defaults to true.  Note, for backward compatibility, options can also be of type boolean, representing the `forceNewWindow` setting.
+* _options_ - (optional) Options. Object with the following properties: `forceNewWindow`: Whether to open the folder/workspace in a new window or the same. Defaults to opening in the same window. `forceReuseWindow`: Whether to force opening the folder/workspace in the same window.  Defaults to false. `noRecentEntry`: Whether the opened URI will appear in the 'Open Recent' list. Defaults to false. Note, for backward compatibility, options can also be of type boolean, representing the `forceNewWindow` setting.
+
+`vscode.newWindow` - Opens an new window depending on the newWindow argument.
+
+* _options_ - (optional) Options. Object with the following properties: `reuseWindow`: Whether to open a new window or the same. Defaults to opening in a new window.
+
+`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
+
+* _path_ - URI or URI string to remove from recently opened.
+
+`moveActiveEditor` - Move the active editor by tabs or groups
+
+* _Active editor move argument_ - Argument Properties:
+  * 'to': String value providing where to move.
+  * 'by': String value providing the unit for move (by tab or by group).
+  * 'value': Number value providing how many positions or an absolute position to move.
+
+`copyActiveEditor` - Copy the active editor by groups
+
+* _Active editor copy argument_ - Argument Properties:
+  * 'to': String value providing where to copy.
+  * 'value': Number value providing how many positions or an absolute position to copy.
+
+`vscode.getEditorLayout` - Get Editor Layout
+
+* _(returns)_ - An editor layout object, in the same format as vscode.setEditorLayout
+
+`workbench.action.files.newUntitledFile` - New Untitled Text File
+
+* _New Untitled Text File arguments_ - The editor view type or language ID if known
 
 `workbench.extensions.installExtension` - Install the given extension
 
-* _Extension id or VSIX resource uri_ -
+* _extensionIdOrVSIXUri_ - Extension id or VSIX resource uri
+* _options_ - (optional) Options for installing the extension. Object with the following properties: `installOnlyNewlyAddedFromExtensionPackVSIX`: When enabled, VS Code installs only newly added extensions from the extension pack VSIX. This option is considered only when installing VSIX.
 
 `workbench.extensions.uninstallExtension` - Uninstall the given extension
 
@@ -418,13 +493,21 @@ The layout is described as object with an initial (optional) orientation (0 = ho
 
 * _Query to use in search_ -
 
-`workbench.action.files.newUntitledFile` - New Untitled File
+`workbench.action.tasks.runTask` - Run Task
 
-* _viewType_ - The editor view type
+* _args_ - Filters the tasks shown in the Quick Pick
 
-`workbench.action.findInFiles` - Open the search viewlet
+`workbench.action.openIssueReporter` - Open the issue reporter and optionally prefill part of the form.
 
-* _A set of options for the search viewlet_ -
+* _options_ - Data to use to prefill the issue reporter with.
+
+`vscode.openIssueReporter` - Open the issue reporter and optionally prefill part of the form.
+
+* _options_ - Data to use to prefill the issue reporter with.
+
+`workbench.action.openLogFile` - workbench.action.openLogFile
+
+* _logFile_ -
 
 ## Simple commands
 

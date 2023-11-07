@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 ---
 # Developing inside a Container
 
@@ -167,6 +167,19 @@ To do so:
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
+### Open a folder on a remote Tunnel host in a container
+
+If you are using a Linux machine as a tunnel host, you can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead.
+
+To do so:
+
+1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
+1. [Install Docker](#installation) on your tunnel host. You do not need to install Docker locally.
+1. Follow the [steps](/docs/remote/tunnels.md#remote-tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - Tunnels extension in its documentation](/docs/remote/tunnels.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+
 ### Open an existing workspace in a container
 
 You can also follow a similar process to open a [VS Code multi-root workspace](/docs/editor/multi-root-workspaces) in a **single container** if the workspace only **references relative paths to sub-folders of the folder the `.code-workspace` file is in (or the folder itself).**
@@ -309,6 +322,16 @@ The **Dev Containers: Configure Container Features** command allows you to updat
 
 The Features sourced in VS Code UI now come from a central index, which you can also contribute to. See the [Dev Containers specification site](https://containers.dev/features) for the current list, and to [learn how to publish and distribute Features](https://containers.dev/implementors/features-distribution/).
 
+### "Always installed" Features
+
+Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `dev.containers.defaultFeatures` User [setting](/docs/getstarted/settings.md) to set Features you'd always like installed:
+
+```json
+"dev.containers.defaultFeatures": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+},
+```
+
 ### Creating your own Feature
 
 It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
@@ -356,7 +379,7 @@ This allows you to have a separate **more complex** `devcontainer.json` you use 
 
 Note that you can also opt to manually add metadata to an image label instead. These properties will be picked up even if you didn't use the Dev Container CLI to build (and can be updated by the CLI even if you do). For example, consider this Dockerfile snippet:
 
-```Dockerfile
+```docker
 LABEL devcontainer.metadata='[{ \
   "capAdd": [ "SYS_PTRACE" ], \
   "remoteUser": "devcontainer", \
@@ -562,7 +585,6 @@ From this point forward, the dotfiles repository will be used whenever a contain
 * Docker Toolbox on Windows is not supported.
 * If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 * Local proxy settings are not reused inside the container, which can prevent extensions from working unless the appropriate proxy information is configured (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-* You cannot use Dev Containers from a Remote - SSH connection to a Windows machine.
 * There is an incompatibility between OpenSSH versions on Windows when the ssh-agent runs with version <= 8.8 and the SSH client (on any platform) runs version >= 8.9. The workaround is to upgrade OpenSSH on Windows to 8.9 or later, either using winget or an installer from [Win32-OpenSSH/releases](https://github.com/PowerShell/Win32-OpenSSH/releases). (Note that `ssh-add -l` will work correctly, but `ssh <ssh-server>` will fail with `<ssh-server>: Permission denied (publickey)`. This also affects Git when using SSH to connect to the repository.)
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/containers/issues) related to Containers.

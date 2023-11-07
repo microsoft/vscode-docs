@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -33,7 +33,7 @@ Click on any linked item to get an overview of how to use VS Code in the context
 The richness of support varies across the different languages and their extensions:
 
 * Syntax highlighting and bracket matching
-* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/artificial-intelligence.md))
+* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/github-copilot.md))
 * Linting and corrections
 * Code navigation (Go to Definition, Find All References)
 * Debugging
@@ -47,7 +47,7 @@ In VS Code, you can enhance your coding with artificial intelligence (AI), such 
 
 [![GitHub Copilot extension in the VS Code Marketplace](images/overview/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Change the language for the selected file
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -232,7 +232,7 @@ Otherwise, properties without an explicit order field appear in alphabetical ord
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
-Schema](https://json-schema.org/understanding-json-schema/reference/index.html).
+Schema](https://json-schema.org/overview/what-is-jsonschema).
 
 **description** / **markdownDescription**
 
@@ -328,7 +328,7 @@ To customize the dropdown options, you can use `enumItemLabels`. The `workbench.
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -363,7 +363,7 @@ Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
 
-For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
+For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
 **scope**
 
@@ -766,46 +766,51 @@ Last, a `group` property defines sorting and grouping of menu items. The `naviga
 
 Currently extension writers can contribute to:
 
-- The global Command Palette - `commandPalette`
-- The New File item in the File menu and Get Started page - `file/newFile`
-- The Explorer context menu - `explorer/context`
-- The editor context menu - `editor/context`
-- The editor title menu bar - `editor/title`
-- The editor title context menu - `editor/title/context`
-- The Run submenu on the editor title menu bar - `editor/title/run`
-- The debug callstack view context menu - `debug/callstack/context`
-- The debug callstack view inline actions - `debug/callstack/context` group `inline`
-- The debug variables view context menu - `debug/variables/context`
-- The debug toolbar - `debug/toolBar`
-- The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
-- [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
-- [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
-- [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
-- The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
-- The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
-- The macOS Touch Bar - `touchBar`
-- The comment thread title menu bar - `comments/commentThread/title`
-- The comment thread context menu - `comments/commentThread/context`
-- The comment title menu bar - `comments/comment/title`
-- The comment context menu - `comments/comment/context`
-- The Timeline view title menu bar - `timeline/title`
-- The Timeline view item context menu - `timeline/item/context`
-- The Extensions view context menu - `extension/context`
-- The Test Explorer item context menu - `testing/item/context`
-- The menu for a gutter decoration for a test item - `testing/item/gutter`
-- The notebook toolbar - `notebook/toolbar`
-- The notebook cell title menu bar - `notebook/cell/title`
-- The notebook cell execution menu - `notebook/cell/execute`
-- The interactive toolbar - `interactive/toolbar`
-- The interactive cell title menu bar - `interactive/cell/title`
-- Any [webview](/api/extension-guides/webview) context menu - `webview/context`
+- `commandPalette` - global Command Palette
+- `comments/comment/title` - Comments title menu bar
+- `comments/comment/context` - Comments context menu
+- `comments/commentThread/title` - Comments thread title menu bar
+- `comments/commentThread/context`- Comments thread context menu
+- `debug/callstack/context` - Debug Call Stack view context menu
+- `debug/callstack/context` group `inline` - Debug Call Stack view inline actions
+- `debug/toolBar` - Debug view toolbar
+- `debug/variables/context` - Debug Variables view context menu
+- `editor/context` - editor context menu
+- `editor/lineNumber/context` - editor line number context menu
+- `editor/title` - editor title menu bar
+- `editor/title/context` - editor title context menu
+- `editor/title/run` - Run submenu on the editor title menu bar
+- `explorer/context` - Explorer view context menu
+- `extension/context` - Extensions view context menu
+- `file/newFile`  - New File item in the File menu and Welcome page
+- `interactive/toolbar` - Interactive Window toolbar
+- `interactive/cell/title` - Interactive Window cell title menu bar
+- `notebook/toolbar` - notebook toolbar
+- `notebook/cell/title` - notebook cell title menu bar
+- `notebook/cell/execute` - notebook cell execution menu
+- `scm/title` - [SCM title menu](/api/extension-guides/scm-provider#menus)
+- `scm/resourceGroup/context` - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceFolder/context` - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus
+- `scm/resourceState/context` - [SCM resources](/api/extension-guides/scm-provider#menus) menus
+- `scm/change/title` - [SCM change title](/api/extension-guides/scm-provider#menus) menus
+- `scm/sourceControl`- [SCM source control menu](/api/extension-guides/scm-provider#menus)
+- `terminal/context` - terminal context menu
+- `terminal/title/context` - terminal title context menu
+- `testing/item/context` - Test Explorer item context menu
+- `testing/item/gutter` - menu for a gutter decoration for a test item
+- `timeline/title` - Timeline view title menu bar
+- `timeline/item/context` - Timeline view item context menu
+- `touchBar` - macOS Touch Bar
+- `view/title` - [View title menu](/api/references/contribution-points#contributes.views)
+- `view/item/context` - [View item context menu](/api/references/contribution-points#contributes.views)
+- `webview/context` - any [webview](/api/extension-guides/webview) context menu
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
-> **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
+> **Note 1:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+> **Note 2:** Commands of menu items contributed to `editor/lineNumber/context` are also passed the line number. Additionally these items can reference the `editorLineNumber` context key in their `when` clauses, for example by using the `in` or `not in` operators to test it against an array-valued context key managed by the extension.
+
+In addition to a title, a contributed command can specify the icon which VS Code will show when the invoking menu item is represented as a button, for example on a title menu bar.
 
 ### menu example
 
@@ -829,6 +834,26 @@ Here's a command menu item:
 ```
 
 ![menus extension point example](images/contribution-points/menus.png)
+
+Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "view/title": [
+        {
+          "command": "terminalApi.sendText",
+          "when": "view == terminal",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
+```
+
+![Adding a menu entry to view/title with view == terminal will result in an action in the panel when the terminal is open](images/contribution-points/menu_view_title.png)
 
 Here's a submenu menu item:
 
@@ -1203,9 +1228,9 @@ When defined, the profile will show up in the terminal profile selector. When ac
 
 ```ts
 vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
-	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
-		return { name: 'Profile from extension', shellPath: 'bash' };
-	}
+  provideTerminalProfile(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+    return { name: 'Profile from extension', shellPath: 'bash' };
+  }
 });
 ```
 

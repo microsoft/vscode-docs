@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -132,6 +132,7 @@ Some other functionality of the command:
 
 - By default the search mode is "contiguous search", meaning the search term must exactly match. The button on the right of the search input allows switching to fuzzy search.
 - In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
+- The pin action in the right of the Quick Pick can pin the command to the top of the list.
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 

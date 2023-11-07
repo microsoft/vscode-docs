@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -42,6 +42,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `scripts`                                               |          | `object`                                   | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/api/working-with-extensions/publishing-extension#prepublish-step) or [vscode:uninstall](/api/references/extension-manifest#extension-uninstall-hook).                   |
 | `icon`                                                  |          | `string`                                   | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).                                                                                                                                                                                                                                          |
 | `pricing`                                               |         | `string`                                   | The pricing information for the extension. Allowed values: `Free`, `Trial`. Default: `Free`. See [here](/api/working-with-extensions/publishing-extension#extension-pricing-label) for more details. |
+| `capabilities`                                               |         | `object`                                   | An object describing the extension's capabilities in limited workspaces: [`untrustedWorkspaces`](/api/extension-guides/workspace-trust#static-declarations), [`virtualWorkspaces`](/api/extension-guides/virtual-workspaces#signal-whether-your-extension-can-handle-virtual-workspaces). |
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/cli/v7/configuring-npm/package-json).
 
@@ -312,7 +313,7 @@ There are several Node.js modules available on npmjs to help with writing VS Cod
 - [vscode-uri](https://www.npmjs.com/package/vscode-uri) - The URI implementation used by VS Code and its extensions.
 - [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
 - [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
-- [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
+- [vscode-extension-telemetry](https://www.npmjs.com/package/@vscode/extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
 - [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
 ## Next steps

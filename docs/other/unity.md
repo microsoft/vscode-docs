@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 8/3/2023
+DateApproved: 8/4/2023
 MetaDescription: Visual Studio Code as the editor for Unity
 ---
 # Unity Development with VS Code

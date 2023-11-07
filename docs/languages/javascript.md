@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -255,7 +255,7 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
 

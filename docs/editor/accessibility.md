@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -98,6 +98,10 @@ One of the best approaches to selecting the best colors for a specific condition
 
 >**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
+## Dim unfocused editors and terminals
+
+Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Enable this feature by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `accessibility.dimUnfocused.opacity`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
+
 ## Keyboard navigation
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
@@ -126,7 +130,7 @@ All elements in the workbench support tab navigation, but workbench toolbars and
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kb(editor.action.toggleTabFocusMode)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
 
-Tab trapping also exists in the integrated terminal. The default behavior for each feature can be configured with `editor.tabFocusMode` and `terminal.integrated.tabFocusMode`.
+Tab trapping also exists in the integrated terminal. The default behavior for the feature can be configured with `editor.tabFocusMode`.
 
 ![A Tab moves focus status bar item shows when the mode is active](images/accessibility/tab-moves-focus.png)
 
@@ -174,7 +178,7 @@ The experience when navigating between an input control (for example, search or 
 
 Terminal accessibility help can be accessed via `kb(editor.action.accessibilityHelp)`, which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
-A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
+A useful accessibility setting, `editor.tabFocusMode`, also controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the editor.
 
 ### Shell integration
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -83,7 +83,7 @@ The `purpose` field describes why the data is collected.
 
 * `PerformanceAndHealth` - To ensure that VS Code product and services are healthy and fast.
 * `FeatureInsight` - To understand feature usage and where to continue development investment.
-* `BusinessInsight` - To make decisions related to the business of VS Code and Microsoft.
+* `BusinessInsight` - To make decisions related to the business of VS Code, Microsoft, and GitHub.
 
 ### Event endpoint
 

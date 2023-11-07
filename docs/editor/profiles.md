@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -176,7 +176,6 @@ This profile also sets the following settings:
 ```json
     "python.analysis.autoImportCompletions": true,
     "python.analysis.fixAll": ["source.unusedImports"],
-    "workbench.colorTheme": "Default Dark+ Experimental",
     "editor.defaultFormatter": "ms-python.black-formatter"
 ```
 
@@ -210,7 +209,6 @@ This profile also sets the following settings:
     ],
     "notebook.experimental.outputScrolling": true,
     // "notebook.outline.showCodeCells": true,
-    "workbench.colorTheme": "Default Dark+ Experimental",
     "files.exclude": {
         "**/.csv": true,
         "**/.parquet": true,
@@ -291,8 +289,7 @@ This profile comes with the following settings:
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.colorTheme": "Default Dark+ Experimental"
+    }
 ```
 
 ### Angular Profile Template
@@ -337,8 +334,7 @@ This profile sets the following settings:
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Default Dark+ Experimental",
+    "workbench.iconTheme": "material-icon-theme"
 ```
 
 ### Java General Profile Template
@@ -367,8 +363,7 @@ This profile sets the following settings:
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
-    "boot-java.rewrite.reconcile": true,
-    "workbench.colorTheme": "Default Dark+ Experimental"
+    "boot-java.rewrite.reconcile": true
 ```
 
 ## Command line

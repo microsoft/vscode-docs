@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 ---
 # Remote Development Tips and Tricks
 
@@ -34,7 +34,7 @@ To set up SSH key based authentication for your remote host. First we'll create 
 If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t ed25519 -b 4096
 ```
 
 > **Tip:** Don't have `ssh-keygen`? Install [a supported SSH client](#installing-a-supported-ssh-client).

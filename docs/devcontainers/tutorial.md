@@ -5,7 +5,7 @@ TOCTitle: Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 ---
 # Dev Containers tutorial
 
@@ -151,7 +151,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     // "forwardPorts": [3000],
 
     "portsAttributes": {
-        "9000": {
+        "3000": {
             "label": "Hello Remote World",
             "onAutoForward": "notify"
         }

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -58,6 +58,8 @@ The theme colors for VS Code window border.
 - `window.activeBorder`: Border color for the active (focused) window.
 - `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
 
+The window border colors are only supported on macOS and Linux (not Windows) and only when the custom title bar is enabled (`"window.titleBarStyle": "custom"`).
+
 ## Text colors
 
 Colors inside a text document, such as the welcome page.
@@ -68,6 +70,7 @@ Colors inside a text document, such as the welcome page.
 - `textLink.activeForeground`: Foreground color for links in text when clicked on and on mouse hover.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
+- `textPreformat.background`: Background color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
 ## Action colors
@@ -233,6 +236,7 @@ The Minimap shows a minified version of the current file.
 - `minimap.background`: Minimap background color.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
 - `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
+- `minimap.infoHighlight`: Minimap marker color for infos.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -404,7 +408,19 @@ To see the editor white spaces, enable **Toggle Render Whitespace**.
 To see the editor indent guides, set `"editor.guides.indentation": true` and `"editor.guides.highlightActiveIndentation": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
+- `editorIndentGuide.background1`: Color of the editor indentation guides (1).
+- `editorIndentGuide.background2`: Color of the editor indentation guides (2).
+- `editorIndentGuide.background3`: Color of the editor indentation guides (3).
+- `editorIndentGuide.background4`: Color of the editor indentation guides (4).
+- `editorIndentGuide.background5`: Color of the editor indentation guides (5).
+- `editorIndentGuide.background6`: Color of the editor indentation guides (6).
 - `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
+- `editorIndentGuide.activeBackground1`: Color of the active editor indentation guides (1).
+- `editorIndentGuide.activeBackground2`: Color of the active editor indentation guides (2).
+- `editorIndentGuide.activeBackground3`: Color of the active editor indentation guides (3).
+- `editorIndentGuide.activeBackground4`: Color of the active editor indentation guides (4).
+- `editorIndentGuide.activeBackground5`: Color of the active editor indentation guides (5).
+- `editorIndentGuide.activeBackground6`: Color of the active editor indentation guides (6).
 
 To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
 
@@ -527,9 +543,7 @@ The editor comments widget can be seen when reviewing pull requests:
 - `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
 - `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
 - `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
-- `editorCommentsWidget.rangeBorder`: Color of border for comment ranges.
 - `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
-- `editorCommentsWidget.rangeActiveBorder`: Color of border for currently selected or hovered comment range.
 
 ## Diff editor colors
 
@@ -551,11 +565,15 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.unchangedRegionForeground`: The foreground color of unchanged blocks in the diff editor.
 - `diffEditor.unchangedCodeBackground`: The background color of unchanged code in the diff editor.
 - `diffEditor.move.border`: The border color for text that got moved in the diff editor.
+- `diffEditor.moveActive.border`: The active border color for text that got moved in the diff editor.
 
 ## Chat colors
 
-- `chat.requestBackground`: The background color of a chat request.
 - `chat.requestBorder`: The border color of a chat request.
+- `chat.slashCommandBackground`: The background color of a chat slash command.
+- `chat.slashCommandForeground`: The foreground color of a chat slash command.
+- `chat.avatarBackground`: The background color of a chat avatar.
+- `chat.avatarForeground`: The foreground color of a chat avatar.
 
 ## Inline Chat colors
 
@@ -703,21 +721,31 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBar.noFolderBackground`: Status Bar background color when no folder is opened.
 - `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
+- `statusBarItem.hoverForeground`: Status bar item foreground color when hovering. The status bar is shown in the bottom of the window.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
 - `statusBarItem.prominentForeground`: Status Bar prominent items foreground color.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color.
+- `statusBarItem.prominentHoverForeground`: Status bar prominent items foreground color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
 - `statusBarItem.remoteBackground`: Background color for the remote indicator on the status bar.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
+- `statusBarItem.remoteHoverBackground`: Background color for the remote indicator on the status bar when hovering.
+- `statusBarItem.remoteHoverForeground`: Foreground color for the remote indicator on the status bar when hovering.
 - `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
 - `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
+- `statusBarItem.errorHoverBackground`: Status bar error items background color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.errorHoverForeground`: Status bar error items foreground color when hovering. Error items stand out from other status bar entries to indicate error conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.warningBackground`: Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.warningHoverBackground`: Status bar warning items background color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.warningHoverForeground`: Status bar warning items foreground color when hovering. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
-- `statusBar.offlineBackground`: Status bar background color when the workbench is offline. The status bar is shown in the bottom of the window.
-- `statusBar.offlineForeground`: Status bar foreground color when the workbench is offline. The status bar is shown in the bottom of the window.
+- `statusBarItem.offlineBackground`: Status bar item background color when the workbench is offline.
+- `statusBarItem.offlineForeground`: Status bar item foreground color when the workbench is offline.
+- `statusBarItem.offlineHoverForeground`: Status bar item foreground hover color when the workbench is offline.
+- `statusBarItem.offlineHoverBackground`: Status bar item background hover color when the workbench is offline.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -751,7 +779,8 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `commandCenter.border`: Border color of the Command Center.
 - `commandCenter.inactiveForeground`: Foreground color of the Command Center when the window is inactive.
 - `commandCenter.inactiveBorder`: Border color of the Command Center when the window is inactive.
-- `commandCenter.activeBorder`: Active border color of the command center.
+- `commandCenter.activeBorder`: Active border color of the Command Center.
+- `commandCenter.debuggingBackground`: Command Center background color when a program is being debugged.
 
 ## Notification colors
 
@@ -915,16 +944,12 @@ The following customizations are available:
 - `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
-- `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
-- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
-- `welcomePage.tileBorder`: Border color for the tiles on the Get Started page.
+- `welcomePage.tileBackground`: Background color for the tiles on the Welcome page.
+- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Welcome page.
+- `welcomePage.tileBorder`: Border color for the tiles on the Welcome page.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
-
-## Source Control colors
-
-- `scm.providerBorder`: SCM Provider separator border.
 
 ## Git colors
 
@@ -1092,6 +1117,12 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `commentsView.resolvedIcon`: Icon color for resolved comments.
 - `commentsView.unresolvedIcon`: Icon color for unresolved comments.
+
+## Action Bar colors
+- `actionBar.toggledBackground`: Background color for toggled action items in action bar.
+
+## Simple Find Widget
+- `simpleFindWidget.sashBorder`: Border color of the sash border.
 
 ## Extension colors
 

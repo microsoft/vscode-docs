@@ -82,8 +82,8 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. In this terminal, install the MinGW-w64 toolchain by running the following command:
 
-    ```MSYS2
-    pacman -S --needed base-devel mingw-w64-x86_64-toolchain
+    ```sh
+    pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
     ```
 
 1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
@@ -96,7 +96,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
-   1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\mingw64\bin`.
+   1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\ucrt64\bin`.
    1. Select **OK** to save the updated PATH. For the new `PATH` to be available, reopen your console windows.
 1. Check that your MinGW-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
@@ -206,7 +206,7 @@ To install support for Remote Development:
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Feedback
 
