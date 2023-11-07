@@ -27,7 +27,7 @@ To configure, select the status bar indicator, which brings up the [configuratio
 
 If you do not see a status bar indicator, you can also check your project's `c_cpp_properties.json` file. This file stores all of your IntelliSense configuration settings. Navigate to this file by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). Check the `IntelliSense mode` to find your configuration. To learn more about the `c_cpp_properties.json` file, you can review the [schema reference](/docs/cpp/c-cpp-properties-schema-reference.md).
 
-![Command Palette filtered on C/C++ extension commands](images/cpp/command-palette.png)
+![Command Palette filtered on C/C++ Edit Configurations command](images/intellisense/edit-configurations-ui.png)
 
 ## How to configure IntelliSense
 
@@ -47,11 +47,15 @@ If no options are available in the Quick Pick, no compiler could be identified i
 
 Open your IntelliSense configuration by selecting **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`). This view is a user interface for the `c_cpp_properties.json` file.
 
+![C/C++ IntelliSense Configurations user interface](images/intellisense/intellisense-configurations-ui.png)
+
 Set the **Compiler path** field to the full path of the compiler you're using to build your project. For example, when using the default install path for GCC on Linux, the compiler path is `/usr/bin/gcc`. Set the **IntelliSense mode** to the architecture-specific variant of the compiler you're using.
 
 ### Option 3. Edit the c_cpp_properties.json file directly
 
 You can edit the `c_cpp_properties.json` file directly to customize your configuration. Use the **C/C++ Edit Configurations (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`), then the `c_cpp_properties.json` file is created in the `.vscode` folder of your workspace.
+
+![Command Palette filtered on C/C++ Edit Configurations (JSON) command](images/intellisense/edit-configurations-json.png)
 
 Use the `compilerPath` variable to add a compiler. This variable is the full path of the compiler you're using to build your project. For example, when using the default install path for GCC on Linux, the compiler path is `/usr/bin/gcc`.
 
@@ -169,6 +173,8 @@ There are multiple other ways to configure IntelliSense. You can provide these a
 ### Configuration providers
 
 A custom configuration provider is another extension in VS Code that can potentially provide more accurate C++ IntelliSense configuration than the C/C++ extension. For example, for the CMake or Make build systems, where the [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) or [CMake Tools](/docs/cpp/cmake-linux.md) extensions can be configuration providers. To add an extension as a configuration provider, either select the extension through the configuration Quick Pick, add it to configuration UI by editing the **Configuration provider** field under **Advanced Settings**, or add the `configurationProvider` field to your `c_cpp_properties.json` file. For example, for the CMake extension, the path to add would be `ms-vscode.cmake-tools`.
+
+![C/C++ Advanced Settings Configuration provider](images/intellisense/advanced-settings.png)
 
 The C/C++ extension scans your system for custom configuration providers. If it identifies only one custom configuration provider, this configuration provider is automatically configured for IntelliSense. If there are multiple configuration providers identified, you need to select which the extension should use by opening the [configuration Quick Pick](#option-1-select-a-configuration-option-through-the-configuration-quick-pick).
 
