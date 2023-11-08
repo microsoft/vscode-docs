@@ -66,7 +66,7 @@ gdb --version
 
 You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case:
 
-1. Make sure your PATH variable entry matches the MinGW-w64 binary location where the toochain was installed. If the compilers do not exist at that PATH entry, make sure you followed the previous instructions.
+1. Make sure your PATH variable entry matches the MinGW-w64 binary location where the toolchain was installed. If the compilers do not exist at that PATH entry, make sure you followed the previous instructions.
 2. If `gcc` has the correct output but not `gdb`, then you need to install the packages you are missing from the MinGW-w64 toolset.
    - If on compilation you are getting the "The value of miDebuggerPath is invalid." message, one cause can be you are missing the `mingw-w64-gdb` package.
 
