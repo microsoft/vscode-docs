@@ -298,7 +298,17 @@ Copilot can help you write GitHub commit messages. In the Source Control message
 
 ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/artificial-intelligence/generate-commit-message.png)
 
-If you using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to create both the commit message and description in the Pull Request **Create** view.
+If you using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to fill in both the title and description in the Pull Request **Create** view.
+
+### Terminal Quick Fixes
+
+When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+
+![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/artificial-intelligence/terminal-quick-fix.png)
+
+Selecting **Explain using Copilot** will populate the Chat view with the `@workspace /explain` agent and slash command to help correct the last terminal command error.
+
+![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence//terminal-command-explanation.png)
 
 ### Command Palette help
 
