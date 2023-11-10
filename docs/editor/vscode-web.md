@@ -66,12 +66,12 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | --- | --- | --- |
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
-| Visual Studio Live Share | `/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
-| Visual Studio Marketplace | `/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
-| Power Pages | `/powerplatform` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
-| Profiles | `/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
-| Themes | `/theme/<extensionId>` | [More info below](#themes) |
-| MakeCode | `/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
+| Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
+| Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
+| Power Pages | `/power/pages` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
+| Profiles | `/editor/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
+| Themes | `/editor/theme/<extensionId>` | [More info below](#themes) |
+| MakeCode | `/edu/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
