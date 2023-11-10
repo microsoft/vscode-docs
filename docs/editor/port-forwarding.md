@@ -9,7 +9,7 @@ MetaDescription: Make your local web services accessible over the internet with 
 ---
 # Local Port Forwarding
 
-Support for port forwarding is built into Visual Studio Code, no extension required. When running a local web service, you can use the **Ports** view to make the service accessible to others over the internet.
+Support for port forwarding is built into Visual Studio Code via [Microsoft dev tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview), no extension required. When running a local web service, you can use the **Ports** view to make the service accessible to others over the internet.
 
 ## How to use local port forwarding
 
@@ -47,6 +47,8 @@ However, if you've opened a **Public** port, any user with your link can access 
 
 If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
 
+You can learn more about the security of the underlying dev tunnels service in its [documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/security).
+
 ### What limits are there on port forwarding?
 
-There are limits to both the amount of bandwidth used and the number of active machines that can be used in port forwarding, which are subject to change over time. Read more about tunnel usage limits in the [Tunnels](https://aka.ms/vscode-dev-tunnel-limit) documentation.
+There are limits to both the amount of bandwidth used and the number of active machines that can be used in port forwarding, which are subject to change over time. Read more about tunnel usage limits in the [Remote-Tunnels](https://aka.ms/vscode-dev-tunnel-limit) documentation.
