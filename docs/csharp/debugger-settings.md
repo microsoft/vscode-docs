@@ -174,10 +174,17 @@ Environment variables may be passed to your program using this schema:
 
 The `"console"` setting controls what console (terminal) window the target app is launched into. It can be set to any of these values --
 
-* `internalConsole` - The target process's console output (stdout/stderr) goes to the VS Code Debug Console (default). This is useful for executables that take their input from the network, files, etc. But this does **NOT** work for applications that want to read from the console (ex: `Console.ReadLine`).
-* `integratedTerminal` - The target process will run inside [VS Code's integrated terminal](/docs/editor/integrated-terminal.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. Alternatively, add `"internalConsoleOptions": "neverOpen"` to make it so that the default foreground tab is the terminal tab.
+* `"internalConsole"` (default) : the target process's console input (stdin) and output (stdout/stderr) are routed through the VS Code Debug Console. The advantage of this mode is that it allows you to see messages from both the debugger and the target program in one place, so you will not miss important messages or need to switch back and forth. This is useful for programs with simple console interactions (example: using `Console.WriteLine` and/or `Console.ReadLine`). This should NOT be used when the target program needs full control over the console, such as a program that changes the cursor position, uses `Console.ReadKey` for input, etc. See below for instructions on inputting into the console.
+* `"integratedTerminal"` : the target process will run inside [VS Code's integrated terminal](/docs/editor/integrated-terminal.md). Select the **Terminal** tab in the tab group beneath the editor to interact with your application. When using this mode, by default, the Debug Console will not be shown when starting debugging. If using launch.json, this can be configured with `internalConsoleOptions`.
+* `"externalTerminal"`: the target process will run inside its own external terminal. When using this mode, you will need to switch focus between Visual Studio Code and the external terminal window.
 
-`"externalTerminal"`: the target process will run inside its own external terminal.
+### Inputting text into the target process when using `internalConsole`
+
+When using `internalConsole`, you can input text into Visual Studio Code that will be returned from `Console.ReadLine` and similar APIs that read from `stdin`. To do so, while the program is running, type text into the input box at the bottom of the Debug Console. Pressing enter will send the text to the target process. Note that if you enter text in this box while your program is stopped under the debugger, this text will be evaluated as a C# expression, not sent to the target process.
+
+Example:
+
+![Example of inputting text to the Console to be set to the target process's standard input](images/debugging/console-input.gif)
 
 **Availability**
 
@@ -302,7 +309,9 @@ The debugger steps over properties and operators in managed code by default. In 
 
 ## Logging
 
-You can optionally enable or disable messages that should be logged to the output window. The flags in the logging field are: 'exceptions', 'moduleLoad', 'programOutput', 'engineLogging', and 'browserStdOut'.
+You can optionally enable or disable messages that should be logged to the output window. The flags in the logging field are: 'exceptions', 'moduleLoad', 'programOutput', 'browserStdOut' and 'consoleUsageMessage'.
+
+There are also advanced options under 'logging.diagnosticsLog' that are meant for diagnosing problems with the debugger.
 
 **Availability**
 
