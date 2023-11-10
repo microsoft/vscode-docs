@@ -99,7 +99,7 @@ If you have settings that you wish to change while using the C# debugger, you ca
 
 * `csharp.debug.stopAtEntry` - If true, the debugger should stop at the entry point of the target. This option defaults to `false`.
 * `csharp.debug.console` - When launching console projects, indicates which console the target program should be launched into. **Note:** This option is only used for the 'dotnet' debug configuration type.
-  * `internalConsole` - Output to the VS Code Debug Console. This doesn't support reading console input (ex:Console.ReadLine).
+  * `internalConsole` [Default] - VS Code's Debug Console. This mode allows you to see messages from both the debugger and the target program in one place. Refer to [full documentation](/docs/csharp/debugger-settings.md#_console-terminal-window) for more details.
   * `integratedTerminal` - VS Code's integrated terminal.
   * `externalTerminal` - External terminal that can be configured via user settings.
 * `csharp.debug.sourceFileMap` - Maps build-time paths to local source locations. All instances of build-time path will be replaced with the local source path. <br> &emsp; Example: <br> &emsp; &emsp; `{\"<build-path>\":\"<local-source-path>\"}`
@@ -109,7 +109,7 @@ If you have settings that you wish to change while using the C# debugger, you ca
 * `csharp.debug.logging.exceptions` - Flag to determine whether exception messages should be logged to the output window. This option defaults to `true`.
 * `csharp.debug.logging.moduleLoad` - Flag to determine whether module load events should be logged to the output window. This option defaults to `true`.
 * `csharp.debug.logging.programOutput` - Flag to determine whether program output should be logged to the output window when not using an external console. This option defaults to `true`.
-* `csharp.debug.logging.engineLogging` - Flag to determine whether diagnostic engine logs should be logged to the output window. This option defaults to `false`.
+* `csharp.debug.logging.diagnosticsLog` - Various settings used to diagnose issues with the debugger.
 * `csharp.debug.logging.browserStdOut` - Flag to determine if stdout text from the launching the web browser should be logged to the output window. This option defaults to `true`.
 * `csharp.debug.logging.elapsedTiming` - If true, engine logging includes `adapterElapsedTime` and `engineElapsedTime` properties to indicate the amount of time, in microseconds, that a request took. This option defaults to `false`.
 * `csharp.debug.logging.threadExit` - Controls if a message is logged when a thread in the target process exits. This option defaults to `false`.
