@@ -75,7 +75,7 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Maximize Panel size
 
-You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron button points downwards in the maximized panel to restore the panel to the original size.
+When the Panel alignment is **Center** you can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron button points downwards in the maximized panel to restore the panel to the original size.
 
 ![Maximize Panel Size button in the upper right of the Panel region](images/custom-layout/maximize-panel-size.png)
 
