@@ -1,7 +1,7 @@
 ---
 Order: 84
-TOCTitle: Smart AI in VS Code
-PageTitle: Smart AI in VS Code
+TOCTitle: Pursuit of wicked smartness in VS Code
+PageTitle: Pursuit of wicked smartness in VS Code
 MetaDescription: Smart artificial intelligence features in Visual Studio Code with GitHub Copilot
 Date: 2023-11-13
 Author: Chris Dias
@@ -12,7 +12,7 @@ November 13, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 If you tuned into [GitHub Universe](https://githubuniverse.com) last week, you saw a tremendous amount of progress, innovation, and vision for artificial intelligence across the entire developer workflow. What we want to do in this blog post is focus in on the advancements around Visual Studio Code over the past few months helping to realize this broader vision.
 
-## Wicked smart
+## "Wicked smart"
 
 One of my favorite lines in Matt Damon and Ben Affleck's seminal film "Good Will Hunting" is ["my boy's wicked smaaahtt"](https://www.youtube.com/watch?v=hIdsjNGCGz4) (read it with a Boston accent for the full effect).
 
@@ -40,7 +40,7 @@ The `@workspace` agent knows how to gather context about the code in your worksp
 
 Natural language is used to ask the `workspace` agent "what service class do I use to get the current ICodeEditor". From there, the agent does the following to get just the right amount of context to send to the LLM:
 
-* The vscode repo has been indexed by the [GitHub Search Blackbird service]( https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search). The `@workspace` agent uses this index to tap into the repository knowledge graph. The `@workspace` agent runs a semantic search that returns relevant code snippets and meta data. GitHub search service has indexed the top 10K GitHub repositories, with plans to add more.
+* The vscode repo has been indexed by the [GitHub Search Blackbird service]( https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search). The `@workspace` agent uses this index as a tool to tap into the repository knowledge graph. The `@workspace` agent runs a semantic search that returns relevant code snippets and meta data. GitHub search service has indexed the top 10K GitHub repositories, with plans to add more.
 
 * The next tool that the `@workspace` agent uses is the lexical text search over the local index to find extra code such as local, uncommitted changes, and the Copilot conversation history.
 
@@ -64,7 +64,7 @@ This agent knows all about VS Code and can help you bridge the gap between natur
 
 ![@vscode agent answering question about preview editors](vscode-agent-example.png)
 
-Note that there is a **Show in Settings Editor** button in the response. This is because the `@vscode` agent knows not only about how VS Code works, but also how to invoke the Settings editor or the Command Palette.
+Note that there is a **Show in Settings Editor** button in the response. This is because the `@vscode` agent knows not only about how VS Code works, but also has a tool to invoke the Settings editor or the Command Palette.
 
 In addition, the Command Palette now supports similarity search, so you no longer need to know the exact name of the command when you search for it. You no longer need to speak the unique VS Code jargon to unlock all the goodness the team ships month over month.
 
@@ -74,7 +74,7 @@ This is just the beginning of the `@vscode` agent. We plan to support more and m
 
 Agents can also contribute what we call **slash commands**, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
 
-We can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but `@workspace /new node.js Express Pug TypeScript` is explicit, concise, and saves you time typing.
+We can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
 ![New slash command](new-slash-command.png)
 
@@ -90,7 +90,7 @@ The agent API allows extensions to contribute agents that can answer specific qu
 
 Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in slash commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` slash command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver. Still, we are working on intent detection to allow VS Code core to automatically pick the correct agent and slash command based on the user's natural language prompt.
 
-Imagine installing an Agent that knows all about Azure or Docker right in VS Code. Or you just might need a [DALL-E agent that uses image generation](https://github.com/roblourens/chat-agent-dalle) to present a cute animal that affirms you are doing a great job.
+Imagine installing an Agent that knows all about Azure or Docker right in VS Code. Or you just might need a [DALL-E agent that uses image generation as a tool](https://github.com/roblourens/chat-agent-dalle) to present a cute animal that affirms you are doing a great job.
 
 ![DALL-E generated image of cute cat providing an affirmation](dall-e-affirmation-image.png)
 
