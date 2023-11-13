@@ -123,7 +123,7 @@ When the Find Widget is opened, it will automatically populate the selected text
 
 ![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
 
-This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `false`.
+This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `"never"`.
 
 ### Find In Selection
 
