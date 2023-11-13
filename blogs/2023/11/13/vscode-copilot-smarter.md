@@ -6,11 +6,9 @@ MetaDescription: Smart artificial intelligence features in Visual Studio Code wi
 Date: 2023-11-13
 Author: Chris Dias
 ---
-# Smart AI in VS Code
+# Pursuit of "wicked smartness" in VS Code
 
-November 13, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias) and Isidor Nikolic, [@IsidorN](https://twitter.com/IsidorN)
-
-**The pursuit of "wicked smart" AI in VS Code**
+November 13, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 If you tuned into [GitHub Universe](https://githubuniverse.com) last week, you saw a tremendous amount of progress, innovation, and vision for artificial intelligence across the entire developer workflow. What we want to do in this blog post is focus in on the advancements around Visual Studio Code over the past few months helping to realize this broader vision.
 
@@ -42,13 +40,13 @@ The `@workspace` agent knows how to gather context about the code in your worksp
 
 We use natural language to ask the `workspace` agent "what service class do I use to get the current ICodeEditor". From there, the agent does the following to get just the right amount of context to send to the LLM:
 
-* The vscode repo is already indexed by the [GitHub Search Blackbird service]( https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search). The `@workspace` agent uses this index as a tool to tap into the repository knowledge graph. The `@workspace` agent runs a semantic search that returns relevant code snippets and meta data. GitHub search service has indexed the top 10K GitHub repositories, with plans to add more.
+* The vscode repo has been indexed by the [GitHub Search Blackbird service]( https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search). The `@workspace` agent uses this index as a tool to tap into the repository knowledge graph. The `@workspace` agent runs a semantic search that returns relevant code snippets and meta data. GitHub search service has indexed the top 10K GitHub repositories, with plans to add more.
 
 * The next tool that the `@workspace` agent uses is the lexical text search over the local index to find extra code such as local, uncommitted changes, and the conversation history.
 
 * Then `@workspace` uses the final tool - VS Code"s language intelligence to add crucial details like function signatures, parameters, and even in-line documentation.
 
-All of these pieces of context are ranked, sliced, and summarized by the `@workspace`` agent and then sent off to the LLM to answer the question.
+All of these pieces of context are ranked, sliced, and summarized by the `@workspace` agent and then sent off to the LLM to answer the question.
 
 Because we have all of the necessary context, the `@workspace` agent can answer the kinds of questions that developers are much more likely to ask. For example, questions that pertain to how different parts of the code interact:
 
@@ -70,7 +68,7 @@ Note that there is a **Show in Settings Editor** button in the response. This is
 
 In addition, the Command Palette now supports similarity search, so you no longer need to know the exact name of the command when you search for it. You no longer need to speak the unique VS Code jargon to unlock all the goodness the team ships month over month.
 
-This is just the beginning of the `@vscode`` agent. We plan to support more and more scenarios that will allow users to better understand and fully control VS Code.
+This is just the beginning of the `@vscode` agent. We plan to support more and more scenarios that will allow users to better understand and fully control VS Code.
 
 ### Slash commands
 
@@ -88,13 +86,13 @@ Once the intent is clear, the `@workspace` agent has a much better chance of add
 
 "VS Code is just a shell, you need extensions to make it shine!" – the usual meeting anthem of Microsoft teams working on VS Code extensions, proudly flaunting their role in VS Code's success. We, as the VS Code core team, totally agree with them – VS Code would not be the product it is today without the rich extension ecosystem! AI is no different, and while the Core AI experience lights up with Copilot, our vision is that all the extensions from our ecosystem can participate and allow the LLM models to have the best context and grounding possible. Today we lay the foundation for this vision by adding the [agent API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatAgents2.d.ts#L8) in [a proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api).
 
-The agent API allows extensions to contribute agents that can answer specific questions by the user. Both the @workspace and the @vscode agent are implemented using this API. With agents, users can bring rich and up-to-date information from their inner and outer loop tools into AI conversations while staying in the editor flow. Agents are like experts for an area, and when a user explicitly mentions an @agent in their prompt, that prompt is forwarded to the extension that contributed that specific agent.
+The agent API allows extensions to contribute agents that can answer specific questions by the user. Both the `@workspace` and `@vscode` agents are implemented using this API. With agents, users can bring rich and up-to-date information from their inner and outer loop tools into AI conversations while staying in the editor flow. Agents are like experts for an area, and when a user explicitly mentions an @agent in their prompt, that prompt is forwarded to the extension that contributed that specific agent.
 
 Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in slash commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` slash command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver. Still, we are working on intent detection to allow VS Code core to automatically pick the correct agent and slash command based on the user’s natural language prompt.
 
-Imagine installing an Agent that knows all about Azure or Docker right in VS Code. Or you just might need a [DALL-e agent that uses image generation as a tool](https://github.com/roblourens/chat-agent-dalle) to present a cute animal that affirms you are doing a great job.
+Imagine installing an Agent that knows all about Azure or Docker right in VS Code. Or you just might need a [DALL-E agent that uses image generation as a tool](https://github.com/roblourens/chat-agent-dalle) to present a cute animal that affirms you are doing a great job.
 
-![Dall-e generated image of cute cat providing an affirmation](dall-e-affirmation-image.png)
+![DALL-E generated image of cute cat providing an affirmation](dall-e-affirmation-image.png)
 
 Agents can bring any domain specific content while accessing the tools for that domain. For example, 1ES stands for One Engineering System and is the internal Microsoft engineering system. The 1ES VS Code extension contributes an `@1es` agent that can answer specific questions for internal Microsoft engineers. The `@1es` agent is dynamically planning and showing what it is actually doing. It uses some of the public data available in LLM models, but it also recognizes Microsoft internal specifics and combines both to provide the best answer.
 
@@ -122,7 +120,7 @@ This option opens inline chat populated with `/fix` and also the error message. 
 
 ![Copilot proposed fix shown in a diff view](proposed-fix.png)
 
-We have noticed that `/fix` is particularly useful for languages like shells, where the traditional tooling is sometimes lacking.
+We have noticed that `/fix` is particularly useful for languages like shells, where traditional tooling is sometimes lacking.
 
 ![Copilot proposed fix for a shell command](shell-proposed-fix.png)
 
@@ -142,7 +140,7 @@ Sometimes the intent is crystal clear. When that's the case, experiences with AI
 
 >![Commit message wishing that Copilot worked in VS Code for the Web](wish-copilot-web.png)
 
-Back to our flow, let's keep going and make a pull request. I have the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, which is aware of the presence of the Copilot Chat extension. When I make a PR, there is another sparkle icon next to the title and description. Select it and Copilot writes a nice description automatically!
+Back to our flow, let's keep going and make a pull request. I have the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, which is aware of the presence of the Copilot Chat extension. When I make a PR, there is another sparkle icon next to the title and description. Select it and Copilot writes a nice description automatically!
 
 ![GitHub Pull Request and Issue extension Create view with sparkle to generate title and description](generate-pr-title-description.png)
 
@@ -150,7 +148,7 @@ This is another area where AI can help you be more productive by automatically t
 
 ## Say what?
 
-And finally, making a truly smart AI means making it as effortless as possible to interact with.
+And finally, making a truly smart AI means making interactions as effortless as possible.
 
 We've gotten very good as an industry at voice recognition technology over the past few years. We know a lot of folks have been longing for the combination of voice assistants with advanced LLMs. Now, you can use the two together in VS Code.
 
@@ -166,10 +164,10 @@ The extension is still in preview and only supports English right now, but we'll
 
 ## Work smarter, not harder
 
-All of the above and more is available in VS Code today! You just have to install the [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. And you can learn more about Copilot Chat features in [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/editor/github-copilot#_chat-features)
+All of the above and more is available in VS Code today! You just have to install the [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. And you can learn more about Copilot Chat features in our [documentation](https://code.visualstudio.com/docs/editor/github-copilot#_chat-features)
 
 Thanks!
 
-Chris, Isi, and the VS Code team
+Chris and the VS Code team
 
 Happy **Smart** Coding!
