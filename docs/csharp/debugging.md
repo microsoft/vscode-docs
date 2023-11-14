@@ -103,7 +103,7 @@ If you have settings that you wish to change while using the C# debugger, you ca
   * `integratedTerminal` - VS Code's integrated terminal.
   * `externalTerminal` - External terminal that can be configured via user settings.
 * `csharp.debug.sourceFileMap` - Maps build-time paths to local source locations. All instances of build-time path will be replaced with the local source path. <br> &emsp; Example: <br> &emsp; &emsp; `{\"<build-path>\":\"<local-source-path>\"}`
-* `csharp.debug.justMyCode` - When enabled (the default), the debugger only displays and steps into user code (\"My Code\"), ignoring system code and other code that is optimized or that does not have debugging symbols. [More information](https://aka.ms/VSCode-CS-LaunchJson#just-my-code).
+* `csharp.debug.justMyCode` - When enabled (the default), the debugger only displays and steps into user code (\"My Code\"), ignoring system code and other code that is optimized or that does not have debugging symbols. [More information](/docs/csharp/debugger-settings.md#just-my-code).
 * `csharp.debug.requireExactSource` - Flag to require current source code to match the pdb. This option defaults to `true`.
 * `csharp.debug.enableStepFiltering` - Flag to enable stepping over Properties and Operators. This option defaults to `true`.
 * `csharp.debug.logging.exceptions` - Flag to determine whether exception messages should be logged to the output window. This option defaults to `true`.
@@ -114,7 +114,7 @@ If you have settings that you wish to change while using the C# debugger, you ca
 * `csharp.debug.logging.elapsedTiming` - If true, engine logging includes `adapterElapsedTime` and `engineElapsedTime` properties to indicate the amount of time, in microseconds, that a request took. This option defaults to `false`.
 * `csharp.debug.logging.threadExit` - Controls if a message is logged when a thread in the target process exits. This option defaults to `false`.
 * `csharp.debug.logging.processExit` - Controls if a message is logged when the target process exits, or debugging is stopped. This option defaults to `true`.
-* `csharp.debug.suppressJITOptimizations` - If true, when an optimized module (.dll compiled in the Release configuration) loads in the target process, the debugger asks the Just-In-Time compiler to generate code with optimizations disabled. [More information](https://aka.ms/VSCode-CS-LaunchJson#suppress-jit-optimizations)
+* `csharp.debug.suppressJITOptimizations` - If true, when an optimized module (.dll compiled in the Release configuration) loads in the target process, the debugger asks the Just-In-Time compiler to generate code with optimizations disabled. [More information](/docs/csharp/debugger-settings.md#suppress-jit-optimizations)
 * `csharp.debug.symbolOptions.searchPaths` - Array of symbol server URLs (example: `http://MyExampleSymbolServer`) or directories (example: /build/symbols) to search for .pdb files. These directories will be searched in addition to the default locations next to the module and the path where the pdb was originally dropped to.
 * `csharp.debug.symbolOptions.searchMicrosoftSymbolServer` - If `true` the Microsoft Symbol server (`https://msdl.microsoft.com/download/symbols`) is added to the symbols search path. If unspecified, this option defaults to `false`.
 * `csharp.debug.symbolOptions.searchNuGetOrgSymbolServer` - If `true` the NuGet.org symbol server (`https://symbols.nuget.org/download/symbols`) is added to the symbols search path. If unspecified, this option defaults to `false`.
@@ -161,6 +161,31 @@ The following tokens are also supported in the log message:
 | $HITCOUNT | Number of times this breakpoint has been hit | 5 |
 
 ![LogMessage Breakpoint](images/debugging/logmessage-breakpoint.gif)
+
+## Stopping on exceptions
+
+The C# debugger supports configuration options for when the debugger stops when exceptions are thrown or caught. This is done through two different entries in the **BREAKPOINTS** section of the **Run** view:
+
+![Exceptions settings in BREAKPOINTS Run View](images/debugging/exception-settings.gif)
+
+Note that the **BREAKPOINTS** section will be missing these entries until the first time that the folder has been debugged with the C# debugger.
+
+Checking **All Exceptions** will configure the debugger to stop when an exception is thrown. If [Just My Code](/docs/csharp/debugger-settings.md#just-my-code) is enabled (which it is by default), the debugger will not break if an exception is internally thrown and caught in library code. However, if the exception is thrown in library code and returned to user code, the debugger will break.
+
+Checking **User-Unhandled Exceptions** will configure the debugger to stop when an exception is caught in non-user code after having been thrown in user code or traveled through user code. Exceptions that become user-unhandled aren't always a bug in the process being debugged -- it could be that user code is implementing an API and is expected to raise an exception. In many cases there is an actual problem, so, by default, the debugger will stop when an exception becomes user-unhandled.
+
+### Exception Conditions
+
+Both checkboxes support conditions to break on only selected exception types. To edit the condition, select the pencil icon (see image above) or right-click on the entry and invoke **Edit Condition**. The condition is a comma-separated list of exception types to break on, or if the list starts with '!', a list of exception types to ignore.
+
+Examples conditions:
+
+| Example condition value | Result |
+|-------------------------|--------|
+| System.NullReferenceException | This will only break on null reference exceptions. |
+| System.NullReferenceException, System.InvalidOperationException | This will break on both null reference exceptions and invalid operation exceptions. |
+| !System.Threading.Tasks.TaskCanceledException | This will break on all exceptions except for task canceled. |
+| !System.Threading.Tasks.TaskCanceledException, System.NotImplementedException | This will break on all exceptions except for task canceled and not implemented. |
 
 ## Expression evaluation
 
