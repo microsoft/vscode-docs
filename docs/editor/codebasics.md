@@ -427,7 +427,7 @@ You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWo
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
 
-As in other editors, commands such as Cut and Copy apply to the whole wrapped line. Triple click selects the whole wrapped line. Pressing `kbstyle(Home)` twice moves the cursor to the very beginning of the line. Pressing   `kbstyle(End)` twice moves the cursor to the very end of the line.
+As in other editors, commands such as **Cut** and **Copy** apply to the whole wrapped line. Triple-click selects the whole wrapped line. Pressing `kbstyle(Home)` twice moves the cursor to the very beginning of the line. Pressing `kbstyle(End)` twice moves the cursor to the very end of the line.
 
 ### How can I avoid placing extra cursors in word wrapped lines?
 
