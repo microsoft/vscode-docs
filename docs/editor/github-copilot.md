@@ -221,7 +221,7 @@ Agent can also support slash commands for specific types of questions or tasks. 
 * @workspace /newNotebook: Create a new Jupyter Notebook based on your description.
 * @workspace /terminal: Explain how to do something in the integrated terminal.
 * @workspace /tests: Generate unit tests for the selected code.
-* @vscode /api : Questions about VS Code extension development.
+* @vscode /api: Questions about VS Code extension development.
 
 In addition to agent and slash command combinations, there are general purpose slash commands for actions such as clearing the chat session or getting help.
 
@@ -244,6 +244,22 @@ If Copilot Chat detects that a code block contains a command, you can run it dir
 
 ![Copilot Chat code block to list files with Run in Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
 
+### Chat view locations
+
+By default, the Chat view is displayed in the [Primary side bar](/docs/getstarted/userinterface.md#basic-layout) but like other views in VS Code, you can [drag and drop](/docs/editor/custom-layout.md#drag-and-drop-views-and-panels) it anywhere. For example, you could drag and drop the Chat view into the Panel region:
+
+![Chat view in the Panel region](images/artificial-intelligence/chat-in-panel.png)
+
+You can also open the Chat view in the editor region for a larger display area. From the Chat view title bar **More Actions** (`...`) menu, select **Open Session in Editor**.
+
+![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/artificial-intelligence/open-session-in-editor.png)
+
+Just like any open editor, you can move editor-hosted Chat views into separate [Editor Groups](/docs/getstarted/userinterface.md#editor-groups) and use display customizations such as [Grid layout](/docs/editor/custom-layout.md#grid-layout) to have multiple chat sessions open in the editor region.
+
+To move the Chat view back to the side bar, use the **Open Session in Side Bar** command in the editor title bar when the Chat view is the active editor.
+
+![Chat view in editor with Open Session in Side bar displayed](images/artificial-intelligence/open-session-in-sidebar.png)
+
 ## Inline chat
 
 An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
@@ -254,7 +270,13 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" If you have code selected in the editor, Copilot will scope your question to the selection.
 
-Several [agents and slash commands](#agents-and-slash-commands) also work in inline chat such as `@workspace /explain` to ask Copilot to explain a block of code or `@workspace /test` to generate unit tests.
+Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+
+![Inline chat slash command list](images/artificial-intelligence/inline-chat-slash-commands.png)
+
+A useful command is `/fix`, which analyzes the error line or selected code and proposes a fix in a diff view for your review. After reviewing and possibly modifying the generated code, you can choose to **Accept** or **Discard** the fix.
+
+![Inline chat /fix identifying an unassigned variable and proposing a fix in a diff view](images/artificial-intelligence/inline-chat-fix-example.png)
 
 ## Quick Chat
 
@@ -265,6 +287,16 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 You can type questions, scope your questions with agents and slash commands such as `@workspace /explain` and `@vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/artificial-intelligence/open-in-chat-view.png)
+
+## Chat smart actions
+
+To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options:
+
+![Editor context menu with the Copilot menu group expanded](images/artificial-intelligence/editor-copilot-menu.png)
+
+You can apply these smart actions on the current file or a selection in the file. Choosing an action, brings up the appropriate agent and/or slash command in the Chat view or inline chat. For example, selecting **Generate Docs** for a function will open the inline chat with a proposed documentation comment:
+
+![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/artificial-intelligence/generate-docs-example.png)
 
 ## Other Copilot uses
 
@@ -282,7 +314,17 @@ Copilot can help you write GitHub commit messages. In the Source Control message
 
 ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/artificial-intelligence/generate-commit-message.png)
 
-If you using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to create both the commit message and description in the Pull Request **Create** view.
+If you using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to fill in both the title and description in the Pull Request **Create** view.
+
+### Terminal Quick Fixes
+
+When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+
+![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/artificial-intelligence/terminal-quick-fix.png)
+
+Selecting **Explain using Copilot** will populate the Chat view with the `@workspace /explain` agent and slash command to help correct the last terminal command error.
+
+![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence//terminal-command-explanation.png)
 
 ### Command Palette help
 
@@ -312,6 +354,18 @@ Check each requirement if Copilot Chat doesn't work:
 * Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 * Your GitHub account that is signed into VS Code must be both:
   * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+
+### I can't find Copilot Chat in the Activity bar
+
+If you've moved the Chat view out of the Primary side bar, for example, you dragged the view to the [Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar), the Chat view icon will no longer be displayed on the Activity bar. If you close the Secondary side bar, the Chat view won't be visible and it may appear that you've lost access to the Chat view.
+
+There are several ways to display the Chat view or restore it back to the Activity bar:
+
+* **View: Show Chat** - Opens the Chat view no matter where it is hosted.
+* **Copilot status menu** - The status menu dropdown has an option to **Open GitHub Copilot Chat**.
+* **View: Reset View Locations** - General command to restore all views and panels to their default locations.
+
+As with any view, you can drag and drop the Chat view back to the Activity bar or use **Reset Location** from the view title bar context menu.
 
 ### How do I disable Copilot?
 

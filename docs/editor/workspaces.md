@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code workspaces
 ---
 # What is a VS Code "workspace"?
 
-A Visual Studio Code "workspace" is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace but, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multiroot-workspaces).
+A Visual Studio Code "workspace" is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multiroot-workspaces).
 
 The concept of a workspace enables VS Code to:
 
@@ -65,7 +65,7 @@ It is easy to add or remove folders in your workspace. You can start off by open
 
 *An untitled multi-root workspace opened in VS Code*
 
-> **Note:** There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convenience and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window in which an untitled workspace is opened.
+> **Note:** There is really no difference between an untitled workspace and a saved workspace, other than the fact that an untitled workspace is automatically created for you for your convenience, and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window in which an untitled workspace is opened.
 
 ## Workspace settings
 
@@ -117,10 +117,10 @@ Untitled workspaces are designed to be something you must explicitly decide to k
 
 You can delete an untitled workspace by closing its window and dismissing the prompt to save the untitled workspace.
 
-### Can I use a multi-root workspace without folders
+### Can I use a multi-root workspace without folders?
 
 It is possible to leave the `folders` section of a `.code-workspace` file empty so that you end up with an instance of VS Code that does not show any root folders. You can still store workspace settings and even tasks or launch configurations in this case.
 
 ### Does VS Code support projects or solutions?
 
-VS Code doesn't have the concept of a "project" or "solution" as they are sometimes defined in other development tools, for example Visual Studio IDE. You may see the term "project" used in VS Code documentation but it usually means "the thing you're working on". Depending on your programming language or framework, the toolset itself may support something called a "project" to help define build configurations or enumerate included files.
+VS Code doesn't have the concept of a "project" or "solution" as they are sometimes defined in other development tools, for example Visual Studio IDE. You may see the term "project" used in VS Code documentation, but it usually means "the thing you're working on". Depending on your programming language or framework, the toolset itself may support something called a "project" to help define build configurations or enumerate included files.

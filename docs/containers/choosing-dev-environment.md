@@ -90,7 +90,7 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
    ![Screenshot - Installing the Docker extension](images/devenv/install-in-ssh.png)
 
->**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
+>**Note**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
 
 ### Local Linux VM
 
