@@ -164,24 +164,25 @@ The following tokens are also supported in the log message:
 
 ## Stopping on exceptions
 
-The C# debugger supports configuration options for if the debugger stops when exceptions are thrown or caught. This is done through two different entries in the BREAKPOINTS section of the Run view:
+The C# debugger supports configuration options for when the debugger stops when exceptions are thrown or caught. This is done through two different entries in the **BREAKPOINTS** section of the **Run** view:
 
 ![Exceptions settings in BREAKPOINTS Run View](images/debugging/exception-settings.gif)
 
-Note that the BREAKPOINTS section will be missing these entries until the first time that the folder has been debugged with the C# debugger.
+Note that the **BREAKPOINTS** section will be missing these entries until the first time that the folder has been debugged with the C# debugger.
 
-Checking **All Exceptions** will configure the debugger to stop when an exception is thrown. If [Just My Code](/docs/csharp/debugger-settings.md#just-my-code) is enabled (which it is by default) the debugger will not break if an exception is internally thrown and caught in library code. Though if the exception is thrown in library code and returned to user code the debugger will break then.
+Checking **All Exceptions** will configure the debugger to stop when an exception is thrown. If [Just My Code](/docs/csharp/debugger-settings.md#just-my-code) is enabled (which it is by default), the debugger will not break if an exception is internally thrown and caught in library code. However, if the exception is thrown in library code and returned to user code, the debugger will break.
 
-Checking **User-Unhandled Exceptions** will configure the debugger to stop when an exception is caught in non-user code after having been thrown in user code or traveled through user code. Exceptions that become user-unhandled aren't always a bug in the process being debugged -- it could be that user code is implementing an API and is expected to raise an exception in this scenario. But it is often a problem. So, by default, the debugger will stop when an exception becomes user-unhandled.
+Checking **User-Unhandled Exceptions** will configure the debugger to stop when an exception is caught in non-user code after having been thrown in user code or traveled through user code. Exceptions that become user-unhandled aren't always a bug in the process being debugged -- it could be that user code is implementing an API and is expected to raise an exception. In many cases there is an actual problem, so, by default, the debugger will stop when an exception becomes user-unhandled.
 
 ### Exception Conditions
-Both checkboxes support conditions to break on only selected exception types. To edit the condition, click on the pencil icon (see image above) or right click on the entry and invoke 'Edit Condition'. The condition is a comma-separated list of exception types to break on, or if the list starts with '!', a list of exception types to ignore.
+
+Both checkboxes support conditions to break on only selected exception types. To edit the condition, select the pencil icon (see image above) or right-click on the entry and invoke **Edit Condition**. The condition is a comma-separated list of exception types to break on, or if the list starts with '!', a list of exception types to ignore.
 
 Examples conditions:
 
 | Example condition value | Result |
 |-------------------------|--------|
-| System.NullReferenceException | This will break on just null reference exceptions. |
+| System.NullReferenceException | This will only break on null reference exceptions. |
 | System.NullReferenceException, System.InvalidOperationException | This will break on both null reference exceptions and invalid operation exceptions. |
 | !System.Threading.Tasks.TaskCanceledException | This will break on all exceptions except for task canceled. |
 | !System.Threading.Tasks.TaskCanceledException, System.NotImplementedException | This will break on all exceptions except for task canceled and not implemented. |
