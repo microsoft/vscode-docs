@@ -188,7 +188,7 @@ Use `editor.tabFocusMode` to control whether the terminal receives the `kbstyle(
 
 The terminal has a feature called [shell integration](/docs/terminal/shell-integration.md) that enables many additional features that are not found in other terminals. When using a screen reader, the [Run Recent Command](/docs/terminal/shell-integration.md#run-recent-command) and [Go to Recent Directory](/docs/terminal/shell-integration.md#go-to-recent-directory) features are particularly useful.
 
-Another shell integration powered command, **Terminal: Navigate Accessible Buffer** (`kb(workbench.action.terminal.navigateAccessibleBuffer)`), lets you navigate between terminal commands similar to **Go to Symbol in Editor...** navigation in the editor.
+Another shell integration powered command, **Go to Symbol in Accessible View** (`kb(editor.action.accessibleViewGoToSymbol)`), lets you navigate between terminal commands similar to **Go to Symbol in Editor...** navigation in the editor.
 
 ### Minimum contrast ratio
 
