@@ -258,3 +258,17 @@ To resolve this issue, clear out old folders from within the `obj` folder or cle
 ### I am not getting whole line completions
 
 Whole line completions are disabled when the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is enabled to allow you to take advantage of the more advanced [AI completion](/docs/editor/github-copilot.md) capabilities. You can verify that Copilot is enabled by checking if the Copilot logo is present in the lower right corner of VS Code.
+
+## Hot Reload
+
+### Hot Reload icon not appearing after I started debugging
+
+The debugger only starts a Hot Reload session if the option for Hot Reload is enabled in the C# Dev Kit [debugger settings](/docs/csharp/debugging.md#user-settings). If the option is enabled, it is expected that the Hot Reload icon appears in the status bar while debugging:
+
+![Hot Reload icon in the bottom bar](images/debugging/hotreload-statusbar.png)
+
+You can either click on the Hot Reload icon or can see diagnostic information by opening the **C# Hot Reload** Output window. If you don't see either of those, the project may not be supported by C# Dev Kit extension, see [Hot Reload supported projects](/docs/csharp/debugging.md#supported-net-apps-and-scenarios).
+
+### What types of edits are supported with Hot Reload?
+
+See [Supported code changes](https://learn.microsoft.com/visualstudio/debugger/supported-code-changes-csharp?view=vs-2022) for a list of the supported C# code changes with Hot Reload.
