@@ -87,7 +87,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ```json
 "scripts": {
-  "deploy": "vsce publish --yarn"
+  "deploy": "vsce publish"
 }
 ```
 
