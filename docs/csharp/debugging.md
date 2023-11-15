@@ -215,7 +215,7 @@ The runtime added support for applying changes while debugging on Linux/macOS on
 | Console | ✅ | Linux/macOS Only |
 | Test Projects | ✅ | Linux/macOS Only |
 | Class Library Projects | ✅ | Linux/macOS Only |
-| ASP.NET Core | ⚠* _Currently only supports changes on `.cs` files_ | Linux/macOS Only |
+| ASP.NET Core | ⚠️* _Currently only supports changes on `.cs` files_ | Linux/macOS Only |
 | MAUI | ❌* _Available soon_ | -- |
 | Unity | ❌ | -- |
 
