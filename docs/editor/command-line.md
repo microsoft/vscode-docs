@@ -142,25 +142,37 @@ You can also open projects and files using the platform's URL handling mechanism
 Open a project
 
 ```bash
+# Windows
 vscode://file/{full path to project}/
-
 vscode://file/c:/myProject/
+
+# Other
+vscode://file{full path to project}/
+vscode://file/home/user/myProject/
 ```
 
 Open a file
 
 ```bash
+# Windows
 vscode://file/{full path to file}
-
 vscode://file/c:/myProject/package.json
+
+# Other
+vscode://file{full path to file}
+vscode://file/home/user/myProject/package.json
 ```
 
 Open a file to line and column
 
 ```bash
+# Windows
 vscode://file/{full path to file}:line:column
-
 vscode://file/c:/myProject/package.json:5:10
+
+# Other
+vscode://file{full path to file}:line:column
+vscode://file/home/user/myProject/package.json:5:10
 ```
 
 You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.
