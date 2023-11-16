@@ -80,7 +80,7 @@ So far in this tutorial, you have been relying on the TypeScript compiler's defa
 
 **Important**: To use `tsconfig.json` for the rest of this tutorial, invoke `tsc` without input files. The TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
-Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
+Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0).
 
 ```json
 {
