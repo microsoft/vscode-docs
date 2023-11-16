@@ -23,8 +23,8 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }
@@ -100,8 +100,8 @@ tsconfig.json
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }
