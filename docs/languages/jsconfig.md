@@ -86,9 +86,9 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext".
-`module` | Specifies the module system, when generating module code. The values are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
-`moduleResolution` | Specifies how modules are resolved for imports. The values are "node" and "classic".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "es2021", "es2022", "es2023", "esnext".
+`module` | Specifies the module system, when generating module code. The values are "amd", "commonJS", "es2015", "es2020", "es2022", "es6", "node16", "nodenext", "esnext", "none", "system", "umd".
+`moduleResolution` | Specifies how modules are resolved for imports. The values are "node", "classic", "node16", "nodenext", "bundler".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
