@@ -267,7 +267,7 @@ The debugger only starts a Hot Reload session if the option for Hot Reload is en
 
 ![Hot Reload icon in the bottom bar](images/debugging/hotreload-statusbar.png)
 
-You can either click on the Hot Reload icon or can see diagnostic information by opening the **C# Hot Reload** Output window. If you don't see either of those, the project may not be supported by C# Dev Kit extension, see [Hot Reload supported projects](/docs/csharp/debugging.md#supported-net-apps-and-scenarios).
+You can either click on the Hot Reload icon or can see diagnostic information by opening the **C# Hot Reload** Output window. If you don't see either of those, the project may not be supported by C# Dev Kit extension, see [Hot Reload supported projects](/docs/csharp/debugging.md#supported-projects-and-scenarios).
 
 ### What types of edits are supported with Hot Reload?
 

@@ -200,7 +200,7 @@ With the C# Dev Kit extension installed, the debugger allows you to apply C# cod
 
 ![Hot Reload displayed in the debugging toolbar](images/debugging/hotreload-toolbar.png)
 
-In order to enable Hot Reload, `csharp.experimental.debug.hotReload` must be set to true, see [user settings](#user-settings) for more information. The Hot Reload session will only start if the target debugger engine supports applying code changes.
+In order to enable Hot Reload, `csharp.experimental.debug.hotReload` must be set to true, see [User settings](#user-settings) for more information. The Hot Reload session will only start if the target debugger engine supports applying code changes.
 
 ### Supported projects and scenarios
 
@@ -227,8 +227,8 @@ Once a Hot Reload session starts and new changes are made, you can apply these c
 
 | Action                                                 | Explanation                                                                                                                                                            |
 |--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hot Reload <br> `kbstyle(Ctrl+Shift+Enter)` | Apply code changes. Available from the **Debug Toolbar**. |
-| Save File <br> `kb(workbench.action.files.save)`        | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [user settings](#user-settings) for more information. |
+| Hot Reload <br> `kbstyle(Ctrl+Shift+Enter)` | Apply code changes, available from the **Debug Toolbar**. |
+| Save File <br> `kb(workbench.action.files.save)`        | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [User settings](#user-settings) for more information. |
 | Continue / Step Over / Step Into / Step Out <br> `kb(workbench.action.debug.continue)` / `kb(workbench.action.debug.stepOver)` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)`        | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
 
 ![Hot Reload demonstrated on ASP.NET](images/debugging/hotreload-demo.gif)
