@@ -200,17 +200,17 @@ With the C# Dev Kit extension installed, the debugger allows you to apply C# cod
 
 ![Hot Reload displayed in the debugging toolbar](images/debugging/hotreload-toolbar.png)
 
-In order to enable Hot Reload, `csharp.experimental.debug.hotReload` must be set to true, see [User Settings](#user-settings) for more information. The Hot Reload session will only start if the target debugger engine supports applying code changes.
+In order to enable Hot Reload, `csharp.experimental.debug.hotReload` must be set to true, see [user settings](#user-settings) for more information. The Hot Reload session will only start if the target debugger engine supports applying code changes.
 
-### Supported .NET apps and scenarios
+### Supported projects and scenarios
 
 C# Dev Kit supports the "classic" Hot Reload experience, also known as Edit and Continue. You can apply code changes while debugging regardless if you are stopped at a breakpoint or the program is running.
 
 As of November 2023, some features such as `MetadataUpdateHandler`, which enables ASP.NET Core applications to automatically refresh the browser [after a change is made](https://learn.microsoft.com/dotnet/api/system.reflection.metadata.metadataupdatehandlerattribute?view=net-8.0), are not available yet. Applying code changes without debugging is also not supported.
 
-The runtime added support for applying changes while debugging on Linux/macOS on .NET 8, so a runtime version of .NET 8+ is required when applying code changes for .NET apps running on these operating systems.
+The runtime added support for applying changes while debugging on Linux/macOS in .NET 8, so a runtime version of .NET 8+ is required when applying code changes for .NET apps running on these operating systems.
 
-| Application type | Supports Hot Reload with C# Dev Kit | .NET 8+ Required |
+| Application Type | Supports Hot Reload with C# Dev Kit | .NET 8+ Required |
 |------------------|-----------|-----------|
 | Console | ✅ | Linux/macOS Only |
 | Test Projects | ✅ | Linux/macOS Only |
@@ -223,13 +223,13 @@ See [supported projects](/docs/csharp/cs-dev-kit-faq.md#what-project-types-are-c
 
 ### How to apply code changes
 
-Once a Hot Reload session starts and new changes are made, you can apply the changes to the application with any of the following actions:
+Once a Hot Reload session starts and new changes are made, you can apply these changes to your application with any of the following actions:
 
 | Action                                                 | Explanation                                                                                                                                                            |
 |--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hot Reload <br> `kbstyle(Ctrl+Shift+Enter)` | Available from the **Debug Toolbar** and will start applying code changes. |
+| Hot Reload <br> `kbstyle(Ctrl+Shift+Enter)` | Apply code changes. Available from the **Debug Toolbar**. |
 | Save File <br> `kb(workbench.action.files.save)`        | Start applying code changes if `csharp.debug.hotReloadOnSave` is set to true. See [user settings](#user-settings) for more information. |
-| Continue / Step Over / Step Into / Step Out <br> `kb(workbench.action.debug.continue)` / `kb(workbench.action.debug.stepOver)` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)`        | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically them. |
+| Continue / Step Over / Step Into / Step Out <br> `kb(workbench.action.debug.continue)` / `kb(workbench.action.debug.stepOver)` / `kb(workbench.action.debug.stepInto)` / `kb(workbench.action.debug.stepOut)`        | When changes were made while on a break state (for example, while stopped at a breakpoint), these commands will automatically apply them. |
 
 ![Hot Reload demonstrated on ASP.NET](images/debugging/hotreload-demo.gif)
 
