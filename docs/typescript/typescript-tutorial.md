@@ -85,8 +85,8 @@ Add a simple `tsconfig.json` that set the options to compile to ES5 and use **Co
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs"
+        "target": "ES5",
+        "module": "CommonJS"
     }
 }
 ```
@@ -104,8 +104,8 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out"
     }
 }
@@ -136,8 +136,8 @@ VS Code has built-in support for TypeScript debugging. To support debugging Type
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true
     }
