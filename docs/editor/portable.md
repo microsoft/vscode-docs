@@ -23,17 +23,19 @@ Portable mode is supported on the ZIP download for Windows, and the TAR.GZ downl
 
 After unzipping the VS Code download, create a `data` folder within VS Code's folder:
 
-<pre>
-<code>|- VSCode-win32-x64-1.25.0-insider
+```
+|- VSCode-win32-x64-1.84.2
 |   |- Code.exe (or code executable)
-|   |- data (this will override the <a href="/docs/editor/command-line.md#advanced-cli-options">--user-data-dir &lt;dir&gt; and --extensions-dir &lt;dir&gt;</a> command line options *)
+|   |- data
 |   |- bin
-|   |  |- code (relevant executable for command line options)
+|   |  |- code
 |   |  |- ...
-|   |- ...</code>
-</pre>
+|   |- ...
+```
 
-From then on, that folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
+From then on, the `data` folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
+
+>**Note**: The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/editor/command-line.md#advanced-cli-options) options.
 
 The `data` folder can be moved to other VS Code installations. This is useful for updating your portable VS Code version, in which case you can move the `data` folder to a newer extracted version of VS Code.
 
@@ -78,7 +80,7 @@ You can also migrate an existing installation to Portable mode.
 As an example, here's the desired outcome on **Windows**:
 
 ```
-|- VSCode-win32-x64-1.25.0-insider
+|- VSCode-win32-x64-1.84.2
 |   |- Code.exe (or code executable)
 |   |- data
 |   |   |- user-data
@@ -87,6 +89,7 @@ As an example, here's the desired outcome on **Windows**:
 |   |   |   |- ...
 |   |- ...
 ```
+
 ### macOS
 
 1. Download [VS Code](/download) (or [VS Code Insiders](/insiders)) for macOS.
