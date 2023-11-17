@@ -13,7 +13,7 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Tutorial</a>
 
 ## Install Python and the Python extension
 
@@ -39,13 +39,13 @@ The Python extension then provides shortcuts to run Python code using the curren
 
 ![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line with your cursor will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line with your cursor will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for **Run Python File in Terminal**. If that terminal is still running the REPL, you should exit the REPL (`exit()`) or switch to a different terminal before running a Python file.
 
 The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left as needed.
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command that activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
-For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md#run-hello-world).
+For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md).
 
 ## Autocomplete and IntelliSense
 
@@ -59,11 +59,11 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in the VS Code Marketplace](images/python/copilot-extension.png)
+[![GitHub Copilot extension in the VS Code Marketplace](images/python/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
 GitHub Copilot provides suggestions for languages beyond Python and a wide variety of frameworks, including JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Linting
 

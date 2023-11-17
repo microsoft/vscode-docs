@@ -5,13 +5,13 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 ---
 # Develop on a remote Docker host
 
 Sometimes you may want to use the Dev Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote dev container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [use the Remote - SSH extension](/docs/remote/ssh.md) to open a folder on a remote host in a container, [attach to any running container](/docs/devcontainers/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container using a socket.
 
-## Connect using the Remote - SSH extension (recommended)
+## Connect using the Remote - SSH extension
 
 If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs/remote/ssh.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. To do so:
 
@@ -23,9 +23,20 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
 
+## Connect using the Remote - Tunnels extension
+
+If you are using a Linux machine as a tunnel host, you can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead. To do so:
+
+1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
+1. [Install Docker](/docs/devcontainers/containers#installation) on your tunnel host. You do not need to install Docker locally.
+1. Follow the [steps](/docs/remote/tunnels.md#remote-tunnels-extension) for the Remote - Tunnels extension to connect to a tunnel host and open a folder there.
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - Tunnels extension in its documentation](/docs/remote/tunnels.md).
+
 ## Connect using the Docker CLI
 
-This model only requires that a Docker Engine be running on a remote host that your local Docker CLI can connect to. While using the Remote - SSH extension is easier and doesn't require the Docker CLI to even be installed locally, this model can be useful for situations where you already have a host you are connecting to from the command line. This approach is also useful if you are looking to attach to already running containers on this remote server.
+This model only requires that a Docker Engine be running on a remote host that your local Docker CLI can connect to. While using the Remote - SSH and Remote - Tunnels extensions is easier and doesn't require the Docker CLI to even be installed locally, this model can be useful for situations where you already have a host you are connecting to from the command line. This approach is also useful if you are looking to attach to already running containers on this remote server.
 
 ### A basic remote example
 

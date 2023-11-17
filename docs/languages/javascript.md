@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -42,8 +42,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -251,11 +251,11 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)
+[![GitHub Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
 
@@ -411,8 +411,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
+        "module": "CommonJS",
+        "target": "ES6",
         // This is the line you want to add
         "allowSyntheticDefaultImports": true
     },

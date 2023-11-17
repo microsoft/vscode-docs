@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -52,6 +52,10 @@ By default editors will open to the right-hand side of the active one. You can c
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
+
+### Split in group
+
+You can also split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#split-in-group) topic.
 
 ## Minimap
 
@@ -216,7 +220,18 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore`, and `zenMode.centerLayout`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+
+Zen Mode can be further tuned by the following settings:
+
+* `zenMode.hideActivityBar`- Hide the Activity bar. Default `true`.
+* `zenMode.hideStatusBar` - Hide the Status bar. Default `true`.
+* `zenMode.hideLineNumbers` - Hide line numbers. Default `true`.
+* `zenMode.showTabs` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `zenMode.fullScreen` - Put workbench in full screen display. Default `true`.
+* `zenMode.restore` - Restore Zen Mode on restart. Default `true`.
+* `zenMode.centerLayout` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `zenMode.silentNotifications` - Do not display notifications. Default `true`.
 
 ### Centered editor layout
 
@@ -369,6 +384,7 @@ The `window.restoreWindows` setting tells VS Code how to restore the opened wind
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
+* [Custom Layout](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

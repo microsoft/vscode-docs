@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -21,7 +21,7 @@ The presence of `jsconfig.json` file in a directory indicates that the directory
 
 Visual Studio Code's JavaScript support can run in two different modes:
 
-* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using `import` or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
+* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using `import` or **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0)), there is no common project context between the two files.
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
@@ -48,8 +48,8 @@ The `exclude` attribute (a [glob pattern](/docs/editor/glob-patterns.md)) tells 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -66,8 +66,8 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "include": [
         "src/**/*"
@@ -86,9 +86,9 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext".
-`module` | Specifies the module system, when generating module code. The values are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
-`moduleResolution` | Specifies how modules are resolved for imports. The values are "node" and "classic".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "ES2021", "ES2022", "ES2023", "ESNext".
+`module` | Specifies the module system, when generating module code. The values are "AMD", "CommonJS", "ES2015", "ES2020", "ES2022", "ES6", "Node16", "NodeNext", "ESNext", "None", "System", "UMD".
+`moduleResolution` | Specifies how modules are resolved for imports. The values are "Node", "Classic", "Node16", "NodeNext", "Bundler".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.

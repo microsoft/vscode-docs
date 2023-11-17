@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -62,7 +62,7 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
     "vscode": "^1.74.0"
   },
   "activationEvents": [],
-  "main": "./out/src/extension",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -279,7 +279,7 @@ export function activate(context: vscode.ExtensionContext) {
         {}
       );
 
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // After 5sec, programmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
@@ -313,7 +313,7 @@ Let's update our extension to only allow a single webview to exist at a time. If
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
-  // Track currently webview panel
+  // Track the current panel with a webview
   let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
   context.subscriptions.push(
@@ -330,7 +330,7 @@ export function activate(context: vscode.ExtensionContext) {
         currentPanel = vscode.window.createWebviewPanel(
           'catCoding',
           'Cat Coding',
-          columnToShowIn,
+          columnToShowIn || vscode.ViewColumn.One,
           {}
         );
         currentPanel.webview.html = getWebviewContent('Coding Cat');
@@ -434,7 +434,7 @@ In addition, the **Developer: Reload Webview** command reloads all active webvie
 
 Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `Webview.asWebviewUri` function to convert a local `file:` URI into a special URI that VS Code can use to load a subset of local resources.
 
-Imagine that we want to start bundling the cat gifs into our extension rather pulling them from Giphy. To do this, we first create a URI to the file on disk and then pass these URIs through the `asWebviewUri` function:
+Imagine that we want to start bundling the cat gifs into our extension rather than pulling them from Giphy. To do this, we first create a URI to the file on disk and then pass these URIs through the `asWebviewUri` function:
 
 ```ts
 import * as vscode from 'vscode';
@@ -458,6 +458,20 @@ export function activate(context: vscode.ExtensionContext) {
       panel.webview.html = getWebviewContent(catGifSrc);
     })
   );
+}
+
+function getWebviewContent(catGifSrc: vscode.Uri) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Coding</title>
+</head>
+<body>
+    <img src="${catGifSrc}" width="300" />
+</body>
+</html>`;
 }
 ```
 
@@ -496,9 +510,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Only allow the webview to access resources in our extension's media directory
-          localResourceRoots: [
-            vscode.Uri.joinPath(context.extensionPath, 'media')
-          ]
+          localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')]
         }
       );
 

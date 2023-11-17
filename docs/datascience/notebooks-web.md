@@ -76,7 +76,7 @@ When you're starting your remote server, be sure to:
 
 ### Limitations
 
-Since VS Code for the Web runs entirely in your web browser, there are some limitations compared to the desktop and Codespaces experiences.
+Since VS Code for the Web runs entirely in your web browser, there are some limitations compared to the desktop and Codespaces experiences.
 
 - No access the VS Code terminal (though you can run [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) from your notebook cells)
 - Limited debugging

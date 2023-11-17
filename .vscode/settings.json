@@ -23,6 +23,6 @@
         "/api/**/*": "images/${documentBaseName}/"
     },
     "editor.codeActionsOnSave": {
-        "source.organizeLinkDefinitions": true
+        "source.organizeLinkDefinitions": "explicit"
     }
 }

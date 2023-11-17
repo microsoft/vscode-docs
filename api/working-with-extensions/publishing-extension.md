@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -453,16 +453,18 @@ Platform-specific extensions are useful if your extension has platform-specific 
 
 Platform-specific extensions are published as separate packages containing platform-specific content. You can specify the target platform by passing the [`--target` flag](#publishing). If you don't pass this flag, that package will be used as a fallback for all platforms that have no platform-specific package.
 
-The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
+The currently available platforms are: `win32-x64`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 
 If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. To disable the extension capabilities that are not supported in the `web`, we recommend using `when` clauses in the `package.json` instead of shipping separate `package.json` for the web platform or removing parts of the VSIX that do not work in the `web`.
 
 #### Publishing
 
-Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` flag to specify the target platform while packaging and publishing a VSIX. For example, to publish a VSIX for the `win32-x64` and `win32-ia32` platforms:
+Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
+
+Here's how you can publish a VSIX for the `win32-x64` and `win32-arm64` platforms:
 
 ```bash
-vsce publish --target win32-x64 win32-ia32
+vsce publish --target win32-x64 win32-arm64
 ```
 
 Alternatively, you can also use the `--target` flag when packaging to create a platform-specific VSIX. For example, to package a VSIX for the `win32-x64` platform and then publish it:
@@ -471,8 +473,6 @@ Alternatively, you can also use the `--target` flag when packaging to create a p
 vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
-
-If VS Code does not detect a specific VSIX for `win32-x64` or `win32-arm64` platforms, it will fallback to `win32-ia32` VSIX. So, if you publish multiple platforms, we recommend that you publish `win32-ia32` last to avoid some users on `win32-x64` or `win32-arm64` getting the fallback package, while the right package is about to get uploaded.
 
 #### Continuous Integration
 
@@ -504,7 +504,7 @@ Note that when building and publishing your extension from Windows, all the file
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and GitLab CI to automatically publish your extension to the Marketplace.
 
 ### I get "ERROR The extension 'name' already exists in the Marketplace" error when I try to publish my extension?
 

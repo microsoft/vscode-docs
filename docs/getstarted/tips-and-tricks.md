@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -19,9 +19,9 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
+The best way of exploring VS Code hands-on is to open the **Welcome** page. You will get an overview of VS Code's customizations and features. **Help** > **Welcome**.
 
-![Get Started page](images/tips-and-tricks/getstarted_page.png)
+![Welcome page](images/tips-and-tricks/welcome-page.png)
 
 Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 

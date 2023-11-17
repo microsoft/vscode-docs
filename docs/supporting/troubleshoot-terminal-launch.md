@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 8/3/2023
+DateApproved: 11/1/2023
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -87,20 +87,6 @@ This can happen if Windows Subsystem for Linux (WSL) is not set up with a valid 
 
 * Open PowerShell and enter `wslconfig.exe /l` to confirm WSL is installed correctly and list the currently available Linux distributions within your system. Confirm a valid distribution has **(default)** next to it.
 * To change the default distribution, enter `wslconfig.exe /setdefault "distributionNameAsShownInList"`
-
-### The terminal not working when running the 32-bit Windows client on 64-bit Windows?
-
-The easy fix for this issue is to use the 64-bit version. If you must use the 32-bit version, you need to use the sysnative path when configuring your shell path instead of System32. Adding this setting should fix the issue:
-
-```json
-{
-   "terminal.integrated.profiles.windows": {
-      "Command Prompt": {
-         "path": "${env:windir}\\Sysnative\\cmd.exe"
-      }
-   }
-}
-```
 
 ### A native exception occurred
 
