@@ -266,7 +266,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` parameter inside `package.json`:
+When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` property inside `package.json`:
 
 ```json
 {
@@ -279,7 +279,7 @@ When authoring an extension, you must specify the versions of VS Code your exten
 - A value of `1.8.0` (without caret) means that your extension is compatible only with VS Code `1.8.0`.
 - A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` parameter to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
+You can use the `engines.vscode` property to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
 
@@ -293,18 +293,18 @@ Here are some tips for making your extension look great on the Marketplace:
 
 - Add a `README.md` file to the root of your extension with the content you want to show on the extension's Marketplace page.
 
-  > **Note:** If you have a `repository` parameter in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `master` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
+  > **Note:** If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
 
 - Add a `LICENSE` file to the root of your extension with the information about the extension's license.
 - Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
-- Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` parameter in `package.json`.
-- Set an icon by specifying a relative path to a 128x128px png file included in your extension via the `icon` parameter in `package.json`.
+- Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` property in `package.json`.
+- Set an icon by specifying a relative path to a 128x128px PNG file included in your extension via the `icon` property in `package.json`.
 
 See more information in [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
 ### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Verified publisher will demonstrate your authenticity via a verified badge added to your extensions.
+You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details.
 
 ![Verified publisher indicators in VS Code](images/publishing-extension/verified-publisher.png)
 
@@ -312,30 +312,30 @@ To verify a publisher:
 
 1. Go to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
 2. In the pane on the left, select or [create a publisher](#create-a-publisher) you wish to verify.
-3. In the main pane, click the **Details** tab.
+3. In the main pane, select the **Details** tab.
 
- ![Publisher details tab location](images/publishing-extension/publisher-details-tab.png)
+   ![Publisher details tab location](images/publishing-extension/publisher-details-tab.png)
 
 4. In the **Details tab**, under the **Verified domain** section, type an [eligible domain](#eligible-domains).
 
- ![Publisher details tab with provided domain to verify](images/publishing-extension/publisher-details-tab-verified-domain.png)
+   ![Publisher details tab with provided domain to verify](images/publishing-extension/publisher-details-tab-verified-domain.png)
 
- > **Note**: Notice an asterisk (*) next to **Details** tab title after you start typing. Just like in VS Code, this indicates that you have unsaved changes. For the same reason, the **Verify** button is disabled yet.
+   > **Note**: Notice an asterisk (*) next to **Details** tab title after you start typing. Just like in VS Code, this indicates that you have unsaved changes. For the same reason, the **Verify** button is disabled yet.
 
-5. Click **Save** and then **Verify**.
+5. Select **Save** and then **Verify**.
 
- ![Saved domain to verify](images/publishing-extension/saved-domain-to-verify.png)
+   ![Saved domain to verify](images/publishing-extension/saved-domain-to-verify.png)
 
- A dialog window will appear, providing you with instructions about adding a TXT record to your domain's DNS configuration.
+   A dialog window will appear, providing you with instructions about adding a TXT record to your domain's DNS configuration.
 
- ![TXT record verification](images/publishing-extension/txt-record-verification.png)
+   ![TXT record verification](images/publishing-extension/txt-record-verification.png)
 
 6. Follow the instructions to add the TXT record to your domain's DNS configuration.
-7. Click **Verify** in the dialog window to validate that the TXT record has been successfully added.
+7. Select **Verify** in the dialog window to validate that the TXT record has been successfully added.
 
-    ![Validation submitted](images/publishing-extension/validation-submitted.png)
+   ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+   Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
 
 Once verified, you will also see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
@@ -356,7 +356,7 @@ Eligible domains meet the following criteria:
 
 You can opt-in to show a pricing label on your extension's Marketplace page to indicate that it is `Free` or `Free Trial`.
 
-To show a pricing label, add the `pricing` parameter to your `package.json`. For example:
+To show a pricing label, add the `pricing` property to your `package.json`. For example:
 
 ```json
 {
@@ -364,7 +364,7 @@ To show a pricing label, add the `pricing` parameter to your `package.json`. For
 }
 ```
 
-Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` parameter is not specified, the default value is `Free`.
+Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` property is not specified, the default value is `Free`.
 
 >**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
 
@@ -372,7 +372,7 @@ Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` para
 
 You can opt-in to sponsorship to give your users a way to support your work.
 
-To show a sponsor link, add the `sponsor` parameter to your `package.json`. For example:
+To show a sponsor link, add the `sponsor` property to your `package.json`. For example:
 
 ```json
 "sponsor": {
@@ -455,7 +455,7 @@ Platform-specific extensions are published as separate packages containing platf
 
 The currently available platforms are: `win32-x64`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 
-If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. To disable the extension capabilities that are not supported in the `web`, we recommend using `when` clauses in the `package.json` instead of shipping separate `package.json` for the web platform or removing parts of the VSIX that do not work in the `web`.
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform respects the `browser` entry point in the `package.json`. To disable the extension capabilities that are not supported in the `web`, we recommend using `when` clauses in the `package.json` instead of shipping separate `package.json` for the web platform or removing parts of the VSIX that do not work in the `web`.
 
 #### Publishing
 
@@ -474,9 +474,9 @@ vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
 
-#### Continuous Integration
+#### Continuous integration
 
-Managing multiple platform-specific VSIXs might get overwhelming, so we suggest automating your extension's build process in Continuous Integration. For example, using [GitHub Actions](https://github.com/features/actions). Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a starting point for learning: its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
+Managing multiple platform-specific VSIXs might get overwhelming, so we suggest automating your extension's build process with [continuous integration](/api/working-with-extensions/continuous-integration) (CI) tooling. For example, you can use [GitHub Actions](https://github.com/features/actions) to build your extensions. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a starting point for learning: its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
 
 ## Next steps
 
