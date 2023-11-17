@@ -23,12 +23,15 @@ Portable mode is supported on the ZIP download for Windows, and the TAR.GZ downl
 
 After unzipping the VS Code download, create a `data` folder within VS Code's folder:
 
-```
-|- VSCode-win32-x64-1.25.0-insider
+<pre>
+<code>|- VSCode-win32-x64-1.25.0-insider
 |   |- Code.exe (or code executable)
-|   |- data
-|   |- ...
-```
+|   |- data (this will override the <a href="/docs/editor/command-line.md#advanced-cli-options">--user-data-dir &lt;dir&gt; and --extensions-dir &lt;dir&gt;</a> command line options *)
+|   |- bin
+|   |  |- code (relevant executable for command line options)
+|   |  |- ...
+|   |- ...</code>
+</pre>
 
 From then on, that folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
 
