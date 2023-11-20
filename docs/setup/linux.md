@@ -204,7 +204,7 @@ If you see an error when deleting files from the VS Code Explorer on the Debian 
 Run these commands to solve this issue:
 
 ```bash
-sudo apt-get install gvfs-bin
+sudo apt-get install gvfs libglib2.0-bin
 ```
 
 ### Conflicts with VS Code packages from other repositories
