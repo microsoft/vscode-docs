@@ -338,7 +338,7 @@ The **Ask GitHub Copilot** command will open the Chat view and input your search
 
 ## Getting the most of of Copilot Chat
 
-This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover how to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
+This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
 
 ### Use agents and slash commands
 
@@ -353,7 +353,23 @@ You could write out your project scope or current task with a natural language q
 
 ### Iterate on your solution
 
+When asking Copilot Chat for help, you aren't stuck with the first response. You can iterate and prompt Copilot to improve the solution. Copilot has both the context of the generated code and also your current conversation.
 
+Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+
+![First response from Copilot for a function to calculate Fibonacci numbers](images/artificial-intelligence/fibonacci-first.png)
+
+Maybe you're prefer a solution that doesn't use recursion:
+
+![Ask Copilot to not use recursion and new result](images/artificial-intelligence/fibonacci-second.png)
+
+You can even ask Copilot to follow coding conventions or improve variable names:
+
+![Ask Copilot to use better variable names and new result](images/artificial-intelligence/fibonacci-third.png)
+
+Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
+
+![Ask inline chat to use better variable names on existing code](images/artificial-intelligence/fibonacci-better-var-names.png)
 
 ## Additional resources
 
