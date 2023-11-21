@@ -458,7 +458,11 @@ You can also contribute default editor configurations for the provided language.
     "configurationDefaults": {
       "[markdown]": {
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false
+        "editor.quickSuggestions": {
+                "comments": "off",
+                "strings": "off",
+                "other": "off"
+        }
       }
     }
   }
