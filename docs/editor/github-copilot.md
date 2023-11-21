@@ -117,7 +117,7 @@ A function name can only be so descriptive without being overly long so function
 
 #### Prime Copilot with sample code
 
-One trick to get Copilot on the right page is to copy and paste sample code that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
+One trick to get Copilot on the right page is to copy and paste sample code into your open editor that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
 
 ### Be consistent and keep the quality bar high
 
@@ -335,6 +335,25 @@ When trying to find a command in the Command Palette (`kb(workbench.action.showC
 The **Ask GitHub Copilot** command will open the Chat view and input your search term.
 
 ![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
+
+## Getting the most of of Copilot Chat
+
+This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover how to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
+
+### Use agents and slash commands
+
+[Agents](#agents-and-slash-commands) are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate agent, Copilot Chat can find and provide better information to send to the Copilot backend.
+
+* Use `@workspace` if you want to ask questions about your open project.
+* Use `@vscode` if you want to know about VS Code features and APIs.
+
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`) or do you want help fixing an issue (`/fix`) or creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+
+You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
+
+### Iterate on your solution
+
+
 
 ## Additional resources
 
