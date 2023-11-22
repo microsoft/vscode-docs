@@ -29,7 +29,6 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
-
 >**Tip:** You can move the Primary Side Bar to the right hand side (**View** > **Toggle Primary Side Bar Position**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by side editing
@@ -171,7 +170,7 @@ You can show or hide views from within the main view and also reorder them by dr
 
 ### Activity Bar
 
-The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Hide from Activity Bar**).
+The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right-click the Activity Bar and uncheck a view).
 
 ![activity bar context menu](images/userinterface/activity-bar-context-menu.png)
 
@@ -195,7 +194,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 ## Configuring the editor
 
-VS Code gives you many options to configure the editor. From the **View** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
+VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
 ### Hide the Menu Bar (Windows, Linux)
 
@@ -249,6 +248,8 @@ Tabs let you quickly navigate between items and you can Drag and Drop Tabs to re
 
 When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown list of tabbed items.
 
+There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`workbench.editor.titleScrollbarSizing`) to `large`.
+
 If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
 
 ```json
@@ -266,6 +267,12 @@ For example, you might like new tabbed items to appear on the left:
 ```json
     "workbench.editor.openPositioning": "left"
 ```
+
+### Wrapped tabs
+
+To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`workbench.editor.wrapTabs`) [setting](/docs/getstarted/settings.md).
+
+![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
 
 ## Preview mode
 
