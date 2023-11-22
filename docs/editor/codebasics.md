@@ -330,7 +330,7 @@ C/C++|`#pragma region`|`#pragma endregion`
 CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
 Coffeescript|`#region`|`#endregion`
 F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
-Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+Java|`//#region` or `//<editor-fold>`|`//#endregion` or `//</editor-fold>`
 Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
