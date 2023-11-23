@@ -1,5 +1,5 @@
 ---
-Order: 40
+Order:
 TOCTitle: Logpoints and auto-attach
 PageTitle: Introducing Logpoints and auto-attach
 MetaDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use in Visual Studio Code
