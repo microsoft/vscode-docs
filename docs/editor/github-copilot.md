@@ -387,8 +387,7 @@ Check each requirement if Copilot Chat doesn't work:
 
 * Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 * Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-* Your GitHub account that is signed into VS Code must be both:
-  * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+* Your GitHub account that is signed into VS Code must have an activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
 
 ### I can't find Copilot Chat in the Activity bar
 
