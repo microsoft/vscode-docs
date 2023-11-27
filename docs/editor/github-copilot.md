@@ -117,7 +117,7 @@ A function name can only be so descriptive without being overly long so function
 
 #### Prime Copilot with sample code
 
-One trick to get Copilot on the right page is to copy and paste sample code into your open editor that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
+One trick to get Copilot on the right page is to copy and paste sample code into your open editor that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to providing older code suggestions.
 
 ### Be consistent and keep the quality bar high
 
@@ -359,7 +359,7 @@ Here's an example using inline chat to create a function to calculate Fibonacci 
 
 ![First response from Copilot for a function to calculate Fibonacci numbers](images/artificial-intelligence/fibonacci-first.png)
 
-Maybe you're prefer a solution that doesn't use recursion:
+Maybe you prefer a solution that doesn't use recursion:
 
 ![Ask Copilot to not use recursion and new result](images/artificial-intelligence/fibonacci-second.png)
 
@@ -377,7 +377,7 @@ Congratulations, you've now used artificial intelligence to enhance your coding!
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
 
 ## Common questions
 
