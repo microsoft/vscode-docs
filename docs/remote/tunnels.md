@@ -98,7 +98,7 @@ Like the other Remote Development extensions, the name of your remote machine wi
 
 ### Open a folder on a Remote Tunnels host in a container
 
-If you are using a Linux machine as a tunnel host, you can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+You can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
 
 To do so:
 
