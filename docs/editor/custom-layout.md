@@ -42,6 +42,14 @@ The Secondary side bar is initially empty but you can drag and drop views and pa
 
 >**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 
+### Activity bar position
+
+By default, the Activity bar moves with the Primary side bar and remains on the outer edge of the workbench. You can also choose to hide the Activity bar or move it to the top of the Primary side bar. The **Activity Bar Position** menu available from the Activity bar context menu or under **View** > **Appearance** has the options **Side**, **Top**, or **Hidden**.
+
+When the Activity bar is in the top position, the **Account** and **Manage** buttons, usually at the bottom of the Activity bar, move to the right side of the title bar.
+
+![Activity bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
+
 ### Panel
 
 The Panel region displays UI elements such as the Problems, Terminal, and Output panels and by default is located under the editor region.
@@ -75,7 +83,7 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Maximize Panel size
 
-You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron button points downwards in the maximized panel to restore the panel to the original size.
+When the Panel alignment is **Center**, you can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region. The chevron button points downwards in the maximized panel to restore the panel to the original size.
 
 ![Maximize Panel Size button in the upper right of the Panel region](images/custom-layout/maximize-panel-size.png)
 

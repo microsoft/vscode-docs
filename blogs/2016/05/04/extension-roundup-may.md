@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order:
 TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions Roundup May 2016
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code for May 2016.

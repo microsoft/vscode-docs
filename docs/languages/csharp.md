@@ -40,6 +40,7 @@ Supported .NET project types include:
 * ASP.NET Core App
 * ASP.NET Core Web API
 * ASP.NET Core MVC Web App
+* Blazor Web App
 * Blazor Server App
 * Blazor WebAssembly App
 * Console App

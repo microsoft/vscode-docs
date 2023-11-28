@@ -87,6 +87,7 @@ JavaScript | `javascript`
 JavaScript JSX | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
+Julia | `julia`
 LaTeX | `latex`
 Less | `less`
 Lua | `lua`

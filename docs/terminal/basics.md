@@ -194,6 +194,8 @@ To use the `runSelectedText` command, select text in an editor and run the comma
 
 The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
 
+Note that the panel can only be maximized if its [alignment](/docs/editor/custom-layout.md#panel-alignment) option is set to **Center**.
+
 ## Select all
 
 There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keybinding:

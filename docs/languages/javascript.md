@@ -42,8 +42,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -411,8 +411,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
+        "module": "CommonJS",
+        "target": "ES6",
         // This is the line you want to add
         "allowSyntheticDefaultImports": true
     },

@@ -1,5 +1,5 @@
 ---
-Order: 30
+Order:
 TOCTitle: Emmet 2.0
 PageTitle: Emmet 2.0 in Visual Studio Code
 MetaDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code.

@@ -123,7 +123,7 @@ When the Find Widget is opened, it will automatically populate the selected text
 
 ![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
 
-This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `false`.
+This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `"never"`.
 
 ### Find In Selection
 
@@ -330,7 +330,7 @@ C/C++|`#pragma region`|`#pragma endregion`
 CSS/Less/SCSS|`/*#region*/`|`/*#endregion*/`
 Coffeescript|`#region`|`#endregion`
 F#|`//#region` or `(#region)`|`//#endregion` or `(#endregion)`
-Java|`//#region` or `//<editor-fold>`|`// #endregion` or `//</editor-fold>`
+Java|`//#region` or `//<editor-fold>`|`//#endregion` or `//</editor-fold>`
 Markdown|`<!-- #region -->`|`<!-- #endregion -->`
 Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
@@ -426,6 +426,8 @@ You can control word wrap through the `editor.wordWrap` [setting](/docs/getstart
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+
+As in other editors, commands such as **Cut** and **Copy** apply to the whole wrapped line. Triple-click selects the whole wrapped line. Pressing `kbstyle(Home)` twice moves the cursor to the very beginning of the line. Pressing `kbstyle(End)` twice moves the cursor to the very end of the line.
 
 ### How can I avoid placing extra cursors in word wrapped lines?
 

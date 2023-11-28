@@ -266,7 +266,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Visual Studio Code compatibility
 
-When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` parameter inside `package.json`:
+When authoring an extension, you must specify the versions of VS Code your extension is compatible with. To do this, use the `engines.vscode` property inside `package.json`:
 
 ```json
 {
@@ -279,7 +279,7 @@ When authoring an extension, you must specify the versions of VS Code your exten
 - A value of `1.8.0` (without caret) means that your extension is compatible only with VS Code `1.8.0`.
 - A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` parameter to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
+You can use the `engines.vscode` property to ensure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well both with Stable and Insiders releases.
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
 
@@ -291,48 +291,72 @@ You can customize how your extension looks in the Visual Studio Marketplace. See
 
 Here are some tips for making your extension look great on the Marketplace:
 
-- A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
-  - If you add a `repository` field to your `package.json` and it is a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `master` branch by default. You can override the GitHub branch with the `--githubBranch` flag when running `vsce package` or `vsce publish`.
-  - For more fine-grained control, you can set the `--baseContentUrl` and `--baseImagesUrl` flags to set the base URLs for relative links.
-- A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
-- A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's change log.
-- You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
-- You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
+- Add a `README.md` file to the root of your extension with the content you want to show on the extension's Marketplace page.
 
-Also see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
+  > **Note:** If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
+
+- Add a `LICENSE` file to the root of your extension with the information about the extension's license.
+- Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
+- Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` property in `package.json`.
+- Set an icon by specifying a relative path to a 128x128px PNG file included in your extension via the `icon` property in `package.json`.
+
+See more information in [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
 ### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Verifying your publisher will demonstrate your authenticity and add a verified badge to your extensions.
+You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details.
 
-![Verified publisher indicators in VS Code](images/publishing-extension/verified-publishers.png)
+![Verified publisher indicators in VS Code](images/publishing-extension/verified-publisher.png)
 
 To verify a publisher:
 
-1. Visit the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
-2. Select or create a publisher you wish to verify.
-3. Input an [eligible domain](#eligible-domains) in the **Verified domain** field, save, and select **Verify**.
-4. Follow the instructions in the dialog to add a TXT record to your domain's DNS configuration.
-5. Select **Verify** to validate that the TXT record has been successfully added.
+1. Go to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
+2. In the pane on the left, select or [create a publisher](#create-a-publisher) you wish to verify.
+3. In the main pane, select the **Details** tab.
 
-Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+   ![Publisher details tab location](images/publishing-extension/publisher-details-tab.png)
 
-**Note**: Any changes to the publisher display name will revoke the verified badge.
+4. In the **Details tab**, under the **Verified domain** section, type an [eligible domain](#eligible-domains).
+
+   ![Publisher details tab with provided domain to verify](images/publishing-extension/publisher-details-tab-verified-domain.png)
+
+   > **Note**: Notice an asterisk (*) next to **Details** tab title after you start typing. Just like in VS Code, this indicates that you have unsaved changes. For the same reason, the **Verify** button is disabled yet.
+
+5. Select **Save** and then **Verify**.
+
+   ![Saved domain to verify](images/publishing-extension/saved-domain-to-verify.png)
+
+   A dialog window will appear, providing you with instructions about adding a TXT record to your domain's DNS configuration.
+
+   ![TXT record verification](images/publishing-extension/txt-record-verification.png)
+
+6. Follow the instructions to add the TXT record to your domain's DNS configuration.
+7. Select **Verify** in the dialog window to validate that the TXT record has been successfully added.
+
+   ![Validation submitted](images/publishing-extension/validation-submitted.png)
+
+   Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+Once verified, you will also see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
+
+![Verified publisher manage](images/publishing-extension/verified-publisher-manage.png)
+
+> **Note**: Any changes to the publisher display name will revoke the verified badge.
 
 ### Eligible domains
 
 Eligible domains meet the following criteria:
 
-- Cannot be a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
 - You must be able to manage the DNS configuration settings and add a TXT record.
-- Your domain must use HTTPS protocol.
-- Your domain must be able to serve an HTTP 200 status response to a HEAD request.
+- It is not a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
+- It must use an HTTPS protocol.
+- It must be able to respond with an HTTP 200 status to a HEAD request.
 
 ### Extension pricing label
 
-You can add a pricing label to your extension in the Marketplace to indicate that it is `FREE` or `FREE TRIAL`.
+You can opt-in to show a pricing label on your extension's Marketplace page to indicate that it is `Free` or `Free Trial`.
 
-As an extension author, you can opt-in to display a pricing label on your extension page by adding the `pricing` field to your `package.json`, for example:
+To show a pricing label, add the `pricing` property to your `package.json`. For example:
 
 ```json
 {
@@ -340,15 +364,15 @@ As an extension author, you can opt-in to display a pricing label on your extens
 }
 ```
 
-The value of the `pricing` field can be either `Free` or `Trial`. Note that these values are case-sensitive.
-
-If you do not add the `pricing` field to your `package.json`, the default label will be `FREE`.
+Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` property is not specified, the default value is `Free`.
 
 >**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
 
 ### Extension Sponsor
 
-An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
+You can opt-in to sponsorship to give your users a way to support your work.
+
+To show a sponsor link, add the `sponsor` property to your `package.json`. For example:
 
 ```json
 "sponsor": {
@@ -356,19 +380,17 @@ An extension can opt-in to sponsorship by adding a `sponsor` field in its `packa
 }
 ```
 
->**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
+> **Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
 
-If an extension opts-into this VS Code will render a **Sponsor** button in the extension details page header.
+The sponsor link will appear on your extension's page in Marketplace and VS Code in the extension details header:
 
-![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
+![Sponsor link in extension details page](images/publishing-extension/sponsor-link-example.png)
 
 We hope this will allow our users to fund the extensions that they depend on to improve the extension's performance, reliability, and stability.
 
 ### Using .vscodeignore
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
-
-For example:
+You can create a `.vscodeignore` file to prevent some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line. For example:
 
 ```bash
 **/*.ts
@@ -376,13 +398,13 @@ For example:
 !file.ts
 ```
 
-You should ignore all files not needed at runtime. For example, if your extension is written in TypeScript, you should ignore all `**/*.ts` files, like in the previous example.
+You should ignore all files not needed at runtime. For example, if your extension is written in TypeScript, you should ignore all `**/*.ts` files, like in the example above.
 
-**Note:** Development dependencies listed in `devDependencies` will be automatically ignored, you don't need to add them to the `.vscodeignore` file.
+**Note:** Development dependencies listed in `devDependencies` will be automatically ignored, so you don't need to add them explicitly.
 
 ### Pre-publish step
 
-It's possible to add a pre-publish step to your manifest file. The command will be called every time the extension is packaged.
+You can add a pre-publish step to your manifest file, which will be called every time the extension is packaged. For example, you may want to invoke the [TypeScript](https://www.typescriptlang.org/) compiler at this stage:
 
 ```json
 {
@@ -398,45 +420,42 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 }
 ```
 
-This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
-
 ### Pre-release extensions
 
-Users can choose to install pre-release versions of extensions in VS Code or VS Code Insiders in order to regularly get the latest extension version before the official extension release.
+Users can install pre-release versions of extensions in VS Code or VS Code Insiders to regularly get the latest extension version before the official extension release.
 
 ![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
 
-For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the package and publish step:
+To publish a pre-release version, pass the `--pre-release` flag to the `vsce package` or `vsce publish` commands:
 
 ```bash
 vsce package --pre-release
 vsce publish --pre-release
 ```
 
-We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Thus, if you publish `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch` and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if 1.2.3 is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as 1.2.4. Full `semver` support will arrive in the future.
+We only support `major.minor.patch` for extension versions, `semver` pre-release tags are **not supported**. So, if you publish a `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch`, and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if `1.2.3` is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as `1.2.4`. Full `semver` support will be available in the future.
 
-VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
-Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
+VS Code will automatically update extensions to the highest version available, so even if a user opted-into a pre-release version and there is an extension release with a higher version, the user will be updated to the released version. So, we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
 
-If extension authors do not want their pre-release users to be updated to the release version, we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher. Note that while pre-release users will be updated to a release version if it is higher, they still remain eligible to automatically update to future pre-releases with higher version numbers than the release version.
+If extension authors do not want their pre-release users to be updated to the release version, we recommend always incrementing and publishing a new pre-release version before publishing a release version to make sure that the pre-release version is always higher. Note that while pre-release users will be updated to a release version if it is higher, they still remain eligible to automatically update to future pre-releases with higher version numbers than the release version.
 
-Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `engines.vscode` value in their `package.json` to `>= 1.63.0`.
+Pre-release extensions are supported after VS Code version `1.63.0`, so all pre-release extensions should have the `engines.vscode` value in their `package.json` set to `>= 1.63.0`.
 
-> **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
+> **Note:** Extensions that already have a separate standalone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install the pre-release version of the main extension.
 
 ### Platform-specific extensions
 
-Extensions can publish different VSIXs for each platform (Windows, Linux, macOS) VS Code is running on. We call such extensions  **platform-specific extensions**.
+You can publish your extension's VSIX package for each platform (Windows, Linux, macOS) VS Code is running on. We call such extensions **platform-specific**.
 
-Starting with version 1.61.0, VS Code looks for the extension package that matches the current platform.
+Starting with version `1.61.0`, VS Code looks for the extension package that matches the current platform.
 
 Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
 
-When publishing platform-specific extensions, a separate package needs to be published for every platform that has platform-specific content. You can still publish a package without the `--target` flag and that package will be used as a fallback for all platforms for which there is no specific platform-specific package.
+Platform-specific extensions are published as separate packages containing platform-specific content. You can specify the target platform by passing the [`--target` flag](#publishing). If you don't pass this flag, that package will be used as a fallback for all platforms that have no platform-specific package.
 
 The currently available platforms are: `win32-x64`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 
-If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilities that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform respects the `browser` entry point in the `package.json`. To disable the extension capabilities that are not supported in the `web`, we recommend using `when` clauses in the `package.json` instead of shipping separate `package.json` for the web platform or removing parts of the VSIX that do not work in the `web`.
 
 #### Publishing
 
@@ -448,16 +467,16 @@ Here's how you can publish a VSIX for the `win32-x64` and `win32-arm64` platform
 vsce publish --target win32-x64 win32-arm64
 ```
 
-Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual. Here's how to do it for the `win32-x64` platform:
+Alternatively, you can also use the `--target` flag when packaging to create a platform-specific VSIX. For example, to package a VSIX for the `win32-x64` platform and then publish it:
 
 ```bash
 vsce package --target win32-x64
 vsce publish --packagePath PATH_TO_WIN32X64_VSIX
 ```
 
-#### Continuous Integration
+#### Continuous integration
 
-Managing multiple platform-specific VSIXs might get overwhelming, so we suggest to automate your extension's build process in Continuous Integration. Using [GitHub Actions](https://github.com/features/actions) is a good approach. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a learning resource; its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
+Managing multiple platform-specific VSIXs might get overwhelming, so we suggest automating your extension's build process with [continuous integration](/api/working-with-extensions/continuous-integration) (CI) tooling. For example, you can use [GitHub Actions](https://github.com/features/actions) to build your extensions. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a starting point for learning: its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
 
 ## Next steps
 
@@ -469,23 +488,23 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
 
-The Visual Studio Marketplace does not allow an extension package to have more than ten `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
+The Visual Studio Marketplace does not allow an extension package to have more than 10 `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field dropdown (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to select a specific organization instead of **All accessible organizations** in the **Organizations** field dropdown. Another possible mistake is incorrect scope - you should set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
-You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage). You can update or unpublish your extension from your publisher manage page.
+You may have changed your extension ID or publisher name. You can also manage your extensions directly via the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage). For example, update or [unpublish](#unpublishing-extensions).
 
 ### Why does vsce not preserve file attributes?
 
-Note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+Note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to function properly. Publishing from Linux and macOS works as expected.
 
 ### Can I publish from a continuous integration (CI) build?
 
-Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and GitLab CI to automatically publish your extension to the Marketplace.
 
 ### I get "ERROR The extension 'name' already exists in the Marketplace" error when I try to publish my extension?
 

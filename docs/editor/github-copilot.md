@@ -117,7 +117,7 @@ A function name can only be so descriptive without being overly long so function
 
 #### Prime Copilot with sample code
 
-One trick to get Copilot on the right page is to copy and paste sample code that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
+One trick to get Copilot on the right page is to copy and paste sample code into your open editor that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to providing older code suggestions.
 
 ### Be consistent and keep the quality bar high
 
@@ -336,13 +336,48 @@ The **Ask GitHub Copilot** command will open the Chat view and input your search
 
 ![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
 
+## Getting the most of of Copilot Chat
+
+This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
+
+### Use agents and slash commands
+
+[Agents](#agents-and-slash-commands) are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate agent, Copilot Chat can find and provide better information to send to the Copilot backend.
+
+* Use `@workspace` if you want to ask questions about your open project.
+* Use `@vscode` if you want to know about VS Code features and APIs.
+
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`) or do you want help fixing an issue (`/fix`) or creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+
+You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
+
+### Iterate on your solution
+
+When asking Copilot Chat for help, you aren't stuck with the first response. You can iterate and prompt Copilot to improve the solution. Copilot has both the context of the generated code and also your current conversation.
+
+Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+
+![First response from Copilot for a function to calculate Fibonacci numbers](images/artificial-intelligence/fibonacci-first.png)
+
+Maybe you prefer a solution that doesn't use recursion:
+
+![Ask Copilot to not use recursion and new result](images/artificial-intelligence/fibonacci-second.png)
+
+You can even ask Copilot to follow coding conventions or improve variable names:
+
+![Ask Copilot to use better variable names and new result](images/artificial-intelligence/fibonacci-third.png)
+
+Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
+
+![Ask inline chat to use better variable names on existing code](images/artificial-intelligence/fibonacci-better-var-names.png)
+
 ## Additional resources
 
 Congratulations, you've now used artificial intelligence to enhance your coding!
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
 
 ## Common questions
 
@@ -352,8 +387,7 @@ Check each requirement if Copilot Chat doesn't work:
 
 * Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 * Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-* Your GitHub account that is signed into VS Code must be both:
-  * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+* Your GitHub account that is signed into VS Code must have an activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
 
 ### I can't find Copilot Chat in the Activity bar
 
