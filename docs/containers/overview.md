@@ -39,7 +39,7 @@ The extension can scaffold Docker files for most popular development languages (
 
 ## Docker Explorer
 
-The Docker extension contributes a Docker Explorer view to VS Code. The Docker Explorer lets you examine and manage Docker assets: containers, images, volumes, networks, and container registries. If the Azure Account extension is installed, you can browse your Azure Container Registries as well.
+The Docker extension contributes a Docker Explorer view to VS Code. The Docker Explorer lets you examine and manage Docker assets: containers, images, volumes, networks, and container registries. If you are signed in to your Microsoft account and it has access to Azure subscriptions, you can browse your Azure Container Registries as well.
 
 The right-click menu provides access to commonly used commands for each type of asset.
 
@@ -77,7 +77,7 @@ Once your `Compose Up` command completes, navigate to the Docker Explorer to vie
 
 ## Using image registries
 
-You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
+You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), and more:
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 
