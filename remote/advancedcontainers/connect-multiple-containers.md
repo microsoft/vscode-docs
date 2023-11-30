@@ -11,7 +11,7 @@ DateApproved: 11/1/2023
 
 Currently you can only connect to one container per Visual Studio Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/devcontainers/attach-container.md).
 
-If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree, each pointing to a common docker-compose.yml.
+If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree, each pointing to a common `docker-compose.yml`.
 
 To see how this works, consider this example source tree:
 
