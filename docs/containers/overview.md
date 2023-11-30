@@ -77,7 +77,7 @@ Once your `Compose Up` command completes, navigate to the Docker Explorer to vie
 
 ## Using image registries
 
-You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), and more:
+You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), [GitHub](https://github.com/), and more:
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 

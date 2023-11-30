@@ -15,6 +15,7 @@ Users can connect to Docker registries from the following sources:
 
 - [Azure Container Registry](https://learn.microsoft.com/azure/container-registry)
 - [Docker Hub](https://hub.docker.com/)
+- [GitHub](https://github.com) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)
 
 ## Push an image to a container registry
@@ -60,6 +61,9 @@ For each repository in the Docker Hub registry, here are the actions that can be
 For each tagged image in a repository, here are the actions that can be performed:
 
 - **Pull image**: copies the latest version of the image locally
+- **Copy Full Tag**: copies the full tag to the clipboard
+- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
+- **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Open in browser**: opens the browser and navigates to the given image on Docker Hub
 
 ## Azure Container Registry
@@ -93,10 +97,31 @@ For each tagged image in a repository, here are the actions that can be performe
 - **Pull Image**: copies the latest version of the image locally
 - **Copy Full Tag**: copies the full tag to the clipboard
 - **Copy Image Digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
+- **Inspect Image Manifest**: inspects the image's registry manifest. This is not the same as inspecting the image when it is pulled locally.
 - **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Untag Image**: untags the image
 - **Delete Image**: deletes the image permanently
+
+## GitHub
+
+This connects to Docker registries in your [GitHub](https://github.com/) account. Once you select this option, you are asked to type in your GitHub account credentials.
+
+![GitHub](images/registries/github.png)
+
+For each repository in the GitHub registry, here are the actions that can be performed:
+
+- **Pull Repository**: copies all of the images in a given repository locally
+- **Refresh**: refreshes the repository to reflect changes
+
+For each tagged image in a repository, here are the actions that can be performed:
+
+- **Pull Image**: copies the latest version of the image locally
+- **Copy Full Tag**: copies the full tag to the clipboard
+- **Copy Image Digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
+- **Inspect Image Manifest**: inspects the image's registry manifest. This is not the same as inspecting the image when it is pulled locally.
+- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
+- **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 
 ## Next steps
 
