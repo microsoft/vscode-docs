@@ -158,7 +158,7 @@ The Docker Explorer provides an interactive experience to examine and manage Doc
 
 You can use the command **Azure Container Registry: Build Image in Azure** to build an image that you can then deploy to Azure App Service or Azure Container Apps.
 
-1. Install the [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
+1. Install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
 
 1. There are two ways to invoke the build in Azure command. You can right-click on the Dockerfile, and choose **Build Image in Azure**. You can also use the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure Container Registry: Build Image in Azure**.
 
