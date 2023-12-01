@@ -1,0 +1,49 @@
+.buttonhome {
+    background-color:black;
+    color:gold;
+    font-size:13.5px;
+    padding: 5px;
+    width:32%;
+   height:40px;
+    border-radius:20px;x
+    border-color:orange;
+   line-height: 18px;
+   moz-box-shadow: 10px 3px 20px #black;
+ box-shadow: 10px 3px 20px gold;
+
+ }
+
+ .buttonbuynow {
+    background-color:brown;
+    color:black;
+    font-size:12px;
+    padding:6px;
+   margin: 4.5px;
+    width:21%;
+   height:28px;
+    border-radius:20px;
+    border-color:orange;	⁹pp
+
+   line-height: 18px;
+   display:inline-block;
+
+   moz-box-shadow: 0px 3px 20px #black;
+ box-shadow: 0px 3px 20px orange;
+ }
+
+ .headerstyle {
+   background-color:gray;
+   border:3px;
+   color:black;
+   font-size:16px;
+   display:block;
+   line-height: 25px;
+   text-align: left ;
+   padding:12px;
+   margin:10px;
+ }
+
+ .pic02 {
+   width:100%;
+   hight:100%;
+ }
