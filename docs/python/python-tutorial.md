@@ -12,15 +12,17 @@ MetaSocialImage: images/tutorial/social.png
 
 In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
-To learn more about the Python language, follow any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
+If you are new to programming, check out the [Visual Studio Code for Education - Introduction to Python](https://vscodeedu.com/courses/intro-to-python) course. This course offers a comprehensive introduction to Python, featuring structured modules in a ready-to-code browser-based development environment.
 
-If you are looking for a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
+To gain a deeper understanding of the Python language, you can explore any of the [programming tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers) listed on python.org within the context of VS Code.
+
+For a Data Science focused tutorial with Python, check out our [Data Science section](/docs/datascience/data-science-tutorial.md).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you need to first setup your Python development environment. Specifically, this tutorial requires:
 
-- Python 3
+- [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
 - [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md))
 
@@ -138,7 +140,7 @@ Finally, save the file (`kb(workbench.action.files.save)`). At this point, you'r
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
-## Run Hello World
+## Run Python code
 
 Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
@@ -158,9 +160,11 @@ There are three other ways you can run Python code within VS Code:
 
 3. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
+Congrats, you just ran your first Python code in Visual Studio Code!
+
 ## Configure and run the debugger
 
-Let's now try debugging our Hello World program.
+Let's now try debugging our Python program.
 
 First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
 
@@ -257,12 +261,15 @@ To install the required packages in your virtual environment, enter the followin
 
 1. Now, rerun the program, with or without the debugger, to view the output!
 
+Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
+
 ## Next steps
 
-To learn to build web apps with the Django and Flask frameworks, see the following tutorials:
+To learn how to build web apps with popular Python web frameworks, see the following tutorials:
 
 - [Use Django in Visual Studio Code](/docs/python/tutorial-django.md)
 - [Use Flask in Visual Studio Code](/docs/python/tutorial-flask.md)
+- [Use FastAPI in Visual Studio Code](/docs/python/tutorial-fastapi.md)
 
 There is then much more to explore with Python in Visual Studio Code:
 

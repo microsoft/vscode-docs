@@ -1,5 +1,5 @@
 ---
-Order: 45
+Order:
 TOCTitle: Rich Code Navigation
 PageTitle: Rich Code Navigation
 MetaDescription: First look at a rich code navigation experience in Visual Studio

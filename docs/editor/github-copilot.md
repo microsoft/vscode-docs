@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: GitHub Copilot
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot in VS Code
@@ -117,15 +117,19 @@ A function name can only be so descriptive without being overly long so function
 
 #### Prime Copilot with sample code
 
-One trick to get Copilot on the right page is to copy and paste sample code that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to the providing older code suggestions.
+One trick to get Copilot on the right page is to copy and paste sample code into your open editor that is close to what you are looking for. Providing a small example can help Copilot generate suggestions that match the language and tasks you want to achieve. Once Copilot begins providing you with the code you want and will actually use, you can delete the sample code from the file. This can be especially helpful to jump start Copilot to a newer library version when it defaults to providing older code suggestions.
 
 ### Be consistent and keep the quality bar high
 
 Copilot is going to latch on to your code to generate suggestions that follow the existing pattern so the adage "garbage in, garbage out" applies.
 
-Keeping a high quality bar can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot while in "hacking" mode. You can temporarily deactivate Copilot from the Status bar.
+Keeping a high quality bar can take discipline when you're coding fast and loose to get something working and you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot status bar item.
 
-![Deactivate Copilot from the Copilot button on the Status bar](images/artificial-intelligence/deactivate-copilot.png)
+![Hover over the Copilot status bar item displays "Show Copilot status menu"](images/artificial-intelligence/show-copilot-status-menu.png)
+
+From the dropdown, you can disable completions entirely or just for the active file type, for example Markdown files.
+
+![Copilot status menu dropdown with Disable Completions selected](images/artificial-intelligence/disable-completions.png)
 
 <!-- ### Be specific
 
@@ -174,9 +178,9 @@ You can access the Chat view via the Activity Bar:
 
 ![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
 
-Like other views in VS Code, you can move it anywhere. For example, you can move it to the secondary sidebar so that you can use other views like the Explorer at the same time:
+Like other views in VS Code, you can move it anywhere. For example, you can move it to the [Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar) so that you can use other views like the Explorer at the same time:
 
-![Copilot view moved to secondary sidebar](images/artificial-intelligence/secondary-sidebar.png)
+![Copilot view moved to Secondary side bar](images/artificial-intelligence/secondary-sidebar.png)
 
 Copilot will suggest potential questions to get started. You can select any of these questions or use the chat box to type your own:
 
@@ -186,22 +190,75 @@ As you continue asking questions, Copilot maintains the history of your conversa
 
 You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
 
-### Slash commands
+### Keyboard shortcuts
 
-To further help Copilot give you more relevant answers, you can choose a topic for your questions through "slash commands."
+To make it easy to work with the Chat view, there are several keyboard shortcuts:
 
-You can prepend your chat inputs with a specific topic name to help Copilot give you a more relevant response. When you start typing `/`, you’ll see the list of possible topics:
+* `kb(workbench.action.chat.open)` - Opens the Chat view
+* `kb(workbench.action.chat.clear)` - Clears the Chat view
+* `kb(workbench.action.chat.focusInput)` - Moves keyboard focus to the Chat view input box
+
+### Agents and slash commands
+
+To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
+
+Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are two agents:
+
+* `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
+* `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
+
+You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
+
+![Asking the @vscode agent how to change the VS Code colors](images/artificial-intelligence/agent-example.png)
+
+Agent can also support slash commands for specific types of questions or tasks. For example, `@workspace /explain` can be used to ask Copilot to explain a file or code selection in the context of your open workspace. To see the available agents and slash commands, type `/` for a list.
 
 ![Copilot slash command list in chat](images/artificial-intelligence/slash-commands.png)
 
-* /explain: Explain step-by-step how the selected code works.
-* /fix: Propose a fix for the bugs in the selected code.
+* @workspace /explain: Explain step-by-step how the selected code works.
+* @workspace /fix: Propose a fix for the bugs in the selected code.
+* @workspace /new: Create a new project based on a natural language description.
+* @workspace /newNotebook: Create a new Jupyter Notebook based on your description.
+* @workspace /terminal: Explain how to do something in the integrated terminal.
+* @workspace /tests: Generate unit tests for the selected code.
+* @vscode /api: Questions about VS Code extension development.
+
+In addition to agent and slash command combinations, there are general purpose slash commands for actions such as clearing the chat session or getting help.
+
 * /help: Prints general help about GitHub Copilot.
-* /tests: Generate unit tests for the selected code.
-* /vscode: Questions about VS Code commands and settings.
 * /clear: Clear the session.
 
-![Example using /vscode slash command](images/artificial-intelligence/slash-commands-example.png)
+### Code blocks
+
+Depending on your question, Copilot Chat may return source code in a code block.
+
+![A Copilot Chat code block with JSON to change the color of comments in VS Code](images/artificial-intelligence/copy-code-block.png)
+
+Hovering over the code block presents options to **Copy** and **Insert at Cursor** (`kb(workbench.action.chat.insertCodeBlock)`).
+
+The **More Actions** (`...`) button also displays options to **Insert Into New File** and **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`).
+
+![Copilot Chat code block with More Actions button expanded](images/artificial-intelligence/more-actions-code-block.png)
+
+If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Run in Terminal** `kb(workbench.action.chat.runInTerminal)`. This option will create or open the active terminal and insert the command text, ready for you to run.
+
+![Copilot Chat code block to list files with Run in Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
+
+### Chat view locations
+
+By default, the Chat view is displayed in the [Primary side bar](/docs/getstarted/userinterface.md#basic-layout) but like other views in VS Code, you can [drag and drop](/docs/editor/custom-layout.md#drag-and-drop-views-and-panels) it anywhere. For example, you could drag and drop the Chat view into the Panel region:
+
+![Chat view in the Panel region](images/artificial-intelligence/chat-in-panel.png)
+
+You can also open the Chat view in the editor region for a larger display area. From the Chat view title bar **More Actions** (`...`) menu, select **Open Session in Editor**.
+
+![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/artificial-intelligence/open-session-in-editor.png)
+
+Just like any open editor, you can move editor-hosted Chat views into separate [Editor Groups](/docs/getstarted/userinterface.md#editor-groups) and use display customizations such as [Grid layout](/docs/editor/custom-layout.md#grid-layout) to have multiple chat sessions open in the editor region.
+
+To move the Chat view back to the side bar, use the **Open Session in Side Bar** command in the editor title bar when the Chat view is the active editor.
+
+![Chat view in editor with Open Session in Side bar displayed](images/artificial-intelligence/open-session-in-sidebar.png)
 
 ## Inline chat
 
@@ -213,7 +270,13 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" If you have code selected in the editor, Copilot will scope your question to the selection.
 
-Several [slash commands](#slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+
+![Inline chat slash command list](images/artificial-intelligence/inline-chat-slash-commands.png)
+
+A useful command is `/fix`, which analyzes the error line or selected code and proposes a fix in a diff view for your review. After reviewing and possibly modifying the generated code, you can choose to **Accept** or **Discard** the fix.
+
+![Inline chat /fix identifying an unassigned variable and proposing a fix in a diff view](images/artificial-intelligence/inline-chat-fix-example.png)
 
 ## Quick Chat
 
@@ -221,9 +284,92 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 
 ![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
 
-You can type questions, scope your questions with slash commands such as `/explain` and `/vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
+You can type questions, scope your questions with agents and slash commands such as `@workspace /explain` and `@vscode`, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/artificial-intelligence/open-in-chat-view.png)
+
+## Chat smart actions
+
+To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options:
+
+![Editor context menu with the Copilot menu group expanded](images/artificial-intelligence/editor-copilot-menu.png)
+
+You can apply these smart actions on the current file or a selection in the file. Choosing an action, brings up the appropriate agent and/or slash command in the Chat view or inline chat. For example, selecting **Generate Docs** for a function will open the inline chat with a proposed documentation comment:
+
+![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/artificial-intelligence/generate-docs-example.png)
+
+## Other Copilot uses
+
+In addition to inline completions and chat, GitHub Copilot can help with other development tasks and workflows. For example, Copilot can help with writing commit messages, fixing errors, and finding commands.
+
+### Sparkles
+
+When Copilot can help with a task or workflow, VS Code displays a **sparkle** icon. Hovering over the sparkle icon will describe the Copilot action.
+
+![Sparkle icon in an input box](images/artificial-intelligence/sparkle-icon.png)
+
+### Generate Git commit messages
+
+Copilot can help you write GitHub commit messages. In the Source Control message input box, select the sparkle button at the right and Copilot will create a commit message based on your pending changes.
+
+![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/artificial-intelligence/generate-commit-message.png)
+
+If you using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to fill in both the title and description in the Pull Request **Create** view.
+
+### Terminal Quick Fixes
+
+When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+
+![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/artificial-intelligence/terminal-quick-fix.png)
+
+Selecting **Explain using Copilot** will populate the Chat view with the `@workspace /explain` agent and slash command to help correct the last terminal command error.
+
+![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence//terminal-command-explanation.png)
+
+### Command Palette help
+
+When trying to find a command in the Command Palette (`kb(workbench.action.showCommands)`), if you don't think you see the command you want, you can run **Ask GitHub Copilot** with your search term.
+
+![Command Palette with Ask GitHub Copilot selected to search for "hide editor overview"](images/artificial-intelligence/command-palette-ask-copilot.png)
+
+The **Ask GitHub Copilot** command will open the Chat view and input your search term.
+
+![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
+
+## Getting the most of of Copilot Chat
+
+This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
+
+### Use agents and slash commands
+
+[Agents](#agents-and-slash-commands) are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate agent, Copilot Chat can find and provide better information to send to the Copilot backend.
+
+* Use `@workspace` if you want to ask questions about your open project.
+* Use `@vscode` if you want to know about VS Code features and APIs.
+
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`) or do you want help fixing an issue (`/fix`) or creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+
+You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
+
+### Iterate on your solution
+
+When asking Copilot Chat for help, you aren't stuck with the first response. You can iterate and prompt Copilot to improve the solution. Copilot has both the context of the generated code and also your current conversation.
+
+Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+
+![First response from Copilot for a function to calculate Fibonacci numbers](images/artificial-intelligence/fibonacci-first.png)
+
+Maybe you prefer a solution that doesn't use recursion:
+
+![Ask Copilot to not use recursion and new result](images/artificial-intelligence/fibonacci-second.png)
+
+You can even ask Copilot to follow coding conventions or improve variable names:
+
+![Ask Copilot to use better variable names and new result](images/artificial-intelligence/fibonacci-third.png)
+
+Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
+
+![Ask inline chat to use better variable names on existing code](images/artificial-intelligence/fibonacci-better-var-names.png)
 
 ## Additional resources
 
@@ -231,7 +377,7 @@ Congratulations, you've now used artificial intelligence to enhance your coding!
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content as well as programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
 
 ## Common questions
 
@@ -241,8 +387,19 @@ Check each requirement if Copilot Chat doesn't work:
 
 * Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 * Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
-* Your GitHub account that is signed into VS Code must be both:
-  * An activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+* Your GitHub account that is signed into VS Code must have an activated Copilot subscription (check your [subscription](https://github.com/settings/copilot)).
+
+### I can't find Copilot Chat in the Activity bar
+
+If you've moved the Chat view out of the Primary side bar, for example, you dragged the view to the [Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar), the Chat view icon will no longer be displayed on the Activity bar. If you close the Secondary side bar, the Chat view won't be visible and it may appear that you've lost access to the Chat view.
+
+There are several ways to display the Chat view or restore it back to the Activity bar:
+
+* **View: Show Chat** - Opens the Chat view no matter where it is hosted.
+* **Copilot status menu** - The status menu dropdown has an option to **Open GitHub Copilot Chat**.
+* **View: Reset View Locations** - General command to restore all views and panels to their default locations.
+
+As with any view, you can drag and drop the Chat view back to the Activity bar or use **Reset Location** from the view title bar context menu.
 
 ### How do I disable Copilot?
 

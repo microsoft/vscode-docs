@@ -1,5 +1,5 @@
 ---
-Order: 32
+Order:
 TOCTitle: Integrated Terminal Performance
 PageTitle: Integrated Terminal Performance Improvements
 MetaDescription: Explore the performance improvements made to Visual Studio Code's integrated terminal renderer in version 1.17
