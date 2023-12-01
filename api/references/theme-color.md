@@ -255,7 +255,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
   ![editorGroup.dropBackground](images/theme-color/editorGroup-dropbackground.gif)
 
-- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
+- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when using single Tab (set `"workbench.editor.showTabs": "single"`).
 
   ![editorGroupHeader.noTabsBackground](images/theme-color/editorgroupheader-notabsbackground.gif)
 

@@ -238,10 +238,10 @@ Tabs let you quickly navigate between items and you can Drag and Drop Tabs to re
 
 When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown list of tabbed items.
 
-If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
+If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to `single`:
 
 ```json
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": "single"
 ```
 
 See the section below to optimize VS Code when [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
@@ -323,7 +323,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 
 ## Working without Tabs
 
-If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed headings) entirely by setting `workbench.editor.showTabs` to false.
+If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed headings) entirely by setting `workbench.editor.showTabs` to `single` or `none`.
 
 ### Disable Preview mode
 
