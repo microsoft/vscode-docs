@@ -1582,8 +1582,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - split: Splits the active editor group to equal parts.
     "workbench.editor.splitSizing": "auto",
 
-    // Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
-    "workbench.editor.tabCloseButton": "right",
+    // Controls whether the tab close button is shown or not. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionCloseVisibility": true,
+
+    // Controls whether the unpin button is shown or not when a tab is pinned. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionUnpinVisibility": true,
+
+    // Controls whether the actions on the tab are positioned to the right or left of the tab label. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionLocation": "right",
 
     // Controls the size of editor tabs. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     //  - fit: Always keep tabs large enough to show the full editor label.
