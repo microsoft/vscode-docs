@@ -1375,7 +1375,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The opacity fraction (0.2 to 1.0) to use for unfocused editors and terminals. This will only take effect when `accessibility.dimUnfocused.enabled` is enabled.
     "accessibility.dimUnfocused.opacity": 0.75,
 
-    // Controls the height of editor tabs. Also applies to the title control bar when `workbench.editor.showTabs` is disabled.
+    // Controls the height of editor tabs. Also applies to the title control bar when `workbench.editor.showTabs` is not set to `multiple`.
     "window.density.editorTabHeight": "default",
 
     // Controls the behavior of clicking an activity bar icon in the workbench.
@@ -1446,8 +1446,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The default editor for files detected as binary. If undefined, the user will be presented with a picker.
     "workbench.editor.defaultBinaryEditor": "",
 
-    // Controls whether to maximize/restore the editor group when double clicking on a tab. This value is ignored when `workbench.editor.showTabs` is disabled.
-    "workbench.editor.doubleClickTabToToggleEditorGroupSizes": true,
+    // Controls whether to expand/restore or maximize/restore the editor group when double clicking on a tab. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "expand",
 
     // Controls if the empty editor text hint should be visible in the editor.
     "workbench.editor.empty.hint": "text",
@@ -1464,7 +1464,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether editors are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
 
-    // Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     "workbench.editor.highlightModifiedTabs": false,
 
     // Enables use of editor history in language detection. This causes automatic language detection to favor languages that have been recently opened and allows for automatic language detection to operate with smaller inputs.
@@ -1513,7 +1513,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the default direction of editors that are opened side by side (for example, from the Explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
-    // Controls the size of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls the size of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     //  - normal: A pinned tab inherits the look of non pinned tabs.
     //  - compact: A pinned tab will show in a compact form with only icon or first letter of the editor name.
     //  - shrink: A pinned tab shrinks to a compact fixed size showing parts of the editor name.
@@ -1538,7 +1538,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, such as when forcing an editor to open in a specific group or to the side of the currently active group.
     "workbench.editor.revealIfOpen": false,
 
-    // Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behavior for that duration. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behavior for that duration. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     "workbench.editor.scrollToSwitchTabs": false,
 
     // Preserves the most recent editor view state (such as scroll position) across all editor groups and restores that if no specific editor view state is found for the editor group.
@@ -1564,10 +1564,16 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - split: Splits the active editor group to equal parts.
     "workbench.editor.splitSizing": "auto",
 
-    // Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `workbench.editor.showTabs` is disabled.
-    "workbench.editor.tabCloseButton": "right",
+    // Controls whether the tab close button is shown or not. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionCloseVisibility": true,
 
-    // Controls the size of editor tabs. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls whether the unpin button is shown or not when a tab is pinned. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionUnpinVisibility": true,
+
+    // Controls whether the actions on the tab are positioned to the right or left of the tab label. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
+    "workbench.editor.tabActionLocation": "right",
+
+    // Controls the size of editor tabs. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     //  - fit: Always keep tabs large enough to show the full editor label.
     //  - shrink: Allow tabs to get smaller when the available space is not enough to show all tabs at once.
     //  - fixed: Make all tabs the same size, while allowing them to get smaller when the available space is not enough to show all tabs at once.
@@ -1589,7 +1595,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - name: The name of the untitled file is not derived from the contents of the file.
     "workbench.editor.untitled.labelFormat": "content",
 
-    // Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls whether tabs should be wrapped over multiple lines when exceeding available space or whether a scrollbar should appear instead. This value is ignored when `workbench.editor.showTabs` is not set to `multiple`.
     "workbench.editor.wrapTabs": false,
 
     // Configure glob patterns to editors (for example `"*.hex": "hexEditor.hexedit"`). These have precedence over the default behavior.
@@ -2021,8 +2027,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether turning on Zen Mode also hides the status bar at the bottom of the workbench.
     "zenMode.hideStatusBar": true,
 
-    // Controls whether turning on Zen Mode also hides workbench tabs.
-    "zenMode.hideTabs": true,
+    // Controls whether turning on Zen Mode shows workbench tabs.
+    "zenMode.showTabs": "multiple",
 
     // Controls whether a window should restore to Zen Mode if it was exited in Zen Mode.
     "zenMode.restore": true,
