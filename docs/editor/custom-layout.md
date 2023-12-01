@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
 
-Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suite your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
+Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suit your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
 >**Note**: If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
@@ -41,6 +41,14 @@ To display the Secondary side bar, you can:
 The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
 
 >**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
+
+### Activity bar position
+
+By default, the Activity bar moves with the Primary side bar and remains on the outer edge of the workbench. You can also choose to hide the Activity bar or move it to the top of the Primary side bar. The **Activity Bar Position** menu available from the Activity bar context menu or under **View** > **Appearance** has the options **Side**, **Top**, or **Hidden**.
+
+When the Activity bar is in the top position, the **Account** and **Manage** buttons, usually at the bottom of the Activity bar, move to the right side of the title bar.
+
+![Activity bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
 ### Panel
 
@@ -75,7 +83,7 @@ You can configure these options in the menu under **View** > **Appearance** > **
 
 ### Maximize Panel size
 
-You can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region.  The chevron button points downwards in the maximized panel to restore the panel to the original size.
+When the Panel alignment is **Center**, you can quickly toggle the Panel region to fill the entire editor area with the **Maximize Panel Size** chevron button in the upper right of the Panel region. The chevron button points downwards in the maximized panel to restore the panel to the original size.
 
 ![Maximize Panel Size button in the upper right of the Panel region](images/custom-layout/maximize-panel-size.png)
 
@@ -105,9 +113,9 @@ VS Code has a default layout of views and panels in the Primary Side bar and Pan
 
 ![The Source Control view in the Panel region and Problem panel in the Primary Side bar](images/custom-layout/non-default-layout.png)
 
->**Note**: Reminder that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
+>**Note**: Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
-You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explore view group by dragging over the Explorer Activity bar item and then dropping into the view:
+You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity bar item and then dropping into the view:
 
 ![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
 
@@ -129,7 +137,7 @@ To restore an action to the tool bar, right-click the tool bar button area and s
 
 ## Editor
 
-You can customize the layout of the VS Code editor region independent of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves.
+You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves.
 
 ### Minimap and breadcrumbs
 
@@ -141,7 +149,7 @@ The **View** > **Appearance** menu has a section for customizing the editor regi
 
 ### Editor groups
 
-By default, all opened editors go into the same **editor group** and add a new editor tab to the right. You can create new editor groups in order to group similar or related files or allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. Create a new editor group by dragging an editor to the side or using one of the **Split** commands in the context menu to split the current edit and start a new editor group to the left, right, above, or below.
+By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. Create a new editor group by dragging an editor to the side, or using one of the **Split** commands in the context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
 
 ![Split editor commands in the editor tab context menu](images/custom-layout/split-editor-commands.png)
 
@@ -170,17 +178,17 @@ The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGrou
 
 ### Grid layout
 
-If you'd like more control over the editor layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editors visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the editor sizes by grabbing and moving the sash between editors.
+If you'd like more control over the editor group layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
 ### Pinned tabs
 
-If you'd like an editor to always be visible, you can pin it to the editor tool bar. You can pin an editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. You can pin an editor tab from either the context menu or using the command **View: Pin Editor** (`kb(workbench.action.pinEditor)`).
 
 ![Pinned editor tab with pin button highlighted](images/custom-layout/pinned-editor-tab.png)
 
-Pinned tabs help display files that are important to you as:
+Pinned tabs help access files that are important to you as:
 
 * Pinned tabs always appear first before non-pinned tabs.
 * They do not scroll out of view if you have many tabs opened.
@@ -195,7 +203,7 @@ You can choose how you'd like to display pinned editors with the **Workbench > E
 * `shrink`: A pinned tab shrinks to a fixed size showing parts of the editor label.
 * `compact`: A pinned tab will only show as icon or first letter of the editor label.
 
-You can also show pinned editor tabs on a separate row above the regular editor tool bar by setting **Workbench > Editor: Pinned Tabs On Separate Row**. You can pin and unpin editors by dragging and dropping their tabs between the two rows.
+You can also show pinned editor tabs on a separate row above the regular editor tab bar by setting **Workbench > Editor: Pinned Tabs On Separate Row**. You can pin and unpin editors by dragging and dropping their tabs between the two rows.
 
 ### Locked editor groups
 
@@ -214,7 +222,7 @@ Locked groups behave differently than unlocked groups:
 * New editors will not open in a locked group unless explicitly moved there (for example, via drag and drop).
 * If a new editor skips a locked group, it will either open in the most recently used unlocked group or create a new group to the side of the locked one.
 * The locked state of an editor group is persisted and restored across restarts.
-* You can lock empty groups as well allowing for a more stable editor layout.
+* You can lock empty groups as well, allowing for a more stable editor layout.
 
 The primary use case is for [terminals in the editor area](/docs/terminal/basics.md#terminals-in-editor-area). For example, you might want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means that even when the terminal on the right is focused, opening a file will open it on the left side without needing to manually change focus first.
 

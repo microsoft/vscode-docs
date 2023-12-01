@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -458,7 +458,11 @@ You can also contribute default editor configurations for the provided language.
     "configurationDefaults": {
       "[markdown]": {
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false
+        "editor.quickSuggestions": {
+                "comments": "off",
+                "strings": "off",
+                "other": "off"
+        }
       }
     }
   }

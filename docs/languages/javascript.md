@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -42,8 +42,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -411,8 +411,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
+        "module": "CommonJS",
+        "target": "ES6",
         // This is the line you want to add
         "allowSyntheticDefaultImports": true
     },

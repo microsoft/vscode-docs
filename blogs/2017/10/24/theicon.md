@@ -1,5 +1,5 @@
 ---
-Order: 33
+Order:
 TOCTitle: The Icon Journey
 PageTitle: The Icon Journey
 MetaDescription: Summary of feedback about the new icons and next steps

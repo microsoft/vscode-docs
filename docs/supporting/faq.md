@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -157,10 +157,6 @@ Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/
 Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
 Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
 Windows Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-arm64/stable
-Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
-Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
-Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
-Windows x86 CLI | https://update.code.visualstudio.com/{version}/cli-win32-ia32/stable
 macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
 macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
 macOS Intel chip CLI | https://update.code.visualstudio.com/{version}/cli-darwin-x64/stable
@@ -170,7 +166,7 @@ Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
 Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
 Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
 Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
-Linux Arm32 CLI | https://update.code.visualstudio.com/{version}/cli-linux-x64/stable
+Linux x64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-x64/stable
 Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
 Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
 Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
@@ -180,13 +176,24 @@ Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-ar
 Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
 Linux Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-arm64/stable
 
-Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm32 debian version for 1.50.1, you would use
+Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm64 debian version for 1.83.1, you would use
 
 ```bash
-https://update.code.visualstudio.com/1.50.1/linux-deb-armhf/stable
+https://update.code.visualstudio.com/1.83.1/linux-deb-arm64/stable
 ```
 
 You can use the version string `latest`, if you'd like to always download the latest VS Code stable version.
+
+### Windows 32-bit versions
+
+Windows x86 32-bit versions are no longer actively supported after release 1.83 and could pose a security risk.
+
+Download type | URL
+--- | ---
+Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
+Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
+Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+Windows x86 CLI | https://update.code.visualstudio.com/{version}/cli-win32-ia32/stable
 
 ## Prerelease versions
 

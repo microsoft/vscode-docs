@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -58,6 +58,8 @@ The theme colors for VS Code window border.
 - `window.activeBorder`: Border color for the active (focused) window.
 - `window.inactiveBorder`: Border color for the inactive (unfocused) windows.
 
+The window border colors are only supported on macOS and Linux (not Windows) and only when the custom title bar is enabled (`"window.titleBarStyle": "custom"`).
+
 ## Text colors
 
 Colors inside a text document, such as the welcome page.
@@ -68,6 +70,7 @@ Colors inside a text document, such as the welcome page.
 - `textLink.activeForeground`: Foreground color for links in text when clicked on and on mouse hover.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
+- `textPreformat.background`: Background color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
 ## Action colors
@@ -255,7 +258,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
   ![editorGroup.dropBackground](images/theme-color/editorGroup-dropbackground.gif)
 
-- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
+- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when using single Tab (set `"workbench.editor.showTabs": "single"`).
 
   ![editorGroupHeader.noTabsBackground](images/theme-color/editorgroupheader-notabsbackground.gif)
 
@@ -569,6 +572,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestBorder`: The border color of a chat request.
 - `chat.slashCommandBackground`: The background color of a chat slash command.
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
+- `chat.avatarBackground`: The background color of a chat avatar.
+- `chat.avatarForeground`: The foreground color of a chat avatar.
 
 ## Inline Chat colors
 

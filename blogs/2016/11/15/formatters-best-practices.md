@@ -1,5 +1,5 @@
 ---
-Order: 20
+Order:
 TOCTitle: Creating a Formatter Extension
 PageTitle: Creating a Formatter Extension
 MetaDescription: Best practices for creating a Visual Studio Code formatter extension.

@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -193,6 +193,8 @@ To use the `runSelectedText` command, select text in an editor and run the comma
 ## Maximizing the terminal
 
 The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
+
+Note that the panel can only be maximized if its [alignment](/docs/editor/custom-layout.md#panel-alignment) option is set to **Center**.
 
 ## Select all
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -30,10 +30,6 @@ The [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not requir
 The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges to run and will place the installation under the system's Program Files. The in-product update flow will also require elevation, making it less streamlined than the user setup. On the other hand, installing VS Code using the system setup means that it will be available to all users in the system.
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
-
-## 32-bit versions
-
-If you need to run a 32-bit version of VS Code, both a 32-bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 

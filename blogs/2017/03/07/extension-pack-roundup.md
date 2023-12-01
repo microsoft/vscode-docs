@@ -1,5 +1,5 @@
 ---
-Order: 26
+Order:
 TOCTitle: Extension Packs
 PageTitle: Visual Studio Code Extension Packs
 MetaDescription: Learn how to create and use Extension Packs in Visual Studio Code.

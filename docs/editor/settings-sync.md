@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 10/4/2023
+DateApproved: 11/1/2023
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
@@ -138,15 +138,17 @@ No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan
 
 VS Code Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
 
+>**Note**: VS Code Settings Sync does not support using your [Microsoft Sovereign Cloud](https://www.microsoft.com/en-us/industry/sovereignty/cloud) account at this time. If this is something you would like, please let us know what kind of Microsoft Sovereign Cloud you would like to use [in this GitHub issue](https://github.com/microsoft/vscode/issues/196509).
+
 ### Can I use a different backend or service for Settings Sync?
 
 Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
 
 ## Troubleshooting keychain issues
 
-> NOTE: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
+>**Note**: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
 
-> NOTE: keychain, keyring, wallet, credential store are synonymous in this document.
+>**Note**: keychain, keyring, wallet, credential store are synonymous in this document.
 
 Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.
 

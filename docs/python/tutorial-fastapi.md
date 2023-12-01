@@ -245,7 +245,7 @@ Now let's check if this route is working as expected. The fastest way to do so i
 
     ![Debugger stopped at the breakpoint set in the add_item function](images/fastapi-tutorial/fastapi_breakpoint_hit.png)
 
-    On the left side, all local and global variables defined at this point are displayed in the Variables window, under the **Run and Debug** view. In our example, `item_name` is set to "apple" and `quantity` is set to 2 under the locals variable view, as well as an empty `grocery_list` dictionary under the globals variable view.
+    On the left side, all local and global variables defined at this point are displayed in the Variables window, under the **Run and Debug** view. In our example, `item_name` is set to 'apple' and `quantity` is set to 2 under the locals variable view, as well as an empty `grocery_list` dictionary under the globals variable view.
 
     ![Variables window displayed in the Run and Debug view, with the item and grocery_list variables highlighted](images/fastapi-tutorial/fastapi_debugger_variables.png)
 
