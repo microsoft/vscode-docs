@@ -114,7 +114,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestSelection": "first",
 
     // Enable word based suggestions
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
 
     // Enable parameter hints
     "editor.parameterHints.enabled": true,
