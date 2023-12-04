@@ -223,10 +223,10 @@ Organize imports can also be done automatically when you save a JavaScript file 
 The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
 
 ```json
-// On save, run both fixAll and organizeImports source actions
+// On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
 "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
+    "source.organizeImports": "always",
 }
 ```
 
