@@ -447,6 +447,7 @@ Lightbulb:
 
 - `editorLightBulb.foreground`: The color used for the lightbulb actions icon.
 - `editorLightBulbAutoFix.foreground`: The color used for the lightbulb auto fix actions icon.
+- `editorLightBulbAi.foreground`: The color used for the lightbulb AI icon.
 
 Bracket matches:
 
@@ -544,6 +545,7 @@ The editor comments widget can be seen when reviewing pull requests:
 - `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
 - `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
 - `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
+- `editorCommentsWidget.replyInputBackground`: Background color for comment reply input box.
 
 ## Diff editor colors
 
@@ -563,9 +565,11 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditorOverview.removedForeground`: Diff overview ruler foreground for removed content.
 - `diffEditor.unchangedRegionBackground`: The color of unchanged blocks in diff editor.
 - `diffEditor.unchangedRegionForeground`: The foreground color of unchanged blocks in the diff editor.
+- `diffEditor.unchangedRegionShadow`: The color of the shadow around unchanged region widgets.
 - `diffEditor.unchangedCodeBackground`: The background color of unchanged code in the diff editor.
 - `diffEditor.move.border`: The border color for text that got moved in the diff editor.
 - `diffEditor.moveActive.border`: The active border color for text that got moved in the diff editor.
+- `multiDiffEditor.headerBackground`: The background color of the diff editor's header
 
 ## Chat colors
 
@@ -902,6 +906,8 @@ The following customizations are available:
 - `terminalCommandDecoration.errorBackground`: The terminal command decoration background color for error commands.
 - `terminalOverviewRuler.cursorForeground`: The overview ruler cursor color.
 - `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
+- `terminalStickyScroll.background`: The background color of the sticky scroll overlay in the terminal.
+- `terminalStickyScrollHover.background`: The background color of the sticky scroll overlay in the terminal when hovered.
 
 ## Debug colors
 
@@ -1123,6 +1129,12 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 ## Simple Find Widget
 - `simpleFindWidget.sashBorder`: Border color of the sash border.
+
+## SCM
+- `scm.historyItemAdditionsForeground`: History item additions foreground color.
+- `scm.historyItemDeletionsForeground`: History item deletions foreground color.
+- `scm.historyItemStatisticsBorder`: History item statistics border color.
+- `scm.historyItemSelectedStatisticsBorder`: History item selected statistics border color.
 
 ## Extension colors
 
