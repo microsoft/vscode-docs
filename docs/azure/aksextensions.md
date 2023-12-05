@@ -13,7 +13,7 @@ This document will walk you through some of the ways you can interact with your 
 
 ## Before you begin
 
-The [AKS VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools). You will need to download the [Kubernetes VS Code extension](https://code.visualstudio.com/docs/azure/kubernetes). You can follow this guide on an existing AKS cluster or you can [create AKS cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal).
+The [AKS VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools). You will need to download the [Kubernetes VS Code extension](https://code.visualstudio.com/docs/azure/kubernetes). You can follow this guide on an existing AKS cluster or you can [create AKS cluster][def].
 
 ## Install the Azure Kubernetes Services extension
 
@@ -33,7 +33,7 @@ To install the Azure Kubernetes Services VS Code extension, open the Extensions 
 
 3. Once the installation is complete, you'll see a section named **Azure** under **Clouds**.
 
-4. Sign in to your Azure Account by selecting **Sign in to Azureâ€¦**
+4. Sign in to your Azure Account by selecting **Sign in to Azure…**
 
 ![Sign in to your Azure Account](images/aksextensions/Sign-in.png)
 
@@ -55,7 +55,8 @@ Run Kubectl Commands
 
 ### Merge into Kubeconfig
 
-Right-click on your AKS cluster and select **Merge into Kubeconfig** to add the selected AKS cluster to your [active kubeconfig file](https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools#working-with-kubeconfigs).
+Right-click on your AKS cluster and select **Merge into Kubeconfig** to add the selected AKS cluster to your [active kubeconfig file][def2].
+
 
 ### Save Kubeconfig
 
@@ -165,3 +166,7 @@ Congratulations! You now know how to navigate through this VS Code extension.
 * [Azure Service Operator](https://azure.github.io/azure-service-operator/#azure-service-operator-v2) - Learn about Azure Service Operator.
 * [AKS Periscope](https://github.com/azure/aks-periscope)
 * [GitHub AKS Starter Workflow](https://github.com/actions/starter-workflows)
+
+
+[def]: https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal
+[def2]: https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools#working-with-kubeconfigs
