@@ -120,7 +120,7 @@ There are certain limitations while working with Remote Repositories:
 
 * Debugging, terminals, and tasks - Not currently supported. Terminals open on your local file system and don't have access to the virtual file system of the remote repository.
 * Limited language intelligence - Features like IntelliSense and **Go to Definition** may be impacted as many languages don't yet understand the virtualized environment of Remote Repositories.
-* Search - GitHub search itself has limitations, such as not indexing branches. Remote Repositories can avoid this limitation and perform a full-text search by enabling indexing. Indexing pulls a shallow clone of the repository from GitHub and performs a full search locally, providing greater power than GitHub's fuzzy default-branch native search. You can enable indexing in Remote Repositories from the Search view.
+* Search - GitHub search itself has limitations, such as not indexing branches. Remote Repositories can avoid this limitation and perform a full-text search by enabling . Indexing pulls a shallow clone of the repository from GitHub and performs a full search locally, providing greater power than GitHub's fuzzy default-branch native search. You can enable indexing in Remote Repositories from the Search view.
 * Extension limitations - Not all extensions can support running in a virtual workspace, but more extensions will support it over time. Extensions that depend heavily on access to local files cannot support this setup. See the virtual workspace section [below](#virtual-file-systems-and-workspaces) for more details.
 
 We are just getting started on this journey, so expect the feature set to grow and the limitations to shrink as we continue development.
