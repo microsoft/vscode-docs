@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Python
 ContentId: 3a9bc520-95e2-416e-a0ac-5be02a38c4c3
 PageTitle: Build and run a Python app in a container
-DateApproved: 10/30/2022
+DateApproved: 12/1/2023
 MetaDescription: Develop, build, and debug a Python app in a Docker container, using Visual Studio Code.
 ---
 # Python in a container

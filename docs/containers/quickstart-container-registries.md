@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
-DateApproved: 12/21/2022
+DateApproved: 12/1/2023
 MetaDescription: Work with Docker container registries in Visual Studio Code
 ---
 # Using container registries
