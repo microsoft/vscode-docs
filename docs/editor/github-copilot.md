@@ -323,9 +323,9 @@ When a command fails to run in the terminal, Copilot displays a sparkle in the g
 
 ![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/artificial-intelligence/terminal-quick-fix.png)
 
-Selecting **Explain using Copilot** will populate the Chat view with the `@workspace /explain` agent and slash command to help correct the last terminal command error.
+Selecting **Explain using Copilot** will populate Quick Chat with the `@terminal #terminalLastCommand` agent and variable to help correct the last terminal command error.
 
-![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence/terminal-command-explanation.png)
+![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/artificial-intelligence/terminal-command-explanation.png)
 
 ### Command Palette help
 
