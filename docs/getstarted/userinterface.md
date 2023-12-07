@@ -64,6 +64,14 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 
 >**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
+## Sticky Scroll
+
+Sticky scroll is a widget that appears at the top of the view-port, which shows the start lines of the nested scopes in which the top of the viewport is located in. It faciliates navigation by indicating where in the file one is located in.
+
+![stickyScroll](images/userinterface/sticky-scroll.png)
+
+>**Tip:** You can enable/disable sticky scroll with the setting `"editor.stickyScroll.enabled"`.
+
 ### Indent Guides
 
 The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.guides.indentation": false` in your user or workspace [settings](/docs/getstarted/settings.md).
