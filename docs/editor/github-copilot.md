@@ -336,7 +336,7 @@ The **Ask GitHub Copilot** command will open the Chat view and input your search
 
 ![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
 
-## Getting the most of of Copilot Chat
+## Getting the most out of Copilot Chat
 
 This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
 
