@@ -69,7 +69,7 @@ For example, to set Ruff as your preferred import sorter, you can add the follow
 {
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports.ruff": true
+      "source.organizeImports.ruff": "explicit"
     }
   }
 }

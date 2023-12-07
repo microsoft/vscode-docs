@@ -210,7 +210,7 @@ Organize imports can also be done automatically when you save a JavaScript file 
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
 }
 ```
 
@@ -221,8 +221,8 @@ The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions 
 ```json
 // On save, run both fixAll and organizeImports source actions
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
 }
 ```
 
