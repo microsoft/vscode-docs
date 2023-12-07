@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: GitHub Copilot
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot in VS Code

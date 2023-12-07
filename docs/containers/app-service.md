@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
 PageTitle: Deploy a containerized app to Azure
-DateApproved: 01/17/2023
+DateApproved: 1/17/2023
 MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service or Azure Container Apps.
 ---
 # Deploy a containerized app to Azure
