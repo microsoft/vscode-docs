@@ -66,11 +66,11 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 
 ## Sticky Scroll
 
-Sticky scroll is a widget that appears at the top of the view-port, which shows the start lines of the nested scopes in which the top of the viewport is located in. It faciliates navigation by indicating where in the file one is located in.
+Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
 
 ![stickyScroll](images/userinterface/sticky-scroll.png)
 
->**Tip:** You can enable/disable sticky scroll with the setting `"editor.stickyScroll.enabled"`.
+>**Tip:** You can enable/disable Sticky Scroll with the setting `"editor.stickyScroll.enabled"`.
 
 ### Indent Guides
 
