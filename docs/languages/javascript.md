@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -210,7 +210,7 @@ Organize imports can also be done automatically when you save a JavaScript file 
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
 }
 ```
 
@@ -221,8 +221,8 @@ The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions 
 ```json
 // On save, run both fixAll and organizeImports source actions
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
 }
 ```
 

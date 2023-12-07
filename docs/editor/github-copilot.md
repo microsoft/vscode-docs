@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: GitHub Copilot
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Use GitHub Copilot to enhance your coding with AI
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot in VS Code
@@ -206,6 +206,7 @@ Agents are like experts who have a specialty that they can help you with, and yo
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
+* `@terminal` has context about the integrated terminal shell and its contents.
 
 You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
 
@@ -219,9 +220,9 @@ Agent can also support slash commands for specific types of questions or tasks. 
 * @workspace /fix: Propose a fix for the bugs in the selected code.
 * @workspace /new: Create a new project based on a natural language description.
 * @workspace /newNotebook: Create a new Jupyter Notebook based on your description.
-* @workspace /terminal: Explain how to do something in the integrated terminal.
 * @workspace /tests: Generate unit tests for the selected code.
 * @vscode /api: Questions about VS Code extension development.
+* @terminal: Explain how to do something in the integrated terminal.
 
 In addition to agent and slash command combinations, there are general purpose slash commands for actions such as clearing the chat session or getting help.
 
@@ -240,9 +241,9 @@ The **More Actions** (`...`) button also displays options to **Insert Into New F
 
 ![Copilot Chat code block with More Actions button expanded](images/artificial-intelligence/more-actions-code-block.png)
 
-If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Run in Terminal** `kb(workbench.action.chat.runInTerminal)`. This option will create or open the active terminal and insert the command text, ready for you to run.
+If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Insert into Terminal** `kb(workbench.action.chat.runInTerminal)`. This option will create or open the active terminal and insert the command text, ready for you to run.
 
-![Copilot Chat code block to list files with Run in Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
+![Copilot Chat code block to list files with Insert into Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
 
 ### Chat view locations
 
@@ -324,7 +325,7 @@ When a command fails to run in the terminal, Copilot displays a sparkle in the g
 
 Selecting **Explain using Copilot** will populate the Chat view with the `@workspace /explain` agent and slash command to help correct the last terminal command error.
 
-![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence//terminal-command-explanation.png)
+![Chat view with @workspace /explain #terminalLastCommand and Copilot's answer](images/artificial-intelligence/terminal-command-explanation.png)
 
 ### Command Palette help
 
@@ -336,7 +337,7 @@ The **Ask GitHub Copilot** command will open the Chat view and input your search
 
 ![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
 
-## Getting the most of of Copilot Chat
+## Getting the most out of Copilot Chat
 
 This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
 

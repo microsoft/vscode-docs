@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Refactoring
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
 PageTitle: TypeScript refactoring with Visual Studio Code
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
 ---
 # Refactoring TypeScript
@@ -109,7 +109,7 @@ Organize imports can also be done automatically when you save a TypeScript file 
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
 }
 ```
 
@@ -130,8 +130,8 @@ The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions 
 ```json
 // On save, run both fixAll and organizeImports source actions
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
 }
 ```
 
