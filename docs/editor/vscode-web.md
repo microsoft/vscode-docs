@@ -67,7 +67,7 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
 | Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
-| Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
+| Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/editor/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
 | Power Pages | `/power/pages` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
 | Profiles | `/editor/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
 | Themes | `/editor/theme/<extensionId>` | [More info below](#themes) |
@@ -75,29 +75,29 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
 
-Please note that some URLs must be entered in a specific way (for example, `vscode.dev/liveshare` requires an active Live Share session). Please review each service's documentation for specific access and usage information.
+Please note that some URLs must be entered in a specific way (for example, `vscode.dev/editor/liveshare` requires an active Live Share session). Please review each service's documentation for specific access and usage information.
 
 There's more information on some of these URLs below.
 
 ### Themes
 
-You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
+You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/editor/theme/<extensionId>`.
 
-For instance, you can go to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
+For instance, you can go to [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
 
 > Note: The color theme URL schema works for themes that are fully declarative (no code).
 
-An extension can define multiple themes. You can use the schema `/theme/<extensionId>/<themeName>`. If no `themeName` is specified, VS Code for the Web will take the first theme.
+An extension can define multiple themes. You can use the schema `/editor/theme/<extensionId>/<themeName>`. If no `themeName` is specified, VS Code for the Web will take the first theme.
 
 As a theme author, you can add the following badge to your extension readme to allow users to easily try out your theme in VS Code for the Web (replacing `<extensionId>` with your theme extension's unique identifier):
 
 ```markdown
-[![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/theme/<extensionId>)
+[![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/<extensionId>)
 ```
 
 ### Visual Studio Live Share
 
-[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) guest sessions are available in the browser through the `https://vscode.dev/liveshare` URL. The `sessionId` will be passed to the extension to make joining a seamless experience.
+[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) guest sessions are available in the browser through the `https://vscode.dev/editor/liveshare` URL. The `sessionId` will be passed to the extension to make joining a seamless experience.
 
 ## Continue working in a different environment
 
