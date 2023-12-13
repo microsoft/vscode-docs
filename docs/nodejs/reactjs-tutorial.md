@@ -155,7 +155,7 @@ Ensure that your development server is running (`npm start`). Then press `kb(wor
 
 ![Debugger hitting breakpoint](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
+You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `HelloWorld`, and see the call stack of the client side React application.
 
 ![Debug element variable](images/reactjs/debug-variable.png)
 
