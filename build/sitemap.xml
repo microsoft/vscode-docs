@@ -866,6 +866,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/csharp/introvideos-csharp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/csharp/get-started</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
