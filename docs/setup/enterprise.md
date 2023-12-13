@@ -30,4 +30,4 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 ## Additional Policies
 
-The goal is to promote current VS Code settings as Policies and follow closely existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
+The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
