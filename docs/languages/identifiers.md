@@ -72,8 +72,11 @@ C# | `csharp`
 Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
+D | `d`
+Delphi | `pascal`
 Diff | `diff`
 Dockerfile | `dockerfile`
+Erlang | `erlang`
 F# | `fsharp`
 Git | `git-commit` and `git-rebase`
 Go | `go`
@@ -95,6 +98,7 @@ Makefile | `makefile`
 Markdown | `markdown`
 Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
+Pascal | `pascal`
 Perl | `perl` and `perl6`
 PHP | `php`
 Plain Text | `plaintext`
