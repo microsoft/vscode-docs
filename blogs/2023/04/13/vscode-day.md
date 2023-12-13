@@ -53,7 +53,7 @@ VS Code as it is today was announced at Microsoft Build in 2015. Fast-forward to
 
 ## Things are getting interesting
 
-Today, the original vision of VS Code is a reality with vscode.dev - VS Code running entirely in the browser. Containerized compute and the open source [dev container spec](https://containers.dev/) means that we can isolate dev environments and run them anywhere. Combine that with an editor that runs in the browser and you get GitHub Codespaces - a 100% hosted developer environment that you can access from any browser. Or run VS Code on your own machine and access your compute from the browser with [Remote Tunnels](https://code.visualstudio.com/docs/remote/tunnels).
+Today, the original vision of VS Code is a reality with vscode.dev - VS Code running entirely in the browser. Containerized compute and the open source [dev container spec](https://containers.dev/) means that we can isolate dev environments and run them anywhere. Combine that with an editor that runs in the browser and you get GitHub Codespaces - a 100% hosted developer environment that you can access from any browser. Or run VS Code on your own machine and access your computer from the browser with [Remote Tunnels](https://code.visualstudio.com/docs/remote/tunnels).
 
 These changes are tectonic. They redefine how we think about when, where, and who can build software. When all you need for a complete dev environment is a browser, software development becomes accessible to everyone everywhere.
 
