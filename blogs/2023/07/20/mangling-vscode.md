@@ -2,7 +2,7 @@
 Order: 83
 TOCTitle: Shrinking VS Code with name mangling
 PageTitle: Shrinking VS Code with name mangling
-MetaDescription: A look at how we how we cut 20% off the size of VS Code's JavaScript with name mangling.
+MetaDescription: A look at how we cut 20% off the size of VS Code's JavaScript with name mangling.
 Date: 2023-07-20
 Author: Matt Bierner
 ---
@@ -16,9 +16,9 @@ In this post, I want to share how we identified this optimization opportunity, e
 
 ## Identifying the problem
 
-The VS Code team is passionate about performance, be that optimizing hot code paths, reducing UI re-layouts, or speeding up startup time. This passion includes keeping the size of VS Code's JavaScript small. Code size has become even more of a focus with VS Code shipping on web (https://vscode.dev) in addition to the desktop application. Actively monitoring code size keeps members of the VS Code team aware when it changes.
+The VS Code team is passionate about performance, be that optimizing hot code paths, reducing UI re-layouts, or speeding up startup time. This passion includes keeping the size of VS Code's JavaScript small. Code size has become even more of a focus with VS Code shipping on the web (https://vscode.dev) in addition to the desktop application. Actively monitoring code size keeps members of the VS Code team aware when it changes.
 
-Unfortunately, these changes have almost always been increases. Although we put a lot of thought into what features we build into VS Code, over the years adding new functionality has necessarily grown the amount of code we ship. For instance, one of VS Code's core JavaScript files (`workbench.js`) is now around four times the size it was eight years ago. Now when you consider that eight years ago VS Code lacked features many would consider essential today—such as editor tabs or the built-in terminal—that increase is not perhaps as awful as it sounds, but it's not nothing either.
+Unfortunately, these changes have almost always been increased. Although we put a lot of thought into what features we build into VS Code, over the years adding new functionality has necessarily grown the amount of code we ship. For instance, one of VS Code's core JavaScript files (`workbench.js`) is now around four times the size it was eight years ago. Now when you consider that eight years ago VS Code lacked features many would consider essential today—such as editor tabs or the built-in terminal—that increase is not perhaps as awful as it sounds, but it's not nothing either.
 
 ![The size of 'workbench.js' has slowly increased over the past eight years](code-size-before.png)
 
@@ -165,7 +165,7 @@ This chart shows the size of `workbench.js` over time. Notice the two drops on t
 
 Our mangling implementation can doubtless be improved since our minified sources still contain plenty of long names. We may investigate these further if doing so seems worthwhile and if we can come up with a safe approach. Ideally, some day much of this work won't be necessary at all. Native private properties are already mangled automatically and our build tools will hopefully become better at optimizing code across our entire codebase. You can review our current [mangling implementation](https://github.com/microsoft/vscode/blob/48cd8e0c1b142a46f0956b593d8331145634658e/build/lib/mangle/index.ts).
 
-We're always striving to make VS Code and our codebase better, and I think the mangling work is a great demonstration of how we approach this. Optimization is an ongoing process, not a one time thing. By continually monitoring our code size, we were aware of how it has grown over time. This awareness has doubtless help keep our code size from expanding even more than it has, and also encourages us to always be looking for improvements. Although mangling was an attractive seeming technique, it was initially too risky to seriously consider. Only once we had worked to reduce this risk, create the right safety nets, and make the cost of adopting mangling almost zero, did we finally feel confident enough to enable it in our builds. I'm really proud of the end result and just as proud of how we went about achieving it.
+We're always striving to make VS Code and our codebase better, and I think the mangling work is a great demonstration of how we approach this. Optimization is an ongoing process, not a one time thing. By continually monitoring our code size, we were aware of how it has grown over time. This awareness has doubtless helped keep our code size from expanding even more than it has, and also encourages us to always be looking for improvements. Although mangling was an attractive seeming technique, it was initially too risky to seriously consider. Only once we had worked to reduce this risk, create the right safety nets, and make the cost of adopting mangling almost zero, did we finally feel confident enough to enable it in our builds. I'm really proud of the end result and just as proud of how we went about achieving it.
 
 Happy Coding,
 
