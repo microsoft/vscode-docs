@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -53,7 +53,7 @@ The current editor mode is indicated in the editor's Status Bar. Select the mode
 
 ## JSON schemas and settings
 
-To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports all draft versions from Draft 4 to JSON Schema Draft 2020-12.
+To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports all draft versions from draft 4 to draft 7, with limited support for drafts 2019-09 and 2020-12.
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
@@ -72,7 +72,7 @@ In the following example, the JSON file specifies that its contents follow the [
 }
 ```
 
-Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
+Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/specification). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
 
 ### Mapping in the User Settings
 
@@ -192,13 +192,13 @@ Note that `defaultSnippets` is not part of the JSON schema specification but a V
 
 ### Use rich formatting in hovers
 
-VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7) in order to provide information about properties on hover and during autocomplete.
+VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/specification) in order to provide information about properties on hover and during autocomplete.
 
 If you want your descriptions to support formatting like links, you can opt in by using [Markdown](/docs/languages/markdown.md) in your formatting with the `markdownDescription` property.
 
 ```json
 {
-   "$schema": "http://json-schema.org/schema",
+   "$schema": "http://json-schema.org/draft-07/schema#",
    "type": "object",
    "properties": {
        "name" : {

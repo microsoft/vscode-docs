@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Workspace Trust
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 PageTitle: Visual Studio Code Workspace Trust security
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -43,7 +43,7 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 ### Tasks
 
-[Tasks](/docs/editor/tasks.md) can run scripts and tool binaries, and because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. Were someone to create a malicious task, it could be unknowningly run by anyone who cloned that repository.
+[Tasks](/docs/editor/tasks.md) can run scripts and tool binaries, and because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. Were someone to create a malicious task, it could be unknowingly run by anyone who cloned that repository.
 
 If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue executing the task. Cancelling the dialog leaves VS Code in Restricted Mode.
 

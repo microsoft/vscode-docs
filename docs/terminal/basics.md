@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -72,7 +72,7 @@ You can open terminals in the editor area (terminal editors) with the **Terminal
 
 You can have terminal editors on either side or arranged in multiple dimensions using the editor group layout system, e.g. PowerShell and WSL terminals stacked to the right of file editors:
 
-![Terminal editors are can be layed out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
+![Terminal editors are can be laid out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
 The `terminal.integrated.defaultLocation` setting can change the default `view` or `editor` area terminal location.
 
@@ -194,6 +194,8 @@ To use the `runSelectedText` command, select text in an editor and run the comma
 
 The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
 
+Note that the panel can only be maximized if its [alignment](/docs/editor/custom-layout.md#panel-alignment) option is set to **Center**.
+
 ## Select all
 
 There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keybinding:
@@ -306,7 +308,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 ## Fixed dimension terminals
 
-The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing psuedoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
+The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing pseudoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
 
 You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
@@ -417,6 +419,14 @@ This normally means that the program/shell running inside the terminal requested
 
 ```
 set enable-bracketed-paste off
+```
+
+Alternatively, bracketed paste mode can be forced to ignore the shell's request by turning it off with this setting:
+
+```json
+{
+  "terminal.integrated.ignoreBracketedPasteMode": true
+}
 ```
 
 ### Ctrl+A, Ctrl+R output ^A, ^R on zsh

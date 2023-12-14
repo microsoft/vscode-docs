@@ -14,7 +14,32 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
-The Python extension supports source code formatting through formatter extensions, such as [autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8) and [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
+## Choose a formatter
+
+Install the formatting tool of your choice from the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Microsoft publishes the following formatting extensions:
+
+| Formatter | Extension                                                                       |
+| ------ | ------------------------------------------------------------------------------- |
+| autopep8 | [https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8)            |
+| Black formatter | [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)            |
+
+Formatter extensions offered by the community:
+
+| Formatter | Extension                                                              |
+| ------ | ---------------------------------------------------------------------- |
+| Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)   |
+| yapf   | [https://marketplace.visualstudio.com/items?itemName=eeyore.yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yapf) |
+
+Furthermore, below are formatter extensions that support import sorting:
+
+| Formatter | Extension                                                              |
+| ------ | ---------------------------------------------------------------------- |
+| Ruff   | [https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)   |
+| isort   | [https://marketplace.visualstudio.com/items?itemName=ms-python.isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) |
+
+> **Note**: If you don't find your preferred formatter in the table above or in the Marketplace, you can add support for it via an extension. You can use the [Python Extension Template](/api/advanced-topics/python-extension-template.md) to integrate new Python tools into VS Code.
 
 ## Set a default formatter
 
@@ -34,6 +59,20 @@ For example, to set Black Formatter as the default formatter, add the following 
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   }
+```
+
+In order to set a formatter extension as an import sorter, you can set your preference under `"editor.codeActionsOnSave"` in your User `settings.json` file or your Workspace `settings.json` file, under a `[python]` scope. You can open these `settings.json` files using the **Preferences: Open User Settings (JSON)** and **Preferences: Open Workspace Settings (JSON)** commands respectively. This will enable import sorting on save for all Python files.
+
+For example, to set Ruff as your preferred import sorter, you can add the following setting to your User `settings.json` or your Workspace `settings.json` file:
+
+```json
+{
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit"
+    }
+  }
+}
 ```
 
 ## Format your code

@@ -129,7 +129,7 @@ If you don't already have a `jsconfig.json` file in your workspace, add a `jscon
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs"
+        "module": "CommonJS"
     }
 }
 ```

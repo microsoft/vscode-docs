@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -23,6 +23,14 @@ Both of these persistent sessions can be disabled by setting `terminal.integrate
 ### Moving terminals between windows
 
 Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
+
+### Configure how the terminal behaves on start up
+
+When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `terminal.integrated.hideOnStartup` setting.
+
+* `never` (default): Never hide the terminal view on startup.
+* `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
+* `always`: Always hide the terminal, even when there are persistent sessions restored.
 
 ## Keybinding and the shell
 
@@ -135,7 +143,7 @@ The terminal has both Unicode and emoji support. When these characters are used 
 
 ## Image support
 
-Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is enabled by default and can be disabled with the `terminal.integrated.enableImages` setting.
+Images in the terminal work provided they use either the Sixel or iTerm inline image protocols. This feature is disabled by default and can be enabled with the `terminal.integrated.enableImages` setting.
 
 Current limitations:
 

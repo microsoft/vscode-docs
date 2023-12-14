@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -42,8 +42,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6"
+        "module": "CommonJS",
+        "target": "ES6"
     },
     "exclude": [
         "node_modules"
@@ -210,7 +210,7 @@ Organize imports can also be done automatically when you save a JavaScript file 
 
 ```json
 "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
 }
 ```
 
@@ -221,8 +221,8 @@ The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions 
 ```json
 // On save, run both fixAll and organizeImports source actions
 "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
 }
 ```
 
@@ -255,7 +255,7 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
 
@@ -411,8 +411,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
 ```json
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
+        "module": "CommonJS",
+        "target": "ES6",
         // This is the line you want to add
         "allowSyntheticDefaultImports": true
     },

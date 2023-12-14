@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -29,7 +29,6 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
-
 >**Tip:** You can move the Primary Side Bar to the right hand side (**View** > **Toggle Primary Side Bar Position**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by side editing
@@ -53,6 +52,10 @@ When you have more than one editor open you can switch between them quickly by h
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
+### Split in group
+
+You can also split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#split-in-group) topic.
+
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
@@ -60,6 +63,14 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 ![minimap](images/userinterface/minimap.png)
 
 >**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+
+## Sticky Scroll
+
+Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
+
+![stickyScroll](images/userinterface/sticky-scroll.png)
+
+>**Tip:** You can enable/disable Sticky Scroll with the setting `"editor.stickyScroll.enabled"`.
 
 ### Indent Guides
 
@@ -167,7 +178,7 @@ You can show or hide views from within the main view and also reorder them by dr
 
 ### Activity Bar
 
-The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Hide from Activity Bar**).
+The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right-click the Activity Bar and uncheck a view).
 
 ![activity bar context menu](images/userinterface/activity-bar-context-menu.png)
 
@@ -191,7 +202,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 ## Configuring the editor
 
-VS Code gives you many options to configure the editor. From the **View** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
+VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
 
 ### Hide the Menu Bar (Windows, Linux)
 
@@ -216,7 +227,18 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen`, `zenMode.restore`, and `zenMode.centerLayout`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen, and centering the editor layout. Zen mode can be toggled using the **View** > **Appearance** menu, **View: Toggle Zen Mode** in the **Command Palette**, or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+
+Zen Mode can be further tuned by the following settings:
+
+* `zenMode.hideActivityBar`- Hide the Activity bar. Default `true`.
+* `zenMode.hideStatusBar` - Hide the Status bar. Default `true`.
+* `zenMode.hideLineNumbers` - Hide line numbers. Default `true`.
+* `zenMode.showTabs` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `zenMode.fullScreen` - Put workbench in full screen display. Default `true`.
+* `zenMode.restore` - Restore Zen Mode on restart. Default `true`.
+* `zenMode.centerLayout` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `zenMode.silentNotifications` - Do not display notifications. Default `true`.
 
 ### Centered editor layout
 
@@ -234,10 +256,12 @@ Tabs let you quickly navigate between items and you can Drag and Drop Tabs to re
 
 When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown list of tabbed items.
 
-If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
+There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`workbench.editor.titleScrollbarSizing`) to `large`.
+
+If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to `single`:
 
 ```json
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": "single"
 ```
 
 See the section below to optimize VS Code when [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
@@ -251,6 +275,12 @@ For example, you might like new tabbed items to appear on the left:
 ```json
     "workbench.editor.openPositioning": "left"
 ```
+
+### Wrapped tabs
+
+To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`workbench.editor.wrapTabs`) [setting](/docs/getstarted/settings.md).
+
+![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
 
 ## Preview mode
 
@@ -319,7 +349,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 
 ## Working without Tabs
 
-If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed headings) entirely by setting `workbench.editor.showTabs` to false.
+If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed headings) entirely by setting `workbench.editor.showTabs` to `single` or `none`.
 
 ### Disable Preview mode
 
@@ -369,6 +399,7 @@ The `window.restoreWindows` setting tells VS Code how to restore the opened wind
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
+* [Custom Layout](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

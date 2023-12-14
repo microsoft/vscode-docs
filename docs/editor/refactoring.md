@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
 PageTitle: Refactoring source code in Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
@@ -19,7 +19,7 @@ Refactorings are provided by a language service and VS Code has built-in support
 
 ## Code Actions = Quick Fixes and refactorings
 
-In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with green squiggles). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squiggle or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
+In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with red squiggles). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squiggle or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
 
 If you'd just like to see refactorings without Quick Fixes, you can use the **Refactor** command (`kb(editor.action.refactor)`).
 

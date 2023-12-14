@@ -5,7 +5,7 @@ TOCTitle: Docker options
 PageTitle: Dev Containers Docker options
 ContentId: 5098c2a8-5aba-4a48-9e9b-5dabf1db93ca
 MetaDescription: Dev Containers Docker options
-DateApproved: 8/3/2023
+DateApproved: 12/7/2023
 ---
 
 # Alternate ways to install Docker
