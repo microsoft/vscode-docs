@@ -99,7 +99,7 @@ Here are some of the filters available:
 * `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
 * `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
 
-The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
+The Search bar remembers your settings for search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
 
 ![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
 
@@ -669,31 +669,31 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Alternative command id that is being executed when the result of 'Go to Type Definition' is the current location.
     "editor.gotoLocation.alternativeTypeDefinitionCommand": "editor.action.goToReferences",
 
-    // Controls the behavior the 'Go to Declaration'-command when multiple target locations exist.
+    // Controls the behavior of the 'Go to Declaration'-command when multiple target locations exist.
     //  - peek: Show Peek view of the results (default)
     //  - gotoAndPeek: Go to the primary result and show a Peek view
     //  - goto: Go to the primary result and enable Peek-less navigation to others
     "editor.gotoLocation.multipleDeclarations": "peek",
 
-    // Controls the behavior the 'Go to Definition'-command when multiple target locations exist.
+    // Controls the behavior of the 'Go to Definition'-command when multiple target locations exist.
     //  - peek: Show Peek view of the results (default)
     //  - gotoAndPeek: Go to the primary result and show a Peek view
     //  - goto: Go to the primary result and enable Peek-less navigation to others
     "editor.gotoLocation.multipleDefinitions": "peek",
 
-    // Controls the behavior the 'Go to Implementations'-command when multiple target locations exist.
+    // Controls the behavior of the 'Go to Implementations'-command when multiple target locations exist.
     //  - peek: Show Peek view of the results (default)
     //  - gotoAndPeek: Go to the primary result and show a Peek view
     //  - goto: Go to the primary result and enable Peek-less navigation to others
     "editor.gotoLocation.multipleImplementations": "peek",
 
-    // Controls the behavior the 'Go to References'-command when multiple target locations exist.
+    // Controls the behavior of the 'Go to References'-command when multiple target locations exist.
     //  - peek: Show Peek view of the results (default)
     //  - gotoAndPeek: Go to the primary result and show a Peek view
     //  - goto: Go to the primary result and enable Peek-less navigation to others
     "editor.gotoLocation.multipleReferences": "peek",
 
-    // Controls the behavior the 'Go to Type Definition'-command when multiple target locations exist.
+    // Controls the behavior of the 'Go to Type Definition'-command when multiple target locations exist.
     //  - peek: Show Peek view of the results (default)
     //  - gotoAndPeek: Go to the primary result and show a Peek view
     //  - goto: Go to the primary result and enable Peek-less navigation to others
@@ -891,7 +891,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether you can paste content in different ways.
     "editor.pasteAs.enabled": true,
 
-    // Controls if a widget is shown when pasting content in to the editor. This widget lets you control how the file is pasted.
+    // Controls if a widget is shown when pasting content into the editor. This widget lets you control how the file is pasted.
     //  - afterPaste: Show the paste selector widget after content is pasted into the editor.
     //  - never: Never show the paste selector widget. Instead the default pasting behavior is always used.
     "editor.pasteAs.showPasteSelector": "afterPaste",
@@ -1401,7 +1401,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Security
 
-    // A set of UNC host names (without leading or trailing backslash, for example `192.168.0.1` or `my-server`) to allow without user confirmation. If a UNC host is being accessed that is not allowed via this setting or has not been acknowledged via user confirmation, an error will occur and the operation stopped.
+    // A set of UNC host names (without leading or trailing backslash, for example `192.168.0.1` or `my-server`) to allow without user confirmation. If a UNC host is being accessed that is not allowed via this setting or has not been acknowledged via user confirmation, an error will occur and the operation will be stopped.
     "security.allowedUNCHosts": [],
 
     // If enabled, a dialog will ask for confirmation whenever a local file or workspace is about to open through a protocol handler.
@@ -1772,7 +1772,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the maximum size of a file (in KB) to be considered for local file history. Files that are larger will not be added to the local file history. Changing this setting has no effect on existing local file history entries.
     "workbench.localHistory.maxFileSize": 256,
 
-    // Configure an interval in seconds during which the last entry in local file history is replaced with the entry that is being added. This helps reduce the overall number of entries that are added, for example when auto save is enabled. This setting is only applied to entries that have the same source of origin. Changing this setting has no effect on existing local file history entries.
+    // Configure an interval in seconds during which the last entry in local file history is replaced with the entry that is being added. This helps reduce the overall number of entries that are added, for example when autosave is enabled. This setting is only applied to entries that have the same source of origin. Changing this setting has no effect on existing local file history entries.
     "workbench.localHistory.mergeWindow": 10,
 
     // Controls the default location of the panel (Terminal, Debug Console, Output, Problems) in a new workspace. It can either show at the bottom, right, or left of the editor area.
@@ -2519,7 +2519,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - onFirstSessionStart: Show debug in Status bar only after debug was started for the first time
     "debug.showInStatusBar": "onFirstSessionStart",
 
-    // Controls whether the debug sub-sessions are shown in the debug tool bar. When this setting is false the stop command on a sub-session will also stop the parent session.
+    // Controls whether the debug sub-sessions are shown in the debug toolbar. When this setting is false the stop command on a sub-session will also stop the parent session.
     "debug.showSubSessionsInToolBar": false,
 
     // Before starting a new debug session in an integrated or external terminal, clear the terminal.
