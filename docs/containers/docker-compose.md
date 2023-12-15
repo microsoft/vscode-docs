@@ -21,11 +21,11 @@ If you already have one or more Dockerfiles, you can add Docker Compose files by
 
 You can add Docker Compose files to your workspace at the same time you add a Dockerfile by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and using the **Docker: Add Docker Files to Workspace** command. You'll be asked if you want to add Docker Compose files. If you want to keep your existing Dockerfile, choose **No** when prompted to overwrite the Dockerfile.
 
-The Docker extension adds the `docker-compose.yml` file to your workspace. This file contains the configuration to bring up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
+The Docker extension adds the `compose.yaml` file to your workspace. This file contains the configuration to bring up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/reference/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `compose.yaml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/reference/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
@@ -33,9 +33,9 @@ With the docker-compose files, you can now specify port mappings in the docker-c
 
 ## Add new containers to your projects
 
-If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `docker-compose.yml` file to add the new service. Typically, you can copy the existing service section, paste it to create a new entry, and change the names as appropriate for the new service.
+If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `compose.yaml` file to add the new service. Typically, you can copy the existing service section, paste it to create a new entry, and change the names as appropriate for the new service.
 
-You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. While each app or service has its own Dockerfile, there's typically one `docker-compose.yml` and one `docker-compose.debug.yml` file per workspace.
+You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. While each app or service has its own Dockerfile, there's typically one `compose.yaml` and one `docker-compose.debug.yml` file per workspace.
 
 In Python projects, you have the `Dockerfile`, `.dockerignore`, `docker-compose*.yml` files all in the root folder of the workspace. When you add another app or service, move the Dockerfile into the app's folder.
 
@@ -132,7 +132,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab and select **Python: Remote Attach** as the active configuration.
 
-1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
+1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `compose.yaml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
     > **Note**: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions in the [Python in a container quickstart](/docs/containers/quickstart-python.md#gunicorn-modifications-for-django-and-flask-apps) to ensure it is configured properly before proceeding.
 
@@ -218,7 +218,7 @@ volumes:
 
 Workspaces can have multiple docker-compose files to handle different environments like development, test, and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and separate override files that define environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](/docs/containers/reference.md#command-customization). Or, you can use a [custom task](/docs/editor/tasks.md#custom-tasks) to invoke the `docker-compose` command with the desired parameters.
 
-> **Note**: If your workspace has `docker-compose.yml` and `docker-compose.override.yml` and no other compose files, then the `docker-compose` command is invoked with no input files and it implicitly uses these files. In this case, no customization is needed.
+> **Note**: If your workspace has `compose.yaml` and `docker-compose.override.yml` and no other compose files, then the `docker-compose` command is invoked with no input files and it implicitly uses these files. In this case, no customization is needed.
 
 ## Command customization
 
@@ -226,13 +226,13 @@ Workspaces can have multiple docker-compose files to handle different environmen
 
 ### Base file and an override file
 
-Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always run `docker compose up` with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+Let's assume your workspace has a base compose file (`compose.yaml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always run `docker compose up` with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
 
 ```json
 "docker.commands.composeUp": [
     {
         "label": "override",
-        "template": "docker-compose -f docker-compose.yml ${configurationFile}  up -d --build",
+        "template": "docker-compose -f compose.yaml ${configurationFile}  up -d --build",
     }
 ]
 ```
@@ -245,17 +245,17 @@ Let's assume you have a different set of input files for each environment. You c
 "docker.commands.composeUp": [
     {
         "label": "dev-match",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.dev.yml up -d --build",
+        "template": "docker-compose -f compose.yaml -f docker-compose.debug.yml -f docker-compose.dev.yml up -d --build",
         "match": "dev"
     },
     {
         "label": "test-match",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.test.yml up -d --build",
+        "template": "docker-compose -f compose.yaml -f docker-compose.debug.yml -f docker-compose.test.yml up -d --build",
         "match": "test"
     },
     {
         "label": "prod-match",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.release.yml -f docker-compose.prod.yml up -d --build",
+        "template": "docker-compose -f compose.yaml -f docker-compose.release.yml -f docker-compose.prod.yml up -d --build",
         "match": "prod"
     }
 ]
@@ -269,15 +269,15 @@ If you omit the `match` property from command templates, you're asked which temp
 "docker.commands.composeUp": [
     {
         "label": "dev",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.dev.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f compose.yaml -f docker-compose.common.dev.yml ${configurationFile} up -d --build"
     },
     {
         "label": "test",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.test.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f compose.yaml -f docker-compose.common.test.yml ${configurationFile} up -d --build"
     },
     {
         "label": "prod",
-        "template": "docker-compose -f docker-compose.yml -f docker-compose.common.prod.yml ${configurationFile} up -d --build"
+        "template": "docker-compose -f compose.yaml -f docker-compose.common.prod.yml ${configurationFile} up -d --build"
     },
 ],
 ```
@@ -290,7 +290,7 @@ Rather than use command customization, you can also define a task like the follo
 {
     "type": "shell",
     "label": "compose-up-dev",
-    "command": "docker-compose -f docker-compose.yml -f docker-compose.Common.yml -f docker-compose.dev.yml up -d --build",
+    "command": "docker-compose -f compose.yaml -f docker-compose.Common.yml -f docker-compose.dev.yml up -d --build",
     "presentation": {
         "reveal": "always",
         "panel": "new"
