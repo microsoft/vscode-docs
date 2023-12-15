@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 12/21/2022
+DateApproved: 12/14/2023
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
 # Debug containerized apps
