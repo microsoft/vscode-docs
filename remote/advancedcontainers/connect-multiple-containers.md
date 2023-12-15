@@ -11,7 +11,7 @@ DateApproved: 12/7/2023
 
 Currently you can only connect to one container per Visual Studio Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/devcontainers/attach-container.md).
 
-If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree, each pointing to a common `docker-compose.yml`.
+If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree, each pointing to a common `compose.yaml`.
 
 To see how this works, consider this example source tree:
 
@@ -27,12 +27,12 @@ To see how this works, consider this example source tree:
         📄 hello.py
     📁 node-src
         📄 hello.js
-    📄 docker-compose.yml
+    📄 compose.yaml
 ```
 
 The location of the `.git` folder is important, since we will need to ensure the containers can see this path for source control to work properly.
 
-Next, assume the `docker-compose.yml` in the root is as follows:
+Next, assume the `compose.yaml` in the root is as follows:
 
 ```yaml
 version: '3'
@@ -61,7 +61,7 @@ You can then set up `./devcontainer/python-container/devcontainer.json` for Pyth
 ```json
 {
     "name": "Python Container",
-    "dockerComposeFile": ["../../docker-compose.yml"],
+    "dockerComposeFile": ["../../compose.yaml"],
     "service": "python-api",
     "shutdownAction": "none",
     "workspaceFolder": "/workspace/python-src"
@@ -73,7 +73,7 @@ Next, you can set up `./devcontainer/node-container/devcontainer.json` for Node.
 ```json
 {
     "name": "Node Container",
-    "dockerComposeFile": ["../../docker-compose.yml"],
+    "dockerComposeFile": ["../../compose.yaml"],
     "service": "node-app",
     "shutdownAction": "none",
     "workspaceFolder": "/workspace/node-src"
@@ -105,7 +105,7 @@ You can now interact with both containers from separate windows.
 
 ## Extending a Docker Compose file when connecting to two containers
 
-If you want to [extend your Docker Compose file for development](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `devcontainer.json` files.
+If you want to [extend your Docker Compose file for development](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development), you should use a single `compose.yaml` that extends **both** services (as needed) and is referenced in **both** `devcontainer.json` files.
 
 For example, consider this `docker-compose.devcontainer.yml` file:
 
@@ -127,7 +127,7 @@ Both `.devcontainer.json` files would be updated as follows:
 
 ```json
 "dockerComposeFile": [
-  "../../docker-compose.yml",
+  "../../compose.yaml",
   "../../docker-compose.devcontainer.yml",
 ]
 ```
