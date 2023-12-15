@@ -362,12 +362,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `editor.actions.findWithArgs` - Open a new In-Editor Find Widget with specific options.
 
 * searchString - String to prefill the find input
-*	replaceString - String to prefill the replace input
-*	isRegex - enable regex
-*	preserveCase - try to keep the same case when replacing
-*	findInSelection - restrict the find location to the current selection
-*	matchWholeWord
-*	isCaseSensitive
+* replaceString - String to prefill the replace input
+* isRegex - enable regex
+* preserveCase - try to keep the same case when replacing
+* findInSelection - restrict the find location to the current selection
+* matchWholeWord
+* isCaseSensitive
 
 `editor.action.goToLocations` - Go to locations from a position in a file
 
