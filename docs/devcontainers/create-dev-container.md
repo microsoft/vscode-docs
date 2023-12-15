@@ -217,7 +217,7 @@ Now that you have a `devcontainer.json` and Dockerfile, let's see the general pr
 
 ### Full configuration edit loop
 
-Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, and `docker-compose.yml`). Instead, there are several commands that can be used to make editing your configuration easier.
+Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, and `compose.yaml`). Instead, there are several commands that can be used to make editing your configuration easier.
 
 Here is the typical edit loop using these commands:
 
@@ -247,8 +247,8 @@ In some cases, a single container environment isn't sufficient. Let's say you'd 
 
 You can either:
 
-1. Work with a service defined in an existing, unmodified `docker-compose.yml`.
-2. Create a new `docker-compose.yml` (or make a copy of an existing one) that you use to develop a service.
+1. Work with a service defined in an existing, unmodified `compose.yaml`.
+2. Create a new `compose.yaml` (or make a copy of an existing one) that you use to develop a service.
 3. [Extend your existing Docker Compose configuration](#extend-your-docker-compose-file-for-development) to develop the service.
 4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/remote/advancedcontainers/connect-multiple-containers.md) at once.
 
@@ -260,7 +260,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the VS Code UI, you may select one of the following Templates as a starting point for Docker Compose:
 
-* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
+* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `compose.yaml` file in the root of your project.
 * [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a MongoDB database in a different container.
 * [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
 * [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
@@ -274,7 +274,7 @@ For example:
 ```json
 {
     "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "../compose.yaml",
     "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
     "workspaceFolder": "/default/workspace/path/in/container/to/open",
     "shutdownAction": "stopCompose"
@@ -285,7 +285,7 @@ See the [devcontainer.json reference](https://containers.dev/implementors/json_r
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Dev Containers: Reopen in Container** command (or **Dev Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
 
-If the containers are not already running, VS Code will call `docker-compose -f ../docker-compose.yml up` in this example. The `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will attach to the service you specified.
+If the containers are not already running, VS Code will call `docker-compose -f ../compose.yaml up` in this example. The `service` property indicates which service in your Docker Compose file VS Code should connect to, not which service should be started. If you started them by hand, VS Code will attach to the service you specified.
 
 You can also create a development copy of your Docker Compose file. For example, if you had `.devcontainer/docker-compose.devcontainer.yml`, you would just change the following line in `devcontainer.json`:
 
@@ -345,7 +345,7 @@ After you create your container for the first time, you will need to run the **D
 
 ### Using localhost in Docker Compose
 
-You can add other services to your `docker-compose.yml` file as described in [Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
+You can add other services to your `compose.yaml` file as described in [Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
 
 ```yaml
 # Runs the service on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
@@ -356,7 +356,7 @@ You can see an example of `network_mode: service:db` in the [Node.js and MongoDB
 
 ### Extend your Docker Compose file for development
 
-Referencing an existing deployment / non-development focused `docker-compose.yml` has some potential downsides.
+Referencing an existing deployment / non-development focused `compose.yaml` has some potential downsides.
 
 For example:
 
@@ -364,7 +364,7 @@ For example:
 * You also may not be mapping the local filesystem into the container or exposing ports to other resources like databases you want to access.
 * You may want to copy the contents of your local `.ssh` folder into the container or set the ptrace options described above in [Use Docker Compose](#use-docker-compose).
 
-You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `docker-compose.yml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
+You can solve these and other issues like them by extending your entire Docker Compose configuration with [multiple `compose.yaml` files](https://docs.docker.com/compose/extends/#multiple-compose-files) that override or supplement your primary one.
 
 For example, consider this additional `.devcontainer/docker-compose.extend.yml` file:
 
@@ -387,7 +387,7 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/docker-compose.extend.yml` in a specific order:
+This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `compose.yaml` file in addition to `.devcontainer/docker-compose.extend.yml` in a specific order:
 
 ```json
 {
@@ -395,7 +395,7 @@ This same file can provide additional settings, such as port mappings, as needed
 
     // The order of the files is important since later files override previous ones
     "dockerComposeFile": [
-        "../docker-compose.yml",
+        "../compose.yaml",
         "docker-compose.extend.yml"
     ],
 
@@ -409,7 +409,7 @@ This same file can provide additional settings, such as port mappings, as needed
 VS Code will then **automatically use both files** when starting up any containers. You can also start them yourself from the command line as follows:
 
 ```bash
-docker-compose -f docker-compose.yml -f .devcontainer/docker-compose.extend.yml up
+docker-compose -f compose.yaml -f .devcontainer/docker-compose.extend.yml up
 ```
 
 While the `postCreateCommand` property allows you to install additional tools inside your container, in some cases you may want to have a specific Dockerfile for development. You can also use this same approach to reference a custom `Dockerfile` specifically for development without modifying your existing Docker Compose file.  For example, you can update `.devcontainer/devcontainer.extend.yml` as follows:
@@ -419,7 +419,7 @@ version: '3'
 services:
   your-service-name-here:
       # Note that the path of the Dockerfile and context is relative to the *primary*
-      # docker-compose.yml file (the first in the devcontainer.json "dockerComposeFile"
+      # compose.yaml file (the first in the devcontainer.json "dockerComposeFile"
       # array). The sample below assumes your primary file is in the root of your project.
       build:
         context: .
