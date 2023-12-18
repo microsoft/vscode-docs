@@ -46,7 +46,7 @@ Here are the [settings](/docs/getstarted/settings.md) his students use:
 "editor.hover.sticky": false,
 "editor.suggest.snippetsPreventQuickSuggestions": false,
 "editor.parameterHints.enabled": false,
-"editor.wordBasedSuggestions": true,
+"editor.wordBasedSuggestions": "matchingDocuments",
 "editor.tabCompletion": "on",
 "extensions.ignoreRecommendations": true,
 "files.autoSave": "afterDelay",

@@ -2,7 +2,7 @@
 Area: containers
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
 PageTitle: Debug a .NET app running in a Docker container
-DateApproved: 12/21/2022
+DateApproved: 12/14/2023
 MetaDescription: Debug a .NET app running in a Docker container, using Visual Studio Code.
 ---
 # Debug .NET within a container
@@ -29,11 +29,12 @@ There are two ways to build and debug your app inside a container: using a Docke
 
 ### .NET SDK Container Build (Debug without `Dockerfile`)
 
+This option is supported for web projects, and is available when Docker is set to use Linux containers.
+
 1. Press `kb(workbench.action.debug.start)` or choose **Start Debugging** from the **Run** menu. (If you have any existing launch profiles in `launch.json`, you can comment them out with `kb(editor.action.commentLine)`)
 1. You're prompted with a list of debuggers. Choose **Docker: Debug in Container**
 1. When prompted with options to either build with a `Dockerfile` (**Use a Dockerfile**) or build using the .NET SDK (**Use .NET SDK**), select **Use .NET SDK**.
-1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug.
-1. Your .NET app will run in a Docker container, and the web app will open in your browser.
+1. If you have multiple project files in your workspace, choose the project file associated with the project you want to debug. If the build is successful, your .NET app runs in a Docker container, and the web app opens in your browser.
 
 >**Note**: Supported .NET SDK Versions: This feature is available for .NET SDK version 7.0.300 and above by default. For versions between 7.0.100 and 7.0.300, enable it with `dotnet add package Microsoft.NET.Build.Containers`. You can read more about .NET SDK Container build on [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container).
 

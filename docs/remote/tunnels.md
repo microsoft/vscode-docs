@@ -5,7 +5,7 @@ TOCTitle: Tunnels
 PageTitle: Remote Tunnels
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 ---
 # Developing with Remote Tunnels
 
@@ -98,7 +98,7 @@ Like the other Remote Development extensions, the name of your remote machine wi
 
 ### Open a folder on a Remote Tunnels host in a container
 
-If you are using a Linux machine as a tunnel host, you can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+You can use the Remote - Tunnels and [Dev Containers](/docs/devcontainers/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
 
 To do so:
 

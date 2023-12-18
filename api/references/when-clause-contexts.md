@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -191,7 +191,7 @@ Context name | True when
 `referenceSearchVisible` | Peek References peek window is open.
 `inReferenceSearchEditor` | The Peek References peek window editor has focus.
 `config.editor.stablePeek` | Keep peek editors open (controlled by `editor.stablePeek` setting).
-`quickFixWidgetVisible` | Quick Fix widget is visible.
+`codeActionMenuVisible` | Code Action menu is visible.
 `parameterHintsVisible` | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
 `parameterHintsMultipleSignatures` | Multiple parameter hints are displayed.
 **Debugger contexts** |

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -57,7 +57,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**Tip:** Type `kbstyle(?)` to view commands suggestions.
+**Tip:** Type `kbstyle(?)` to view command suggestions.
 
 ![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
 
@@ -688,7 +688,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 
 ### Search and modify
 
-Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parenthesis to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
+Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parentheses to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
 ![search and modify](images/tips-and-tricks/search_and_modify.png)
 

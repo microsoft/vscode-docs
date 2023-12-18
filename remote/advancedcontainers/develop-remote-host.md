@@ -5,7 +5,7 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 ---
 # Develop on a remote Docker host
 
@@ -25,7 +25,7 @@ The rest of the Dev Containers quick start applies as-is. You can learn more abo
 
 ## Connect using the Remote - Tunnels extension
 
-If you are using a Linux machine as a tunnel host, you can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead. To do so:
+You can use the [Remote - Tunnels](/docs/remote/tunnels.md) and Dev Containers extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally. This is similar to the SSH host scenario above, but uses Remote - Tunnels instead. To do so:
 
 1. Follow the [Getting Started](/docs/remote/tunnels.md#getting-started) instructions for the Remote - Tunnels extension.
 1. [Install Docker](/docs/devcontainers/containers#installation) on your tunnel host. You do not need to install Docker locally.

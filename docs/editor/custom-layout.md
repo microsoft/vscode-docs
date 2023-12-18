@@ -145,7 +145,7 @@ The **View** > **Appearance** menu has a section for customizing the editor regi
 
 * **Minimap** - A [visual overview](/docs/getstarted/userinterface.md#minimap) of your current file. **View: Toggle Minimap**.
 * **Breadcrumbs** - Display [folder, file, and current symbol](/docs/getstarted/userinterface.md#breadcrumbs) information for the active file. **View: Toggle Breadcrumbs**.
-* **Sticky Scroll** - Display nested symbol scopes in the active file. **View: Toggle Sticky Scroll**.
+* **Sticky Scroll** - Display [nested symbol scopes](/docs/getstarted/userinterface.md#sticky-scroll) in the active file. **View: Toggle Sticky Scroll**.
 
 ### Editor groups
 

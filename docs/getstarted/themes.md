@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -225,9 +225,9 @@ You can create your own File Icon Theme from icons (preferably SVG), see the [Fi
 
 VS Code for the Web provides a free, zero-install VS Code experience running entirely in your browser at [https://vscode.dev](https://vscode.dev).
 
-You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/theme/<extensionId>`.
+You can share and experience color themes through VS Code for the Web through the URL schema: `https://vscode.dev/editor/theme/<extensionId>`.
 
-For instance, you can go to [https://vscode.dev/theme/sdras.night-owl](https://vscode.dev/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
+For instance, you can go to [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
 
 You can learn more about previewing and sharing themes with VS Code for the Web in its [documentation](/docs/editor/vscode-web.md#themes).
 

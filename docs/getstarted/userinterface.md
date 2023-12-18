@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 11/1/2023
+DateApproved: 12/7/2023
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -63,6 +63,14 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 ![minimap](images/userinterface/minimap.png)
 
 >**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+
+## Sticky Scroll
+
+Sticky Scroll shows the starting lines of currently visible nested scopes at the top of the editor. It facilitates navigation by indicating where you are in a file and lets you quickly jump back to the top of the current scope.
+
+![stickyScroll](images/userinterface/sticky-scroll.png)
+
+>**Tip:** You can enable/disable Sticky Scroll with the setting `"editor.stickyScroll.enabled"`.
 
 ### Indent Guides
 
@@ -219,7 +227,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen and centering the editor layout. Zen mode can be toggled using **View** > **Appearance** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel), going to full screen, and centering the editor layout. Zen mode can be toggled using the **View** > **Appearance** menu, **View: Toggle Zen Mode** in the **Command Palette**, or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
 
 Zen Mode can be further tuned by the following settings:
 

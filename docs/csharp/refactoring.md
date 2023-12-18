@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: csharp
 TOCTitle: Refactoring
 ContentId: 76b55a1a-9666-417b-8f13-1de3fd6f36e9
