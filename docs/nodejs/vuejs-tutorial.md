@@ -9,7 +9,7 @@ MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and co
 ---
 # Using Vue in Visual Studio Code
 
-[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and  Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension which supports Vue.js IntelliSense, code snippets, formatting, and more.
+[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and  Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) and [Volar for TS](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) extensions extension which supports Vue.js IntelliSense, code snippets, formatting, and more. [Vue 2 support will end on December 31st, 2023](https://v2.vuejs.org/lts/) so the use of [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) is [not recommended](https://github.com/vuejs/vetur/discussions/3378), you will need to [disable it](https://vuejs.org/guide/typescript/overview.html#ide-support) to use Volar.
 
 ---
 
@@ -19,55 +19,61 @@ MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and co
 
 ## Welcome to Vue
 
-We'll be using the [Vue CLI](https://cli.vuejs.org/) for this tutorial. If you are new to the Vue.js framework, you can find great documentation and tutorials on the [vuejs.org](https://vuejs.org) website.
+We'll be using the [vite](https://vitejs.dev/) for this tutorial. If you are new to the Vue.js framework, you can find great documentation and tutorials on the [vuejs.org](https://vuejs.org) website.
 
-To install and use the Vue CLI as well as run the Vue application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [Node.js downloads](https://nodejs.org/en/download/).
+To install and use the Vue, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [Node.js downloads](https://nodejs.org/en/download/).
 
 >**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
-To install the `vue/cli` , in a terminal or command prompt type:
+To get  started, make sure you are in the directory where you intend to create a project. Then open your terminal or command prompt and type:
 
 ```bash
-npm install -g @vue/cli
+npm create vue@latest
 ```
 
-This may take a few minutes to install. You can now create a new Vue.js application by typing:
+You will get a prompt to install create-vue.
+
+![Create vue](images/vuejs/create-vue.png)
+
+This may take a few minutes to install and execute [create-vue](https://github.com/vuejs/create-vue) which helps you to scaffold your Vue project. Follow the prompts for several optional features. Simply choose "No" if you are unsure about an option.
+
+![Vue app scaffolding](images/vuejs/vue-app-scaffolding.png)
+
+Once the project is created, navigate into it and install dependencies. It may take a few minutes to install its dependencies.
 
 ```bash
-vue create my-app
+cd <your-project-name>
+npm install
 ```
 
-where `my-app` is the name of the folder for your application. You will be prompted to select a preset and you can keep the default `(babel, eslint)`, which will use [Babel](https://babeljs.io) to transpile the JavaScript to browser compatible ES5 and install the [ESLint](https://eslint.org/) linter to detect coding errors. It may take a few minutes to create the Vue application and install its dependencies.
-
-Let's quickly run our Vue application by navigating to the new folder and typing `npm run serve` to start the web server and open the application in a browser:
+Let's quickly run our Vue application by typing `npm run dev` to start the web server and open the application in a browser:
 
 ```bash
-cd my-app
-npm run serve
+npm run dev
 ```
 
 You should see "Welcome to your Vue.js App" on [http://localhost:8080](http://localhost:8080) in your browser. You can press `kbstyle(Ctrl+C)` to stop the `vue-cli-service` server.
 
-To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `my-app` folder and type `code .`:
+To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
 
 ```bash
-cd my-app
+cd vue-project
 code .
 ```
 
 VS Code will launch and display your Vue application in the File Explorer.
 
-## Vetur extension
+## Volar extension
 
-Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension for the `.vue` file type.
+Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
 
-![vetur extension recommendation](images/vuejs/vetur-extension-recommendation.png)
+![Volar extension recommendation](images/vuejs/volar-extension-recommendation.png)
 
-The Vetur extension supplies Vue.js language features (syntax highlighting, IntelliSense, snippets, formatting) to VS Code.
+The Volar extension supplies Vue.js language features (syntax highlighting, IntelliSense, snippets, formatting) to VS Code.
+![Volar extension](images/vuejs/volar-extension.png)
 
-![vetur extension](images/vuejs/vetur-extension.png)
 
-From the notification, press **Install** to download and install the Vetur extension. You should see the Vetur extension **Installing** in the Extensions view. Once the installation is complete (may take several minutes), the **Install** button will change to the **Manage** gear button.
+From the notification, press **Install** to download and install the Volar extension. You should see the Volar extension **Installing** in the Extensions view. Once the installation is complete (may take several minutes), the **Install** button will change to the **Manage** gear button.
 
 Now you should see that `.vue` is a recognized file type for the Vue language and you have language features such as syntax highlighting, bracket matching, and hover descriptions.
 
@@ -79,7 +85,7 @@ As you start typing in `App.vue`, you'll see smart suggestions or completions bo
 
 ![Vue.js suggestions](images/vuejs/suggestions.png)
 
-and Vue properties (`methods`, `computed`) in the `scripts` section:
+and Vue properties like `computed` in the `scripts` section:
 
 ![Vue.js JavaScript suggestions](images/vuejs/javascript-suggestions.png)
 
@@ -97,10 +103,17 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 
 ```html
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Hello World!"/>
-  </div>
+  <header>
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="Hello World!" />
+    </div>
+  </header>
+
+  <main>
+    <TheWelcome />
+  </main>
 </template>
 ```
 
@@ -124,18 +137,26 @@ Below you can see an error when the Vue linter detects more than one root elemen
 
 ## Debugging
 
-You can debug client side Vue.js code with the built-in JavaScript debugger. You can learn more from the [Vue.js debugging in VS Code](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli) recipe on the VS Code debugging [recipes](https://github.com/microsoft/vscode-recipes) site.
+You can debug client side Vue.js code with the built-in JavaScript debugger. Follow this [conversation](https://github.com/vitejs/vite/discussions/4065#discussioncomment-1359932) to use vite/vuejs 3 project with VS Code using Edge. For Vue CLI which is [now in maintenance mode](https://vuejs.org/guide/scaling-up/tooling#vue-cli), check [Vue.js debugging in VS Code](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli) recipe on the VS Code debugging [recipes](https://github.com/microsoft/vscode-recipes) site to learn more.
 
 >Note: There are currently issues with the sourcemaps generated by vue-cli, which cause issues with the debugging experience in VS Code. See [https://github.com/vuejs/vue-loader/issues/1163](https://github.com/vuejs/vue-loader/issues/1163).
 
-Another popular tool for debugging Vue.js is the [vue-devtools](https://github.com/vuejs/vue-devtools) plug-in.
+Another popular tool for debugging Vue.js is the [vue-devtools](https://github.com/vuejs/vue-devtools) plug-in which can be used regardless of the environment.
 
 ## Other extensions
 
-Vetur is only one of many Vue.js extensions available for VS Code. You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'vue'.
+Volar is only one of many Vue.js extensions available for VS Code. Another recommended extension is [Volar for TypeScript](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+![Vue recommended extensions](images/vuejs/vue-recommended-extensions.png)
+
+You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'vue'.
 
 ![Vue.js extensions](images/vuejs/vue-extensions.png)
 
+Extension like [Vue VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for vue snippets.
+
+![Vue VSCode Snippets](images/vuejs/vue-vscode-snippets.png)
+
 There are also Extension Packs which bundle extensions that other people have found useful for Vue.js development.
 
-![Vue.js extension pack](images/vuejs/vue-extension-pack.png)
+![Vue.js Extension Pack](images/vuejs/vue-extension-pack.png)
