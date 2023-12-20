@@ -201,6 +201,10 @@ The rustc linter, enabled by default, detects basic Rust errors, but you can use
 
 When the linter finds errors and warnings in your source code, rust-analyzer can often provide suggested Quick Fixes (also called Code Actions), which are available via a light bulb hover in the editor. You can quickly open available Quick Fixes via the `kb(editor.action.quickFix)`.
 
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+
+The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
+
 ![Quick Fixes for greeting unused boolean variable](images/rust/quick-fixes.png)
 
 ## Refactoring

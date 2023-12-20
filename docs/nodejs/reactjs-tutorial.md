@@ -86,18 +86,29 @@ Press `kbstyle(Escape)` to close the Peek window.
 
 ## Hello World
 
-Let's update the sample application to "Hello World!". Create a new H1 header with "Hello, world!" and replace the `<App />` tag in `ReactDOM.render` with `element`.
+Let's update the sample application to "Hello World!". Create a component inside `index.js` called `HelloWorld` that contains a H1 header with "Hello, world!" and replace the `<App />` tag in `root.render` with `<HelloWorld />`.
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
-ReactDOM.render(element, document.getElementById('root'));
+function HelloWorld() {
+  return <h1 className="greeting">Hello, world!</h1>
+}
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <HelloWorld />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 ```
 
@@ -144,7 +155,7 @@ Ensure that your development server is running (`npm start`). Then press `kb(wor
 
 ![Debugger hitting breakpoint](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
+You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `HelloWorld`, and see the call stack of the client side React application.
 
 ![Debug element variable](images/reactjs/debug-variable.png)
 
