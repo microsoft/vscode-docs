@@ -552,6 +552,10 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 You may want to use SSH to connect to a WSL distro running on your remote machine. Check out [this guide](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine) to learn how to SSH into Bash and WSL 2 on Windows 10 from an external machine.
 
+### Filing an issue
+
+If you are having trouble using the Remote-SSH extension and think that you need to file an issue, first make sure that you have read through the documentation on this site, and then see the [troubleshooting wiki doc](https://github.com/microsoft/vscode-remote-release/wiki/Remote-SSH-troubleshooting) for information on grabbing the log file and trying more steps that may help narrow down the source of the problem.
+
 ## Dev Containers tips
 
 If you'd like to read about tips for using Dev Containers, you can go to Dev Containers [Tips and Tricks](/docs/devcontainers/tips-and-tricks.md).
