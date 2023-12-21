@@ -111,7 +111,7 @@ For example, typing 'python' will bring up a list of Python language extensions:
 
 ![python extensions](images/extension-marketplace/extensions-python.png)
 
-If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:octref.vetur`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
+If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:vue.volar`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
 
 ## Manage extensions
 
