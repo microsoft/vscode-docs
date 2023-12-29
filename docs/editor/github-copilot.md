@@ -202,7 +202,7 @@ To make it easy to work with the Chat view, there are several keyboard shortcuts
 
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
 
-Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are two agents:
+Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following agents:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
