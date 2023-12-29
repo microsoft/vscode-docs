@@ -271,7 +271,7 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" If you have code selected in the editor, Copilot will scope your question to the selection.
 
-Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/tests` to generate unit tests.
 
 ![Inline chat slash command list](images/artificial-intelligence/inline-chat-slash-commands.png)
 
@@ -348,7 +348,7 @@ This section is similar to the earlier [Getting the most out of Copilot](#gettin
 * Use `@workspace` if you want to ask questions about your open project.
 * Use `@vscode` if you want to know about VS Code features and APIs.
 
-Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`) or do you want help fixing an issue (`/fix`) or creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`) or do you want help fixing an issue (`/fix`) or creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
 You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
 
