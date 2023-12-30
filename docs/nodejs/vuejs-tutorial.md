@@ -54,7 +54,7 @@ Let's quickly run our Vue application by typing `npm run dev` to start the web s
 npm run dev
 ```
 
-You should see "Welcome to your Vue.js App" on [http://localhost:8080](http://localhost:8080) in your browser. You can press `kbstyle(Ctrl+C)` to stop the `vue-cli-service` server.
+You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser. You can press `kbstyle(Ctrl+C)` to stop the `vue-cli-service` server.
 
 To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
 
@@ -119,7 +119,7 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 </template>
 ```
 
-Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart the server with `npm run serve` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
+Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart the server with `npm run dev` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
 
 >**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
