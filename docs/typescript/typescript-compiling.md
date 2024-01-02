@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
@@ -44,13 +44,13 @@ Typically the first step in any new TypeScript project is to add a `tsconfig.jso
 
 ![tsconfig.json IntelliSense](images/compiling/tsconfigintellisense.png)
 
-A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0) and source maps:
+A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](https://wiki.commonjs.org/wiki/Modules/1.0) and source maps:
 
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "sourceMap": true
     }
 }
@@ -149,8 +149,8 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "ES5",
+        "module": "CommonJS",
         "outDir": "out"
     }
 }
@@ -177,7 +177,7 @@ To exclude JavaScript files generated from both `.ts` and `.tsx` source files, u
 }
 ```
 
-This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
+This is a bit of a trick. The search [glob patterns](/docs/editor/glob-patterns.md) is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
 
 ## Using newer TypeScript versions
 

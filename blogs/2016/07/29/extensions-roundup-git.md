@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order:
 TOCTitle: Extensions Roundup - Fun with Git
 PageTitle: Visual Studio Code Extensions Roundup - Git August 2016
 MetaDescription: Extensions to super power your Git workflow.

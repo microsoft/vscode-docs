@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -15,7 +15,7 @@ Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), tho
 
 VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
-To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item (**Code** > **Preferences** > **Profiles** > **Create Profile** on macOS).
+To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item.
 
 ![Create Profile command](images/profiles/create-profile.png)
 
@@ -27,7 +27,15 @@ You can also access the Profile command menu via the **Manage** gear button in t
 
 The **Profiles: Create Profile** command is also available in the Command Palette (`kb(workbench.action.showCommands)`).
 
-Once you choose whether to create a new profile based on the current profile or an empty profile, you are prompted to enter a name for the new profile.
+You can choose to create a new profile by copying from a Profile Template or from an existing profile or create an Empty Profile in the Profile creation dialog.
+
+![Create Profile Dialog](images/profiles/create-profile-dialog.png)
+
+### Partial Profile
+
+A partial profile allows you to customize only a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
+
+![Create Partial Profile Dialog](images/profiles/create-partial-profile-dialog.png)
 
 ### Check the current profile
 
@@ -43,9 +51,9 @@ The **Manage** gear button displays a badge with the first two letters of the ac
 
 ![Manage gear displaying "DE' to indicate that the user's 'Demo' profile is active](images/profiles/profile-gear-two-letters.png)
 
-### Edit a profile
+### Configure a profile
 
-You can edit a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
+You can configure a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
 
 ### Workspace associations
 
@@ -59,9 +67,9 @@ You can quickly switch between profiles with the **Profiles: Switch Profile** co
 
 You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
 
-### Rename a profile
+### Edit a profile
 
-You can rename an existing profile via the **Rename** command in the Profiles menu.
+You can edit an existing profile via the **Edit** command in the Profiles menu.
 
 ### Delete a profile
 
@@ -76,13 +84,31 @@ The **Profiles: Show Contents** command (available in the Command Palette or Pro
 A profile can include:
 
 * Settings - In a profile-specific `settings.json` file.
-* Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
+* Extensions - The list of extensions included in the current profile.
 * UI state - View layout (positions), visible views and actions.
 * Keybindings - In a profile-specific `keybindings.json` file.
 * Snippets - In a profile-specific `{language}.json` files.
 * User Tasks - In a profile-specific `tasks.json` file.
 
 When you create a new profile based on the Default Profile, the profile-specific configuration files are populated from your user configuration files. Workspace-specific settings are not automatically included in a new profile.
+
+>**Note**: Unchecking an extension in the Profiles view does not remove or disable the extension from the current profile but does remove the extension if you export the profile.
+
+### Applying a setting to all profiles
+
+A setting can be applied to all profiles using the **Apply Setting to all Profiles** action available in the Settings editor.
+
+![Apply setting to all Profiles](images/profiles/profiles_apply_setting.png)
+
+This will apply the value of the setting to all profiles. Any updates to this setting from any profile will be applied to all profiles. You can always revert this by unchecking the **Apply Setting to all Profiles** action.
+
+### Applying an extension to all profiles
+
+An extension can be applied to all profiles by clicking on the **Apply Extension to all Profiles** action in the Extensions view.
+
+![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
+
+This will make this extension available in all profiles. You can always revert this by unchecking the **Apply Extension to all Profiles** action.
 
 ## Share Profiles
 
@@ -94,7 +120,7 @@ When you select **Export**, you are prompted for the profile name and whether yo
 
 #### Save as a GitHub gist
 
-After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** so you can share your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
+After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** so you can share your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/editor/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
 
 If you launch the profile URL, it opens VS Code for the Web (vscode.dev) with the Profiles view open and the imported profile contents displayed. You can unselect profile elements if you wish and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in vscode.dev.
 
@@ -150,7 +176,6 @@ This profile also sets the following settings:
 ```json
     "python.analysis.autoImportCompletions": true,
     "python.analysis.fixAll": ["source.unusedImports"],
-    "workbench.colorTheme": "Default Dark+ Experimental",
     "editor.defaultFormatter": "ms-python.black-formatter"
 ```
 
@@ -184,7 +209,6 @@ This profile also sets the following settings:
     ],
     "notebook.experimental.outputScrolling": true,
     // "notebook.outline.showCodeCells": true,
-    "workbench.colorTheme": "Default Dark+ Experimental",
     "files.exclude": {
         "**/.csv": true,
         "**/.parquet": true,
@@ -265,8 +289,7 @@ This profile comes with the following settings:
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.colorTheme": "Default Dark+ Experimental"
+    }
 ```
 
 ### Angular Profile Template
@@ -311,8 +334,7 @@ This profile sets the following settings:
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Default Dark+ Experimental",
+    "workbench.iconTheme": "material-icon-theme"
 ```
 
 ### Java General Profile Template
@@ -341,8 +363,7 @@ This profile sets the following settings:
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
-    "boot-java.rewrite.reconcile": true,
-    "workbench.colorTheme": "Default Dark+ Experimental"
+    "boot-java.rewrite.reconcile": true
 ```
 
 ## Command line

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -19,9 +19,9 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
+The best way of exploring VS Code hands-on is to open the **Welcome** page. You will get an overview of VS Code's customizations and features. **Help** > **Welcome**.
 
-![Get Started page](images/tips-and-tricks/getstarted_page.png)
+![Welcome page](images/tips-and-tricks/welcome-page.png)
 
 Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 
@@ -57,7 +57,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**Tip:** Type `kbstyle(?)` to view commands suggestions.
+**Tip:** Type `kbstyle(?)` to view command suggestions.
 
 ![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
 
@@ -188,7 +188,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 ### Tune your settings
 
-By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Open User Settings `settings.json`
 
@@ -688,7 +688,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 
 ### Search and modify
 
-Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parenthesis to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
+Besides searching and replacing expressions, you can also search and reuse parts of what was matched, using regular expressions with capturing groups. Enable regular expressions in the search box by clicking the **Use Regular Expression** `.*` button (`kb(toggleSearchRegex)`) and then write a regular expression and use parentheses to define groups. You can then reuse the content matched in each group by using `$1`, `$2`, etc. in the Replace field.
 
 ![search and modify](images/tips-and-tricks/search_and_modify.png)
 
@@ -753,7 +753,7 @@ See IntelliSense for your `package.json` file.
 
 ### Create custom snippets
 
-**File** > **Preferences** > **Configure User Snippets** (**Code** > **Preferences** > **Configure User Snippets** on macOS), select the language, and create a snippet.
+**File** > **Preferences** > **Configure User Snippets**, select the language, and create a snippet.
 
 ```json
 "create component": {
@@ -796,10 +796,9 @@ Toggle **inline view** by clicking the **More Actions** (...) button in the top 
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
-**Review pane**
+**Accessible Diff Viewer**
 
-Navigate through diffs with `kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`. This will present them in a unified patch format.
-Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
+Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This will present them in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
 
 ![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
 

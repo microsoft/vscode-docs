@@ -60,7 +60,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * Zoom in (`kb(workbench.action.zoomIn)`)
 * Customize your editor with color themes.
   * **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`)
-  * **Code** > **Preferences** > **Theme** > **Color Theme** on macOS
 
 ## Next video
 

@@ -1,5 +1,5 @@
 ---
-Order: 17
+Order:
 TOCTitle: JavaScript Extensions Part 1
 PageTitle: Visual Studio Code JavaScript Extensions Part 1 Sep 2016
 MetaDescription: Essential JavaScript extensions for Visual Studio Code.

@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
-DateApproved: 12/21/2022
+DateApproved: 12/1/2023
 MetaDescription: Work with Docker container registries in Visual Studio Code
 ---
 # Using container registries
@@ -15,14 +15,14 @@ Users can connect to Docker registries from the following sources:
 
 - [Azure Container Registry](https://learn.microsoft.com/azure/container-registry)
 - [Docker Hub](https://hub.docker.com/)
-- [GitLab](https://gitlab.com/) container registry
+- [GitHub](https://github.com) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)
 
 ## Push an image to a container registry
 
 Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to Docker Hub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
 
-1. Open the Docker Explorer, select **Connect Registry...** icon under the **Registries** group, and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension.
+1. Open the Docker Explorer, select **Connect Registry...** icon under the **Registries** group, and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension.
 
     ![Connect to Registry](images/registries/connect-registry-2.png)
 
@@ -61,11 +61,14 @@ For each repository in the Docker Hub registry, here are the actions that can be
 For each tagged image in a repository, here are the actions that can be performed:
 
 - **Pull image**: copies the latest version of the image locally
+- **Copy Full Tag**: copies the full tag to the clipboard
+- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
+- **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Open in browser**: opens the browser and navigates to the given image on Docker Hub
 
 ## Azure Container Registry
 
-This option requires the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to be able to connect to your Azure account and display all of the different subscriptions and registries.
+This option requires the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension to be able to connect to your Azure account and display all of the different subscriptions and registries.
 Once authenticated, the node **Azure** will display the subscriptions along with registries each have:
 
 ![Azure Container Registry](images/registries/azure-registries.png)
@@ -94,18 +97,19 @@ For each tagged image in a repository, here are the actions that can be performe
 - **Pull Image**: copies the latest version of the image locally
 - **Copy Full Tag**: copies the full tag to the clipboard
 - **Copy Image Digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
+- **Inspect Image Manifest**: inspects the image's registry manifest. This is not the same as inspecting the image when it is pulled locally.
 - **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Untag Image**: untags the image
 - **Delete Image**: deletes the image permanently
 
-## GitLab
+## GitHub
 
-This connects to Docker registries in your [GitLab](https://gitlab.com/) account. Once you select this option, you are asked to type in your GitLab account credentials.
+This connects to Docker registries in your [GitHub](https://github.com/) account. Once you select this option, you are asked to type in your GitHub account credentials.
 
-![GitLab](images/registries/gitlab.png)
+![GitHub](images/registries/github.png)
 
-For each repository in the GitLab registry, here are the actions that can be performed:
+For each repository in the GitHub registry, here are the actions that can be performed:
 
 - **Pull Repository**: copies all of the images in a given repository locally
 - **Refresh**: refreshes the repository to reflect changes
@@ -113,6 +117,11 @@ For each repository in the GitLab registry, here are the actions that can be per
 For each tagged image in a repository, here are the actions that can be performed:
 
 - **Pull Image**: copies the latest version of the image locally
+- **Copy Full Tag**: copies the full tag to the clipboard
+- **Copy Image Digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
+- **Inspect Image Manifest**: inspects the image's registry manifest. This is not the same as inspecting the image when it is pulled locally.
+- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
+- **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 
 ## Next steps
 

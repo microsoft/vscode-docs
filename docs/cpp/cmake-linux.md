@@ -34,7 +34,7 @@ To complete this tutorial on Ubuntu, install the following:
 
 ### Ensure that CMake is installed
 
-The VS Code CMake Tools extension does its work by using CMake installed on your system. For best results, use CMake version 3.15 or greater.
+The VS Code CMake Tools extension does its work by using CMake installed on your system. For best results, use CMake version 3.27 or greater.
 
 See if CMake is already installed on your system. Open a Terminal window and enter the following command:
 
@@ -42,7 +42,7 @@ See if CMake is already installed on your system. Open a Terminal window and ent
 cmake --version
 ```
 
-To install CMake, or to get a later version if you don't at least have version 3.15, see the instructions for your platform at [Kitware APT Repository](https://apt.kitware.com/). Install version 3.15 or greater.
+To install CMake, or to get a later version if you don't at least have version 3.27, see the instructions for your platform at [Kitware APT Repository](https://apt.kitware.com/). Install version 3.27 or greater.
 
 ### Ensure that development tools are installed
 
@@ -116,11 +116,11 @@ Before you can use the CMake Tools extension to build a project, you need to con
 
 There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.
 
-The kit you selected previously is shown in the Status bar. For example:
+The kit you selected previously is shown in the **Project Status** view in the CMake Tools sidebar. For example:
 
-![Selected kit in Status bar](images/cpp/cmake-kit-statusbar.png)
+![Selected kit in Sidebar](images/cpp/cmake-kit.png)
 
-To change the kit, you can click on the kit in the Status bar, or run the **CMake: Select a kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
+To change the kit, you can click on the kit in the **Project Status** view in the CMake Tools sidebar, or run the **CMake: Select a Kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
 ### Select a variant
 
@@ -147,11 +147,13 @@ Now that you've selected a kit and a variant, open the Command Palette (`kb(work
 
 ## Build hello world
 
-After configuring your project, you're ready to build. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Build** command, or select the **Build** button from the Status bar.
+After configuring your project, you're ready to build. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Build** command, or select the **Build** button from the status bar.
 
-![Build](images/cpp/cmake-build.png)
+![Build](images/cpp/cmake-build-v2.png)
 
-You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets. The selected target will appear in the Status bar next to the **Build** button.
+You can select which targets you'd like to build by selecting **CMake: Set Build Target** from the Command Palette. By default, CMake Tools builds all targets. The selected target will appear in the **Project Status** view in  the CMake Tools sidebar underneath the **Build** node and can be set from there as well.
+
+![Build Target](images/cpp/build-target.png)
 
 ## Debug hello world
 

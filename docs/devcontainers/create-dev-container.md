@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 ---
 # Create a Dev Container
 
@@ -135,18 +135,20 @@ See the [Dev Container Features specification](https://containers.dev/implemento
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Dev Containers: Rebuild Container** command for your container to update.
 
-However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
+However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json` or a custom `Dockerfile`.
+
+A custom `Dockerfile` will benefit from Docker's build cache and result in faster rebuilds than `postCreateCommand`. However, the `Dockerfile` runs before the dev container is created and the workspace folder is mounted and therefore does not have access to the files in the workspace folder. A `Dockerfile` is most suitable for installing packages and tools independent of your workspace files.
 
 The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
-"postCreateCommand": "bash scripts/install-dev-tools.sh"
+"postCreateCommand": "bash scripts/install-dependencies.sh"
 ```
 
 You can also use an interactive bash shell so that your `.bashrc` is picked up, automatically customizing your shell for your environment:
 
 ```json
-"postCreateCommand": "bash -i scripts/install-dev-tools.sh"
+"postCreateCommand": "bash -i scripts/install-dependencies.sh"
 ```
 
 Tools like NVM won't work without using `-i` to put the shell in interactive mode:

@@ -71,12 +71,12 @@ To enter your remote Jupyter server URL with older versions of VS Code and Jupyt
 
 When you're starting your remote server, be sure to:
 
-1. Alow all origins (for example `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally.
+1. Allow all origins (for example `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally.
 2. Set the notebook to listen on all IPs (`--NotebookApp.ip='0.0.0.0'`).
 
 ### Limitations
 
-Since VS Code for the Web runs entirely in your web browser, there are some limitations compared to the desktop and Codespaces experiences.
+Since VS Code for the Web runs entirely in your web browser, there are some limitations compared to the desktop and Codespaces experiences.
 
 - No access the VS Code terminal (though you can run [magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) from your notebook cells)
 - Limited debugging

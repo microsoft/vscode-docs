@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -34,7 +34,7 @@ With the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md)
 
 For example, if you don't want to send any telemetry data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
+From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
 
 ![disable telemetry](images/telemetry/disable-telemetry.png)
 
@@ -83,7 +83,7 @@ The `purpose` field describes why the data is collected.
 
 * `PerformanceAndHealth` - To ensure that VS Code product and services are healthy and fast.
 * `FeatureInsight` - To understand feature usage and where to continue development investment.
-* `BusinessInsight` - To make decisions related to the business of VS Code and Microsoft.
+* `BusinessInsight` - To make decisions related to the business of VS Code, Microsoft, and GitHub.
 
 ### Event endpoint
 
@@ -117,7 +117,7 @@ Beyond crash reporting and telemetry, VS Code uses online services for various o
 
 Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
 ![online settings filter](images/telemetry/online-settings.png)
 

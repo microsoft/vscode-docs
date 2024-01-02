@@ -1,5 +1,5 @@
 ---
-Order: 27
+Order:
 TOCTitle: Sublime Text Extension Roundup
 PageTitle: Sublime Text Extension Roundup
 MetaDescription: Learn about VS Code extensions to add features that are missing from Sublime Text.

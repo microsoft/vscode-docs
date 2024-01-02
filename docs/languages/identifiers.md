@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -87,6 +87,7 @@ JavaScript | `javascript`
 JavaScript JSX | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
+Julia | `julia`
 LaTeX | `latex`
 Less | `less`
 Lua | `lua`

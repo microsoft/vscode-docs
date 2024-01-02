@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
@@ -42,6 +42,12 @@ To set the PHP executable path, select the **Edit in settings.json** link under 
 ```json
 {
     "php.validate.executablePath": "/usr/bin/php"
+}
+
+or
+
+{
+    "php.validate.executablePath": "/usr/local/bin/php"
 }
 ```
 

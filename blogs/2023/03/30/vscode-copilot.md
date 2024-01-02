@@ -13,6 +13,8 @@ March 30, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 **AI did not write this blog post, but it will make your development experiences incredible.**
 
+> **Note**: If you like to learn about the latest GitHub Copilot experience in Visual Studio Code, go to the [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/editor/github-copilot) topic, where you'll find details on the Copilot editor integration and Copilot Chat features such as inline Chat, the dedicated Chat view, and Quick Chat.
+
 There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But once you give it a try, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
 
 In this post, we want to give a little background on AI in VS Code, show you some exciting new experiences powered by GitHub Copilot, and give a peek into where and how we see things going forward.
@@ -35,7 +37,7 @@ It turns out, this was just the beginning.
 
 We knew it was just a matter of time before AI permeated the development process. We had been working with the GitHub Next team on Copilot and the [Copilot Labs extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs), but the release of ChatGPT in November 2022 significantly accelerated the timetable.
 
-The VS Code team had an internal hackathon to explore how to could integrate AI into VS Code more deeply and came up with many cool ideas such as improved renaming and refactorings, code transformations based on examples, and ways to create file glob patterns or regex expressions using natural language.
+The VS Code team had an internal hackathon to explore how to integrate AI into VS Code more deeply and came up with many cool ideas such as improved renaming and refactorings, code transformations based on examples, and ways to create file glob patterns or regex expressions using natural language.
 
 As interesting as these ideas were, we kept circling around the Chat experience. We had a healthy dose of skepticism. Did we really need yet another Chat experience in our lives? VS Code is an editor, our job is to get you into the "zone" and help you stay there by removing distractions while you crank out the next unicorn.
 
@@ -49,7 +51,7 @@ In the example below, we first selected the `users` array and then pressed `kbst
 
 ![Inline change with preview of update](inline-chat-preview.png)
 
-No need to express your intentions to Copilot using a comment or an overly descriptive function name, just press `kbstyle(Cmd+I)` and describe what you want to do. Stay in the zone while Copilot does the work.
+No need to express your intentions to Copilot using a comment or an overly descriptive function name, just press `kbstyle(Cmd+I)` and describe what you want to do. Stay in the zone while the Copilot does the work.
 
 ## Embracing the Chat view
 
@@ -63,7 +65,7 @@ We started to realize more and more benefits of a Chat view.
 
 The most obvious value of an integrated experience over a browser-based chat is that we can provide context to the model, helping to ground the conversation and provide better answers. For example, you can't easily ask the browser-based ChatGPT to optimize code that spans multiple files. VS Code already knows a lot about the workspace as this is how you can do refactorings across files, **Find All References**, **Go to Definition**, and more. Key information can be responsibly embedded in the prompt so that the model can give more relevant answers, ultimately letting you ask Copilot to optimize or refactor code that has dependencies across multiple files.
 
-Answers to many programming questions often include multiple steps. Think about how many blog posts walk you through a process - a Chat view is well suited for this type of interaction. A great example is debugging. If we're being honest (and we are), it isn't easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "/vscode add a `launch.json` and a `tasks.json`" which then provides instructions on how to create the files, content to add, and so on, until you are hitting break points and inspecting variables like a boss.
+Answers to many programming questions often include multiple steps. Think about how many blog posts walk you through a process - a Chat view is well suited for this type of interaction. A great example is debugging. If we're being honest (and we are), it isn't easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "/vscode add a `launch.json` and a `tasks.json`" which then provides instructions on how to create the files, content to add, and so on, until you are hitting breakpoints and inspecting variables like a boss.
 
 ![A GitHub Copilot chat asking how to add debugging support](add-debugging-support.png)
 
@@ -90,7 +92,7 @@ So, if you think of yourself as the Pilot of VS Code and GitHub Copilot as…wel
 
 ## Getting started today
 
-To see Copilot in action and get more tips on how to get the most out of Copilot, [check out this awesome video](https://youtu.be/gDJzr9DBKTI).
+To see Copilot in action and get more tips on how to get the most out of Copilot, [check out this awesome introductory video](https://youtu.be/gDJzr9DBKTI) or dive into the full [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on Youtube.
 
 The inline completions experience discussed above is available today. If you don't have Copilot through your organization, you can sign up [here](https://github.com/features/copilot) and start a free trial. From there:
 
@@ -99,13 +101,15 @@ The inline completions experience discussed above is available today. If you don
 * When prompted, authenticate with your GitHub ID.
 * Open a code file and let the magic happen!
 
-Today, access to the chat experiences (in-editor and Chat view), you'll need to [join the waitlist]( https://github.com/github-copilot/chat_waitlist_signup/join) for access to the technical preview as we ramp up the service. Once admitted:
+To access the chat experiences (in-editor, Chat view, Quick Chat), you'll need to install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension:
 
-* You must use [VS Code Insiders](https://code.visualstudio.com/insiders/).
-* Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
+* Open the Extensions view (`kb(workbench.view.extensions)`), search for the GitHub Copilot Chat extension.
 * When prompted, authenticate with your GitHub ID.
-* To open the in-editor Chat, optionally select a block of code and press `kbstyle(Cmd+I)` on macOS or `kbstyle(Ctrl+I)` on Windows/Linux. Ask Copilot to write a Quick Sort function.
+* To open the in-editor Chat, optionally select a block of code and press `kb(inlineChat.start)`. Ask Copilot to write a Quick Sort function.
 * A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask Copilot to "write a program to calculate the airspeed velocity of an unladen swallow".
+* To try out Quick Chat, you can run **Chat: Open Quick Chat** or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
+
+You can learn more about the GitHub Copilot and Copilot Chat extensions in the [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/editor/github-copilot) topic.
 
 ## Responsible AI
 

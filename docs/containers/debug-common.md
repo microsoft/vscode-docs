@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 12/21/2022
+DateApproved: 12/14/2023
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
 # Debug containerized apps
@@ -34,7 +34,6 @@ Example `launch.json` configuration for debugging a Node.js application:
 ```json
 {
     "configurations": [
-    
         {
             "name": "Docker Node.js Launch",
             "type": "docker",
@@ -76,9 +75,16 @@ Example `launch.json` configuration for debugging a Python application:
 
 ## .NET
 
-More information about debugging .NET applications within Docker containers can be found in [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
+You can choose between two ways of building and debugging your project within Docker containers:
 
-Example `launch.json` configuration for debugging a .NET application:
+- **With .NET SDK**: If you are familiar with `MSBuild` or want to containerize your project without a Dockerfile, this is the recommended choice.
+  >**Note**: This option is only available for .NET SDK 7 and above and uses the `dotnet publish` command to build the image.
+
+- **With a Dockerfile**: If you prefer customizing your project with a `Dockerfile`, choose this option.
+
+For more details about these two options, refer to [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
+
+Example `launch.json` configuration for debugging a .NET application using `Dockerfile`:
 
 ```json
 {

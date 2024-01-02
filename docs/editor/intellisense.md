@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 5/3/2023
+DateApproved: 12/7/2023
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -114,7 +114,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestSelection": "first",
 
     // Enable word based suggestions
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
 
     // Enable parameter hints
     "editor.parameterHints.enabled": true,
@@ -193,9 +193,9 @@ In VS Code, you can enhance your coding with artificial intelligence (AI), such 
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in the VS Code Marketplace](images/intellisense/copilot-extension.png)
+[![GitHub Copilot extension in the VS Code Marketplace](images/intellisense/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Troubleshooting
 
@@ -213,7 +213,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [Artificial Intelligence](/docs/editor/artificial-intelligence.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+* [GitHub Copilot in VS Code](/docs/editor/github-copilot.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 
