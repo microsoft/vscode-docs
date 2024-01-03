@@ -65,20 +65,6 @@ You can hover over a symbol to see an inline view of its definition:
 
 ![Quick info](images/mingw/quickinfo.png)
 
-### Peek
-
-The *Peek* feature displays a few lines of code inside a *peek window*, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code.
-
-To open a *peek window*, navigate to the context menu by right-clicking and selecting **Peek**. There, you can choose to peek at a symbol's definition, declaration, type definition, or references.
-
-* Peek Declaration: Navigates to or displays the declaration of a symbol in the *peek window*.
-* Peek References: Displays a list of references to a symbol in the *peek window*. I can also be invoked by pressing `kb(editor.action.goToReferences)`.
-* Peek Type Definition: Displays the type definition of a symbol in the *peek window*.
-* Peek Definition: Displays the definition of a symbol in the *peek window*. It can also be invoked by pressing `kb(editor.action.peekDefinition)`.
-![Peek definition](images/cpp/peekdefn.png)
-
-With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just select result or double-click in the source code displayed on the left-hand side of the peek window.
-
 ## Navigating source code
 
 The source code navigation features provided are powerful tools for understanding for your codebase. These let you quickly search for symbols in your code, navigate to their definitions, and find references to them.
@@ -97,7 +83,7 @@ To search for a symbol in the current workspace, press `kb(workbench.action.show
 
 ![Searching in your workspace](images/cpp/workspacesearch.png)
 
-You can also search for symbols by accessing these commands through the **Command Palette**. Use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the '@' and '#' commands.
+You can also search for symbols by accessing these commands through the **Command Palette**(`kb(workbench.action.showCommands)`). Use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the '@' and '#' commands.
 
 ### Call hierarchy
 
@@ -111,25 +97,33 @@ Toggle the phone icon in the side bar menu to switch to incoming calls. Incoming
 
 ![Nested Calls for Call Hierarchy](images/cpp/nested-calls-call-hierarchy.png)
 
+### Peek
+
+The *Peek* feature displays a few lines of code inside a *peek window*, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code.
+
+To open a *peek window*, navigate to the context menu by right-clicking and selecting **Peek**. There, you can choose to peek at a symbol's definition, declaration, type definition, or references.
+
+![Peek definition](images/cpp/peekdefn.png)
+
+With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just select result or double-click in the source code displayed on the left-hand side of the peek window.
+
 ### Go to definition
 
-Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code.
-
-Select a symbol in your source code and then press `kb(editor.action.revealDefinition)`. Or, choose **Go to Definition** from the context menu (right-click, then choose **Go to Definition**). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
+Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code. Select a symbol in your source code and then press `kb(editor.action.revealDefinition)`, or right-click and choose **Go to Definition** from the context menu. When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
 
 If no definitions can be found for the symbol you selected, the C/C++ Extension will automatically search for a declaration of the symbol.
 
 ### Go to declaration
 
-Use the **Go to Declaration** feature to quickly navigate to where a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations.
-
-Select a symbol in your source code, right-click and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
+Use the **Go to Declaration** feature to navigate to the location a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations. Select a symbol in your source code, right-click and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
 
 ### Go to references
 
-Use the **Go to References** feature to understand how often and where a symbol is referenced in your source code.
+Use the **Go to References** feature to understand how often and where a symbol is referenced in your source code. Select a symbol in your source code and press `kb(editor.action.goToReferences)` or right-click and choose **Go to References** from the context menu. If any references are found, they are displayed in a peek window.
 
-Select a symbol in your source code and then press `kb(editor.action.goToReferences)` or right-click and choose **Go to References** from the context menu. If any references are found, they are displayed in a peek window.
+### Go to type definition
+
+Use the **Go to Type Definition** feature to jump to where a type is defined in your source code. Select a type in your source code and press `kb(editor.action.goToTypeDefinition)` or right-click and choose **Go to Type Definition** from the context menu.
 
 ## Next steps
 
