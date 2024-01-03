@@ -99,7 +99,19 @@ To search for a symbol in the current workspace, press `kb(workbench.action.show
 
 You can also search for symbols by accessing these commands through the **Command Palette**. Use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the '@' and '#' commands.
 
-### Go to Definition
+### Call hierarchy
+
+A Call Hierarchy view shows all calls to or from a function. It lets you understand the complex calling relationships between the functions in your source code.
+
+To view the call hierarchy, select a function, right-click to display the context menu and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
+
+![Selecting call hierarchy and showing calls in sidebar](images/cpp/call-hierarchy.gif)
+
+Toggle the phone icon in the side bar menu to switch to incoming calls. Incoming calls show whenever your function is referenced by another function. You can also explore nested calls by selecting a function already shown in the call tree and right-clicking on that function to view the available commands.
+
+![Nested Calls for Call Hierarchy](images/cpp/nested-calls-call-hierarchy.png)
+
+### Go to definition
 
 Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code.
 
@@ -107,13 +119,13 @@ Select a symbol in your source code and then press `kb(editor.action.revealDefin
 
 If no definitions can be found for the symbol you selected, the C/C++ Extension will automatically search for a declaration of the symbol.
 
-### Go to Declaration
+### Go to declaration
 
 Use the **Go to Declaration** feature to quickly navigate to where a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations.
 
 Select a symbol in your source code, right-click and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
 
-### Go to References
+### Go to references
 
 Use the **Go to References** feature to understand how often and where a symbol is referenced in your source code.
 
