@@ -67,17 +67,17 @@ You can hover over a symbol to see an inline view of its definition:
 
 ### Peek
 
-The *Peek* feature displays a few lines of code inside a *peek window*, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code
+The *Peek* feature displays a few lines of code inside a *peek window*, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code.
 
 To open a *peek window*, navigate to the context menu by right-clicking and selecting **Peek**. There, you can choose to peek at a symbol's definition, declaration, type definition, or references.
 
-- Peek Definition - Displays the definition of a symbol in the *peek window*. It can also be invoked by pressing `kb(editor.action.peekDefinition)`.
+* Peek Declaration: Navigates to or displays the declaration of a symbol in the *peek window*.
+* Peek References: Displays a list of references to a symbol in the *peek window*. I can also be invoked by pressing `kb(editor.action.goToReferences)`.
+* Peek Type Definition: Displays the type definition of a symbol in the *peek window*.
+* Peek Definition: Displays the definition of a symbol in the *peek window*. It can also be invoked by pressing `kb(editor.action.peekDefinition)`.
 ![Peek definition](images/cpp/peekdefn.png)
-- Peek Declaration - Navigates to or displays the declaration of a symbol in the *peek window*.
-- Peek References - Displays a list of references to a symbol in the *peek window*.
-- Peek Type Definition - Displays the type definition of a symbol in the *peek window*.
 
-With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just double-click result or anywhere in the source code displayed on the left-hand side of the peek window.
+With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just select result or double-click in the source code displayed on the left-hand side of the peek window.
 
 ## Navigating source code
 
