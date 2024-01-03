@@ -79,10 +79,6 @@ To open a *peek window*, navigate to the context menu by right-clicking and sele
 
 With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just double-click result or anywhere in the source code displayed on the left-hand side of the peek window.
 
-<!-- WIP -->
-
-For definitions, the C/C++ extension currently doesn't parse code in a way that helps it distinguish between competing definitions based on how the symbol is used. These competing definitions arise when the symbol defines different things in different contexts, such as occurs with overloaded functions, classes and their constructors, and other situations. When this happens, each of the competing definitions is listed in the right-hand side of the peek window with the source code of the current selection displayed on the left.
-
 ## Navigating source code
 
 The source code navigation features provided are powerful tools for understanding for your codebase. These let you quickly search for symbols in your code, navigate to their definitions, and find references to them.
