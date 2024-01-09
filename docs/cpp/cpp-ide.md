@@ -57,7 +57,7 @@ For example, on the Windows platform, use:
 
 ### Enhanced semantic colorization
 
-When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, etc., see [Enhanced colorization](/docs/cpp/colorization-cpp.md).
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, etc., see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
 
 ### Quick Info
 
