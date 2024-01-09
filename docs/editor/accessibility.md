@@ -27,6 +27,14 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
 
+## Accessibility help
+
+The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, chat view, and inline chat features.
+
+You can dismiss the accessibility help menu or open additional documentation from within the help menu.
+
+![When triggered in an editor, a dialog appears that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+
 ## High Contrast theme
 
 VS Code supports a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
@@ -153,14 +161,6 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 When suggestions pop up, they are announced to screen readers. Navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)` and dismiss them with `kbstyle(Shift+Escape)`. If suggestions get in your way, you can turn them off with the `editor.quickSuggestions` setting.
 
 In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`) will show the Accessible Diff Viewer with diffs presented in a unified patch format. Navigate through the unchanged, inserted, or deleted lines with `kbstyle(Up)` and `kbstyle(Down)`. Press `kbstyle(Enter)` to return focus to the modified pane of the diff editor at the selected line number (or the closest line number that still exists, if a deleted line is selected). Use `kbstyle(Escape)` or `kbstyle(Shift+Escape)` to dismiss the Accessible Diff Viewer.
-
-## Accessibility help
-
-The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, chat view, and inline chat features.
-
-You can dismiss the accessibility help menu or open additional documentation from within the help menu.
-
-![When triggered in an editor, a dialog appears that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
 
 ## Accessible View
 
