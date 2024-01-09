@@ -222,6 +222,8 @@ They are played when the primary cursor changes its line or the first time a mar
 
 The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
 
+Aria alerts also inform screen reader and braille users that certain markers have been hit. The command **Help: List Alerts** lists all available alerts and informs the user of which are available and which are enabled.
+
 ## Hover accessibility
 
 Some hovers cannot be hovered normally, which makes them hard to use with screen magnifiers. To work around this, hold the `kbstyle(Alt)` or `kbstyle(Option)` key while a hover is active to "lock" it in place so that it won't hide when hovered. Release the key to unlock the hover.
