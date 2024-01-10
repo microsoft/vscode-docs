@@ -12,7 +12,7 @@ MetaDescription: Get started with C++ in Visual Studio Code by watching these in
 
 Get started with C++ in Visual Studio Code by watching these introductory videos! These videos are designed to help you set up C++ IntelliSense and build and debug C++ projects in VS Code. After watching these quick tutorials, you'll be able to enjoy VS Code's rich C++ feature set.
 
-## Getting Started with C++ in 5 minutes
+## Getting started with C++ in 5 minutes
 
 This video shows you how to install the C/C++ Extension and a C++ compiler. It then shows you how to run and debug your code using the play button.
 
