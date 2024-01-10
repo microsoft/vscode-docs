@@ -14,7 +14,7 @@ Get started with C++ in Visual Studio Code by watching these introductory videos
 
 ## Getting started with C++ in 5 minutes
 
-This video shows you how to install the C/C++ Extension and a C++ compiler. It then shows you how to run and debug your code using the play button.
+This video shows you how to install the C/C++ extension and a C++ compiler. You then learn how to run and debug your code by using the run or debug play button.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qeEcV6u1kV4?si=ZrLnwMO00gmlst8g" title="Getting Started with C++ in 5 minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
