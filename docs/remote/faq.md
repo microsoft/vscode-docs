@@ -109,7 +109,7 @@ See [Remote Development with Linux](/docs/remote/linux.md) for additional detail
 
 ### Can I run VS Code Server on older Linux distributions?
 
-Starting with `1.86` release of VS Code, the minimum toolchain for building the remote server was raised after assessment and the prebuilt servers are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
+Starting with `1.86` release of VS Code, the minimum requirements for the build toolchain of the remote server were raised. The prebuilt servers distributed by VS Code are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
 
 If your platform does not meet the requirements and you are unable to upgrade the Linux distribution, you can downgrade the VS Code client to version `1.85` to continue usage of the Remote Development. Following are the ways to dowgrade the VS Code client on desktop and web,
 
