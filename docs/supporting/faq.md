@@ -301,7 +301,7 @@ VS Code will no longer provide product updates or security fixes on macOS Mojave
 
 ## Can I run VS Code on older Linux distributions?
 
-VS Code desktop version starting with 1.86 (January 2024) is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
+Starting with VS Code release 1.86 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
 If you are unable to upgrade your Linux distribution, the recommended alternative would be to use our [web client](/docs/editor/vscode-web.md). If you would like to use the desktop version then you can download the `1.85` release from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
 
