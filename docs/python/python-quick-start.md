@@ -20,7 +20,7 @@ Get started by installing:
 
 ![Gif installing the Python extension in a fresh install of VS Code.](/docs/python/images/quick-start/qs-python-ext-install.gif)
 
-To further customize VS Code for Python, you can leverage the [Python profile template](https://code.visualstudio.com/docs/editor/profiles#_python-profile-template), automatically installing recommended extensions and settings. For Data Scientists, consider using the [Data Science profile template](https://code.visualstudio.com/docs/editor/profiles#_data-science-profile-template).
+To further customize VS Code for Python, you can leverage the [Python profile template](https://code.visualstudio.com/docs/editor/profiles#_python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](https://code.visualstudio.com/docs/editor/profiles#_data-science-profile-template).
 
 ![Gif showing the Python profile template being installing into VS Code.](/docs/python/images/quick-start/python-profile-create.gif)
 
@@ -45,19 +45,19 @@ If you have an existing Python project in version control, you can clone it loca
 
 ## UI Tour
 
-When you launch VS Code for the very first time, you will need to install the Python extension to get full Python support and UI. Let’s look at the UI once the Python extension is installed.
+When you launch VS Code for the very first time, you will need to install the Python extension to get Python specific features and UI. Let’s look at the UI once the Python extension is installed.
 
 ![Image of the Python UI highlights in VS Code.](/docs/python/images/quick-start/ui-tour.png)
 
 ## Code Actions
 
-Code Actions (also known as Quick Fixes) are provided by Warnings or Errors to help fix issues you may be experiencing in your code. These helpful hints are displayed in the editor left margin as a lightbulb (💡). Click on the light bulb to display Code Action options which can come from extensions such as Python, Pylance, or VS Code itself. For more information about Code Actions, see [Python Quick Fixes](https://code.visualstudio.com/docs/python/editing#_quick-fixes).
+Code Actions (also known as Quick Fixes) are provided when there are Warnings or Errors to help fix issues you may be experiencing in your code. These helpful hints are displayed in the editor left margin as a lightbulb (💡). Click on the light bulb to display Code Action options which can come from extensions such as Python, Pylance, or VS Code itself. For more information about Code Actions, see [Python Quick Fixes](https://code.visualstudio.com/docs/python/editing#_quick-fixes).
 
 ![Gif showing Code Actions in a Python project.](images/editing/quickFix.gif)
 
 ## Python Commands
 
-Python commands can be accessed through the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to the full functionality of VS Code, but for Python specific functionality begin typing **“Python: “** to locate the commands accessible through the Python extension.
+Python commands can be accessed through the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from VS Code as well as installed extensions. Begin typing **“Python: “** to locate the commands accessible through the Python extension.
 
 ![Gif demonstrating how to access Python commands in the Command Palette.](/docs/python/images/quick-start/cmd-plt-python.gif)
 
@@ -69,21 +69,18 @@ Now that you are more familiar with Python in VS Code, let’s learn how to run,
 
 There are a few ways to run Python code in VS Code.
 
-To run the active Python file, click the **Run Python File in Terminal** play button in the top-right side of the editor.
+To run the Python script you have open on the editor, click the **Run Python File in Terminal** play button in the top-right of the editor.
 
 ![Image showing the Run Python File in Terminal play button.](images/tutorial/run-python-file-in-terminal-button.png)
 
-There are three other ways you can run Python code within VS Code:
--	Right-click anywhere in the editor window and select **Run > Python File** in Terminal (which saves the file automatically):
-![Image showing the Python run options in the context menu.](images/tutorial/run-python-file-in-terminal.png)
+There are also additional ways you can iteratively run snippets of your Python code within VS Code:
 -	Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
 -	From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
 ### Debug
 
-Debugging starts by setting breakpoints in your Python project. This will allow you to explore data as it moves through your program. You can set a breakpoint by clicking in the gutter of the line, where a red dot will appear.
-
-To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file or project.
+The debugger is a helpful tool that allows you to inspect the flow of your code execution and more easily identify errors, as well as explore how your variables and data change as your program is run. You can start debugging by setting a breakpoint in your Python project by clicking in the gutter next to the line you wish to inspect.
+To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select "Python File". 
 
 The program will stop at the breakpoint you set, and you can track data in the Python Debug console, and progress through your program using the debug toolbar.
 
@@ -98,7 +95,7 @@ The Python extension provides robust testing support for [Unittest](https://docs
 
 You can configure Python tests through the Test Panel on the Activity Bar by selecting **Configure Python Tests** and selecting your test framework of choice.
 
-You can also create tests for your Python project, which the Python extension will attempt to discovery once your framework of choice is configured. The Python extension also allows you to run and debug your tests in the Testing panel and view testing output in the Test Results panel.
+You can also create tests for your Python project, which the Python extension will attempt to discover once your framework of choice is configured. The Python extension also allows you to run and debug your tests in the Testing view and inspect the test run output in the Test Results panel.
 
 ![Gif demonstrating test configuration, discovery, and run in the Python extension.](/docs/python/images/quick-start/qs-testing.gif)
 
