@@ -111,7 +111,7 @@ See [Remote Development with Linux](/docs/remote/linux.md) for additional detail
 
 Starting with VS Code release 1.86, the minimum requirements for the build toolchain of the remote server were raised. The prebuilt servers distributed by VS Code are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
 
-If your platform does not meet the requirements and you are unable to upgrade the Linux distribution, you can downgrade the VS Code client to version `1.85` to continue usage of the Remote Development. You can downgrade the VS Code client both on desktop and web:
+If your setup does not meet these requirements and you are unable to upgrade the Linux distribution, you can downgrade the VS Code client to version 1.85 to continue using Remote Development. You can downgrade the VS Code client on both desktop and web:
 
 * On desktop, you can download the `1.85` release from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to have 1.85 as a separate installation, set up with [Portable Mode](https://code.visualstudio.com/docs/editor/portable). That way, you won't affect your main desktop VS Code version.
 * On web, you can add the following query argument [?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2](https://vscode.dev/?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2) to use `1.85`.
