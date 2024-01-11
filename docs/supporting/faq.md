@@ -299,6 +299,12 @@ VS Code desktop version starting with 1.83 (September 2023) is deprecating suppo
 
 VS Code will no longer provide product updates or security fixes on macOS Mojave (versions 10.14 and older) and VS Code version 1.85 will be the last available release for macOS Mojave (10.14 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
+## Can I run VS Code on old Linux distributions?
+
+VS Code desktop version starting with 1.86 (January 2024) is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
+
+If you are unable to upgrade your Linux distribution, the recommended alternative would be to use our [web client](/docs/editor/vscode-web.md). If you would like to use the desktop version then you can download the `1.85` release from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/issues).

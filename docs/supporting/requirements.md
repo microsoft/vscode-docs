@@ -23,8 +23,8 @@ VS Code is supported on the following platforms:
 
 * Windows 10 and 11 (64-bit)
 * macOS versions with Apple security update support. This is typically the latest release and the two previous versions.
-* Linux (Debian): Ubuntu Desktop 18.04, Debian 10
-* Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 7, Fedora 35
+* Linux (Debian): Ubuntu Desktop 20.04, Debian 10
+* Linux (Red Hat): Red Hat Enterprise Linux 8, Fedora 36
 
 ## Not supported
 
@@ -35,7 +35,7 @@ VS Code is supported on the following platforms:
 
 ### Additional Linux requirements
 
-* GLIBCXX version 3.4.21 or later
-* GLIBC version 2.17 or later
+* GLIBCXX version 3.4.25 or later
+* GLIBC version 2.28 or later
 
 For a list of currently known issues, see our [FAQ](faq).
