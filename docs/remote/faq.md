@@ -101,11 +101,20 @@ You can use one of the following solutions to resolve this problem:
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
+Remote Development requires kernel >= 4.18, glibc >=2.28, and libstdc++ >= 3.4.25. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
 Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for the Dev Containers and WSL extensions and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
+
+### Can I run VS Code Server on older Linux distributions?
+
+Starting with `1.86` release of VS Code, the minimum toolchain for building the remote server was raised after assessment and the prebuilt servers are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
+
+If your platform does not meet the requirements and you are unable to upgrade the Linux distribution, you can downgrade the VS Code client to version `1.85` to continue usage of the Remote Development. Following are the ways to dowgrade the VS Code client on desktop and web,
+
+* For desktop, you can download `1.85` release from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform ensure to pin the package version in apt or exclude it in yum to prevent automatic updates.
+* For web, you can add the following query argument [?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2](https://vscode.dev/?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2) to force `1.85` version of the client.
 
 ### Can I install individual extensions instead of the extension pack?
 
