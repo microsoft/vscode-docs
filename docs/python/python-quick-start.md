@@ -2,7 +2,7 @@
 Order: 1
 Area: python
 TOCTitle: Quick Start
-ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
+ContentId: c7134463-4fdd-4674-8685-77c94472902c
 PageTitle: Quick Start Guide for Python in VS Code
 DateApproved: 1/9/2024
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
@@ -25,23 +25,12 @@ To further customize VS Code for Python, you can leverage the [Python profile te
 ![Gif showing the Python profile template being installing into VS Code.](/docs/python/images/quick-start/python-profile-create.gif)
 
 ## How to create and open a Python project or file
--	[Open an existing Python project](/docs/python/python-quick-start.md/#open-an-existing-python-project-or-file)
--	[Create new Python scripts](/docs/python/python-quick-start.md#create-new-python-scripts)
--	[Clone a Python project from version control](/docs/python/python-quick-start.md#clone-a-python-project-from-version-control)
 
-### Open an existing Python project or file
+If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code welcome page or Explorer panel, or by selecting **File -> Open Folder** (`kb(workbench.action.files.openFolder)`) or **File -> Open File** (`kb(workbench.action.files.openFile)`).
 
-If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code welcome page or Explorer panel, or by selecting **File -> Open Folder** (Ctrl+K Ctrl+O) or **File -> Open File** (Ctrl+O).
+You can create a new Python files by selecting **New File** in the VS Code Welcome page and select **Python file**, or navigating to **File -> New File** (`kb(workbench.action.files.newFile)`).
 
-### Create new Python scripts
-
-If you are starting a new Python script, you can create Python files directly in VS Code. You can create a new Python file by selecting **New File** in the VS Code Welcome page and select **Python file**, or navigating to **File -> New File** (ADD SHORTCUT).
-
-If you already have a workspace folder open in VS Code, you can add new files or folders directly into your existing project. You can create new folders and file by clicking the icons on the top level folder in the Explorer panel.
-
-### Clone a Python project from version control
-
-If you have an existing Python project in version control, you can clone it locally by selecting **Clone Git Repository** in the VS Code Welcome page, or by selecting **Clone Repository** in the Explorer panel.
+> **Tip:** If you already have a workspace folder open in VS Code, you can add new files or folders directly into your existing project. You can create new folders and file by clicking the icons on the top level folder in the Explorer panel.
 
 ## UI Tour
 
@@ -80,13 +69,14 @@ There are also additional ways you can iteratively run snippets of your Python c
 ### Debug
 
 The debugger is a helpful tool that allows you to inspect the flow of your code execution and more easily identify errors, as well as explore how your variables and data change as your program is run. You can start debugging by setting a breakpoint in your Python project by clicking in the gutter next to the line you wish to inspect.
-To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select "Python File". 
 
-The program will stop at the breakpoint you set, and you can track data in the Python Debug console, and progress through your program using the debug toolbar.
+![Screenshot showing a debugger breakpoint in a Python program.]()
+
+To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select "Python File".
+
+Once your program reaches the breakpoint, it will stop and allow you to track data in the Python Debug console, and progress through your program using the debug toolbar.
 
 ![Gif showing how to configure the Python debugger for the first time.](images/quick-start/qs-python-debug.gif)
-
-After selecting a debug configuration, you can also start the debugger by clicking on the down-arrow next to the run button on the editor and selecting **Debug Python File in Terminal**.
 
 For a deeper dive into Python debugging functionality, see [Python debugging in VS Code](https://code.visualstudio.com/docs/python/debugging).
 
