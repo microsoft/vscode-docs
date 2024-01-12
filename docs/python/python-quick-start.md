@@ -70,7 +70,7 @@ There are also additional ways you can iteratively run snippets of your Python c
 
 The debugger is a helpful tool that allows you to inspect the flow of your code execution and more easily identify errors, as well as explore how your variables and data change as your program is run. You can start debugging by setting a breakpoint in your Python project by clicking in the gutter next to the line you wish to inspect.
 
-![Screenshot showing a debugger breakpoint in a Python program.]()
+![Screenshot showing a debugger breakpoint in a Python program.](images/tutorial/breakpoint-set.png)
 
 To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select "Python File".
 
