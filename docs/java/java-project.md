@@ -232,7 +232,7 @@ There are several Visual Studio Code extensions to support different build syste
 
 - [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 - [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
-- [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+- [Bazel for Java](https://marketplace.visualstudio.com/items?itemName=sfdc.bazel-vscode-java) ([Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) is for `BUILD` files, without Java integration))
 
 If you run into any problems when using the features above, you can contact us by filing an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 

@@ -506,7 +506,7 @@ Example:
 
 * `launch.json` ✔️
 * `settings.json` ❌
-* `launchSettings.json` ❌
+* `launchSettings.json` ✔️ as `useSSL`
 
 ## Configuring launchSettings.json
 
