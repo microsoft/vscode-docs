@@ -21,7 +21,7 @@ Linting for Python files is only supported for open folders or workspaces in VS 
 
 ## Choose a linter
 
-Search the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice.
+Search the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.  
 
 Microsoft publishes the following linting extensions for Python:
 | Linter | Extension                                                                       |
