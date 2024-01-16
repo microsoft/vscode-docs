@@ -26,9 +26,9 @@ To further customize VS Code for Python, you can leverage the [Python profile te
 
 ## How to create and open a Python project or file
 
-If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code welcome page or Explorer panel, or by selecting **File -> Open Folder** (`kb(workbench.action.files.openFolder)`) or **File -> Open File** (`kb(workbench.action.files.openFile)`).
+If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code welcome page or Explorer panel, or by selecting **File > Open Folder** (`kb(workbench.action.files.openFolder)`) or **File > Open File** (`kb(workbench.action.files.openFile)`).
 
-You can create a new Python files by selecting **New File** in the VS Code Welcome page and select **Python file**, or navigating to **File -> New File** (`kb(workbench.action.files.newFile)`).
+You can create a new Python files by selecting **New File** in the VS Code Welcome page and select **Python file**, or navigating to **File > New File** (`kb(workbench.action.files.newFile)`).
 
 > **Tip:** If you already have a workspace folder open in VS Code, you can add new files or folders directly into your existing project. You can create new folders and file by clicking the icons on the top level folder in the Explorer panel.
 
