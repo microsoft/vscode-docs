@@ -33,6 +33,16 @@ If you do not have any precedent of where you create definitions or declarations
 
 For templates, if a function template is declared in a header file, the definition of that function template will be created in the same header file. This also applies for nontemplate member functions of class templates.
 
+### Copy declarations or definitions
+
+If you want to choose the location that your declaration or definition is added in code, you can use the code action **Copy Declaration/Definition**. This adds the declaration or definition to your clipboard rather than directly to your code.
+
+To invoke the code action, select a function that has a Quick Fix available, then select the Code Action (light bulb) and choose **Copy definition of ‘YourFunctionName’** or **Copy declaration of ‘YourFunctionName’**.
+
+![Copy a declaration or definition](images/refactoring/copy-declaration-definition.gif)
+
+If the declaration/definition is not formatted when you paste, turn on auto formatting using **Settings** (`kb(workbench.action.openSettings)`) > **Format On Paste**. Enabling this will automatically format all items you paste in the editor.
+
 ## Extract to method
 
 The Extract Method refactoring feature allows you to extract a block of code into a separate method to help improve code readability, reduce duplication, and make the code more modular.
@@ -41,9 +51,9 @@ To extract a method, select the C++ code you would like to extract. A code actio
 
 ![Extract Method and create declaration](images/refactoring/extract-method.gif)
 
-## Quick Fixes/Light bulbs
+## Quick Fixes/Code Actions
 
-Quick Fixes, shown as light bulbs in your code, are suggestions for how to fix and improve your code. The C/C++ extension provides C/C++ specific quick fixes in many scenarios, including:
+The C/C++ Extension provides C/C++ specific suggestions for how to fix and improve your C++ code. These can be accessed through a code action (lightbulb icon) as you code or through the Quick Fixes link when you hover over an item. These are available for many scenarios discussed previously, such as extract to method, copy declaration/definition, or create declaration/definition. Otherwise, a code actions can help:
 
 ### Add missing header files
 
