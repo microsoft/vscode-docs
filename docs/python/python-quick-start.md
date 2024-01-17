@@ -18,7 +18,7 @@ Get started by installing:
 -	[A Python Interpreter](https://code.visualstudio.com/docs/python/python-tutorial#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/#status-of-python-branches))
 -	[Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
 
-![Gif installing the Python extension in a fresh install of VS Code.](/docs/python/images/quick-start/qs-python-ext-install.gif)
+![Gif installing the Python extension in a fresh install of VS Code](/docs/python/images/quick-start/qs-python-ext-install.gif)
 
 To further customize VS Code for Python, you can leverage the [Python profile template](https://code.visualstudio.com/docs/editor/profiles#_python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](https://code.visualstudio.com/docs/editor/profiles#_data-science-profile-template).
 
@@ -48,7 +48,7 @@ Code Actions (also known as Quick Fixes) are provided when there are Warnings or
 
 Python commands can be accessed through the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) (`kb(workbench.action.showCommands)`). From the Command Palette, you have access to various features from VS Code as well as installed extensions. Begin typing **“Python: “** to locate the commands accessible through the Python extension.
 
-![Gif demonstrating how to access Python commands in the Command Palette.](/docs/python/images/quick-start/cmd-plt-python.gif)
+![Gif demonstrating how to access Python commands in the Command Palette.](/docs/python/images/quick-start/cmd-plt-v2.gif)
 
 ## Run, debug, and test
 
@@ -70,7 +70,7 @@ There are also additional ways you can iteratively run snippets of your Python c
 
 The debugger is a helpful tool that allows you to inspect the flow of your code execution and more easily identify errors, as well as explore how your variables and data change as your program is run. You can start debugging by setting a breakpoint in your Python project by clicking in the gutter next to the line you wish to inspect.
 
-![Screenshot showing a debugger breakpoint in a Python program.](images/tutorial/breakpoint-set.png)
+![Screenshot showing a debugger breakpoint in a Python program.](/docs/python/images/quick-start/breakpoint.png)
 
 To start debugging, initialize the debugger by pressing `F5`. Since this is your first time debugging this file, a configuration menu will open allowing you to select the type of application you want to debug. If it's a Python script, you can select "Python File".
 
