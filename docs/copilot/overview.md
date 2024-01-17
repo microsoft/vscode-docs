@@ -25,7 +25,7 @@ To use GitHub Copilot, you need an active GitHub Copilot subscription. You can [
 
 If you haven't previously authorized VS Code in your GitHub account, you're prompted to sign in to GitHub in VS Code:
 
-![VS Code notification to sign into the Copilot extension](images/artificial-intelligence/copilot-auth-toast.png)
+![VS Code notification to sign into the Copilot extension](images/overview/copilot-auth-toast.png)
 
 In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
 
@@ -33,7 +33,7 @@ In your browser, GitHub requests the necessary permissions for GitHub Copilot. T
 
 If you haven't yet activated your free trial for Copilot, the extension notifies you in VS Code. Select **Signup for GitHub Copilot** to activate your trial.
 
-![Copilot sign up notification in VS Code](images/artificial-intelligence/copilot-access-toast.png)
+![Copilot sign up notification in VS Code](images/overview/copilot-access-toast.png)
 
 Alternately, start a free trial from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
@@ -65,13 +65,13 @@ Copilot presents suggestions automatically in the editor to help you code more e
 
     Copilot will provide a suggestion like the following:
 
-    ![JavaScript ghost text suggestion](images/artificial-intelligence/js-suggest.png)
+    ![JavaScript ghost text suggestion](images/overview/js-suggest.png)
 
 1. Choose to accept Copilot's suggestion.
 
     For any given input, Copilot may offer multiple suggestions. When Copilot offers a suggestion, you can accept it with the `kbstyle(Tab)` key, or hover over the suggestion to see the inline suggestion toolbar:
 
-    ![JavaScript ghost text suggestion](images/artificial-intelligence/copilot-hover-highlight.png)
+    ![JavaScript ghost text suggestion](images/overview/copilot-hover-highlight.png)
 
     In the image above, Copilot presents three suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `kbstyle(Ctrl+RightArrow)`. You can switch between suggestions in the suggestion toolbar, or use the keyboard shortcut `kb(editor.action.inlineSuggest.showNext)` instead.
 
@@ -97,11 +97,11 @@ When developing a project or learning something new, it can be a big help to get
 
 You can access the Chat view via the Activity Bar:
 
-![Copilot view in VS Code Activity Bar](images/artificial-intelligence/copilot-view.png)
+![Copilot view in VS Code Activity Bar](images/overview/copilot-view.png)
 
 Copilot will suggest potential questions to get started. You can select any of these questions, or use the chat input box to type your own:
 
-![Copilot explaining a devcontainer.json file](images/artificial-intelligence/devcontainer-explain.png)
+![Copilot explaining a devcontainer.json file](images/overview/devcontainer-explain.png)
 
 As you continue asking questions, Copilot maintains the history of your conversation, and will provide related follow-up questions or commands in its response too.
 
@@ -118,17 +118,17 @@ TODO: add details about getting help -->
 
 Depending on your question, Copilot Chat may return source code in a code block.
 
-![A Copilot Chat code block with JSON to change the color of comments in VS Code](images/artificial-intelligence/copy-code-block.png)
+![A Copilot Chat code block with JSON to change the color of comments in VS Code](images/overview/copy-code-block.png)
 
 Hovering over the code block presents options to **Copy** and **Insert at Cursor** (`kb(workbench.action.chat.insertCodeBlock)`).
 
 The **More Actions** (`...`) button gives options to **Insert Into New File** and **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`).
 
-![Copilot Chat code block with More Actions button expanded](images/artificial-intelligence/more-actions-code-block.png)
+![Copilot Chat code block with More Actions button expanded](images/overview/more-actions-code-block.png)
 
 If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
 
-![Copilot Chat code block to list files with Insert into Terminal option visible](images/artificial-intelligence/run-in-terminal.png)
+![Copilot Chat code block to list files with Insert into Terminal option visible](images/overview/run-in-terminal.png)
 
 ### Keyboard shortcuts
 
@@ -144,33 +144,33 @@ An additional key functionality of Copilot is answering questions inline as you'
 
 In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat. You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code", or "How do I add functionality to do X?".
 
-![Copilot inline chat asking information about the used sorting algorithm](images/artificial-intelligence/inline-chat-question-example.png)
+![Copilot inline chat asking information about the used sorting algorithm](images/overview/inline-chat-question-example.png)
 
 If you have code selected in the editor, Copilot scopes your question to the selection.
 
 Depending on your question, Copilot can also suggest code modifications. Copilot gives a preview of the updates, which you can then accept (`kb(interactive.acceptChanges)`) or discard (`kb(inlineChat.discard)`).
 
-![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/artificial-intelligence/inline-chat-convert-sort.png)
+![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/overview/inline-chat-convert-sort.png)
 
 ## Quick Chat
 
 If you want to ask Copilot a quick question and don't want to start a full Chat view session or open inline chat in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** in the Command Palette, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
-![Quick Chat dropdown](images/artificial-intelligence/quick-chat-dropdown.png)
+![Quick Chat dropdown](images/overview/quick-chat-dropdown.png)
 
 You can type questions, scope your questions with agents and slash commands, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
-![Quick Chat Open in Chat View button](images/artificial-intelligence/open-in-chat-view.png)
+![Quick Chat Open in Chat View button](images/overview/open-in-chat-view.png)
 
 ## Chat smart actions
 
 To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options:
 
-![Editor context menu with the Copilot menu group expanded](images/artificial-intelligence/editor-copilot-menu.png)
+![Editor context menu with the Copilot menu group expanded](images/overview/editor-copilot-menu.png)
 
 You can apply these smart actions on the current file or a selection in the file. Choosing an action brings up the Chat view or inline chat, depending on the action. For example, selecting **Generate Docs** for a function will open the inline chat with a proposed documentation comment:
 
-![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/artificial-intelligence/generate-docs-example.png)
+![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/overview/generate-docs-example.png)
 
 ## Other Copilot uses
 
@@ -178,13 +178,13 @@ In addition to inline completions and chat, GitHub Copilot can help with other d
 
 When Copilot can help with a task or workflow, VS Code displays a **sparkle** icon. Hovering over the sparkle icon describes the Copilot action.
 
-![Sparkle icon in an input box](images/artificial-intelligence/sparkle-icon.png)
+![Sparkle icon in an input box](images/overview/sparkle-icon.png)
 
 ### Generate Git commit messages
 
 Copilot can help you write GitHub commit messages. In the Source Control message input box, select the sparkle button at the right and Copilot will create a commit message based on your pending changes.
 
-![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/artificial-intelligence/generate-commit-message.png)
+![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/overview/generate-commit-message.png)
 
 If you're using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to fill in both the title and description in the Pull Request **Create** view.
 
@@ -192,21 +192,21 @@ If you're using the [GitHub Pull Request and Issues](https://marketplace.visuals
 
 When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
 
-![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/artificial-intelligence/terminal-quick-fix.png)
+![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/overview/terminal-quick-fix.png)
 
 Selecting **Explain using Copilot** populates Quick Chat with the `@terminal #terminalLastCommand` agent and variable to help correct the last terminal command error.
 
-![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/artificial-intelligence/terminal-command-explanation.png)
+![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/overview/terminal-command-explanation.png)
 
 ### Command Palette help
 
 When you're looking for a command in the Command Palette (`kb(workbench.action.showCommands)`), you can run **Ask GitHub Copilot** with your search term to help you find the relevant command.
 
-![Command Palette with Ask GitHub Copilot selected to search for "hide editor overview"](images/artificial-intelligence/command-palette-ask-copilot.png)
+![Command Palette with Ask GitHub Copilot selected to search for "hide editor overview"](images/overview/command-palette-ask-copilot.png)
 
 The **Ask GitHub Copilot** command opens the Chat view and input your search term.
 
-![Chat view with answer to "hide editor overview"](images/artificial-intelligence/copilot-answer-hide-editor-overview.png)
+![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
 
 ## Additional resources
 

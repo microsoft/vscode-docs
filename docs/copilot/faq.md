@@ -39,11 +39,11 @@ If you would like to provide feedback on the Copilot Chat features, you can crea
 
 Yes, you can switch to the pre-release (nightly) version of a Copilot extension to try the latest features and fixes. From the Extensions view, right-click or select the gear icon to bring up the context menu, and then select **Switch to Pre-Release Version**:
 
-![Extensions view context menu with Switch to Pre-Release Version option](images/artificial-intelligence/switch-to-pre-release.png)
+![Extensions view context menu with Switch to Pre-Release Version option](images/faq/switch-to-pre-release.png)
 
 You can tell if you're running a pre-release version by the "Pre-release" badge in the extension details:
 
-![Pre-release version of the GitHub Copilot extension](images/artificial-intelligence/copilot-ext-pre-release.png)
+![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
 
 ## Copilot Chat
 
