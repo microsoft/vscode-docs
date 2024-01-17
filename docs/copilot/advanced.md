@@ -11,7 +11,7 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 
 GitHub Copilot has several advanced features and settings, such as agents and slash commands. This article explains these advanced features in detail. 
 
-If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first.
+If you're new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first.
 
 ## Agents and slash commands
 
@@ -55,7 +55,7 @@ You can use `@workspace /new` to scaffold a new project by using a natural langu
 
 The agent lists the directory structure for the new project. You can then create a new workspace for this project by selecting **Create Workspace**.
 
-Copilot Chat renders a file tree with the proposed directory structure in the chat response. You can click into files to open a readonly preview in the editor. If Copilot's initial proposal wasn't quite right, you can ask follow-up questions to help Copilot iterate and improve.
+Copilot Chat renders a file tree with the proposed directory structure in the chat response. You can select files to open a readonly preview in the editor. If Copilot's initial proposal wasn't quite right, you can ask follow-up questions to help Copilot iterate and improve.
 
 ## Fixing code
 
@@ -71,13 +71,13 @@ If the cursor is on an error line, inline chat can suggest a fix for the error. 
 
 ## Generating code documentation
 
-It can be tedious to add documentation comments to your code. In the Copilot inline chat lets you use the `/doc` slash command to generate documentation for the entire code file or the selection. Copilot Chat supports multiple languages for generating code documentation.
+It can be tedious to add documentation comments to your code. The Copilot inline chat lets you use the `/doc` slash command to generate documentation for the entire code file or the selection. Copilot Chat supports multiple languages for generating code documentation.
 
 ![Inline chat /doc example to generate documentation code comments for a calculator class](images/advanced/inline-chat-doc-example.png)
 
 ## Generating unit tests
 
-The `@workspace /tests` slash command enables you to generate unit tests for your code. When generating the tests, the agenet can detect the testing framework you are using and will generate new tests in the same style. When you use inline chat, you can use the `/tests` slash command.
+The `@workspace /tests` slash command enables you to generate unit tests for your code. When generating the tests, the agent can detect the testing framework you're using and generates new tests in the same style. When you use inline chat, you can use the `/tests` slash command.
 
 ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/advanced/workspace-agent-tests-example.png)
 
