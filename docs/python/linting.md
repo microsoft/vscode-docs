@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Linting Python in Visual Studio Code
 
-Linting highlights semantic and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or coding practices that can lead to errors. For example, linting can detect use of an undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is distinct from [Formatting](/docs/python/formatting.md) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code appears.
+Linting highlights semantic and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or coding practices that can lead to errors. For example, linting can detect the use of an undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is distinct from [Formatting](/docs/python/formatting.md) because linting analyzes how the code runs and detects errors, whereas formatting only restructures how code appears.
 
 > **Note**: Syntax error detection is enabled by default in the Python extension's Language Server. To learn how you can configure the Language Server, see [Language Server Settings](/docs/python/settings-reference.md#python-language-server-settings). This document covers how you can enable linting for additional code detection including stylistic checks.
 
