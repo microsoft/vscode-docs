@@ -14,11 +14,6 @@ Formatting makes source code easier to read by human beings. By enforcing partic
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
-
-## Open a folder or workspace
-
-Formatting for Python files is only supported for open folders or workspaces in VS Code, not single files. You can open a folder or workspace containing Python files in VS Code through **File** > **Open Folder...**.
-
 ## Choose a formatter
 
 Search the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) for the formatter extension of your choice.
@@ -116,7 +111,7 @@ If formatting fails, check the following possible causes:
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `<formatter>.path` setting does not contain arguments, and that `<formatter>.args` contains a list of individual top-level argument elements. |
 | "You have deprecated linting or formatting settings" notification displayed.  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in VS Code. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extensions in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
 | The **Format Selection** command fails when using Black Formatter. | `black` does not support formatting sections of code. To work around this limitation, you can disable format on paste and set `formatOnSave` to format the whole file with the following settings: `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
-| Formatting doesn't work even though I have a formatter extension installed.  | Formatting can fail for various reasons: there may be syntax issues in your code, an unsupported version of Python is being used, there's no folder open in VS Code, etc. Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
+| Formatting doesn't work even though I have a formatter extension installed.  | Formatting can fail for various reasons: there may be syntax issues in your code, an unsupported version of Python is being used, the formatter isn't configured correctly, etc. Check the formatter extension's Output channel to understand why the formatter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the formatter extension channel).|
 
 > **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
 

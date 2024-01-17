@@ -15,13 +15,9 @@ Linting highlights semantic and stylistic problems in your Python source code, w
 
 > **Note**: Syntax error detection is enabled by default in the Python extension's Language Server. To learn how you can configure the Language Server, see [Language Server Settings](/docs/python/settings-reference.md#python-language-server-settings). This document covers how you can enable linting for additional code detection including stylistic checks.
 
-## Open a folder or workspace
-
-Linting for Python files is only supported for open folders or workspaces in VS Code, not single files. You can open a folder or workspace containing Python files in VS Code through **File** > **Open Folder...**.
-
 ## Choose a linter
 
-Search the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.  
+Search the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) for the linter extension of your choice. You can use multiple linters at the same time if you'd like.
 
 Microsoft publishes the following linting extensions for Python:
 | Linter | Extension                                                                       |
@@ -83,7 +79,7 @@ Linters report issues with some predefined severity. This can be changed using `
 | --- | --- | --- |
 | Linter extension is not reporting any problems. | No Python has been selected for your workspace. | Look at the logs for the linter you are using and check the path to the Python environment it's using. If there is no Python selected, run the **Python: Select Interpreter** command from the Command Palette and select an existing interpreter for your workspace.  |
 | "You have deprecated linting or formatting settings" notification displayed  | If you are seeing this notification, it means you have settings such as `python.linting` or `python.formatting` in VS Code. These settings are no longer supported by the Python extension, as [linting and formatting support has been migrated to tools extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions). | Find where these settings are defined in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Preferences: Open User Settings (JSON)** command. If they're not in your User settings, then run the **Preferences: Open Workspace Settings (JSON)** command. Then delete the deprecated settings. <br> **Note**: If you're using any of the extension in the [Remote Development extension pack](/docs/remote/remote-overview.md#remote-development-extension-pack), you can also check the remote settings by running the **Preferences: Open Remote Settings (JSON)** command. |
-| Linting doesn't work even though I have a linter extension installed.  | Linting can fail for various reasons, such as an unsupported version of Python is being used, there's no workspace open in VS Code, etc.  Check the linter extension's Output channel to understand why the linter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the linter extension channel).|
+| Linting doesn't work even though I have a linter extension installed.  | Linting can fail for different reasons, such as an unsupported version of Python is being used, the linter isn't configured correctly, etc. Check the linter extension's Output channel to understand why the linter has failed (run the **Output: Focus on Output** command in the Command Palette and then select the linter extension channel).|
 
 ## Next steps
 
