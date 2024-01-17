@@ -5,7 +5,7 @@ TOCTitle: Best practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: GitHub Copilot best practices
 DateApproved: 12/7/2023
-MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
+MetaDescription: Best practices for optimizing your development experience with GitHub Copilot in VS Code.
 ---
 # GitHub Copilot best practices
 
