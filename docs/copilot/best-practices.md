@@ -11,7 +11,7 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 
 This article covers best practices for using GitHub Copilot in Visual Studio Code, so that you make the most of your AI pair programming experience.
 
-If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) topic first.
+If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first.
 
 ## Getting the most out of Copilot inline suggestions
 
@@ -41,7 +41,7 @@ It's best to manually set the includes or module references you need for your wo
 
 #### Meaningful function names
 
-Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function names will help Copilot provide a body that does what you want.
+Just as a method called `fetchData()` won't mean much to a coworker (or you after several months), `fetchData()` won't help Copilot either. Using meaningful function names helps Copilot provide a body that does what you want.
 
 <!-- Example of a meaningful function/method name. -->
 
@@ -59,7 +59,7 @@ One trick to get Copilot on the right page, is to copy and paste sample code tha
 
 Copilot is going to latch on to your code to generate suggestions that follow the existing pattern, so the adage "garbage in, garbage out" applies.
 
-Keeping a high quality bar at all times can take discipline. Especially when you're coding fast and loose to get something working, you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot Status bar item.
+Always keeping a high quality bar can take discipline. Especially when you're coding fast and loose to get something working, you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot Status bar item.
 
 ![Hover over the Copilot Status bar item displays "Show Copilot status menu"](images/best-practices/show-copilot-status-menu.png)
 
@@ -96,7 +96,7 @@ If you'd like to learn more about productively using GitHub Copilot, you can fol
 
 You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#chat-features) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
-This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot-inline-suggestions), which had recommendations for getting the best editor inline completions from Copilot. Here we'll cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
+This section is similar to the earlier [Getting the most out of Copilot](#getting-the-most-out-of-copilot-inline-suggestions), which had recommendations for getting the best editor inline completions from Copilot. Here we cover tips to effectively use Copilot Chat (Chat view, inline chat, Quick Chat).
 
 ### Choosing between chat experiences
 
@@ -134,13 +134,13 @@ Agents are designed to collect extra context either about a code base or a speci
 
 ![Asking the @vscode agent how to change the VS Code colors](images/advanced/agent-example.png)
 
-Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help fixing an issue (`/fix`), or are you creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
 ![Inline chat slash command list](images/best-practices/inline-chat-slash-commands.png)
 
 You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
 
-Learn more about agents and slash commands in the [Copilot Advanced](/docs/copilot/advanced.md#agents-and-slash-commands) topic.
+Learn more about agents and slash commands in the [Copilot Advanced](/docs/copilot/advanced.md#agents-and-slash-commands) article.
 
 ### Iterate on your solution
 

@@ -9,17 +9,17 @@ MetaDescription: Frequently asked questions for using GitHub Copilot in Visual S
 ---
 # GitHub Copilot frequently asked questions
 
-This topic answers frequently asked questions about using GitHub Copilot in Visual Studio Code.
+This article answers frequently asked questions about using GitHub Copilot in Visual Studio Code.
 
 ## General
 
 ### I can't find Copilot Chat in the Activity Bar
 
-If you've moved the Chat view out of the Primary Side Bar, for example, if you dragged the view to the [Secondary Side Bar](/docs/editor/custom-layout.md#secondary-side-bar), the Chat view icon is no longer displayed on the Activity Bar. If you close the Secondary Side Bar, the Chat view isn't visible and it may appear that you've lost access to the Chat view.
+If you moved the Chat view out of the Primary Side Bar, for example, if you dragged the view to the [Secondary Side Bar](/docs/editor/custom-layout.md#secondary-side-bar), the Chat view icon is no longer displayed on the Activity Bar. If you close the Secondary Side Bar, the Chat view isn't visible and it might appear that you lost access to the Chat view.
 
 There are several ways to display the Chat view or restore it back to the Activity Bar:
 
-* **View: Show Chat** - Opens the Chat view no matter where it is hosted.
+* **View: Show Chat** - Opens the Chat view no matter where it's hosted.
 * **Copilot status menu** - The status menu dropdown has an option to **Open GitHub Copilot Chat**.
 * **View: Reset View Locations** - General command to restore all views and panels to their default locations.
 
@@ -27,7 +27,7 @@ As with any view, you can drag and drop the Chat view back to the Activity Bar o
 
 ### How do I disable Copilot?
 
-You can temporarily deactivate Copilot from the Status Bar. You are prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
+You can temporarily deactivate Copilot from the Status Bar. You're prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
 
 ### How can I provide feedback on Copilot?
 
