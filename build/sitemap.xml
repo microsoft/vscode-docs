@@ -221,11 +221,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/github-copilot</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/editor/vscode-web</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -312,6 +307,26 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/terminal/advanced</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/best-practices</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/advanced</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/faq</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
