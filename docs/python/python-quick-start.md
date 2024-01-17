@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
 PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 1/9/2024
+DateApproved: 1/17/2024
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -76,7 +76,7 @@ To start debugging, initialize the debugger by pressing `F5`. Since this is your
 
 Once your program reaches the breakpoint, it will stop and allow you to track data in the Python Debug console, and progress through your program using the debug toolbar.
 
-![Gif showing how to configure the Python debugger for the first time.](images/quick-start/qs-python-debug.gif)
+![Gif showing how to configure the Python debugger for the first time.](images/quick-start/qs-debug-v2.gif)
 
 For a deeper dive into Python debugging functionality, see [Python debugging in VS Code](https://code.visualstudio.com/docs/python/debugging).
 
