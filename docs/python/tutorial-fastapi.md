@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: python
 TOCTitle: FastAPI Tutorial
 ContentId: 0d32bced-91aa-5c2e-e569-6fc7995370ae

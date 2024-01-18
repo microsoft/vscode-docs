@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
