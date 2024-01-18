@@ -32,7 +32,7 @@ You can create a new Python file by selecting **New File** on the VS Code Welcom
 
 > **Tip:** If you already have a workspace folder open in VS Code, you can add new files or folders directly into your existing project. You can create new folders and files by using the corresponding **New Folder** or **New File** icons on the top level folder in the File Explorer view.
 
-## UI Tour
+## UI tour
 
 When you launch VS Code for the very first time, you will need to install the Python extension to get Python-specific features and UI. Let’s look at the UI after installing the Python extension:
 
