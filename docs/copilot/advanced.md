@@ -9,7 +9,7 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 ---
 # GitHub Copilot advanced
 
-GitHub Copilot has several advanced features and settings, such as agents and slash commands. This article explains these advanced features in detail. 
+GitHub Copilot has several advanced features and settings, such as agents and slash commands. This article explains these advanced features in detail.
 
 If you're new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first.
 
@@ -17,7 +17,7 @@ If you're new to VS Code or GitHub Copilot, you might want to review the [GitHub
 
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
 
-Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are three agents:
+Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following agents:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
@@ -59,7 +59,7 @@ Copilot Chat renders a file tree with the proposed directory structure in the ch
 
 ## Fixing code
 
-Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/test` to generate unit tests.
+Several [slash commands](#agents-and-slash-commands) also work in inline chat such as `/explain` to ask Copilot to explain a block of code or `/tests` to generate unit tests.
 
 A useful command is `/fix`, which analyzes the error line or selected code and proposes a fix in a diff view for your review. After reviewing and possibly modifying the generated code, you can choose to **Accept** or **Discard** the fix.
 

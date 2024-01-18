@@ -134,7 +134,7 @@ Agents are designed to collect extra context either about a code base or a speci
 
 ![Asking the @vscode agent how to change the VS Code colors](images/advanced/agent-example.png)
 
-Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/test`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
+Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
 ![Inline chat slash command list](images/best-practices/inline-chat-slash-commands.png)
 
