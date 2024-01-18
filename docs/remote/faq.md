@@ -101,11 +101,20 @@ You can use one of the following solutions to resolve this problem:
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
-Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
+Remote Development requires kernel >= 4.18, glibc >=2.28, and libstdc++ >= 3.4.25. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
 
 Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for the Dev Containers and WSL extensions and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
+
+### Can I run VS Code Server on older Linux distributions?
+
+Starting with VS Code release 1.86, the minimum requirements for the build toolchain of the remote server were raised. The prebuilt servers distributed by VS Code are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, Ubuntu 20.04.
+
+If your setup does not meet these requirements and you are unable to upgrade the Linux distribution, you can downgrade the VS Code client to version 1.85 to continue using Remote Development. You can downgrade the VS Code client on both desktop and web:
+
+* On desktop, you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to have release 1.85 as a separate installation, set up with [Portable Mode](https://code.visualstudio.com/docs/editor/portable). That way, you won't affect your main desktop VS Code version.
+* On web, you can add the following query argument [`?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2`](https://vscode.dev/?vscode-version=0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2) to use VS Code release 1.85.
 
 ### Can I install individual extensions instead of the extension pack?
 
