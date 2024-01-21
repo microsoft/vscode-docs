@@ -143,6 +143,12 @@ If set to true, the debugger should stop after connecting to the target. If set 
 
 JSON array of commands to execute in order to set up the GDB or LLDB. Example: `"setupCommands": [ { "text": "target-run", "description": "run target", "ignoreFailures": false }]`.
 
+### postRemoteConnectCommands
+
+JSON array of commands to execute in order to set up the GDB or LLDB. Example: `"postRemoteConnectCommands": [ { "description": "set hardware breakpoints", "text": "break main.cpp:20", "ignoreFailures": false } ]`.
+
+The difference between `setupCommands` and `postRemoteConnectCommands` is that `setupCommands` are executed before loading the debug target, while `postRemoteConnectCommands` are executed after loading the debug target.
+
 ### customLaunchSetupCommands
 
 If provided, this replaces the default commands used to launch a target with some other commands. For example, this can be "-target-attach" in order to attach to a target process. An empty command list replaces the launch commands with nothing, which can be useful if the debugger is being provided launch options as command-line options. Example: `"customLaunchSetupCommands": [ { "text": "target-run", "description": "run target", "ignoreFailures": false }]`.
