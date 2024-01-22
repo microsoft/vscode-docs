@@ -515,3 +515,7 @@ ERROR The extension 'name' already exists in the Marketplace.
 ```
 
 The same rule applies for the [display name](/api/references/extension-manifest) of an extension.
+
+### What package managers are supported?
+
+You can either use npm or yarn v1 to manage your extension's dependencies.

@@ -96,6 +96,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-call-outgoing"></i>|callhierarchy-outgoing|call-outgoing|Icon for outgoing calls in the call hierarchy view.|
 |<i class="codicon codicon-debug-alt"></i>|callstack-view-icon|debug-alt|View icon of the call stack view.|
 |<i class="codicon codicon-bug"></i>|callstack-view-session|bug|Icon for the session icon in the call stack view.|
+|<i class="codicon codicon-comment-discussion"></i>|chat-editor-label-icon|comment-discussion|Icon of the chat editor label.|
 |<i class="codicon codicon-comment-discussion"></i>|comments-view-icon|comment-discussion|View icon of the comments view.|
 |<i class="codicon codicon-debug-breakpoint"></i>|debug-breakpoint|debug-breakpoint|Icon for breakpoints.|
 |<i class="codicon codicon-debug-breakpoint-conditional"></i>|debug-breakpoint-conditional|debug-breakpoint-conditional|Icon for conditional breakpoints.|
@@ -145,9 +146,11 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-close"></i>|diff-review-close|close|Icon for 'Close' in diff review.|
 |<i class="codicon codicon-add"></i>|diff-review-insert|add|Icon for 'Insert' in diff review.|
 |<i class="codicon codicon-remove"></i>|diff-review-remove|remove|Icon for 'Remove' in diff review.|
+|<i class="codicon codicon-debug"></i>|disassembly-editor-label-icon|debug|Icon of the disassembly editor label.|
 |<i class="codicon codicon-files"></i>|explorer-view-icon|files|View icon of the explorer view.|
 |<i class="codicon codicon-clear-all"></i>|extensions-clear-search-results|clear-all|Icon for the 'Clear Search Result' action in the extensions view.|
 |<i class="codicon codicon-pencil"></i>|extensions-configure-recommended|pencil|Icon for the 'Configure Recommended Extensions' action in the extensions view.|
+|<i class="codicon codicon-extensions"></i>|extensions-editor-label-icon|extensions|Icon of the extension editor label.|
 |<i class="codicon codicon-filter"></i>|extensions-filter|filter|Icon for the 'Filter' action in the extensions view.|
 |<i class="codicon codicon-info"></i>|extensions-info-message|info|Icon shown with an info message in the extensions editor.|
 |<i class="codicon codicon-cloud-download"></i>|extensions-install-count|cloud-download|Icon shown along with the install count in the extensions view and editor.|
@@ -182,6 +185,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-arrow-up"></i>|goto-previous-location|arrow-up|Icon for goto previous editor location.|
 |<i class="codicon codicon-add"></i>|keybindings-add|add|Icon for the add action in the keybinding UI.|
 |<i class="codicon codicon-edit"></i>|keybindings-edit|edit|Icon for the edit action in the keybinding UI.|
+|<i class="codicon codicon-keyboard"></i>|keybindings-editor-label-icon|keyboard|Icon of the keybindings editor label.|
 |<i class="codicon codicon-record-keys"></i>|keybindings-record-keys|record-keys|Icon for the 'record keys' action in the keybinding UI.|
 |<i class="codicon codicon-sort-precedence"></i>|keybindings-sort|sort-precedence|Icon for the 'sort by precedence' toggle in the keybinding UI.|
 |<i class="codicon codicon-debug-alt"></i>|loaded-scripts-view-icon|debug-alt|View icon of the loaded scripts view.|
@@ -191,6 +195,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-warning"></i>|markers-view-icon|warning|View icon of the markers view.|
 |<i class="codicon codicon-chevron-down"></i>|markers-view-multi-line-collapsed|chevron-down|Icon indicating that multiple lines are collapsed in the markers view.|
 |<i class="codicon codicon-chevron-up"></i>|markers-view-multi-line-expanded|chevron-up|Icon indicating that multiple lines are shown in the markers view.|
+|<i class="codicon codicon-diff-multiple"></i>|multi-diff-editor-label-icon|diff-multiple|Icon of the multi diff editor label.|
 |<i class="codicon codicon-clear-all"></i>|notebook-clear|clear-all|Icon to clear cell outputs in notebook editors.|
 |<i class="codicon codicon-chevron-right"></i>|notebook-collapsed|chevron-right|Icon to annotate a collapsed section in notebook editors.|
 |<i class="codicon codicon-trash"></i>|notebook-delete-cell|trash|Icon to delete a cell in notebook editors.|
@@ -243,9 +248,11 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-remote-explorer"></i>|remote-explorer-view-icon|remote-explorer|View icon of the remote explorer view.|
 |<i class="codicon codicon-chevron-up"></i>|review-comment-collapse|chevron-up|Icon to collapse a review comment.|
 |<i class="codicon codicon-debug-alt"></i>|run-view-icon|debug-alt|View icon of the Run and Debug view.|
+|<i class="codicon codicon-extensions"></i>|runtime-extensions-editor-label-icon|extensions|Icon of the runtime extensions editor label.|
 |<i class="codicon codicon-clear-all"></i>|search-clear-results|clear-all|Icon for clear results in the search view.|
 |<i class="codicon codicon-collapse-all"></i>|search-collapse-results|collapse-all|Icon for collapse results in the search view.|
 |<i class="codicon codicon-ellipsis"></i>|search-details|ellipsis|Icon to make search details visible.|
+|<i class="codicon codicon-search"></i>|search-editor-label-icon|search|Icon of the search editor label.|
 |<i class="codicon codicon-expand-all"></i>|search-expand-results|expand-all|Icon for expand results in the search view.|
 |<i class="codicon codicon-chevron-right"></i>|search-hide-replace|chevron-right|Icon to collapse the replace section in the search view.|
 |<i class="codicon codicon-new-file"></i>|search-new-editor|new-file|Icon for the action to open a new search editor.|
@@ -260,6 +267,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-add"></i>|settings-add|add|Icon for the add action in the Settings UI.|
 |<i class="codicon codicon-discard"></i>|settings-discard|discard|Icon for the discard action in the Settings UI.|
 |<i class="codicon codicon-edit"></i>|settings-edit|edit|Icon for the edit action in the Settings UI.|
+|<i class="codicon codicon-settings"></i>|settings-editor-label-icon|settings|Icon of the settings editor label.|
 |<i class="codicon codicon-triangle-down"></i>|settings-folder-dropdown|triangle-down|Icon for the folder dropdown button in the split JSON Settings editor.|
 |<i class="codicon codicon-chevron-right"></i>|settings-group-collapsed|chevron-right|Icon for a collapsed section in the split JSON Settings editor.|
 |<i class="codicon codicon-chevron-down"></i>|settings-group-expanded|chevron-down|Icon for an expanded section in the split JSON Settings editor.|
@@ -300,6 +308,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-close-all"></i>|watch-expressions-remove-all|close-all|Icon for the Remove All action in the watch view.|
 |<i class="codicon codicon-debug-alt"></i>|watch-view-icon|debug-alt|View icon of the watch view.|
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
+|<i class="codicon codicon-shield"></i>|workspace-trust-editor-label-icon|shield|Icon of the workspace trust editor label.|
 
 The Codicon library contains all the icons used in VS Code views, as well as a set of useful icons.
 

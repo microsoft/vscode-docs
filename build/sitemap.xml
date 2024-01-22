@@ -31,16 +31,6 @@
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/events</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/learntocode</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -107,6 +97,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/introvideos/productivity</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/introvideos/extend</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -324,7 +319,7 @@
         <loc>https://code.visualstudio.com/docs/editor/accessibility</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>>
+    </url>
     <url>
         <loc>https://code.visualstudio.com/docs/editor/whyvscode</loc>
         <changefreq>weekly</changefreq>
@@ -582,6 +577,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/typescript/typescript-debugging</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/python/python-quick-start</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -867,6 +867,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/faq-cpp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/csharp/introvideos-csharp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

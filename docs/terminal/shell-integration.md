@@ -78,7 +78,7 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to 
 
 #### Portability versus performance
 
-The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script. This is great as it works cross-platform and also with all install types, provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path, which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
+The above shell integration installation is cross-platform and compatible with any installation type if `code` is in the `$PATH`. However, this recommended approach starts Node.js to fetch the script path, leading to a slight delay in shell startup. To mitigate this delay, inline the script above by resolving the path ahead of time and adding it directly into your init script.
 
 ```sh
 # Output the executable's path first:
@@ -102,7 +102,7 @@ The command and overview ruler decorations can be configured with the `terminal.
 
 ## Command navigation
 
-The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. Hold `kbStyle(Shift)` as well to select from the current position to the command.
+The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. To select from the current position to the command, you can also hold down `kbStyle(Shift)`, pressing `kbStyle(Shift+Ctrl/Cmd+Up)` and `kbStyle(Shift+Ctrl/Cmd+Down)`.
 
 ## Sticky scroll
 
