@@ -243,7 +243,7 @@ Before Blazor components can be discovered, C# Dev Kit needs to load your projec
 
 To improve performance, the extension sometimes defers generating or loading this file until you open your first `.razor` or `.cshtml` file. To ensure that there are no errors in the Solution Explorer for the project you're trying to use, check it carefully.
 
-If your project has loaded correctly, verify that a `project.razor.vscode.bin` file exists in the `obj\Debug\<tfm>` folder on your file system. Since it is a binary file, it isn't straight forward to verify the contents of the file directly, but in general most Razor projects should result in a file that is at least 2KB in size. If the file is only a few hundred bytes it means that tag helpers and/or components are probably not being discovered correctly.
+If your project has loaded correctly, verify that a `project.razor.vscode.bin` file exists in the `obj\Debug\<tfm>` folder on your file system. Since it is a binary file, it isn't straight forward to verify the contents of the file directly, but in general most Razor projects should result in a file that is at least 150KB in size. If the file is only a few kilobytes it means that tag helpers and/or components are probably not being discovered correctly.
 
 To force the file to regenerate, close any open `.razor` or `.cshtml` files, reload the VS Code window, and once the project has loaded correctly, open any `.razor` or `.cshtml` file to trigger the regeneration process.
 
