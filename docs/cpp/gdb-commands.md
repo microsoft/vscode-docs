@@ -17,3 +17,5 @@ In the VS code environment, there are some ways to set up GDB when debugging C/C
 3. `"postRemoteConnectCommands"` filed in `launch.json`
 
 When starting debugging, the working directory for gdb is specified by the "cwd" field in `launch.json`. When gdb is launched, it automatically searches for the `.gdbinit` file in the working directory and executes the commands from `.gdbinit`. And then, GDB will execute the commands from `"setupCommands"` filed and `"postRemoteConnectCommands"` filed. The difference between `setupCommands` and `postRemoteConnectCommands` is that `setupCommands` are executed before loading the debug target, while `postRemoteConnectCommands` are executed after loading the debug target.
+
+In some cases, we may need to load the `.gdbinit` file after loading the debugging target, for example, set hardware breakpoint. In such cases, it is recommended to rename the `.gdbinit` file, for example, to hello.gdbinit, and then add `{"text": "source /path/to/hello.gdbinit"}` to the `postRemoteConnectCommands` field.
