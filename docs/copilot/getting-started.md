@@ -71,7 +71,7 @@ In this tutorial, you're using GitHub Copilot to help you create a `Calculator` 
 
 So far, Copilot is giving you suggestions based on the code you're typing, trying to predict what is relevant. In this step, you'll give instructions to Copilot about what you want it to suggest by using code comments.
 
-We now want to add a method to our `Calculator` class to calculatet the factorial of a given number.
+We now want to add a method to our `Calculator` class to calculate the factorial of a given number.
 
 1. In the TypeScript file, inside the class, add the following code comment.
 
