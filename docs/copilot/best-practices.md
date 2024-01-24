@@ -1,11 +1,11 @@
 ---
-Order: 2
+Order: 3
 Area: copilot
-TOCTitle: Best practices
+TOCTitle: Prompt crafting
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-PageTitle: GitHub Copilot best practices
+PageTitle: Prompt crafting for GitHub Copilot
 DateApproved: 12/7/2023
-MetaDescription: Best practices for optimizing your development experience with GitHub Copilot in VS Code.
+MetaDescription: Optimize your development experience with GitHub Copilot in VS Code through crafting chat prompts and providing context.
 ---
 # GitHub Copilot best practices
 

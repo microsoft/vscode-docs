@@ -148,7 +148,7 @@ In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up C
 
 If you have code selected in the editor, Copilot scopes your question to the selection.
 
-Depending on your question, Copilot can also suggest code modifications. Copilot gives a preview of the updates, which you can then accept (`kb(interactive.acceptChanges)`) or discard (`kb(inlineChat.discard)`).
+Depending on your question, Copilot can also suggest code modifications. Copilot gives a preview of the updates, which you can then accept (`kb(inlineChat.acceptChanges)`) or discard (`kb(inlineChat.discard)`).
 
 ![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/overview/inline-chat-convert-sort.png)
 
