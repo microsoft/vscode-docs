@@ -403,6 +403,8 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
+If you want to provide different arguments per debug run, you can set `args` it to `${command:pickArgs}`. This will prompt you to enter arguments each time you start a debug session.
+
 ### `stopOnEntry`
 
 When set to `true`, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to `false`, the debugger runs the program to the first breakpoint.
