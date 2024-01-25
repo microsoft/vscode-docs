@@ -9,15 +9,17 @@ MetaDescription: Create your first Visual Studio Code extension (plug-in) with a
 
 # Your First Extension
 
-In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed, then use [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) to scaffold a TypeScript or JavaScript project ready for development.
+In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed.
 
-- If you do not want to install Yeoman for later use run
+First, use [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) to scaffold a TypeScript or JavaScript project ready for development.
+
+- If you do not want to install Yeoman for later use, run the following command:
 
   ```bash
   npx --package yo --package generator-code -- yo code
   ```
 
-- If you instead want to install it globally to ease running it repeatedly run
+- If you instead want to install Yeoman globally to ease running it repeatedly, run the following command:
 
   ```bash
   npm install --global yo generator-code
@@ -25,7 +27,7 @@ In this topic, we'll teach you the fundamental concepts for building extensions.
   yo code
   ```
 
-With either choice fill out a few fields for a TypeScript project:
+For a TypeScript project, fill out the following fields:
 
 ```bash
 # ? What type of extension do you want to create? New Extension (TypeScript)
