@@ -277,7 +277,7 @@ For example, the configuration below in the `launch.json` file disables the `jus
 ```json
 {
     "name": "Python: Debug Tests",
-    "type": "python",
+    "type": "debugpy",
     "request": "launch",
     "program": "${file}",
     "purpose": ["debug-test"],
