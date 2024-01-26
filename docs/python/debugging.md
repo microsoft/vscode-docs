@@ -24,6 +24,8 @@ To verify it's installed, open the **Extensions** view (`kb(workbench.view.exten
 
 ![Python Debugger extension shown in installed extensions view in VS Code.](/docs/python/images/shared/python-debugger-extension.png)
 
+You can refer to the extension's [README](https://github.com/microsoft/vscode-python-debugger/blob/main/README.md) page for information on supported Python versions.
+
 ## Initialize configurations
 
 A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
@@ -573,13 +575,6 @@ If you want to run Flask's development server in development mode, use the follo
 ```
 
 <a name="debugger-not-working"></a>
-
-## Support for deprecated Python versions
-The Python Debugger extension supports all [actively supported versions](https://devguide.python.org/#status-of-python-branches) of Python.
-
-To debug Python projects that use deprecated versions of Python such as Python 2.7 and Python 3.6, you can install any of the "2023.1.XXX" versions of the Python Debugger extension. You can do so by opening the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results. Select the gear icon and then the **Install Another Version** option, and choose the latest version that starts with "2023.1".
-> **Note**: You may want to disable auto update of the Python Debugger extension by changing the value of the `"extensions.autoUpdate"` setting in your `settings.json` file.
-
 ## Troubleshooting
 
 There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
