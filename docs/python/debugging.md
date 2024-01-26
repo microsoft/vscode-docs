@@ -18,7 +18,7 @@ This article mainly addresses Python-specific debugging *configurations*, includ
 
 ## Python Debugger Extension
 
-The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is automatically installed along the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code. It offers debugging features with [debugpy](https://pypi.org/project/debugpy/) for several types of Python applications, including scripts, web apps, remote processes and more.
+The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy) is automatically installed along with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code. It offers debugging features with [debugpy](https://pypi.org/project/debugpy/) for several types of Python applications, including scripts, web apps, remote processes and more.
 
 To verify it's installed, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
@@ -102,7 +102,7 @@ The debugger can also be run from the command line, if `debugpy` is installed in
 ### Install debugpy
 You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
 
-> **Tip**: While using a form of virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
+> **Tip**: While using a virtual environment is not required, it is a recommended best practice. You can create a virtual environment in VS Code by opening the Command Palette (`kb(workbench.action.showCommands)`) and running the **Python: Create Virtual Environment** command (`kb(workbench.action.terminal.newWithProfilePython)`).
 
 ### Command line syntax
 The debugger command line syntax is as follows:
@@ -403,7 +403,7 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
-If you want to provide different arguments per debug run, you can set `args` it to `${command:pickArgs}`. This will prompt you to enter arguments each time you start a debug session.
+If you want to provide different arguments per debug run, you can set `args` to `${command:pickArgs}`. This will prompt you to enter arguments each time you start a debug session.
 
 ### `stopOnEntry`
 
