@@ -135,7 +135,7 @@ This property is ignored unless `mode` is set to `loadOnlyIncluded`
 
 The C# Debugger supports various breakpoints, such as source line breakpoints, conditional breakpoints, and logpoints.
 
-### Breakpoint - conditional breakpoint
+### Breakpoint - Conditional breakpoint
 
 With the help of expression evaluation, the debugger also supports conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
 
@@ -164,6 +164,14 @@ The following tokens are also supported in the log message:
 | $HITCOUNT | Number of times this breakpoint has been hit | 5 |
 
 ![LogMessage Breakpoint](images/debugging/logmessage-breakpoint.gif)
+
+### Breakpoint - Triggered breakpoints
+
+A Trigged Breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing a failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, clicking **Add Triggered Breakpoint**, and then choosing which breakpoint enables this one.
+
+<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
 ## Stopping on exceptions
 

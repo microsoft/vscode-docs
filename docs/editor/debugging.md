@@ -184,6 +184,16 @@ Just like regular breakpoints, Logpoints can be enabled or disabled and can also
 
 **Note**: Logpoints are supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions. The [Python](/docs/python/python-tutorial.md) and [Java](/docs/java/java-tutorial.md) extensions, for example, support Logpoints.
 
+### Triggered breakpoints
+
+A Trigged Breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing a failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, clicking **Add Triggered Breakpoint**, and then choosing which breakpoint enables this one.
+
+<video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
+Triggered breakpoints work for all languages, and conditional breakpoints may also be used as the trigger.
+
 ## Data inspection
 
 Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view or by hovering over their source in the editor. Variable values and expression evaluation are relative to the selected stack frame in the **CALL STACK** section.
