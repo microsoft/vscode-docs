@@ -98,7 +98,7 @@ The extension should then disable the features that are not supported in a virtu
 
 ### Default
 
-`"virtualWorkspaces": true` is the default for all extensions that have no yet filled in the `virtualWorkspaces` capability.
+`"virtualWorkspaces": true` is the default for all extensions that have not yet filled in the `virtualWorkspaces` capability.
 
 However, while testing virtual workspaces, we came up list of extensions that we think should be disabled in virtual workspaces.
 The list can be found in [issue #122836](https://github.com/microsoft/vscode/issues/122836). These extensions have `"virtualWorkspaces": false` as default.
