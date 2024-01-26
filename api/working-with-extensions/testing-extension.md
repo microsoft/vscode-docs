@@ -96,7 +96,7 @@ import * as vscode from 'vscode';
 // import * as myExtension from '../extension';
 
 suite('Extension Test Suite', () => {
-  after(() => {
+  suiteTeardown(() => {
     vscode.window.showInformationMessage('All tests done!');
   });
 
