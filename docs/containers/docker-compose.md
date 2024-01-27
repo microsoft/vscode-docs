@@ -130,7 +130,7 @@ For debugging Python with Docker Compose, follow these steps:
         }
     ```
 
-1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab and select **Python Debugger: Remote Attach** as the active configuration.
+1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab, and select **Python Debugger: Remote Attach** as the active configuration.
 
 1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
