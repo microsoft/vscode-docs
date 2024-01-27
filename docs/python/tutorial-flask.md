@@ -178,8 +178,8 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```json
     {
-        "name": "Python: Flask",
-        "type": "python",
+        "name": "Python Debugger: Flask",
+        "type": "debugpy",
         "request": "launch",
         "module": "flask",
         "env": {

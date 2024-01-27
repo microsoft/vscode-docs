@@ -147,7 +147,7 @@ run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=1351
 
 The selected interpreter version will show on the right side of the Status Bar.
 
-![Status Bar showing a selected interpreter](images/environments/selected-interpreter-status-bar.png)
+![Status Bar showing a selected interpreter](images/shared/environment-in-status-bar.png)
 
 The Status Bar also reflects when no interpreter is selected.
 

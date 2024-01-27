@@ -77,7 +77,7 @@ The Python extension can apply a number of different linters including Pylint, p
 
 ## Debugging
 
-No more `print` statement debugging! VS Code comes with great debugging support for Python, allowing you to set breakpoints, inspect variables, and use the debug console for an in-depth look at how your program is executing step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
+No more `print` statement debugging! VS Code comes with great debugging support for Python via the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), allowing you to set breakpoints, inspect variables, and use the debug console for an in-depth look at how your program is executing step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
 
 For more specific information on debugging in Python, such as configuring your `launch.json` settings and implementing remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md).
 
@@ -93,7 +93,7 @@ The Python extension automatically detects Python interpreters that are installe
 
 The current environment is shown on the right side of the VS Code Status Bar:
 
-![Status Bar showing a selected interpreter](images/python/selected-interpreter-status-bar.png)
+![Status Bar showing a selected interpreter](/docs/python/images/shared/environment-in-status-bar.png)
 
 The Status Bar also indicates if no interpreter is selected:
 
