@@ -11,33 +11,24 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 
 The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension is an AI pair programmer tool that helps you write code faster and smarter. You can use the Copilot extension in Visual Studio Code to generate code, learn from the code it generates, and even configure your editor.
 
+With GitHub Copilot in VS Code you can:
+
+* Get inline code suggestions while you're writing and iterating on code.
+* Start a chat conversation to generate or refactor source code, produce documentation comments, or generate unit tests.
+* Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
+* Use chat features to discover and configure your VS Code setup.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Fi3AJZZregI" title="Get Started with the Future of Coding: GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Install the extension
+## Getting started
 
-You use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your artificial intelligence (AI) suggestions in VS Code.
+If you want to use GitHub Copilot, you either need a subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
+The following tutorials walk you through using GitHub Copilot in VS Code.
 
-To use GitHub Copilot, you need an active GitHub Copilot subscription. You can [activate your free trial](#activate-your-free-trial) directly from VS Code or start a free trial from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
+1. [Getting started](/docs/copilot/getting-started.md): set up VS Code for Copilot and get your first AI-powered suggestions
 
-## Sign in and sign up
-
-If you didn't previously authorize VS Code in your GitHub account, you're prompted to sign in to GitHub in VS Code:
-
-![VS Code notification to sign into the Copilot extension](images/overview/copilot-auth-toast.png)
-
-In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
-
-### Activate your free trial
-
-If you didn't yet activate your free trial for Copilot, the extension notifies you in VS Code. Select **Signup for GitHub Copilot** to activate your trial.
-
-![Copilot sign up notification in VS Code](images/overview/copilot-access-toast.png)
-
-Alternately, start a free trial from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
-
-You can learn more about billing for Copilot in the [GitHub Copilot documentation](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+1. [Getting started with Copilot Chat](/docs/copilot/getting-started-chat.md): install the Copilot Chat extension and have your first AI chat conversations
 
 ## Using Copilot
 
