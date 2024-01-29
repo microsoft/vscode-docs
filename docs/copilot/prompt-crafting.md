@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 6
 Area: copilot
 TOCTitle: Prompt crafting
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
@@ -61,11 +61,11 @@ Copilot is going to latch on to your code to generate suggestions that follow th
 
 Always keeping a high quality bar can take discipline. Especially when you're coding fast and loose to get something working, you might want to disable Copilot completions while in "hacking" mode. You can temporarily disable completions from the Copilot status menu. Bring up the Copilot status menu dropdown by selecting the Copilot Status bar item.
 
-![Hover over the Copilot Status bar item displays "Show Copilot status menu"](images/best-practices/show-copilot-status-menu.png)
+![Hover over the Copilot Status bar item displays "Show Copilot status menu"](images/prompt-crafting/show-copilot-status-menu.png)
 
 From the dropdown, you can disable completions entirely, or disable just for the active file type, for example Markdown files.
 
-![Copilot Status menu dropdown with Disable Completions selected](images/best-practices/disable-completions.png)
+![Copilot Status menu dropdown with Disable Completions selected](images/prompt-crafting/disable-completions.png)
 
 <!-- ### Be specific
 
@@ -112,21 +112,21 @@ You can access the Copilot Chat view via the Activity Bar. Like other views in V
 
 For example, you can move it to the [Secondary Side Bar](/docs/editor/custom-layout.md#secondary-side-bar), so that you can use other views like the Explorer at the same time:
 
-![Copilot view moved to Secondary Side Bar](images/best-practices/secondary-sidebar.png)
+![Copilot view moved to Secondary Side Bar](images/prompt-crafting/secondary-sidebar.png)
 
 Another option is to drag and drop the Chat view into the Panel region, for example not to take away screen space for the editor.
 
-![Chat view in the Panel region](images/best-practices/chat-in-panel.png)
+![Chat view in the Panel region](images/prompt-crafting/chat-in-panel.png)
 
 If you need a larger display area for Copilot Chat, you can open the Chat view in the editor region. From the Chat view title bar **More Actions** (`...`) menu, select **Open Session in Editor**.
 
-![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/best-practices/open-session-in-editor.png)
+![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/prompt-crafting/open-session-in-editor.png)
 
 Just like any open editor, you can move editor-hosted Chat views into separate [Editor Groups](/docs/getstarted/userinterface.md#editor-groups) and use display customizations such as [Grid layout](/docs/editor/custom-layout.md#grid-layout) to have multiple chat sessions open in the editor region.
 
 To move the Chat view back to the side bar, use the **Open Session in Side Bar** command in the editor title bar when the Chat view is the active editor.
 
-![Chat view in editor with Open Session in Side bar displayed](images/best-practices/open-session-in-sidebar.png)
+![Chat view in editor with Open Session in Side bar displayed](images/prompt-crafting/open-session-in-sidebar.png)
 
 ### Use agents and slash commands
 
@@ -136,7 +136,7 @@ Agents are designed to collect extra context either about a code base or a speci
 
 Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
-![Inline chat slash command list](images/best-practices/inline-chat-slash-commands.png)
+![Inline chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
 
 You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
 
@@ -148,16 +148,16 @@ When asking Copilot Chat for help, you aren't stuck with the first response. You
 
 Here's an example using inline chat to create a function to calculate Fibonacci numbers:
 
-![First response from Copilot for a function to calculate Fibonacci numbers](images/best-practices/fibonacci-first.png)
+![First response from Copilot for a function to calculate Fibonacci numbers](images/prompt-crafting/fibonacci-first.png)
 
 Maybe you prefer a solution that doesn't use recursion:
 
-![Ask Copilot to not use recursion and new result](images/best-practices/fibonacci-second.png)
+![Ask Copilot to not use recursion and new result](images/prompt-crafting/fibonacci-second.png)
 
 You can even ask Copilot to follow coding conventions or improve variable names:
 
-![Ask Copilot to use better variable names and new result](images/best-practices/fibonacci-third.png)
+![Ask Copilot to use better variable names and new result](images/prompt-crafting/fibonacci-third.png)
 
 Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
 
-![Ask inline chat to use better variable names on existing code](images/best-practices/fibonacci-better-var-names.png)
+![Ask inline chat to use better variable names on existing code](images/prompt-crafting/fibonacci-better-var-names.png)

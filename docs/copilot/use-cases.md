@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: copilot
 TOCTitle: Advanced
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
@@ -25,11 +25,11 @@ Agents are like experts who have a specialty that they can help you with, and yo
 
 You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
 
-![Asking the @vscode agent how to change the VS Code colors](images/advanced/agent-example.png)
+![Asking the @vscode agent how to change the VS Code colors](images/use-cases/agent-example.png)
 
 Agents can also support slash commands for specific types of questions or tasks. For example, `@workspace /explain` can be used to ask Copilot to explain a file or code selection in the context of your open workspace. To see the available agents and slash commands, type `/` for a list.
 
-![Copilot slash command list in chat](images/advanced/slash-commands.png)
+![Copilot slash command list in chat](images/use-cases/slash-commands.png)
 
 * @workspace /explain: Explain step-by-step how the selected code works.
 * @workspace /fix: Propose a fix for the bugs in the selected code.
@@ -51,7 +51,7 @@ In addition to agent and slash command combinations, there are general purpose s
 
 You can use `@workspace /new` to scaffold a new project by using a natural language description:
 
-![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/advanced/workspace-agent-new-example.png)
+![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/use-cases/workspace-agent-new-example.png)
 
 The agent lists the directory structure for the new project. You can then create a new workspace for this project by selecting **Create Workspace**.
 
@@ -63,22 +63,22 @@ Several [slash commands](#agents-and-slash-commands) also work in inline chat su
 
 A useful command is `/fix`, which analyzes the error line or selected code and proposes a fix in a diff view for your review. After reviewing and possibly modifying the generated code, you can choose to **Accept** or **Discard** the fix.
 
-![Inline chat /fix identifying an unassigned variable and proposing a fix in a diff view](images/advanced/inline-chat-fix-example.png)
+![Inline chat /fix identifying an unassigned variable and proposing a fix in a diff view](images/use-cases/inline-chat-fix-example.png)
 
 If the cursor is on an error line, inline chat can suggest a fix for the error. For example, when you're missing a dependency, the chat response provides a command to install that dependency. You can then use the **Insert into terminal**  button or `kb(workbench.action.chat.runInTerminal) to insert the command in the terminal.
 
-![Inline chat /fix for an error proposing to install a missing library](images/advanced/inline-chat-fix-error-message-example.png)
+![Inline chat /fix for an error proposing to install a missing library](images/use-cases/inline-chat-fix-error-message-example.png)
 
 ## Generating code documentation
 
 It can be tedious to add documentation comments to your code. The Copilot inline chat lets you use the `/doc` slash command to generate documentation for the entire code file or the selection. Copilot Chat supports multiple languages for generating code documentation.
 
-![Inline chat /doc example to generate documentation code comments for a calculator class](images/advanced/inline-chat-doc-example.png)
+![Inline chat /doc example to generate documentation code comments for a calculator class](images/use-cases/inline-chat-doc-example.png)
 
 ## Generating unit tests
 
 The `@workspace /tests` slash command enables you to generate unit tests for your code. When generating the tests, the agent can detect the testing framework you're using and generates new tests in the same style. When you use inline chat, you can use the `/tests` slash command.
 
-![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/advanced/workspace-agent-tests-example.png)
+![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/use-cases/workspace-agent-tests-example.png)
 
 When inline chat proposes creating new files, such as when using the `/tests` slash command, you can choose the file name and location by selecting **Create As** from the **Create** drop down.
