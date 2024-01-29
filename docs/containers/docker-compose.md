@@ -107,7 +107,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 For debugging Python with Docker Compose, follow these steps:
 
-1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python**, and select the `Remote Attach` configuration template.
+1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python Debugger**, and select the `Remote Attach` configuration template.
 
    ![Screenshot of Python Remote Attach](images/compose/docker-compose-python-remote-attach.png)
 
@@ -116,8 +116,8 @@ For debugging Python with Docker Compose, follow these steps:
     ```json
          "configurations": [
          {
-            "name": "Python: Remote Attach",
-            "type": "python",
+            "name": "Python Debugger: Remote Attach",
+            "type": "debugpy",
             "request": "attach",
             "port": 5678,
             "host": "localhost",
@@ -130,7 +130,7 @@ For debugging Python with Docker Compose, follow these steps:
         }
     ```
 
-1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab and select **Python: Remote Attach** as the active configuration.
+1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab, and select **Python Debugger: Remote Attach** as the active configuration.
 
 1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
@@ -153,7 +153,7 @@ For debugging Python with Docker Compose, follow these steps:
           - 5678:5678
     ```
 
-1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python: Remote Attach** launch configuration selected.
+1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python Debugger: Remote Attach** launch configuration selected.
 
     ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
 

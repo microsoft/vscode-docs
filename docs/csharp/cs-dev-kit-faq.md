@@ -239,17 +239,17 @@ If you're not seeing enough diagnostics or none at all, it's possible that your 
 
 ### Most or all Blazor components show up with warnings
 
-Before Blazor components can be discovered, C# Dev Kit needs to load your project successfully. Additionally, the Razor language server requires a `project.razor.vscode.json` file to be generated in order to understand the state of your projects. If this file isn't generated, or is generated without any components, the Razor experience may be affected.
+Before Blazor components can be discovered, C# Dev Kit needs to load your project successfully. Additionally, the Razor language server requires a `project.razor.vscode.bin` file to be generated in order to understand the state of your projects. If this file isn't generated, or is generated without any components, the Razor experience may be affected.
 
 To improve performance, the extension sometimes defers generating or loading this file until you open your first `.razor` or `.cshtml` file. To ensure that there are no errors in the Solution Explorer for the project you're trying to use, check it carefully.
 
-If your project has loaded correctly, verify that a `project.razor.vscode.json` file exists in the `obj\Debug\<tfm>` folder on your file system. In that file, make sure that there isn't an empty array of `TagHelpers`.
+If your project has loaded correctly, verify that a `project.razor.vscode.bin` file exists in the `obj\Debug\<tfm>` folder on your file system. Since it is a binary file, it isn't straight forward to verify the contents of the file directly, but in general most Razor projects should result in a file that is at least 150KB in size. If the file is only a few kilobytes it means that tag helpers and/or components are probably not being discovered correctly.
 
 To force the file to regenerate, close any open `.razor` or `.cshtml` files, reload the VS Code window, and once the project has loaded correctly, open any `.razor` or `.cshtml` file to trigger the regeneration process.
 
 ### Target framework errors are mentioned in Razor files
 
-The Razor language server generally does not have a concept of a "solution", but instead loads projects based on the presence of a `project.razor.vscode.json` file in the projects `obj\Debug\<tfm>` folder. Sometimes, old files from target frameworks that are no longer in use can cause confusion, making the Razor server think a project is multi-targeted or that some components are still referenced when they're not.
+The Razor language server generally does not have a concept of a "solution", but instead loads projects based on the presence of a `project.razor.vscode.bin` file in the projects `obj\Debug\<tfm>` folder. Sometimes, old files from target frameworks that are no longer in use can cause confusion, making the Razor server think a project is multi-targeted or that some components are still referenced when they're not.
 
 To resolve this issue, clear out old folders from within the `obj` folder or clear all of them. Then, reload the VS Code window and open a `.razor` file. This should ensure that new JSON files are generated, and the old ones are removed.
 
