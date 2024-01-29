@@ -186,9 +186,9 @@ Just like regular breakpoints, Logpoints can be enabled or disabled and can also
 
 ### Triggered breakpoints
 
-A Trigged Breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing a failure cases in code that happen only after a certain precondition.
+A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 
-Triggered breakpoints can be set by right-clicking on the glyph margin, clicking **Add Triggered Breakpoint**, and then choosing which breakpoint enables this one.
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
 <video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
