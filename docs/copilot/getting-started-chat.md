@@ -27,43 +27,53 @@ The Chat features are available by installing the [GitHub Copilot Chat](https://
 
 ## Get your first Copilot chat conversation
 
-TODO: -> start with existing code (calculator, add, subtract, factorial)
+As you're iterating over your code, there might be moments where you need help from your AI pair programmer to accomplish a task. In the [Copilot Getting Started](/docs/copilot/getting-started.md), you used Copilot inline suggestions and optionally provided context by using code comments.
 
-```typescript
-class Calc {
-    add(a: number, b: number): number {
-        return a + b;
-    }
+In some cases, it might be more efficient to just ask Copilot about a specific topic by using a chat message. For example, a common cause for errors is when a method receives invalid input. In this step, you will start with a simple calculator in TypeScript, and use GitHub Copilot Chat to refactor the code to add error handling.
 
-    subtract(a: number, b: number): number {
-        return a - b;
-    }
+![Video that shows asking Copilot to add error handling to our code. Copilot presents a diff view with the suggested code changes.](./images/getting-started-chat/copilot-chat-add-error-handling.gif)
 
-    factorial(a: number): number {
-        if (a === 0 || a === 1) {
-            return 1;
+Let's use GitHub Copilot to help us add error handling to our code.
+
+1. Open Visual Studio Code and create a new TypeScript file `Calculator.ts`.
+
+1. In the TypeScript file, paste the following code that implements a simple `Calculator` class.
+
+    ```typescript
+    class Calc {
+        add(a: number, b: number): number {
+            return a + b;
         }
-        return a * this.factorial(a - 1);
+    
+        subtract(a: number, b: number): number {
+            return a - b;
+        }
+    
+        factorial(a: number): number {
+            if (a === 0 || a === 1) {
+                return 1;
+            }
+            return a * this.factorial(a - 1);
+        }
     }
-}
+    
+    let calculator = new Calc();
+    console.log(calculator.add(5, 3));
+    ```
 
-let calculator = new Calc();
-console.log(calculator.add(5, 3));
-```
-
-A common cause of errors is when a method receives invalid input. A good practice is to test all input parameters and add error handling. Notice that our `factorial` method doesn't have any error handling, and would actually fail when given a negative number.
-
-Let's use GitHub Copilot to improve our code by adding error handling.
+    Notice that the `factorial` method will actually fail when given a negative number as input.
 
 1. In the editor, select the code block for the `factorial` method.
+
+    By selecting text in the editor, you're providing extra context to GitHub Copilot about what to act upon.
 
 1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
 
     With inline chat, you can ask Copilot any questions while you're in the editor writing and iterating on your code.
 
-1. Enter *Add error handling* in the input box and press `kb(Enter)`.
+1. Enter *Add error handling* in the input box, and then press `kb(Enter)`.
 
-    Copilot sends the request and shows an inline diff of the proposed code changes.
+    Copilot sends the request, and then shows an inline diff with the proposed code changes.
 
 1. Select **Accept** or **Discard** to apply or ignore the changes.
 
@@ -72,6 +82,8 @@ Let's use GitHub Copilot to improve our code by adding error handling.
 ## Generate code documentation
 
 To make your code more readable and maintainable, you can add code documentation. This can be a tedious task, so let's use Copilot to help generate documentation comments for our code.
+
+![Video that shows using Copilot Chat to add documentation comments to a method.](./images/getting-started-chat/copilot-chat-add-docs.gif)
 
 1. In the editor, select the code block for the `add` method.
 
@@ -83,13 +95,15 @@ To make your code more readable and maintainable, you can add code documentation
 
     To view the list of slash commands, enter just */* in the chat input box.
 
-1. Notice that Copilot suggests a documentation comment in the inline diff.
+1. Notice that Copilot suggests a documentation comment.
 
 1. Either **Accept** or **Discard** the suggestion.
 
 ## Improve your code understanding
 
 So far, you used Copilot to generate code suggestions. Next, you'll use Copilot to help you with code understanding. For example, you might be learning a new programming language, or you're jumping into a new code base.
+
+![Video that shows using the Chat view to explain a code fragment and refactor it to not use recursion.](./images/getting-started-chat/copilot-chat-add-docs.gif)
 
 Let's ask Copilot to help us with better understand the `factorial` method.
 
@@ -119,6 +133,8 @@ Let's ask Copilot to help us with better understand the `factorial` method.
 
 With GitHub Copilot Chat in VS Code, you can not only ask about your code, but you can also ask questions about VS Code itself. For example, you might be looking for a specific command or setting.
 
+![Video that shows using the Chat view to find VS Code features such as the 'auto save' setting.](./images/getting-started-chat/copilot-chat-vscode.gif)
+
 Follow these examples or experiment yourself to let Copilot help you explore VS Code features:
 
 1. In the Chat view, enter the following text: *@vscode How do I disable auto-save?*
@@ -128,6 +144,8 @@ Follow these examples or experiment yourself to let Copilot help you explore VS 
 1. In the Chat view, enter the following text: *@vscode How do I change the color of VS Code?*
 
     Notice that Copilot presents you with a button to open the Command Palette and prepopulates the command.
+
+    You can also be less specific when asking Copilot for a VS Code feature. For example, try "@vscode What's that thing to not get interrupted while coding?"
 
 ## Congratulations
 
