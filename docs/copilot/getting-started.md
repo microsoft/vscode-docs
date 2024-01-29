@@ -5,7 +5,7 @@ TOCTitle: Getting started
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
 DateApproved: 12/7/2023
-MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions and chat messages.
+MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 ---
 # Getting started with GitHub Copilot in VS Code
 
@@ -131,4 +131,4 @@ Now that you have an implementation for a simple `Calculator` class, let's test 
 
 Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you've installed the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in VS Code and used the Copilot to provide you with suggestions in the editor to help you code more efficiently.
 
-Next, learn how you can get started with Copilot chat features to interact with Copilot and ask questions about your code, your workspace, and more.
+Next, learn how you can [get started with Copilot chat features](/docs/copilot/getting-started-chat.md) to interact with Copilot and ask questions about your code, your workspace, and more.
