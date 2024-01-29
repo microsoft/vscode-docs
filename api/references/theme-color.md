@@ -186,6 +186,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
+- `list.dropBetweenBackground`: List/Tree drag and drop border color when moving items between items when using the mouse.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 - `tree.inactiveIndentGuidesStroke`: Tree stroke color for the indentation guides that are not active.
 - `tree.tableColumnsBorder`: Tree stroke color for the indentation guides.
@@ -205,6 +206,10 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
+- `activityBarTop.foreground`: Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.activeBorder`: Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.inactiveForeground`: Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 
 ## Profiles
 
@@ -378,6 +383,10 @@ The current line is typically shown as either background highlight or a border (
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
 
+The color for the editor watermark
+
+- `editorWatermark.foreground`: Foreground color for the labels in the editor watermark.
+
 The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
@@ -505,6 +514,8 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
 - `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
+- `editorOverviewRuler.inlineChatInserted`: Overview ruler marker color for inline chat inserted content.
+- `editorOverviewRuler.inlineChatRemoved`: Overview ruler marker color for inline chat removed content.
 
 Errors and warnings:
 
@@ -570,6 +581,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.move.border`: The border color for text that got moved in the diff editor.
 - `diffEditor.moveActive.border`: The active border color for text that got moved in the diff editor.
 - `multiDiffEditor.headerBackground`: The background color of the diff editor's header
+- `multiDiffEditor.background`: The background color of the multi file diff editor
+- `multiDiffEditor.border`: The border color of the multi file diff editor
 
 ## Chat colors
 
@@ -591,6 +604,11 @@ For coloring inserted and removed text, use either a background or a border colo
 - `inlineChatInput.background`: Background color of the interactive editor input.
 - `inlineChatDiff.inserted`: Background color of inserted text in the interactive editor input.
 - `inlineChatDiff.removed`: Background color of removed text in the interactive editor input.
+
+## Panel Chat colors
+
+- `interactive.activeCodeBorder`: The border color for the current interactive code cell when the editor has focus.
+- `interactive.inactiveCodeBorder`: The border color for the current interactive code cell when the editor does not have focus.
 
 ## Editor widget colors
 
@@ -622,6 +640,8 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
 
 - `editorStickyScroll.background`: Editor sticky scroll background color.
+- `editorStickyScroll.border`: Border color of sticky scroll in the editor
+- `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor
 - `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
@@ -710,6 +730,8 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSectionHeader.background`: Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `outputView.background`: Output view background color.
+- `outputViewStickyScroll.background`: Output view sticky scroll background color.
 
 ## Status Bar colors
 
@@ -944,6 +966,17 @@ The following customizations are available:
 - `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
 - `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
 - `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.messagePeekBorder`: Color of the peek view borders and arrow when peeking a logged message.
+- `testing.messagePeekHeaderBackground`: Color of the peek view borders and arrow when peeking a logged message.
+- `testing.coveredBackground`: Background color of text that was covered.
+- `testing.coveredBorder`: Border color of text that was covered.
+- `testing.coveredGutterBackground`: Gutter color of regions where code was covered.
+- `testing.uncoveredBranchBackground`: Background of the widget shown for an uncovered branch.
+- `testing.uncoveredBackground`: Background color of text that was not covered.
+- `testing.uncoveredBorder`: Border color of text that was not covered.
+- `testing.uncoveredGutterBackground`: Gutter color of regions where code not covered.
+- `testing.coverCountBadgeBackground`: Background for the badge indicating execution count
+- `testing.coverCountBadgeForeground`: Foreground for the badge indicating execution count
 
 ## Welcome page colors
 
