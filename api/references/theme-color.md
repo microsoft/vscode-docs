@@ -640,8 +640,8 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
 
 - `editorStickyScroll.background`: Editor sticky scroll background color.
-- `editorStickyScroll.border`: Border color of sticky scroll in the editor
-- `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor
+- `editorStickyScroll.border`: Border color of sticky scroll in the editor.
+- `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor.
 - `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
