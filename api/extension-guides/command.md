@@ -219,5 +219,5 @@ The first example below sets the key `myExtension.showMyCommand` to true, which 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
-vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 2);
 ```
