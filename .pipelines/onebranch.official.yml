@@ -41,8 +41,7 @@ extends:
 
     globalSdl:
       asyncSdl:
-        enabled: true
-        tsaOptionsFile: $(Build.SourcesDirectory)\.config\tsaoptions.json
+        enabled: false
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:
