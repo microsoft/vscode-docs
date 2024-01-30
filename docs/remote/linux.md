@@ -13,11 +13,11 @@ Linux is a highly variable environment and the large number of server, container
 
 The extensions are known to work when connecting to recent stable/LTS version of:
 
-* **Ubuntu 64-bit x86, ARMv8l (AArch64)** (16.04+, IoT 18.04+)
-* **Debian 64-bit x86, ARMv8l (AArch64)** (Stretch/9+)
-* **Raspberry Pi OS ARMv7l (AArch32) 32-bit** (Stretch/9+) (previously called Raspbian)
-* **CentOS / RHEL 64-bit x86** (7+)
-* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.9+) in Dev Containers, WSL
+* **Ubuntu 64-bit x86, ARMv8l (AArch64)** (20.04+)
+* **Debian 64-bit x86, ARMv8l (AArch64)** (Buster/10+)
+* **Raspberry Pi OS ARMv7l (AArch32) 32-bit** (Buster/10+) (previously called Raspbian)
+* **CentOS / RHEL 64-bit x86** (8+)
+* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.16+) in Dev Containers, WSL
 
 The following non-Linux SSH hosts are also supported:
 
@@ -45,12 +45,12 @@ You may encounter issues with certain extensions with native dependencies with *
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
-| General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
+| General |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.25 is available. |
 | General for Arm32 | `libatomic1` | No additional requirements. | |
-| Ubuntu 16.04+, Debian 8+, Raspberry Pi OS Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
-| RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| Alpine Linux 3.9+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
-| openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 3.10, glibc, libstdc++6|
+| Ubuntu 20.04+, Debian 10+, Raspberry Pi OS Buster/10+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
+| RHEL / CentOS 8+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
+| Alpine Linux 3.16+ | `musl libgcc libstdc++`. musl >= 1.2.3, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 4.18, glibc, libstdc++6|
 
 ## Tips by Linux distribution
 
@@ -64,27 +64,20 @@ The following is a list of distributions and any base requirements that may be m
 
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:3.10` | `libgcc libstdc++` |  Supported in Dev Containers and WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
-| ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
-| 🛑 CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
+| ⚠️ Alpine Linux 3.16 (64-bit) | `alpine:3.16` | `libgcc libstdc++` |  Supported in Dev Containers and WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| ✅ CentOS 8 Server (64-bit) | `centos:8` | &lt;none&gt; | &lt;none&gt; |
+| ❌ CentOS 7 Server (64-bit) | `centos:7` | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ Debian 10 Server (64-bit) | `debian:10` | &lt;none&gt; | &lt;none&gt; |
-| ✅ Debian 9 Server (64-bit) | `debian:9` | &lt;none&gt; | &lt;none&gt; |
+| ❌ Debian 9 Server (64-bit) | `debian:9` | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ openSUSE Leap Server 15 (64-bit) |   `opensuse/leap:15` | Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
-| ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
-| ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
-| 🛑️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| ⚠️ Raspberry Pi OS Stretch/9 (ARMv7l 32-bit) | &lt;n/a&gt; | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. Dev Containers **does** support connecting to containers on an ARM host. |
-| ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
-| 🛑 RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
+| ✅ Oracle Linux 8 (64-bit) | `oraclelinux:8` | &lt;none&gt; | &lt;none&gt; |
+| ❌ Oracle Linux 7 (64-bit) | `oraclelinux:7` | `glibc` >= 2.28, `libstdc++` >= 3.4.25. Docker image is missing `tar`. | &lt;none&gt; |
+| ⚠️ Raspberry Pi OS Buster/10 (ARMv7l 32-bit) | &lt;n/a&gt; | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. Dev Containers **does** support connecting to containers on an ARM host. |
+| ✅ RedHat Enterprise Linux 8 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
+| ❌ RedHat Enterprise Linux 7 (64-bit) |  | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
-| ✅ SUSE Linux Enterprise Server 12 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
-| ❌ SUSE Linux Enterprise Server 11 (64-bit) |  |  `glibc` >= 2.17, `libstdc++` >= 3.4.18 | Might work compiling glibc from source, but untested. |
-| ⚠️ Ubuntu 18.04 IoT (ARMv8l 64-bit) | | &lt;n/a&gt; | Some extensions may not work when installed on an ARMv8l host due to extension x86 native code. Dev Containers **does** support connecting to containers on an ARM host. |
 | ✅ Ubuntu Server 20.04 (64-bit) | `ubuntu:20.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 19.04 (64-bit) | `ubuntu:19.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 16.04 (64-bit) | `ubuntu:16.04` | &lt;none&gt;  | &lt;none&gt; |
-| ✅ Ubuntu Server 14.04 (64-bit) | `ubuntu:14.04` | &lt;none&gt;  | &lt;none&gt; |
+| ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
 
 ## Updating glibc and libstdc++ on RHEL / CentOS 6
 
