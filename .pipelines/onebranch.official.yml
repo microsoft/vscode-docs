@@ -40,6 +40,9 @@ extends:
       retryCount: 3
 
     globalSdl:
+      asyncSdl:
+        enabled: true
+        tsaOptionsFile: $(Build.SourcesDirectory)\.config\tsaoptions.json
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:
