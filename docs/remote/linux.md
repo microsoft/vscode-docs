@@ -45,7 +45,7 @@ You may encounter issues with certain extensions with native dependencies with *
 
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
-| General |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.25 is available. |
+| General |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 \| grep GLIBCXX` to see if libstdc++ 3.4.25 is available. |
 | General for Arm32 | `libatomic1` | No additional requirements. | |
 | Ubuntu 20.04+, Debian 10+, Raspberry Pi OS Buster/10+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
 | RHEL / CentOS 8+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
