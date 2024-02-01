@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -72,8 +72,11 @@ C# | `csharp`
 Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
+D | `d`
+Delphi | `pascal`
 Diff | `diff`
 Dockerfile | `dockerfile`
+Erlang | `erlang`
 F# | `fsharp`
 Git | `git-commit` and `git-rebase`
 Go | `go`
@@ -95,6 +98,7 @@ Makefile | `makefile`
 Markdown | `markdown`
 Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
+Pascal | `pascal`
 Perl | `perl` and `perl6`
 PHP | `php`
 Plain Text | `plaintext`

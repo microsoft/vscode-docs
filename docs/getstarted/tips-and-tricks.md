@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -891,6 +891,14 @@ Logpoints act much like breakpoints but instead of halting the debugger when the
 Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
 ![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
+
+### Triggered breakpoints
+
+A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
 
 ## Task runner
 

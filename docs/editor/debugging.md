@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -183,6 +183,16 @@ A Logpoint is represented by a "diamond" shaped icon. Log messages are plain tex
 Just like regular breakpoints, Logpoints can be enabled or disabled and can also be controlled by a condition and/or hit count.
 
 **Note**: Logpoints are supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions. The [Python](/docs/python/python-tutorial.md) and [Java](/docs/java/java-tutorial.md) extensions, for example, support Logpoints.
+
+### Triggered breakpoints
+
+A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
+Triggered breakpoints work for all languages, and conditional breakpoints may also be used as the trigger.
 
 ## Data inspection
 

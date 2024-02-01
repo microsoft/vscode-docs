@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -640,8 +640,8 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
 
 - `editorStickyScroll.background`: Editor sticky scroll background color.
-- `editorStickyScroll.border`: Border color of sticky scroll in the editor
-- `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor
+- `editorStickyScroll.border`: Border color of sticky scroll in the editor.
+- `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor.
 - `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
