@@ -178,11 +178,14 @@ MSYS2's bash shell can be configured with the following profile:
       "args": [
         "--login",
         "-i"
-      ]
+      ],
+      "env": { "CHERE_INVOKING": "1" }
     }
   }
 }
 ```
+
+In MSYS2, login shells execute the script `/etc/post-install/05-home-dir.post` which changes the working directory to `$HOME`. Setting the `CHERE_INVOKING` environment variable preserves the working directory.
 
 This profile should be detected automatically as an [unsafe profile](#unsafe-profile-detection) when installed at the default path `C:\\msys64`.
 
