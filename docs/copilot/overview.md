@@ -46,7 +46,7 @@ As you start writing code or code-related items (comments, test, and more), Copi
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-Notice in the following example how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using gray *ghost text*:
+Notice in the following example how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using dimmed *ghost text*:
 
 ![JavaScript ghost text suggestion.](images/overview/js-suggest.png)
 

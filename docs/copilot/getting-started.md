@@ -55,7 +55,7 @@ In this tutorial, you're using GitHub Copilot to help you create a `Calculator` 
     class Calculator {
     ```
 
-    Copilot will automatically suggest a method for our `Calculator` calls in grayed text (ghost text). In our example, the `add` method is suggested. The exact suggestion may vary. For any given input, Copilot might also offer multiple suggestions.
+    Copilot will automatically suggest a method for our `Calculator` calls in dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestion may vary. For any given input, Copilot might also offer multiple suggestions.
 
     ![Video showing Copilot suggesting the `add` and `subtract` methods inside the Calculator class](./images/getting-started/copilot-generate-methods.gif)
 
