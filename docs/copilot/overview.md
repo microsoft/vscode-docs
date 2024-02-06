@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot in VS Code
@@ -22,114 +22,81 @@ With GitHub Copilot in VS Code you can:
 
 ## Getting started
 
-If you want to use GitHub Copilot, you either need a subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+To get started with Github Copilot in VS Code:
 
-The following tutorials walk you through using GitHub Copilot in VS Code.
+1. Make sure you have a [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
-1. [Getting started](/docs/copilot/getting-started.md): set up VS Code for Copilot and get your first AI-powered suggestions
+1. Get a GitHub Copilot subscription in either your personal account, or have a seat assigned by your organization.
 
-1. [Getting started with Copilot Chat](/docs/copilot/getting-started-chat.md): install the Copilot Chat extension and have your first AI chat conversations
+1. Install the GitHub Copilot extension.
+
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
+
+Follow the steps in the [Getting started tutorial](/docs/copilot/getting-started.md) to get you set up and generate your first AI-powered code suggestions.
+
+Next, learn how to use chat features to help with refactoring code and improving code understanding in the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
 
 ## Using Copilot
 
 Now that you've signed up for Copilot and activated the extension, let's see its assistance in action!
 
+## AI-powered inline suggestions
+
+As you start writing code or code-related items (comments, test, and more), Copilot presents suggestions automatically in the editor to help you code more efficiently. For any given input, Copilot might offer multiple suggestions.
+
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-## Inline suggestions
+Notice in the following example how Copilot suggests an implementation of the `calculateDaysBetweenDates` JavaScript function by using gray *ghost text*:
 
-Copilot presents suggestions automatically in the editor to help you code more efficiently. There are just three steps to harnessing these suggestions:
+![JavaScript ghost text suggestion.](images/overview/js-suggest.png)
 
-1. Start writing code (or code-related items, like comments or tests).
+When you're presented with an inline suggestion, you can accept it with the `kbstyle(Tab)` key. Optionally, you can hover over the suggestion to any of the other suggestsions.
 
-    Copilot can provide suggestions for various languages and frameworks. For any given input, Copilot might offer multiple suggestions. You can select which suggestion to use, or reject all suggestions.
+Rather than letting Copilot provide suggestions as you're typing, you can also use code comments to provide instructions to Copilot. By using code comments, you can be more specific the suggestions you're looking for. For example, you could specify a type of algorithm to use, or which methods and properties to add to a class.
 
-1. Receive a Copilot suggestion in gray ghost (faded) text.
+The following example shows how to instruct Copilot to create a class in TypeScript to represent a student, providing information about methods and properties:
 
-    Ghost text is placeholder text that will be replaced by input you type or select from Copilot.
-
-    As an example, in a JavaScript file, you can type the following function header:
-
-    ```js
-    function calculateDaysBetweenDates(begin, end) {
-    ```
-
-    Copilot will provide a suggestion like in the following example:
-
-    ![JavaScript ghost text suggestion](images/overview/js-suggest.png)
-
-1. Choose to accept Copilot's suggestion.
-
-    For any given input, Copilot might offer multiple suggestions. When Copilot offers a suggestion, you can accept it with the `kbstyle(Tab)` key, or hover over the suggestion to see the inline suggestion toolbar:
-
-    ![JavaScript ghost text suggestion](images/overview/copilot-hover-highlight.png)
-
-    In the previous image, Copilot presents three suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `kbstyle(Ctrl+RightArrow)`. You can switch between suggestions in the suggestion toolbar, or use the keyboard shortcut `kb(editor.action.inlineSuggest.showNext)` instead.
-
-    If you don't want to accept any of the suggestions, you can continue typing, and Copilot will continue providing suggestions as you work.
+![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/overview/ts-suggest-code-comment.png)
 
 ## Chat features
 
-In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. Copilot Chat is supported in several ways:
+In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. You can use Copilot Chat in VS Code in different ways, depending on the context:
 
 * **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
 * **Inline Chat:** Talk with Copilot while writing code, inline in your files.
 * **Quick Chat:** Bring up a Chat dropdown for quick questions and suggestions.
 
-### Install the GitHub Copilot Chat extension
-
-The Chat features are available by installing the additional [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+To use the chat features in VS Code, install the additional [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
 > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot-chat">Install the GitHub Copilot Chat extension</a>
 
-## Chat view
+### Chat view
 
 When developing a project or learning something new, it can be a significant help to get AI assistance on your questions, large or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
 
-You can access the Chat view via the Activity Bar:
+You can access the Chat view via the Activity Bar, or use the `kb(workbench.action.chat.open)` keybinding:
 
 ![Copilot view in VS Code Activity Bar](images/overview/copilot-view.png)
 
-Copilot will suggest potential questions to get started. You can select any of these questions, or use the chat input box to type your own:
+Copilot will suggest potential questions to get started. You can select any of these questions, or use the chat input box to type your own. Notice in the following example that Copilot Chat understands the context of your workspace when asking about "my devcontainer.json" file:
 
 ![Copilot explaining a devcontainer.json file](images/overview/devcontainer-explain.png)
 
 As you continue asking questions, Copilot maintains the history of your conversation, and provides related follow-up questions or commands in its response too.
 
-You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
+> **Tip:** To make your interactions more efficient, you can use *slash commands* as a shorthand for common questions. For example, use the `/help` to get help about GitHub Copilot and how to interact with it Copilot Chat.
 
-> **Tip:** To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input box.
+<!-- TODO: add cross-reference to agents and slash commands -->
 
-<!-- ### Agents and slash commands
-
-TODO: introduction to agents & slash commands
-TODO: add details about getting help -->
-
-### Code blocks
-
-Depending on your question, Copilot Chat might return source code in a code block.
+Depending on your question, Copilot Chat might return source code in a code block. Hovering over the code block presents options to **Copy** and **Insert at Cursor** (`kb(workbench.action.chat.insertCodeBlock)`).
 
 ![A Copilot Chat code block with JSON to change the color of comments in VS Code](images/overview/copy-code-block.png)
-
-Hovering over the code block presents options to **Copy** and **Insert at Cursor** (`kb(workbench.action.chat.insertCodeBlock)`).
-
-The **More Actions** (`...`) button gives options to **Insert Into New File** and **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`).
-
-![Copilot Chat code block with More Actions button expanded](images/overview/more-actions-code-block.png)
 
 If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/overview/run-in-terminal.png)
 
-### Keyboard shortcuts
-
-To make it easy to work with the Chat view, there are several keyboard shortcuts:
-
-* `kb(workbench.action.chat.open)` - Opens the Chat view
-* `kb(workbench.action.chat.clear)` - Clears the Chat view
-* `kb(workbench.action.chat.focusInput)` - Moves keyboard focus to the Chat view input box
-
-## Inline chat
+### Inline chat
 
 An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
 
@@ -143,17 +110,13 @@ Depending on your question, Copilot can also suggest code modifications. Copilot
 
 ![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/overview/inline-chat-convert-sort.png)
 
-## Quick Chat
+### Quick Chat
 
 If you want to ask Copilot a quick question and don't want to start a full Chat view session or open inline chat in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** in the Command Palette, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
-![Quick Chat dropdown](images/overview/quick-chat-dropdown.png)
-
-You can type questions, scope your questions with agents and slash commands, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
-
 ![Quick Chat Open in Chat View button](images/overview/open-in-chat-view.png)
 
-## Chat smart actions
+### Chat smart actions
 
 To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options:
 
@@ -163,7 +126,7 @@ You can apply these smart actions on the current file or a selection in the file
 
 ![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/overview/generate-docs-example.png)
 
-## Other Copilot uses
+## Improving your developer experience
 
 In addition to inline completions and chat, GitHub Copilot can help with other development tasks and workflows. For example, Copilot can help with writing commit messages, fixing errors, and finding commands.
 
