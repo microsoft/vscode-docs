@@ -301,7 +301,7 @@ VS Code will no longer provide product updates or security fixes on macOS Mojave
 
 ## Can I run VS Code on older Linux distributions?
 
-Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04. VS Code will still allow users to connect to an OS that is not supported by VS Code (no support for glibc >= 2.28) until February 2025. We hope this will provide the needed time for you and your companies to migrate to newer Linux distributions. VS Code will show the appropriate dialog and banner when connecting to an OS version that is not supported by VS Code.
+Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04. VS Code will still allow users to connect to an OS that is not supported by VS Code (OS that does not provide glibc >= 2.28 and libstdc++ >= 3.4.25) until February 2025. This allows time for you and your companies to migrate to newer Linux distributions. VS Code will show a dialog and banner message when you connect to an OS version that is not supported by VS Code.
 
 ## Technical Support
 
