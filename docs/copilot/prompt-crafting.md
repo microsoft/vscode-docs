@@ -11,6 +11,8 @@ MetaDescription: Optimize your development experience with GitHub Copilot in VS 
 
 This article covers best practices for using GitHub Copilot in Visual Studio Code, so that you make the most of your AI pair programming experience.
 
+>**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
+
 If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
 
 ## Getting the most out of Copilot inline suggestions
@@ -20,8 +22,6 @@ The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.
 ### Provide context to Copilot
 
 Copilot works best when it has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
-
->**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
 #### Open files
 
