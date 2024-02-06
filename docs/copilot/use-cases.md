@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Advanced
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: GitHub Copilot advanced usage
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot advanced
