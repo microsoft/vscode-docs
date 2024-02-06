@@ -1,7 +1,7 @@
 ---
-Order: 7
+Order: 
 Area: copilot
-TOCTitle: Advanced
+TOCTitle: Use cases
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: GitHub Copilot advanced usage
 DateApproved: 02/1/2024
