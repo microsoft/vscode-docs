@@ -5,7 +5,7 @@ TOCTitle: Sharing git credentials
 PageTitle: Sharing git credentials
 ContentId: 4627daab-1bc2-4e3b-ba81-cd9319ec1230
 MetaDescription: Sharing git credentials
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 ---
 
 # Sharing Git credentials with your container
