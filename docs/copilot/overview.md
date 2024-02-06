@@ -40,7 +40,7 @@ Next, learn how to use chat features to help with refactoring code and improving
 
 Now that you've signed up for Copilot and activated the extension, let's see its assistance in action!
 
-## AI-powered inline suggestions
+## Inline suggestions
 
 As you start writing code or code-related items (comments, test, and more), Copilot presents suggestions automatically in the editor to help you code more efficiently. For any given input, Copilot might offer multiple suggestions.
 
