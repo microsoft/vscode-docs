@@ -29,7 +29,7 @@ Copilot looks at the current and open files in your editor to analyze the contex
 
 #### Top level comment
 
-Just as you would give a brief, high-level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you will be creating.
+Just as you would give a brief, high-level introduction to a coworker, a top level comment in the file you're working in can help Copilot understand the overall context of the pieces you are creating.
 
 <!-- Example of a good and bad top level comment -->
 
@@ -37,11 +37,11 @@ Just as you would give a brief, high-level introduction to a coworker, a top lev
 
 It's best to manually set the includes or module references you need for your work. Copilot can make suggestions, but you likely know best what dependencies you need to include. This can also help let Copilot know what frameworks, libraries, and their versions you'd like it to use when crafting suggestions.
 
-In the following TypeScript example we want to log the output of the `add`method. When we don't have any includes, Copilot suggests to use `console.log`:
+In the following TypeScript example, we want to log the output of the `add`method. When we don't have any includes, Copilot suggests using `console.log`:
 
 ![Copilot inline suggestion proposes Console.log when no imports in the file.](images/prompt-crafting/copilot-suggestion-console-log.png)
 
-On the other hand, when you add a reference to `Log4js`, Copilot suggests to use that framework for logging the output:
+On the other hand, when you add a reference to `Log4js`, Copilot suggests using that framework for logging the output:
 
 ![Copilot inline suggestion proposes logging using the imported logging framework.](images/prompt-crafting/copilot-suggestion-framework-log.png)
 
@@ -109,7 +109,7 @@ You could write out your project scope or current task with a natural language q
 
 ### Use context variables
 
-You can use context variables to provide additional context to your questions in chat by using the `#` symbol:
+You can use context variables to provide extra context to your questions in chat by using the `#` symbol:
 
 The `#selection` context variable enables you to focus Copilot's suggestions on the specific text you select in the editor.
 

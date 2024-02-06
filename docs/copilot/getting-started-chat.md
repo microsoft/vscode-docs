@@ -29,7 +29,7 @@ The Chat features are available by installing the [GitHub Copilot Chat](https://
 
 As you're iterating over your code, there might be moments where you need help from your AI pair programmer to accomplish a task. In the [Copilot Getting Started](/docs/copilot/getting-started.md), you used Copilot inline suggestions and optionally provided context by using code comments.
 
-In some cases, it might be more efficient to just ask Copilot about a specific topic by using a chat message. For example, a common cause for errors is when a method receives invalid input. In this step, you will start with a simple calculator in TypeScript, and use GitHub Copilot Chat to refactor the code to add error handling.
+In some cases, it might be more efficient to just ask Copilot about a specific topic by using a chat message. For example, a common cause for errors is when a method receives invalid input. In this step, you start with a simple calculator in TypeScript, and use GitHub Copilot Chat to refactor the code to add error handling.
 
 ![Video that shows asking Copilot to add error handling to our code. Copilot presents a diff view with the suggested code changes.](./images/getting-started-chat/copilot-chat-add-error-handling.gif)
 
@@ -101,7 +101,7 @@ To make your code more readable and maintainable, you can add code documentation
 
 ## Improve your code understanding
 
-So far, you used Copilot to generate code suggestions. Next, you'll use Copilot to help you with code understanding. For example, you might be learning a new programming language, or you're jumping into a new code base.
+So far, you used Copilot to generate code suggestions. Next, you use Copilot to help you with code understanding. For example, you might be learning a new programming language, or you're jumping into a new code base.
 
 ![Video that shows using the Chat view to explain a code fragment and refactor it to not use recursion.](./images/getting-started-chat/copilot-chat-add-docs.gif)
 
@@ -149,6 +149,6 @@ Follow these examples or experiment yourself to let Copilot help you explore VS 
 
 ## Congratulations
 
-Congratulations, you've successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations about your improving or explaining your code, and about finding your way around VS Code.
+Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations about your improving or explaining your code, and about finding your way around VS Code.
 
 Next, learn more about the features in GitHub Copilot in VS Code in the [GitHub Copilot Overview](/docs/copilot/overview.md).

@@ -9,7 +9,7 @@ MetaDescription: Get started with GitHub Copilot in Visual Studio Code and creat
 ---
 # Getting started with GitHub Copilot in VS Code
 
-This tutorial walks you through configuring the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in Visual Studio Code, and using AI-powered suggestions to help you create a simple calculator in TypeScript.
+This tutorial walks you through configuring the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in Visual Studio Code, and using AI-powered suggestions to help you create a basic calculator class in TypeScript.
 
 For an overview of the GitHub Copilot features in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
@@ -55,7 +55,7 @@ In this tutorial, you're using GitHub Copilot to help you create a `Calculator` 
     class Calculator {
     ```
 
-    Copilot will automatically suggest a method for our `Calculator` calls in dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestion may vary. For any given input, Copilot might also offer multiple suggestions.
+    Copilot automatically suggests a method for our `Calculator` calls in dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestion might vary. For any given input, Copilot might also offer multiple suggestions.
 
     ![Video showing Copilot suggesting the `add` and `subtract` methods inside the Calculator class](./images/getting-started/copilot-generate-methods.gif)
 
@@ -69,7 +69,7 @@ In this tutorial, you're using GitHub Copilot to help you create a `Calculator` 
 
 ## Use code comments for suggestions
 
-So far, Copilot is giving you suggestions based on the code you're typing, trying to predict what is relevant. In this step, you'll give instructions to Copilot about what you want it to suggest by using code comments.
+So far, Copilot is giving you suggestions based on the code you're typing, trying to predict what is relevant. In this step, you give instructions to Copilot about what you want it to suggest by using code comments.
 
 We now want to add a method to our `Calculator` class to calculate the factorial of a given number.
 
@@ -101,7 +101,7 @@ We now want to add a method to our `Calculator` class to calculate the factorial
 
 ## Fix coding errors with Copilot
 
-Now that you have an implementation for a simple `Calculator` class, let's test that it works correctly. In this steps, you'll use Copilot to help fix coding errors.
+Now that you have an implementation for a simple `Calculator` class, let's test that it works correctly. In this step, you use Copilot to help fix coding errors.
 
 1. In the TypeScript file, below the class, type the following code.
 
@@ -111,7 +111,7 @@ Now that you have an implementation for a simple `Calculator` class, let's test 
     // invoke the add method and print the result
     ```
 
-    Copilot will suggest code to invoke the `add` method and output the results to the console. Press the `kbstyle(Tab)` key to accept the suggestion.
+    Copilot suggests code to invoke the `add` method and output the results to the console. Press the `kbstyle(Tab)` key to accept the suggestion.
 
 1. Now, let's see what happens when we make a coding error. Type the following code, incorrectly passing a second argument to the `factorial` method.
 
@@ -123,12 +123,12 @@ Now that you have an implementation for a simple `Calculator` class, let's test 
 
 1. Hover over the red squiggle, select **Quick fix** in the Code Action options, and then select **Fix using Copilot**.
 
-    Copilot suggests to fix the problem by removing the second argument when invoking the `factorial` method. You can preview the modification and choose to **Accept** or **Discard** the changes.
+    Copilot suggests fixing the problem by removing the second argument when invoking the `factorial` method. You can preview the modification and choose to **Accept** or **Discard** the changes.
 
     ![Video showing Copilot suggesting a code fix](./images/getting-started/copilot-code-fix.gif)
 
 ## Congratulations
 
-Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you've installed the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in VS Code and used the Copilot to provide you with suggestions in the editor to help you code more efficiently.
+Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you installed the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension in VS Code and used the Copilot to provide you with suggestions in the editor to help you code more efficiently.
 
 Next, learn how you can [get started with Copilot chat features](/docs/copilot/getting-started-chat.md) to interact with Copilot and ask questions about your code, your workspace, and more.

@@ -22,7 +22,7 @@ With GitHub Copilot in VS Code you can:
 
 ## Getting started
 
-To get started with Github Copilot in VS Code:
+To get started with GitHub Copilot in VS Code:
 
 1. Make sure you have a [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 
@@ -50,7 +50,7 @@ Notice in the following example how Copilot suggests an implementation of the `c
 
 ![JavaScript ghost text suggestion.](images/overview/js-suggest.png)
 
-When you're presented with an inline suggestion, you can accept it with the `kbstyle(Tab)` key. Optionally, you can hover over the suggestion to any of the other suggestsions.
+When you're presented with an inline suggestion, you can accept it with the `kbstyle(Tab)` key. Optionally, you can hover over the suggestion to any of the other suggestions.
 
 Rather than letting Copilot provide suggestions as you're typing, you can also use code comments to provide instructions to Copilot. By using code comments, you can be more specific the suggestions you're looking for. For example, you could specify a type of algorithm to use, or which methods and properties to add to a class.
 
@@ -66,19 +66,19 @@ In addition to inline suggestions, you can also get assistance from Copilot via 
 * **Inline Chat:** Talk with Copilot while writing code, inline in your files.
 * **Quick Chat:** Bring up a Chat dropdown for quick questions and suggestions.
 
-To use the chat features in VS Code, install the additional [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+To use the chat features in VS Code, install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
 > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot-chat">Install the GitHub Copilot Chat extension</a>
 
 ### Chat view
 
-When developing a project or learning something new, it can be a significant help to get AI assistance on your questions, large or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
+When you're developing a project or learning something new, it can be a significant help to get AI assistance on your questions, large or small. Copilot enables an interactive Chat experience that understands the context of your code, workspace, extensions, settings, and more.
 
 You can access the Chat view via the Activity Bar, or use the `kb(workbench.action.chat.open)` keybinding:
 
 ![Copilot view in VS Code Activity Bar](images/overview/copilot-view.png)
 
-Copilot will suggest potential questions to get started. You can select any of these questions, or use the chat input box to type your own. Notice in the following example that Copilot Chat understands the context of your workspace when asking about "my devcontainer.json" file:
+Copilot suggests potential questions to get started. You can select any of these questions, or use the chat input box to type your own. Notice in the following example that Copilot Chat understands the context of your workspace when asking about "my devcontainer.json" file:
 
 ![Copilot explaining a devcontainer.json file](images/overview/devcontainer-explain.png)
 
@@ -98,7 +98,7 @@ If Copilot Chat detects that a code block contains a command, you can run it dir
 
 ### Inline chat
 
-An additional key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
+Another key functionality of Copilot is answering questions inline as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
 
 In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat. You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code", or "How do I add functionality to do X?".
 
