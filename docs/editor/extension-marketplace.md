@@ -87,21 +87,18 @@ You can filter the Extensions view with the **Filter Extensions** context menu.
 
 There are filters to show:
 
-* The list of currently installed extensions
 * The list of outdated extensions that can be updated
 * The list of currently enabled/disabled extensions
 * The list of recommended extensions based on your workspace
 * The list of globally popular extensions
 
-You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
+You can sort the extension list by **Install Count**, **Rating**, **Name**, **Published Date**, or **Updated Date** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
 
 You can run additional Extensions view commands via the `...` **View and More Actions** button.
 
 ![more button](images/extension-marketplace/more-button.png)
 
 Through this context menu you can control extension updates, enable or disable all extensions, and use the [Extension Bisect](https://code.visualstudio.com/blogs/2021/02/16/extension-bisect) utility to isolate problematic extension behavior.
-
-![more dropdown](images/extension-marketplace/more-dropdown.png)
 
 ### Search for an extension
 
@@ -119,7 +116,7 @@ VS Code makes it easy to manage your extensions. You can install, disable, updat
 
 ### List installed extensions
 
-By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More Actions** (`...`) dropdown menu, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
+By default, the Extensions view will show the extensions you currently have installed, and all extensions that are recommended for you. You can use the **Extensions: Focus on Installed View** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or in the **More Actions** (`...`) dropdown menu > **Views** > **Installed**, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
 
 ### Uninstall an extension
 
@@ -145,11 +142,17 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 ### Extension auto-update
 
-VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to reload VS Code. If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command that sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md) to `false`. If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
+VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to reload VS Code. If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command that sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md) to `false`.
+
+If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
 
 ### Update an extension manually
 
-If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Select the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
+If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@updates` filter. This will display any available updates for your currently installed extensions.
+
+Select the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code.You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+
+If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
 
 ## Recommended extensions
 
@@ -224,8 +227,10 @@ If no filter is provided, the Extensions view displays the currently installed a
 You can sort extensions with the `@sort` filter, which can take the following values:
 
 * `installs` - Sort by Marketplace installation count, in descending order.
-* `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
 * `name` - Sort alphabetically by extension name.
+* `publishedDate` - Sort by extension published date.
+* `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
+* `updateDate` - Sort by extension last update name.
 
 ![sort by install count](images/extension-marketplace/sort-install-count.png)
 
@@ -237,7 +242,7 @@ Extensions can set **Categories** and **Tags** describing their features.
 
 You can filter on category and tag by using `category:` and `tag:`.
 
-Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education, Testing]`. They can be accessed through IntelliSense in the extensions search box:
+Supported categories are: `[Azure, Data Science, Debuggers, Education, Extension Packs, Formatters, Keymaps, Language Packs, Linters, Machine Learning, Notebooks, Others, Programming Languages, SCM Providers, Snippets, Testing, Themes, Visualization]`. They can be accessed through IntelliSense in the extensions search box:
 
 ![categories debuggers](images/extension-marketplace/extension-search-categories.png)
 
