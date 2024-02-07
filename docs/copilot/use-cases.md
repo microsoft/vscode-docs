@@ -82,3 +82,11 @@ The `@workspace /tests` slash command enables you to generate unit tests for you
 ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/use-cases/workspace-agent-tests-example.png)
 
 When inline chat proposes creating new files, such as when using the `/tests` slash command, you can choose the file name and location by selecting **Create As** from the **Create** drop down.
+
+## Additional resources
+
+* [Building a GPT-3 app using GitHub Copilot](https://github.blog/2023-07-25-how-to-build-a-gpt-3-app-with-nextjs-react-and-github-copilot/)
+* [Write tests using GitHub Copilot](https://www.youtube.com/watch?v=FnJlLruGz5g)
+* [Improve code performance using Github Copilot Chat](https://www.youtube.com/watch?v=whhq0-5ibac)
+* [Fixing errors using GitHub Copilot](https://www.youtube.com/watch?v=D-gkwzExddk)
+* [Getting help from GitHub Copilot Chat to make your code more accessible](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/)
