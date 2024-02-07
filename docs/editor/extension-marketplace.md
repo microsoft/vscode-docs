@@ -150,7 +150,7 @@ If you don't want VS Code to even check for updates, you can set the `extensions
 
 If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@updates` filter. This will display any available updates for your currently installed extensions.
 
-Select the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code.You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+Select the **Update** button for the outdated extension. The update will be installed, and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
 
 If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
 
