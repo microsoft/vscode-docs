@@ -15,6 +15,7 @@ With GitHub Copilot in VS Code you can:
 
 * Get inline code suggestions while you're writing and iterating on code.
 * Start a chat conversation to generate or refactor source code, produce documentation comments, or generate unit tests.
+* Get help with fixing errors in your code, or resolve error while running commands in the terminal.
 * Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
 * Use chat features to discover and configure your VS Code setup.
 
@@ -24,11 +25,9 @@ With GitHub Copilot in VS Code you can:
 
 To get started with GitHub Copilot in VS Code:
 
-1. Make sure you have a [GitHub account](https://docs.github.com/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
+* Sign up for a [GitHub Copilot free trial](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) in your personal account, or have a GitHub Copilot seat assigned by your organization.
 
-1. Get a GitHub Copilot subscription in either your personal account, or have a seat assigned by your organization.
-
-1. Install the GitHub Copilot extension.
+* Install the GitHub Copilot extension.
 
     > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
@@ -62,9 +61,9 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 In addition to inline suggestions, you can also get assistance from Copilot via a chat interface. You can use Copilot Chat in VS Code in different ways, depending on the context:
 
-* **Chat view:** Ask Copilot for help with any task or question in the GitHub Copilot Chat view.
-* **Inline Chat:** Talk with Copilot while writing code, inline in your files.
-* **Quick Chat:** Bring up a Chat dropdown for quick questions and suggestions.
+* **Chat view:** Ask Copilot for help with any task or question in the Chat view, bringing in code from your current files.
+* **Inline Chat:** Apply Copilot's AI suggestions directly to your code, staying in the flow.
+* **Quick Chat:** Bring up a Chat-powered dropdown for quick questions and suggestions.
 
 To use the chat features in VS Code, install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
@@ -84,9 +83,9 @@ Copilot suggests potential questions to get started. You can select any of these
 
 As you continue asking questions, Copilot maintains the history of your conversation, and provides related follow-up questions or commands in its response too.
 
-> **Tip:** To make your interactions more efficient, you can use *slash commands* as a shorthand for common questions. For example, use the `/help` to get help about GitHub Copilot and how to interact with it Copilot Chat.
+> **Tip:** To make your interactions more efficient, you can use *slash commands* as a shorthand for common questions. For example, use the `/help` to get help about GitHub Copilot. Have you started working on a new code base, then try entering `/explain` to let Copilot help you understand the code.
 
-<!-- TODO: add cross-reference to agents and slash commands -->
+![Copilot explaining the factorial method that's selected in the editor by using the '/explain' command](images/overview/copilot-chat-explain-method.png)
 
 Depending on your question, Copilot Chat might return source code in a code block. Hovering over the code block presents options to **Copy** and **Insert at Cursor** (`kb(workbench.action.chat.insertCodeBlock)`).
 
@@ -125,6 +124,18 @@ To make it easier to use Copilot Chat features, there is a **Copilot** menu grou
 You can apply these smart actions on the current file or a selection in the file. Choosing an action brings up the Chat view or inline chat, depending on the action. For example, selecting **Generate Docs** for a function opens the inline chat with a proposed documentation comment:
 
 ![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/overview/generate-docs-example.png)
+
+### Voice control
+
+With the voice control capabilities in VS Code, you have the option to initiate a chat conversation by using your voice.
+
+You can use the "Hey Code" voice command to start a voice session with Copilot Chat. You can choose whether you want this voice command to open the Chat view, inline chat in the editor, quick chat, or choose dynamically based on where the focus is.
+
+In addition, you can accelerate voice input for chat by using the "hold to speak" mode: press and hold the keybinding for inline chat and voice recording automatically starts. As soon as you release the keys, the request is sent to Copilot.
+
+<video src="images/overview/inline-chat-hold-speak.mp4" title="Hold Cmd+I to enter speak mode, use speech, and then release to send the chat request." autoplay loop controls muted></video>
+
+To enable voice interactions, make sure to install the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extensions.
 
 ## Improving your developer experience
 
