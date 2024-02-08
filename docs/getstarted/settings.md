@@ -639,7 +639,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
     "editor.formatOnPaste": false,
 
-    // Format a file on save. A formatter must be available, the file must not be set `afterDelay` on auto save, and the editor must not be shutting down when formatting.
+    // Format a file on save. A formatter must be available, `files.autoSave` must not be set to `afterDelay`, and the editor must not be shutting down when formatting.
     "editor.formatOnSave": false,
 
     // Controls if format on save formats the whole file or only modifications. Only applies when `editor.formatOnSave` is enabled.
@@ -3785,7 +3785,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Format a notebook cell upon execution. A formatter must be available.
     "notebook.formatOnCellExecution": false,
 
-    // Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+    // Format a notebook on save. A formatter must be available, `files.autoSave` must not be set to `afterDelay`, and the editor must not be shutting down when formatting.
     "notebook.formatOnSave.enabled": false,
 
     // Control whether to render a global toolbar inside the notebook editor.
