@@ -16,7 +16,7 @@ resources:
     - repository: templates
       type: git
       name: OneBranch.Pipelines/GovernedTemplates
-      ref: refs/heads/main
+      ref: 4cfb37c3dc0a2f68b44cdab6070338ba94df8fef
 
   pipelines:
     - pipeline: vscode-website-prod
