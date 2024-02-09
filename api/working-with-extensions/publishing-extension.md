@@ -283,6 +283,16 @@ You can use the `engines.vscode` property to ensure the extension only gets inst
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0`. During the development of version `1.9.0`, a new API was introduced and made available in the Insider release through the version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. In this way, your new extension version will only be available on VS Code `>=1.9.0` (in other words, users with the current Insiders release). Users with the VS Code Stable will only get the update when the Stable release reaches version `1.9.0`.
 
+Also when working on extensions that use proposed APIs, it's possible that a new Insiders build is released with breaking changes. In order to provide a more seamless transition for users, you can now target Insiders versions precisely with a date tag. For example, setting `engines.vscode` to `^1.56.0-20210428` will target any VS Code 1.56 (or newer) build that was created on or after 0:00 UTC, April 28, 2020. This allows you to safely release post-dated extension updates before an upcoming Insiders version is released.
+
+```json
+{
+  "engines": {
+    "vscode": "^1.56.0-20210428",
+  }
+}
+```
+
 ## Advanced usage
 
 ### Marketplace integration
