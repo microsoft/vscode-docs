@@ -83,6 +83,7 @@ Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
 Haml | `haml`
+Haskell	| `haskell`
 HTML | `html`
 Ini | `ini`
 Java | `java`
