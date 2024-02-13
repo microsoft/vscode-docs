@@ -515,6 +515,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _logFile_ -
 
+`workbench.action.openWalkthrough` - Open the walkthrough.
+
+* _walkthroughID_ - ID of the walkthrough to open.
+* _toSide_ - Opens the walkthrough in a new a new editor group to the side.
+
 ## Simple commands
 
 Simple commands that do not require parameters can be found in the Keyboard Shortcuts list in the default `keybindings.json` file. The unbound commands are listed in a comment block at the bottom of the file.
