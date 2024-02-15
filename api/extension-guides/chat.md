@@ -1,0 +1,118 @@
+---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: TODO@ntrogh
+DateApproved: TODO@ntrogh
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: A guide to creating a Copilot Chat Agent in Visual Studio Code
+---
+
+# Chat
+
+Visual Studio Code's Copilot Chat architecture allows extension authors to easily integrate with the Copilot Chat experience. And the unit of extensibility for Copilot Chat is a participant.
+
+Agents are domain experts that can answer the user query however they want - by fully using AI in the query processing or in a traditional way by forwarding it to a backend service. Agents can also provide the language model access to domain specific tools. With the help of the LLM, the agent may select a tool and define how to invoke it. VS Code ships with some built-in agents, for example `@workspace`. The `@workspace` agent knows about your workspace and can answer questions about it. Internally, the agent is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
+
+When a user explicitly mentions an @agent in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
+
+We are also adding an API that allows extensions to [get access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts) and can choose to use the Language Model to process and answer the user query. The agent API passes the exact user prompts to contributed agents, and with the Language Model access - agents can conveniently transition those language prompts into specific backend API calls. We will handle the usage of this API with care and transparency so that users are aware how many requests and tokens have been used by an agent.
+
+## Sample Chat Agent Extension
+
+The [chat agent sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your extension agent.
+
+TODO@isidor chart, register agent -> HANDLING RESPONSE (select slash command -> build your prompt -> send LLM request -> interpret response -> stream to chat)
+
+## Commands
+todo@isidor content and picture and code sample
+
+## Different response types
+
+todo@isidor for each response type we should have a picture and code sample
+
+## Variable Resolving
+
+Variables start with the `#` syntax and are resolved by an extension that contributes that variable or by VS Code if the variable of built-in (e.g `#file`, `#selection`...). Users explictly include variables in their prompts, by pressing `#` VS Code will offer a list of registered variables with their description:
+
+![List of variables in chat](images/chat/variables.png)
+
+
+For example, a C++ extension might contribute a variable `#cpp_context` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preffered.
+
+Variables are offered independent of the active chat participant, and thus they can be used as a mechanism to share context between participants. Participants should not talk to each other. Extension can define an API that another chat participant extension depends on.
+
+Variable resolvers can offer multiple length levels for the variable value and VS Code will use the one depending on how many tokens are left in an LLM prompt.
+
+```typescript
+vscode.chat.registerVariable('cat_context', 'Describes the state of mind and version of the cat', {
+        resolve: (name, context, token) => {
+            if (name == 'cat_context') {
+                const mood = Math.random() > 0.5 ? 'happy' : 'grumpy';
+                return [
+                    {
+                        level: vscode.ChatVariableLevel.Short,
+                        value: 'version 1.3 ' + mood
+                    },
+                    {
+                        level: vscode.ChatVariableLevel.Medium,
+                        value: 'I am a playful cat, version 1.3, and I am ' + mood
+                    },
+                    {
+                        level: vscode.ChatVariableLevel.Full,
+                        value: 'I am a playful cat, version 1.3, this version prefer to explain everything using mouse and tail metaphores. I am ' + mood
+                    }
+                ]
+            }
+        }
+    });
+```
+
+## Follow-ups
+
+todo@isidor content, code and image
+> **Tip:** Follow-ups should be written as questions or directions, not just words.
+
+## Access to the Copilot Language Model
+
+Extensions can get access to the Copilot Language Model using the following method:
+```typescript
+const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
+```
+
+Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time.
+After getting model access, extensions can craft their prompt and send a request to the language model. Language model response is streaming based, and as the response is coming back we suggest for extensions to report progress back to the user for a smooth experience.
+```typescript
+const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
+```
+
+Agents should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models.
+
+### Prompt Crafting
+
+
+todo@isidor content, recommendations
+
+## Embeddings and RAG
+
+todo@isidor content
+
+## Agent Guidelines
+
+Agents should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convinient interactions - contribute rich buttons in your responses, menu items that bring users to your agent in chat, and think about real life scenarios where AI can help your users.
+
+Agents should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple agents - one agent per extension is a simple model that will scale well in the UI.
+
+We are very much looking for feedback. Feel free to comment on this issue https://github.com/microsoft/vscode/issues/199908
+
+
+
+## Testing your extension
+
+
+
+## Publishing your extension
+Once you have created your agent extension and once we finalize the agent API (expected early April 2024) you can publish your extension to the Marketplace:
+* Update the attributes in the `package.json` to make it easy for users to find your agent: include the word "agent" in the extension description and set the Category to "Agents" in your `package.json`.
+* Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
+
+
