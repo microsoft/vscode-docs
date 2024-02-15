@@ -518,7 +518,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `workbench.action.openWalkthrough` - Open the walkthrough.
 
 * _walkthroughID_ - ID of the walkthrough to open.
-* _toSide_ - Opens the walkthrough in a new a new editor group to the side.
+* _toSide_ - Opens the walkthrough in a new editor group to the side.
 
 ## Simple commands
 
