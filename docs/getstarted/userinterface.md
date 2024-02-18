@@ -387,7 +387,7 @@ Windows/Linux:
 If you're coming from buffer-centric editors such as Emacs or vi, you can emulate that workflow with:
 
 ```json
-"workbench.editor.showTabs": false, // or 'single'
+"workbench.editor.showTabs": "single",
 "workbench.editor.revealIfOpen": true,
 "workbench.editor.revealIfOpenInActiveGroup": true,
 "workbench.editor.closeEmptyGroups": false,
