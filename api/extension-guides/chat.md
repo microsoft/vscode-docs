@@ -4,7 +4,7 @@ ContentId: TODO@ntrogh
 DateApproved: TODO@ntrogh
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: A guide to creating a Copilot Chat Agent in Visual Studio Code
+MetaDescription: A guide to creating an AI extension in Visual Studio Code
 ---
 
 # Chat
@@ -21,7 +21,7 @@ This screenshot shows the following chat concepts:
 1. Agent explicitly being called by the user via the `@` syntax
 2. Command explicily called via the `/` syntax
 3. User query
-4. Copilot using a contributed `@cat` agent
+4. Copilot using the contributed `@cat`
 5. Markdown response that is fully controlled by the contributed agent `@cat`
 6. Code part of the markdown response
 7. [Button response](#response-stream)
@@ -29,23 +29,28 @@ This screenshot shows the following chat concepts:
 9. Chat input for the user to continue. `description` of the agent is used as a placeholder
 
 
-## Sample Chat Agent Extension
+## Sample Chat Extension
 
-The [chat agent sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your extension agent.
+The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension.
 
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
+To start and register a chat participant you can do the following:
+
+```typescript
+const cat = vscode.chat.createChatParticipant('cat', handler);
+```
 
 ## Commands
 
-Agents can contribute `/commands`, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description for the active agent.
+Chat participants can contribute `/commands`, which are shortcuts to specific functionality provided by the extension. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description.
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
-Agents can contribute commands with their description using the `commandProvider`:
+Chat participants can contribute commands with their description using the `commandProvider`:
 
 ```typescript
-agent.commandProvider = {
+cat.commandProvider = {
     provideCommands(token) {
         return [
             { name: 'teach', description: 'Pick at random a computer science concept then explain it in purfect way of a cat' },
@@ -60,7 +65,7 @@ agent.commandProvider = {
 
 Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
 
-![Response from the cat agent that includes code, markdown and a button](images/chat/stream.png)
+![Response from the cat extension that includes code, markdown and a button](images/chat/stream.png)
 
 
 An extension can use the response stream in the following way:
@@ -81,7 +86,7 @@ stream.button({
 });
 ```
 
-In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Agent API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continously with the goal of having a smooth user experience.
+In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Chat API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continously with the goal of having a smooth user experience.
 
 ## Variables
 
@@ -125,13 +130,13 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 After each request, followup providers are invoked to get suggested followup questions to show the user. The user can click the followup to send it to the chat. Followups are options for the user on how to take the conversation further.
 
 ```typescript
-agent.followupProvider = {
-    provideFollowups(result: ICatChatAgentResult, token: vscode.CancellationToken) {
+cat.followupProvider = {
+    provideFollowups(result: ICatChatResult, token: vscode.CancellationToken) {
         if (result.metadata.command === 'teach') {
             return [{
                 prompt: 'let us play',
                 title: vscode.l10n.t('Play with the cat')
-            } satisfies vscode.ChatAgentFollowup];
+            } satisfies vscode.ChatFollowup];
         }
     }
 };
@@ -156,15 +161,15 @@ After getting model access, extensions can craft their prompt and send a request
 const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 ```
 
-Agents should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quoatas.
+Extensions should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quoatas.
 
 ### Prompt Crafting
 
 todo@isidor content, recommendations
 
-## Agent Guidelines
+## Guidelines
 
-Agents should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convinient interactions - contribute rich buttons in your responses, menu items that bring users to your agent in chat, and think about real life scenarios where AI can help your users.
+Chat participants should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convinient interactions - contribute rich buttons in your responses, menu items that bring users to your participant in chat, and think about real life scenarios where AI can help your users.
 
 It does not make sense for every extension to contribute a chat agent - users could end up with too many agents in their chat which leads to a bad experience. For example, language extensions (e.g. C++) can contribute in various ways without providing an agent:
 * Contribute variables that bring language service smarts to the user query. For example, #cpp_context variable could be resolved by the C++ extension to the C++ state of the workspace. This gives the Copilot Language Model the right C++ context to improve the quality of Copilot answers for C++.
@@ -181,8 +186,8 @@ We are very much looking for feedback. Feel free to comment on [this issue](http
 
 ## Publishing your extension
 
-Once you have created your agent extension and once we finalize the agent API (expected early April 2024) you can publish your extension to the Marketplace:
-* Update the attributes in the `package.json` to make it easy for users to find your agent: include the word "agent" in the extension description and set the Category to "Agents" in your `package.json`.
+Once you have created your AI extension and once we finalize the Chat and Language Model API (expected early April 2024) you can publish your extension to the Marketplace:
+* Update the attributes in the `package.json` to make it easy for users to find your extension: include the word "agent" in the extension description and set the Category to "Agents" in your `package.json`.
 * Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 
