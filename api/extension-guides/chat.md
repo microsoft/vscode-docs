@@ -58,7 +58,30 @@ agent.commandProvider = {
 
 ## Response Stream
 
-todo@isidor for each response type we should have a picture and code sample
+Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
+
+![Response from the cat agent that includes code, markdown and a button](images/chat/stream.png)
+
+
+An extension can use the response stream in the following way:
+
+```typescript
+stream.markdown('```typescript \n')
+stream.markdown('const myStack = new Stack(); \n');
+stream.markdown('myStack.push(1); // pushing a number on the stack (or let`s say, adding a fish to the stack) \n');
+stream.markdown('myStack.push(2); // adding another fish (number 2) \n');
+stream.markdown('console.log(myStack.pop()); // eating the top fish, will output: 2 \n')
+stream.markdown('``` \n')
+stream.markdown('So remember, Code Kitten, in a stack, the last fish in is the first fish out - which we tech cats call LIFO (Last In, First Out).');
+
+stream.button({
+    command: 'cat.meow',
+    title: vscode.l10n.t('Meow!'),
+    arguments: []
+});
+```
+
+In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Agent API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continously with the goal of having a smooth user experience.
 
 ## Variables
 
@@ -142,6 +165,10 @@ todo@isidor content, recommendations
 ## Agent Guidelines
 
 Agents should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convinient interactions - contribute rich buttons in your responses, menu items that bring users to your agent in chat, and think about real life scenarios where AI can help your users.
+
+It does not make sense for every extension to contribute a chat agent - users could end up with too many agents in their chat which leads to a bad experience. For example, language extensions (e.g. C++) can contribute in various ways without providing an agent:
+* Contribute variables that bring language service smarts to the user query. For example, #cpp_context variable could be resolved by the C++ extension to the C++ state of the workspace. This gives the Copilot Language Model the right C++ context to improve the quality of Copilot answers for C++.
+* Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with LM access this method could generate a fitting default name of the new method.
 
 Agents should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple agents - one agent per extension is a simple model that will scale well in the UI.
 
