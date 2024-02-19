@@ -36,15 +36,32 @@ The [chat agent sample](https://github.com/microsoft/vscode-extension-samples/tr
 TODO@isidor chart, register agent -> HANDLING RESPONSE (select slash command -> build your prompt -> send LLM request -> interpret response -> stream to chat)
 
 ## Commands
-todo@isidor content and picture and code sample
+
+Agents can also contribute `/commands`, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description for the active agent.
+
+![List of commands in chat for @workspace](images/chat/commands.png)
+
+Agents can contribute commands with their description using the `commandProvider`:
+
+```typescript
+agent.commandProvider = {
+    provideCommands(token) {
+        return [
+            { name: 'teach', description: 'Pick at random a computer science concept then explain it in purfect way of a cat' },
+            { name: 'play', description: 'Do whatever you want, you are a cat after all' }
+        ];
+    }
+};
+```
+
 
 ## Response Stream
 
 todo@isidor for each response type we should have a picture and code sample
 
-## Variable Resolving
+## Variables
 
-Variables start with the `#` syntax and are resolved by an extension that contributes that variable or by VS Code if the variable of built-in (e.g `#file`, `#selection`...). Users explictly include variables in their prompts, by pressing `#` VS Code will offer a list of registered variables with their description:
+Orthogonal to chat participants, extensions can contribute `#variables`. Variables start with the `#` syntax and are resolved by an extension that contributes that variable or by VS Code if the variable of built-in (e.g `#file`, `#selection`...). Users explictly include variables in their prompts, by pressing `#` VS Code will offer a list of registered variables with their description:
 
 ![List of variables in chat](images/chat/variables.png)
 
