@@ -17,12 +17,12 @@ When a user explicitly mentions an `@agent` in their prompt, that prompt is forw
 
 ![Chat concepts explanation](images/chat/chat.png)
 
-This screenshot shows the following chat concepts with a sample cat extension:
+This screenshot shows the following chat concepts with a sample extension:
 1. `@cat` explicitly being called by the user via the `@` syntax
 2. Command explicitly called via the `/` syntax
 3. User query
-4. Copilot using the contributed `@cat`
-5. Markdown response that is fully controlled by the contributed `@cat` extension
+4. Copilot using the contributed `@cat` participant
+5. Markdown response that is fully controlled by the contributed `@cat` participant
 6. Code part of the markdown response
 7. [Button response](#response-stream)
 8. [Follow-ups](#follow-ups)
@@ -31,7 +31,7 @@ This screenshot shows the following chat concepts with a sample cat extension:
 
 ## Chat Extension
 
-The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension.
+The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension. It is a simple cat tutor that explains computer science topics using cat metaphors.
 
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
@@ -158,10 +158,19 @@ const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
 
 Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to stay supported forever, and thus code that requests model access should be written "defensively" - it should gracefully handle cases if the access to a particular model is not granted.
 
-After getting model access, extensions can craft their prompt and send a request to the language model. Language model response is streaming based, and as the response is coming back we suggest for extensions to report progress back to the user for a smooth experience.
+After getting model access, extensions can craft their prompt and send a request to the language model. Extensions can use two types of messages:
+* `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the example below, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
+* `LanguageModelUserMessage`: a message that is coming from the user query.
+
 ```typescript
+const craftedPrompt = [
+    new vscode.LanguageModelSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelUserMessage('I want to understand recursion')
+];
 const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 ```
+
+ Language model response is streaming based, and as the response is coming back we suggest for extensions to report progress back to the user for a smooth experience.
 
 Extensions should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quotas.
 
