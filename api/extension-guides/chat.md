@@ -17,16 +17,16 @@ When a user explicitly mentions an `@agent` in their prompt, that prompt is forw
 
 ![Chat concepts explanation](images/chat/chat.png)
 
-This screenshot shows the following chat concepts:
-1. Agent explicitly being called by the user via the `@` syntax
+This screenshot shows the following chat concepts with a sample cat extension:
+1. `@cat` explicitly being called by the user via the `@` syntax
 2. Command explicitly called via the `/` syntax
 3. User query
 4. Copilot using the contributed `@cat`
-5. Markdown response that is fully controlled by the contributed agent `@cat`
+5. Markdown response that is fully controlled by the contributed `@cat` extension
 6. Code part of the markdown response
 7. [Button response](#response-stream)
 8. [Follow-ups](#follow-ups)
-9. Chat input for the user to continue. `description` of the agent is used as a placeholder
+9. Chat input for the user to continue. `description` of `@cat` is used as a placeholder
 
 
 ## Chat Extension
@@ -175,11 +175,11 @@ We suggest to read OpenAI's excellent [prompt engineering guidelines](https://pl
 
 Chat participants should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convenient interactions - contribute rich buttons in your responses, menu items that bring users to your participant in chat, and think about real life scenarios where AI can help your users.
 
-It does not make sense for every extension to contribute a chat agent - users could end up with too many agents in their chat which leads to a bad experience. For example, language extensions (e.g. C++) can contribute in various ways without providing an agent:
+It does not make sense for every extension to contribute a chat participant - users could end up with too many participants in their chat which leads to a bad experience. For example, language extensions (e.g. C++) can contribute in various other ways:
 * Contribute variables that bring language service smarts to the user query. For example, #cpp_context variable could be resolved by the C++ extension to the C++ state of the workspace. This gives the Copilot Language Model the right C++ context to improve the quality of Copilot answers for C++.
 * Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with LM access this method could generate a fitting default name of the new method.
 
-Agents should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple agents - one agent per extension is a simple model that will scale well in the UI.
+Chat extensions should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple chat participants - up to one chat participant per extension is a simple model that will scale well in the UI.
 
 ## Testing your extension
 
@@ -187,7 +187,8 @@ Agents should explicitly ask for user consent if they are about to do a costly o
 
 ## Publishing your extension
 
-Once you have created your AI extension and once we finalize the Chat and Language Model API (expected early April 2024) you can publish your extension to the Marketplace:
+Once you have created your AI extension and once we finalize the Chat and Language Model API (expected early April 2024) you can publish your extension to the VS Marketplace:
+* By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
 * Update the attributes in the `package.json` to make it easy for users to find your extension: include the word "agent" in the extension description and set the Category to "Agents" in your `package.json`.
 * Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
