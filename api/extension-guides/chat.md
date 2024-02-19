@@ -33,7 +33,8 @@ This screenshot shows the following chat concepts:
 
 The [chat agent sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your extension agent.
 
-TODO@isidor chart, register agent -> HANDLING RESPONSE (select slash command -> build your prompt -> send LLM request -> interpret response -> stream to chat)
+![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
+
 
 ## Commands
 
@@ -136,12 +137,7 @@ Agents should responsibly use the model and be aware of rate limiting. VS Code w
 
 ### Prompt Crafting
 
-
 todo@isidor content, recommendations
-
-## Embeddings and RAG
-
-todo@isidor content
 
 ## Agent Guidelines
 
@@ -149,7 +145,7 @@ Agents should not be just question answering bots. When building one, be creativ
 
 Agents should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple agents - one agent per extension is a simple model that will scale well in the UI.
 
-We are very much looking for feedback. Feel free to comment on this issue https://github.com/microsoft/vscode/issues/199908
+We are very much looking for feedback. Feel free to comment on [this issue](https://github.com/microsoft/vscode/issues/199908) or create new ones. We are excited to see what you build!
 
 
 ## Testing your extension
