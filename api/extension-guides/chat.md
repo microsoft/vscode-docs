@@ -41,6 +41,8 @@ To start and register a chat participant you can do the following:
 const cat = vscode.chat.createChatParticipant('cat', handler);
 ```
 
+> **Note:**: The Chat and Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+
 ## Commands
 
 Chat participants can contribute `/commands`, which are shortcuts to specific functionality provided by the extension. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description.
@@ -162,9 +164,11 @@ const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 
 Extensions should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quotas.
 
-### Prompt Crafting
+### Prompt Engineering
 
-todo@isidor content, recommendations
+We suggest to read OpenAI's excellent [prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
+
+>**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file). 
 
 ## Guidelines
 
@@ -175,9 +179,6 @@ It does not make sense for every extension to contribute a chat agent - users co
 * Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with LM access this method could generate a fitting default name of the new method.
 
 Agents should explicitly ask for user consent if they are about to do a costly operation or about to edit or delete something that can not be undone. To have a great user experience we discourage one extension contributing multiple agents - one agent per extension is a simple model that will scale well in the UI.
-
-We are very much looking for feedback. Feel free to comment on [this issue](https://github.com/microsoft/vscode/issues/199908) or create new ones. We are excited to see what you build!
-
 
 ## Testing your extension
 
