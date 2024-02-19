@@ -29,7 +29,7 @@ This screenshot shows the following chat concepts:
 9. Chat input for the user to continue. `description` of the agent is used as a placeholder
 
 
-## Sample Chat Extension
+## Chat Extension
 
 The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension.
 
@@ -43,7 +43,7 @@ const cat = vscode.chat.createChatParticipant('cat', handler);
 
 > **Note:**: The Chat and Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
-## Commands
+### Commands
 
 Chat participants can contribute `/commands`, which are shortcuts to specific functionality provided by the extension. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description.
 
@@ -63,7 +63,7 @@ cat.commandProvider = {
 ```
 
 
-## Response Stream
+### Response Stream
 
 Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
 
@@ -89,6 +89,27 @@ stream.button({
 ```
 
 In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Chat API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience.
+
+
+### Follow-ups
+
+After each request, followup providers are invoked to get suggested followup questions to show the user. The user can click the followup to send it to the chat. Followups are options for the user on how to take the conversation further.
+
+```typescript
+cat.followupProvider = {
+    provideFollowups(result: ICatChatResult, token: vscode.CancellationToken) {
+        if (result.metadata.command === 'teach') {
+            return [{
+                prompt: 'let us play',
+                title: vscode.l10n.t('Play with the cat')
+            } satisfies vscode.ChatFollowup];
+        }
+    }
+};
+```
+
+
+> **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
 ## Variables
 
@@ -126,26 +147,6 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 });
 ```
 
-## Follow-ups
-
-After each request, followup providers are invoked to get suggested followup questions to show the user. The user can click the followup to send it to the chat. Followups are options for the user on how to take the conversation further.
-
-```typescript
-cat.followupProvider = {
-    provideFollowups(result: ICatChatResult, token: vscode.CancellationToken) {
-        if (result.metadata.command === 'teach') {
-            return [{
-                prompt: 'let us play',
-                title: vscode.l10n.t('Play with the cat')
-            } satisfies vscode.ChatFollowup];
-        }
-    }
-};
-```
-
-
-> **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
-
 ## Language Model
 
  Language Model is a complimentary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experience and use the Language Model to offer default names.
@@ -168,7 +169,7 @@ Extensions should responsibly use the model and be aware of rate limiting. VS Co
 
 We suggest to read OpenAI's excellent [prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
 
->**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file). 
+>**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file).
 
 ## Guidelines
 
