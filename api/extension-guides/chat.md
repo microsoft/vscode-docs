@@ -13,7 +13,7 @@ Visual Studio Code's Copilot Chat architecture allows extension authors to easil
 
 Agents are domain experts that can answer the user query however they want - by fully using AI in the query processing or in a traditional way by forwarding it to a backend service. Agents can also provide the language model access to domain specific tools. With the help of the LLM, the agent may select a tool and define how to invoke it. VS Code ships with some built-in agents, for example `@workspace`. The `@workspace` agent knows about your workspace and can answer questions about it. Internally, the agent is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions an @agent in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
+When a user explicitly mentions an `@agent` in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
 
 ![Chat concepts explanation](images/chat/chat.png)
 
@@ -38,7 +38,7 @@ The [chat agent sample](https://github.com/microsoft/vscode-extension-samples/tr
 
 ## Commands
 
-Agents can also contribute `/commands`, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description for the active agent.
+Agents can contribute `/commands`, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description for the active agent.
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
@@ -140,16 +140,16 @@ agent.followupProvider = {
 
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
-## Language Model Access
+## Language Model
 
- Language Model Access is a complimentary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatRequestAccess.d.ts). Using this API, extensions can choose to use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed agents, and with this API, agents can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experiece and use the Language Model to offer default names.
+ Language Model is a complimentary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experiece and use the Language Model to offer default names.
 
 Extensions can get access to the Copilot Language Model using the following method:
 ```typescript
 const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
 ```
 
-Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to be stay supported forever, and thus code that requests model access should be written "defensively" - it should gracefully handle cases if the access to a particular model is not granted.
+Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to stay supported forever, and thus code that requests model access should be written "defensively" - it should gracefully handle cases if the access to a particular model is not granted.
 
 After getting model access, extensions can craft their prompt and send a request to the language model. Language model response is streaming based, and as the response is coming back we suggest for extensions to report progress back to the user for a smooth experience.
 ```typescript
