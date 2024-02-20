@@ -63,7 +63,7 @@ cat.commandProvider = {
 ```
 
 
-### Response Stream
+### Response stream
 
 Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
 
