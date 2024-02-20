@@ -192,7 +192,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Testing your extension
 
-
+The part of the extension that is building prompts and interpreting Language Model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the Language Model itself is indeterministic and can not be easily tested. Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challange.
 
 ## Publishing your extension
 
