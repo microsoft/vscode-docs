@@ -174,7 +174,7 @@ const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 
 Extensions should responsibly use the model and be aware of rate limiting. VS Code will be transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quotas.
 
-### Prompt Engineering
+### Prompt engineering
 
 We suggest to read OpenAI's excellent [prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
 
