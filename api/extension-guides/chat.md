@@ -29,7 +29,7 @@ This screenshot shows the following chat concepts with a sample extension:
 9. Chat input for the user to continue. `description` of `@cat` is used as a placeholder
 
 
-## Chat Extension
+## Chat extension
 
 The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension. It is a simple cat tutor that explains computer science topics using cat metaphors.
 
