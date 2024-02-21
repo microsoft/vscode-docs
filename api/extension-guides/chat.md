@@ -7,7 +7,7 @@ DateApproved: 02/1/2024
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
 ---
 
-# Chat
+# Chat extensions
 
 Visual Studio Code's Copilot Chat architecture allows extension authors to easily integrate with the Copilot Chat experience. And the unit of extensibility for Copilot Chat is an agent.
 
@@ -15,55 +15,74 @@ Agents are domain experts that can answer the user query however they want - by 
 
 When a user explicitly mentions an `@agent` in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
 
+> **Note:**: The Chat and Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+
+## Links
+
+- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample)
+
+### VS Code API Usage
+
+- TODO: add links to the APIs
+
+## Parts of the chat user experience
+
+<!-- TODO: reduce image size -->
+
 ![Chat concepts explanation](images/chat/chat.png)
 
 This screenshot shows the following chat concepts with a sample extension:
+
 1. `@cat` explicitly being called by the user via the `@` syntax
-2. Command explicitly called via the `/` syntax
-3. User query
-4. Copilot using the contributed `@cat` participant
-5. Markdown response that is fully controlled by the contributed `@cat` participant
-6. Code part of the markdown response
-7. [Button response](#response-stream)
-8. [Follow-ups](#follow-ups)
-9. Chat input for the user to continue. `description` of `@cat` is used as a placeholder
+1. Command explicitly called via the `/` syntax
+1. User query
+1. Copilot using the contributed `@cat` participant
+1. Markdown response that is fully controlled by the contributed `@cat` participant
+1. Code part of the markdown response
+1. [Button response](#response-stream)
+1. [Follow-ups](#register-follow-up-requests)
+1. Chat input for the user to continue. `description` of `@cat` is used as a placeholder
 
+## Develop a chat extension
 
-## Chat extension
+As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
 
-The [chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample) can be used as a starting point for your chat extension. It is a simple cat tutor that explains computer science topics using cat metaphors.
+TODO: describe the anatomy of a chat extension. Minimum is registering a participant, which users can invoke through `@`, and a request handler, which interprets the user's question and provides the answer. Then, you can provide some optional functionality.
 
+1. Register the chat participant
+1. Implement a request handler. Optionally, the request handler can take advantage of the language model
+1. (Optional) Register commands
+1. (Optional) Register follow-ups
+1. (Optional) Define chat variables
+
+<!-- TODO: update diagram to distinguish between optional and required -->
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
-To start and register a chat participant you can do the following:
+### Register a chat participant
+
+A chat extension is structured like a regular extension. The first step to create a chat extension is to register a chat participant using `vscode.chat.createChatParticipant`. The user invokes the chat extension in the VS Code Chat view by using the `@` symbol and the name you provided when registering the participant.
+
+To register a chat participant in your chat extension:
 
 ```typescript
-const cat = vscode.chat.createChatParticipant('cat', handler);
+export function activate(context: vscode.ExtensionContext) {
+
+    // Register the chat participant and its request handler
+    const cat = vscode.chat.createChatParticipant('cat', handler);
+
+    // Optionally, set some properties for the participant
+    agent.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
+    agent.description = vscode.l10n.t('Meow! What can I help you with?');
+    agent.fullName = vscode.l10n.t('Cat');
+
+    // TODO: implement the request handler
+}
 ```
 
-> **Note:**: The Chat and Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+### Implement a request handler
 
-### Commands
+TODO: describe how to handle user requests. Optionally, use the LM here. Refer to the next section about follow-up requests, and also refer to commands to use as a shorthand for common questions.
 
-Chat participants can contribute `/commands`, which are shortcuts to specific functionality provided by the extension. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description.
-
-![List of commands in chat for @workspace](images/chat/commands.png)
-
-Chat participants can contribute commands with their description using the `commandProvider`:
-
-```typescript
-cat.commandProvider = {
-    provideCommands(token) {
-        return [
-            { name: 'teach', description: 'Pick at random a computer science concept then explain it in purfect way of a cat' },
-            { name: 'play', description: 'Do whatever you want, you are a cat after all' }
-        ];
-    }
-};
-```
-
-
-### Response stream
 
 Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
 
@@ -91,7 +110,26 @@ stream.button({
 In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Chat API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience.
 
 
-### Follow-ups
+### Register commands
+
+Chat participants can contribute `/commands`, which are shortcuts to specific functionality provided by the extension. One of the tasks when answering questions is to determine the intent, understanding what you want to do. VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is explicit, concise, and saves typing time. By pressing `/` VS Code will offer a list of registered commands with their description.
+
+![List of commands in chat for @workspace](images/chat/commands.png)
+
+Chat participants can contribute commands with their description using the `commandProvider`:
+
+```typescript
+cat.commandProvider = {
+    provideCommands(token) {
+        return [
+            { name: 'teach', description: 'Pick at random a computer science concept then explain it in purfect way of a cat' },
+            { name: 'play', description: 'Do whatever you want, you are a cat after all' }
+        ];
+    }
+};
+```
+
+### Register follow-up requests
 
 After each request, followup providers are invoked to get suggested followup questions to show the user. The user can click the followup to send it to the chat. Followups are options for the user on how to take the conversation further.
 
@@ -107,7 +145,6 @@ cat.followupProvider = {
     }
 };
 ```
-
 
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
@@ -147,7 +184,7 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 });
 ```
 
-## Language model
+## Use the language model
 
  Language Model is a complimentary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experience and use the Language Model to offer default names.
 
