@@ -117,13 +117,13 @@ Using a response stream extensions can respond to user queries with different co
 An extension can use the response stream in the following way:
 
 ```typescript
-stream.markdown('```typescript \n')
-stream.markdown('const myStack = new Stack(); \n');
-stream.markdown('myStack.push(1); // pushing a number on the stack (or let`s say, adding a fish to the stack) \n');
-stream.markdown('myStack.push(2); // adding another fish (number 2) \n');
-stream.markdown('console.log(myStack.pop()); // eating the top fish, will output: 2 \n')
-stream.markdown('``` \n')
-stream.markdown('So remember, Code Kitten, in a stack, the last fish in is the first fish out - which we tech cats call LIFO (Last In, First Out).');
+stream.markdown(`\`\`\`typescript
+const myStack = new Stack();
+myStack.push(1); // pushing a number on the stack (or let's say, adding a fish to the stack)
+myStack.push(2); // adding another fish (number 2)
+console.log(myStack.pop()); // eating the top fish, will output: 2
+\`\`\`
+So remember, Code Kitten, in a stack, the last fish in is the first fish out - which we tech cats call LIFO (Last In, First Out).`);
 
 stream.button({
     command: 'cat.meow',
@@ -182,7 +182,7 @@ Orthogonal to chat participants, extensions can contribute `#variables`. Variabl
 
 For example, a C++ extension might contribute a variable `#cpp_context` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preferred.
 
-Chat participants should not talk directly to each other, instead extensions can define an API that another chat participant extension depends on. Also, variables are resolved independent of the active chat participant, and thus they can be used as a mechanism to share context between participants. For example, `@workspace` already maintains an index of the current workspace. `@workspace` could contribute a variable `#codebase`, that would allow other extensions to leverage the codebase context in their prompts.
+Variables are resolved independent of the active chat participant, and thus they can be used as a mechanism to share context between participants. For example, `@workspace` already maintains an index of the current workspace. `@workspace` contributes a variable `#codebase`, this allows users to leverage the codebase context in their prompts.
 
 Variable resolvers can offer multiple length levels for the variable value and VS Code will use the one depending on how many tokens are left in an LLM prompt.
 
