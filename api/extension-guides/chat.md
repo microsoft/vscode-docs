@@ -56,19 +56,19 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 <!-- TODO: update diagram to distinguish between optional and required -->
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
-### Register a chat participant
+### Register the chat extension
 
-The first step to create a chat extension is to register a chat participant using `vscode.chat.createChatParticipant`. The user invokes the chat extension in the VS Code Chat view by using the `@` symbol and the name you provided when registering the participant.
+The first step to create a chat extension is to register it by using `vscode.chat.createChatParticipant`. The user invokes the chat extension in the VS Code Chat view by using the `@` symbol and the name you provided when registering the extension.
 
 To register a chat participant in your chat extension:
 
 ```typescript
 export function activate(context: vscode.ExtensionContext) {
 
-    // Register the chat participant and its request handler
+    // Register the chat extension and its request handler
     const cat = vscode.chat.createChatParticipant('cat', handler);
 
-    // Optionally, set some properties for the participant
+    // Optionally, set some properties for the chat extension
     agent.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
     agent.description = vscode.l10n.t('Meow! What can I help you with?');
     agent.fullName = vscode.l10n.t('Cat');
@@ -79,13 +79,40 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Implement a request handler
 
-TODO: describe how to handle user requests. Optionally, use the LM here. Refer to the next section about follow-up requests, and also refer to commands to use as a shorthand for common questions.
+In the previous step, you registered the chat extension and referenced a request handler. The request handler is responsible for processing the user's chat requests they enter in the VS Code Chat view. A typical flow for a request handler is the following:
 
+1. Determine the user's intent
+1. Perform logic to handle the request
+1. Return a response to the user
+
+TODO: add more detail about intent and how you can also use commands (add cross-reference)
+TODO: add more detail about handling requests and using static logic, backend services, or LM
+
+TODO: add more details implementing the handler and about `vscode.ChatRequestHandler` and `vscode.ChatRequest`
+
+The following code snippet shows an example of a chat request handler that uses the language model to answer the user's question:
+
+```typescript
+const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken): Promise<ICatChatResult> => {
+    const access = await vscode.lm.requestLanguageModelAccess(LANGUAGE_MODEL_ID);
+    const messages = [
+        new vscode.LanguageModelSystemMessage('You are a cat! Reply in the voice of a cat, using cat analogies when appropriate.'),
+        new vscode.LanguageModelUserMessage(request.prompt)
+    ];
+    const chatRequest = access.makeChatRequest(messages, {}, token);
+    for await (const fragment of chatRequest.stream) {
+        stream.markdown(fragment);
+    }
+
+    return { metadata: { command: '' } };
+};
+```
+
+TODO: intro about rich responses
 
 Using a response stream extensions can respond to user queries with different content types: markdown, images, references, buttons and file trees. For example to generate this response:
 
 ![Response from the cat extension that includes code, markdown and a button](images/chat/stream.png)
-
 
 An extension can use the response stream in the following way:
 
@@ -105,8 +132,9 @@ stream.button({
 });
 ```
 
-In practice, extensions will send a request to the Language Model, and once they get a response from the Language Model they might process it, and decide if they should stream anything back to the user. VS Code Chat API is streaming based, and thus it is compatible with streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience.
+In practice, extensions will typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience.
 
+TODO: add intro about follow-up requests and cross-reference
 
 ### Register commands
 
