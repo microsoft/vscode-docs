@@ -191,7 +191,7 @@ Extensions can get access to the Copilot Language Model using the following meth
 const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
 ```
 
-Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to stay supported forever, and thus code that requests model access should be written "defensively" - it should gracefully handle cases if the access to a particular model is not granted.
+Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to stay supported forever, and thus code that requests model access should be written "defensively" - it should gracefully handle cases if the access to a particular model is not granted. Choosing the right model is up to the extension, and we recommend using less powerful models first (e.g `copilot-gpt-3.5`) since they are much faster which allows a smooth user interaction. Using more powerful but slower models (e.g. `copilot-gpt-4`) is suggested for complex tasks only after the faster models prove insufficient.
 
 After getting model access, extensions can craft their prompt and send a request to the language model. Extensions can use two types of messages:
 * `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the example below, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
@@ -233,7 +233,7 @@ The part of the extension that is building prompts and interpreting Language Mod
 
 Once you have created your AI extension and once we finalize the Chat and Language Model API (expected early April 2024) you can publish your extension to the VS Marketplace:
 * By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
-* Update the attributes in the `package.json` to make it easy for users to find your extension: include the word "agent" in the extension description and set the Category to "Agents" in your `package.json`.
+* Update the attributes in the `package.json` to make it easy for users to find your extension set the Category to "Chat" in your `package.json`.
 * Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 
