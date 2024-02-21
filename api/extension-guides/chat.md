@@ -39,28 +39,26 @@ This screenshot shows the following chat concepts with a sample extension:
 1. Copilot using the contributed `@cat` participant
 1. Markdown response that is fully controlled by the contributed `@cat` participant
 1. Code part of the markdown response
-1. [Button response](#response-stream)
+1. Button response
 1. [Follow-ups](#register-follow-up-requests)
 1. Chat input for the user to continue. `description` of `@cat` is used as a placeholder
 
 ## Develop a chat extension
 
+A chat extension is structured like a regular extension. At a minimum, you need to register the chat extension, to enable users to invoke it by using the `@` symbol in the VS Code Chat view. Next, you have to define a request handler that interprets the user's question, and returns a response in the Chat view.
+
+When you implement the request handler, you might also [use the language model](#use-the-language-model) to help you provide an answer to the user's request. Alternately, you can invoke a backend service, use traditional programming logic, or use a combination of all these options. For example, you could invoke a web search to gather additional context, which you then provide to the language model.
+
+Optionally, you can also register commands, propose follow-up questions, and define chat variables in the chat extension.
+
 As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
-
-TODO: describe the anatomy of a chat extension. Minimum is registering a participant, which users can invoke through `@`, and a request handler, which interprets the user's question and provides the answer. Then, you can provide some optional functionality.
-
-1. Register the chat participant
-1. Implement a request handler. Optionally, the request handler can take advantage of the language model
-1. (Optional) Register commands
-1. (Optional) Register follow-ups
-1. (Optional) Define chat variables
 
 <!-- TODO: update diagram to distinguish between optional and required -->
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
 ### Register a chat participant
 
-A chat extension is structured like a regular extension. The first step to create a chat extension is to register a chat participant using `vscode.chat.createChatParticipant`. The user invokes the chat extension in the VS Code Chat view by using the `@` symbol and the name you provided when registering the participant.
+The first step to create a chat extension is to register a chat participant using `vscode.chat.createChatParticipant`. The user invokes the chat extension in the VS Code Chat view by using the `@` symbol and the name you provided when registering the participant.
 
 To register a chat participant in your chat extension:
 
