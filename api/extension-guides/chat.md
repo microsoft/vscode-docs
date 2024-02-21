@@ -184,7 +184,7 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 
 ## Use the language model
 
- Language Model is a complimentary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experience and use the Language Model to offer default names.
+ Language Model is a complementary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experience and use the Language Model to offer default names.
 
 Extensions can get access to the Copilot Language Model using the following method:
 ```typescript
@@ -227,7 +227,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Testing your extension
 
-The part of the extension that is building prompts and interpreting Language Model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the Language Model itself is indeterministic and can not be easily tested. Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challange.
+The part of the extension that is building prompts and interpreting Language Model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the Language Model itself is nondeterministic and can not be easily tested. Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challange.
 
 ## Publishing your extension
 
