@@ -9,9 +9,9 @@ MetaDescription: A guide to adding AI-powered features to a VS Code extension by
 
 # Language Model API
 
-The Language Model API enables you to [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
+The Language Model API enables you to [access the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
-You can use the Language Model API in different types of extensions. A typical use for this API is in chat extensions, where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names improve its rename experience.
+You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
 
 The process for using the Language Model API consists of the following steps:
 
@@ -55,7 +55,7 @@ const craftedPrompt = [
 const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 ```
 
-We suggest reading OpenAI's excellent [prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
+For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
 
 >**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file).
 
@@ -71,30 +71,10 @@ const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 
 The response from the Language Model API is streaming-based. In a chat extension, as the response is coming back, we suggest reporting progress back to the user for a smooth experience.
 
-The following code snippet shows how a complete example of a chat extension that passes the user's request to the language model, and passes the response on to the user in chat.
+The following code snippet shows how an extension can use the language model access to ...
 
 ```typescript
-const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken): Promise<ICatChatResult> => {
-    // Access the language model
-    const access = await vscode.lm.requestLanguageModelAccess(LANGUAGE_MODEL_ID);
-
-    // Build the language model prompt
-    const messages = [
-        new vscode.LanguageModelSystemMessage('You are a cat! Reply in the voice of a cat, using cat analogies when appropriate.'),
-        new vscode.LanguageModelUserMessage(request.prompt)
-    ];
-
-    // Send the request
-    const chatRequest = access.makeChatRequest(messages, {}, token);
-
-    // Wait for the response from the language model
-    for await (const fragment of chatRequest.stream) {
-        // Pass the response on to the user (chat extension)
-        stream.markdown(fragment);
-    }
-
-    return { metadata: { command: '' } };
-};
+// TODO@Isidorn here we need a sample of an extension that will use an LLM but is not a chat participant
 ```
 
 ## Considerations
@@ -118,6 +98,8 @@ Extensions should not request Language Model API access for integration tests du
 The responses that the Language Model API provides are nondeterministic, which means that you might get a different response for an identical request. This behavior can be challenging for testing your extension.
 
 The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can not be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
+
+Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challenge.
 
 ## Publishing your extension
 
