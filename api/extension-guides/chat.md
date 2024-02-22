@@ -9,17 +9,17 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture allows extension authors to integrate with the Copilot Chat experience. The unit of extensibility for Copilot Chat is an agent.
+Visual Studio Code's Copilot Chat architecture allows extension authors to integrate with the Copilot Chat experience. A chat extension is an ordinary VS Code extension that leverages the Chat extension API.
 
-Agents are domain experts that can answer the user query however they want - by fully using AI in the query processing or in a traditional way by forwarding it to a backend service. Agents can also provide the language model access to domain specific tools. With the help of the LLM, the agent might select a tool and define how to invoke it. VS Code ships with some built-in agents, for example `@workspace`. The `@workspace` agent knows about your workspace and can answer questions about it. Internally, the agent is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
+Chat participants are domain experts that can answer the user query however they want - by fully using AI in the query processing or in a traditional way by forwarding it to a backend service. Participants can also provide the language model access to tools. With the help of the LLM, the participant might select a tool and define how to invoke it. VS Code ships with some built-in chat participants, for example `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions an `@agent` in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
+When a user explicitly mentions an `@participant` in their prompt, that prompt is forwarded to the extension that contributed that specific chat participant. Participants can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when a chat extension is proposing to create a new workspace for the user. Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, participants can bring in commands - shortcuts to specific functionality. For example, `@docker` might contribute a `/generate` command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
 
 > **Note:**: The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
 ## Links
 
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample)
+- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [Language Model API](/api/extension-guides/language-model)
 
 ### VS Code API Usage
@@ -57,7 +57,7 @@ You can further expand the functionality of the chat extension with the followin
 - Define suggested follow-up questions to help the user continue a conversation
 - Define chat variables to capture and share domain-specific context in chat conversations
 
-As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
+As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
 
 <!-- TODO: update diagram to distinguish between optional and required -->
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)

@@ -24,7 +24,7 @@ The process for using the Language Model API consists of the following steps:
 
 ## Links
 
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample)
+- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 
 ### VS Code API Usage
 
