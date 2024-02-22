@@ -15,11 +15,12 @@ Agents are domain experts that can answer the user query however they want - by 
 
 When a user explicitly mentions an `@agent` in their prompt, that prompt is forwarded to the extension that contributed that specific agent. Agents can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when an agent is proposing to create a new workspace for the user. Agents can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. As already mentioned, agents can bring in sub commands - shortcuts to specific functionality. For example, the `@docker` agent might contribute a `/generate` sub command, resulting in the following example user prompt "`@docker /generate` a DOCKERFILE for workspace". The current syntax being explicit and concise can be a convenient time saver.
 
-> **Note:**: The Chat and Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+> **Note:**: The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-agent-sample)
+- [Language Model API](/api/extension-guides/language-model)
 
 ### VS Code API Usage
 
@@ -104,7 +105,7 @@ These are the typical steps for implementing a chat request handler:
 1. Perform logic to answer the user's question
 1. Return a response to the user
 
-To determine the user's intent, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic.
+To determine the user's intent, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
@@ -127,7 +128,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 };
 ```
 
-Next, you need to implement the actual logic for processing the user request. Often, chat extension will [use the language model](#use-the-language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
+Next, you need to implement the actual logic for processing the user request. Often, chat extensions will use the [Language Model API](/api/extension-guides/language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
 
 Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, buttons, and file trees. For example to generate this response:
 
@@ -151,7 +152,7 @@ stream.button({
 });
 ```
 
-In practice, extensions will typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience.
+In practice, extensions will typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
 
 ### Register commands
 
@@ -231,41 +232,6 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 });
 ```
 
-## Use the language model
-
-Language Model is a complementary API that allows [access to the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts). Using this API, if an extension contributes a chat participant it can use the Language Model to process and answer the user query. VS Code passes the exact user prompt to contributed participant, and with this API, participants can conveniently transition those language prompts into specific backend API calls. Usage of this API is not tied to the chat experience, and extensions can get language model access to empower their traditional features. For example, the Rust extension might decide to improve it's rename experience and use the Language Model to offer default names.
-
-Extensions can get access to the Copilot Language Model using the following method:
-
-```typescript
-const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
-```
-
-Currently `copilot-gpt-3.5` and `copilot-gpt-4` are supported, and we expect the list of supported models to grow over time. We do not expect specific models to stay supported forever, and thus code that requests model access should be written "defensively", which means that the code should gracefully handle cases where access to a particular model is not granted. Choosing the appropriate model is up to the extension. We recommend using less powerful models first (e.g `copilot-gpt-3.5`) since they are much faster, which allows a smooth user interaction. Using more powerful but slower models (for example, `copilot-gpt-4`) is suggested for complex tasks, only after the faster models prove to be inadequate.
-
-After they receive model access, extensions can craft their prompt and send a request to the language model. Extensions can use two types of messages:
-
-- `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the example below, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
-- `LanguageModelUserMessage`: a message that is coming from the user query.
-
-```typescript
-const craftedPrompt = [
-    new vscode.LanguageModelSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelUserMessage('I want to understand recursion')
-];
-const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
-```
-
-Language model response is streaming based, and as the response is coming back we suggest for extensions to report progress back to the user for a smooth experience.
-
-Extensions should responsibly use the model and be aware of rate limiting. VS Code is transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quotas.
-
-### Prompt engineering
-
-We suggest reading OpenAI's excellent [prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
-
->**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file).
-
 ## Guidelines
 
 Chat participants should not be just question answering bots. When building one, be creative and use the existing VS Code API to create rich integrations in VS Code. Users love convenient interactions - contribute rich buttons in your responses, menu items that bring users to your participant in chat, and think about real life scenarios where AI can help your users.
@@ -279,7 +245,11 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Testing your extension
 
-The part of the extension that is building prompts and interpreting Language Model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the Language Model itself is nondeterministic and can not be easily tested. Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challenge.
+The responses that the Language Model API provides are nondeterministic, which means that you might get a different response for an identical request. This behavior can be challenging for testing your extension.
+
+The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can not be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
+
+Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challenge.
 
 ## Publishing your extension
 
@@ -288,3 +258,7 @@ Once you have created your AI extension and once we finalize the Chat and Langua
 - By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
 - Update the attributes in the `package.json` to make it easy for users to find your extension set the Category to "Chat" in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
+
+## Related content
+
+- [Use the Language Model API](/api/extension-guides/language-model) in your extension
