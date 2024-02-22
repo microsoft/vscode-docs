@@ -32,12 +32,12 @@ The process for using the Language Model API consists of the following steps:
 
 ## Request language model access
 
-Extensions can get access to the Copilot Language Model using the `vscode.chat.requestLanguageModelAccess` method. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
+Extensions can get access to the Copilot Language Model using the `vscode.chat.requestLanguageModelAccess` method. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
 
-The following code snippet shows how to request access to the `copilot-gpt-4` language model:
+The following code snippet shows how to request access to the `copilot-gpt-3.5-turbo` language model:
 
 ```typescript
-const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-4');
+const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
 ```
 
 ## Prompt crafting
@@ -85,7 +85,9 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `copilot-gpt-3.5`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `copilot-gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
+Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `copilot-gpt-3.5-turbo`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `copilot-gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
+
+>**Note:** both `copilot-gpt-3.5-turbo` and `copilot-gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
 
 ### Rate limiting
 

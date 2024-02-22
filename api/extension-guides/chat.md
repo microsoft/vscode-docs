@@ -9,11 +9,11 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture allows extension authors to integrate with the Copilot Chat experience. A chat extension is an ordinary VS Code extension that leverages the Chat extension API.
+Visual Studio Code's Copilot Chat architecture allows extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is an ordinary VS Code extension that leverages the Chat extension API.
 
-Chat participants are domain experts that can answer the user query however they want - by fully using AI in the query processing or in a traditional way by forwarding it to a backend service. Participants can also provide the language model access to tools. With the help of the LLM, the participant might select a tool and define how to invoke it. VS Code ships with some built-in chat participants, for example `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
+Chat participants are domain experts that can answer the user query however they want - by fully using AI in the query processing or by simply forwarding it to a backend service. Participants can also provide the language model access to tools. With the help of the Language Model, the participant might select a tool and define how to invoke it. VS Code ships with some built-in chat participants, for example `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions an `@participant` in their prompt, that prompt is forwarded to the extension that contributed that specific chat participant. Participants can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when a chat extension is proposing to create a new workspace for the user. Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. Participants can contribute Commands that provide different requests to the LLM. Such a request typically corresponds to an intent from the user. For example ‘/explain’ is a command that corresponds to the intent that the LLM should explain some code. The current syntax being explicit and concise can be a convenient time saver.
+When a user explicitly mentions an `@participant` in their prompt, that prompt is forwarded to the extension that contributed that specific chat participant. Participants can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when a chat extension is proposing to create a new workspace for the user. Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. Participants can contribute Commands that provide different requests to the Language Model. Such a request typically corresponds to an intent from the user. For example ‘/explain’ is a command that corresponds to the intent that the Language Model should explain some code. The current syntax being explicit and concise can be a convenient time saver.
 
 > **Note:**: The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
@@ -46,7 +46,7 @@ This screenshot shows the following chat concepts with a sample extension linked
 
 ## Develop a chat extension
 
-A chat extension is a regular extension that has an  dependency on the copilot chat extension. How to define `extensionDependencies` can be found [here](/api/references/extension-manifest.md). The minimum functionality that is needed for implementing a chat extension is:
+A chat extension is a regular extension that has an  dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). How to define `extensionDependencies` can be found [here](/api/references/extension-manifest.md). The minimum functionality that is needed for implementing a chat extension is:
 
 - Register the chat extension, to let users invoke it by using the `@` symbol in the VS Code Chat view.
 - Define a request handler that interprets the user's question, and returns a response in the Chat view.
@@ -206,7 +206,7 @@ For example, a C++ extension might contribute a variable `#cpp_context` that wou
 
 Variables are resolved independent of the active chat participant, and thus they can be used as a mechanism to share context between participants. For example, `@workspace` already maintains an index of the current workspace. `@workspace` contributes a variable `#codebase`, this allows users to apply the codebase context in their prompts.
 
-Variable resolvers can offer multiple length levels for the variable value. VS Code uses the one based on how many tokens are left in an LLM prompt.
+Variable resolvers can offer multiple length levels for the variable value. VS Code uses the one based on how many tokens are left in an Language Model prompt.
 
 ```typescript
 vscode.chat.registerVariable('cat_context', 'Describes the state of mind and version of the cat', {
