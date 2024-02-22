@@ -207,15 +207,15 @@ cat.followupProvider = {
 
 ## Variables
 
-Orthogonal to chat participants, extensions can contribute `#variables`. Variables start with the `#` syntax and are resolved by an extension that contributes that variable, or by VS Code, if the variable is built in (e.g `#file`, `#selection`...). Users explicitly include variables in their prompts. By pressing `#`, VS Code offers a list of registered variables with their description:
+Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp_context` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preferred.
+
+Users can refer to a chat variable in a prompt by using the `#` symbol. A variable is resolved by either the chat extension that contributed that variable, or by VS Code when it's a built-in variable (for example, `#file` or `#selection`). VS Code offers the list of registered variables upon typing the `#` symbol in the chat input.
 
 ![List of variables in chat](images/chat/variables.png)
 
-For example, a C++ extension might contribute a variable `#cpp_context` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preferred.
+Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant.
 
-Variables are resolved independent of the active chat participant, and thus they can be used as a mechanism to share context between participants. For example, `@workspace` already maintains an index of the current workspace. `@workspace` contributes a variable `#codebase`, this allows users to apply the codebase context in their prompts.
-
-Variable resolvers can offer multiple length levels for the variable value. VS Code uses the one based on how many tokens are left in an Language Model prompt.
+Variable resolvers can offer multiple length levels for the variable value. VS Code selects one based on how many tokens are left in a Language Model prompt.
 
 ```typescript
 vscode.chat.registerVariable('cat_context', 'Describes the state of mind and version of the cat', {
