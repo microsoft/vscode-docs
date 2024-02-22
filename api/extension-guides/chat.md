@@ -15,7 +15,7 @@ Chat participants are domain experts that can answer the user query however they
 
 When a user explicitly mentions an `@participant` in their prompt, that prompt is forwarded to the extension that contributed that specific chat participant. Participants can respond using Markdown for simple text and image responses, or they can respond with a file tree or with buttons for a more interactive experience. For example, a file tree can be used as a preview when a chat extension is proposing to create a new workspace for the user. Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. Participants can contribute Commands that provide different requests to the Language Model. Such a request typically corresponds to an intent from the user. For example ‘/explain’ is a command that corresponds to the intent that the Language Model should explain some code. The current syntax being explicit and concise can be a convenient time saver.
 
-> **Note:**: The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+> **Note:** The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
 ## Links
 
@@ -75,6 +75,7 @@ export function activate(context: vscode.ExtensionContext) {
     const cat = vscode.chat.createChatParticipant('cat', handler);
 
     // Optionally, set some properties for the chat extension
+    cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
     cat.description = vscode.l10n.t('Meow! What can I help you with?');
     cat.fullName = vscode.l10n.t('Cat');
@@ -82,6 +83,8 @@ export function activate(context: vscode.ExtensionContext) {
     // Add the chat request handler here
 }
 ```
+
+Icon, description and full name will be shown in the Chat UI. `isSticky` property controls if the chat participant is persistant - once a user starts interacting with the participant, will it automatically be prepended to the following messages.
 
 After registering the chat participant, you now need to implement the request handler to process a user's request.
 
@@ -158,7 +161,7 @@ In practice, extensions will typically send a request to the language model. Onc
 
 Chat participant can contribute commands, which are shortcuts to specific functionality provided by the extension. Users can reference commands in chat by using the `/` syntax, for example `/explain`.
 
-One of the tasks when answering questions is to determine the user intent. For example, VS Code can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is more explicit, concise, and saves typing time. If you press `/`, VS Code offers a list of registered commands with their description.
+One of the tasks when answering questions is to determine the user intent. For example, VS Code could infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is more explicit, concise, and saves typing time. If you press `/`, VS Code offers a list of registered commands with their description.
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
