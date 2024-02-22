@@ -9,14 +9,15 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture allows extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is an ordinary VS Code extension that leverages the Chat extension API.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a regular VS Code extension that leverages the Chat extension API.
 
-Chat participants are domain experts that can answer the user query however they want - by fully using AI in the query processing or by simply forwarding it to a backend service. Participants can also provide the language model access to tools. With the help of the Language Model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (e.g. [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Some participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example for such a participant is `@workspace`. `@workspace` is a built-in participant, it knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by different tools: GitHub's knowledge graph combined with semantic search, local code indexes, and VS Code's language services.
+*Chat participants* are domain experts that can answer user queries within a specific domain. They can choose to do this by fully using AI in the query processing, or by simply forwarding the user request to a backend service. Participants can also provide the language model access to tools. With the help of the Language Model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (e.g. [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example of such an advanced participant is the built-in `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions an `@participant` in their prompt, that prompt is forwarded to the extension that contributed that specific chat participant. A Participant answers to a request with a `ResponseStream`. A `ResponseStream` can include:
-* Markdown for simple text and image responses
-* Buttons that invoke VS Code commands
-* FileTree (e.g. can be used as a workspace preview when a participant is proposing to create a new workspace)
+When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then responds to the request with a `ResponseStream`. A `ResponseStream` can include:
+
+- Markdown for simple text and image responses
+- Buttons that invoke VS Code commands
+- File trees (e.g. can be used as a workspace preview when a participant is proposing to create a new workspace)
 
 Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. Participants can contribute Commands that provide different requests to the Language Model. Such a request typically corresponds to an intent from the user. For example ‘/explain’ is a command that corresponds to the intent that the Language Model should explain some code. The current syntax being explicit and concise can be a convenient time saver.
 
