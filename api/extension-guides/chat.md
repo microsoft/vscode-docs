@@ -32,7 +32,7 @@ When a user explicitly mentions an `@agent` in their prompt, that prompt is forw
 
 ![Chat concepts explanation](images/chat/chat.png)
 
-This screenshot shows the following chat concepts with a sample extension:
+This screenshot shows the following chat concepts with a sample extension linked above:
 
 1. Use the `@` syntax to invoke the `@cat` chat extension
 1. Use the `/` syntax to call the `/teach` command for the extension
@@ -256,7 +256,7 @@ Extensions should not request Language Model access for integration tests due to
 Once you have created your AI extension and once we finalize the Chat and Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
 
 - By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
-- Update the attributes in the `package.json` to make it easy for users to find your extension set the Category to "Chat" in your `package.json`.
+- Update the attributes in the `package.json` to make it easy for users to find your extension. Set the Category to "Chat" in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 ## Related content
