@@ -214,15 +214,15 @@ The VS Code debugger UI is user accessible and has the following features:
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 
-## Audio Cues
+## Accessibility Signals
 
-Audio cues indicate if the current line has certain markers such as: errors, warnings, breakpoints, folded text regions or inline suggestions.
+Accessibility signals indicate if the current line has certain markers such as: errors, warnings, breakpoints, folded text regions or inline suggestions.
 
-They are played when the primary cursor changes its line or the first time a marker is added to the current line. Audio cues are enabled automatically when a screen reader is attached, but can also be controlled by the settings `audioCues.*`.
+They are played when the primary cursor changes its line or the first time a marker is added to the current line. Accessibility Signal sounds and announcements may be enabled automatically when a screen reader is attached and can be controlled by the settings `accessibility.signals.*`.
 
-The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
+The command **Help: List Signal Sounds** lists all available sounds, lets you hear each as you move through the list, and allows for configuring their enabled/disabled status.
 
-Aria alerts also inform screen reader and braille users that certain markers have been hit. The command **Help: List Alerts** lists all available alerts and informs the user of which are available and which are enabled.
+Aria announcements also inform screen reader and braille users that certain markers have been hit. The command **Help: List Signal Announcements** informs the user of which are available and allows for configuring their enabled/disabled status.
 
 ## Hover accessibility
 
