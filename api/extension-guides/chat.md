@@ -51,7 +51,9 @@ This screenshot shows the following chat concepts with a sample extension linked
 
 ## Develop a chat extension
 
-A chat extension is a regular extension that has an  dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). How to define `extensionDependencies` can be found [here](/api/references/extension-manifest.md). The minimum functionality that is needed for implementing a chat extension is:
+A chat extension is a regular extension that has a dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). You can find details about how to define `extensionDependencies` in the [extension manifest](/api/references/extension-manifest).
+
+The minimum functionality that is needed for implementing a chat extension is:
 
 - Register the chat extension, to let users invoke it by using the `@` symbol in the VS Code Chat view.
 - Define a request handler that interprets the user's question, and returns a response in the Chat view.
