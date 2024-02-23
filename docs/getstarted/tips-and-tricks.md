@@ -308,7 +308,7 @@ Enabled by default for many file types. Create your own schema and validation in
 "json.schemas": [
     {
         "fileMatch": [
-            "/bower.json"
+            "bower.json"
         ],
         "url": "https://json.schemastore.org/bower"
     }
@@ -321,7 +321,7 @@ or for a schema defined in your workspace
 "json.schemas": [
     {
         "fileMatch": [
-            "/foo.json"
+            "**/foo.json"
         ],
         "url": "./myschema.json"
     }

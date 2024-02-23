@@ -99,7 +99,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
 "json.schemas": [
     {
         "fileMatch": [
-            "/*.foo.json"
+            "**/*.foo.json"
         ],
         "url": "./myschema.json"
     }
