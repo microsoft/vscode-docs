@@ -96,7 +96,16 @@ After registering the chat participant, you now need to implement the request ha
 
 ### Implement a request handler
 
-The request handler is responsible for processing the user's chat requests in the VS Code Chat view.
+The request handler is responsible for processing the user's chat requests in the VS Code Chat view. These are the typical steps for implementing a chat request handler:
+
+1. Define the request handler
+1. Determine the intent of the user's request
+1. Perform logic to answer the user's question
+1. Return a response to the user
+
+#### Define the request handler
+
+You define the request handler (`vscode.ChatRequestHandler`) inside the extension's `activate` function.
 
 The following code snippet shows how to define a request handler:
 
@@ -108,13 +117,9 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 };
 ```
 
-These are the typical steps for implementing a chat request handler:
+#### Determine the request intent
 
-1. Determine the user's intent
-1. Perform logic to answer the user's question
-1. Return a response to the user
-
-To determine the user's intent, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
@@ -137,7 +142,13 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 };
 ```
 
+#### Process the request
+
 Next, you need to implement the actual logic for processing the user request. Often, chat extensions will use the [Language Model API](/api/extension-guides/language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
+
+While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". Learn how you can [use the chat message history](#use-the-chat-message-history).
+
+#### Return the chat response
 
 Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, buttons, and file trees. For example to generate this response:
 
@@ -162,6 +173,10 @@ stream.button({
 ```
 
 In practice, extensions will typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
+
+#### Use the chat message history
+
+TODO:@isidorn
 
 ### Register commands
 
