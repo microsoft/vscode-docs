@@ -178,7 +178,12 @@ In practice, extensions will typically send a request to the language model. Onc
 
 #### Use the chat message history
 
-TODO:@isidorn
+Participants have access to the history of the current chat session. For example, using the following code snippet the `@cat` participant can get all the previous `@cat` messages in the current chat session:
+```typescript
+ const previousMessages = context.history.filter(h => h.participant.name == 'cat');
+```
+
+Adding history as additional context when passing messages to the Language Model can be helpful.
 
 ### Register commands
 
