@@ -17,6 +17,8 @@ When a user explicitly mentions a `@participant` in their chat prompt, that prom
 
 - Markdown for simple text and image responses
 - Buttons that invoke VS Code commands
+- Progress for longer running operations
+- References to URIs or editor locations
 - File trees (e.g. can be used as a workspace preview when a participant is proposing to create a new workspace)
 
 Participants can provide follow-ups for each response, imagine them as proposals on how to take the conversation further. To provide a smooth user experience, the whole API is streaming based. Participants can contribute Commands that provide different requests to the Language Model. Such a request typically corresponds to an intent from the user. For example ‘/explain’ is a command that corresponds to the intent that the Language Model should explain some code. The current syntax being explicit and concise can be a convenient time saver.
@@ -149,13 +151,14 @@ While processing the current request, you might want to refer to previous chat m
 
 #### Return the chat response
 
-Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, buttons, and file trees. For example to generate this response:
+Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, progress, buttons, and file trees. For example to generate this response:
 
 ![Response from the cat extension that includes code, markdown and a button](images/chat/stream.png)
 
 An extension can use the response stream in the following way:
 
 ```typescript
+stream.progress('Picking the right topic to teach...');
 stream.markdown(`\`\`\`typescript
 const myStack = new Stack();
 myStack.push(1); // pushing a number on the stack (or let's say, adding a fish to the stack)
