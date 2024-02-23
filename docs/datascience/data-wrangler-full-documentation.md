@@ -2,7 +2,7 @@
 
 [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
 
-![gif](https://private-user-images.githubusercontent.com/15910920/307412238-074cbe94-dcbe-48ac-8c21-5e8ec1337503.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MTE5NjAsIm5iZiI6MTcwODcxMTY2MCwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0MTIyMzgtMDc0Y2JlOTQtZGNiZS00OGFjLThjMjEtNWU4ZWMxMzM3NTAzLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDE4MDc0MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWIxODczYTkwN2NlMjMzOWE3Y2QyMTQ1Yzk2MDFhZDg2NWUwMzEyMzNlMGIxYzFkMWYxZmEyZDRmMWZkNjJhZjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.qE9c6Dg2F8KmBIEL-oAqJDeNY_KkzGmQZ2N-qnyETcA)
+![gif](https://github.com/microsoft/vscode-docs/assets/15910920/68d4e18f-dd99-4913-91b0-f36092e19a65)
 
 This document will cover how to:
 
@@ -40,7 +40,7 @@ Anytime you are in Data Wrangler, you are in a **sandboxed** environment, meanin
 
 There are 3 ways to launch Data Wrangler from your Jupyter Notebook
 
-![image](https://private-user-images.githubusercontent.com/15910920/307426798-53273480-8544-408a-be96-638ca073b6cd.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MTU2ODIsIm5iZiI6MTcwODcxNTM4MiwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0MjY3OTgtNTMyNzM0ODAtODU0NC00MDhhLWJlOTYtNjM4Y2EwNzNiNmNkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDE5MDk0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNiNzU2NTA2ZjhhMjViM2U5N2IzZDZlNWE5OWE2Mzk3OTBhNTZiMGMzOTFhNmE5ODBjZGUyNjlkMDhkODBiODcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.7L662lvyh1OHkQIN3GxrgnYHENFNyH_Ca8W0BDLvrPw)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/c03a4b85-80cf-46e0-b365-38820d51ff96)
 
 1. In the Jupyter Notebook Variable Explorer, beside any supported data object, you will see a button to launch Data Wrangler.
 2. If you have a Pandas data frame in your Notebook, you’ll now see an `Open 'df'` button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `df`.
@@ -50,16 +50,15 @@ There are 3 ways to launch Data Wrangler from your Jupyter Notebook
 
 You can also launch Data Wrangler directly from a local file (such as a .csv). To do so, open any folder in VS Code that contains the file you’d like to open. In the File Explorer panel, right click the file and click `Open in Data Wrangler`.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307406413-92bffc97-da96-4ed1-aac1-97e852dd52f2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MTA1NjEsIm5iZiI6MTcwODcxMDI2MSwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0MDY0MTMtOTJiZmZjOTctZGE5Ni00ZWQxLWFhYzEtOTdlODUyZGQ1MmYyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDE3NDQyMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZiMWU1YzkxNTU2MTNiNTk2NWJjNWYyOGNjNTllNjU5NWJhYjAzNzAyOGNiMDY3ZjhkZDhjNTAwNDZmMWZmOWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.LYWbpqiKgp6c-XvDgRFYHZNovwEJN0buhpHgHCIin4I)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/517e1e29-ba45-4e24-87fb-adb53a6207f1)
 
 Data Wrangler currently supports the following filetypes
-1. `.csv`
+1. `.csv`/`.tsv`
 2. `.xls`/`.xlsx`
 3. `.parquet`
-4. `.tsx`
 
 Depending on the file type, you will be able to specify the delimeter and/or sheet of the file.
-![image](https://private-user-images.githubusercontent.com/15910920/307452182-7e39febb-d9d8-46b2-a95f-329145a199a1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjMwNDcsIm5iZiI6MTcwODcyMjc0NywicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NTIxODItN2UzOWZlYmItZDlkOC00NmIyLWE5NWYtMzI5MTQ1YTE5OWExLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIxMTIyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFjZmExYjE4ZjY2NWQ3MzEyOTk2NDMxNzlkNGMwMWFiODRlNGNmZTVmNjJjZTJjYjFjYWIwMTQ5OWI3NTdkMGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.PZN2yCIi-4ZdHtvAz_XfpC142E8Z9A4YeCGHacfSKpg)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/424a88fd-be5a-4d03-b878-426fe380266a)
 
 You can also set these file types to open with Data Wrangler by default.
 
@@ -73,11 +72,11 @@ Data Wrangler has 2 modes when working with your data. The details for each mode
 
 Note: By default Data Wrangler opens in the View mode, but this can be changed to Edit as well in the settings.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307448603-52106028-bedc-4bfe-93fe-de889f94277d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjE5NjEsIm5iZiI6MTcwODcyMTY2MSwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NDg2MDMtNTIxMDYwMjgtYmVkYy00YmZlLTkzZmUtZGU4ODlmOTQyNzdkLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIwNTQyMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVmMzM1OWQ5YTExZWY5NTE2ZjAxYWMxMDExNmEzNGVlNGI2ZDg1MzU2NmU0M2ZjYTA3MjkyYjQ5MWY4MWQyMDkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.3ioF9bZMTCNsUtmSr_w85XcLF1orBNDeuTbCDRr7it4)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/6f2bef2f-d071-42aa-926c-83bcda4c9db5)
 
 ### View mode interface
 
-![image](https://private-user-images.githubusercontent.com/15910920/307448371-722e227e-776c-4e75-ae2c-089fc3871459.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjE5MDAsIm5iZiI6MTcwODcyMTYwMCwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NDgzNzEtNzIyZTIyN2UtNzc2Yy00ZTc1LWFlMmMtMDg5ZmMzODcxNDU5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIwNTMyMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY0NjJmMWZhNTliOWI5NjZhZjFkNTdmZDU0MDY1Y2VhZDkyNzk2OTg5MTljYmZiMDQ2ZWYxYzY0M2Y2NTgxZTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.4k1bPu2GLWNxkXE9hIySud9a9m_X1V25lruVAM9B0bk)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
 
 1. The **Data Summary Panel** shows detailed summary statistics for your overall dataset or a specific column if one is selected.
 
@@ -95,7 +94,7 @@ Note: By default Data Wrangler opens in the View mode, but this can be changed t
 
 Switching to Edit mode enables additional funcionality and UI within Data Wrangler. In the example below, we are using Data Wrangler to replace the missing values in the last column with median of that column.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307176698-450de035-aeb6-4e05-87cc-60ea6ac3a586.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg2NDIzMzgsIm5iZiI6MTcwODY0MjAzOCwicGF0aCI6Ii8xNTkxMDkyMC8zMDcxNzY2OTgtNDUwZGUwMzUtYWViNi00ZTA1LTg3Y2MtNjBlYTZhYzNhNTg2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIyVDIyNDcxOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQzOGQ3Mjg1ZWIxYjA2MThiODZlNTRmOWEyYWQzODZiNjc5NTczNjUyNzMzMDcxZjc5ODRjOTI4YTMwNWVjMmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.3Cc8lNVn9CRkz7Y7YGjopY577-xKBl4ygfMgFi-MGVo)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
 
 
 1. The **Operations Panel** is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by their top-level category.
@@ -112,7 +111,7 @@ Switching to Edit mode enables additional funcionality and UI within Data Wrangl
 
 The built-in Data Wrangler operations can be selected from the operation panel.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307450328-468b82fe-bf78-40a8-ab60-860b2ad4ce53.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjI0ODMsIm5iZiI6MTcwODcyMjE4MywicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NTAzMjgtNDY4YjgyZmUtYmY3OC00MGE4LWFiNjAtODYwYjJhZDRjZTUzLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIxMDMwM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFjOGU3YzU0ZDk1ZjA3MWQzZDUzNTJiNWExNTRkZjIzMTJlMjU1ZmVmNGVmZDY5MWUwZmFmMDRkYzA5Yzk1NmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.dqqEBYkfpf2PyqVYmVH4_9Mc_aKYYBytEz3l792beg4)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/7016afb1-beee-4dc8-a223-c265fa715ebb)
 
 These are the Data Wrangler operations that are currently supported in the initial launch of Data Wrangler (with many more to be added in the near future).
 
@@ -154,7 +153,7 @@ If there is an operation that is missing that you'd like to see supported in Dat
 
 Each step of the generated code can be modified through the cleaning steps panel. Select the step you want to modify first. Then, as you make changes to the operation (either via code or the operation panel), the effects of your changes on the data will be highlighted in the grid view.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307450932-e87a13bc-f9dc-4653-867e-8036f9e6cd1f.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjI2NzMsIm5iZiI6MTcwODcyMjM3MywicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NTA5MzItZTg3YTEzYmMtZjlkYy00NjUzLTg2N2UtODAzNmY5ZTZjZDFmLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIxMDYxM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThmOTY3NmQ2OWU0YjIzODE4OGNiZDI0N2E4MTYxMmY0NGZmNWFkNjU3M2Y1MDgxNzJiZjIyZjg2NTM4MjE0ZDQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.1Iq1xDx3KnJujjuowYiTb9XZcS2kQW6bpdojGIX13WQ)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/8d2e20dd-9c2d-4b9c-bdad-3651d1930cc2)
 
 
 ## Editing and exporting code
@@ -166,13 +165,13 @@ Once you’re done with your data cleaning steps in Data Wrangler, there are 3 w
 3. **Copy code to clipboard:** This copies all the code that was generated by Data Wrangler for the data cleaning operations.
 
 
-![image](https://private-user-images.githubusercontent.com/15910920/307446970-5762375c-d072-4352-9c48-e834a3562880.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjE0NzUsIm5iZiI6MTcwODcyMTE3NSwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NDY5NzAtNTc2MjM3NWMtZDA3Mi00MzUyLTljNDgtZTgzNGEzNTYyODgwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIwNDYxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWVmMjc2N2ZmMWQwNWU0MzE1NzUyMTg4ZGJiZTMyOTA5NzM0MzQ0Njk1ZWJhNWE3MDAwYTRhYTFmMjhlZWRjMjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.2lrqrzEVmbXeZ1cvgZYExPtHEsRJxfv_JemGHlTUgTU)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/798cc251-05a2-4cef-85a1-c99210d48b29)
 
 ## Searching for columns
 
 To find a specific column in your dataset, select `Go to column` from the Data Wrangler toolbar and search for the respective column.
 
-![image](https://private-user-images.githubusercontent.com/15910920/307451540-3835c239-ddc9-496b-876c-c8615476d7db.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg3MjI4NTYsIm5iZiI6MTcwODcyMjU1NiwicGF0aCI6Ii8xNTkxMDkyMC8zMDc0NTE1NDAtMzgzNWMyMzktZGRjOS00OTZiLTg3NmMtYzg2MTU0NzZkN2RiLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjIzVDIxMDkxNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNmODE1NDU2NTU3NTdmN2YzOTAzNzJhNmRkYzBmOGY5MjE1NDk0ZjBkY2E4YWJmNmFhOGRhYWYyNjg1NTIwNWImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.eY4eVVlVJXiRr5mZvgEYahQEe1iF34WJvm19AIhEd2M)
+![image](https://github.com/microsoft/vscode-docs/assets/15910920/0a8d41ab-d8ba-440b-9e67-312618375989))
 
 ## Troubleshooting
 
