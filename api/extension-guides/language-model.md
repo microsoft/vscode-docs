@@ -69,7 +69,7 @@ const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 
 ## Interpret the response
 
-The following code snippet shows how an extension can register a command, that uses the language model access to change all variable names in the active editor with funny cat names. The response from the Language Model API is streaming-based, so the extension streams the code back to the editor for a smooth user experience:
+The following code snippet shows how an extension can register a command and use the language model access to change all variable names in the active editor with funny cat names. The response from the Language Model API is streaming-based, so the extension streams the code back to the editor for a smooth user experience:
 
 ```typescript
  vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
@@ -122,7 +122,7 @@ Extensions should not request Language Model API access for integration tests du
 
 The responses that the Language Model API provides are nondeterministic, which means that you might get a different response for an identical request. This behavior can be challenging for testing your extension.
 
-The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can not be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
+The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can’t be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
 
 Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challenge.
 
