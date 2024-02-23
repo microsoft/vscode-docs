@@ -27,6 +27,8 @@
       ["Color Theme", "/api/extension-guides/color-theme"],
       ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
       ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
+      ["Chat", "/api/extension-guides/chat"],
+      ["Language Model", "/api/extension-guides/language-model"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Notebook", "/api/extension-guides/notebook"],
