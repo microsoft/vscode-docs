@@ -69,12 +69,35 @@ const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
 
 ## Interpret the response
 
-The response from the Language Model API is streaming-based. In a chat extension, as the response is coming back, we suggest reporting progress back to the user for a smooth experience.
-
-The following code snippet shows how an extension can use the language model access to ...
+The following code snippet shows how an extension can register a command, that uses the language model access to change all variable names in the active editor with funny cat names. The response from the Language Model API is streaming-based, so the extension streams the code back to the editor for a smooth user experience:
 
 ```typescript
-// TODO@Isidorn here we need a sample of an extension that will use an LLM but is not a chat participant
+ vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
+    // Replace all variables in active editor with cat names and words
+    const text = textEditor.document.getText();
+    const access = await vscode.lm.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
+    const messages = [
+        new vscode.LanguageModelSystemMessage(`You are a cat! Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
+        new vscode.LanguageModelUserMessage(text)
+    ];
+    const chatRequest = access.makeChatRequest(messages, {}, new vscode.CancellationTokenSource().token);
+
+    // Clear the editor content before inserting new content
+    await textEditor.edit(edit => {
+        const start = new vscode.Position(0, 0);
+        const end = new vscode.Position(textEditor.document.lineCount - 1, textEditor.document.lineAt(textEditor.document.lineCount - 1).text.length);
+        edit.delete(new vscode.Range(start, end));
+    });
+
+    // Stream the code into the editor as it is coming in from the Language Model
+    for await (const fragment of chatRequest.stream) {
+        await textEditor.edit(edit => {
+            const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
+            const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
+            edit.insert(position, fragment);
+        });
+    }
+});
 ```
 
 ## Considerations
