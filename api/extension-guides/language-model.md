@@ -25,10 +25,7 @@ The process for using the Language Model API consists of the following steps:
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-
-### VS Code API Usage
-
-- [LanguageModels](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts)
+- [LanguageModels API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts)
 
 ## Request language model access
 
