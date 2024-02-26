@@ -11,11 +11,11 @@ MetaDescription: Java web app tutorial showing how to build and deploy a Java we
 
 This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally and eventually on the cloud.
 
-## Scenario
+<!-- ## Scenario
 
 A simple Spring Boot Getting Started web app
 
-![Greeting from Java](images/java-webapp/greeting-from-spring.png)
+![Greeting from Java](images/java-webapp/greeting-from-spring.png) -->
 
 ## Before you begin
 
@@ -33,39 +33,35 @@ Install Apache Maven for your local development environment:
 
 <a class="install-extension-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
 
-## Download and test the Spring Boot app
+## Create a sample maven web app project
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the `complete` folder within the cloned repository in VS Code by navigating to the folder and typing `code .`.
+`maven-archetype-webapp` is an archetype which generates a sample Maven webapp project. To learn more, you can visit [this documentation](https://maven.apache.org/archetypes/maven-archetype-webapp/).
 
->**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
+1. In an empty folder, run the following command to generate a new project from a Maven archetype.
 
-![Clone Spring Repository](images/java-webapp/clone-repository.gif)
+```cmd
+   mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+```
+1. Maven asks you for values needed to finish generating the project on deployment. Provide the following values when prompted:
 
-From within VS Code, open any of the Java files within the `complete` folder (for example `src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.webappproject` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `webapp-project` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
+    | **package** | `com.webappproject` | A value that is the Java package for the generated function code. Use the default. |
 
-![Install Java Extensions](images/java-webapp/install-extensions.gif)
+1. Type `Y` or press Enter to confirm.
 
-Once you have the Extension Pack for Java installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `webapp-project`.
 
-![debug configuration in the Status Bar](images/java-webapp/debugging-status-bar.png)
+1. Navigate into the project folder:
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+    ```console
+    cd webapp-project
+    ```
 
-![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
-
-Test the web app by browsing to [http://localhost:8080](http://localhost:8080) using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
-
-![Greeting from Spring](images/java-webapp/greeting-from-spring.png)
-
-## Make a change
-
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Navigating and edit Java](/docs/java/java-editing.md) to learn about VS Code's editing and code navigation features.
-
-Click the **Restart** button on the top of the editor to relaunch the app and see result by reloading the browser.
-
-![Restart Application](images/java-webapp/restart-application.png)
-
-## Debug the application
+<!-- ## Debug the application
 
 Set a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in the application source code, and reload your browser to hit the breakpoint.
 
@@ -73,7 +69,7 @@ Set a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in the application
 
 If you would like to learn more about debugging Java with VS Code, you can read [Java Debugging](/docs/java/java-debugging.md).
 
-Congratulations, you have your first Spring Boot web app running locally! Read on to learn how to host it in the cloud.
+Congratulations, you have your first Spring Boot web app running locally! Read on to learn how to host it in the cloud. -->
 
 ## Deploy Web Apps to the cloud
 
