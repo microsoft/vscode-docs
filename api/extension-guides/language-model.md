@@ -127,7 +127,7 @@ Extensions should not request Language Model access for integration tests due to
 
 Once we finalize the Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
+- By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 ## Related content
