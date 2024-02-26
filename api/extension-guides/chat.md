@@ -9,9 +9,9 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a regular VS Code extension that uses the Chat extension API.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a regular VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
-*Chat participants* are domain experts that can answer user queries within a specific domain. They can choose to fully use AI for the query processing, or to forward the user request to a backend service. Participants can also provide the language model access to tools. With the help of the language model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (for example, the [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example of such an advanced participant is the built-in `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+Chat participants are domain experts that can answer user queries within a specific domain. They can choose to fully use AI for the query processing, or to forward the user request to a backend service. Participants can also provide the language model access to tools. With the help of the language model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (for example, the [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example of such an advanced participant is the built-in `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
 When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then responds to the request with a `ResponseStream`. To provide a smooth user experience, the Chat API is streaming-based. A `ResponseStream` can include:
 
@@ -29,7 +29,7 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 
 ## Prerequisites
 
-To develop a chat extension, your environment needs to meet the following requirements:
+To develop a chat extension make sure to:
 
 - Use the [Visual Studio Code Insiders release](https://code.visualstudio.com/insiders)
 - Use the pre-release version of the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension
@@ -47,23 +47,23 @@ The following screenshot shows the different chat concepts in the Visual Studio 
 
 ![Chat concepts explanation](images/chat/chat.png)
 
-1. Use the `@` syntax to invoke the `@cat` chat extension
-1. Use the `/` syntax to call the `/teach` command for the extension
+1. Use the `@` syntax to invoke the `@cat` chat participant
+1. Use the `/` syntax to call the `/teach` command
 1. User-provided query, also known as the user prompt
-1. Icon that indicates that Copilot is using the `@cat` chat extension
-1. Markdown response, provided by the chat extension
+1. Icon that indicates that Copilot is using the `@cat` chat participant
+1. Markdown response, provided by `@cat`
 1. Code fragment included in the markdown response
-1. Button included in the chat extension response, the button invokes a VS Code command
-1. Suggested [follow-up questions](#register-follow-up-requests) provided by the chat extension
-1. Chat input field with the placeholder text provided by the chat extension's `description` property
+1. Button included in the `@cat` response, the button invokes a VS Code command
+1. Suggested [follow-up questions](#register-follow-up-requests) provided by the chat participant
+1. Chat input field with the placeholder text provided by the chat participant's `description` property
 
 ## Develop a chat extension
 
-A chat extension is a regular extension that has a dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). You can find details about how to define `extensionDependencies` in the [extension manifest](/api/references/extension-manifest).
+A chat extension is a regular extension that has a dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and contributes a chat participant. You can find details about how to define `extensionDependencies` in the [extension manifest](/api/references/extension-manifest).
 
 The minimum functionality that is needed for implementing a chat extension is:
 
-- Register the chat extension, to let users invoke it by using the `@` symbol in the VS Code Chat view.
+- Register the chat participant, to let users invoke it by using the `@` symbol in the VS Code Chat view.
 - Define a request handler that interprets the user's question, and returns a response in the Chat view.
 
 You can further expand the functionality of the chat extension with the following optional features:
@@ -79,17 +79,17 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it by using `vscode.chat.createChatParticipant`. When you register the extension, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat extension in the Chat view by using the `@` symbol and the name you provided.
+The first step to create a chat extension is to register it by using `vscode.chat.createChatParticipant`. When you register the extension, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
 
-The following code snippet shows how to register the `@cat` chat extension:
+The following code snippet shows how to register the `@cat` chat participant:
 
 ```typescript
 export function activate(context: vscode.ExtensionContext) {
 
-    // Register the chat extension and its request handler
+    // Register the chat participant and its request handler
     const cat = vscode.chat.createChatParticipant('cat', handler);
 
-    // Optionally, set some properties for the chat extension
+    // Optionally, set some properties for @cat
     cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
     cat.description = vscode.l10n.t('Meow! What can I help you with?');
