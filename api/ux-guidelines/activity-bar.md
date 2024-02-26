@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 13b649f1-156f-489a-9c03-c2cff8060733
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Activity Bar in a Visual Studio Code extension.

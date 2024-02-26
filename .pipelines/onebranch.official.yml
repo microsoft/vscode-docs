@@ -40,6 +40,8 @@ extends:
       retryCount: 3
 
     globalSdl:
+      asyncSdl:
+        enabled: false
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:

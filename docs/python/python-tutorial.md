@@ -164,25 +164,23 @@ Congrats, you just ran your first Python code in Visual Studio Code!
 
 ## Configure and run the debugger
 
-Let's now try debugging our Python program.
+Let's now try debugging our Python program. Debugging support is provided by the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), which is automatically installed with the Python extension. To ensure it has been installed correctly, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
-First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
+![Python Debugger extension shown in installed extensions view in VS Code.](/docs/python/images/shared/python-debugger-extension.png)
+
+Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
 Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file.
 
-![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
+![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
 > **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
 Select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
-Start the debugger by clicking on the down-arrow next to the run button on the editor, and selecting **Debug Python File in Terminal**.
-
-![Using the debug Python file in terminal button](images/tutorial/debug-python-file-in-terminal-button.png)
-
-The debugger will stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you will see now defined `msg` variable appears in the **Local** pane.
+The debugger will start, and then stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you can see that the `msg` variable appears in the **Local** pane.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 

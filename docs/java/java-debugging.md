@@ -116,6 +116,14 @@ You can have the debugger break when a variable changes its value. Note that the
   <source src="/docs/java/java-debugging/logpoints.mp4" type="video/mp4">
 </video>
 
+### Breakpoint - Triggered breakpoints
+
+A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="../editor/images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
 ## Expression evaluation
 
 The debugger also lets you evaluate expressions in the **WATCH** window as well as the Debug Console.

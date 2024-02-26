@@ -212,8 +212,8 @@ You're probably already wondering if there's an easier way to run the server and
         "version": "0.2.0",
         "configurations": [
             {
-                "name": "Python: Django",
-                "type": "python",
+                "name": "Python Debugger: Django",
+                "type": "debugpy",
                 "request": "launch",
                 "program": "${workspaceFolder}\\manage.py",
                 "args": [

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -219,7 +219,9 @@ Pin-Priority: 9999
 
 ### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
-When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. Before adjusting platform limits, make sure that potentially large folders, such as Python `.venv`, are added to the `files.watcherExclude` setting (more details below). The current limit can be viewed by running:
+When you see this notification, it indicates that the VS Code file watcher is running out of file handles that are needed to implement file watching. Most often this can happen when opening a workspace that is large and contains many files. Before adjusting platform limits, make sure that potentially large folders, such as Python `.venv`, are added to the `files.watcherExclude` setting (more details below). It is also possible that other running applications consume so many file handles that none are left for VS Code to use. In that case it might help to close these other applications.
+
+The current limit can be viewed by running:
 
 ```bash
 cat /proc/sys/fs/inotify/max_user_watches

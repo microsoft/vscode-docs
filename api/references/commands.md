@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 12/7/2023
+DateApproved: 02/1/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -514,6 +514,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `workbench.action.openLogFile` - workbench.action.openLogFile
 
 * _logFile_ -
+
+`workbench.action.openWalkthrough` - Open the walkthrough.
+
+* _walkthroughID_ - ID of the walkthrough to open.
+* _toSide_ - Opens the walkthrough in a new editor group to the side.
 
 ## Simple commands
 

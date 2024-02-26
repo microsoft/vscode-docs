@@ -11,7 +11,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 
 This article explains the scheme for the `c_cpp_properties.json` settings file.
 
-Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md).For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
+Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md). For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
 
 ## Example of Variables
 
