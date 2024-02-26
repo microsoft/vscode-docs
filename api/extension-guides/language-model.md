@@ -121,8 +121,6 @@ The responses that the Language Model API provides are nondeterministic, which m
 
 The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can’t be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
 
-Extensions should not request Language Model access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production Language Model for simulation testing, and we are currently thinking how to provide a scalable Language Model testing solution for extensions that are facing a similar challenge.
-
 ## Publishing your extension
 
 Once we finalize the Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
