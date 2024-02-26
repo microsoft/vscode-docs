@@ -31,11 +31,8 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [Use the Language Model API](/api/extension-guides/language-model)
-
-### VS Code API Usage
-
-- [ChatParticipant](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
-- [ChatVariableResolver](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
+- [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
+- [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 
 ## Parts of the chat user experience
 
