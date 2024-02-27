@@ -31,7 +31,7 @@ You can also launch Data Wrangler directly from a local file (such as a .csv). T
 
 Data Wrangler has 2 modes when working with your data. The details for each mode are explained in the subequent sections below.
 
-1. **View Mode:** The view mode optimizes the interface for you to quickly view, filter and sort your data.
+1. **View Mode:** The view mode optimizes the interface for you to quickly view, filter and sort your data. This mode is great for doing initial exploration on the dataset.
 2. **Edit Mode:** The edit mode optimizes the interface for you to apply transformations, cleaning, or modifications to your dataset. As you apply these transformations in the interface, Data Wrangler will autoamtically generate the relevant Pandas code, and this can be exported back into your Notebook to be reused.
 
 
