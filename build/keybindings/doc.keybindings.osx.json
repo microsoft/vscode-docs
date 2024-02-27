@@ -1287,6 +1287,8 @@
                                         "when": "inDebugMode && !focusedSessionIsAttach" },
 { "key": "cmd+k m",               "command": "workbench.action.editor.changeLanguageMode",
                                         "when": "!notebookEditorFocused" },
+{ "key": "alt+cmd+v",            "command": "workbench.action.editorDictation.start",
+                                        "when": "hasSpeechProvider && !editorDictation.inProgress && !editorReadonly" },
 { "key": "cmd+k p",               "command": "workbench.action.files.copyPathOfActiveFile" },
 { "key": "cmd+n",                 "command": "workbench.action.files.newUntitledFile" },
 { "key": "cmd+o",                 "command": "workbench.action.files.openFile",
