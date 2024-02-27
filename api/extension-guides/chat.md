@@ -9,11 +9,11 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a regular VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
 Chat participants are domain experts that can answer user queries within a specific domain. They can choose to fully use AI for the query processing, or to forward the user request to a backend service. Participants can also provide the language model access to tools. With the help of the language model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (for example, the [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example of such an advanced participant is the built-in `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then responds to the request with a `ResponseStream`. To provide a smooth user experience, the Chat API is streaming-based. A `ResponseStream` can include:
+When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A `ResponseStream` can include:
 
 - Markdown for simple text and image responses
 - Buttons that invoke VS Code commands
@@ -23,7 +23,7 @@ When a user explicitly mentions a `@participant` in their chat prompt, that prom
 
 To help the user take the conversation further, participants can provide *follow-ups* for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
 
-Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command that corresponds with the intent that the language model should explain some code.
+Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
 > **Note:** The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
 
@@ -59,7 +59,7 @@ The following screenshot shows the different chat concepts in the Visual Studio 
 
 ## Develop a chat extension
 
-A chat extension is a regular extension that has a dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and contributes a chat participant. You can find details about how to define `extensionDependencies` in the [extension manifest](/api/references/extension-manifest).
+A chat extension is an extension that has a dependency on the [Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and contributes a chat participant. You can find details about how to define `extensionDependencies` in the [extension manifest](/api/references/extension-manifest).
 
 The minimum functionality that is needed for implementing a chat extension is:
 
@@ -93,7 +93,6 @@ export function activate(context: vscode.ExtensionContext) {
     cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
     cat.description = vscode.l10n.t('Meow! What can I help you with?');
-    cat.fullName = vscode.l10n.t('Cat');
 
     // Add the chat request handler here
 }
@@ -198,7 +197,7 @@ Adding history as additional context when passing messages to the language model
 
 A chat participant can contribute commands, which are shortcuts to specific functionality provided by the extension. Users can reference commands in chat by using the `/` syntax, for example `/explain`.
 
-One of the tasks when answering questions is to determine the user intent. For example, VS Code could infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "`@workspace /new` Node.js Express Pug TypeScript" is more explicit, concise, and saves typing time. If you type `/` in the chat input field, VS Code offers a list of registered commands with their description.
+One of the tasks when answering questions is to determine the user intent. For example, VS Code could infer that `Create a new workspace with Node.js Express Pug TypeScript` means that you want a new project, but `@workspace /new Node.js Express Pug TypeScript` is more explicit, concise, and saves typing time. If you type `/` in the chat input field, VS Code offers a list of registered commands with their description.
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
@@ -276,19 +275,19 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
 
-It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat, might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including the system message and instructions to the model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
+It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including the system message and instructions to the model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
 
-For example, language extensions (for example, C++) can contribute in various other ways:
+For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
 - Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp_context` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
 - Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with language model access, this method could generate a fitting default name for the new method.
 
-Chat extensions should explicitly ask for user consent if they are about to do a costly operation, or about to edit or delete something that can’t be undone. To have a great user experience, we discourage one extension contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
+Chat extensions should explicitly ask for user consent if they are about to do a costly operation or are about to edit or delete something that can’t be undone. To have a great user experience, we discourage extensions from contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
 
 ## Publishing your extension
 
 Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- By publishing to the VS Marketplace, your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
