@@ -29,12 +29,12 @@ The process for using the Language Model API consists of the following steps:
 
 ## Request language model access
 
-Extensions can get access to the Copilot Language Model using the `vscode.chat.requestLanguageModelAccess` method. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
+Extensions can get access to the Copilot Language Model using the `vscode.lm.requestLanguageModelAccess` method. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
 
 The following code snippet shows how to request access to the `copilot-gpt-3.5-turbo` language model:
 
 ```typescript
-const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
+const access = await vscode.lm.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
 ```
 
 ## Prompt crafting
