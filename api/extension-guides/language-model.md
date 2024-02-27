@@ -126,6 +126,7 @@ The part of the extension for building prompts and interpreting language model r
 Once we finalize the Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
 
 - By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" to the `categories` field in your `package.json`. If your extension contributes a Chat Participant, add "Chat" as well.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 ## Related content
