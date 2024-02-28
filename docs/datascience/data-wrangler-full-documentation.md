@@ -32,7 +32,7 @@ This document will cover how to:
 1. If you have not already done so, install [Python](https://www.python.org/downloads/).
    **IMPORTANT:** Data Wrangler only supports Python version 3.8 or higher.
 2. Install [Visual Studio Code](https://code.visualstudio.com/download).
-3. <a class="install-extension-btn" href="vscode:extension/mstools-ai.datawrangler">Install the Data Wrangler extension</a>
+3. <a class="install-extension-btn" href="vscode:extension/ms-toolsai.datawrangler">Install the Data Wrangler extension</a>
 
 When you launch Data Wrangler for the first time, it asks you which Python kernel you would like to connect to. It also checks your machine and environment to see if the required Python packages are installed, such as Pandas.
 
