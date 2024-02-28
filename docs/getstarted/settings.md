@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -799,7 +799,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
     "editor.lightbulb.enabled": "on",
 
-    // Controls the line height.
+    // Controls the line height. 
     //  - Use 0 to automatically compute the line height from the font size.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
@@ -1039,7 +1039,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.stickyScroll.defaultModel": "outlineModel",
 
     // Shows the nested current scopes during the scroll at the top of the editor.
-    "editor.stickyScroll.enabled": false,
+    "editor.stickyScroll.enabled": true,
 
     // Defines the maximum number of sticky lines to show.
     "editor.stickyScroll.maxLineCount": 5,
@@ -1277,7 +1277,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - deepIndent: Wrapped lines get +2 indentation toward the parent.
     "editor.wrappingIndent": "same",
 
-    // Controls the algorithm that computes wrapping points.
+    // Controls the algorithm that computes wrapping points. Note that when in accessibility mode, advanced will be used for the best experience.
     //  - simple: Assumes that all characters are of the same width. This is a fast algorithm that works correctly for monospace fonts and certain scripts (like Latin characters) where glyphs are of equal width.
     //  - advanced: Delegates wrapping points computation to the browser. This is a slow algorithm, that might cause freezes for large files, but it works correctly in all cases.
     "editor.wrappingStrategy": "simple",
@@ -1287,6 +1287,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether pending inline chat sessions prevent saving.
     "inlineChat.acceptedOrDiscardBeforeSave": true,
 
+    // Whether the inline chat also renders an accessible diff viewer for its changes.
+    //  - auto: The accessible diff viewer is based on screen reader mode being enabled.
+    //  - on: The accessible diff viewer is always enabled.
+    //  - off: The accessible diff viewer is never enabled.
+    "inlineChat.accessibleDiffView": "auto",
+
     // Whether to finish an inline chat session when typing outside of changed regions.
     "inlineChat.finishOnType": false,
 
@@ -1294,10 +1300,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "inlineChat.holdToSpeech": true,
 
     // Configure if changes crafted with inline chat are applied directly to the document or are previewed first.
-    //  - livePreview: Changes are applied directly to the document and are highlighted visually via inline or side-by-side diffs. Ending a session will keep the changes.
+    //  - live: Changes are applied directly to the document, can be highlighted via inline diffs, and accepted/discarded by hunks. Ending a session will keep the changes.
     //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
-    //  - live: Changes are applied directly to the document, but can be highlighted via inline diffs, and accepted or discarded. Ending a session will keep the changes.
-    "inlineChat.mode": "livePreview",
+    "inlineChat.mode": "live",
 
     // Controls the font family in chat codeblocks.
     "chat.editor.fontFamily": "default",
@@ -1480,7 +1485,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - focus: Focus side bar if the clicked item is already visible.
     "workbench.activityBar.iconClickBehavior": "toggle",
 
-    // Controls the location of the Activity Bar. It can either show to the `side` or `top` (requires `window.titleBarStyle` set to `custom`) of the Primary Side Bar or `hidden`.
+    // Controls the location of the Activity Bar. It can either show to the `side` or `top` of the Primary Side Bar or `hidden`.
     //  - side: Show the Activity Bar to the side of the Primary Side Bar.
     //  - top: Show the Activity Bar on top of the Primary Side Bar.
     //  - hidden: Hide the Activity Bar.
@@ -1513,6 +1518,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "default": false,
         "workbench.editor.chatSession": false,
         "workbench.editorinputs.searchEditorInput": false,
+        "workbench.editors.gettingStartedInput": false,
         "jupyter-notebook": false,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
@@ -1520,7 +1526,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
         "jsProfileVisualizer.heapsnapshot.table": false,
-        "workbench.editors.gettingStartedInput": false,
         "terminalEditor": true,
         "workbench.input.interactive": false,
         "mainThreadWebview-markdown.preview": false,
@@ -1881,6 +1886,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - readme: Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise. Note: This is only observed as a global configuration, it will be ignored if set in a workspace or folder configuration.
     //  - newUntitledFile: Open a new untitled text file (only applies when opening an empty window).
     //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
+    //  - terminal: Open a new terminal in the editor area.
     "workbench.startupEditor": "welcomePage",
 
     // Controls the visibility of the status bar at the bottom of the workbench.
@@ -1936,7 +1942,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never: Never explicitly ask for confirmation.
     "window.confirmBeforeClose": "never",
 
-    // Controls whether a confirmation dialog shows for an untitled workspace, when switching to another workspace. Disabling the confirmation dialog will always discard the untitled workspace.
+    // Controls whether a confirmation dialog shows asking to save or discard an opened untitled workspace in the window when switching to another workspace. Disabling the confirmation dialog will always discard the untitled workspace.
     "window.confirmSaveUntitledWorkspace": true,
 
     // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
@@ -2019,7 +2025,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Separator used by `window.title`.
     "window.titleSeparator": " - ",
 
-    // Adjust the default zoom level for all windows. Each increment above `0` (e.g. `1`) or below (e.g. `-1`) represents zooming `20%` larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
+    // Adjust the default zoom level for all windows. Each increment above `0` (e.g. `1`) or below (e.g. `-1`) represents zooming `20%` larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity. See `window.zoomPerWindow` for configuring if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window.
     "window.zoomLevel": 0,
 
     // Controls if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window. See `window.zoomLevel` for configuring a default zoom level for all windows.
@@ -2707,6 +2713,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     "markdown.copyFiles.overwriteBehavior": "nameIncrementally",
 
     // Controls if files outside of the workspace that are dropped into a Markdown editor should be copied into the workspace.
+    //  - mediaFiles: Try to copy external image and video files into the workspace.
+    //  - never: Do not copy external files into the workspace.
     "markdown.editor.drop.copyIntoWorkspace": "mediaFiles",
 
     // Enable dropping files into a Markdown editor while holding Shift. Requires enabling `editor.dropIntoEditor.enabled`.
@@ -2718,6 +2726,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     "markdown.editor.filePaste.audioSnippet": "<audio controls src=\"${src}\" title=\"${title}\"></audio>",
 
     // Controls if files outside of the workspace that are pasted into a Markdown editor should be copied into the workspace.
+    //  - mediaFiles: Try to copy external image and video files into the workspace.
+    //  - never: Do not copy external files into the workspace.
     "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
 
     // Enable pasting files into a Markdown editor to create Markdown links. Requires enabling `editor.pasteAs.enabled`.
@@ -3435,7 +3445,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // `@font-face` rule must define `src` and `font-family` properties.
     "css.lint.fontFaceProperties": "warning",
 
-    // Hex colors must consist of three or six hex numbers.
+    // Hex colors must consist of 3, 4, 6 or 8 hex numbers.
     "css.lint.hexColorLength": "error",
 
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
@@ -3536,7 +3546,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // `@font-face` rule must define `src` and `font-family` properties.
     "less.lint.fontFaceProperties": "warning",
 
-    // Hex colors must consist of three or six hex numbers.
+    // Hex colors must consist of 3, 4, 6 or 8 hex numbers.
     "less.lint.hexColorLength": "error",
 
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
@@ -3634,7 +3644,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // `@font-face` rule must define `src` and `font-family` properties.
     "scss.lint.fontFaceProperties": "warning",
 
-    // Hex colors must consist of three or six hex numbers.
+    // Hex colors must consist of 3, 4, 6 or 8 hex numbers.
     "scss.lint.hexColorLength": "error",
 
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
@@ -3980,8 +3990,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
     "terminal.integrated.drawBoldTextInBrightColors": true,
 
-    // Controls whether the terminal bell is enabled. This shows up as a visual bell next to the terminal's name.
-    "terminal.integrated.enableBell": false,
 
     // Whether to enable file links in terminals. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
     //  - off: Always off.
@@ -3989,7 +3997,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - notRemote: Enable only when not in a remote workspace.
     "terminal.integrated.enableFileLinks": "on",
 
-    // Enables image support in the terminal.
+    // Enables image support in the terminal, this will only work when `terminal.integrated.gpuAcceleration` is enabled.
     "terminal.integrated.enableImages": false,
 
     // Controls whether to show a warning dialog when pasting multiple lines into the terminal.
@@ -4003,6 +4011,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Persist terminal sessions/history for the workspace across window reloads.
     "terminal.integrated.enablePersistentSessions": true,
+
+    // Controls whether the visual terminal bell is enabled. This shows up next to the terminal's name.
+    "terminal.integrated.enableVisualBell": false,
 
     // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux. Set to `null` to delete the environment variable.
     "terminal.integrated.env.linux": {},
@@ -4262,7 +4273,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Tasks
 
-    // Enable automatic tasks.
+    // Enable automatic tasks - note that tasks won't run in an untrusted workspace.
     //  - on: Always
     //  - off: Never
     "task.allowAutomaticTasks": "on",
@@ -4298,6 +4309,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "task.slowProviderWarning": true,
 
 // Problems
+
+    // Enable verbose logging for tasks.
+    "task.verboseLogging": false,
 
     // Controls whether Problems view should automatically reveal files when opening them.
     "problems.autoReveal": true,
@@ -4569,8 +4583,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configure settings to be overridden for the git-commit language.
     "[git-commit]":  {
         "editor.rulers": [
+                50,
                 72
         ],
+        "editor.wordWrap": "off",
         "workbench.editor.restoreViewState": false
     },
 
@@ -4677,146 +4693,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "diffEditor.ignoreTrimWhitespace": false
     },
 
-// Audio cues
-
-    // Plays a sound when a chat request is made.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.chatRequestSent": "off",
-
-    // Plays a sound on loop while the response is pending.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.chatResponsePending": "auto",
-
-    // Plays a sound on loop while the response has been received.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.chatResponseReceived": "off",
-
-    // Plays a sound when a feature is cleared (for example, the terminal, Debug Console, or Output channel). When this is disabled, an ARIA alert will announce 'Cleared'.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.clear": "off",
-
-    // Whether or not position changes should be debounced
-    "audioCues.debouncePositionChanges": false,
-
-    // Plays a sound when the focus moves to a deleted line in Accessible Diff Viewer mode or to the next/previous change.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.diffLineDeleted": "auto",
-
-    // Plays a sound when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.diffLineInserted": "auto",
-
-    // Plays a sound when the focus moves to a modified line in Accessible Diff Viewer mode or to the next/previous change.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.diffLineModified": "auto",
-
-    // Plays a sound when a file or notebook is formatted. Also see `accessibility.alert.format`
-    //  - userGesture: Plays the audio cue when a user explicitly formats a file.
-    //  - always: Plays the audio cue whenever a file is formatted, including if it is set to format on save, type, or, paste, or run of a cell.
-    //  - never: Never plays the audio cue.
-    "audioCues.format": "never",
-
-    // Plays a sound when the active line has a breakpoint.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.lineHasBreakpoint": "auto",
-
-    // Plays a sound when the active line has an error.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.lineHasError": "auto",
-
-    // Plays a sound when the active line has a folded area that can be unfolded.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.lineHasFoldedArea": "auto",
-
-    // Plays a sound when the active line has an inline suggestion.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.lineHasInlineSuggestion": "auto",
-
-    // Plays a sound when the active line has a warning.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.lineHasWarning": "off",
-
-    // Plays a sound when trying to read a line with inlay hints that has no inlay hints.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.noInlayHints": "auto",
-
-    // Plays a sound when a notebook cell execution is successfully completed.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.notebookCellCompleted": "auto",
-
-    // Plays a sound when a notebook cell execution fails.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.notebookCellFailed": "auto",
-
-    // Plays a sound when the debugger stopped on a breakpoint.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.onDebugBreak": "auto",
-
-    // Plays a sound when a file is saved. Also see `accessibility.alert.save`
-    //  - userGesture: Plays the audio cue when a user explicitly saves a file.
-    //  - always: Plays the audio cue whenever a file is saved, including auto save.
-    //  - never: Never plays the audio cue.
-    "audioCues.save": "never",
-
-    // Plays a sound when a task is completed.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.taskCompleted": "auto",
-
-    // Plays a sound when a task fails (non-zero exit code).
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.taskFailed": "auto",
-
-    // Plays a sound when a terminal command fails (non-zero exit code).
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.terminalCommandFailed": "auto",
-
-    // Plays a sound when terminal Quick Fixes are available.
-    //  - auto: Enable audio cue when a screen reader is attached.
-    //  - on: Enable audio cue.
-    //  - off: Disable audio cue.
-    "audioCues.terminalQuickFix": "auto",
-
-    // The volume of the audio cues in percent (0-100).
-    "audioCues.volume": 70,
-
 // Remote
 
     // The name under which the remote tunnel access is registered. If not set, the host name is used.
@@ -4874,68 +4750,144 @@ Below are the Visual Studio Code default settings and their values. You can also
     // On keypress, close the Accessible View and focus the element from which it was invoked.
     "accessibility.accessibleView.closeOnKeyPress": true,
 
-    // Alerts when the active line has a breakpoint. Also see `audioCues.onDebugBreak`.
-    "accessibility.alert.breakpoint": true,
+    // Plays a signal when a chat request is made.
+    "accessibility.signals.chatRequestSent": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when a chat request is sent. Also see `audioCues.chatRequestSent`.
-    "accessibility.alert.chatRequestSent": true,
+    // Plays a signal on loop while the response is pending.
+    "accessibility.signals.chatResponsePending": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when a chat response is pending. Also see `audioCues.chatResponsePending`.
-    "accessibility.alert.chatResponsePending": true,
+    // Indicates when the response has been received.
+    "accessibility.signals.chatResponseReceived": {
+        "sound": "auto"
+    },
 
-    // Alerts when a feature is cleared (for example, the terminal, Debug Console, or Output channel). Also see `audioCues.clear`.
-    "accessibility.alert.clear": true,
+    // Plays a signal when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+    "accessibility.signals.clear": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when the active line has an error. Also see `audioCues.lineHasError`.
-    "accessibility.alert.error": true,
+    // Whether or not position changes should be debounced
+    "accessibility.signals.debouncePositionChanges": false,
 
-    // Alerts when the active line has a folded area that can be unfolded. Also see `audioCues.lineHasFoldedArea`.
-    "accessibility.alert.foldedArea": true,
+    // Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
+    "accessibility.signals.diffLineDeleted": {
+        "sound": "auto"
+    },
 
-    // When in screen reader mode, alerts when a file or notebook cell is formatted. Note that this will be ignored when `audioCues.format` is enabled.
-    //  - userGesture: Alerts when a file is formatted via user gesture.
-    //  - always: Alerts whenever is a file is formatted, including auto save, on cell execution, and more.
-    //  - never: Never alerts.
-    "accessibility.alert.format": "always",
+    // Indicates when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
+    "accessibility.signals.diffLineInserted": {
+        "sound": "auto"
+    },
 
-    // Alerts when on a line with a breakpoint. Also see `audioCues.lineHasBreakpoint`.
-    "accessibility.alert.lineHasBreakpoint": true,
+    // Indicates when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
+    "accessibility.signals.diffLineModified": {
+        "sound": "auto"
+    },
 
-    // Alerts when there are no inlay hints. Also see `audioCues.noInlayHints`.
-    "accessibility.alert.noInlayHints": true,
+    // Plays a signal when a file or notebook is formatted.
+    "accessibility.signals.format": {
+        "sound": "never",
+        "announcement": "never"
+    },
 
-    // Alerts when a notebook cell completes successfully. Also see `audioCues.notebookCellCompleted`.
-    "accessibility.alert.notebookCellCompleted": true,
+    // Plays a signal when the active line has a breakpoint.
+    "accessibility.signals.lineHasBreakpoint": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when a notebook cell fails. Also see `audioCues.notebookCellFailed`.
-    "accessibility.alert.notebookCellFailed": true,
+    // Indicates when the active line has an error.
+    "accessibility.signals.lineHasError": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when the debugger breaks. Also see `audioCues.onDebugBreak`.
-    "accessibility.alert.onDebugBreak": true,
+    // Indicates when the active line has a folded area that can be unfolded.
+    "accessibility.signals.lineHasFoldedArea": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // When in screen reader mode, alerts when a file is saved. Note that this will be ignored when `audioCues.save` is enabled.
-    //  - userGesture: Alerts when a file is saved via user gesture.
-    //  - always: Alerts whenever is a file is saved, including auto save.
-    //  - never: Never alerts.
-    "accessibility.alert.save": "always",
+    // Indicates when the active line has an inline suggestion.
+    "accessibility.signals.lineHasInlineSuggestion": {
+        "sound": "auto"
+    },
 
-    // Alerts when a task completes successfully (zero exit code). Also see `audioCues.taskCompleted`.
-    "accessibility.alert.taskCompleted": true,
+    // Plays a signal when the active line has a warning.
+    "accessibility.signals.lineHasWarning": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when a task fails (non-zero exit code). Also see `audioCues.taskFailed`.
-    "accessibility.alert.taskFailed": true,
+    // Plays a signal when trying to read a line with inlay hints that has no inlay hints.
+    "accessibility.signals.noInlayHints": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when the terminal bell is activated.
-    "accessibility.alert.terminalBell": true,
+    // Plays a signal when a notebook cell execution is successfully completed.
+    "accessibility.signals.notebookCellCompleted": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when a terminal command fails (non-zero exit code). Also see `audioCues.terminalCommandFailed`.
-    "accessibility.alert.terminalCommandFailed": true,
+    // Plays a signal when a notebook cell execution fails.
+    "accessibility.signals.notebookCellFailed": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when there is an available terminal quick fix. Also see `audioCues.terminalQuickFix`.
-    "accessibility.alert.terminalQuickFix": true,
+    // Plays a signal when the debugger stopped on a breakpoint.
+    "accessibility.signals.onDebugBreak": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
-    // Alerts when the active line has a warning. Also see `audioCues.lineHasWarning`.
-    "accessibility.alert.warning": true,
+    // Plays a signal when a file is saved.
+    "accessibility.signals.save": {
+        "sound": "never",
+        "announcement": "never"
+    },
+
+    // The volume of the sounds in percent (0-100).
+    "accessibility.signals.sounds.volume": 70,
+
+    // Plays a signal when a task is completed.
+    "accessibility.signals.taskCompleted": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when a task fails (non-zero exit code).
+    "accessibility.signals.taskFailed": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when the terminal bell is ringing.
+    "accessibility.signals.terminalBell": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when a terminal command fails (non-zero exit code).
+    "accessibility.signals.terminalCommandFailed": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when terminal Quick Fixes are available.
+    "accessibility.signals.terminalQuickFix": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
 
     // Provide information about actions that can be taken in the comment widget or in a file which contains comments.
     "accessibility.verbosity.comments": true,
@@ -4946,13 +4898,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about relevant actions in an empty text editor.
     "accessibility.verbosity.emptyEditorHint": true,
 
-    // Provide information about how to open the hover in an accessible view.
+    // Provide information about how to open the hover in an Accessible View.
     "accessibility.verbosity.hover": true,
 
     // Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused.
     "accessibility.verbosity.inlineChat": true,
 
-    // Provide information about how to access the inline completions hover and accessible view.
+    // Provide information about how to access the inline completions hover and Accessible View.
     "accessibility.verbosity.inlineCompletions": true,
 
     // Provide information about how to change a keybinding in the keybindings editor when a row is focused.
@@ -4961,7 +4913,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to focus the cell container or inner editor when a notebook cell is focused.
     "accessibility.verbosity.notebook": true,
 
-    // Provide information about how to open the notification in an accessible view.
+    // Provide information about how to open the notification in an Accessible View.
     "accessibility.verbosity.notification": true,
 
     // Provide information about how to access the chat help menu when the chat input is focused.
@@ -4970,11 +4922,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to access the terminal accessibility help menu when the terminal is focused.
     "accessibility.verbosity.terminal": true,
 
-    // The duration in milliseconds that voice speech recognition remains active after you stop speaking. For example in a chat session, the transcribed text is submitted automatically after the timeout is met. Set to `0` to disable this feature.
-    "accessibility.voice.speechTimeout": 1200,
-
-// Merge Editor
-
+    // Merge editor diff algorithm.
     //  - legacy: Uses the legacy diffing algorithm.
     //  - advanced: Uses the advanced diffing algorithm.
     "mergeEditor.diffAlgorithm": "advanced",
@@ -5142,7 +5090,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the limit of Git submodules detected.
     "git.detectSubmodulesLimit": 10,
 
-    // Enables commit signing with GPG or X.509.
+    // Enables commit signing with GPG, X.509, or SSH.
     "git.enableCommitSigning": false,
 
     // Whether Git is enabled.
@@ -5181,8 +5129,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Ignores the warning when Git 2.25 - 2.26 is installed on Windows.
     "git.ignoreWindowsGit27Warning": false,
 
-    // Controls when to show commit message input validation.
-    "git.inputValidation": "off",
+    // Controls whether to show commit message input validation diagnostics.
+    "git.inputValidation": false,
 
     // Controls the commit message length threshold for showing a warning.
     "git.inputValidationLength": 72,
@@ -5247,6 +5195,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Remember the last git command that ran after a commit.
     "git.rememberPostCommitCommand": false,
+
+    // Automatically replace the local tags with the remote tags in case of a conflict when running the pull command.
+    "git.replaceTagsWhenPull": false,
 
     // List of folders that are ignored while scanning for Git repositories when `git.autoRepositoryDetection` is set to `true` or `subFolders`.
     "git.repositoryScanIgnoredFolders": [

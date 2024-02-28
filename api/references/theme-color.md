@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -291,6 +291,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
+- `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.lastPinnedBorder`: Border on the right of the last pinned editor to separate from unpinned editors.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
@@ -593,6 +594,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
+- `chat.requestBackground`: The background color of a chat request.
 
 ## Inline Chat colors
 
