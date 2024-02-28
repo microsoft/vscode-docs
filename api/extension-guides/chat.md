@@ -280,7 +280,7 @@ It doesn't make sense for every extension to contribute a chat participant. Havi
 
 For example, language extensions (for example, C++) can contribute in various other ways:
 
-- Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp_context` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
+- Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
 - Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with language model access, this method could generate a fitting default name for the new method.
 
 Chat extensions should explicitly ask for user consent if they are about to do a costly operation, or about to edit or delete something that can’t be undone. To have a great user experience, we discourage one extension contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
