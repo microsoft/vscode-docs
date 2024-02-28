@@ -4,7 +4,7 @@
 
 The following is an example of opening Data Wrangler from the Notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the Notebook.
 
-![a gif of Data Wrangler in action](https://github.com/microsoft/vscode-docs/assets/15910920/68d4e18f-dd99-4913-91b0-f36092e19a65)
+![a gif of opening Data Wrangler from a Notebook, looking through the data, switching from View to Edit modes, applying data transformations, and exporting the generated Python code back into the Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/68d4e18f-dd99-4913-91b0-f36092e19a65)
 
 The goal of this page is to help you quickly get up and running with Data Wrangler.
 
@@ -24,13 +24,13 @@ Anytime you are in Data Wrangler, you are in a *sandboxed* environment, meaning 
 
 If you have a Pandas data frame in your Notebook, you’ll now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running `df.head()`.
 
-![image](https://github.com/microsoft/vscode-docs/assets/15910920/9013003c-4247-4e1b-85a4-4b83056a0ac7)
+![a screenshot showing the entry point into Data Wrangler from a Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/9013003c-4247-4e1b-85a4-4b83056a0ac7)
 
 ### Launch Data Wrangler directly from a file
 
 YYou can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in VS Code that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
 
-![image](https://github.com/microsoft/vscode-docs/assets/15910920/517e1e29-ba45-4e24-87fb-adb53a6207f1)
+![a screenshot showing the entry point into Data Wrangler from a file](https://github.com/microsoft/vscode-docs/assets/15910920/517e1e29-ba45-4e24-87fb-adb53a6207f1)
 
 ## UI Tour
 
@@ -43,7 +43,7 @@ Note: By default, Data Wrangler opens in the View mode. You can change this beha
 
 ### View mode interface
 
-![image](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
+![a screenshot showing the different components in the UI for Data Wrangler in View mode](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
 
 1. The **Data Summary** panel shows detailed summary statistics for your overall dataset or a specific column, if one is selected.
 
@@ -61,7 +61,7 @@ Note: By default, Data Wrangler opens in the View mode. You can change this beha
 
 Switching to Edit mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
 
-![image](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
+![a screenshot showing the different components in the UI for Data Wrangler in Edit mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
 
 
 1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by their top-level category.
@@ -76,7 +76,7 @@ Switching to Edit mode enables additional functionality and user interface eleme
 
 ## Example: Replacing missing values in your dataset
 
-![gif](https://github.com/microsoft/vscode-docs/assets/15910920/2235a291-e26f-4741-b5fc-bd570c8f66d1)
+![an example of using Data Wrangler to replace missing values in your dataset](https://github.com/microsoft/vscode-docs/assets/15910920/2235a291-e26f-4741-b5fc-bd570c8f66d1)
 
 1. In the **Operation Panel**, search for the **Fill Missing Values** operation.
 2. Specify in the parameters what you would like to replace the missing values with. In this case, we will be replacing the missing values with the median value for the column.
