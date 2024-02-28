@@ -33,6 +33,8 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 
 To enable walky-talky mode, press and hold the keybinding. Voice recognition is active until you release the keys, after which the request is submitted automatically.
 
+**Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `accessibility.voice.speechTimeout` setting, or disable this functionality when you configure the setting to `0`.
+
 ## "Hey Code"
 
 It is possible to enable a mode where VS Code will always listen for the phrase "Hey Code" to start a voice chat session. Configure the `accessibility.voice.keywordActivation` setting accordingly to enable this. When VS Code is listening for "Hey Code", a microphone icon appears in the status bar to indicate as such:
