@@ -13,6 +13,8 @@ Microsoft publishes the [VS Code Speech](https://marketplace.visualstudio.com/it
 
 ![Screenshot of the VS Code Speech extension marketplace details](images/accessibility/speech-extension.png)
 
+**Note:** voice support in VS Code does not require you to be online. Recordings are never sent to any online service but computed local on your machine.
+
 ## Editor dictation
 
 You can dictate into the editor via these commands: **Voice: Start Dictation in Editor** (`kb(workbench.action.editorDictation.start)`) and **Voice: Stop Dictation in Editor** (`kb(workbench.action.editorDictation.stop)`). Once started, a little microphone icon appears where the cursor is, awaiting your voice input:
@@ -30,6 +32,12 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 
 To enable walky-talky mode, press and hold the keybinding. Voice recognition is active until you release the keys, after which the request is submitted automatically.
+
+## "Hey Code"
+
+It is possible to enable a mode where VS Code will always listen for the phrase "Hey Code" to start a voice chat session. Configure the `accessibility.voice.keywordActivation` setting accordingly to enable this. When VS Code is listening for "Hey Code", a microphone icon appears in the status bar to indicate as such:
+
+![Screenshot of a status bar entry to signal active listening to "Hey Code"](images/accessibility/hey-code.png)
 
 ## Support for multiple languages
 
