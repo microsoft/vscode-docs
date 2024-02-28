@@ -287,6 +287,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
 - `tab.activeBorder`: Bottom border for the active tab.
+- `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
@@ -588,6 +589,7 @@ For coloring inserted and removed text, use either a background or a border colo
 ## Chat colors
 
 - `chat.requestBorder`: The border color of a chat request.
+- `chat.requestBackground`: The background color of a chat request.
 - `chat.slashCommandBackground`: The background color of a chat slash command.
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
