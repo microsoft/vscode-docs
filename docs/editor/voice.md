@@ -31,9 +31,11 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 
-To enable walky-talky mode, press and hold the keybinding. Voice recognition is active until you release the keys, after which the request is submitted automatically.
-
 **Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `accessibility.voice.speechTimeout` setting, or disable this functionality when you configure the setting to `0`.
+
+## Walky talky mode
+
+When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictation.start)` or `kb(workbench.action.chat.startVoiceChat)`), either in the editor or chat, you can press and hold the keybinding to start the voice recognition. When you release the keybinding, voice recognition will stop. In addition, when used in chat, the prompt will be submitted.
 
 ## "Hey Code"
 
