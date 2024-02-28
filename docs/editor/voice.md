@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code voice accessibility features. Learn here abo
 ---
 # Voice Support
 
-Microsoft publishes the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension to enable various features through the power of only using your voice. Once installed, the extension enables you to dictate into the editor, or to verbally interact with [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat).
+The [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension enables various features by using your voice. Once installed, the extension enables you to dictate into the editor, or to verbally interact with [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat).
 
 ![Screenshot of the VS Code Speech extension marketplace details](images/accessibility/speech-extension.png)
 
