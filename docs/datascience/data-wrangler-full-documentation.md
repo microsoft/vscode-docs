@@ -14,7 +14,7 @@ MetaDescription: Full documentation on working with the Data Wrangler extension 
 
 The following is an example of opening Data Wrangler from the Notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the Notebook.
 
-![a gif of opening Data Wrangler from a Notebook, looking through the data, switching from View to Edit modes, applying data transformations, and exporting the generated Python code back into the Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/68d4e18f-dd99-4913-91b0-f36092e19a65)
+![a gif of opening Data Wrangler from a Notebook, looking through the data, switching from View to Edit modes, applying data transformations, and exporting the generated Python code back into the Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
 
 
 This document will cover how to:
@@ -52,10 +52,10 @@ Anytime you are in Data Wrangler, you are in a *sandboxed* environment, meaning 
 
 There are three ways to launch Data Wrangler from your Jupyter Notebook
 
-![a screenshot showing the entry point into Data Wrangler from a Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/c03a4b85-80cf-46e0-b365-38820d51ff96)
+![a screenshot showing the entry point into Data Wrangler from a Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/dd7b4263-492b-4823-9ec9-0381c3b9a4bf)
 
 1. In the **Jupyter** > **Variables** panel, beside any supported data object, you can see a button to launch Data Wrangler.
-2. If you have a Pandas data frame in your Notebook, you can now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `df`.
+2. If you have a Pandas data frame in your Notebook, you can now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `display(df)`, 4) `print(df)`, 5) `df`.
 3. In the Notebook toolbar, selecting **View data** brings up a list of every supported data object in your Notebook. You can then choose which variable in that list you want to open in Data Wrangler.
 
 ### Launch Data Wrangler directly from a file
