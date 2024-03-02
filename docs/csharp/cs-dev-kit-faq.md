@@ -191,6 +191,13 @@ Make sure you have a C# project open or that the active document is a `.cs` or `
 
 If you're trying to debug .NET Console Applications, Blazor Server Apps, Blazor WebAssembly, or Web Applications, make sure to select the **C#** option. The other options may be part of other extensions such as **Node** for JavaScript debugging or **Python** for Python debugging, and are not part of C# Dev Kit.
 
+### When I F5, it prompts me to input a password (macOS only)
+macOS has Developer Mode disabled by default and prompts a password to protect the user if a program wants to be used as a debugger.
+
+If you wish to disable these prompts, you can run the following commands:
+- `DevToolsSecurity --enable`
+- `sudo dscl . append /Groups/_developer GroupMembership $USER`
+
 ### Why is debugging not working?
 
 If you're trying to debug a library or a test project, it's likely that you'll need to take some extra steps to ensure that your code is properly debugged. To debug a library, you can create a console or web application that interacts with the library. For a test project, you can use the Test Explorer to debug your code effectively.
