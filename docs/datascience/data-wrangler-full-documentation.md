@@ -110,15 +110,15 @@ Switching to Editing mode enables additional functionality and user interface el
 ![a screenshot showing the different components in the UI for Data Wrangler in Editing mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
 
 
-1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by their top-level category.
+1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by category.
 
-2. The **Cleaning Steps** panel shows a list of all the operations that have been previously applied. It enables the user to undo specific operations or edit the *most recent* operation. Selecting a step will highlight the changes in the data grid and will show the generated code associated with that operation.
+2. The **Cleaning Steps** panel shows a list of all the operations that have been previously applied. It enables the user to undo specific operations or edit the *most recent* operation. Selecting a step will highlight the changes in the data diff view and will show the generated code associated with that operation.
 
-3. The **Export Menu** lets you export the code back into a Jupyter Notebook or into a new data file.
+3. The **Export Menu** lets you export the code back into a Jupyter Notebook or export the data into a new file.
 
 4. When you have an operation selected and are previewing its effects on the data, the grid is overlayed with a **data diff** view of the changes you made to the data.
 
-5. The **Code Preview** section shows the Python and Pandas code that Data Wrangler has generated when an operation is selected. It remains empty when no operation is selected. You can edit the generated code, which results in the data grid to highlight the effects on the data.
+5. The **Code Preview** section shows the Python and Pandas code that Data Wrangler has generated when an operation is selected. It remains empty when no operation is selected. You can edit the generated code, which results in the data grid highlighting the effects on the data.
 
 ## Data Wrangler operations
 
