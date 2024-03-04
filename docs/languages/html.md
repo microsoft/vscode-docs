@@ -87,7 +87,7 @@ You can turn that validation off with the following settings:
 You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding regions are available for all HTML elements for multiline comments in the source code.
 
 Additionally you can use the following region markers to define a folding region:
-`<!-- #region -->` and `<!-- endregion -->`
+`<!-- #region -->` and `<!-- #endregion -->`
 
 If you prefer to switch to indentation based folding for HTML use:
 
