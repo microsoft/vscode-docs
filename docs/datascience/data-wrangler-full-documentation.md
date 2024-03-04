@@ -12,12 +12,12 @@ MetaDescription: Full documentation on working with the Data Wrangler extension 
 
 [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
 
-The following is an example of opening Data Wrangler from the Notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the Notebook.
+The following is an example of opening Data Wrangler from the notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the notebook.
 
-![a gif of opening Data Wrangler from a Notebook, looking through the data, switching from View to Edit modes, applying data transformations, and exporting the generated Python code back into the Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
+![a gif of opening Data Wrangler from a notebook, looking through the data, switching from Viewing to Editing mode, applying data transformations, and exporting the generated Python code back into the notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
 
 
-This document will cover how to:
+This document covers how to:
 
 -   Install and setup Data Wrangler
 -   Launch Data Wrangler from a notebook
@@ -52,11 +52,11 @@ Anytime you are in Data Wrangler, you are in a *sandboxed* environment, meaning 
 
 There are three ways to launch Data Wrangler from your Jupyter Notebook
 
-![a screenshot showing the entry point into Data Wrangler from a Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/dd7b4263-492b-4823-9ec9-0381c3b9a4bf)
+![a screenshot showing the entry point into Data Wrangler from a notebook](https://github.com/microsoft/vscode-docs/assets/15910920/dd7b4263-492b-4823-9ec9-0381c3b9a4bf)
 
 1. In the **Jupyter** > **Variables** panel, beside any supported data object, you can see a button to launch Data Wrangler.
-2. If you have a Pandas data frame in your Notebook, you can now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `display(df)`, 4) `print(df)`, 5) `df`.
-3. In the Notebook toolbar, selecting **View data** brings up a list of every supported data object in your Notebook. You can then choose which variable in that list you want to open in Data Wrangler.
+2. If you have a Pandas data frame in your notebook, you can now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `display(df)`, 4) `print(df)`, 5) `df`.
+3. In the notebook toolbar, selecting **View data** brings up a list of every supported data object in your notebook. You can then choose which variable in that list you want to open in Data Wrangler.
 
 ### Launch Data Wrangler directly from a file
 
@@ -76,26 +76,26 @@ Depending on the file type, you are able to specify the delimiter and/or sheet o
 You can also set these file types to open with Data Wrangler by default.
 
 
-## UI Tour
+## UI tour
 
 Data Wrangler has two modes when working with your data. The details for each mode are explained in the subsequent sections below.
 
-1. **View Mode:** The view mode optimizes the interface for you to quickly view, filter and sort your data. This mode is great for doing initial exploration on the dataset.
-2. **Edit Mode:** The edit mode optimizes the interface for you to apply transformations, cleaning, or modifications to your dataset. As you apply these transformations in the interface, Data Wrangler automatically generates the relevant Pandas code, and this can be exported back into your Notebook for reuse.
+1. **Viewing mode:** The Viewing mode optimizes the interface for you to quickly view, filter and sort your data. This mode is great for doing initial exploration on the dataset.
+2. **Editing mode:** The Editing mode optimizes the interface for you to apply transformations, cleaning, or modifications to your dataset. As you apply these transformations in the interface, Data Wrangler automatically generates the relevant Pandas code, and this can be exported back into your notebook for reuse.
 
-Note: By default, Data Wrangler opens in the View mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
+Note: By default, Data Wrangler opens in the Viewing mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
 
 ![a screenshot of the setting in Visual Studio Code for setting the default mode of Data Wrangler](https://github.com/microsoft/vscode-docs/assets/15910920/6f2bef2f-d071-42aa-926c-83bcda4c9db5)
 
-### View mode interface
+### Viewing mode interface
 
-![a screenshot showing the different components in the UI for Data Wrangler in View mode](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
+![a screenshot showing the different components in the UI for Data Wrangler in Viewing mode](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
 
 1. The **Data Summary** panel shows detailed summary statistics for your overall dataset or a specific column, if one is selected.
 
 2. You can apply any **Data Filters/Sorts** on the column from the header menu of the column.
 
-3. Toggle between the **View** or **Edit** mode of Data Wrangler to access the built-in data operations.
+3. Toggle between the **Viewing** or **Editing** mode of Data Wrangler to access the built-in data operations.
 
 4.  The **Quick Insights** header is where you can quickly see valuable information about each column. Depending on the datatype of the column, quick insights shows the distribution of the data or the frequency of datapoints, as well as missing and distinct values.
 
@@ -103,11 +103,11 @@ Note: By default, Data Wrangler opens in the View mode. You can change this beha
 
 ---
 
-### Edit mode interface
+### Editing mode interface
 
-Switching to Edit mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
+Switching to Editing mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
 
-![a screenshot showing the different components in the UI for Data Wrangler in Edit mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
+![a screenshot showing the different components in the UI for Data Wrangler in Editing mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
 
 
 1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by their top-level category.

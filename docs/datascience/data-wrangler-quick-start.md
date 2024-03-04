@@ -12,9 +12,9 @@ MetaDescription: A quick start guide to get you up and running with the Data Wra
 
 [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.
 
-The following is an example of opening Data Wrangler from the Notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the Notebook.
+The following is an example of opening Data Wrangler from the notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the notebook.
 
-![a gif of opening Data Wrangler from a Notebook, looking through the data, switching from View to Edit modes, applying data transformations, and exporting the generated Python code back into the Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
+![a gif of opening Data Wrangler from a notebook, looking through the data, switching from Viewing to Editing mode, applying data transformations, and exporting the generated Python code back into the notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
 
 The goal of this page is to help you quickly get up and running with Data Wrangler.
 
@@ -32,9 +32,9 @@ Anytime you are in Data Wrangler, you are in a _sandboxed_ environment, meaning 
 
 ### Launch Data Wrangler from a Jupyter Notebook
 
-If you have a Pandas data frame in your Notebook, you’ll now see an **Open 'df' in Data Wrangler** button (where `df` is the variable name of your data frame) appear in bottom of the cell after running any of `df.head()`, `df.tail()`, `display(df)`, `print(df)`, and `df`.
+If you have a Pandas data frame in your notebook, you’ll now see an **Open 'df' in Data Wrangler** button (where `df` is the variable name of your data frame) appear in bottom of the cell after running any of `df.head()`, `df.tail()`, `display(df)`, `print(df)`, and `df`.
 
-![a screenshot showing the entry point into Data Wrangler from a Notebook](https://github.com/microsoft/vscode-docs/assets/15910920/3d971723-d57a-4dd6-8bb9-6200777b3573)
+![a screenshot showing the entry point into Data Wrangler from a notebook](https://github.com/microsoft/vscode-docs/assets/15910920/3d971723-d57a-4dd6-8bb9-6200777b3573)
 
 ### Launch Data Wrangler directly from a file
 
@@ -42,14 +42,14 @@ You can also launch Data Wrangler directly from a local file (such as a `.csv`).
 
 ![a screenshot showing the entry point into Data Wrangler from a file](https://github.com/microsoft/vscode-docs/assets/15910920/517e1e29-ba45-4e24-87fb-adb53a6207f1)
 
-## UI Tour
+## UI tour
 
 Data Wrangler has two modes when working with your data. The details for each mode are explained in the subsequent sections below.
 
-1. **Viewing Mode:** The viewing mode optimizes the interface for you to quickly view, filter and sort your data. This mode is great for doing initial exploration on the dataset.
-2. **Editing Mode:** The editing mode optimizes the interface for you to apply transformations, cleaning, or modifications to your dataset. As you apply these transformations in the interface, Data Wrangler automatically generates the relevant Pandas code, and this can be exported back into your Notebook for reuse.
+1. **Viewing mode:** The viewing mode optimizes the interface for you to quickly view, filter and sort your data. This mode is great for doing initial exploration on the dataset.
+2. **Editing mode:** The Editing mode optimizes the interface for you to apply transformations, cleaning, or modifications to your dataset. As you apply these transformations in the interface, Data Wrangler automatically generates the relevant Pandas code, and this can be exported back into your notebook for reuse.
 
-Note: By default, Data Wrangler opens in the View mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
+Note: By default, Data Wrangler opens in the Viewing mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
 
 ### Viewing mode interface
 
@@ -69,9 +69,9 @@ Note: By default, Data Wrangler opens in the View mode. You can change this beha
 
 ### Editing mode interface
 
-Switching to Edit mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
+Switching to Editing mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
 
-![a screenshot showing the different components in the UI for Data Wrangler in Edit mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
+![a screenshot showing the different components in the UI for Data Wrangler in Editing mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
 
 1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by their top-level category.
 
@@ -83,17 +83,19 @@ Switching to Edit mode enables additional functionality and user interface eleme
 
 5. The **Code Preview** section shows the Python and Pandas code that Data Wrangler has generated when an operation is selected. It remains empty when no operation is selected. You can edit the generated code, which results in the data grid to highlight the effects on the data.
 
-## Example: Replacing missing values in your dataset
+## Example: Replace missing values in your dataset
+
+Given a dataset, one of the common data cleaning tasks is to handle any missing values that lie within the data. The example below shows how Data Wrangler can be used to replace the missing values in a column with the median value of that column. While the transformation is done through the interface, Data Wrangler also automatically generates the Python and Pandas code required for the replacement of missing values.
 
 ![an example of using Data Wrangler to replace missing values in your dataset](https://github.com/microsoft/vscode-docs/assets/15910920/2235a291-e26f-4741-b5fc-bd570c8f66d1)
 
-1. In the **Operation Panel**, search for the **Fill Missing Values** operation.
+1. In the **Operations Panel**, search for the **Fill Missing Values** operation.
 2. Specify in the parameters what you would like to replace the missing values with. In this case, we will be replacing the missing values with the median value for the column.
 3. Validate that the data grid is showing you the correct changes in the data diff.
 4. Validate that the code generated by Data Wrangler is what you intended.
 5. Apply the operation and it will be added to your cleaning steps history.
 
-# Next Steps
+# Next steps
 
 This page covered how to quickly get started with Data Wrangler. For the full documentation and tutorial of Data Wrangler, including all the built-in operations that Data Wrangler currently supports, please see the following page.
 
