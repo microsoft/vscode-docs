@@ -286,7 +286,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Publishing your extension
 
-Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected in the next couple months), you can publish your extension to the Visual Studio Marketplace:
 
 - By publishing to the VS Marketplace, your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
