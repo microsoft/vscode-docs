@@ -25,6 +25,7 @@ The process for using the Language Model API consists of the following steps:
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [LanguageModels API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts)
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Prompt crafting
 

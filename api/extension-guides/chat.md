@@ -40,6 +40,7 @@ To develop a chat extension make sure to:
 - [Use the Language Model API](/api/extension-guides/language-model)
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Parts of the chat user experience
 
