@@ -214,7 +214,7 @@ One of the tasks when answering questions is to determine the user intent. For e
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
-Chat participants can contribute commands with their description by providing them up-front in `package.json`:
+Chat participants can contribute commands with their description by adding them in `package.json`:
 
 ```typescript
 "contributes": {
