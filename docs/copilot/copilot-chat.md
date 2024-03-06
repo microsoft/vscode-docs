@@ -177,9 +177,9 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 
 Chat participants can also contribute what we call slash commands, which are shortcuts to specific functionality provided by the chat participant. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
 
-We can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
+For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
-Once the intent is clear, `@workspace` has a much better chance of addressing the user's needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that will generate these files in a new folder.
+Once the intent is clear, `@workspace` has a much better chance of addressing your needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that will generate these files in a new folder.
 
 Examples of built-in commands:
 
