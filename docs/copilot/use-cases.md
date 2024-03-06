@@ -90,3 +90,44 @@ When inline chat proposes creating new files, such as when using the `/tests` sl
 * [Improve code performance using Github Copilot Chat](https://www.youtube.com/watch?v=whhq0-5ibac)
 * [Fixing errors using GitHub Copilot](https://www.youtube.com/watch?v=D-gkwzExddk)
 * [Getting help from GitHub Copilot Chat to make your code more accessible](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/)
+
+
+
+<!-- 
+## Other Copilot uses
+
+In addition to inline completions and chat, GitHub Copilot can help with other development tasks and workflows. For example, Copilot can help with writing commit messages, fixing errors, and finding commands.
+
+When Copilot can help with a task or workflow, VS Code displays a **sparkle** icon. Hovering over the sparkle icon describes the Copilot action.
+
+![Sparkle icon in an input box](images/overview/sparkle-icon.png)
+
+### Generate Git commit messages
+
+Copilot can help you write GitHub commit messages. In the Source Control message input box, select the sparkle button at the right and Copilot creates a commit message based on your pending changes.
+
+![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/overview/generate-commit-message.png)
+
+If you're using the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, there is a sparkle button to fill in both the title and description in the Pull Request **Create** view.
+
+### Terminal Quick Fixes
+
+When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+
+![Terminal command failure shows sparkle with Explain using Copilot Quick Fix](images/overview/terminal-quick-fix.png)
+
+Selecting **Explain using Copilot** populates Quick Chat with the `@terminal #terminalLastCommand` agent and variable to help correct the last terminal command error.
+
+![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/overview/terminal-command-explanation.png)
+
+### Command Palette help
+
+When you're looking for a command in the Command Palette (`kb(workbench.action.showCommands)`), you can run **Ask GitHub Copilot** with your search term to help you find the relevant command.
+
+![Command Palette with Ask GitHub Copilot selected to search for "hide editor overview"](images/overview/command-palette-ask-copilot.png)
+
+The **Ask GitHub Copilot** command opens the Chat view and input your search term.
+
+![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
+
+ -->
