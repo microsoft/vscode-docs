@@ -111,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The icon, description are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+The icon and description are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
 After registering the chat participant, you now need to implement the request handler to process a user's request.
 
