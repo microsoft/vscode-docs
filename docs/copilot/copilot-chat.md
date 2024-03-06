@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
@@ -112,7 +112,7 @@ You can type questions, scope your questions with [chat participants](#chat-part
 
 ## Chat smart actions
 
-Smart actions are integrated in your VS Code flow (for example, in Quick Fix and context menus) and they do not require you to write any prompt at all.
+Smart actions are integrated in your VS Code flow (for example, in Quick Fix and context menus) and they do not require you to write any prompt at all. To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options.
 
 ![Editor context menu with the Copilot menu group expanded](images/copilot-chat/editor-copilot-menu.png)
 
@@ -123,8 +123,6 @@ The most powerful smart action is `/fix`. Here is a relatively simple TypeScript
 Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code.
 
 ![Inline chat /doc results adding JSDoc comment for a TypeScript function](images/copilot-chat/generate-docs-example.png)
-
-To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options:
 
 ## Chat participants
 
