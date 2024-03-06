@@ -79,9 +79,23 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it by using `vscode.chat.createChatParticipant`. When you register the extension, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
+The first step to create a chat extension is to register it in your `package.json` by providing the `name` and `description`:
+```json
+"contributes": {
+        "chatParticipants": [
+            {
+                "name": "cat",
+                "description": "Meow! What can I teach you?"
+            }
+        ]
+}
+```
 
-The following code snippet shows how to register the `@cat` chat participant:
+Up-front registration of participants and commands in `package.json` is required so VS Code can activate your extension at the right time, and not before it is needed.
+
+After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
+
+The following code snippet shows how to create the `@cat` chat participant (after you register it in your `package.json`):
 
 ```typescript
 export function activate(context: vscode.ExtensionContext) {
@@ -92,13 +106,12 @@ export function activate(context: vscode.ExtensionContext) {
     // Optionally, set some properties for @cat
     cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
-    cat.description = vscode.l10n.t('Meow! What can I help you with?');
 
     // Add the chat request handler here
 }
 ```
 
-The icon, description, and full name are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+The icon and description are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
 After registering the chat participant, you now need to implement the request handler to process a user's request.
 
@@ -191,7 +204,7 @@ Participants have access to the history of the current chat session. For example
  const previousMessages = context.history.filter(h => h.participant.name == 'cat');
 ```
 
-Adding history as additional context when passing messages to the language model can be helpful.
+History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
 
 ### Register commands
 
@@ -201,17 +214,27 @@ One of the tasks when answering questions is to determine the user intent. For e
 
 ![List of commands in chat for @workspace](images/chat/commands.png)
 
-Chat participants can contribute commands with their description by using the `commandProvider`:
+Chat participants can contribute commands with their description by adding them in `package.json`:
 
 ```typescript
-cat.commandProvider = {
-    provideCommands(token) {
-        return [
-            { name: 'teach', description: 'Pick at random a computer science concept then explain it in purfect way of a cat' },
-            { name: 'play', description: 'Do whatever you want, you are a cat after all' }
-        ];
-    }
-};
+"contributes": {
+    "chatParticipants": [
+        {
+            "name": "cat",
+            "description": "Meow! What can I teach you?",
+            "commands": [
+                {
+                    "name": "teach",
+                    "description": "Pick at random a computer science concept then explain it in purfect way of a cat"
+                },
+                {
+                    "name": "play",
+                    "description": "Do whatever you want, you are a cat after all"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ### Register follow-up requests
@@ -222,7 +245,7 @@ The following code snippet shows how to register follow-up requests in a chat ex
 
 ```typescript
 cat.followupProvider = {
-    provideFollowups(result: ICatChatResult, token: vscode.CancellationToken) {
+    provideFollowups(result: ICatChatResult, context: vscode.ChatContext, token: vscode.CancellationToken) {
         if (result.metadata.command === 'teach') {
             return [{
                 prompt: 'let us play',
@@ -243,7 +266,9 @@ Users can refer to a chat variable in a prompt by using the `#` symbol. A variab
 
 ![List of variables in chat](images/chat/variables.png)
 
-Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant. It's up to the extension to determine which variables are relevant for processing the user's chat prompt.
+Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant.
+
+Variables and their values are passed as an object bag to the handler in `request.variables`. The prompt contains variable references as entered by the user and it is up to the participant to further modify the prompt, for instance by inlining variable values or creating links to headings which contain the resolved values. Variables are sorted in reverse order by their appearance in the prompt. That means that the last variable in the prompt is the first in this list. This simplifies string-manipulation of the prompt.
 
 Variable resolvers can offer multiple length levels for the variable value. VS Code selects one based on how many tokens are left in a language model prompt.
 
