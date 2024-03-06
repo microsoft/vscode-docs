@@ -233,11 +233,19 @@ If you're using inline chat, and you have code selected in the editor, Copilot s
 
 When you're using `@workspace` to ask questions related to your VS Code workspace, you can explicitly ignore specific files from the workspace by using a `.copilotignore` or `.gitignore` file. `@workspace` respects the `.gitignore` and `.copilotignore` when deciding which files from the workspace to index.
 
-<!--
 ## Using voice interaction
 
-requires VS Code Speech extension
+With the voice control capabilities in VS Code, you have the option to initiate a chat conversation by using your voice.
 
+You can use the "Hey Code" voice command to start a voice session with Copilot Chat. You can choose whether you want this voice command to open the Chat view, inline chat in the editor, quick chat, or choose dynamically based on where the focus is.
+
+In addition, you can accelerate voice input for chat by using the "hold to speak" mode: press and hold the keybinding for inline chat and voice recording automatically starts. As soon as you release the keys, the request is sent to Copilot.
+
+<video src="images/overview/inline-chat-hold-speak.mp4" title="Hold Cmd+I to enter speak mode, use speech, and then release to send the chat request." autoplay loop controls muted></video>
+
+To enable voice interactions, make sure to also install the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension.
+
+<!-- 
 - microphone icon
 - press-and-hold to speak
 - hey code
