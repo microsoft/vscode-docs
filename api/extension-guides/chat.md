@@ -40,6 +40,7 @@ To develop a chat extension make sure to:
 - [Use the Language Model API](/api/extension-guides/language-model)
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Parts of the chat user experience
 
@@ -74,7 +75,6 @@ You can further expand the functionality of the chat extension with the followin
 
 As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
 
-<!-- TODO: update diagram to distinguish between optional and required -->
 ![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
 
 ### Register the chat extension
@@ -243,7 +243,7 @@ Users can refer to a chat variable in a prompt by using the `#` symbol. A variab
 
 ![List of variables in chat](images/chat/variables.png)
 
-Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant.
+Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant. It's up to the extension to determine which variables are relevant for processing the user's chat prompt.
 
 Variable resolvers can offer multiple length levels for the variable value. VS Code selects one based on how many tokens are left in a language model prompt.
 
@@ -280,13 +280,13 @@ It doesn't make sense for every extension to contribute a chat participant. Havi
 For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
 - Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
-- Contribute smart actions that request access to the language model, and use it in combination with traditional language service knowledge to deliver a great user experience. For example, C++ might already offer "extract to method" smart action, and with language model access, this method could generate a fitting default name for the new method.
+- Contribute smart actions that use the language model, optionally in combination with traditional language service knowledge, to deliver a great user experience. For example, C++ might already offer an "extract to method" smart action that uses the language model to generate a fitting default name for the new method.
 
 Chat extensions should explicitly ask for user consent if they are about to do a costly operation or are about to edit or delete something that can’t be undone. To have a great user experience, we discourage extensions from contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
 
 ## Publishing your extension
 
-Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
 - By publishing to the VS Marketplace, your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
