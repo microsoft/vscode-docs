@@ -99,4 +99,4 @@ Given a dataset, one of the common data cleaning tasks is to handle any missing 
 
 This page covered how to quickly get started with Data Wrangler. For the full documentation and tutorial of Data Wrangler, including all the built-in operations that Data Wrangler currently supports, please see the following page.
 
-[Working with Data Wrangler](https://code.visualstudio.com/docs/datascience/data-wrangler)
+[Working with Data Wrangler](/docs/datascience/data-wrangler.md)
