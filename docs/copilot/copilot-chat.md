@@ -106,7 +106,7 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 
 ![Quick Chat dropdown](images/copilot-chat/quick-chat-dropdown.png)
 
-You can type questions, scope your questions with agents and slash commands, and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
+You can type questions, scope your questions with [chat participants](#chat-participants) and [slash commands](#slash-commands), and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/copilot-chat/open-in-chat-view.png)
 
@@ -128,23 +128,23 @@ To make it easier to use Copilot Chat features, there is a **Copilot** menu grou
 
 ## Chat participants
 
-To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
+To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
 
-Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following agents:
+Chat partipipants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat partipipants:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
 
-You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
+You can prepend your chat inputs with a specific participant to help Copilot give you a more relevant response.
 
 ### @workspace
 
-The `@workspace` agent knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, etc. Imagine you are in the VS Code repository and you want to find out more about the service in charge of the current `ICodeEditor`; you can use the agent like this:
+The `@workspace` chat partipipant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more. Imagine you are in the VS Code repository and you want to find out more about the service in charge of the current `ICodeEditor`; you can use the chat partipipant like this:
 
-![Asking the @workspace agent about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
+![Asking the @workspace chat partipipant about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
 
-Because it has all of the necessary context, the `@workspace` agent can answer the kinds of questions that developers are much more likely to ask. For example, questions that pertain to how different parts of the code interact:
+Because it has all of the necessary context, `@workspace` can answer the kinds of questions that developers are much more likely to ask. For example, questions that pertain to how different parts of the code interact:
 
 * "`@workspace` how are notifications scheduled?"
 
@@ -154,28 +154,32 @@ Or questions that require knowledge of related code, dependencies, and design pa
 
 ### @vscode
 
-VS Code can be customized in so many ways that even the members of the VS Code team get pleasantly surprised when they discover some hidden functionality. To help our users and team members alike to unlock the full power of VS Code, we created the `@vscode` agent.
+VS Code can be customized in so many ways that people get pleasantly surprised when they discover some hidden functionality. To help you to unlock the full power of VS Code, we created `@vscode`.
 
-This agent knows all about VS Code and can help you bridge the gap between natural language and VS Code commands and customizations. `@vscode` agent internally uses tools that give it access to the index of all the settings and commands and we are in the process of adding a tool so that this agent can also use the VS Code documentation. Now you can ask vague questions like:
+This chat partipipant knows all about VS Code and can help you bridge the gap between natural language and VS Code commands and customizations. `@vscode` internally uses tools that give it access to the index of all the settings and commands and we are in the process of adding a tool so that this chat partipipant can also use the VS Code documentation. Now you can ask vague questions like:
 
 * "`@vscode` the name of that thing when vscode fake opens a file? And how to disable it?"
 * "`@vscode` how do I change my VS Code colors?"
 
-![Asking the @vscode agent how to change the VS Code colors](images/copilot-chat/agent-example.png)
+![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
 ### @terminal
 
-Selecting **Explain using Copilot** populates Quick Chat with the `@terminal #terminalLastCommand` agent and variable to help correct the last terminal command error.
+With `@terminal` you can questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
+
+Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [chat variables](#use-chat-variables).
 
 ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/copilot-chat/terminal-command-explanation.png)
 
+> **Note**: the terminal doesn't pull in the workspace context, which could take some time.
+
 ## Slash commands
 
-Agents can also contribute what we call slash commands, which are shortcuts to specific functionality provided by the agent. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
+Chat participants can also contribute what we call slash commands, which are shortcuts to specific functionality provided by the chat participant. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
 
 We can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
-Once the intent is clear, the @workspace agent has a much better chance of addressing the user's needs, despite the inherent ambiguity of natural language. @workspace agent can propose a directory structure and users can click on the proposed files to preview them. There is a Create Workspace button that will generate these files in a new folder.
+Once the intent is clear, `@workspace` has a much better chance of addressing the user's needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that will generate these files in a new folder.
 
 Examples of built-in commands:
 
