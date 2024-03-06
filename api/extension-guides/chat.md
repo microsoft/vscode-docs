@@ -204,7 +204,7 @@ Participants have access to the history of the current chat session. For example
  const previousMessages = context.history.filter(h => h.participant.name == 'cat');
 ```
 
-Adding history as additional context when passing messages to the language model can be helpful.
+History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
 
 ### Register commands
 
