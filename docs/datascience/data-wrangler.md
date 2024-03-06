@@ -14,7 +14,7 @@ MetaDescription: Full documentation on working with the Data Wrangler extension 
 
 The following is an example of opening Data Wrangler from the notebook to analyze and clean the data with the built-in operations. Then the automatically generated code is exported back into the notebook.
 
-![a gif of opening Data Wrangler from a notebook, looking through the data, switching from Viewing to Editing mode, applying data transformations, and exporting the generated Python code back into the notebook](https://github.com/microsoft/vscode-docs/assets/15910920/1a6d8fd1-6454-4289-b8c4-fe84050ae981)
+![a gif of opening Data Wrangler from a notebook, looking through the data, switching from Viewing to Editing mode, applying data transformations, and exporting the generated Python code back into the notebook](images/data-wrangler/full-dw-loop.gif)
 
 
 This document covers how to:
@@ -52,7 +52,7 @@ Anytime you are in Data Wrangler, you are in a *sandboxed* environment, meaning 
 
 There are three ways to launch Data Wrangler from your Jupyter Notebook
 
-![a screenshot showing the entry point into Data Wrangler from a notebook](https://github.com/microsoft/vscode-docs/assets/15910920/dd7b4263-492b-4823-9ec9-0381c3b9a4bf)
+![a screenshot showing the entry point into Data Wrangler from a notebook](images/data-wrangler/entrypoint-full.png)
 
 1. In the **Jupyter** > **Variables** panel, beside any supported data object, you can see a button to launch Data Wrangler.
 2. If you have a Pandas data frame in your notebook, you can now see an **Open 'df' in Data Wrangler** button (where 'df' is the variable name of your data frame) appear in bottom of the cell after running code that outputs the data frame. This includes 1) `df.head()`, 2) `df.tail()`, 3) `display(df)`, 4) `print(df)`, 5) `df`.
@@ -62,7 +62,7 @@ There are three ways to launch Data Wrangler from your Jupyter Notebook
 
 You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in VS Code that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
 
-![a screenshot showing the entry point into Data Wrangler from a file](https://github.com/microsoft/vscode-docs/assets/15910920/517e1e29-ba45-4e24-87fb-adb53a6207f1)
+![a screenshot showing the entry point into Data Wrangler from a file](images/data-wrangler/open-from-file.png)
 
 Data Wrangler currently supports the following filetypes
 - `.csv`/`.tsv`
@@ -71,7 +71,7 @@ Data Wrangler currently supports the following filetypes
 
 Depending on the file type, you are able to specify the delimiter and/or sheet of the file.
 
-![a screenshot showing the parameters you can set in Data Wrangler when opening directly from a file](https://github.com/microsoft/vscode-docs/assets/15910920/424a88fd-be5a-4d03-b878-426fe380266a)
+![a screenshot showing the parameters you can set in Data Wrangler when opening directly from a file](images/data-wrangler/csv-parameters.png)
 
 You can also set these file types to open with Data Wrangler by default.
 
@@ -85,11 +85,11 @@ Data Wrangler has two modes when working with your data. The details for each mo
 
 Note: By default, Data Wrangler opens in the Viewing mode. You can change this behavior in the Settings editor `kb(workbench.settings.dataWrangler.startInEditModeForNotebookEntrypoints)`.
 
-![a screenshot of the setting in Visual Studio Code for setting the default mode of Data Wrangler](https://github.com/microsoft/vscode-docs/assets/15910920/6f2bef2f-d071-42aa-926c-83bcda4c9db5)
+![a screenshot of the setting in Visual Studio Code for setting the default mode of Data Wrangler](images/data-wrangler/edit-view-mode-default.png)
 
 ### Viewing mode interface
 
-![a screenshot showing the different components in the UI for Data Wrangler in Viewing mode](https://github.com/microsoft/vscode-docs/assets/15910920/16d7d4d9-63e8-459f-9b7c-5bb1908b245d)
+![a screenshot showing the different components in the UI for Data Wrangler in Viewing mode](images/data-wrangler/view-mode-ui.png)
 
 1. The **Data Summary** panel shows detailed summary statistics for your overall dataset or a specific column, if one is selected.
 
@@ -107,7 +107,7 @@ Note: By default, Data Wrangler opens in the Viewing mode. You can change this b
 
 Switching to Editing mode enables additional functionality and user interface elements in Data Wrangler. In the following screenshot, we use Data Wrangler to replace the missing values in the last column with the median of that column.
 
-![a screenshot showing the different components in the UI for Data Wrangler in Editing mode](https://github.com/microsoft/vscode-docs/assets/15910920/8ec458aa-556d-4f03-beda-c86898d97112)
+![a screenshot showing the different components in the UI for Data Wrangler in Editing mode](images/data-wrangler/edit-mode-ui.png)
 
 
 1. The **Operations** panel is where you can search through all of Data Wrangler’s built-in data operations. The operations are organized by category.
@@ -124,7 +124,7 @@ Switching to Editing mode enables additional functionality and user interface el
 
 The built-in Data Wrangler operations can be selected from the **Operation** panel.
 
-![a screenshot of the Data Wrangler Operations panel](https://github.com/microsoft/vscode-docs/assets/15910920/7016afb1-beee-4dc8-a223-c265fa715ebb)
+![a screenshot of the Data Wrangler Operations panel](images/data-wrangler/operations.gif)
 
 The following table lists the Data Wrangler operations that are currently supported in the initial release of Data Wrangler. We plan to add more operations in the near future.
 
@@ -166,7 +166,7 @@ If there is an operation that is missing and that you'd like to see supported in
 
 Each step of the generated code can be modified through the **Cleaning Steps** panel. First, select the step you want to modify. Then, as you make changes to the operation (either via code or the operation panel), the effects of your changes on the data are highlighted in the grid view.
 
-![a screenshot showing how to modify previous steps](https://github.com/microsoft/vscode-docs/assets/15910920/8d2e20dd-9c2d-4b9c-bdad-3651d1930cc2)
+![a screenshot showing how to modify previous steps](images/data-wrangler/update-previous-step.gif)
 
 
 ## Edit and export code
@@ -178,13 +178,13 @@ Once you’re done with your data cleaning steps in Data Wrangler, there are thr
 3. **Copy code to clipboard:** This copies all the code that was generated by Data Wrangler for the data cleaning operations.
 
 
-![a screenshot of the export menu in Data Wrangler](https://github.com/microsoft/vscode-docs/assets/15910920/798cc251-05a2-4cef-85a1-c99210d48b29)
+![a screenshot of the export menu in Data Wrangler](images/data-wrangler/export-menu.png)
 
 ## Search for columns
 
 To find a specific column in your dataset, select **Go to column** from the Data Wrangler toolbar and search for the respective column.
 
-![a screenshot of the search for columns feature](https://github.com/microsoft/vscode-docs/assets/15910920/0a8d41ab-d8ba-440b-9e67-312618375989))
+![a screenshot of the search for columns feature](images/data-wrangler/go-to-column.gif)
 
 ## Troubleshooting
 
