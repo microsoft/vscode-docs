@@ -23,7 +23,7 @@ Copilot Chat might generate formatted and interactive results that contain rich 
 
 ## Getting started
 
-> **Note**: After reviewing this topic, you can get started with the introductory [Copilot Chat tutorial](./getting-started-chat.md).
+> **Note**: After reviewing this topic, you can get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
 
 To get started with GitHub Copilot Chat, you need:
 
@@ -265,4 +265,4 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 
 ## Next step
 
-Get started with the introductory [Copilot Chat tutorial](./getting-started-chat.md).
+Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
