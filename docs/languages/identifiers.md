@@ -99,6 +99,7 @@ Makefile | `makefile`
 Markdown | `markdown`
 Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
+OCaml | `ocaml`
 Pascal | `pascal`
 Perl | `perl` and `perl6`
 PHP | `php`
