@@ -90,7 +90,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Data viewer and variable explorer](images/data-science-tutorial/dataviewer.png)
 
-   Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, etc.
+   Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more.
 
 1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to identify cells where data wasn't available.
 
