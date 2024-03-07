@@ -218,6 +218,8 @@ For additional information about your variables, you can also double-click a row
 
 ![Data Viewer](images/jupyter/data-viewer.png)
 
+Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](https://code.visualstudio.com/docs/datascience/data-wrangler).
+
 ### Filtering rows
 
 Filtering rows in the data viewer can be done by typing in the textbox at the top of each column. Type a string you want to search for and any row that has that string in the column will be found:
