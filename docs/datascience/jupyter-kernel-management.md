@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 9
 Area: datascience
 TOCTitle: Manage Jupyter Kernels
 ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Getting started
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 ---
 # Getting started with GitHub Copilot in VS Code

@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 8
 Area: datascience
 TOCTitle: Azure Machine Learning
 ContentId: 47979929-10b2-4e4d-acf3-00b32893ad1b

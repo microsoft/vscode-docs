@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -83,6 +83,7 @@ Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
 Haml | `haml`
+Haskell	| `haskell`
 HTML | `html`
 Ini | `ini`
 Java | `java`

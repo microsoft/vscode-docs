@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -9,13 +9,12 @@ MetaDescription: A guide to adding AI-powered features to a VS Code extension by
 
 # Language Model API
 
-The Language Model API enables you to [access the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
+The Language Model API enables you to [use the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
 You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
 
 The process for using the Language Model API consists of the following steps:
 
-1. Request access to a specific language model
 1. Build the language model prompt
 1. Send the language model request
 1. Interpret the response
@@ -26,20 +25,11 @@ The process for using the Language Model API consists of the following steps:
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [LanguageModels API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts)
-
-## Request language model access
-
-Extensions can get access to the Copilot Language Model using the `vscode.chat.requestLanguageModelAccess` method. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
-
-The following code snippet shows how to request access to the `copilot-gpt-3.5-turbo` language model:
-
-```typescript
-const access = await vscode.chat.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
-```
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Prompt crafting
 
-After they receive model access, extensions can craft their prompt and send a request to the language model. Extensions can use two types of prompts:
+To interact with a language model, extensions should first craft their prompt and then send a request to the language model. Extensions can use two types of prompts:
 
 - `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
 - `LanguageModelUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
@@ -49,7 +39,7 @@ const craftedPrompt = [
     new vscode.LanguageModelSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
     new vscode.LanguageModelUserMessage('I want to understand recursion')
 ];
-const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
+const chatRequest = vscode.lm.sendChatRequest(craftedPrompt, {}, token);
 ```
 
 For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
@@ -58,26 +48,30 @@ For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https
 
 ## Send the language model request
 
-Once you've built the prompt for the language model, you can send the request by using `makeChatRequest`.
+Once you've built the prompt for the language model, you can send the request by using `sendChatRequest`. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
 
 ```typescript
-const chatRequest = access.makeChatRequest(craftedPrompt, {}, token);
+const chatRequest = vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', craftedPrompt, {}, token);
 ```
 
 ## Interpret the response
 
-The following code snippet shows how an extension can register a command and use the language model access to change all variable names in the active editor with funny cat names. The response from the Language Model API is streaming-based, so the extension streams the code back to the editor for a smooth user experience:
+After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform additional logic.
+
+The response from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
+
+The following code snippet shows how an extension can register a command, which uses the language model to change all variable names in the active editor with funny cat names. Notice that the extension streams the code back to the editor for a smooth user experience.
 
 ```typescript
  vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
     // Replace all variables in active editor with cat names and words
     const text = textEditor.document.getText();
-    const access = await vscode.lm.requestLanguageModelAccess('copilot-gpt-3.5-turbo');
     const messages = [
-        new vscode.LanguageModelSystemMessage(`You are a cat! Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
-        new vscode.LanguageModelUserMessage(text)
+        new vscode.LanguageModelChatSystemMessage(`You are a cat! Think carefully and step by step like a cat would.
+        Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
+        new vscode.LanguageModelChatUserMessage(text)
     ];
-    const chatRequest = access.makeChatRequest(messages, {}, new vscode.CancellationTokenSource().token);
+    const chatRequest = await vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', messages, {}, new vscode.CancellationTokenSource().token);
 
     // Clear the editor content before inserting new content
     await textEditor.edit(edit => {
@@ -101,7 +95,7 @@ The following code snippet shows how an extension can register a command and use
 
 ### Model availability
 
-We don't expect specific models to stay supported forever. When you reference a language model in your extension, make sure to take a "defensive" approach when requesting access. This means that you should gracefully handle cases where access to a particular model is not granted.
+We don't expect specific models to stay supported forever. When you reference a language model in your extension, make sure to take a "defensive" approach when sending requests to that language model. This means that you should gracefully handle cases where you don't have access to a particular model.
 
 ### Choosing the appropriate model
 
@@ -113,19 +107,20 @@ Extension authors can choose which model is the most appropriate for their exten
 
 Extensions should responsibly use the language model and be aware of rate limiting. VS Code is transparent to the user regarding how extensions are using language models and how many requests each extension is sending and how that influences their respective quotas.
 
-Extensions should not request Language Model API access for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production language model for simulation testing, and we are currently thinking how to provide a scalable language model testing solution for extensions.
+Extensions should not use the Language Model API for integration tests due to rate-limitations. Internally, VS Code uses a dedicated non-production language model for simulation testing, and we are currently thinking how to provide a scalable language model testing solution for extensions.
 
 ## Testing your extension
 
 The responses that the Language Model API provides are nondeterministic, which means that you might get a different response for an identical request. This behavior can be challenging for testing your extension.
 
-The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without language model access. However, interacting and getting responses from the language model itself, is nondeterministic and can’t be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
+The part of the extension for building prompts and interpreting language model responses is deterministic, and can thus be unit tested without using an actual language model. However, interacting and getting responses from the language model itself, is nondeterministic and can’t be easily tested. Consider designing your extension code in a modular way to enable you to unit test the specific parts that can be tested.
 
 ## Publishing your extension
 
-Once we finalize the Language Model API (expected early April 2024), you can publish your extension to the Visual Studio Marketplace:
+Once we finalize the Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](TODO@isidorn add link).
+- By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" to the `categories` field in your `package.json`. If your extension contributes a Chat Participant, add "Chat" as well.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
 ## Related content
