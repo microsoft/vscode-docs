@@ -75,7 +75,6 @@ Depending on the file type, you are able to specify the delimiter and/or sheet o
 
 You can also set these file types to open with Data Wrangler by default.
 
-
 ## UI tour
 
 Data Wrangler has two modes when working with your data. The details for each mode are explained in the subsequent sections below.
