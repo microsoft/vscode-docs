@@ -218,7 +218,7 @@ For additional information about your variables, you can also double-click a row
 
 ![Data Viewer](images/jupyter/data-viewer.png)
 
-Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](https://code.visualstudio.com/docs/datascience/data-wrangler).
+Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
 
 ### Filtering rows
 
