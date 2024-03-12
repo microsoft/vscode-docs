@@ -9,12 +9,13 @@ MetaDescription: Overview of how the @workspace Copilot chat participants works 
 ---
 # How the @workspace Copilot chat participant works
 
-- what is the @workspace -> chat participant, knows about your workspace, also provides slash commands
+You can include a chat participant, such as `@workspace` or `@vscode`, in your Copilot Chat prompt in Visual Studio Code. They can help with responding to domain-specific questions. The `@workspace` chat participant uses your VS Code workspace as context. It can provide answers that are relevant and grounded in your codebase, rather than giving general answers. You reference the chat participant in Copilot Chat by using the `@` symbol.
 
-- what do you use it for: ask about contents of your workspace and codebase
-  - Find something in your code base
-  - How do I sort an array
-  - How do I build this project
+With `@workspace`, you can ask different types of questions in Copilot Chat about your VS Code workspace, such as:
+
+- Find something in your codebase: "Where is the code for getting the database connecting string?"
+- Get an explanation and code sample based on your code: "How can I add a hover text to a button?"
+- Get help for getting started with a new project: "How do I build this project?"
 
 ## What context does @workspace have?
 
@@ -46,3 +47,4 @@ Solution: extract only the relevant info from the workspace and pass this as con
 
 - Chat tutorial
 - Copilot Chat features
+- [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md).
