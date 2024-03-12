@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -126,7 +126,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
 - When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
-The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
+The Quick Fix feature also supports [accessibility signals](/docs/editor/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
 
 ## Run recent command
 

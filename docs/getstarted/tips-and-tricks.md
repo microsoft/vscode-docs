@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -308,7 +308,7 @@ Enabled by default for many file types. Create your own schema and validation in
 "json.schemas": [
     {
         "fileMatch": [
-            "/bower.json"
+            "bower.json"
         ],
         "url": "https://json.schemastore.org/bower"
     }
@@ -321,7 +321,7 @@ or for a schema defined in your workspace
 "json.schemas": [
     {
         "fileMatch": [
-            "/foo.json"
+            "**/foo.json"
         ],
         "url": "./myschema.json"
     }

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Prompt crafting
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Prompt crafting for GitHub Copilot
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code through crafting chat prompts and providing context.
 ---
 # GitHub Copilot optimization with prompt crafting and context setting

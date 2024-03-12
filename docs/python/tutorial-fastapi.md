@@ -354,7 +354,7 @@ To persist the data, we will use [Redis](https://redis.io), which is an open sou
 
 If you are already working on **GitHub Codespaces** with our existing template, you can skip directly to the [Replace the database](#replace-the-database) section.
 
-If you are on Windows, you can work with Redis by setting up either a [Docker container](https://www.docker.com/products/docker-desktop), a [GitHub Codespace](https://github.com/features/codespaces), or through [WSL](https://learn.microsoft.com/windows/wsl) (Windows Subsystem for Linux). In this tutorial we will use a Docker container, but you can refer to the [section above](#github-codespaces) for instructions on how to set up a GitHub Codespace.
+If you are on Windows, you can work with Redis by setting up either a [Docker container](https://www.docker.com/products/docker-desktop) or a [GitHub Codespace](https://github.com/features/codespaces). In this tutorial we will use a Docker container, but you can refer to the [section above](#github-codespaces) for instructions on how to set up a GitHub Codespace.
 
 Otherwise, if you are on a Linux or a macOS machine, you can install Redis by following the [instructions on their website](https://redis.io/docs/install), and then skip to the [Replace the database](#replace-the-database) section.
 

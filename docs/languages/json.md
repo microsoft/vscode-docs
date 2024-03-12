@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -99,7 +99,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
 "json.schemas": [
     {
         "fileMatch": [
-            "/*.foo.json"
+            "**/*.foo.json"
         ],
         "url": "./myschema.json"
     }

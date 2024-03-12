@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: FAQ
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
 PageTitle: GitHub Copilot frequently asked questions
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 ---
 # GitHub Copilot frequently asked questions

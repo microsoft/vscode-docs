@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
 ---
 # Getting started with GitHub Copilot in VS Code
@@ -44,11 +44,11 @@ Let's use GitHub Copilot to help us add error handling to our code.
         add(a: number, b: number): number {
             return a + b;
         }
-    
+
         subtract(a: number, b: number): number {
             return a - b;
         }
-    
+
         factorial(a: number): number {
             if (a === 0 || a === 1) {
                 return 1;
@@ -56,7 +56,7 @@ Let's use GitHub Copilot to help us add error handling to our code.
             return a * this.factorial(a - 1);
         }
     }
-    
+
     let calculator = new Calc();
     console.log(calculator.add(5, 3));
     ```
@@ -71,7 +71,7 @@ Let's use GitHub Copilot to help us add error handling to our code.
 
     With inline chat, you can ask Copilot any questions while you're in the editor writing and iterating on your code.
 
-1. Enter *Add error handling* in the input box, and then press `kb(Enter)`.
+1. Enter *Add error handling* in the input box, and then press `kbstyle(Enter)`.
 
     Copilot sends the request, and then shows an inline diff with the proposed code changes.
 
@@ -89,7 +89,7 @@ To make your code more readable and maintainable, you can add code documentation
 
 1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
 
-1. Enter the */doc* slash command in the input box and press `kb(Enter)`.
+1. Enter the */doc* slash command in the input box and press `kbstyle(Enter)`.
 
     Copilot chat has several slash commands, which are a shorthand notation for command chat instructions. The */doc* command is short for generating documentation comments.
 
@@ -111,7 +111,7 @@ Let's ask Copilot to help us with better understand the `factorial` method.
 
 1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
 
-1. Enter */explain* in the chat input box and press `kb(Enter)`.
+1. Enter */explain* in the chat input box and press `kbstyle(Enter)`.
 
 1. Notice that the Chat view opens automatically, and a request is sent to GitHub Copilot.
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle:
 ContentId: 0144ad9a-14df-41b5-9629-cbba7dbfc396
 PageTitle: Workspaces in Visual Studio Code
-DateApproved: 02/1/2024
+DateApproved: 02/28/2024
 MetaDescription: Learn about Visual Studio Code workspaces
 ---
 # What is a VS Code "workspace"?
