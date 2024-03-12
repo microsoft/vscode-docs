@@ -50,8 +50,24 @@ For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https
 
 Once you've built the prompt for the language model, you can send the request by using `sendChatRequest`. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
 
+When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
+
+The following code snippet shows how to make a language model request:
+
 ```typescript
-const chatRequest = vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', craftedPrompt, {}, token);
+try {
+    const chatRequest = vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', craftedPrompt, {}, token);
+} catch (err) {
+    // Making the chat request might fail because
+    // - model does not exist
+    // - user consent not given
+    // - quota limits were exceeded
+    if (err instanceof vscode.LanguageModelError) {
+        console.log(err.message, err.code, err.cause)
+    } else {
+        // add other error handling logic
+    }
+}
 ```
 
 ## Interpret the response
@@ -59,6 +75,8 @@ const chatRequest = vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', craftedPr
 After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform additional logic.
 
 The response from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
+
+Errors might occur while processing the streaming response, such as network connection issues. Make sure to add appropriate error handling in your code to handle these errors.
 
 The following code snippet shows how an extension can register a command, which uses the language model to change all variable names in the active editor with funny cat names. Notice that the extension streams the code back to the editor for a smooth user experience.
 
@@ -71,7 +89,15 @@ The following code snippet shows how an extension can register a command, which 
         Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
         new vscode.LanguageModelChatUserMessage(text)
     ];
-    const chatRequest = await vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', messages, {}, new vscode.CancellationTokenSource().token);
+
+    try {
+        const chatRequest = await vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', messages, {}, new vscode.CancellationTokenSource().token);
+    } catch (err) {
+        if (err instanceof vscode.LanguageModelError) {
+            console.log(err.message, err.code, err.cause)
+        }
+        return
+    }
 
     // Clear the editor content before inserting new content
     await textEditor.edit(edit => {
@@ -80,12 +106,21 @@ The following code snippet shows how an extension can register a command, which 
         edit.delete(new vscode.Range(start, end));
     });
 
-    // Stream the code into the editor as it is coming in from the Language Model
-    for await (const fragment of chatRequest.stream) {
+    try {
+        // Stream the code into the editor as it is coming in from the Language Model
+        for await (const fragment of chatRequest.stream) {
+            await textEditor.edit(edit => {
+                const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
+                const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
+                edit.insert(position, fragment);
+            });
+        }
+    } catch (err) {
+        // async response stream may fail, e.g network interruption or server side error
         await textEditor.edit(edit => {
             const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
             const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
-            edit.insert(position, fragment);
+            edit.insert(position, (<Error>err).message);
         });
     }
 });
