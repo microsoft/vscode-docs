@@ -19,16 +19,30 @@ With `@workspace`, you can ask different types of questions in Copilot Chat abou
 
 ## What context does @workspace have?
 
+The goal of the `@workspace` is to provide answers to questions about your VS Code workspace and your codebase and uses different sources of information as its context:
+
+- All files in the VS Code workspace, except for files that are included in `.gitignore` files
+- Currently selected text in the active editor (`#selection`)
+- Currently visible text in the active editor (`#editor`)
+- Workspace structure, such as folder and file names
+
+Some [slash commands](#workspace-slash-commands) only use a subset of this information. When you use `/explain`, only the text selection in the active editor is used. To optimize the results, make sure to expand the text selection to include any relevant information to help Copilot provide a useful response.
+
+**Note**: `.gitignore` is overridden if you have a file open or have text selected in an ignored file.
+
 ## How does @workspace work?
 
 Problem: workspaces can be large, too large for handing as-is to Copilot (limited token size)
 Solution: extract only the relevant info from the workspace and pass this as context to Copilot
 
 1. Determine which info would be relevant to answer user's question -> ask Copilot what would be relevant info
-1. Gather relevant info
-    1. GitHub Code search
-    1. TF-IDF
-    1. Local embeddings
+
+1. Gather relevant info from the context by using different methods:
+
+    - GitHub Code search (if it's a GitHub repository, and it's indexed by code search)
+    - TF-IDF
+    - Local embeddings
+
 1. Pass user request to Copilot, and provide the relevant info
 
 ## @workspace slash commands
