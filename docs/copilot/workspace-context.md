@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 7
 Area: copilot
 TOCTitle: Workspace Context
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
