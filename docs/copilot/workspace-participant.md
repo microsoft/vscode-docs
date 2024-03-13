@@ -38,7 +38,7 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 ## How does @workspace work?
 
-The full VS Code workspace can be too large to pass entirely to GitHub Copilot as context for responding to the user's chat prompt. Therefore, the `@workspace` extracts the most relevant context information from the different context sources.
+The full VS Code workspace can be large and the `@workspace` doesn't pass it entirely to GitHub Copilot as context for responding to the user's chat prompt. The `@workspace` first extracts the most relevant information from the different context sources.
 
 The `@workspace` uses the following strategy for responding to a user query:
 
