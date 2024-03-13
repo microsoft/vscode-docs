@@ -30,7 +30,7 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 - All files in the VS Code workspace, except for files that are included in `.gitignore` files
 - Workspace structure, such as folder and file names
-- GitHub's code search index, if the workspace is a GitHub repository and indexed by code search.
+- GitHub's code search index, if the workspace is a GitHub repository and indexed by code search
 - Symbols and definitions in the workspace
 - Currently selected text (`#selection`) or visible text in the active editor (`#editor`)
 
@@ -38,50 +38,43 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 ## How does @workspace work?
 
-Problem: workspaces can be large, too large for handing as-is to Copilot (limited token size)
-Solution: extract only the relevant info from the workspace and pass this as context to Copilot
+The full VS Code workspace can be too large to pass entirely to GitHub Copilot as context for responding to the user's chat prompt. Therefore, the `@workspace` extracts the most relevant context information from the different context sources.
 
-1. Determine which info would be relevant to answer user's question -> ask Copilot what would be relevant info
+The `@workspace` uses the following strategy for responding to a user query:
 
-1. Gather relevant info from the context by using different methods:
+1. Determine the most relevant context sources
 
-    - GitHub Code search (if it's a GitHub repository, and it's indexed by code search)
-    - TF-IDF
-    - Local embeddings
+    Based on the user prompt, `@workspace` determines the list of relevant file names, symbols, and ranges in files. It might apply different strategies, such as GitHub code search index, a local embeddings index, or other statistical methods.
 
-1. Pass user request to Copilot, and provide the relevant info
+1. Perform ranking to find the most relevant context
+
+    From the list of relevant sources, a ranking is performed to capture only the most relevant code chunks across the workspace.
+
+1. Pass the user's chat prompt and the relevant context to Copilot.
+
+1. Return a linkified response
+
+    The response from Copilot is processed and references to files, file ranges, and symbols are added, allowing the user to link directly from the chat response to their codebase.
 
 ## Tips for using @workspace
 
-- Be specific in your questions, using terms and concepts that are potentially present in your codebase
-- Use variables to expand the explicit context on top of what will be automatically included from the codebase, such as `#editor`, `#selection`, or `#file`
+- Be specific in your questions and use terms and concepts that are potentially present in your codebase
+- Use chat variables to expand the explicit context on top of what is automatically included from the codebase, such as `#editor`, `#selection`, or `#file`
 - Don't expect statistical analysis, such as "how many times is this function called?" or "how many times is this variable used?"
-
 
 ## @workspace Slash Commands
 
 If you're using [slash commands](#workspace-slash-commands), commands define their own context that is optimized for their specific task:
 
-| Command    | Context                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Command    | Context |
+| ---------- | ------- |
 | `/explain` | <ul><li>Starts with the text selection in the active editor (#selection). To optimize the Copilot chat responses, make sure to expand the text selection to include any relevant information to help Copilot provide a useful response.</li></ul><ul><li>Looks up the implementations of referenced symbols such as functions and classes, leading to more accurate and useful explanations.</li></ul> |
-| `/test`    | <ul><li>Current text selection in the active editor. If no text is selected, use the contents of the currently active file.</li></ul><ul><li>Related existing test files, to understand existing tests and best practices.</li></ul>                                                                                                                                                                   |
-| `/fix`     | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li></ul><ul><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul>                                                                                                                                                                      |
+| `/test`    | <ul><li>Current text selection in the active editor. If no text is selected, use the contents of the currently active file.</li></ul><ul><li>Related existing test files, to understand existing tests and best practices.</li></ul> |
+| `/fix`     | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li></ul><ul><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul> |
 
 You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to get an explanation of the currently visible code in the editor, use this chat prompt: `@workspace /explain #editor`.
 
-- `/fix`
-- `/explain`
-- `/new`
-- `/newNotebook`
-- `/tests`
-
-## Chat context variables
-
-- `#codebase`
-
 ## Related resources
 
-- Chat tutorial
-- Copilot Chat features
-- [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md).
+- Get started with the [GitHub Copilot Chat tutorial](/docs/copilot/getting-started-chat.md)
+- [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md)
