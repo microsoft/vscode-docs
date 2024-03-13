@@ -62,9 +62,9 @@ The `@workspace` uses the following strategy for responding to a user query:
 - Use chat variables to expand the explicit context on top of what is automatically included from the codebase, such as `#editor`, `#selection`, or `#file`
 - Don't expect statistical analysis, such as "how many times is this function called?" or "how many times is this variable used?"
 
-## @workspace Slash Commands
+## Context for @workspace slash commands
 
-If you're using [slash commands](#workspace-slash-commands), commands define their own context that is optimized for their specific task:
+If you're using slash commands, then they define their own context that is optimized for their specific task:
 
 | Command    | Context |
 | ---------- | ------- |
