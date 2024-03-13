@@ -42,7 +42,7 @@ The full VS Code workspace can be too large to pass entirely to GitHub Copilot a
 
 Based on the user prompt, `@workspace` first determines the list of relevant file names, symbols, and ranges in files. It uses a combination of different strategies, such as GitHub code search index, a local embeddings index, or other statistical methods.
 
-Next, a ranking is performed to find the most relevant code chunks across the workspace and the top entries are selected.
+Next, a ranking is performed to find the most relevant code chunks across the workspace, and then select the top chunks to use in the context.
 
 Finally, `@workspace` sends the user request to GitHub Copilot and includes the relevant context in the request.
 
