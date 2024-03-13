@@ -38,23 +38,16 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 ## How does @workspace work?
 
-The full VS Code workspace can be large and the `@workspace` doesn't pass it entirely to GitHub Copilot as context for responding to the user's chat prompt. The `@workspace` first extracts the most relevant information from the different context sources.
+The full VS Code workspace can be too large to pass entirely to GitHub Copilot as context for responding to the user's chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources, and provides that relevant context to Copilot.
 
-The `@workspace` uses the following strategy for responding to a user query:
+Based on the user prompt, `@workspace` first determines the list of relevant file names, symbols, and ranges in files. It uses a combination of different strategies, such as GitHub code search index, a local embeddings index, or other statistical methods.
 
-1. Determine the most relevant context sources
+Next, a ranking is performed to find the most relevant code chunks across the workspace and the top entries are selected.
 
-    Based on the user prompt, `@workspace` determines the list of relevant file names, symbols, and ranges in files. It might apply different strategies, such as GitHub code search index, a local embeddings index, or other statistical methods.
+Finally, `@workspace` sends the user request to GitHub Copilot and includes the relevant context in the request.
 
-1. Perform ranking to find the most relevant context
+After the Copilot response is received, `@workspace` processes the response and adds references to files, file ranges, and symbols. This enables users to link directly from the chat response to the corresponding information in their codebase.
 
-    From the list of relevant sources, a ranking is performed to capture only the most relevant code chunks across the workspace.
-
-1. Pass the user's chat prompt and the relevant context to Copilot.
-
-1. Return a linkified response
-
-    The response from Copilot is processed and references to files, file ranges, and symbols are added, allowing the user to link directly from the chat response to their codebase.
 
 ## Tips for using @workspace
 
