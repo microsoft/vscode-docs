@@ -1,7 +1,7 @@
 ---
 Order: 2
 Area: copilot
-TOCTitle: Getting started
+TOCTitle: Getting started tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
 DateApproved: 02/28/2024
