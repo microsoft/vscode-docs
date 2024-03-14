@@ -9,9 +9,15 @@ MetaDescription: Interact with GitHub Copilot through AI-powered chat conversati
 ---
 # Using Copilot Chat in VS Code
 
-When developing a project or learning something new, it can be a significant help to get AI assistance on your questions, large or small. [GitHub Copilot](https://github.com/features/copilot) enables an interactive chat experience that understands the context of your code, workspace, extensions, settings, and more.
+The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension gives you a chat interface that lets you interact with [GitHub Copilot](https://github.com/features/copilot) and receive answers to coding-related questions directly within VS Code, without requiring you to navigate documentation or search online forums.
 
-The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension gives you a chat interface that lets you ask and receive answers to coding-related questions directly within Visual Studio Code, without requiring you to navigate documentation or search online forums. Copilot Chat can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code.
+GitHub Copilot Chat can provide coding assistance in various scenarios:
+
+* Answer coding questions on how to best solve a problem
+* Explain someone else's code and suggest improvements
+* Propose code fixes
+* Generate unit test cases
+* Generate code documentation
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
 
@@ -19,19 +25,17 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * Use the **Chat view** to have an AI assistant on the side to help you at any time
 * Launch **Quick Chat** to ask a quick question and get back into what you're doing
 
-Copilot Chat might generate formatted and interactive results that contain rich text, code blocks, links to context that the model used, such as source code files, or buttons to access VS Code functionality.
+Copilot Chat can generate rich and interactive output. Copilot Chat might use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, links to context that Copilot used for generating a response, such as source code files or documentation, or buttons for accessing VS Code functionality might also be provided.
 
 ## Getting started
 
 > **Note**: After reviewing this topic, you can get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
 
-To get started with GitHub Copilot Chat, you need:
+* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-* The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension. When you install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension, the Copilot Chat extension is also installed.
+* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-* A subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
-
-Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+To set up a subscription and configure VS Code, follow the steps in the [Copilot Getting started tutorial](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
 
 ## Inline chat
 
@@ -91,8 +95,6 @@ If Copilot Chat detects that a code block contains a command, you can run it dir
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/copilot-chat/run-in-terminal.png)
 
-<!-- TODO: include info about code vulnerabilities in generated code -->
-
 You can control the font for code blocks in chat with the following settings:
 
 * `chat.editor.fontFamily`
@@ -128,7 +130,7 @@ Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`,
 
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
 
-Chat partipipants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat partipipants:
+Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat participants:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
@@ -138,7 +140,7 @@ You can prepend your chat inputs with a specific participant to help Copilot giv
 
 ### @workspace
 
-The `@workspace` chat partipipant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more. Imagine you are in the VS Code repository and you want to find out more about the service in charge of the current `ICodeEditor`; you can use the chat partipipant like this:
+The `@workspace` chat participant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more. Imagine you are in the VS Code repository and you want to find out more about the service in charge of the current `ICodeEditor`; you can use the chat participant like this:
 
 ![Asking the @workspace chat partipipant about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
 
@@ -154,7 +156,7 @@ Or questions that require knowledge of related code, dependencies, and design pa
 
 VS Code can be customized in so many ways that people get pleasantly surprised when they discover some hidden functionality. To help you to unlock the full power of VS Code, we created `@vscode`.
 
-This chat partipipant knows all about VS Code and can help you bridge the gap between natural language and VS Code commands and customizations. `@vscode` internally uses tools that give it access to the index of all the settings and commands and we are in the process of adding a tool so that this chat partipipant can also use the VS Code documentation. Now you can ask vague questions like:
+This chat participant knows all about VS Code and can help you bridge the gap between natural language and VS Code commands and customizations. `@vscode` internally uses tools that give it access to the index of all the settings and commands and we are in the process of adding a tool so that this chat participant can also use the VS Code documentation. Now you can ask vague questions like:
 
 * "`@vscode` the name of that thing when vscode fake opens a file? And how to disable it?"
 * "`@vscode` how do I change my VS Code colors?"
@@ -163,7 +165,7 @@ This chat partipipant knows all about VS Code and can help you bridge the gap be
 
 ### @terminal
 
-With `@terminal` you can questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
+With `@terminal` you can ask questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
 
 Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [chat variables](#use-chat-variables).
 
@@ -177,7 +179,7 @@ Chat participants can also contribute what we call slash commands, which are sho
 
 For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
-Once the intent is clear, `@workspace` has a much better chance of addressing your needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that will generate these files in a new folder.
+Once the intent is clear, `@workspace` has a better chance of addressing your needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that generates these files in a new folder.
 
 Examples of built-in commands:
 
@@ -235,35 +237,29 @@ When you're using `@workspace` to ask questions related to your VS Code workspac
 
 ## Using voice interaction
 
-With the voice control capabilities in VS Code, you have the option to initiate a chat conversation by using your voice.
+With the voice control capabilities in VS Code, you can initiate a chat conversation by using your voice:
 
-You can use the "Hey Code" voice command to start a voice session with Copilot Chat. You can choose whether you want this voice command to open the Chat view, inline chat in the editor, quick chat, or choose dynamically based on where the focus is.
-
-In addition, you can accelerate voice input for chat by using the "hold to speak" mode: press and hold the keybinding for inline chat and voice recording automatically starts. As soon as you release the keys, the request is sent to Copilot.
-
-<video src="images/overview/inline-chat-hold-speak.mp4" title="Hold Cmd+I to enter speak mode, use speech, and then release to send the chat request." autoplay loop controls muted></video>
+* Use your voice to dictate your chat prompt
+* Use the "Hey Code" voice command to start a voice session with Copilot Chat
+* Accelerate voice input for chat by using the "hold to speak" mode
 
 To enable voice interactions, make sure to also install the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension.
 
-<!-- 
-- microphone icon
-- press-and-hold to speak
-- hey code
-
-- using voice -> refer to separate doc (PR: https://github.com/microsoft/vscode-docs/pull/7072)
--->
+Learn more about how to [use voice interactions in VS Code](/docs/editor/voice.md).
 
 ## Privacy and transparency
 
 We emphasize responsible usage of AI, especially when it comes to source code. The `inlineChat.acceptedOrDiscardBeforeSave` setting, which is enabled by default, asks you for confirmation before saving code that was generated by Copilot.
 
-When the setting is enabled, a file save operation will wait for you to accept or discard any pending inline chat session. This also applies when Auto Save is enabled, which will be temporarily disabled until inline chat has ended.
+When the setting is enabled, a file save operation waits for you to accept or discard any pending inline chat session. This also applies when Auto Save is enabled, which will be temporarily disabled until inline chat has ended.
 
 ![Inline chat save consent message.](images/copilot-chat/inline-chat-save-consent.png)
 
-To enable additional workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
+To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
 
 ![Modal window asking for additional authentication for a private repository.](images/copilot-chat/authentication.png)
+
+Learn more about security, privacy, and transparency in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
 ## Additional resources
 
@@ -274,3 +270,8 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 ## Next step
 
 Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
+
+<!-- 
+TODO: 
+- include info about code vulnerabilities in generated code 
+-->
