@@ -19,7 +19,7 @@ This article answers frequently asked questions about using GitHub Copilot in Vi
 
 - Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
 
-## How can I get a Copilot subscription?
+### How can I get a Copilot subscription?
 
 If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
 
