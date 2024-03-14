@@ -193,7 +193,7 @@ Examples of built-in commands:
 * `@workspace /new` (or `/new`): scaffold code for a new workspace
 * `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
 
-## Provide context to Copilot Chat
+## Improve the performance of Copilot Chat
 
 Copilot works best when it has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
 
@@ -233,17 +233,15 @@ If you're using inline chat, and you have code selected in the editor, Copilot s
 
 ### Ignore files
 
-When you're using `@workspace` to ask questions related to your VS Code workspace, you can explicitly ignore specific files from the workspace by using a `.copilotignore` or `.gitignore` file. `@workspace` respects the `.gitignore` and `.copilotignore` when deciding which files from the workspace to index.
+When you're using `@workspace` to ask questions related to your VS Code workspace, you can explicitly ignore specific files from the workspace by using a `.gitignore` file. `@workspace` respects `.gitignore` when deciding which files from the workspace to index.
 
-## Using voice interaction
+## Use voice interactions
 
-With the voice control capabilities in VS Code, you can initiate a chat conversation by using your voice:
+With the voice control capabilities in VS Code, provided by the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension, you can initiate a chat conversation by using your voice:
 
 * Use your voice to dictate your chat prompt
 * Use the "Hey Code" voice command to start a voice session with Copilot Chat
 * Accelerate voice input for chat by using the "hold to speak" mode
-
-To enable voice interactions, make sure to also install the [VS Code Speech](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) extension.
 
 Learn more about how to [use voice interactions in VS Code](/docs/editor/voice.md).
 
@@ -270,8 +268,3 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 ## Next step
 
 Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
-
-<!-- 
-TODO: 
-- include info about code vulnerabilities in generated code 
--->
