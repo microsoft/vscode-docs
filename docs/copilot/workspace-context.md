@@ -38,16 +38,15 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 ## How does @workspace work?
 
-The full VS Code workspace can be too large to pass entirely to GitHub Copilot as context for responding to the user's chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources, and provides that relevant context to Copilot.
+The `@workspace` chat participant knows how to gather context about the code in your workspace. However, the full VS Code workspace can be too large to pass entirely to GitHub Copilot for responding to the user's chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources, and provides that relevant context to Copilot.
 
-Based on the user prompt, `@workspace` first determines the list of relevant file names, symbols, and ranges in files. It uses a combination of different strategies, such as GitHub code search index, a local embeddings index, or other statistical methods.
+First, `@workspace` uses GitHub Copilot to disambiguate the user's prompt and to get input for the different search strategies that will produce the right amount of context.
 
-Next, a ranking is performed to find the most relevant code chunks across the workspace, and then select the top chunks to use in the context.
+Next, it performs a combination of search strategies, such as [GitHub's code search index](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), a lexical text searches over the local index to find local, uncommitted changes, and VS Code's language intelligence to add details like function signatures, parameters, and more.
 
-Finally, `@workspace` sends the user request to GitHub Copilot and includes the relevant context in the request.
+Finally, all of these pieces of context are ranked, sliced, and summarized by `@workspace`, and then sent off to GitHub Copilot to answer the user's request.
 
 After the Copilot response is received, `@workspace` processes the response and adds references to files, file ranges, and symbols. This enables users to link directly from the chat response to the corresponding information in their codebase.
-
 
 ## Tips for using @workspace
 
