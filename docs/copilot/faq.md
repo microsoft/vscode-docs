@@ -13,12 +13,6 @@ This article answers frequently asked questions about using GitHub Copilot in Vi
 
 ## GitHub Copilot subscription
 
-### My Copilot subscription is not detected in VS Code
-
-- To use GitHub Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
-
-- Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
-
 ### How can I get a Copilot subscription?
 
 If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
@@ -30,19 +24,13 @@ If you want to use GitHub Copilot, you either need an active subscription for Gi
 
 Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
+### My Copilot subscription is not detected in VS Code
+
+- To use GitHub Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
+
+- Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
+
 ## General
-
-### How do I enable/disable Copilot?
-
-You can temporarily deactivate Copilot completions from the Status Bar. You're prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
-
-![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/vscode-status-bar-copilot-active.jpg)
-
-### Inline completions are not working in the editor
-
-- Verify that [GitHub Copilot is not disabled](#how-do-i-enabledisable-copilot) globally or for this language
-- Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
-- Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
 
 ### Network and firewall configuration for Copilot
 
@@ -56,6 +44,14 @@ You can give feedback on Copilot inline suggestions and responses in the [GitHub
 
 If you would like to provide feedback on the Copilot Chat features, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
 
+It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
+
+### View logs for GitHub Copilot in VS Code
+
+The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions. The log files are useful for diagnosing connection issues.
+
+Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **GitHub Copilot** or **GitHub Copilot Chat** in the dropdown.
+
 ### Are there pre-release builds of the Copilot extensions?
 
 Yes, you can switch to the pre-release (nightly) version of a Copilot extension to try the latest features and fixes. From the Extensions view, right-click or select the gear icon to bring up the context menu, and then select **Switch to Pre-Release Version**:
@@ -66,6 +62,20 @@ You can tell if you're running a pre-release version by the "Pre-release" badge 
 
 ![Pre-release version of the GitHub Copilot extension](images/faq/copilot-ext-pre-release.png)
 
+## Copilot code completions
+
+### How do I enable/disable Copilot?
+
+You can temporarily deactivate Copilot completions from the Status Bar. You're prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
+
+![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/vscode-status-bar-copilot-active.jpg)
+
+### Inline completions are not working in the editor
+
+- Verify that [GitHub Copilot is not disabled](#how-do-i-enabledisable-copilot) globally or for this language
+- Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
+- Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
+
 ## Copilot Chat
 
 ### Copilot Chat features aren't working for me?
@@ -75,14 +85,6 @@ Check each requirement if Copilot Chat doesn't work:
 - Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 - Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 - Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
-
-## Troubleshooting
-
-### View logs for GitHub Copilot in VS Code
-
-The log files for the GitHub Copilot extension are stored in the standard log location for Visual Studio Code extensions. The log files are useful for diagnosing connection issues.
-
-Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **GitHub Copilot** or **GitHub Copilot Chat** in the dropdown.
 
 ## Additional resources
 

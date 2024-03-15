@@ -13,7 +13,7 @@ GitHub Copilot provides autocomplete-style code completions from an AI pair prog
 
 ## Getting started
 
-> **Note**: After reviewing this topic, you can get started with the introductory [Copilot getting started tutorial](/docs/copilot/getting-started-chat.md) to get set up and take a hands-on tour of Copilot in VS Code.
+> **Note**: After reviewing this topic, you can get started with the introductory [Copilot getting started tutorial](/docs/copilot/getting-started.md) to get set up and take a hands-on tour of Copilot in VS Code.
 
 * To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 

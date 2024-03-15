@@ -11,7 +11,9 @@ MetaDescription: Get started with GitHub Copilot in Visual Studio Code and creat
 
 This tutorial walks you through setting up the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension, and discovering the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with AI-powered code suggestions, use chat conversations to refactor your code, and fix code errors with smart actions.
 
-In this tutorial, you're using GitHub Copilot to help you create a `Calculator` class in TypeScript, but Copilot is also trained on numerous other languages and a wide variety of frameworks.
+In this tutorial, you're using GitHub Copilot to help you create a `Calculator` class in TypeScript. 
+
+> **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
 
 For an overview of the GitHub Copilot features in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
@@ -68,7 +70,7 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
     class Calculator
     ```
 
-    Copilot automatically suggests a method for our `Calculator` class in dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestions can vary.
+    Copilot automatically suggests a method for our `Calculator` class in gray dimmed text (ghost text). In our example, the `add` method is suggested. The exact suggestions can vary.
 
     ![Screenshot of VS Code editor, showing Copilot suggesting the `add` method inside the `Calculator` class.](./images/getting-started/copilot-code-completion.png)
 
@@ -180,4 +182,4 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
 Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you successfully set up Copilot in VS Code, and used Copilot code completions, Copilot Chat, and code actions to help you code more efficiently.
 
-Next, learn more about GitHub Copilot Chat in the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
+You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about GitHub Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
