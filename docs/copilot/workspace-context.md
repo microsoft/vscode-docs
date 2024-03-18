@@ -26,7 +26,7 @@ Referencing `@workspace` in Copilot Chat lets you ask questions about your entir
 
 ## What context does @workspace have?
 
-The goal of the `@workspace` is to provide answers to questions about your full workspace that you have open in VS Code. It indexes different sources of information and applies different search strategies to come up with the most relevant context:
+The goal of the `@workspace` participant is to provide answers to questions about your full workspace that you have open in VS Code. It indexes different sources of information and applies different search strategies to come up with the most relevant context:
 
 - All files in the VS Code workspace, except for files that are included in `.gitignore` files
 - Workspace structure, such as folder and file names
