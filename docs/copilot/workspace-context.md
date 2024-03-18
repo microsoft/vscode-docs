@@ -5,16 +5,16 @@ TOCTitle: Workspace Context
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: Chat using @workspace Context References
 DateApproved: 02/28/2024
-MetaDescription: Overview of how the @workspace Copilot chat participants works and how it manages context.
+MetaDescription: How to use Copilot's @workspace chat to ask questions against your entire codebase.
 ---
 # How the @workspace Copilot chat participant works
 
-Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Copilot smartly retrieves relevant files and symbols based on your question, which it then references in its answer. Using `@workspace` references, Copilot Chat can provide in-depth expert help for tasks like:
+Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question will Copilot smartly retrieves relevant files and symbols based on your question, which it then references in its answer. Using `@workspace` references, Copilot Chat can provide in-depth expert help for tasks like:
 
 - Finding existing code in your codebase:
   - `"@workspace where is database connecting string configured?"`
   - `"@workspace is there a library for date validation?"`
-  - `"Where are tests defined?"`
+  - `"@workspace where are tests defined?"`
 - Making plans for larger codebase edits:
   - `"@workspace how can I add a hover text to a button?"`
   - `"@workspace add date validation to #selection"`
@@ -22,7 +22,7 @@ Referencing `@workspace` in Copilot Chat lets you ask questions about your entir
 - Explaining higher-level concepts in a codebase:
   - `"@workspace how is authentication implemented?"`
   - `"@workspace which API routes does this service provide?"`
-  - `"How do I build this project?"`
+  - `"How do I build this #codebase?"`
 
 ## What context does @workspace have?
 
