@@ -36,7 +36,7 @@ The goal of the `@workspace` is to provide answers to questions about your full 
 
 **Note**: `.gitignore` is overridden if you have a file open or have text selected in an ignored file.
 
-## How does @workspace work?
+## How does @workspace use this context?
 
 The `@workspace` chat participant knows how to gather context about the code in your workspace. However, the full VS Code workspace can be too large to pass entirely to GitHub Copilot for responding to the user's chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources, and provides that relevant context to Copilot.
 
