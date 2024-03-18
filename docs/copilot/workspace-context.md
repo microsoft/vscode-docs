@@ -48,12 +48,6 @@ Finally, all of these pieces of context are ranked, sliced, and summarized by `@
 
 After the Copilot response is received, `@workspace` processes the response and adds references to files, file ranges, and symbols. This enables users to link directly from the chat response to the corresponding information in their codebase.
 
-## Tips for using @workspace
-
-- Be specific in your questions and use terms and concepts that are potentially present in your codebase
-- Use chat variables to expand the explicit context on top of what is automatically included from the codebase, such as `#editor`, `#selection`, or `#file`
-- Don't expect statistical analysis, such as "how many times is this function called?" or "how many times is this variable used?"
-
 ## Context for @workspace slash commands
 
 Chat participants can contribute *slash commands*, which are a shorthand for commonly used instructions. Slash commands can help make the intent of the chat prompt more precise. For example, "@workspace /new node.js express" is more specific than "Create a new workspace with Node.js Express".
@@ -67,6 +61,12 @@ If you're using slash commands, then they define their own context that is optim
 | `/fix`     | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li></ul><ul><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul> |
 
 You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to get an explanation of the currently visible code in the editor, use this chat prompt: `@workspace /explain #editor`.
+
+## Tips for using @workspace
+
+- Be specific in your questions and use terms and concepts that are potentially present in your codebase
+- Use chat variables to expand the explicit context on top of what is automatically included from the codebase, such as `#editor`, `#selection`, or `#file`
+- Don't expect statistical analysis, such as "how many times is this function called?" or "how many times is this variable used?"
 
 ## Related resources
 
