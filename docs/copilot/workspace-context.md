@@ -56,6 +56,8 @@ After the Copilot response is received, `@workspace` processes the response and 
 
 ## Context for @workspace slash commands
 
+Chat participants can contribute *slash commands*, which are a shorthand for commonly used instructions. Slash commands can help make the intent of the chat prompt more precise. For example, "@workspace /new node.js express" is more specific than "Create a new workspace with Node.js Express".
+
 If you're using slash commands, then they define their own context that is optimized for their specific task:
 
 | Command    | Context |
