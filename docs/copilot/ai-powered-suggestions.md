@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: copilot
 TOCTitle: AI code completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
