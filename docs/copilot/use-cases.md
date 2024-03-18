@@ -9,43 +9,56 @@ MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Cop
 ---
 # GitHub Copilot advanced
 
+<!--  
+
+Use cases for GitHub Copilot:
+
+- Code completions in the editor
+    - Copilot suggests code as you type. 
+    - receive suggestions from GitHub Copilot either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do
+    - GitHub Copilot analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor.
+
+- Generating unit test cases
+    - help you write unit test cases by generating code snippets based on the code open in the editor or the code snippet you highlight in the editor. 
+    - Copilot Chat can also suggest assertions that ensure the function is working correctly, based on the code's context and semantics.
+    - help you write test cases for edge cases and boundary conditions that might be difficult to identify manually. For instance, Copilot Chat can suggest test cases for error handling, null values, or unexpected input types,
+
+- Code docs
+- Refactorings
+- Scaffold notebook
+- Scaffold workspace
+- Fix coding issues
+    - propose a fix for bugs in your code by suggesting code snippets and solutions based on the context of the error or issue.
+    - For example, if your code produces an error message or warning, Copilot Chat can suggest possible fixes based on the error message, the code's syntax, and the surrounding code.
+    - suggest changes to variables, control structures, or function calls that might resolve the issue and generate code snippets that can be incorporated into the codebase. 
+    - 
+- Explaining code and suggesting improvements
+    -  suggest potential improvements to selected code, such as improved handling of errors and edge cases, or changes to the logical flow to make the code more readable.
+    - help explain selected code by generating natural language descriptions of the code's functionality and purpose. This can be useful if you want to understand the code's behavior or for non-technical stakeholders who need to understand how the code works.
+    - 
+
+    - Ask Copilot for help with your code. 
+    -  ask and receive answers to coding-related questions
+
+- Answer general coding questions
+    - ask Copilot Chat for help or clarification on specific coding problems and receive responses in natural language format or in code snippet format. This can be a useful tool for programmers, as it can provide guidance and support for common coding tasks and challenges.
+    - access to coding information and support without requiring you to navigate documentation or search online forums.
+    - answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more.
+    - Copilot Chat may use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, links to context that the model used when generating a response, such as source code files or documentation, may also be provided.
+
+- Get help about using VS Code and the VS Code API (@vscode, command palette help)
+- Productivity improvements with AI-generated commit messages and PR descriptions
+    - Get Copilot to describe the changes in a pull request.
+    - 
+- Terminal suggestions for failed commands
+- 
+-->
+
+
+
 GitHub Copilot has several advanced features and settings, such as agents and slash commands. This article explains these advanced features in detail.
 
 If you're new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first.
-
-## Agents and slash commands
-
-To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through **agents** and **slash commands**.
-
-Agents are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following agents:
-
-* `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
-* `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
-* `@terminal` has context about the integrated terminal shell and its contents.
-
-You can prepend your chat inputs with a specific agent to help Copilot give you a more relevant response.
-
-![Asking the @vscode agent how to change the VS Code colors](images/use-cases/agent-example.png)
-
-Agents can also support slash commands for specific types of questions or tasks. For example, `@workspace /explain` can be used to ask Copilot to explain a file or code selection in the context of your open workspace. To see the available agents and slash commands, type `/` for a list.
-
-![Copilot slash command list in chat](images/use-cases/slash-commands.png)
-
-* @workspace /explain: Explain step-by-step how the selected code works.
-* @workspace /fix: Propose a fix for the bugs in the selected code.
-* @workspace /new: Create a new project based on a natural language description.
-* @workspace /newNotebook: Create a new Jupyter Notebook based on your description.
-* @workspace /tests: Generate unit tests for the selected code.
-* @vscode /api: Questions about VS Code extension development.
-* @vscode /search: Generate query parameters for workspace search.
-* @terminal: Explain how to do something in the integrated terminal.
-
-## General purpose slash commands
-
-In addition to agent and slash command combinations, there are general purpose slash commands for actions such as clearing the chat session or getting help.
-
-* /help: Prints general help about GitHub Copilot.
-* /clear: Clear the session.
 
 ## Creating a workspace
 
