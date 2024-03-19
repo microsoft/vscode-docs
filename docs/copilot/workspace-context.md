@@ -36,11 +36,11 @@ To answer your question, `@workspace` searches through the same sources a develo
 
 **Note**: `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
-## How does `@workspace` finds the most relevant context
+## How does `@workspace` find the most relevant context
 
 Your full VS Code workspace can be too large to pass entirely to GitHub Copilot for responding to your chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources to ground Copilot's answer.
 
-First, `@workspace` determine which information are needed to answer your prompt, which selects the mix of sources and search strategies it will use.
+First, `@workspace` determines which information is needed to answer your prompt, which selects the mix of sources and search strategies it will use.
 
 Next, it performs a combination of search strategies, such as [GitHub's code search index](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), a lexical text searches over the local index to find local, uncommitted changes, and VS Code's language intelligence to add details like function signatures, parameters, and more.
 
