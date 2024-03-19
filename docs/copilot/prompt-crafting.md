@@ -15,6 +15,11 @@ This article covers best practices for using GitHub Copilot in Visual Studio Cod
 
 If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
 
+There are different options for optimizing your Copilot experience for inline suggestions and chat:
+
+- [Get the most out of inline suggestions](#getting-the-most-out-of-copilot-inline-suggestions)
+- [Get the most out of Copilot Chat](#getting-the-most-out-of-copilot-chat)
+
 ## Getting the most out of Copilot inline suggestions
 
 The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#inline-suggestions) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.

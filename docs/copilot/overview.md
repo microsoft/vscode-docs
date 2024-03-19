@@ -33,10 +33,21 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-s
 
 ## Copilot tutorials
 
-* [GitHub Copilot quickstart](/docs/copilot/getting-started.md)
-* [Get started with Copilot Chat](/docs/copilot/getting-started-chat.md)
+* [GitHub Copilot quickstart](/docs/copilot/getting-started.md) to get set up and discover the key features of Copilot in VS Code.
+* [Get started with Copilot Chat](/docs/copilot/getting-started-chat.md) to explore Copilot Chat in depth.
 
 ## Use cases for GitHub Copilot in VS Code
+
+GitHub Copilot can provide coding assistance in a variety of scenarios:
+
+* [Code completions in the editor](#code-completions-in-the-editor)
+* [Answering coding questions](#answering-coding-questions)
+* [Code refactoring and improvements](#code-refactoring-and-improvements)
+* [Fix issues](#fix-issues)
+* [Jumpstart your project](#jumpstart-your-project)
+* [Generate unit test cases](#generate-unit-test-cases)
+* [Generate code documentation](#generate-code-documentation)
+* [Improve your productivity](#productivity-improvements)
 
 ### Code completions in the editor
 
@@ -88,7 +99,7 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-s
 
     ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with Seaborn](images/overview/copilot-new-notebook.png)
 
-### Generating unit test cases
+### Generate unit test cases
 
 * **Write unit test cases for your test framework** based on the code open in the editor or the code snippet you highlight in the editor. Copilot identifies your test framework and coding style and generates matching code snippets.
 
@@ -98,7 +109,7 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-s
 
     ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/overview/workspace-agent-tests-example.png)
 
-### Generating code documentation
+### Generate code documentation
 
 * **Generate code documentation for multiple languages** for the code open in the editor or the code snippet you highlight in the editor. Use `/doc` or a Copilot smart action to help you generate meaningful code documentation.
 

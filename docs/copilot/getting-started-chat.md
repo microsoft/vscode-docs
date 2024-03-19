@@ -31,11 +31,13 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started-chat/copilot-chat-view.png)
 
-    > **Tip**: Drag the Chat view to the Secondary Side bar to keep both the Chat view and Explorer view open.
+    > **Tip**: You can drag the Chat view to the Secondary side bar to keep the Chat view and Explorer view open at the same time. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 
 1. In the chat input field, enter *nodejs web server frameworks*, and then press `kb(inlineChat.accept)` to send the request to Copilot.
 
-    Copilot returns a list of web frameworks and with some additional information. So, without leaving VS Code, you can search for coding information while you stay in VS Code. Note that your results might be different from what is shown in the screenshots.
+    Copilot returns a list of web frameworks and with some additional information. So, you can search for coding information while you stay in VS Code. 
+
+    Note that your results might be different from what is shown in the screenshots. AI models are non-deterministic, which means that they can return different responses when asked the same question. This might be due to additional learning and adaption over time, language variation, changes in context, such as your chat history, and more.
 
     ![Screenshot of VS Code, showing the Copilot Chat view, showing the chat response and a suggested follow-up question.](./images/getting-started-chat/copilot-chat-view-node-frameworks.png)
 
