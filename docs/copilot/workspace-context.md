@@ -40,7 +40,7 @@ To answer your question, `@workspace` searches through the same sources a develo
 
 Your full VS Code workspace can be too large to pass entirely to GitHub Copilot for responding to your chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources to ground Copilot's answer.
 
-First, `@workspace` determines which information is needed to answer your prompt, which selects the mix of sources and search strategies it will use.
+First, `@workspace` determines which information is needed to answer your question, also including the conversation history, workspace structure, and currently selected code.
 
 Next, it performs a combination of search strategies, such as [GitHub's code search index](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), a lexical text searches over the local index to find local, uncommitted changes, and VS Code's language intelligence to add details like function signatures, parameters, and more.
 
@@ -62,8 +62,10 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
 
+- Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (could be the last answer, current file, or whole project, etc.).
 - Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
-- Utilize chat variables such as `#editor`, `#selection`, or `#file` to deliberately include relevant context.
+- Review the *used references* in the response to ensure that the files are relevant. Iterate on your question if necessary.
+- Explicitly include relevant context by selecting code or mentioning chat variables such as `#editor`, `#selection`, or `#file`.
 - Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
 - Avoid assuming information beyond the code (for now), such as "who contributed to this file?" or "summarize review comments for this folder".
 
