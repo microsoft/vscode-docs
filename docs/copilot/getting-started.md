@@ -150,9 +150,11 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     Notice how the chat response contains rich results, consisting of text and a code block.
 
-1. You can also drag the Chat view to the Secondary Side bar, for example if you want to view both the Chat view and Explorer view.
+1. You can also drag the Chat view to the Secondary side bar, for example if you want to view both the Chat view and Explorer view.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view in the secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
+
+    Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 
 ## Fix coding errors with Copilot
 
