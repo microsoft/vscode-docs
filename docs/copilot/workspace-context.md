@@ -58,13 +58,14 @@ Finally, all of these pieces of context are ranked, sliced, and summarized by `@
 
 You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #file:form.ts`.
 
-## Tips for using @workspace
+## Tips for using `@workspace`
 
-- Ask specific questions and use terms and concepts that are likely to be found in the code or documentation of your codebase
-- Use chat variables to expand the explicit context on top of what is implicitly included from the codebase, such as `#editor`, `#selection`, or `#file`
-- Basic code analysis is possible (e.g., "find exceptions without a catch block"), but complex code analysis like "fix all bugs in this project" is not
-- Answers can be based on multiple references (e.g., "how is handleError is used"), but it won't do a full code analysis like "how many times is this function called?" or "How many TSX files"
-- Don't assume information beyond code (yet), like "who contributed to this file?" or "summarize review comments for this folder"
+The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
+
+- Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
+- Utilize chat variables such as `#editor`, `#selection`, or `#file` to deliberately include relevant context.
+- Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
+- Avoid assuming information beyond the code (for now), such as "who contributed to this file?" or "summarize review comments for this folder".
 
 ## Related resources
 
