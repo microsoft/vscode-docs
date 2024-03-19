@@ -15,9 +15,9 @@ In this tutorial, you're using GitHub Copilot to help you create a `Calculator` 
 
 > **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
 
-For an overview of the GitHub Copilot features in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
+For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jXp5D5ZnxGM" title="Get to know GitHub Copilot in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Set up VS Code for GitHub Copilot
 

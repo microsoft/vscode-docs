@@ -19,7 +19,7 @@ With GitHub Copilot in VS Code you can:
 * Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
 * Use chat features to discover and configure your VS Code setup.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Fi3AJZZregI" title="Get Started with the Future of Coding: GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jXp5D5ZnxGM" title="Get to know GitHub Copilot in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 

@@ -11,7 +11,7 @@ MetaDescription: Get started with AI-powered chat conversations with GitHub Copi
 
 This tutorial walks you through using the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
 
-If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Getting Started](/docs/copilot/getting-started.md) or the [GitHub Copilot Overview](/docs/copilot/overview.md).
+If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md) or get set up and discover the key capabilities in the [GitHub Copilot Getting Started Tutorial](/docs/copilot/getting-started.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
 1. In the chat input field, enter *nodejs web server frameworks*, and then press `kb(inlineChat.accept)` to send the request to Copilot.
 
-    Copilot returns a list of web frameworks and with some additional information. So, you can search for coding information while you stay in VS Code. 
+    Copilot returns a list of web frameworks and with some additional information. So, you can search for coding information while you stay in VS Code.
 
     Note that your results might be different from what is shown in the screenshots. AI models are non-deterministic, which means that they can return different responses when asked the same question. This might be due to additional learning and adaption over time, language variation, changes in context, such as your chat history, and more.
 
@@ -196,3 +196,8 @@ Let's use chat variables to ask Copilot about a specific file in our workspace.
 ## Congratulations
 
 Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations to help refactor your code, fix problems, or improve your code understanding.
+
+## Additional resources
+
+* Get an overview of [GitHub Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
+* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/prompt-crafting.md)
