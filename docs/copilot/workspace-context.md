@@ -28,7 +28,7 @@ Referencing `@workspace` in Copilot Chat lets you ask questions about your entir
 
 To answer your question, `@workspace` searches through the same sources a developer would use when navigating a codebase in VS Code:
 
-- All files in the workspace, except for files that are included in `.gitignore` files
+- All files in the workspace, except for files that are ignored by a `.gitignore` file
 - Directory structure with nested folder and file names
 - GitHub's code search index, if the workspace is a GitHub repository and [indexed by code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-specific-repository-file-or-symbol)
 - Symbols and definitions in the workspace
