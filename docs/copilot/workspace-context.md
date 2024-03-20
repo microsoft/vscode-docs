@@ -9,7 +9,7 @@ MetaDescription: How to use Copilot's @workspace chat to ask questions against y
 ---
 # Making Copilot Chat an expert in your workspace
 
-Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question Copilot intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples. Grounded in `@workspace` references, Copilot Chat becomes a domain expert for tasks like:
+Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question, Copilot intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples. Grounded in `@workspace` references, Copilot Chat becomes a domain expert for tasks like:
 
 - Finding existing code in your codebase:
   - `"@workspace where is database connecting string configured?"` - Explains where and how the database connection is configured
@@ -28,7 +28,7 @@ Referencing `@workspace` in Copilot Chat lets you ask questions about your entir
 
 To answer your question, `@workspace` searches through the same sources a developer would use when navigating a codebase in VS Code:
 
-- All files in the workspace, except for files that are included in `.gitignore` files
+- All files in the workspace, except for files that are ignored by a `.gitignore` file
 - Directory structure with nested folder and file names
 - GitHub's code search index, if the workspace is a GitHub repository and [indexed by code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-specific-repository-file-or-symbol)
 - Symbols and definitions in the workspace
@@ -40,7 +40,7 @@ To answer your question, `@workspace` searches through the same sources a develo
 
 Your full VS Code workspace can be too large to pass entirely to GitHub Copilot for responding to your chat prompt. Instead, `@workspace` extracts the most relevant information from the different context sources to ground Copilot's answer.
 
-First, `@workspace` determines which information is needed to answer your prompt, which selects the mix of sources and search strategies it will use.
+First, `@workspace` determines which information is needed to answer your question, also including the conversation history, workspace structure, and currently selected code.
 
 Next, it performs a combination of search strategies, such as [GitHub's code search index](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), a lexical text searches over the local index to find local, uncommitted changes, and VS Code's language intelligence to add details like function signatures, parameters, and more.
 
@@ -62,8 +62,10 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
 
+- Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (where "this" could be interpreted as the last answer, current file, or whole project, etc.).
 - Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
-- Utilize chat variables such as `#editor`, `#selection`, or `#file` to deliberately include relevant context.
+- Review the *used references* in the response to ensure that the files are relevant. Iterate on your question if necessary.
+- Explicitly include relevant context by selecting code or mentioning chat variables such as `#editor`, `#selection`, or `#file`.
 - Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
 - Avoid assuming information beyond the code (for now), such as "who contributed to this file?" or "summarize review comments for this folder".
 
