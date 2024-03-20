@@ -9,7 +9,7 @@ MetaDescription: How to use Copilot's @workspace chat to ask questions against y
 ---
 # Making Copilot Chat an expert in your workspace
 
-Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question Copilot intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples. Grounded in `@workspace` references, Copilot Chat becomes a domain expert for tasks like:
+Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question, Copilot intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples. Grounded in `@workspace` references, Copilot Chat becomes a domain expert for tasks like:
 
 - Finding existing code in your codebase:
   - `"@workspace where is database connecting string configured?"` - Explains where and how the database connection is configured
