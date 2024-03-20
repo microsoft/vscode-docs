@@ -42,9 +42,9 @@ Your full VS Code workspace can be too large to pass entirely to GitHub Copilot 
 
 First, `@workspace` determines which information is needed to answer your question, also including the conversation history, workspace structure, and currently selected code.
 
-Next, it performs a combination of search strategies, such as [GitHub's code search index](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), a lexical text searches over the local index to find local, uncommitted changes, and VS Code's language intelligence to add details like function signatures, parameters, and more.
+Next, it collects the context using different approaches, such as finding relevant code snippets by searching locally or by using [GitHub's code search](https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search), and using VS Code's language IntelliSense to add details like function signatures, parameters, and more.
 
-Finally, all of these pieces of context are ranked, sliced, and summarized by `@workspace`, and then used by GitHub Copilot to answer your question. The responses is marked up with references to files, file ranges, and symbols. This enables you to link directly from the chat response to the corresponding information in your codebase.
+Finally, this context is used by GitHub Copilot to answer your question. If the context is too large, only the most relevant parts of the context are used. The response is marked up with references to files, file ranges, and symbols. This enables you to link directly from the chat response to the corresponding information in your codebase. The code snippets that were provided to Copilot are listed as references in the response.
 
 ## Context for `@workspace` slash commands
 
