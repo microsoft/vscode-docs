@@ -164,7 +164,7 @@ The extension is still in preview and only supports English right now, but we'll
 
 ## Work smarter, not harder
 
-All of the above and more is available in VS Code today! You just have to install the [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. And you can learn more about Copilot Chat features in our [documentation](https://code.visualstudio.com/docs/editor/github-copilot#_chat-features)
+All of the above and more is available in VS Code today! You just have to install the [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. And you can learn more about Copilot Chat features in our [documentation](https://code.visualstudio.com/docs/copilot/copilot-chat)
 
 Thanks!
 
