@@ -62,7 +62,7 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
 
-- Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (could be the last answer, current file, or whole project, etc.).
+- Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (where "this" could be interpreted as the last answer, current file, or whole project, etc.).
 - Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 - Review the *used references* in the response to ensure that the files are relevant. Iterate on your question if necessary.
 - Explicitly include relevant context by selecting code or mentioning chat variables such as `#editor`, `#selection`, or `#file`.
