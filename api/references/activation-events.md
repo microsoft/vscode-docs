@@ -129,7 +129,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## onView
 
-This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar (Extensions or Source Control are examples of built-in views).
+This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar. Built-in views do not emit an activation event.
 
 The activation event below will fire whenever a view with the `nodeDependencies` id is visible:
 
