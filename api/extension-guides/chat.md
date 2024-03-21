@@ -79,11 +79,12 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it in your `package.json` by providing the `name` and `description`:
+The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name` and `description`:
 ```json
 "contributes": {
         "chatParticipants": [
             {
+                "id": "chat-sample.cat",
                 "name": "cat",
                 "description": "Meow! What can I teach you?"
             }
@@ -91,9 +92,9 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-Up-front registration of participants and commands in `package.json` is required so VS Code can activate your extension at the right time, and not before it is needed.
+Up-front registration of participants and commands in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
 
-After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
+After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide the ID, which you defined in `package.json`, and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
 
 The following code snippet shows how to create the `@cat` chat participant (after you register it in your `package.json`):
 
@@ -101,7 +102,7 @@ The following code snippet shows how to create the `@cat` chat participant (afte
 export function activate(context: vscode.ExtensionContext) {
 
     // Register the chat participant and its request handler
-    const cat = vscode.chat.createChatParticipant('cat', handler);
+    const cat = vscode.chat.createChatParticipant('chat-sample.cat', handler);
 
     // Optionally, set some properties for @cat
     cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
@@ -140,7 +141,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
 #### Determine the request intent
 
-To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), chat location, and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
@@ -168,6 +169,8 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 Next, you need to implement the actual logic for processing the user request. Often, chat extensions use the [Language Model API](/api/extension-guides/language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
 
 While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". Learn how you can [use the chat message history](#use-the-chat-message-history).
+
+If you want to process a request differently based on the location of the chat input, you can use the `location` property of the `vscode.ChatRequest`. For example, if the user sends a request from the terminal inline chat, you might look up a shell command. Whereas, if the user uses the Chat view, you could return a more elaborate response.
 
 #### Return the chat response
 
@@ -198,10 +201,10 @@ In practice, extensions typically send a request to the language model. Once the
 
 #### Use the chat message history
 
-Participants have access to the history of the current chat session. For example, using the following code snippet the `@cat` participant can get all the previous `@cat` messages in the current chat session:
+Participants have access to the message history of the current chat session. For example, use the following code snippet to rerieve all the previous `@cat` messages in the current chat session:
 
 ```typescript
- const previousMessages = context.history.filter(h => h.participant.name == 'cat');
+const previousMessages = context.history.filter(h => h instanceof vscode.ChatResponseTurn && h.participant == 'chat-sample.cat');
 ```
 
 History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
