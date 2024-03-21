@@ -21,7 +21,7 @@ The UI elements and VS Code commands for refactoring are the same across the dif
 
 ## Code Actions = Quick Fixes and refactorings
 
-In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with red squiggles). When the cursor is on a squiggle or on a selected text region, VS Code shows a lightbulb icon in the editor to indicate that a Code Action is available. If you select the Code Action lightbulb or use the **Quick Fix** command `kb(editor.action.quickFix)`, the Quick Fixes and refactorings context menu is presented.
+In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with red squiggles). When the cursor is on a squiggle or on a selected text region, VS Code shows a light bulb icon in the editor to indicate that a Code Action is available. If you select the Code Action light bulb or use the **Quick Fix** command `kb(editor.action.quickFix)`, the Quick Fixes and refactorings control is presented.
 
 If you prefer to only see refactorings without Quick Fixes, then you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
@@ -31,7 +31,7 @@ If you prefer to only see refactorings without Quick Fixes, then you can use the
 
 ### Extract Method
 
-Select the source code you'd like to extract and then select the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings. Source code fragments can be extracted into a new method, or into a new function at various different scopes. During the extract refactoring, you are prompted to provide a meaningful name.
+Select the source code you'd like to extract and then select the light bulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings. Source code fragments can be extracted into a new method, or into a new function at various different scopes. During the extract refactoring, you are prompted to provide a meaningful name.
 
 ### Extract Variable
 
@@ -43,7 +43,7 @@ When working with classes, you can also extract a value to a new property.
 
 ### Rename symbol
 
-Renaming is a common operation related to refactoring source code, and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support renaming a symbol across files. Press `kb(editor.action.rename)`, type the new desired name, and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
+Renaming is a common operation related to refactoring source code, and VS Code has a separate **Rename Symbol** command (`kb(editor.action.rename)`). Some languages support renaming a symbol across files. Press `kb(editor.action.rename)`, type the new desired name, and press `kbstyle(Enter)`. All instances of the symbol across all files will be renamed.
 
 ![Rename](images/refactoring/rename.png)
 
@@ -61,7 +61,7 @@ You can select any of the changes in the **Refactor Preview** panel to get a dif
 
 Use the **Accept** or **Discard** controls to apply or cancel the proposed refactoring changes.
 
-Optionally, you can partially apply the refactoring changes by deselecting some of the proposed changesin the Refactor Preview panel.
+Optionally, you can partially apply the refactoring changes by deselecting some of the proposed changes in the Refactor Preview panel.
 
 ![Screenshot of the Refactor Preview panel that shows how to partially apply changes by deselecting specific changes.](images/refactoring/refactor-preview-partial.png)
 
@@ -104,7 +104,7 @@ Valid values for `apply`:
 * `ifSingle` - (Default) Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
 * `never` - Always show the Code Action context menu, even if only a single Code Action is available.
 
-When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings may exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
 This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
 
@@ -136,6 +136,6 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 
 ## Common questions
 
-### Why don't I see any lightbulbs when there are errors in my code?
+### Why don't I see any light bulbs when there are errors in my code?
 
-Lightbulbs (Code Actions) are only shown when the cursor is over the text showing the error. Hovering over the text shows the error description, but you need to move the cursor or select text to see lightbulbs for Quick Fixes and refactorings.
+Light bulbs (Code Actions) are only shown when the cursor is over the text showing the error. Hovering over the text shows the error description, but you need to move the cursor or select text to see light bulbs for Quick Fixes and refactorings.
