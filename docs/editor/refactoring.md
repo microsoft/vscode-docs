@@ -47,6 +47,24 @@ Renaming is a common operation related to refactoring source code, and VS Code h
 
 ![Rename](images/refactoring/rename.png)
 
+## Refactor Preview
+
+When you apply a refactoring, the changes are directly implemented to your code. In the **Refactor Preview** panel, you can preview the changes that will be applied by a refactoring operation.
+
+To open the **Refactor Preview** panel, open the Code Actions control, hover over a refactoring, and then press `kb(previewSelectedCodeAction)`.
+
+![Video of launching the Refactor Preview panel by pressing `CtrlCmd + Enter` on the Code Actions control.](images/refactoring/refactor-preview-launch.gif)
+
+You can select any of the changes in the **Refactor Preview** panel to get a diff view of the changes that are a result of the refactoring operation.
+
+![Screenshot of the Refactor Preview panel that shows an 'Extract to' refactoring that results in two changes](images/refactoring/refactor-preview.png)
+
+Use the **Accept** or **Discard** controls to apply or cancel the proposed refactoring changes.
+
+Optionally, you can partially apply the refactoring changes by deselecting some of the proposed changesin the Refactor Preview panel.
+
+![Screenshot of the Refactor Preview panel that shows how to partially apply changes by deselecting specific changes.](images/refactoring/refactor-preview-partial.png)
+
 ## Keybindings for Code Actions
 
 The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding, for example, triggers the **Extract function** refactoring Code Actions:
