@@ -259,7 +259,7 @@ Here is a sample `launch.json` debugger configuration:
 ```
 
 <video autoplay loop muted playsinline controls>
-  <source src="/api/working-with-extensions/testing-extension/debug.mp4" type="video/mp4">
+  <source src="images/testing-extension/debug.mp4" type="video/mp4">
 </video>
 
 ## Tips
