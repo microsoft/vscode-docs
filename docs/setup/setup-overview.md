@@ -74,7 +74,7 @@ We have a list of [System Requirements](/docs/supporting/requirements.md).
 
 ### How big is VS Code?
 
-VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
+VS Code is a small download (< 200 MB) and has a disk footprint of less than 500 MB, so you can quickly install VS Code and try it out.
 
 ### How do I create and run a new project?
 
