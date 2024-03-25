@@ -79,22 +79,28 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name` and `description`:
+The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`:
+
 ```json
 "contributes": {
         "chatParticipants": [
             {
                 "id": "chat-sample.cat",
                 "name": "cat",
-                "description": "Meow! What can I teach you?"
+                "description": "Meow! What can I teach you?",
+                "isSticky": true
             }
         ]
 }
 ```
 
-Up-front registration of participants and commands in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
+Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. The `description` is shown in the chat input field as a placeholder text.
 
-After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide the ID, which you defined in `package.json`, and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
+The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+
+Up-front registration of participants and [commands](#register-commands) in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
+
+After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide the ID, which you defined in `package.json`, and a [request handler](#implement-a-request-handler).
 
 The following code snippet shows how to create the `@cat` chat participant (after you register it in your `package.json`):
 
@@ -105,16 +111,13 @@ export function activate(context: vscode.ExtensionContext) {
     const cat = vscode.chat.createChatParticipant('chat-sample.cat', handler);
 
     // Optionally, set some properties for @cat
-    cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
 
     // Add the chat request handler here
 }
 ```
 
-The icon and description are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
-
-After registering the chat participant, you now need to implement the request handler to process a user's request.
+After registering and creating the chat participant, you now need to implement the request handler to process a user's request.
 
 ### Implement a request handler
 
@@ -223,8 +226,10 @@ Chat participants can contribute commands with their description by adding them 
 "contributes": {
     "chatParticipants": [
         {
+            "id": "chat-sample.cat",
             "name": "cat",
             "description": "Meow! What can I teach you?",
+            "isSticky": true,
             "commands": [
                 {
                     "name": "teach",
