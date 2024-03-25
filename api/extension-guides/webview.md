@@ -656,11 +656,11 @@ If the user right-clicks inside of the `<textarea>`, they will see:
 Sometimes it can be useful to show a menu on left/primary click. For example, to show a menu on a split button. You can do this by dispatching the `contextmenu` event in an `onClick` event:
 
 ```html
-<button data-vscode-context='{"preventDefaultContextMenuItems": true } onClick={(e) => {
+<button data-vscode-context='{"preventDefaultContextMenuItems": true }' onClick='((e) => {
         e.preventDefault();
-        e.target.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
+        e.target.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
         e.stopPropagation();
-    }}>Create</button>
+    })(event)'>Create</button>
 ```
 
 ![Split button with a menu](images/webview/webview-split-button-menu.png)

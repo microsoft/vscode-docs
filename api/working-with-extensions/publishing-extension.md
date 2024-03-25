@@ -297,6 +297,7 @@ Here are some tips for making your extension look great on the Marketplace:
 
 - Add a `LICENSE` file to the root of your extension with the information about the extension's license.
 - Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
+- Add a `SUPPORT.md` file to the root of your extension with the information about how to get support for your extension.
 - Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` property in `package.json`.
 - Set an icon by specifying a relative path to a 128x128px PNG file included in your extension via the `icon` property in `package.json`.
 
