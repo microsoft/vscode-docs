@@ -114,6 +114,21 @@ By default, the task/debug features will use the default profile. This may not b
 }
 ```
 
+## Profile-specific keybindings
+
+Launching a terminal with a specific profile via a [dedicated keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
+
+```json
+{
+  "key": "ctrl+shift+t",
+  "command": "workbench.action.terminal.newWithProfile",
+  "args": {
+    "profileName": "zsh",
+    "location": "editor"
+  }
+}
+```
+
 ## Unsafe profile detection
 
 Certain shells are installed in unsafe paths by default, like a path that could be written to by another user on a Windows environment. VS Code will still detect these but not expose them as a proper profile until they have been explicitly configured via the **Terminal: Select Default Profile** command. When configuring an unsafe profile, there will be a warning before it's added:
