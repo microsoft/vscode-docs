@@ -943,6 +943,21 @@ The **editor title menu** has these default groups:
 
 `navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
 
+The **terminal tab context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_run` - Commands related to running/executing something in the terminal.
+- `5_manage` - Commands related to managing a terminal.
+- `7_configure` - Commands related to terminal 0configuration.
+
+The **terminal context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_edit` - Commands related to manipulating text, the selection or the clipboard.
+- `5_clear` - Commands related to clearing the terminal.
+- `7_kill` - Commands related to closing/killing the terminal.
+- `9_config` - Commands related to terminal configuration.
+
 The **Timeline view item context menu** has these default groups:
 
 - `inline` - Important or frequently used timeline item commands. Rendered as a toolbar.
