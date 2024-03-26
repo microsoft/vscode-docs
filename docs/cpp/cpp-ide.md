@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Editing and Navigating
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
 PageTitle: Edit and navigate
-DateApproved: 1/2/2024
+DateApproved: 1/16/2024
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
 ---
 # Editing and Navigating
@@ -19,7 +19,7 @@ To specify additional include directories, select an #include that has no refere
 
 ![Process of adding a new header to the include path](images\intellisense\AddingIncludePathToConfig.gif)
 
-## List members
+### List members
 
 When you type a member access symbol (`.` or `->`) the editor displays a list of members. As you type more letters, the list is filtered in real time:
 
@@ -27,16 +27,18 @@ When you type a member access symbol (`.` or `->`) the editor displays a list of
 
 ### Code formatting
 
-The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html), which is included with the extension.
+The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and [vc_format](). Both of these formatting options are included in the extension, with clang-format being the default.
 
 You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also configure autoformatting with the following [settings](/docs/getstarted/settings.md):
 
 * `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-By default, the clang-format style is set to "file". This means, if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise, formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md).
+### Clang-format
 
-Currently, the default formatting style is "Visual Studio", an approximation of the default code formatter in Visual Studio. It implies the following settings:
+By default, the clang-format style is set to `file`. This means, if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise, formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md).
+
+Currently, the default formatting style is `Visual Studio`, an approximation of the default code formatter in Visual Studio. It implies the following settings:
 
 ```json
 UseTab: (VS Code current setting)
@@ -55,6 +57,10 @@ For example, on the Windows platform, use:
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
+#### vc_format
+
+By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/getstarted/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine always.
+
 ### Enhanced semantic colorization
 
 When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, etc., see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
@@ -64,6 +70,14 @@ When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports se
 You can hover over a symbol to see an inline view of its definition:
 
 ![Quick info](images/mingw/quickinfo.png)
+
+### Doxygen comments
+
+Doxygen is a tool that generates documentation from source code. When you annotate code with comments, Doxygen will then generate documentation for these functions. For doxygen comments, type `/**` and press `Enter` to generate a doxygen comment block. Supported doxygen tags include: `@brief`,`@tparam`, `@param`, `@return`, `@exception`, `@deprecated`, `@note`, `@attention`, and `@pre`.
+
+### Markdown comments
+
+The C++ Extension by default supports showing a subset of markdown in your editor. This subset supports all markdown comments except the symbols "_" and "*". Toggle the new **Markdown in Comments** setting to enable all markdown, keep this subset of markdown, or disable markdown support.
 
 ## Navigating source code
 
@@ -75,7 +89,7 @@ Navigation is powered by a set of tags stored in a local database of symbol info
 
 You can search for symbols in the current file or workspace to navigate your code more quickly.
 
-To search for a symbol in the current file, press `kb(workbench.action.gotoSymbol)`, then enter the name of the symbol you're looking for. A list of potential matches will appear; which is filtered as you type. Choose from the list of matches to navigate to its location.
+To search for a symbol in the current file, press `kb(workbench.action.gotoSymbol)`, then enter the name of the symbol you're looking for. A list of potential matches appears; which is filtered as you type. Choose from the list of matches to navigate to its location.
 
 ![Searching the current file](images/cpp/filesearch.png)
 
@@ -89,7 +103,7 @@ You can also search for symbols by accessing these commands through the **Comman
 
 A Call Hierarchy view shows all calls to or from a function. It lets you understand the complex calling relationships between the functions in your source code.
 
-To view the call hierarchy, select a function, right-click to display the context menu and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
+To view the call hierarchy, select a function, right-click to display the context menu, and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
 
 ![Selecting call hierarchy and showing calls in sidebar](images/cpp/call-hierarchy.gif)
 
@@ -115,7 +129,7 @@ If no definitions can be found for the symbol you selected, the C/C++ Extension 
 
 ### Go to declaration
 
-Use the **Go to Declaration** feature to navigate to the location a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations. Select a symbol in your source code, right-click and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
+Use the **Go to Declaration** feature to navigate to the location a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations. Select a symbol in your source code, right-click, and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
 
 ### Go to references
 
@@ -129,13 +143,13 @@ Use the **Go to Type Definition** feature to jump to where a type is defined in 
 
 Read on to find out about:
 
-* [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
+* [Debugging](/docs/cpp/cpp-debug.md) - find out how to use the debugger with your project
+* [Configure IntelliSense](/docs/cpp/configure-intellisense.md) - configure IntelliSense for your project
 * [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You may be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.
