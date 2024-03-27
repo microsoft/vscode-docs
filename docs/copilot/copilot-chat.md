@@ -57,6 +57,12 @@ The following example shows the `preview` mode for inline chat.
 
 ![Copilot inline chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 
+## Experimental terminal inline chat
+
+Inline chat for the terminal can be enbled with `terminal.integrated.experimentalInlineChat` and invoked in a terminal (`kb(inlinechat.start)`).
+
+The chat will use the `@terminal` chat participant, which has context about the integrated terminal shell and its contents.
+
 ## Chat view
 
 The Chat view enables you to have a chat conversation with Copilot in a separate view. You can access the Chat view via the Activity Bar or by pressing `kb(workbench.action.chat.open)`:
