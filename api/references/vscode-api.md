@@ -20508,10 +20508,9 @@ is no longer visible.</p>
 and destroyed when it is hidden. Extensions that have complex state
 or UI can set the <code>retainContextWhenHidden</code> to make VS Code keep the webview
 context around, even when the webview moves to a background tab. When a webview using
-<code>retainContextWhenHidden</code> becomes hidden, its scripts and other dynamic content are suspended.
-When the panel becomes visible again, the context is automatically restored
-in the exact same state it was in originally. You cannot send messages to a
-hidden webview, even with <code>retainContextWhenHidden</code> enabled.</p>
+<code>retainContextWhenHidden</code> becomes hidden, its scripts and other dynamic content keep running.
+With <code>retainContextWhenHidden</code> enabled, you can messages to a
+hidden webview.</p>
 <p><code>retainContextWhenHidden</code> has a high memory overhead and should only be used if
 your panel&#39;s context cannot be quickly saved and restored.</p>
 </div>
