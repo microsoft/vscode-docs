@@ -184,7 +184,9 @@ If you'd like more control over the editor group layout, you can use the [grid l
 
 ### Floating editor windows
 
-If you feel like moving an editor to another place on your monitor(s), you can just drag it out of the main window and drop it anywhere to open the editor in a floating window:
+You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+
+To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window:
 
 <video src="images/custom-layout/floating-windows.mp4" autoplay loop controls muted></video>
 
