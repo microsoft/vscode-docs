@@ -36,7 +36,7 @@ You can add a volume bound to any local folder by using the following appropriat
 
 <br><br>
 
-* **Docker Compose:** Update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* **Docker Compose:** Update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `compose.yaml` with the following for the appropriate service:
 
     ```yaml
     version: '3'

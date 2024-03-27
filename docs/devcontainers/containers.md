@@ -493,7 +493,7 @@ To publish a port, you can:
     "appPort": [ 3000, "8921:5000" ]
     ```
 
-2. **Use the Docker Compose ports mapping:** The [ports mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `docker-compose.yml` file to publish additional ports.
+2. **Use the Docker Compose ports mapping:** The [ports mapping](https://docs.docker.com/compose/compose-file#ports) can easily be added your `compose.yaml` file to publish additional ports.
 
     ```yaml
     ports:
