@@ -112,7 +112,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 ![Gulp task auto-detection](images/tasks/gulp-auto-detect.png)
 
->**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task lint'.
+>**Tip:** You can run your task through **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task lint'.
 
 Task auto detection can be disabled using the following settings:
 
