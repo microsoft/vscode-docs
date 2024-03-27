@@ -56,6 +56,10 @@ When you have more than one editor open you can switch between them quickly by h
 
 You can also split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#split-in-group) topic.
 
+### Floating Windows
+
+You can move editors into their own floating windows with the **Move into New Window** (`kb(workbench.action.moveEditorToNewWindow)`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) topic.
+
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
