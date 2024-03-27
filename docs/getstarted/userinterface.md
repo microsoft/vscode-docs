@@ -414,7 +414,3 @@ For example, to make the indent guides bright blue, add the following to your `s
     "editorIndentGuide.background": "#0000ff"
 }
 ```
-
-### Can I hide the OPEN EDITORS section in the Explorer?
-
-Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view individual loose files, since they won't be displayed in the folder pane.
