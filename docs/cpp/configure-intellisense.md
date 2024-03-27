@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 14
 Area: cpp
 TOCTitle: Configure IntelliSense
 ContentId: bf494c65-12b4-4506-ab6c-1fad76d7ccf1
