@@ -137,7 +137,7 @@ To restore an action to the tool bar, right-click the tool bar button area and s
 
 ## Editor
 
-You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves.
+You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves or move them into floating windows.
 
 ### Minimap and breadcrumbs
 
@@ -181,6 +181,20 @@ The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGrou
 If you'd like more control over the editor group layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
+
+### Floating editor windows
+
+If you feel like moving an editor to another place on your monitor(s), you can just drag it out of the main window and drop it anywhere to open the editor in a floating window:
+
+<video src="images/custom-layout/floating-windows.mp4" autoplay loop controls muted></video>
+
+Floating editor windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
+
+Another way of detaching editors is by right-click into an editor tab and pick the option **Move into New Window** (`kb(workbench.action.moveEditorToNewWindow)`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+
+![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
+
+If you feel like moving an entire editor group, pick **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`).
 
 ### Pinned tabs
 
