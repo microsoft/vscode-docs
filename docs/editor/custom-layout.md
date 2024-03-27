@@ -196,7 +196,7 @@ Another way to detach an editor is to right-click on an editor tab, and select t
 
 ![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
 
-If you feel like moving an entire editor group, pick **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`).
+If you want to move an entire editor group, select **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`).
 
 ### Pinned tabs
 
