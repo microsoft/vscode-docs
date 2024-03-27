@@ -102,6 +102,8 @@ You can control the font for code blocks in chat with the following settings:
 * `chat.editor.fontWeight`
 * `chat.editor.lineHeight`
 
+> **Tip**: Navigate between code blocks with **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`).
+
 ## Quick chat
 
 If you want to ask Copilot a quick question and don't want to start a full Chat view session or open inline chat in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** in the Command Palette, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
