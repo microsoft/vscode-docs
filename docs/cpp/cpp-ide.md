@@ -71,11 +71,11 @@ For example, on the Windows platform, use:
 
 #### vc_format
 
-By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/getstarted/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine always.
+By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/getstarted/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine.
 
 ### Enhanced semantic colorization
 
-When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, etc., see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. For more information about setting colors for classes, functions, variables, and more, see [Enhanced colorization](/docs/cpp/colorization-cpp.md). For more information on configuring IntelliSense, see [IntelliSense configuration](/docs/cpp/configure-intellisense.md).
 
 ### Quick Info
 
@@ -85,23 +85,23 @@ You can hover over a symbol to see an inline view of its definition:
 
 ### Doxygen comments
 
-Doxygen is a tool that generates documentation from source code. When you annotate code with comments, Doxygen will then generate documentation for these functions. For doxygen comments, type `/**` and press `Enter` to generate a doxygen comment block. Supported doxygen tags include: `@brief`,`@tparam`, `@param`, `@return`, `@exception`, `@deprecated`, `@note`, `@attention`, and `@pre`.
+Doxygen is a tool that generates documentation from source code. When you annotate code with comments, Doxygen then generates documentation for these functions. For doxygen comments, type `/**` and press `Enter` to generate a doxygen comment block. Supported doxygen tags include: `@brief`,`@tparam`, `@param`, `@return`, `@exception`, `@deprecated`, `@note`, `@attention`, and `@pre`.
 
 ### Markdown comments
 
-The C++ Extension by default supports showing a subset of markdown in your editor. This subset supports all markdown comments except the symbols "_" and "*". Toggle the new **Markdown in Comments** setting to enable all markdown, keep this subset of markdown, or disable markdown support.
+By default, the C++ extension supports showing a subset of markdown in your editor. This subset supports all markdown comments except the symbols `_` and `*`. Toggle the new **Markdown in Comments** setting to either enable all markdown, keep this subset of markdown, or disable markdown support.
 
-## Navigating source code
+## Navigate source code
 
-The source code navigation features provided are powerful tools for understanding for your codebase. These let you quickly search for symbols in your code, navigate to their definitions, and find references to them.
+The source code navigation features can help improve your understanding of your codebase. These let you quickly search for symbols in your code, navigate to their definitions, or find references to them.
 
-Navigation is powered by a set of tags stored in a local database of symbol information. Whenever a folder containing C++ source code files is opened, the  C/C++ extension creates a database of the symbols defined in those files. This database is updated whenever a file is saved, and shared between all workspaces that use the same source code.
+Navigation is powered by a set of tags stored in a local database of symbol information. Whenever a folder containing C++ source code files is opened, the  C/C++ extension creates a database of the symbols defined in those files. This database is updated whenever a file is changed. If a document is closed without saving, the database is updated to the last saved state.
 
 ### Search for symbols
 
 You can search for symbols in the current file or workspace to navigate your code more quickly.
 
-To search for a symbol in the current file, press `kb(workbench.action.gotoSymbol)`, then enter the name of the symbol you're looking for. A list of potential matches appears; which is filtered as you type. Choose from the list of matches to navigate to its location.
+To search for a symbol in the current file, press `kb(workbench.action.gotoSymbol)`, then enter the name of the symbol you're looking for. A list of potential matches appears, which is filtered as you type. Choose from the list of matches to navigate to that symbol's location.
 
 ![Searching the current file](images/cpp/filesearch.png)
 
@@ -109,13 +109,13 @@ To search for a symbol in the current workspace, press `kb(workbench.action.show
 
 ![Searching in your workspace](images/cpp/workspacesearch.png)
 
-You can also search for symbols by accessing these commands through the **Command Palette**(`kb(workbench.action.showCommands)`). Use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the '@' and '#' commands.
+You can also search for symbols by accessing these commands through the **Command Palette**(`kb(workbench.action.showCommands)`). Use **Quick Open** (`kb(workbench.action.quickOpen)`), then enter the `@` command to search the current file, or the `#` command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are shortcuts for the `@` and `#` commands.
 
 ### Call hierarchy
 
-A Call Hierarchy view shows all calls to or from a function. It lets you understand the complex calling relationships between the functions in your source code.
+The Call Hierarchy view shows all calls to or from a function. It lets you understand the complex calling relationships between the functions in your source code.
 
-To view the call hierarchy, select a function, right-click to display the context menu, and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
+To view the call hierarchy, select a function, right-click to display the context menu, and choose **Show Call Hierarchy**. You can also use the keyboard shortcut (`Shift+Alt+H` on Windows), or invoke the **Command Palette** (`kb(workbench.action.showCommands)`) and run the command **Calls: Show Call Hierarchy**. This populates the call tree in the side bar with all of the functions called by your selected function.
 
 ![Selecting call hierarchy and showing calls in sidebar](images/cpp/call-hierarchy.gif)
 
@@ -125,23 +125,23 @@ Toggle the phone icon in the side bar menu to switch to incoming calls. Incoming
 
 ### Peek
 
-The *Peek* feature displays a few lines of code inside a *peek window*, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code.
+The Peek feature displays a few lines of code inside a **peek window**, so that you don't have to navigate away from your current location. It's useful for quickly understanding the context of a symbol without having to navigate away from your current code.
 
-To open a *peek window*, navigate to the context menu by right-clicking and selecting **Peek**. There, you can choose to peek at a symbol's definition, declaration, type definition, or references.
+To open a **peek window**, navigate to the context menu by right-clicking, then select **Peek**. There, you can choose to peek at a symbol's definition, declaration, type definition, or references.
 
 ![Peek definition](images/cpp/peekdefn.png)
 
-With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, just select result or double-click in the source code displayed on the left-hand side of the peek window.
+With the peek window open, you browse the list of results shown to find the one you're interested in. If you want to navigate to the location of one of these results, select the result or double-click in the source code displayed on the left-hand side of the peek window.
 
 ### Go to definition
 
-Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code. Select a symbol in your source code and then press `kb(editor.action.revealDefinition)`, or right-click and choose **Go to Definition** from the context menu. When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
+Use the **Go to Definition** feature to quickly navigate to where a symbol is defined in your source code. Select a symbol in your source code and then press `kb(editor.action.revealDefinition)`, or right-click and choose **Go to Definition** from the context menu. When there's only one definition of the symbol, you are navigated directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section.
 
-If no definitions can be found for the symbol you selected, the C/C++ Extension will automatically search for a declaration of the symbol.
+If no definitions can be found for the symbol you selected, the C/C++ extension automatically searches for a declaration of the symbol.
 
 ### Go to declaration
 
-Use the **Go to Declaration** feature to navigate to the location a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations. Select a symbol in your source code, right-click, and choose **Go to Declaration** from the context menu. This will navigate you to the location of the symbol's declaration.
+Use the **Go to Declaration** feature to navigate to the location where a symbol is declared in your source code. This feature functions the same as **Go to Definition**, but for declarations. Select a symbol in your source code, right-click, and choose **Go to Declaration** from the context menu. This navigates you to the location of the symbol's declaration.
 
 ### Go to references
 
@@ -155,13 +155,13 @@ Use the **Go to Type Definition** feature to jump to where a type is defined in 
 
 Read on to find out about:
 
-* [Debugging](/docs/cpp/cpp-debug.md) - find out how to use the debugger with your project
-* [Configure IntelliSense](/docs/cpp/configure-intellisense.md) - configure IntelliSense for your project
+* [Debugging C++ Code](/docs/cpp/cpp-debug.md)
+* [Configure IntelliSense](/docs/cpp/configure-intellisense.md)
 * [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+* [Basic Editing in VS Code](/docs/editor/codebasics.md)
+* [Code Navigation in VS Code](/docs/editor/editingevolved.md)
+* [Tasks in VS Code](/docs/editor/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

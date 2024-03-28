@@ -9,7 +9,7 @@ MetaDescription: How to refactor C++ source files in Visual Studio Code.
 ---
 # Refactoring C++ code
 
-The C/C++ Extension in Visual Studio Code has multiple refactoring features to help you improve your code's structure, readability, and maintainability without altering its runtime behavior. These include features such as Extract Method and Create Declaration and Definitions.
+The C/C++ extension in Visual Studio Code has multiple refactoring features to help you improve your code's structure, readability, and maintainability without altering its runtime behavior. These include features such as Extract Method and Create Declaration and Definitions.
 
 ## Create declarations or definitions
 
@@ -19,41 +19,41 @@ Simplify the process of creating a function's declaration or definition by letti
 
 To create a function declaration or definition, either:
 
-* Select your class function definition, then the Code Action (light bulb icon) which opens a dropdown where you can select **Create a Declaration**. For creating a definition, it is the same process, choose the function declaration, then select the Code Action for **Create a Definition**.
-* Right-click a function’s declaration or definition and select the **Create Definition/Declaration** from the context menu. Based on your code, a definition or a declaration will be created.
-* Select the function, then use the **Command Palette** (`kb(workbench.action.showCommands)`) and type in the command **Create Declaration/Definition**. Based on your code, a definition or a declaration will be created.
+* Select your class function definition, select the Code Action (light bulb icon), and then select **Create a Declaration**. Similarly, to create a definition, select the function declaration, select the Code Action, and then select **Create a Definition**.
+* Right-click a function’s declaration or definition and select the **Create Definition/Declaration** from the context menu. Based on your code, a definition or a declaration is created.
+* Select the function, then use the **Command Palette** (`kb(workbench.action.showCommands)`) and type in the command **Create Declaration/Definition**. Based on your code, a definition or a declaration is created.
 
-The location of where the definitions and declarations are created is based on the previous patterns you established in your code. For example, if you previously added definitions and declarations in the same file, the extension will also add any new ones to that same file. Function order is maintained automatically.
+The location where definitions and declarations are created is based on the previous patterns you established in your code. For example, if you previously added definitions and declarations in the same file, the extension also adds new ones to that same file. The function order is maintained automatically.
 
 ![Create a definition and a declaration in the same file](images/refactoring/create-declaration-and-definition-same-file.gif)
 
 If you defined declarations or definitions in a different file from your source file, the extension follows your convention. For example, for a header and a source file with matching names, both are identified, even if the header file has not been included in the source file. In this case, once the declaration or definition is added, your header file is automatically referenced in your source file for you.
 
-If you do not have any precedent of where you create definitions or declarations, we will create a header or source file with a matching name to your current file for you.
+Otherwise, the extension creates a new header or source file for you that matches the name of your current file. This new file contains the new declaration or definition that has been generated. The new file is then automatically referenced in your current file.
 
-For templates, if a function template is declared in a header file, the definition of that function template will be created in the same header file. This also applies for nontemplate member functions of class templates.
+For templates, if a function template is declared in a header file, the definition of that function template is created in the same header file. This also applies for nontemplate member functions of class templates.
 
 ### Copy declarations or definitions
 
-If you want to choose the location that your declaration or definition is added in code, you can use the code action **Copy Declaration/Definition**. This adds the declaration or definition to your clipboard rather than directly to your code.
+If you want to choose the location where your declaration or definition is added in code, you can use the code action **Copy Declaration/Definition**. This adds the declaration or definition to the clipboard instead of adding it directly to your code.
 
 To invoke the code action, select a function that has a Quick Fix available, then select the Code Action (light bulb) and choose **Copy definition of ‘YourFunctionName’** or **Copy declaration of ‘YourFunctionName’**.
 
 ![Copy a declaration or definition](images/refactoring/copy-declaration-definition.gif)
 
-If the declaration/definition is not formatted when you paste, turn on auto formatting using **Settings** (`kb(workbench.action.openSettings)`) > **Format On Paste**. Enabling this will automatically format all items you paste in the editor.
-
 ## Extract to method
 
-The Extract Method refactoring feature allows you to extract a block of code into a separate method to help improve code readability, reduce duplication, and make the code more modular.
+The Extract Method refactoring feature enables you to extract a block of code into a separate method to help improve code readability, reduce duplication, and make the code more modular.
 
-To extract a method, select the C++ code you would like to extract. A code action (light bulb) will appear with the option **Extract to Function**. Otherwise, right-click on the code and select **Refactor > Extract** or use the keyboard command (`Ctrl + Shift + R, Ctrl + E` on windows) to get more information. You can then name the new function that has been created. The new function containing your highlighted code will be placed above the current function.
+To extract a method, select the C++ code you want to extract, select the code action (light bulb), and then select **Extract to Function**. Alternately, right-click on the code and select **Refactor > Extract** or use the keyboard command (`Ctrl + Shift + R, Ctrl + E` on windows) to get more information.
+
+You can then name the new function that was created. The new function that contains your selected code is placed above the current function.
 
 ![Extract Method and create declaration](images/refactoring/extract-method.gif)
 
 ## Quick Fixes/Code Actions
 
-The C/C++ Extension provides C/C++ specific suggestions for how to fix and improve your C++ code. These can be accessed through a code action (lightbulb icon) as you code or through the Quick Fixes link when you hover over an item. These are available for many scenarios discussed previously, such as extract to method, copy declaration/definition, or create declaration/definition. Otherwise, a code actions can help:
+The C/C++ Extension provides C/C++ specific suggestions for how to fix and improve your C++ code based on your code context. View these suggestions either by hovering over a symbol and selecting the `QuickFix` link, or by selecting a code action(lightbulb) as it appears next to your code. For example, if a section of code can be extracted to a method, selecting the lightbulb icon will have the extract to method option available. Other than the features mentioned above, the C/C++ extension provides quick fixes/code actions in the following situations:
 
 ### Add missing header files
 
