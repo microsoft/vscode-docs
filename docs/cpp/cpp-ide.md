@@ -3,17 +3,27 @@ Order: 9
 Area: cpp
 TOCTitle: Editing and Navigating
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
-PageTitle: Edit and navigate
+PageTitle: Features for editing and navigating C++ code in VS Code such as
 DateApproved: 1/16/2024
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
 ---
-# Editing and Navigating
+# Editing and Navigating C++ Code
 
-This article provides an overview of code editing and navigating features specific to the C/C++ Extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
+This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
 
-## Editing Set Up
+## Editing C++ code
 
-To provide the best editing experience, the C++ extension needs to know where it can find each header file referenced in your code. By default, the extension searches the current source directory, its subdirectories, and some platform-specific locations. If a referenced header file can't be found, a red squiggle is displayed underneath the #include directive.
+The source code editing features provided by the C/C++ extension are powerful tools for editing, formatting, and understanding your codebase.
+
+## Identifying header files
+
+To provide the best editing experience, the C++ extension needs to know where to find each header file that is referenced in your code. By default, the extension searches the current source directory, its subdirectories, and some platform-specific locations. If a referenced header file can't be found, a red squiggle is displayed underneath the `#include` directive.
+
+To specify additional include directories,
+
+1. Select an `#include` path that has no reference.
+1. Select the light bulb that appears and choose **Edit "includePath" setting**, which opens the C/C++ extension's Settings editor.
+1. Under the **Include Path** section, you can specify the paths for any additional include directories.
 
 To specify additional include directories, select an #include that has no reference. Next, select the light bulb that appears and choose `Edit "includePath" setting`, which opens the C/C++ Extension's Configurations interface. Under the Include Path section, you can specify the paths for any additional include directories.
 
@@ -21,22 +31,24 @@ To specify additional include directories, select an #include that has no refere
 
 ### List members
 
-When you type a member access symbol (`.` or `->`) the editor displays a list of members. As you type more letters, the list is filtered in real time:
+When you type a member access symbol (`.` or `->`), the editor displays a list of members. As you type more letters, the list is filtered in real time:
 
 ![List members](images/cpp/list-members-cpp.png)
 
 ### Code formatting
 
-The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and [vc_format](). Both of these formatting options are included in the extension, with clang-format being the default.
+The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and vc_format. Both of these formatting options are included in the extension, with clang-format being the default.
 
-You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also configure autoformatting with the following [settings](/docs/getstarted/settings.md):
+You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also trigger formatting based on user gestures such as typing, saving, and pasting with the following [settings](/docs/getstarted/settings.md):
 
 * `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
+To learn more about formatting, see [Formatting](/docs/editor/codebasics#_formatting).
+
 ### Clang-format
 
-By default, the clang-format style is set to `file`. This means, if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise, formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md).
+By default, the clang-format style is set to `file`. This means that if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md).
 
 Currently, the default formatting style is `Visual Studio`, an approximation of the default code formatter in Visual Studio. It implies the following settings:
 
