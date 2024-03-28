@@ -59,7 +59,7 @@ The following example shows the `preview` mode for inline chat.
 
 ## Experimental terminal inline chat
 
-Inline chat for the terminal can be enbled with `terminal.integrated.experimentalInlineChat` and invoked in a terminal (`kb(inlinechat.start)`).
+Inline chat for the terminal can be enabled with `terminal.integrated.experimentalInlineChat` and invoked in a terminal (`kb(inlinechat.start)`).
 
 The chat will use the ![@terminal](###terminal) chat participant, which has context about the integrated terminal shell and its contents.
 
