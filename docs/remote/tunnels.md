@@ -155,6 +155,10 @@ For instance, right now you can have 10 tunnels registered for your account. If 
 
 If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.
 
+### Can I configure policies across my organization?
+
+Yes! You can configure and then deploy group policy settings for dev tunnels. You can learn more in the [dev tunnels documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
+
 ### How can I ensure I keep my tunnel running?
 
 You have a few options:

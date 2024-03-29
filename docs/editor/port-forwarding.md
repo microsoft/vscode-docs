@@ -52,3 +52,7 @@ You can learn more about the security of the underlying dev tunnels service in i
 ### What limits are there on port forwarding?
 
 There are limits to both the amount of bandwidth used and the number of active machines that can be used in port forwarding, which are subject to change over time. Read more about tunnel usage limits in the [Remote-Tunnels](https://aka.ms/vscode-dev-tunnel-limit) documentation.
+
+### Can I configure policies across my organization?
+
+Yes! You can configure and then deploy group policy settings for dev tunnels. You can learn more in the [dev tunnels documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
