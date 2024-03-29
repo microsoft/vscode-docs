@@ -100,8 +100,6 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 >**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them (if the explorer is empty VS Code will open them instead)
 
-![Explorer Menu](images/userinterface/explorer_menu.png)
-
 VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
 You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** (or **Reveal in Finder** on macOS or **Open Containing Folder** on Linux).
@@ -419,6 +417,8 @@ For example, to make the indent guides bright blue, add the following to your `s
 }
 ```
 
-### Can I hide the OPEN EDITORS section in the Explorer?
+### Can I hide the OPEN EDITORS view in the Explorer?
 
-Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view individual loose files, since they won't be displayed in the folder pane.
+Yes, you can show or hide the Open Editors view by using the Views menu in the Explorer and selecting or deselecting **Open Editors**.
+
+![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)
