@@ -58,7 +58,7 @@ You can also split the current editor without creating a new editor group with t
 
 ### Floating Windows
 
-You can move editors into their own floating windows with the **Move into New Window** (`kb(workbench.action.moveEditorToNewWindow)`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) topic.
+You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) topic.
 
 ## Minimap
 
