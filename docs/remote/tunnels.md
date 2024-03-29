@@ -157,7 +157,7 @@ If you are hitting a limit and would like to discuss getting more usage, we'd lo
 
 If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
 
-You can also configure and then deploy group policy settings for dev tunnels. You can learn more in the [dev tunnels documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
+For users running Windows devices, you can also configure and then deploy group policy settings for dev tunnels. You can learn more in the [dev tunnels documentation](https://learn.microsoft.com/azure/developer/dev-tunnels/policies).
 
 ### How can I ensure I keep my tunnel running?
 
