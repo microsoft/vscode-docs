@@ -194,7 +194,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 
 ## Activity Bar
 
-The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
+The Activity Bar is usually displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
@@ -210,6 +210,8 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBarTop.activeBorder`: Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.inactiveForeground`: Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.background`: Background color of the activity bar when set to top / bottom.
+- `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
 
 ## Profiles
 
@@ -229,6 +231,7 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
 - `sideBarSectionHeader.border`: Side bar section header border color.
+- `sideBarActivityBarTop.border`: Border color between the activity bar at the top/bottom and the views.
 
 ## Minimap
 
