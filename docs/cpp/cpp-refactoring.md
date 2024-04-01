@@ -53,7 +53,7 @@ You can then name the new function that was created. The new function that conta
 
 ## Quick Fixes/Code Actions
 
-The C/C++ Extension provides C/C++ specific suggestions for how to fix and improve your C++ code based on your code context. View these suggestions either by hovering over a symbol and selecting the `QuickFix` link, or by selecting a code action(lightbulb) as it appears next to your code. For example, if a section of code can be extracted to a method, selecting the lightbulb icon will have the extract to method option available. Other than the features mentioned above, the C/C++ extension provides quick fixes/code actions in the following situations:
+The C/C++ extension provides C/C++ specific suggestions for how to fix and improve your C++ code based on your code context. View these suggestions either by hovering over a symbol and selecting the **QuickFix** link, or by selecting a code action (light bulb) as it appears next to your code. For example, if a section of code can be extracted to a method, selecting the light bulb icon shows Extract to method. Other than the features mentioned above, the C/C++ extension provides quick fixes/code actions in the following situations:
 
 ### Add missing header files
 

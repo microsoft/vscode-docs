@@ -44,7 +44,7 @@ You can format an entire file with **Format Document** (`kb(editor.action.format
 * `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-To learn more about formatting, see [Formatting](/docs/editor/codebasics#_formatting).
+To learn more about formatting, see [Formatting](/docs/editor/codebasics.md#formatting).
 
 ### Clang-format
 
