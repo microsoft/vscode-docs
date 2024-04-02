@@ -1,7 +1,7 @@
 ---
-Order: 3
+Order: 6
 Area: copilot
-TOCTitle: Copilot Chat
+TOCTitle: Chat Conversations
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 DateApproved: 02/28/2024
