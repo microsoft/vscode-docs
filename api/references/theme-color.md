@@ -964,13 +964,19 @@ The following customizations are available:
 
 ## Testing colors
 
-- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
-- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
-- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
 - `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
 - `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
 - `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
 - `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.iconErrored.retired`: Retired color for the 'Errored' icon in the test explorer.
+- `testing.iconFailed.retired`: Retired color for the 'failed' icon in the test explorer.
+- `testing.iconPassed.retired`: Retired color for the 'passed' icon in the test explorer.
+- `testing.iconQueued.retired`: Retired color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset.retired`: Retired color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped.retired`: Retired color for the 'Skipped' icon in the test explorer.
 - `testing.peekBorder`: Color of the peek view borders and arrow.
 - `testing.peekHeaderBackground`: Color of the peek view borders and arrow.
 - `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
