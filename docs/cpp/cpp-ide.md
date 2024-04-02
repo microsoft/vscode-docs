@@ -15,7 +15,7 @@ This article provides an overview of code editing and navigating features specif
 
 The source code editing features provided by the C/C++ extension are powerful tools for editing, formatting, and understanding your codebase.
 
-## Identifying header files
+### Identifying header files
 
 To provide the best editing experience, the C++ extension needs to know where to find each header file that is referenced in your code. By default, the extension searches the current source directory, its subdirectories, and some platform-specific locations. If a referenced header file can't be found, a red squiggle is displayed underneath the `#include` directive.
 
@@ -69,7 +69,7 @@ For example, on the Windows platform, use:
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
-#### vc_format
+### vc_format
 
 By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/getstarted/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine.
 
