@@ -27,7 +27,7 @@ To specify additional include directories,
 
 To specify additional include directories, select an #include that has no reference. Next, select the light bulb that appears and choose `Edit "includePath" setting`, which opens the C/C++ Extension's Configurations interface. Under the Include Path section, you can specify the paths for any additional include directories.
 
-![Process of adding a new header to the include path](images\intellisense\AddingIncludePathToConfig.gif)
+![Process of adding a new header to the include path](images/intellisense/AddingIncludePathToConfig.gif)
 
 ### List members
 
