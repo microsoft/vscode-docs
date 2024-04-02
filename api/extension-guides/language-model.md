@@ -31,15 +31,14 @@ The process for using the Language Model API consists of the following steps:
 
 To interact with a language model, extensions should first craft their prompt and then send a request to the language model. Extensions can use two types of prompts:
 
-- `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
-- `LanguageModelUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
+- `LanguageModelChatSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
+- `LanguageModelChatUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelUserMessage('I want to understand recursion')
+    new vscode.LanguageModelChatSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelChatUserMessage('I want to understand recursion')
 ];
-const chatRequest = vscode.lm.sendChatRequest(craftedPrompt, {}, token);
 ```
 
 For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).

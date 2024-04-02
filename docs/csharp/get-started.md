@@ -41,16 +41,6 @@ Upon installation, C# Dev Kit launches an extension walkthrough. You can follow 
 
 >**Note**: You are required to sign in to a Visual Studio subscription to use C# Dev Kit. Check out the [Signing in to C# Dev Kit](/docs/csharp/signing-in.md) documentation to learn more.
 
-### Installing the .NET Coding Pack for students
-
-If you're a student, we recommend installing the **.NET Coding Pack** for an easier setup experience. The Coding Pack includes VS Code, the .NET SDK, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
-
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
-
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
-
->**Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you need to manually install the .NET SDK, VS Code, and .NET extensions.
-
 ## Open folder
 
 By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores [settings](/docs/getstarted/settings.md) that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.

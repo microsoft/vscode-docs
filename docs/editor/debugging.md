@@ -56,7 +56,7 @@ To run or debug a simple app in VS Code, select **Run and Debug** on the Debug s
 
 However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
-To create a `launch.json` file, click the **create a launch.json file** link in the Run start view.
+To create a `launch.json` file, select **create a launch.json file** in the Run start view.
 
 ![launch configuration](images/debugging/launch-configuration.png)
 
@@ -184,16 +184,6 @@ Just like regular breakpoints, Logpoints can be enabled or disabled and can also
 
 **Note**: Logpoints are supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions. The [Python](/docs/python/python-tutorial.md) and [Java](/docs/java/java-tutorial.md) extensions, for example, support Logpoints.
 
-### Triggered breakpoints
-
-A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
-
-Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
-
-<video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
-
-Triggered breakpoints work for all languages, and conditional breakpoints may also be used as the trigger.
-
 ## Data inspection
 
 Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view or by hovering over their source in the editor. Variable values and expression evaluation are relative to the selected stack frame in the **CALL STACK** section.
@@ -244,7 +234,9 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
+VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
+
+You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
 
 ```json
 {
@@ -328,23 +320,33 @@ VS Code supports adding a `"launch"` object inside your User [settings](/docs/ge
 A powerful VS Code debugging feature is the ability to set conditions based on expressions, hit counts, or a combination of both.
 
 * **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
-* **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and the exact syntax of the expression vary among debugger extensions.
+* **Hit count**: The *hit count* controls how many times a breakpoint needs to be hit before it interrupts execution. Whether a hit count is respected, and the exact syntax of the expression, can vary among debugger extensions.
 
 You can add a condition and/or hit count when creating a source breakpoint (with the **Add Conditional Breakpoint** action) or when modifying an existing one (with the **Edit Condition** action). In both cases, an inline text box with a dropdown menu opens where you can enter expressions:
 
 ![HitCount](images/debugging/hitCount.gif)
 
-Condition and hit count editing support is also supported for **function** and **exception** breakpoints.
+Condition and hit count editing support is also supported for [function](#function-breakpoints) and exception breakpoints.
 You can initiate condition editing from the context menu or the new inline **Edit Condition** action.
 
 An example of condition editing in the **BREAKPOINTS** view:
 ![condition editing in breakpoint view](images/debugging/breakpoints.gif)
 
-If a debugger does not support conditional breakpoints, the **Add Conditional Breakpoint** and **Edit Condition** actions will be missing.
+If a debugger does not support conditional breakpoints, the **Add Conditional Breakpoint** and **Edit Condition** actions are not available.
+
+### Triggered breakpoints
+
+A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+
+Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
+
+<video src="images/debugging/debug-triggered-breakpoint.mp4" autoplay loop controls muted></video>
+
+Triggered breakpoints work for all languages, and conditional breakpoints may also be used as the trigger.
 
 ### Inline breakpoints
 
-Inline breakpoints will only be hit when the execution reaches the column associated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements in a single line.
+Inline breakpoints are only hit when the execution reaches the column associated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements in a single line.
 
 An inline breakpoint can be set using `kb(editor.debug.action.toggleInlineBreakpoint)` or through the context menu during a debug session. Inline breakpoints are shown inline in the editor.
 
@@ -358,11 +360,14 @@ A function breakpoint is created by pressing the **+** button in the **BREAKPOIN
 
 ### Data breakpoints
 
-If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The **Break on Value Change/Read/Access** commands will add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
+If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The **Break on Value Change/Read/Access** commands add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
-Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`). Expressions are evaluated after you press `kbstyle(Enter)` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`).
+
+Expressions are evaluated after you press `kbstyle(Enter)` and the Debug Console REPL shows suggestions as you type. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+
 Debug Console input uses the mode of the active editor, which means that the Debug Console input supports syntax coloring, indentation, auto closing of quotes, and other language features.
 
 ![Debug Console](images/debugging/debugconsole.png)
@@ -379,37 +384,41 @@ Here are two approaches you might want to consider:
 
 2. If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
 
-Here's an example `launch.json` configuration:
+    Here's an example `launch.json` configuration:
 
-```json
-{
-    "name": "launch program that reads a file from stdin",
-    "type": "node",
-    "request": "launch",
-    "program": "program.js",
-    "console": "integratedTerminal",
-    "args": [
-        "<",
-        "in.txt"
-    ]
-}
-```
+    ```json
+    {
+        "name": "launch program that reads a file from stdin",
+        "type": "node",
+        "request": "launch",
+        "program": "program.js",
+        "console": "integratedTerminal",
+        "args": [
+            "<",
+            "in.txt"
+        ]
+    }
+    ```
 
-This approach requires that the "<" syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
+    This approach requires that the "<" syntax is passed through the debugger extension and ends up unmodified in the Integrated Terminal.
 
 ## Multi-target debugging
 
-For complex scenarios involving more than one process (for example, a client and a server), VS Code supports multi-target debugging.
+For complex scenarios that involve more than one process (for example, a client and a server), VS Code supports multi-target debugging. After you've started a first debug session, you can launch another debug session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
 
-Using multi-target debugging is simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
+* The individual sessions now show up as top-level elements in the **CALL STACK** view.
 
-* The individual sessions now show up as top-level elements in the **CALL STACK** view.<BR>![Callstack View](images/debugging/debug-callstack.png)
-* The debug toolbar shows the currently **active session** (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
+    ![Callstack View](images/debugging/debug-callstack.png)
+
+* The debug toolbar shows the currently **active session** (and all other sessions are available in a dropdown menu).
+
+    ![Debug Actions Widget](images/debugging/debug-actions-widget.png)
+
 * Debug actions (for example, all actions in the debug toolbar) are performed on the active session. The active session can be changed either by using the dropdown menu in the debug toolbar or by selecting a different element in the **CALL STACK** view.
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session will stop all of the compound sessions.
+An alternative way to start multiple debug sessions is by using a *compound* launch configuration. You can define compound launch configurations in the `compounds` property in the `launch.json` file. Use the `configurations` attribute to list the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session will stop all of the compound sessions.
 
 ```json
 {
@@ -443,7 +452,7 @@ Compound launch configurations are displayed in the launch configuration dropdow
 
 ## Remote debugging
 
-VS Code does not itself support remote debugging: this is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
+VS Code does not support built-in remote debugging across all languages. Remote debugging is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
 
 There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure this.
 
@@ -503,7 +512,7 @@ To simplify things a bit, most properties are optional and we use the following 
 
 ### Triggering an Arbitrary Launch Config
 
-In some cases, you may need to configure additional options for the browser debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+In some cases, you might need to configure additional options for the browser debug session, or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
 
 The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
 
