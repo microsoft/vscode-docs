@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -802,7 +802,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
     "editor.lightbulb.enabled": "on",
 
-    // Controls the line height. 
+    // Controls the line height.
     //  - Use 0 to automatically compute the line height from the font size.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
