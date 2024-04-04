@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -194,7 +194,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 
 ## Activity Bar
 
-The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
+The Activity Bar is usually displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.

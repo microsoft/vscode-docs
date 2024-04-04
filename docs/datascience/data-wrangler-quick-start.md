@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Wrangler Quick Start
 ContentId: 0227288a-2698-47bd-b97a-3a1736acb473
 PageTitle: Getting Started with Data Wrangler in VS Code
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: A quick start guide to get you up and running with the Data Wrangler extension in Visual Studio Code.
 ---
 

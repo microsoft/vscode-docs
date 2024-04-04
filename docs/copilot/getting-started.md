@@ -4,14 +4,14 @@ Area: copilot
 TOCTitle: Getting started tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 ---
 # Getting started with GitHub Copilot in VS Code
 
 This tutorial walks you through setting up the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension, and discovering the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with AI-powered code suggestions, use chat conversations to refactor your code, and fix code errors with smart actions.
 
-In this tutorial, you're using GitHub Copilot to help you create a `Calculator` class in TypeScript. 
+In this tutorial, you're using GitHub Copilot to help you create a `Calculator` class in TypeScript.
 
 > **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
 
