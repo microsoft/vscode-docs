@@ -153,6 +153,10 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 ![A File Diff in VS Code](images/overview/diff.png)
 
+The Diff editor has a separate gutter in the middle, which enables you to **Stage** or **Revert** changes code blocks. If you select a block of text, you can revert or stage the changes that are included in the selection.
+
+![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
+
 >**Tip:** You can diff any two files by first right clicking on a file in the Explorer or **OPEN EDITORS** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With** and you will be presented with a list of recent files.
 
 ### Accessible Diff Viewer
