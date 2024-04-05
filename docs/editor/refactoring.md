@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
 PageTitle: Refactoring source code in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
