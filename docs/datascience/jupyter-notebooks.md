@@ -15,7 +15,7 @@ MetaSocialImage: images/tutorial/social.png
 
 - Create, open, and save Jupyter Notebooks
 - Work with Jupyter code cells
-- View, inspect, and filter variables using the Variable Explorer and Data Viewer
+- View, inspect, and filter variables using the Variable Explorer and Data Wrangler
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
@@ -210,35 +210,31 @@ The Python Jupyter Notebook Editor window has full IntelliSense – code complet
 
 ![IntelliSense support](images/jupyter/intellisense.png)
 
-## Variable Explorer and Data Viewer
+## Variable Explorer and working with data
 
-Within a Python Notebook, it's possible to view, inspect, sort, and filter the variables within your current Jupyter session. By selecting the **Variables** icon in the main toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. The variables pane will open at the bottom of the notebook.
+Within a Python Notebook, it's possible to view, inspect, sort, filter, and transform the variables within your current Jupyter session. By selecting the **Variables** icon in the main toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. The variables pane will open at the bottom of the notebook.
 
 ![Variable Explorer](images/jupyter/variable-explorer-01.png)
 
 ![Variable Explorer](images/jupyter/variable-explorer-02.png)
 
-### Data Viewer
+### Working with data
 
-For additional information about your variables, you can also double-click a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer.
+For additional information about your variables, you can also double-click a row or use the **View data** button next to the variable for a more detailed view of a variable. If you do not have a data viewing extension installed, clicking the button will bring up a list of recommended data viewing extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler).
 
-![Data Viewer](images/jupyter/data-viewer.png)
+The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. As you manipulate your data, Data Wrangler will automatically generate the Python code required to perform the transformation. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
 
-Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
+![Data Wrangler](images/jupyter/data-wrangler.gif)
 
-### Filtering rows
+### Filtering/sorting rows
 
-Filtering rows in the data viewer can be done by typing in the textbox at the top of each column. Type a string you want to search for and any row that has that string in the column will be found:
+Filtering and sorting rows in Data Wrangler can be done by selecting the column header of the column you would like to apply the filter/sort on, and selecting the operation respectively. As you type into the filter box, Data Wrangler will automatically update the data in view to match your filter conditions in real-time.
 
-![Data Viewer](images/jupyter/filter-default.png)
+![Data Wrangler Filter](images/jupyter/data-wrangler-filter.png)
 
-If you want to find an exact match, prefix your filter with '=':
+More complex filtering, including [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) can be done by changing Data Wrangler from viewing to editing mode.
 
-![Data Viewer](images/jupyter/filter-exact.png)
-
-More complex filtering can be done by typing a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions):
-
-![Data Viewer](images/jupyter/filter-regex.png)
+![Data Wrangler Edit](images/jupyter/data-wrangler-edit.png)
 
 ## Saving plots
 

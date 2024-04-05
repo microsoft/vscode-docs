@@ -19,6 +19,7 @@ The following installations are required for the completion of this tutorial. Ma
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
+- The [Data Wrangler extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler)
 
 - [Miniconda with latest Python](https://docs.conda.io/en/latest/miniconda.html)
 
@@ -74,7 +75,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
-1. After the cell finishes running, you can view the data that was loaded using the Variables Explorer and Data Viewer. First select the **Variables** icon in the notebook's upper toolbar.
+1. After the cell finishes running, you can view the data that was loaded using the Variables Explorer and Data Wrangler. First select the **Variables** icon in the notebook's upper toolbar.
 
    ![Select Variables icon](images/data-science-tutorial/variable-explorer-1.png)
 
@@ -82,15 +83,13 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Variables pane](images/data-science-tutorial/variable-explorer-2.png)
 
-1. To view the data in the Pandas DataFrame previously loaded, select the Data Viewer icon to the left of the `data` variable.
+1. To view the data in the Pandas DataFrame previously loaded, select the "Open in Data Wrangler" icon to the left of the `data` variable.
 
-   ![Select Data Viewer icon](images/data-science-tutorial/variable-explorer-3.png)
+   ![Select Open in Data Wrangler icon](images/data-science-tutorial/variable-explorer-3.png)
 
-1. Use the Data Viewer to view, sort, and filter the rows of data. After reviewing the data, it can then be helpful to graph some aspects of it to help visualize the relationships between the different variables.
+1. Use Data Wrangler to view, sort, and filter the rows of data. After reviewing the data, it can then be helpful to graph some aspects of it to help visualize the relationships between the different variables. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
 
-   ![Data viewer and variable explorer](images/data-science-tutorial/dataviewer.png)
-
-   Alternatively, you can use the data viewing experience offered by other extensions like [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler). The Data Wrangler extension offers a rich user interface to show insights about your data and helps you perform data profiling, quality checks, transformations, and more. Learn more about the [Data Wrangler extension in our docs](/docs/datascience/data-wrangler.md).
+   ![Data wrangler and variable explorer](images/data-science-tutorial/datawrangler.png)
 
 1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to identify cells where data wasn't available.
 
@@ -98,14 +97,17 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the **age** and **fare** columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
 
-   > **Tip**: To add a new cell you can use the insert cell icon that's in the bottom left corner of an existing cell. Alternatively, you can also use the `kbstyle(Esc)` to enter command mode, followed by the `kbstyle(B)` key.
-
+   Switch Data Wrangler from viewing to editing mode to apply a data cleaning transformation to replace it with a np.nan. Then apply another operation to change the column types of **age** and **fare** to be floats.
    ```python
    data.replace('?', np.nan, inplace= True)
    data = data.astype({"age": np.float64, "fare": np.float64})
    ```
 
-   > **Note**: If you ever need to see the data type that has been used for a column, you can use the [DataFrame dtypes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes) attribute.
+   ![Data wrangler to clean data](images/data-science-tutorial/datawrangler-clean.png)
+
+    Once everything looks good, you can export the code that was generated by Data Wrangler back into your notebook.
+
+   ![Data wrangler export code](images/data-science-tutorial/datawrangler-export.png)
 
 1. Now that the data is in good shape, you can use [seaborn](https://seaborn.pydata.org/) and [matplotlib](https://matplotlib.org) to view how certain columns of the dataset relate to survivability. Add the following code to the next cell in your notebook and run it to see the generated plots.
 
