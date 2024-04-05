@@ -316,6 +316,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/ai-powered-suggestions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-chat</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/getting-started</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -327,6 +337,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/workspace-context</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -687,6 +702,21 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/datascience/jupyter-notebooks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/python-interactive</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/data-wrangler-quick-start</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/data-wrangler</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

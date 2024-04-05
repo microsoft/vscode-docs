@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 ---
 # Create a Dev Container
 

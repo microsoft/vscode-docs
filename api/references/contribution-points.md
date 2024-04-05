@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -942,6 +942,21 @@ The **editor title menu** has these default groups:
 - `5_close` - Commands related to closing editors.
 
 `navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
+
+The **terminal tab context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_run` - Commands related to running/executing something in the terminal.
+- `5_manage` - Commands related to managing a terminal.
+- `7_configure` - Commands related to terminal 0configuration.
+
+The **terminal context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_edit` - Commands related to manipulating text, the selection or the clipboard.
+- `5_clear` - Commands related to clearing the terminal.
+- `7_kill` - Commands related to closing/killing the terminal.
+- `9_config` - Commands related to terminal configuration.
 
 The **Timeline view item context menu** has these default groups:
 

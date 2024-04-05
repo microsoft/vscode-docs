@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -56,9 +56,15 @@ When you have more than one editor open you can switch between them quickly by h
 
 You can also split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#split-in-group) topic.
 
+### Floating Windows
+
+You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) topic.
+
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
+
+If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap also shows these sections.
 
 ![minimap](images/userinterface/minimap.png)
 
@@ -95,8 +101,6 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 * Use the context menu to explore all options.
 
 >**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them (if the explorer is empty VS Code will open them instead)
-
-![Explorer Menu](images/userinterface/explorer_menu.png)
 
 VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
@@ -282,6 +286,33 @@ To see more editor tabs, you can use the **wrapped tab** layout, where editor ta
 
 ![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
 
+### Customize tab labels
+
+When you have multiple files with the same name open at the same time, it can be difficult to distinguish the different tabs. To help with this, you can apply a custom display label to the tabs. You can choose for which files in your workspace you want to apply a custom label to the tab.
+
+To enable custom display labels for tabs, set the `workbench.editor.customLabels.enabled` setting:
+
+```json
+    "workbench.editor.customLabels.enabled": true
+```
+
+You can specify one or more naming patterns for the tab display labels with the `workbench.editor.customLabels.patterns` setting. A name pattern consists of two components:
+
+- **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
+- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+
+The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
+
+```json
+    "workbench.editor.customLabels.patterns": {
+        "**/src/**/index.html": "${dirname}/${filename}"
+    }
+```
+
+![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+
+> **Note**: The custom tab labels also apply in the Open Editors view.
+
 ## Preview mode
 
 When you single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use double-click to open the file from the Explorer, a new Tab is dedicated to that file.
@@ -415,6 +446,8 @@ For example, to make the indent guides bright blue, add the following to your `s
 }
 ```
 
-### Can I hide the OPEN EDITORS section in the Explorer?
+### Can I hide the OPEN EDITORS view in the Explorer?
 
-Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view individual loose files, since they won't be displayed in the folder pane.
+Yes, you can show or hide the Open Editors view by using the Views menu in the Explorer and selecting or deselecting **Open Editors**.
+
+![Explorer menu to enable or disable views in the Explorer](images/userinterface/explorer-menu.png)

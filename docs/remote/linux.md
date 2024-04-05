@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Dev Containers, and WSL extensions
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 ---
 # Remote Development with Linux
 
@@ -78,76 +78,6 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
 | ✅ Ubuntu Server 20.04 (64-bit) | `ubuntu:20.04` | &lt;none&gt;  | &lt;none&gt; |
 | ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
-
-## Updating glibc and libstdc++ on RHEL / CentOS 6
-
-RHEL / CentOS 6 ships with glibc 2.12 and libstdc++ 3.4.13. Unfortunately, this does not meet the requirements for Remote Development. RHEL / CentOS 6 goes out of support [in 2020](https://endoflife.software/operating-systems/linux/centos), so we recommend **upgrading to RHEL / CentOS 7** or higher.
-
-However, as a workaround, you can either build glibc manually or use the following script to install updated binaries. The bash script below will upgrade these libraries without having to build them. It is adapted from information in this [article](https://serverkurma.com/linux/how-to-update-glibc-newer-version-on-centos-6-x/), this [gist](https://gist.github.com/harv/f86690fcad94f655906ee9e37c85b174), and this [Fedora copr project](https://copr.fedorainfracloud.org/coprs/mosquito/myrepo-el6/). The article also includes instructions for manually building glibc if you would prefer not to use the binaries from the article.
-
-Do not run this script on anything mission critical **without a rollback strategy** since it does update libraries that other applications depend on.
-
-For servers, run the following script and restart the server so the updates take effect.
-
-```bash
-# Update glibc and static libs
-wget http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-2.17-55.el6.x86_64.rpm
-wget http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-common-2.17-55.el6.x86_64.rpm
-wget http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-devel-2.17-55.el6.x86_64.rpm
-wget http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-headers-2.17-55.el6.x86_64.rpm
-wget https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-utils-2.17-55.el6.x86_64.rpm
-wget https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-static-2.17-55.el6.x86_64.rpm
-sudo rpm -Uh --force --nodeps \
-    glibc-2.17-55.el6.x86_64.rpm \
-    glibc-common-2.17-55.el6.x86_64.rpm \
-    glibc-devel-2.17-55.el6.x86_64.rpm \
-    glibc-headers-2.17-55.el6.x86_64.rpm \
-    glibc-static-2.17-55.el6.x86_64.rpm \
-    glibc-utils-2.17-55.el6.x86_64.rpm
-
-# Update libstdc++
-wget https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-4.8.2-16.3.el6.x86_64.rpm
-wget  https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-devel-4.8.2-16.3.el6.x86_64.rpm
-wget https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-static-4.8.2-16.3.el6.x86_64.rpm
-sudo rpm -Uh \
-    libstdc++-4.8.2-16.3.el6.x86_64.rpm \
-    libstdc++-devel-4.8.2-16.3.el6.x86_64.rpm \
-    libstdc++-static-4.8.2-16.3.el6.x86_64.rpm
-```
-
-In a container environment, you can add similar contents to a Dockerfile:
-
-```docker
-FROM centos:6
-
-RUN yum -y install wget tar
-
-# Update glibc
-RUN wget -q http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-2.17-55.el6.x86_64.rpm \
-    && wget -q http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-common-2.17-55.el6.x86_64.rpm \
-    && wget -q http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-devel-2.17-55.el6.x86_64.rpm \
-    && wget -q http://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-headers-2.17-55.el6.x86_64.rpm \
-    && wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-utils-2.17-55.el6.x86_64.rpm \
-    && wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/glibc-2.17-55.fc20/glibc-static-2.17-55.el6.x86_64.rpm \
-    && rpm -Uh --force --nodeps \
-        glibc-2.17-55.el6.x86_64.rpm \
-        glibc-common-2.17-55.el6.x86_64.rpm \
-        glibc-devel-2.17-55.el6.x86_64.rpm \
-        glibc-headers-2.17-55.el6.x86_64.rpm \
-        glibc-static-2.17-55.el6.x86_64.rpm \
-        glibc-utils-2.17-55.el6.x86_64.rpm \
-    && rm *.rpm
-
-# Update libstdc++
-RUN  wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-4.8.2-16.3.el6.x86_64.rpm \
-    && wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-devel-4.8.2-16.3.el6.x86_64.rpm \
-    && wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6/epel-6-x86_64/gcc-4.8.2-16.3.fc20/libstdc++-static-4.8.2-16.3.el6.x86_64.rpm \
-    && rpm -Uh \
-        libstdc++-4.8.2-16.3.el6.x86_64.rpm \
-        libstdc++-devel-4.8.2-16.3.el6.x86_64.rpm \
-        libstdc++-static-4.8.2-16.3.el6.x86_64.rpm \
-    && rm *.rpm
-```
 
 ## Questions or feedback
 

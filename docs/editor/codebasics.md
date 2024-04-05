@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -216,7 +216,7 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 
 The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
 
-In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, you can configure the behavior for single-clicking or double-clicking a search result with the `search.searchEditor.singleClickBehaviour` and `search.searchEditor.doubleClickBehaviour` settings. For example, to open a peek definition window or to open the source location.
 
 You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -20508,10 +20508,9 @@ is no longer visible.</p>
 and destroyed when it is hidden. Extensions that have complex state
 or UI can set the <code>retainContextWhenHidden</code> to make VS Code keep the webview
 context around, even when the webview moves to a background tab. When a webview using
-<code>retainContextWhenHidden</code> becomes hidden, its scripts and other dynamic content are suspended.
-When the panel becomes visible again, the context is automatically restored
-in the exact same state it was in originally. You cannot send messages to a
-hidden webview, even with <code>retainContextWhenHidden</code> enabled.</p>
+<code>retainContextWhenHidden</code> becomes hidden, its scripts and other dynamic content keep running.
+With <code>retainContextWhenHidden</code> enabled, you can messages to a
+hidden webview.</p>
 <p><code>retainContextWhenHidden</code> has a high memory overhead and should only be used if
 your panel&#39;s context cannot be quickly saved and restored.</p>
 </div>

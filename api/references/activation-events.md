@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -129,7 +129,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## onView
 
-This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar (Extensions or Source Control are examples of built-in views).
+This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded in the VS Code sidebar. Built-in views do not emit an activation event.
 
 The activation event below will fire whenever a view with the `nodeDependencies` id is visible:
 

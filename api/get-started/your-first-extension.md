@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -49,7 +49,7 @@ Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
 <video loop muted playsinline controls title="Launch your first VS Code extension video">
-  <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
 You should see the `Hello World from HelloWorld!` notification showing up. Success!
@@ -65,7 +65,7 @@ Let's make a change to the message:
 You should see the updated message showing up.
 
 <video loop muted playsinline controls title="Reload VS Code extension video">
-  <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
 Here are some ideas for things for you to try:
@@ -79,7 +79,7 @@ Here are some ideas for things for you to try:
 VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the **Run and Debug** view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
 <video loop muted playsinline controls title="Debug VS Code extension video">
-  <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
+  <source src="/assets/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
 </video>
 
 You can learn more about debugging Node.js apps in VS Code in the [Node.js Debugging Topic](/docs/nodejs/nodejs-debugging).

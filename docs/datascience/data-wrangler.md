@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Wrangler
 ContentId: 8488ca7b-6f92-4894-9029-1bae431784e9
 PageTitle: Working with Data Wrangler in VS Code
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: Full documentation on working with the Data Wrangler extension in Visual Studio Code.
 ---
 
@@ -74,7 +74,6 @@ Depending on the file type, you are able to specify the delimiter and/or sheet o
 ![a screenshot showing the parameters you can set in Data Wrangler when opening directly from a file](images/data-wrangler/csv-parameters.png)
 
 You can also set these file types to open with Data Wrangler by default.
-
 
 ## UI tour
 

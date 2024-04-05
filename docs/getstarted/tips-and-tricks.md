@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 02/28/2024
+DateApproved: 04/04/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -535,6 +535,14 @@ You can add vertical column rulers to the editor with the `editor.rulers` settin
 ### Fast scrolling
 
 Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
+
+### Locked scrolling
+
+You can synchronize scrolling across all visible editors by using the **View: Toggle Locked Scrolling Across Editors** command. This means that when you scroll in one editor, all the other editors scroll by the same amount, keeping everything aligned.
+
+![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.png)
+
+You can choose to only activate the scrolling sync when you're holding down a specific keybinding. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
 
 ### Copy line up / down
 
