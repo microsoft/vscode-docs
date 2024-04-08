@@ -49,6 +49,18 @@ More specific **Commit** actions can be found in the **Views and More Actions** 
 
 <iframe src="https://www.youtube.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
 
+### Author commit messages using an editor
+
+If you don't enter a commit message when commiting changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
+
+To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
+
+![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
+
+You can disable this functionality by toggling the `git.useEditorAsCommitInput` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
+
+To use the same flow for git commit commands executed in the integrated terminal, enable the `git.terminalGitEditor` setting.
+
 ## Cloning a repository
 
 If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** from your local machine or **Clone Repository**.
