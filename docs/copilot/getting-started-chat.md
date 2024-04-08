@@ -1,13 +1,13 @@
 ---
-Order: 11
+Order: 4
 Area: copilot
-TOCTitle: Copilot Chat tutorial
+TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
 DateApproved: 04/04/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
 ---
-# Getting started with GitHub Copilot in VS Code
+# Getting started with GitHub Copilot Chat in VS Code
 
 This tutorial walks you through using the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
 
@@ -19,7 +19,7 @@ If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overvi
 
 * To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
 
 ## Get your first Copilot chat conversation
 
