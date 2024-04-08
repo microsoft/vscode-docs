@@ -22,7 +22,7 @@ The [Python Debugger extension](https://marketplace.visualstudio.com/items?itemN
 
 To verify it's installed, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
-![Python Debugger extension shown in installed extensions view in VS Code.](/docs/python/images/shared/python-debugger-extension.png)
+![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
 
 You can refer to the extension's [README](https://github.com/microsoft/vscode-python-debugger/blob/main/README.md) page for information on supported Python versions.
 
