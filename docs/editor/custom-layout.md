@@ -194,7 +194,7 @@ To open an editor in a floating window, drag it out of the main window and drop 
 
 Floating editor windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
 
-Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`kb(workbench.action.moveEditorToNewWindow)`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
 
 ![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
 
