@@ -85,7 +85,9 @@ You can **Drag and drop** a file from VS Code's Explorer or from your operating 
 
 ![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
 
-If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor.
+If you prefer using the keyboard, you can also **Copy and paste** a file or image data into a Markdown editor. When you paste a file, a link to a file, or a URL, you can choose to insert a Markdown link or to include the link as plain text.
+
+![Inserting a Markdown link by pasting a link in the editor](images/Markdown/markdown-paste-link.png)
 
 Or you can use the  **Markdown: Insert Image from Workspace** command to insert images and  **Markdown: Insert Link to File in Workspace** to insert file links.
 
@@ -93,7 +95,7 @@ Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert
 
 By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `markdown.copyFiles.destination` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `markdown.copyFiles.destination` setting description for information about the available variables.
 
-For example, if we want every Markdown file under `/docs` in our workspace to put new media files into an `images` directory specific to the current file, we can write:
+For example, if you want every Markdown file under `/docs` in your workspace to put new media files into an `images` directory specific to the current file, you can write:
 
 ```jsonc
 "markdown.copyFiles.destination": {
