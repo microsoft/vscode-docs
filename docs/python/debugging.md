@@ -448,7 +448,7 @@ Allows for the automatic reload of the debugger when changes are made to code af
 
 ### `subProcess`
 
-Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multitarget-debugging).
+Specifies whether to enable subprocess debugging. Defaults to `true`, set to `false` to disable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multitarget-debugging).
 
 ### `cwd`
 
