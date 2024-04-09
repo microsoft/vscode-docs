@@ -6,6 +6,7 @@ ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: Set up GitHub Copilot
 DateApproved: 02/28/2024
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in VS Code
 
