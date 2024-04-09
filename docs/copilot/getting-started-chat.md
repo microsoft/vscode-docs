@@ -20,7 +20,7 @@ If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overvi
 
 * To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Get your first Copilot chat conversation
 

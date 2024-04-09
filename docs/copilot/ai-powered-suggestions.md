@@ -20,7 +20,7 @@ GitHub Copilot provides autocomplete-style code completions from an AI pair prog
 
 * To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-To set up a subscription and configure VS Code, follow the steps in the [Copilot Getting started tutorial](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Inline suggestions
 

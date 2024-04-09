@@ -36,7 +36,7 @@ You can use GitHub Copilot Chat in various scenarios, such as:
 
 * To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-To set up a subscription and configure VS Code, follow the steps in the [Copilot Getting started tutorial](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Inline chat
 
@@ -114,6 +114,20 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 You can type questions, scope your questions with [chat participants](#chat-participants) and [slash commands](#slash-commands), and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/copilot-chat/open-in-chat-view.png)
+
+## Multi-turn conversations
+
+When you ask a question in Copilot Chat, you aren't stuck with the first response. Keep the chat conversation open and continue to iterate and prompt Copilot to improve the suggested solution. Copilot has both the context of the generated code and your current conversation history. As you keep asking additional questions, Copilot further refines the response according to your requirements.
+
+Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+
+![First response from Copilot for a function to calculate Fibonacci numbers](images/prompt-crafting/fibonacci-first.png)
+
+If you prefer a solution that doesn't use recursion, update the chat prompt and submit it to Copilot to get a different response.
+
+![Ask Copilot to not use recursion and new result](images/prompt-crafting/fibonacci-second.png)
+
+Learn more about how to [iterate over a Copilot chat conversation](/docs/copilot/prompt-crafting.md#iterate-on-your-solution).
 
 ## Chat smart actions
 
@@ -224,11 +238,17 @@ Chat participants, such as `@workspace`, might have context associated within th
 
 ### Chat history
 
-Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts or to suggest follow-up questions.
+Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
 
 For example, when you first ask "what is the number data type in TypeScript?" and then ask "Can you use this type for decimal numbers?", Copilot knows that you're still referring to the `number` data type. Notice that the suggested prompt is also relevant within our conversation.
 
 ![Chat view with multiple prompts, where Copilot understands that 'this' refers to the first prompt.](images/copilot-chat/chat-view-history.png)
+
+You can delete a prompt and the corresponding response from the chat history by hovering over the prompt and selecting the **x** control. It might be useful to delete one or more prompts to get more relevant responses.
+
+![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
+
+You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Session...** command (`workbench.action.chat.export`) in the Command Palette.
 
 ### Context in inline chat
 
