@@ -12,13 +12,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension gives you a chat interface that lets you interact with [GitHub Copilot](https://github.com/features/copilot) and receive answers to coding-related questions directly within VS Code, without requiring you to navigate documentation or search online forums.
 
-GitHub Copilot Chat can provide coding assistance in various scenarios:
-
-* Answer coding questions on how to best solve a problem
-* Explain someone else's code and suggest improvements
-* Propose code fixes
-* Generate unit test cases
-* Generate code documentation
+Copilot Chat might use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, the result can contain links to context that Copilot used for generating a response, such as source code files or documentation, or buttons for accessing VS Code functionality.
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
 
@@ -26,7 +20,13 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * Use the **Chat view** to have an AI assistant on the side to help you at any time
 * Launch **Quick Chat** to ask a quick question and get back into what you're doing
 
-Copilot Chat can generate rich and interactive output. Copilot Chat might use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, links to context that Copilot used for generating a response, such as source code files or documentation, or buttons for accessing VS Code functionality might also be provided.
+You can use GitHub Copilot Chat in various scenarios, such as:
+
+* Answering coding questions on how to best solve a problem
+* Explaining someone else's code and suggest improvements
+* Proposing code fixes
+* Generating unit test cases
+* Generating code documentation
 
 ## Getting started
 
