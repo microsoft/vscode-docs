@@ -44,7 +44,7 @@ For a TypeScript project, fill out the following fields:
 
 ```
 
-Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
+Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
@@ -53,6 +53,8 @@ Run the **Hello World** command from the Command Palette (`kb(workbench.action.s
 </video>
 
 You should see the `Hello World from HelloWorld!` notification showing up. Success!
+
+If you aren't able to see the **Hello World** command in the debug window, check the `package.json` file and make sure that `engines.vscode` version is compatible with the installed version of VS Code.
 
 ## Developing the extension
 
