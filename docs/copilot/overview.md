@@ -6,6 +6,7 @@ ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
 DateApproved: 04/04/2024
 MetaDescription: Enhance your coding with AI-powered suggestions and chat conversations with GitHub Copilot in Visual Studio Code.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code
 

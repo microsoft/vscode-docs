@@ -6,6 +6,7 @@ ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 DateApproved: 04/04/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Using Copilot Chat in VS Code
 

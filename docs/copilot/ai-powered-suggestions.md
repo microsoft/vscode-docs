@@ -6,6 +6,7 @@ ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 PageTitle: AI-powered code completions with GitHub Copilot
 DateApproved: 04/04/2024
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Code completions with GitHub Copilot in VS Code
 
