@@ -1,0 +1,133 @@
+---
+Order: 82
+TOCTitle: VS Code Extensions and WebAssemblies
+PageTitle: VS Code Extensions and WebAssemblies
+MetaDescription: Using WebAssemblies for extension development.
+Date: 2024-04-30
+Author: Dirk Bäumer
+---
+# Using WebAssemblies for extension development
+
+In January 2024 the Bytecode Alliance launch the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). One of the core technologies of the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). Since the VS Code team is committed to support the WASI 0.2 preview (besides the [preview 1](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi))in VS Code for the Web, we started to get familiar with the component model. Actually we started the effort some time before WASI 0.2 preview launched.
+
+The WebAssembly Component Model simplifies interactions between WebAssembly components themselves and their host environments by standardizing interfaces, data types, and module composition. This is achieved by describing a component via a WIT ([WASM Inteface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. So WIT files can be used to describe the interaction between a JavaScript/TypeScript extension (the host) and a WebAssembly component doing some computation coded in another language like Rust or C/C++.
+
+The examples in this blog post require that you have, besides VS Code and NodeJS, the latest versions of following tools installed: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
+
+# A Calculator in Rust
+
+A WIT file that describes a simple calculator that can do additions, subtractions, multiplications and divisions for positive integers might look like this:
+
+```wit
+package vscode:example;
+
+interface types {
+	record operands {
+		left: u32,
+		right: u32
+	}
+
+	variant operation {
+		add(operands),
+		sub(operands),
+		mul(operands),
+		div(operands)
+	}
+}
+world calculator {
+	use types.{ operation };
+
+	export calc: func(o: operation) -> u32;
+}
+```
+
+We can use the Rust tool [`wit-bindgen`](https://github.com/bytecodealliance/wit-bindgen) to generate a Rust binding for the calculator. A corresponding Rust file that makes use of the `wit-bindgen` tool looks like this:
+
+```rust
+// Use a procedural macro to generate bindings for the world we specified in
+// `calculator.wit`
+wit_bindgen::generate!({
+	// the name of the world in the `*.wit` input file
+	world: "calculator",
+});
+```
+
+Compiling the Rust file to a WebAssembly using `cargo build --target wasm32-unknown-unknown` however reveals some compile errors since we are missing the implementation of the exported calc function. Here is simple implementation of the calc function, including its export:
+
+```rust
+// Use a procedural macro to generate bindings for the world we specified in
+// `calculator.wit`
+wit_bindgen::generate!({
+	// the name of the world in the `*.wit` input file
+	world: "calculator",
+});
+
+struct Calculator;
+
+impl Guest for Calculator {
+
+    fn calc(op: Operation) -> u32 {
+		let result = match op {
+			Operation::Add(operands) => operands.left + operands.right,
+			Operation::Sub(operands) => operands.left - operands.right,
+			Operation::Mul(operands) => operands.left * operands.right,
+			Operation::Div(operands) => operands.left / operands.right,
+		};
+		return result;
+	}
+}
+
+export!(Calculator);
+```
+
+To generate a necessary TypeScript bindings to interact with the WebAssembly code from an VS Code extension the `wit2ts` tool can be used. The tools is developed by the VS Code team. We decided to implement our own tooling to support the special needs the VS Code extension architecture has. The main points are:
+
+- The VS Code API is only available in the extension host worker. Any additional worker spawn from that worker do not have access to it. This is for example different than NodeJS where each worker as access to NodeJS's API.
+- N extensions share the same extension host worker. So an extension shouldn't do any long running synchronous computation on that worker.
+
+These architectural needs already existed when we implemented the [WASI Preview 1 for VS Code](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi). However the implementation we use there was written by hand. Since the component model will, in our opinion, gain broader adoption, we decided to provide a tool to help components with their host implementation.
+
+@@Write a sentence about JCo and our relationship.
+
+The command `wit2ts --noMain --outDir ./src ./wit` will generate a `example.ts` file in the folder named `src`. This code can then be used to interact with the WebAssembly code. A simple extension making use of that code looks like this:
+
+```typescript
+import * as vscode from 'vscode';
+import { WasmContext, Memory } from '@vscode/wasm-component-model';
+
+// Import the code generated by wit2ts
+import { example } from './example';
+import calculator = example.calculator;
+import Types = example.Types;
+
+export async function activate(context: vscode.ExtensionContext): Promise<void> {
+	// The channel for printing the result.
+	const channel = vscode.window.createOutputChannel('Calculator');
+	context.subscriptions.push(channel);
+
+	// Load the Wasm module
+	const filename = vscode.Uri.joinPath(context.extensionUri, 'target', 'wasm32-unknown-unknown', 'debug', 'calculator.wasm');
+	const bits = await vscode.workspace.fs.readFile(filename);
+	const module = await WebAssembly.compile(bits);
+
+	// The context for the WASM module
+	const wasmContext: WasmContext.Default = new WasmContext.Default();
+
+	// Instantiate the module
+	const instance = await WebAssembly.instantiate(module, {});
+	// Bind the WASM memory to the context
+	wasmContext.initialize(new Memory.Default(instance.exports));
+
+	// Bind the TypeScript Api
+	const api = calculator._.bindExports(instance.exports as calculator._.Exports, wasmContext);
+
+	context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-component-model.run', () => {
+		channel.show();
+		channel.appendLine('Running calculator example');
+		channel.appendLine(`Add ${api.calc(Types.Operation.Add({ left: 1, right: 2}))}`);
+		channel.appendLine(`Sub ${api.calc(Types.Operation.Sub({ left: 10, right: 8 }))}`);
+		channel.appendLine(`Mul ${api.calc(Types.Operation.Mul({ left: 3, right: 7 }))}`);
+		channel.appendLine(`Div ${api.calc(Types.Operation.Div({ left: 10, right: 2 }))}`);
+	}));
+}
+```
