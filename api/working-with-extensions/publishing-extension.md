@@ -91,7 +91,7 @@ First off, follow the documentation to [create your own organization](https://le
 
 ### Create a publisher
 
-A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
+A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` identifier in its [`package.json` file](/api/references/extension-manifest).
 
 To create a publisher:
 
@@ -497,7 +497,7 @@ One easy mistake to make when creating the PAT (Personal Access Token) is to sel
 
 ### I can't unpublish my extension through the `vsce` tool?
 
-You may have changed your extension ID or publisher name. You can also manage your extensions directly via the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage). For example, update or [unpublish](#unpublishing-extensions).
+You may have changed your extension ID or publisher ID. You can also manage your extensions directly via the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage). For example, update or [unpublish](#unpublishing-extensions).
 
 ### Why does vsce not preserve file attributes?
 
