@@ -50,12 +50,12 @@ VS Code Day will be a 2-day event full of fun and learning. On the first day, jo
 | Real World Development with VS Code and C#   | [Leslie Richardson](https://twitter.com/lyrichardson01) & [Scott Hanselman](https://twitter.com/shanselman) |
 | Building a RAG-powered AI chat app with Python and VS Code   | [Pamela Fox](https://twitter.com/pamelafox) |
 | Beyond the Editor: Tips to get the Most out of GitHub Copilot   | [Kedasha Kerr](https://twitter.com/itsthatladydev)  |
-| LangChain Examples with Azure OpenAI Service + VS Code   | [https://twitter.com/rishabincloud](https://twitter.com/rishabincloud) |
+| LangChain Examples with Azure OpenAI Service + VS Code   | [Rishab Kumar](https://twitter.com/rishabincloud) |
 | AI Made Clear: Practical AI Coding Sessions in VS Code | [Bruno Capuano](https://twitter.com/elbruno) |
 | Asking Copilot about your workspace | [Matt Bierner](https://twitter.com/mattbierner) |
 | Aw, CRUD: Building a Django app with persistent storage | [Dawn Wages](http://@BajoranEngineer) |
 | Build games with GitHub Copilot | [Chris Noring](https://twitter.com/chris_noring) |
-| Back up Session 3 What's New with C++ in VS Code  | [Alexandra Kemper](https://twitter.com/AlexandraKemper) & [Sinem Akinci](https://twitter.com/sinem__akinci) |
+| What's New with C++ in VS Code  | [Alexandra Kemper](https://twitter.com/AlexandraKemper) & [Sinem Akinci](https://twitter.com/sinem__akinci) |
 
 ## About the hosts
 
