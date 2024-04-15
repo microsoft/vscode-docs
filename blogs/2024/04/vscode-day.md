@@ -13,7 +13,7 @@ April 15, 2024 by Reynald Adolphe, [@ReynaldAdolphe](https://twitter.com/Reynald
 
 [VS Code Day](https://aka.ms/vscodeday-b-register) is our annual event where you'll learn how to elevate your development workflow with the latest and greatest features of Visual Studio Code. This year, we'll have a big focus on AI but not limited to just that. You’ll hear from the VS Code team and other industry experts on topics like AI-powered programming with GitHub Copilot, building and deploying generative AI apps to the cloud, enhancing the C# development experience, and more!  
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/AkengVZnqeo" title="VS Code Day 2024 Promotion video" frameborder="0" allow="autoplay; encrypted-media;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<video src="VS Code Day - Promo.mp4" title="VS Code Day 2024 Promotion video" autoplay loop controls muted></video>
 
 Expect to gain insights into the tools and practices shaping the future of coding, connect via Q&A’s with pioneers and peers, and find inspiration to tackle your next project.
 
