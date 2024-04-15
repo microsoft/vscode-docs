@@ -13,7 +13,7 @@ April 15, 2024 by Reynald Adolphe, [@ReynaldAdolphe](https://twitter.com/Reynald
 
 [VS Code Day](https://aka.ms/vscodeday-b-register) is our annual event where you'll learn how to elevate your development workflow with the latest and greatest features of Visual Studio Code. This year, we'll have a big focus on AI but not limited to just that. You’ll hear from the VS Code team and other industry experts on topics like AI-powered programming with GitHub Copilot, building and deploying generative AI apps to the cloud, enhancing the C# development experience, and more!  
 
-<video src="VS Code Day - Promo.mp4" title="VS Code Day 2024 Promotion video" autoplay loop controls muted></video>
+<video src="VS Code Day - Promo.mp4" title="VS Code Day 2024 Promotion video" autoplay muted loop controls></video>
 
 Expect to gain insights into the tools and practices shaping the future of coding, connect via Q&A’s with pioneers and peers, and find inspiration to tackle your next project.
 
@@ -62,7 +62,7 @@ VS Code Day will be a 2-day event full of fun and learning. On the first day, jo
 | | Host |
 |-|-|
 | ![Reynald Adolphe](Reynald.jpg) | Reynald Adolphe (@ReynaldAdolphe) comes from a background specializing in education, consulting and full stack development. He's currently an advocate at Microsoft for the VS Code team. He’s also a speaker, personal technology coach helping programmers build their brand/career to the next level. You can follow him on his [YouTube channel](https://aka.ms/Reynald-YT). |
-| ![Gwyneth Peña-Siguenza](Gwyn.jpeg) | Gwyn (@madebygps) is a Senior Cloud Advocate at Microsoft focused on Azure developer tools, founder of LearnToCloud and YouTuber, blending her dedication to technology with a passion and commitment for community. Beyond tech, Gwyn enjoys video games, time with loved ones, and mint chocolate chip ice cream. |
+| ![Gwyneth Peña-Siguenza](Gwyn.jpg) | Gwyn (@madebygps) is a Senior Cloud Advocate at Microsoft focused on Azure developer tools, founder of LearnToCloud and YouTuber, blending her dedication to technology with a passion and commitment for community. Beyond tech, Gwyn enjoys video games, time with loved ones, and mint chocolate chip ice cream. |
 
 ## Make the most of your event
 
@@ -72,11 +72,11 @@ VS Code Day will be a 2-day event full of fun and learning. On the first day, jo
 
 - **Engage and Interact**: Use this opportunity to engage with the community. Share your thoughts, ask questions, and make connections. 
 
-- **[Register for the VS Code Day Skills Challenge](http://aka.ms/VSCodeDayCSC)**! Kickstart or pivot your career with our program focused on VS Code and GitHub Copilot, covering areas like Data Science and Artificial Intelligence. Enjoy simple lessons, practical exercises, and live workshops to explore the latest in VS Code. Register at https://aka.ms/VSCodeDayChallenge!
+- **[Register for the VS Code Day Skills Challenge](https://aka.ms/VSCodeDayCSC)**! Kickstart or pivot your career with our program focused on VS Code and GitHub Copilot, covering areas like Data Science and Artificial Intelligence. Enjoy simple lessons, practical exercises, and live workshops to explore the latest in VS Code. Register at [https://aka.ms/VSCodeDayChallenge](https://aka.ms/VSCodeDayChallenge)!
 
-So, get ready for two days filled with learning and discovery. VS Code Day is your portal to the latest in development, packed with sessions to inspire and challenge you. We can’t wait to see you there! 
+So, get ready for two days filled with learning and discovery. VS Code Day is your portal to the latest in development, packed with sessions to inspire and challenge you. We can’t wait to see you there!
 
-Register here:https://aka.ms/vscodeday
+Register here: [https://aka.ms/vscodeday](https://aka.ms/vscodeday)
 
 Happy Coding!
 
