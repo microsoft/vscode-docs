@@ -134,7 +134,7 @@ Compiling and running the above code in VS Code will produce the following outpu
 
 <video src="calculator.mp4" title="Execute the Calculator command]." autoplay loop controls muted></video>
 
-The full source code of the example can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model)
+The full source code of the example can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
 
 # Inside @vscode/wasm-component-model
 
@@ -205,7 +205,7 @@ Compared to the first example the `WebAssembly.instantiate` call now takes `calc
 
 The WebAssembly component model introduces the concept of resources. Resources define a standardized mechanisms for encapsulating and managing state. The state is thereby managed on one side of the call boundary and access and manipulated from the other side of the call boundary. Resources are heavily used in the [WASI preview 0.2](https://bytecodealliance.org/articles/WASI-0.2) APIs. An example are file descriptors. Their state is managed on the host side and accessed and manipulated from the WebAssembly side.
 
-But resources work in the other direction as well. Their state can be managed in the WebAssembly side and access and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. So instead of having a calc function to which we apps all arguments we define a calculator engine which we construct with the arguments and then call execute on. The wit file for such a resource looks like this:
+But resources work in the other direction as well. Their state can be managed in the WebAssembly side and accessed and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. So instead of having a calc function, to which we pass all arguments, we define a calculator engine, which we construct with the arguments and then call execute on. The wit file for such a resource looks like this:
 
 ```wit
 interface types {
@@ -228,7 +228,59 @@ world calculator {
 }
 ```
 
+Below is the implementation of the engine in Rust
+
+```rust
+struct CalcEngine {
+	left: u32,
+	right: u32,
+	operation: Operation,
+}
+
+impl GuestEngine for CalcEngine {
+
+	fn new(left: u32, right: u32, operation: Operation) -> Self {
+		Self { left, right, operation }
+	}
+
+	fn execute(&self) -> u32 {
+		match self.operation {
+			Operation::Add => self.left + self.right,
+			Operation::Sub => self.left - self.right,
+			Operation::Mul => self.left * self.right,
+			Operation::Div => self.left / self.right,
+		}
+	}
+}
+```
+
+On the VS Code side we bind the exports the same way as we did before. The only difference is that the bind will provide us with a proxy class to instantiate and manage a calculator engine on the WebAssembly side.
+
+```typescript
+// Bind the JavaScript Api
+const api = calculator._.bindExports(instance.exports as calculator._.Exports, wasmContext);
+
+context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-component-model.run', () => {
+	channel.show();
+	channel.appendLine('Running calculator example');
+
+	const add = new api.types.Engine(1, 2, Types.Operation.add);
+	channel.appendLine(`Add ${add.execute()}`);
+
+	const sub = new api.types.Engine(10, 8, Types.Operation.sub);
+	channel.appendLine(`Sub ${sub.execute()}`);
+
+	// ...
+}
+```
+
+The full source code of the example can agian be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
+
 # Language Servers and WebAssembly
+
+When we started to work on [WebAssembly support for VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) one of our envisioned use case was to be able to execute language servers using WebAssembly. With the latest changes we did to [VSCode's LSP libraries](https://github.com/Microsoft/vscode-languageserver-node) and the introduction of a new module to bridge between WebAssembly and LSP, implementing a WebAssembly language server is now as easy as implementing it as a operation system process. In addition WebAssembly language servers run on the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which has full support for WASI preview 1. So language server can access the files in the workspace using the normal fs API of their programming language, even if the files are remote (e.g. in a GitHub repository).
+
+
 
 # Using VS Code's API directly from Rust
 
