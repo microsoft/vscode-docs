@@ -201,9 +201,32 @@ Compared to the first example the `WebAssembly.instantiate` call now takes `calc
 
 ![The log output of the calculator](calculator-log.png)
 
-# Using Wit Resources
+# Using Component Model Resources
 
+The WebAssembly component model introduces the concept of resources. Resources define a standardized mechanisms for encapsulating and managing state. The state is thereby managed on one side of the call boundary and access and manipulated from the other side of the call boundary. Resources are heavily used in the [WASI preview 0.2](https://bytecodealliance.org/articles/WASI-0.2) APIs. An example are file descriptors. Their state is managed on the host side and accessed and manipulated from the WebAssembly side.
 
+But resources work in the other direction as well. Their state can be managed in the WebAssembly side and access and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. So instead of having a calc function to which we apps all arguments we define a calculator engine which we construct with the arguments and then call execute on. The wit file for such a resource looks like this:
+
+```wit
+interface types {
+
+	enum operation {
+		add,
+		sub,
+		mul,
+		div
+	}
+
+	resource engine {
+		constructor(left: u32, right: u32, operation: operation);
+		execute: func() -> u32;
+	}
+}
+
+world calculator {
+	export types;
+}
+```
 
 # Language Servers and WebAssembly
 
