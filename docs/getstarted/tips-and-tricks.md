@@ -9,23 +9,25 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
 
-"Tips and Tricks" lets you jump right in and learn how to be productive with Visual Studio Code. You'll become familiar with its powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. This topic goes pretty fast and provides a broad overview, so be sure to look at the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+"Tips and Tricks" lets you jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. This topic goes pretty fast and provides a broad overview, so be sure to look at the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
 
 > If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 
-Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code tips and tricks](https://aka.ms/Build2020AppDev-VSCodeTips), which describes 20 tips and tricks for working productively with VS Code.
+Prefer a video? You can watch the VS Code Day talks [Visual Studio Code tips and tricks](https://learn.microsoft.com/en-us/events/visual-studio-code-vs-code-day-2021/vs-code-tips-and-tricks) or [Elevate your VS Code experience](https://learn.microsoft.com/en-us/shows/vs-code-day-2023/elevate-your-vs-code-experience).
 
 ## Basics
 
 ### Getting started
 
-The best way of exploring VS Code hands-on is to open the **Welcome** page. You will get an overview of VS Code's customizations and features. **Help** > **Welcome**.
+The best way of exploring VS Code hands-on is to open the **Welcome** page and then pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+
+Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: Welcome** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Welcome page](images/tips-and-tricks/welcome-page.png)
 
-Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
+If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and more.
 
-If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
+Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -35,11 +37,11 @@ Access all available commands based on your current context.
 
 Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
-![Command Palette](images/tips-and-tricks/OpenCommandPalatte.gif)
+![Command Palette](images/tips-and-tricks/OpenCommandPalette.gif)
 
 ### Default keyboard shortcuts
 
-All of the commands are in the **Command Palette** with the associated key binding (if it exists). If you forget a keyboard shortcut, use the **Command Palette** to help you out.
+Many of the commands in the Command Palette have default key bindings associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![keyboard references](images/tips-and-tricks/keyboard-references.png)
 
@@ -51,7 +53,7 @@ Download the keyboard shortcut reference sheet for your platform ([macOS](https:
 
 ### Quick Open
 
-Quickly open files.
+Quickly search and open files.
 
 Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
@@ -61,21 +63,21 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
 
-Typing commands such as `edt` and `term` followed by a space will bring up dropdown lists.
+Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
 
 ![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
 
 ### Navigate between recently opened files
 
-Repeat the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
+Repeatedly press the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
 
 ### Open multiple files from Quick Open
 
-You can open multiple files from **Quick Open** by pressing the Right arrow key. This will open the currently selected file in the background and you can continue selecting files from **Quick Open**.
+You can open multiple files from **Quick Open** by pressing `kbstyle(Right Arrow)`. This opens the currently selected file in the background, and you can continue selecting files from **Quick Open**.
 
 ### Navigate between recently opened folders and workspaces
 
-Open Recent
+Open a recent folder or workspace.
 
 Keyboard Shortcut: `kb(workbench.action.openRecent)`
 
@@ -83,7 +85,7 @@ Displays a Quick Pick dropdown with the list from **File** > **Open Recent** wit
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) which allows you to customize how the editor is launched to support various scenarios.
+VS Code has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start VS Code from the command line to open a diff editor for comparing two files.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
@@ -115,7 +117,7 @@ code --disable-extensions .
 
 ### .vscode folder
 
-Workspace specific files are in a `.vscode` folder at the root. For example, `tasks.json` for the Task Runner and `launch.json` for the debugger.
+Workspace specific files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
 
 ## Status Bar
 
@@ -129,19 +131,21 @@ Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.a
 
 ![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
 
-You can filter problems either by type ('errors', 'warnings') or text matching.
+You can filter problem list either by type ('info', 'errors', 'warnings') or by matching text.
 
 ### Change language mode
+
+The language mode in the Status Bar indicates the language (for example, Markdown, Python, and more) that is associated with the active editor. You can change the language mode for the current editor by selecting the Status Bar language mode indicator, or by using the keyboard shortcut.
 
 Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
 
 ![change syntax](images/tips-and-tricks/change_syntax.gif)
 
-If you want to persist the new language mode for that file type, you can use the **Configure File Association for** command to associate the current file extension with an installed language.
+If you want to persist the new language mode for a file type, use the **Configure File Association for** command to associate the current file extension with an installed language.
 
 ## Customization
 
-There are many things you can do to customize VS Code.
+There are many options to customize VS Code to meet your preferences:
 
 * Change your theme
 * Change your keyboard shortcuts
@@ -152,11 +156,13 @@ There are many things you can do to customize VS Code.
 
 ### Change your theme
 
+VS Code comes with a number of built-in [color themes](/docs/getstarted/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
-You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs).
-
 ![Preview themes](images/tips-and-tricks/PreviewThemes.gif)
+
+You can install more themes from the VS Code extension [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Installs). Select the **Preferences: Color Theme** > **+ Browse Additional Color Themes...** command to search themes from the Marketplace.
 
 Additionally, you can install and change your File Icon themes.
 
@@ -164,7 +170,7 @@ Additionally, you can install and change your File Icon themes.
 
 ### Keymaps
 
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to **Preferences** > **Migrate Keyboard Shortcuts from...** to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
+Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
 
 * [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 * [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
@@ -176,11 +182,15 @@ Are you used to keyboard shortcuts from another editor? You can install a Keymap
 
 ### Customize your keyboard shortcuts
 
+You can view and customize the keyboard shortcuts in the **Keyboard Shortcuts** editor. Use the **Preferences: Open Keyboard Shortcuts** command or use the shortcut to open the editor.
+
 Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
+
+Select the pencil icon or use `kbstyle(Enter)` on a specific entry to edit the keyboard shortcut. Filter the list by using the search field.
 
 ![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
 
-You can search for shortcuts and add your own keybindings to the `keybindings.json` file.
+You can also search for shortcuts and add your own keybindings to the `keybindings.json` file.
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
@@ -188,7 +198,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 ### Tune your settings
 
-By default VS Code shows the Settings editor, you can find settings listed below in a search bar, but you can still edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
 
 Open User Settings `settings.json`
 
@@ -220,7 +230,7 @@ Font ligatures
 "editor.fontLigatures": true
 ```
 
-> **Tip:** You will need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the VS Code team.
+> **Tip:** You need to have a font installed that supports font ligatures. [FiraCode](https://github.com/tonsky/FiraCode) is a popular font on the VS Code team.
 
 ![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
 
@@ -284,11 +294,11 @@ Remove these files / folders from search results.
 }
 ```
 
-And many, many [other customizations](/docs/getstarted/settings.md).
+Learn about the many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+You can scope settings for specific languages by using the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -302,7 +312,7 @@ You can scope the settings that you only want for specific languages by the lang
 
 ### Add JSON validation
 
-Enabled by default for many file types. Create your own schema and validation in `settings.json`
+JSON validation is enabled by default for many file types. Create your own schema and validation in `settings.json`:
 
 ```json
 "json.schemas": [
@@ -315,7 +325,7 @@ Enabled by default for many file types. Create your own schema and validation in
 ]
 ```
 
-or for a schema defined in your workspace
+or for a schema defined in your workspace:
 
 ```json
 "json.schemas": [
@@ -328,7 +338,7 @@ or for a schema defined in your workspace
 ]
 ```
 
-or a custom schema
+or to use a custom schema:
 
 ```json
 "json.schemas": [
@@ -357,24 +367,26 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 ### Find extensions
 
-1. In the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
-2. Search inside VS Code in the **Extensions** view.
-3. View extension recommendations
-4. Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode).
+You can use multiple sources to find extensions:
 
-### Install extensions
+* In the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+* Search inside VS Code in the **Extensions** view.
+* View extension recommendations
+* Community curated extension lists, such as [awesome-vscode](https://github.com/viatsko/awesome-vscode).
 
-In the **Extensions** view, you can search via the search bar or click the **More Actions** (...) button to filter and sort by install count.
+### Find popular extensions
+
+In the **Extensions** view, select the **Filter** control, and then either select **Most Popular** or **Sort By** > **Install Count**.
 
 ![install extensions](images/tips-and-tricks/show-popular-extensions.png)
 
 ### Extension recommendations
 
-In the **Extensions** view, click **Show Recommended Extensions** in the **More Actions** (...) button menu.
+In the **Extensions** view, select the **Filter** control, and then select **Recommended** to view the list of recommended extensions.
 
 ![show recommended extensions](images/tips-and-tricks/show-recommended-extensions.png)
 
-### Creating my own extension
+### Create your own extension
 
 Are you interested in creating your own extension? You can learn how to do this in the [Extension API documentation](/api), specifically check out the [documentation on contribution points](/api/references/contribution-points.md).
 
@@ -396,6 +408,8 @@ Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
 ![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
 
+You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
+
 Further reading:
 
 * [Integrated Terminal](/docs/terminal/basics.md) documentation
@@ -410,6 +424,8 @@ Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 ### Toggle Panel
 
 Keyboard Shortcut: `kb(workbench.action.togglePanel)`
+
+![toggle panel](images/tips-and-tricks/toggle_panel.gif)
 
 ### Zen mode
 
@@ -435,15 +451,15 @@ Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.a
 
 ![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
-### Move to Explorer window
+### Show Explorer view
 
 Keyboard Shortcut: `kb(workbench.view.explorer)`
 
-### Create or open a file
+### Create or open a file from a link
 
 Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
 
-You can quickly open a file or image or create a new file by moving the cursor to the file link and using `kbstyle(Ctrl+click)`.
+You can quickly open a file or image, or create a new file by moving the cursor to the file link and then pressing `kbstyle(Ctrl+click)`.
 
 ![create and open file](images/tips-and-tricks/create_open_file.gif)
 
@@ -475,17 +491,17 @@ Create language associations for files that aren't detected correctly. For examp
 
 VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
 
-In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+To resolve the save conflict, select the **Compare** action in the notification popup to open a diff editor that shows you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
 
 ![dirty write](images/tips-and-tricks/dirty-write.png)
 
 Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
 
-**Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
+**Note:** The file remains dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
 
 ## Editing hacks
 
-Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) for your old editor.
+Here is a selection of common features for editing code. If you're more familiar with the keyboard shortcuts for another editor, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
 
 **Tip**: You can see recommended keymap extensions in the **Extensions** view by filtering the search to `@recommended:keymaps`.
 
@@ -540,7 +556,7 @@ Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explore
 
 You can synchronize scrolling across all visible editors by using the **View: Toggle Locked Scrolling Across Editors** command. This means that when you scroll in one editor, all the other editors scroll by the same amount, keeping everything aligned.
 
-![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.png)
+![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.gif)
 
 You can choose to only activate the scrolling sync when you're holding down a specific keybinding. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
 
@@ -784,71 +800,69 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the Extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
 
 ### Diffs
 
-From the **Source Control** view, select a file to open the diff.
+From the **Source Control** view, select a file to open the diff editor. Alternatively, select the **Open Changes** button in the top right corner to diff the current open file.
 
 ![git diff from source control](images/tips-and-tricks/msee-changes.gif)
 
-Alternatively, click the **Open Changes** button in the top right corner to diff the current open file.
-
-**Views**
+#### Views
 
 The default view for diffs is the **side by side view**.
 
-Toggle **inline view** by clicking the **More Actions** (...) button in the top right and selecting **Toggle Inline View**.
+Toggle **inline view** by selecting the **More Actions** (...) button in the top right, and then selecting **Inline View**.
 
-![git switch to inline diff](images/tips-and-tricks/mdiff-switch-to-inline.png)
+![Screenshot that shows the More Actions menu in the diff editor, highlighting the Inline View menu item](images/tips-and-tricks/mdiff-switch-to-inline.png)
 
-If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
+If you prefer to have the inline view as the default, configure the `"diffEditor.renderSideBySide": false` setting.
 
-**Accessible Diff Viewer**
+#### Accessible Diff Viewer
 
-Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This will present them in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
+Navigate through diffs with `kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`. This presents changes in a unified patch format. Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` jumps back in the diff editor and the selected line.
 
 ![diff_review_pane](images/tips-and-tricks/diff_review_pane.png)
 
-**Edit pending changes**
+#### Edit pending changes
 
-You can make edits directly in the pending changes of the diff view.
+While you're viewing changes in the diff editor, you can make edits directly in the pending changes side of the diff editor.
 
 ### Branches
 
 Easily switch between Git branches via the Status Bar.
 
-![switch branches](images/tips-and-tricks/mswitch-branch.gif)
+![switch branches](images/tips-and-tricks/switch-branch.gif)
 
 ### Staging
 
-**Stage file changes**
+#### Stage file changes
 
-Hover over the number of files and click the plus button.
+Hover over the number of files and select the plus button to stage a file.
 
-Click the minus button to unstage changes.
+Select the minus button to unstage changes.
 
-![git stage all](images/tips-and-tricks/mstage-unstage.gif)
+![git stage all](images/tips-and-tricks/stage-unstage.gif)
 
-**Stage selected**
+#### Stage selected
 
-Stage a portion of a file by selecting that file (using the arrows) and then choosing **Stage Selected Ranges** from the **Command Palette**.
+You can stage a portion of a file by making a text selection in a file and then choosing **Stage Selected Ranges** from the **Command Palette** or from the diff editor context menu (right-click).
 
 ### Undo last commit
 
-Click the (...) button and then select **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
+Select the (...) button, and then select **Commit** > **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
 
 ![undo last commit](images/tips-and-tricks/mundo-last-commit.gif)
 
 ### See Git output
 
-VS Code makes it easy to see what Git commands are actually running. This is helpful when learning Git or debugging a difficult source control issue.
+VS Code makes it easy to see what Git commands are actually running. This can be helpful when you're still learning Git or when you're debugging a difficult source control issue.
 
-Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the dropdown.
+To view the Git output, select the (...) button in the Source Control view, and then select **Show Git Output**, use the **Git: Show Git Output** command, or use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and then select **Git** from the dropdown.
 
 ### Gutter indicators
 
-View diff decorations in editor. See [documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
+The editor provides visual cues in the gutter about where and which changes (added, changed, or remove lines) were made. See [the source control documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 
@@ -857,6 +871,10 @@ View diff decorations in editor. See [documentation](/docs/sourcecontrol/overvie
 During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
 
 You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
+
+![Git merge](images/tips-and-tricks/merge-conflict.png)
+
+Learn more about [resolving merge conflicts](/docs/sourcecontrol/overview.md#merge-conflicts) in the source control documentation.
 
 ### Set VS Code as default merge tool
 
@@ -876,19 +894,23 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 
 ### Configure debugger
 
-From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
+From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which prompts you to select the environment that matches your project (Node.js, Python, C++, and more). This generates a `launch.json` file in your workspace that contains the debugger configuration.
+
+Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure-debug.png)
 
 ### Breakpoints and stepping through
 
-Place breakpoints next to the line number. Navigate forward with the Debug widget.
+Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Breakpoints in the editor margin are normally shown as red filled circles.
+
+Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugging.md#debug-actions) in the debugging documentation.
 
 ![debug](images/tips-and-tricks/node_debug.gif)
 
 ### Data inspection
 
-Inspect variables in the **Run** panels and in the console.
+Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view, by hovering over their source in the editor, or by using the debug console.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
 
@@ -910,10 +932,12 @@ Triggered breakpoints can be set by right-clicking on the glyph margin, selectin
 
 ## Task runner
 
+Tasks in VS Code can be configured to run scripts and start processes so that these tools can be used from within VS Code without having to enter a command line or write new code.
+
 ### Auto detect tasks
 
 Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
-This will generate a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
+This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
 
 ```json
 {
