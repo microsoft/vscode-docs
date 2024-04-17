@@ -283,6 +283,47 @@ When we started to work on [WebAssembly support for VS Code for the Web](https:/
 Since most language server libraries support custom messages, it is also very easy to add features to a language server, that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet of a Rust language server based on the `lsp_server` crate that adds a custom request to count the files in a provided workspace folder:
 
 ```rust
+#[derive(Deserialize, Serialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct CountFilesParams {
+    pub folder: String,
+}
+
+pub enum CountFilesRequest {}
+impl Request for CountFilesRequest {
+    type Params = CountFilesParams;
+    type Result = u32;
+    const METHOD: &'static str = "wasm-language-server/countFilesInDirectory";
+}
+
+//...
+
+for msg in &connection.receiver {
+    match msg {
+		//....
+		match cast::<CountFilesRequest>(req) {
+    		Ok((id, params)) => {
+        		let result = count_files_in_directory(params.folder.as_str());
+        		let json = serde_json::to_value(&result).unwrap();
+        		let resp = Response { id, result: Some(json), error: None };
+        		connection.sender.send(Message::Response(resp))?;
+        		continue;
+    		}
+    		Err(err @ ExtractError::JsonError { .. }) => panic!("{err:?}"),
+    		Err(ExtractError::MethodMismatch(req)) => req,
+		}
+	}
+	//...
+}
+
+fn count_files_in_directory(path: &str) -> usize {
+    let result = WalkDir::new(path)
+        .into_iter()
+        .filter_map(Result::ok)
+        .filter(|entry| entry.file_type().is_file())
+        .count();
+    return result;
+}
 ```
 
 The new `@vscode/wasm-wasi-lsp` npm module can be used to easily create a WebAssembly language server inside the extension's TypeScript code. Instantiating the WebAssembly code as a worker with WASI support is done using the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which is described in detail in our [Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) blog post.
@@ -332,11 +373,20 @@ export async function activate(context: ExtensionContext) {
 Sending the custom message to calculate the number of files insider a workspace folder is straight forward as well:
 
 ```typescript
+type CountFileParams = { folder: string };
+const CountFilesRequest = new RequestType<CountFileParams, number, void>('wasm-language-server/countFilesInFolder');
+
+// We assume we do have a folder.
+const folder = workspace.workspaceFolders![0].uri;
+// We need to convert the folder URI to a URI that maps to the mounted WASI file system. This is something
+// @vscode/wasm-wasi-lsp does for us.
+const result = await client.sendRequest(CountFilesRequest, { folder: client.code2ProtocolConverter.asUri(folder!) });
 ```
+
+@@ May be another screen shot.
 
 As with the other examples the full source code can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
 
-@@ May be another screen shot.
 
 # Using VS Code's API directly from Rust
 
@@ -357,7 +407,7 @@ pub fn activate() -> vscode::Disposables {
 	disposables.push(vscode::commands::register_command("testbed-component-model-vscode.run", move || {
 		channel_clone.append_line("Open documents");
 
-		// Print the URI off all open documents
+		// Print the URI of all open documents
 		for document in vscode::workspace::text_documents() {
 			channel.append_line(&format!("Document: {}", document.uri()));
 		}
@@ -372,8 +422,12 @@ pub fn deactivate() {
 
 This looks very similar to an extension written in TypeScript. Due to the nice work [Connor Peet](https://github.com/connor4312) did, it is even possible to step through the Rust code using VS Code's debugger:
 
-@@screen shot
+<video src="rust-extension.mp4" title="Extension written in Rust." autoplay loop controls muted></video>
 
-Although the exploration looks very promising we decided to not push this further right now. Major reason is the missing async support in WASM. A lot of VS Code API is async and can therefore not easily be proxied into WebAssembly code. We could run the WebAssembly code in a separate worker and use the same mechanism we use for the [WASI Preview 1 support]() to synchronize between the WebAssembly worker and the extension host worker. However
+Although the exploration looks very promising we decided to not push this further right now. Major reason is the missing async support in WASM. A lot of VS Code API is async and can therefore not easily be proxied into WebAssembly code. We could run the WebAssembly code in a separate worker and use the same mechanism we use for the [WASI Preview 1 support](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) to synchronize between the WebAssembly worker and the extension host worker. However, this approach would lead to unexpected behavior when doing sync API calls since those calls would be executed async under the hood. Since the extension host worker yields between the two async executions there is no guarantee, that between two sync calls the underlying state wouldn't change (e.g. something like `setX(5); getX();` could return a value different than 5).
+
+Furthermore there is work under way to add full async support to WebAssemblies in the Preview 3 time frame. Luke Wagner gave an overview about the current state of the async support at [Day 2 of this years Plumber’s Summit](https://bytecodealliance.org/articles/plumbers-day-2). So we deiced to wait for this to arrive since it will allow us to tell a nicer and more complete story.
+
+For those that are interested the corresponding Wit files, the Rust code and the TypeScript code can be found in the [rust-api](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/dbaeumer/early-kingfisher-tan/rust-api/package.json#L1) folder of the vscode-wasm repository.
 
 # What comes next
