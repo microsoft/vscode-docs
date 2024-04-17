@@ -83,6 +83,14 @@ Keyboard Shortcut: `kb(workbench.action.openRecent)`
 
 Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
 
+### Floating windows
+
+You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+
+To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window. Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+
+<video src="images/tips-and-tricks/floating-windows.mp4" autoplay loop controls muted></video>
+
 ## Command line
 
 VS Code has a powerful command line interface (CLI) which enables you to customize how the editor is launched to support various scenarios. For example, you can start VS Code from the command line to open a diff editor for comparing two files.
