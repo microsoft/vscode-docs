@@ -10,7 +10,7 @@ Author: Dirk Bäumer
 
 In January 2024 the Bytecode Alliance launch the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). One of the core technologies of the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). Since the VS Code team is committed to support the WASI 0.2 preview (besides the [preview 1](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi))in VS Code for the Web, we started to get familiar with the component model. Actually we started the effort some time before WASI 0.2 preview launched.
 
-The WebAssembly Component Model simplifies interactions between WebAssembly components themselves and their host environments by standardizing interfaces, data types, and module composition. This is achieved by describing a component via a WIT ([WASM Inteface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. So WIT files can be used to describe the interaction between a JavaScript/TypeScript extension (the host) and a WebAssembly component doing some computation coded in another language like Rust or C/C++.
+The WebAssembly Component Model simplifies interactions between WebAssembly components themselves and their host environments by standardizing interfaces, data types, and module composition. This is achieved by describing a component via a WIT ([WASM Interface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. So WIT files can be used to describe the interaction between a JavaScript/TypeScript extension (the host) and a WebAssembly component doing some computation coded in another language like Rust or C/C++.
 
 The examples in this blog post require that you have, besides VS Code and NodeJS, the latest versions of following tools installed: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
 
@@ -274,14 +274,106 @@ context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-
 }
 ```
 
-The full source code of the example can agian be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
+The full source code of the example can again be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
 
 # Language Servers and WebAssembly
 
 When we started to work on [WebAssembly support for VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) one of our envisioned use case was to be able to execute language servers using WebAssembly. With the latest changes we did to [VSCode's LSP libraries](https://github.com/Microsoft/vscode-languageserver-node) and the introduction of a new module to bridge between WebAssembly and LSP, implementing a WebAssembly language server is now as easy as implementing it as a operation system process. In addition WebAssembly language servers run on the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which has full support for WASI preview 1. So language server can access the files in the workspace using the normal fs API of their programming language, even if the files are remote (e.g. in a GitHub repository).
 
+Since most language server libraries support custom messages, it is also very easy to add features to a language server, that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet of a Rust language server based on the `lsp_server` crate that adds a custom request to count the files in a provided workspace folder:
 
+```rust
+```
+
+The new `@vscode/wasm-wasi-lsp` npm module can be used to easily create a WebAssembly language server inside the extension's TypeScript code. Instantiating the WebAssembly code as a worker with WASI support is done using the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which is described in detail in our [Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) blog post.
+
+```typescript
+import { createStdioOptions, startServer } from '@vscode/wasm-wasi-lsp';
+
+export async function activate(context: ExtensionContext) {
+	const wasm: Wasm = await Wasm.load();
+
+	// ...
+
+	// The server options to run the WebAssembly language server.
+	const serverOptions: ServerOptions = async () => {
+		const options: ProcessOptions = {
+			stdio: createStdioOptions(),
+			mountPoints: [
+				{ kind: 'workspaceFolder' },
+			]
+		};
+
+		// Load the WebAssembly code
+		const filename = Uri.joinPath(context.extensionUri, 'server', 'target', 'wasm32-wasi-preview1-threads', 'release', 'server.wasm');
+		const bits = await workspace.fs.readFile(filename);
+		const module = await WebAssembly.compile(bits);
+
+		// Create the wasm worker that runs the LSP server
+		const process = await wasm.createProcess('lsp-server', module, { initial: 160, maximum: 160, shared: true }, options);
+
+		// Hook stderr to the output channel
+		const decoder = new TextDecoder('utf-8');
+		process.stderr!.onData((data) => {
+			channel.append(decoder.decode(data));
+		});
+
+		return startServer(process);
+	};
+
+
+	let client = new LanguageClient('lspClient', 'LSP Client', serverOptions, clientOptions);
+	await client.start();
+
+	// ....
+}
+```
+
+Sending the custom message to calculate the number of files insider a workspace folder is straight forward as well:
+
+```typescript
+```
+
+As with the other examples the full source code can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
+
+@@ May be another screen shot.
 
 # Using VS Code's API directly from Rust
+
+Component model resource can be used to encapsulate and manage state across WebAssembly components and the host. One additional idea we explored is to use resources to proxy the VS Code API idiomatically into WebAssembly components. The benefit of such an approach is, that the whole extension can be written in a language that compiles to WebAssembly. Below the source code of an extension written in Rust:
+
+```rust
+use std::rc::Rc;
+
+#[export_name = "activate"]
+pub fn activate() -> vscode::Disposables {
+	let mut disposables: vscode::Disposables = vscode::Disposables::new();
+
+	// Create an output channel.
+	let channel: Rc<vscode::OutputChannel> = Rc::new(vscode::window::create_output_channel("Rust Extension", Some("plaintext")));
+
+	// Register a command handler
+	let channel_clone = channel.clone();
+	disposables.push(vscode::commands::register_command("testbed-component-model-vscode.run", move || {
+		channel_clone.append_line("Open documents");
+
+		// Print the URI off all open documents
+		for document in vscode::workspace::text_documents() {
+			channel.append_line(&format!("Document: {}", document.uri()));
+		}
+	}));
+	return disposables;
+}
+
+#[export_name = "deactivate"]
+pub fn deactivate() {
+}
+```
+
+This looks very similar to an extension written in TypeScript. Due to the nice work [Connor Peet](https://github.com/connor4312) did, it is even possible to step through the Rust code using VS Code's debugger:
+
+@@screen shot
+
+Although the exploration looks very promising we decided to not push this further right now. Major reason is the missing async support in WASM. A lot of VS Code API is async and can therefore not easily be proxied into WebAssembly code. We could run the WebAssembly code in a separate worker and use the same mechanism we use for the [WASI Preview 1 support]() to synchronize between the WebAssembly worker and the extension host worker. However
 
 # What comes next
