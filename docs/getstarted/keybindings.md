@@ -10,13 +10,13 @@ MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
+Visual Studio Code lets you perform most tasks directly from the keyboard. This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key bindings for another platform, hover your mouse over the key you are interested in.
 
 ## Keyboard Shortcuts editor
 
-Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts**.
+VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keybindings, and enables you to change / remove / reset their keybindings using the available actions. You can use the search box to find commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts** or by using the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`).
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
