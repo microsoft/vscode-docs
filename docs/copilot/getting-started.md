@@ -114,7 +114,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started/copilot-chat-view.png)
 
-1. Type "what is recursion?" in the chat input field and press `kb(inlineChat.accept)` to send the request to Copilot.
+1. Type "what is recursion?" in the chat input field and press `kb(workbench.action.chat.acceptInput)` to send the request to Copilot.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
