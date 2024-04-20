@@ -280,6 +280,8 @@ If you want to use the full set of debugging features supported in VS Code, such
 2. Then select the **Debug Cell** button in the menu next to the **Run** button. This will run the cell in a debug session, and will pause on your breakpoints in any code that runs, even if it is in a different cell or a `.py` file.
 3. You can use the Debug view, Debug Console, and all the buttons in the Debug Toolbar as you normally would in VS Code.
 
+Note that debugging cells in a jupyter notebook does not use any of the debug configurations in launch.json.  It can be customized instead via settings such as `jupyter.debugJustMyCode`.
+
 ![Debug cell button](images/jupyter/debug-cell.png)
 
 ### Search through notebook
