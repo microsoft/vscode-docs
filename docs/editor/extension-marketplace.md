@@ -285,7 +285,7 @@ An example `extensions.json` could be:
 
 which recommends a linter extension and a code formatter extension.
 
-An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
+An extension is identified using its publisher identifier and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 
 ![Extension identifier](images/extension-marketplace/extension-identifier.png).
 

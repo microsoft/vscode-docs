@@ -119,7 +119,7 @@ If you have settings that you wish to change while using the C# debugger, you ca
 * `csharp.debug.symbolOptions.searchMicrosoftSymbolServer` - If `true` the Microsoft Symbol server (`https://msdl.microsoft.com/download/symbols`) is added to the symbols search path. If unspecified, this option defaults to `false`.
 * `csharp.debug.symbolOptions.searchNuGetOrgSymbolServer` - If `true` the NuGet.org symbol server (`https://symbols.nuget.org/download/symbols`) is added to the symbols search path. If unspecified, this option defaults to `false`.
 * `csharp.debug.symbolOptions.cachePath` - Directory where symbols downloaded from symbol servers should be cached. If unspecified, on Windows the debugger defaults to `%TEMP%\\SymbolCache`, and on Linux and macOS the debugger defaults to `~/.dotnet/symbolcache`.
-*- `csharp.debug.symbolOptions.moduleFilter.mode` - Controls which of the two basic operating modes the module filter operates in.
+* `csharp.debug.symbolOptions.moduleFilter.mode` - Controls which of the two basic operating modes the module filter operates in.
   * `loadAllButExcluded` - Load symbols for all modules unless the module is in the `excludedModules` array.
   * `loadOnlyIncluded` - Do not attempt to load symbols for ANY module unless it is in the `includedModules` array, or it is included through the `includeSymbolsNextToModules` setting.
 * `csharp.debug.symbolOptions.moduleFilter.excludedModules` - Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.*.dll) are supported. This property is ignored unless `mode` is set to `loadAllButExcluded`.
