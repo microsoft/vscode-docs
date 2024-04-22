@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
 
-"Tips and Tricks" lets you jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. This topic goes pretty fast and provides a broad overview, so be sure to look at the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
 
 > If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 
@@ -314,9 +314,9 @@ You can scope settings for specific languages by using the language identifier. 
 }
 ```
 
-> **Tip:** You can also create language specific settings with the **Configure Language Specific Settings** command.
-
-![language based settings](images/tips-and-tricks/lang-based-settings.png)
+> **Tip:** You can also create language-specific settings with the **Configure Language Specific Settings** command.
+>
+> ![language based settings](images/tips-and-tricks/lang-based-settings.png)
 
 ### Add JSON validation
 
@@ -437,11 +437,11 @@ Keyboard Shortcut: `kb(workbench.action.togglePanel)`
 
 ### Zen mode
 
+Enter distraction-free Zen mode.
+
 Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
 
 ![zen mode](images/tips-and-tricks/zen_mode.gif)
-
-Enter distraction free Zen mode.
 
 Press `kbstyle(Esc)` twice to exit Zen Mode.
 
@@ -989,11 +989,11 @@ For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the followin
 
 ### Run npm scripts as tasks from the Explorer
 
+From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to `run`. Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
-From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
-
-With the setting `npm.enableRunFromFolder`, you can enable to run npm scripts from the File Explorer's context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
+With the setting `npm.enableRunFromFolder`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
 
 ## Portable mode
 
