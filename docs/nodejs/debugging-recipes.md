@@ -6,7 +6,7 @@ ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: JavaScript Debugging Recipes for Visual Studio Code
 DateApproved: 04/04/2024
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
-MetaSocialImage: debugging_Debugging.png
+MetaSocialImage: ../editor/images/debugging/Debugging.png
 ---
 # JavaScript Debugging Recipes
 
