@@ -51,11 +51,13 @@ Finally, this context is used by GitHub Copilot to answer your question. If the 
 
 `@workspace` provides several *slash commands* as shorthand for commonly used tasks, saving you time and typing effort. Each command defines its own optimized context, often eliminating the need for additional prompting or chat variables. Here are the available slash commands and their contexts:
 
-| Command    | Context |
-| ---------- | ------- |
-| `/explain` | <ul><li>Starts with the text selection in the active editor (`#selection`). To optimize the Copilot chat responses, make sure to expand the text selection to include any relevant information to help Copilot provide a useful response.</li></ul><ul><li>Looks up the implementations of referenced symbols such as functions and classes, leading to more accurate and useful explanations.</li></ul> |
-| `/test`    | <ul><li>Current text selection in the active editor. If no text is selected, use the contents of the currently active file.</li></ul><ul><li>Related existing test files, to understand existing tests and best practices.</li></ul> |
-| `/fix`     | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li></ul><ul><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul> |
+| Command        | Context |
+| -------------- | ------- |
+| `/explain`     | <ul><li>Starts with the text selection in the active editor (`#selection`). To optimize the Copilot chat responses, make sure to expand the text selection to include any relevant information to help Copilot provide a useful response.</li><li>Looks up the implementations of referenced symbols such as functions and classes, leading to more accurate and useful explanations.</li></ul> |
+| `/tests`       | <ul><li>Current text selection in the active editor. If no text is selected, use the contents of the currently active file.</li><li>Related existing test files, to understand existing tests and best practices.</li></ul> |
+| `/fix`         | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul> |
+| `/new`         | <ul><li>Only the chat prompt is used as context.</li></ul> |
+| `/newNotebook` | <ul><li>Only the chat prompt is used as context.</li></ul> |
 
 You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #file:form.ts`.
 
