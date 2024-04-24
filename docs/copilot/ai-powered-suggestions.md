@@ -1,11 +1,12 @@
 ---
-Order: 2
+Order: 5
 Area: copilot
-TOCTitle: AI code completions
+TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 PageTitle: AI-powered code completions with GitHub Copilot
 DateApproved: 04/04/2024
-MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
+MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Code completions with GitHub Copilot in VS Code
 
@@ -19,7 +20,7 @@ GitHub Copilot provides autocomplete-style code completions from an AI pair prog
 
 * To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-To set up a subscription and configure VS Code, follow the steps in the [Copilot Getting started tutorial](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Inline suggestions
 

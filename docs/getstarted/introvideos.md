@@ -21,7 +21,7 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			<div class="info">
                 <h2 class="title faux-h3">Getting Started</h2>
 				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>7<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>

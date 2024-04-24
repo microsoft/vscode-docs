@@ -21,7 +21,7 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 
 The default (Primary) side bar shows views such as the File Explorer, Search, and Source Control on the left of the workbench. If you'd prefer it on the right, you can:
 
-* Right-click the Activity bar and select **Move Primary Side Bar Right**.
+* Right-click the Activity Bar and select **Move Primary Side Bar Right**.
 * Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
 * Set the **Workbench > Side Bar: Location** (`workbench.sideBar.location`) [setting](/docs/getstarted/settings.md) to `right`.
 
@@ -42,13 +42,15 @@ The Secondary side bar is initially empty but you can drag and drop views and pa
 
 >**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 
-### Activity bar position
+### Activity Bar position
 
-By default, the Activity bar moves with the Primary side bar and remains on the outer edge of the workbench. You can also choose to hide the Activity bar or move it to the top of the Primary side bar. The **Activity Bar Position** menu available from the Activity bar context menu or under **View** > **Appearance** has the options **Side**, **Top**, or **Hidden**.
+By default, the Activity Bar moves with the Primary Side Bar and remains on the outer edge of the workbench. You can also choose to hide the Activity Bar, or move it to the top or bottom of the Primary Side Bar.
 
-When the Activity bar is in the top position, the **Account** and **Manage** buttons, usually at the bottom of the Activity bar, move to the right side of the title bar.
+The **Activity Bar Position** menu is available from the Activity Bar context menu, or under **View** > **Appearance** > **Activity Bar Position** has the options **Default**, **Top**, **Bottom**, or **Hidden**.
 
-![Activity bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
+When the Activity Bar is in the top or bottom position, the **Account** and **Manage** buttons, usually at the bottom of the Activity Bar, move to the right side of the title bar.
+
+![Activity Bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
 ### Panel
 
@@ -115,7 +117,7 @@ VS Code has a default layout of views and panels in the Primary Side bar and Pan
 
 >**Note**: Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
-You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity bar item and then dropping into the view:
+You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity Bar item and then dropping into the view:
 
 ![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
 
@@ -192,7 +194,7 @@ To open an editor in a floating window, drag it out of the main window and drop 
 
 Floating editor windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
 
-Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`kb(workbench.action.moveEditorToNewWindow)`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
 
 ![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
 

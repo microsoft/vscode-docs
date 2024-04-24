@@ -95,6 +95,7 @@ The first step to create a chat extension is to register it in your `package.jso
 ```
 
 We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 

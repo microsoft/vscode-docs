@@ -1,23 +1,18 @@
 ---
-Order: 3
+Order: 6
 Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 DateApproved: 04/04/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Using Copilot Chat in VS Code
 
 The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension gives you a chat interface that lets you interact with [GitHub Copilot](https://github.com/features/copilot) and receive answers to coding-related questions directly within VS Code, without requiring you to navigate documentation or search online forums.
 
-GitHub Copilot Chat can provide coding assistance in various scenarios:
-
-* Answer coding questions on how to best solve a problem
-* Explain someone else's code and suggest improvements
-* Propose code fixes
-* Generate unit test cases
-* Generate code documentation
+Copilot Chat might use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, the result can contain links to context that Copilot used for generating a response, such as source code files or documentation, or buttons for accessing VS Code functionality.
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
 
@@ -25,7 +20,13 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * Use the **Chat view** to have an AI assistant on the side to help you at any time
 * Launch **Quick Chat** to ask a quick question and get back into what you're doing
 
-Copilot Chat can generate rich and interactive output. Copilot Chat might use syntax highlighting, indentation, and other formatting features to add clarity to the generated response. Depending upon the type of question from the user, links to context that Copilot used for generating a response, such as source code files or documentation, or buttons for accessing VS Code functionality might also be provided.
+You can use GitHub Copilot Chat in various scenarios, such as:
+
+* Answering coding questions on how to best solve a problem
+* Explaining someone else's code and suggest improvements
+* Proposing code fixes
+* Generating unit test cases
+* Generating code documentation
 
 ## Getting started
 
@@ -35,7 +36,7 @@ Copilot Chat can generate rich and interactive output. Copilot Chat might use sy
 
 * To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-To set up a subscription and configure VS Code, follow the steps in the [Copilot Getting started tutorial](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Inline chat
 
@@ -113,6 +114,20 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 You can type questions, scope your questions with [chat participants](#chat-participants) and [slash commands](#slash-commands), and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
 ![Quick Chat Open in Chat View button](images/copilot-chat/open-in-chat-view.png)
+
+## Multi-turn conversations
+
+When you ask a question in Copilot Chat, you aren't stuck with the first response. Keep the chat conversation open and continue to iterate and prompt Copilot to improve the suggested solution. Copilot has both the context of the generated code and your current conversation history. As you keep asking additional questions, Copilot further refines the response according to your requirements.
+
+Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+
+![First response from Copilot for a function to calculate Fibonacci numbers](images/prompt-crafting/fibonacci-first.png)
+
+If you prefer a solution that doesn't use recursion, update the chat prompt and submit it to Copilot to get a different response.
+
+![Ask Copilot to not use recursion and new result](images/prompt-crafting/fibonacci-second.png)
+
+Learn more about how to [iterate over a Copilot chat conversation](/docs/copilot/prompt-crafting.md#iterate-on-your-solution).
 
 ## Chat smart actions
 
@@ -223,11 +238,17 @@ Chat participants, such as `@workspace`, might have context associated within th
 
 ### Chat history
 
-Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts or to suggest follow-up questions.
+Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
 
 For example, when you first ask "what is the number data type in TypeScript?" and then ask "Can you use this type for decimal numbers?", Copilot knows that you're still referring to the `number` data type. Notice that the suggested prompt is also relevant within our conversation.
 
 ![Chat view with multiple prompts, where Copilot understands that 'this' refers to the first prompt.](images/copilot-chat/chat-view-history.png)
+
+You can delete a prompt and the corresponding response from the chat history by hovering over the prompt and selecting the **x** control. It might be useful to delete one or more prompts to get more relevant responses.
+
+![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
+
+You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Session...** command (`workbench.action.chat.export`) in the Command Palette.
 
 ### Context in inline chat
 

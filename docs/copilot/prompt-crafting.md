@@ -1,15 +1,16 @@
 ---
-Order: 6
+Order: 7
 Area: copilot
-TOCTitle: Prompt crafting
+TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-PageTitle: Prompt crafting for GitHub Copilot
+PageTitle: Best practices for GitHub Copilot in VS Code
 DateApproved: 04/04/2024
-MetaDescription: Optimize your development experience with GitHub Copilot in VS Code through crafting chat prompts and providing context.
+MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot optimization with prompt crafting and context setting
+# Best practices for using GitHub Copilot in VS Code
 
-This article covers best practices for using GitHub Copilot in Visual Studio Code, so that you make the most of your AI pair programming experience.
+This article covers best practices for using GitHub Copilot in Visual Studio Code by using prompt crafting and providing the right context to GitHub Copilot.
 
 >**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
