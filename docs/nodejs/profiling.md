@@ -6,7 +6,6 @@ ContentId: 3DAE803B-D479-4143-976F-B69F00A73891
 PageTitle: Performance Profiling JavaScript in Visual Studio Code
 DateApproved: 04/04/2024
 MetaDescription: Learn more about profiling your JavaScript performance in the Visual Studio Code editor.
-MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
 # Performance Profiling JavaScript
 

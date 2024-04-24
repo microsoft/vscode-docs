@@ -6,7 +6,7 @@ ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Version control in Visual Studio Code
 DateApproved: 5/31/2022
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
-MetaSocialImage: images/opengraph/introvideos.png
+MetaSocialImage: images/opengraph/introvideos-social.png
 ---
 # Version control in VS Code
 

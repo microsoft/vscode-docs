@@ -6,7 +6,7 @@ ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
 DateApproved: 8/7/2023
 MetaDescription: Editing Python in Visual Studio Code
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # Editing Python in Visual Studio Code
 
