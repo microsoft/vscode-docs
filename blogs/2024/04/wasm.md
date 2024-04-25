@@ -8,15 +8,15 @@ Author: Dirk Bäumer
 ---
 # Using WebAssemblies for extension development
 
-In January 2024 the Bytecode Alliance launch the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). One of the core technologies of the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). Since the VS Code team is committed to support the WASI 0.2 preview (besides the [preview 1](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi))in VS Code for the Web, we started to get familiar with the component model. Actually we started the effort some time before WASI 0.2 preview launched.
+Through the [WebAssembly Execution Engine](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension VS Code has support to execute WASM binaries. The major use case is to compile programs written in C/C++ or Rust to WebAssembly and then execute these programs one to one in VS Code. A great example is [Visual Studio Code for Education](https://vscodeedu.com/), which uses this support to execute the Python interpreter in VS Code for the Web. This [blog post](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) describes in detail how this works.
 
-The WebAssembly Component Model simplifies interactions between WebAssembly components themselves and their host environments by standardizing interfaces, data types, and module composition. This is achieved by describing a component via a WIT ([WASM Interface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. So WIT files can be used to describe the interaction between a JavaScript/TypeScript extension (the host) and a WebAssembly component doing some computation coded in another language like Rust or C/C++.
+In January 2024 the Bytecode Alliance launch the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). One of the core technologies of the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). The WebAssembly Component Model simplifies interactions between WebAssembly components themselves and their host environments by standardizing interfaces, data types, and module composition. This is achieved by describing a component via a WIT ([WASM Interface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. So WIT files can be used to describe the interaction between a JavaScript/TypeScript extension (the host) and a WebAssembly component doing some computation coded in another language like Rust or C/C++.
 
-The examples in this blog post require that you have, besides VS Code and NodeJS, the latest versions of following tools installed: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
+This blog post describes how a developer can use the component model to integrate WebAssembly library code into their extension. The examples require that you have, besides VS Code and NodeJS, the latest versions of following tools installed: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools) and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
 
 # A Calculator in Rust
 
-A WIT file that describes a simple calculator that can do additions, subtractions, multiplications and divisions for positive integers might look like this:
+The first example demonstrates how a developer can integrate a library written in Rust that does simple calculation into a VS Code extension. As mentioned above components are described using a WIT file. The one, that describes a simple calculator, which can do additions, subtractions, multiplications and divisions for positive integers look like this:
 
 ```wit
 package vscode:example;
@@ -41,7 +41,13 @@ world calculator {
 }
 ```
 
-We can use the Rust tool [`wit-bindgen`](https://github.com/bytecodealliance/wit-bindgen) to generate a Rust binding for the calculator. A corresponding Rust file that makes use of the `wit-bindgen` tool looks like this:
+The Rust tool [`wit-bindgen`](https://github.com/bytecodealliance/wit-bindgen) will be used to generate a Rust binding for the calculator. The tool can be used in two flavors
+
+- as a procedural macro to generate the bindings in place in the implementation file. This is the standard use, but comes with the disadvantage, that you can't inspect the generated bindings code.
+
+- as a [command line tool](https://github.com/bytecodealliance/wit-bindgen?tab=readme-ov-file#cli-installation). This generate a bindings file on disk. The blog post will demonstrate that approach in a later example as well.
+
+ A corresponding Rust file that makes use of the `wit-bindgen` tool as a procedural macro looks like this:
 
 ```rust
 // Use a procedural macro to generate bindings for the world we specified in
@@ -52,7 +58,7 @@ wit_bindgen::generate!({
 });
 ```
 
-Compiling the Rust file to a WebAssembly using `cargo build --target wasm32-unknown-unknown` however reveals some compile errors since we are missing the implementation of the exported calc function. Here is simple implementation of the calc function, including its export:
+Compiling the Rust file to a WebAssembly using `cargo build --target wasm32-unknown-unknown` however reveals some compile errors since we are missing the implementation of the exported calc function. Here is simple implementation of the calc function:
 
 ```rust
 // Use a procedural macro to generate bindings for the world we specified in
@@ -77,26 +83,26 @@ impl Guest for Calculator {
 	}
 }
 
+// Export the Calculator to the extension code.
 export!(Calculator);
 ```
+Note the `export!(Calculator);` at the end of the file. It will export the calculator from the WebAssembly code so that the extension can call the API.
 
-To generate a necessary TypeScript bindings to interact with the WebAssembly code from an VS Code extension the `wit2ts` tool can be used. The tools is developed by the VS Code team. We decided to implement our own tooling to support the special needs the VS Code extension architecture has. The main reasons are:
+The `wit2ts` tool can be used to generate a necessary TypeScript bindings to interact with the WebAssembly code from an VS Code extension. The tool is developed by the VS Code team. We decided to implement our own tooling to support the special needs the VS Code extension architecture has. The main reasons are:
 
-- The VS Code API is only available in the extension host worker. Any additional worker spawn from that worker do not have access to it. This is for example different than NodeJS or the Browser where each worker as access to the API.
+- The VS Code API is only available in the extension host worker. Any additional worker spawn from that worker do not have access to it. This is for example different than NodeJS or the Browser where each worker as access to almost all the API of the runtime.
 - N extensions share the same extension host worker. So an extension shouldn't do any long running synchronous computation on that worker.
 
 These architectural needs already existed when we implemented the [WASI Preview 1 for VS Code](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi). However the implementation we use there was written by hand. Since the component model will, in our opinion, gain broader adoption, we decided to provide a tool to help components with their host implementation.
 
-The command `wit2ts --noMain --outDir ./src ./wit` will generate a `example.ts` file in the folder named `src`. This code can then be used to interact with the WebAssembly code. A simple extension making use of that code looks like this:
+The command `wit2ts --outDir ./src ./wit` will generate a `calculator.ts` file in the folder named `src`. The file contains the TypeScript bindings for the WebAssembly code. A simple extension making use of the bindings looks like this:
 
 ```typescript
 import * as vscode from 'vscode';
 import { WasmContext, Memory } from '@vscode/wasm-component-model';
 
 // Import the code generated by wit2ts
-import { example } from './example';
-import calculator = example.calculator;
-import Types = example.Types;
+import { calculator, Types } from './calculator';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
 	// The channel for printing the result.
@@ -117,7 +123,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 	wasmContext.initialize(new Memory.Default(instance.exports));
 
 	// Bind the TypeScript Api
-	const api = calculator._.bindExports(instance.exports as calculator._.Exports, wasmContext);
+	const api = calculator._.exports.bind(instance.exports as calculator._.Exports, wasmContext);
 
 	context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-component-model.run', () => {
 		channel.show();
@@ -138,15 +144,17 @@ The full source code of the example can be found in [VS Code's extension sample 
 
 # Inside @vscode/wasm-component-model
 
-Inspecting the source code that got generated by the `wit2ts` tools shows, that it depends on a npm module `@vscode/wasm-component-model`. This npm module is VS Code's implementation of the [component model's canonical ABI](https://github.com/WebAssembly/component-model/blob/main/design/mvp/CanonicalABI.md). The implementation is inspired by the Python code used in that document and whenever possible we tried to use the same naming.
+Inspecting the source code that got generated by the `wit2ts` tools shows, that it depends on a npm module `@vscode/wasm-component-model`. This npm module is VS Code's implementation of the [component model's canonical ABI](https://github.com/WebAssembly/component-model/blob/main/design/mvp/CanonicalABI.md). VS Code's implementation is inspired by the Python code used in that document and whenever possible we tried to use the same naming.
 
-In contrast to other tools like [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen) or [jco](https://github.com/bytecodealliance/jco) that generate bindings for Wit files, `wit2ts` generate a meta model, which then can be used to generate bindings at runtime for different use cases. This allows us to honor the architectural needs we have for extension development (see above) inside VS Code. Mainly we are able to promisify the bindings and run WebAssembly code in workers. This mechanism we especially leverage to implement the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2) for VS Code.
+In contrast to other tools like [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen) or [jco](https://github.com/bytecodealliance/jco), that generate bindings for Wit files, `wit2ts` generates a meta model, which then can be used to generate bindings at runtime for different use cases. This allows us to honor the architectural needs we have for extension development (see above) inside VS Code. Mainly we are able to promisify the bindings and run WebAssembly code in workers. We especially leverage this mechanism to implement the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2) for VS Code.
+
+You may also have noticed that when generating the binding you were accessing the function using names like `calculator._.imports.create` (observe the underscore). To avoid name collisions with names in the Wit file (e.g. there could be a type definition `imports`), API function are provided in a `_` namespace. The meta model itself is in a `$` namespace. So `calculator.$.exports.calc` represents the meta data for the exported calc function.
 
 @@Write a sentence about JCo and our relationship.
 
 # Calling TypeScript from WebAssembly code
 
-As mentioned above Wit files describe the interaction between the host (VS Code extension) and the WebAssembly code, where the interaction is bi-directional. We can make use of that in out example from above to allow the WebAssembly code to log a trace about its activity. To achieve this we change the wit file as follows:
+As mentioned above Wit files describe the interaction between the host (VS Code extension) and the WebAssembly code, where the interaction is bi-directional. We can make use of that in our example from above to allow the WebAssembly code to log a trace about its activity. To achieve this we change the wit file as follows:
 
 ```wit
 world calculator {
@@ -191,7 +199,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 	};
 
 	// Instantiate the module and create the necessary imports from the service implementation
-	const instance = await WebAssembly.instantiate(module, calculator._.createImports(service, wasmContext));
+	const instance = await WebAssembly.instantiate(module, calculator._.imports.create(service, wasmContext));
 
 	// ...
 }
