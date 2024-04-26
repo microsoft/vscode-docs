@@ -68,8 +68,6 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 
 **Git Bash**
 
-⚠️ This is currently experimental and automatic injection is not supported
-
 Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in VS Code.
 
 ```sh
