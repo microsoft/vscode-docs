@@ -82,14 +82,13 @@ You can view any user modified keyboard shortcuts in VS Code in the **Keyboard S
 
 ## Advanced customization
 
-All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file, where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
 
-* To configure keyboard shortcuts through the JSON  file, open **Keyboard Shortcuts** editor and select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
-* This will open your `keybindings.json` file where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
+To open the `keybindings.json` file:
 
-![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+* Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 
-You can also open the `keybindings.json` file from the Command Palette (`kb(workbench.action.showCommands)`) with the **Preferences: Open Keyboard Shortcuts (JSON)** command.
+  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png) in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
 
