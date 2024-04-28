@@ -156,7 +156,7 @@ You may also have noticed, that when generating the binding, you were accessing 
 
 In the above example the `add` operation param that gets passed to the `calc` function is an object consisting of three fields (the op code, the left value and the right value). The component model's canonical ABI, that arguments are passed by value. It also defines how the data is serialized, pass to a WASM function, and deserialized on the other side. This result in our example in two operation objects, one living on the JavaScript heap and one living in the linear WASM memory. This is illustrated in the figure below.
 
-![How are parameters passed](params-memory.png)
+![How parameters are passed](params-memory.png)
 
 Below is a table showing the available Wit types, how VS Code's component model implementation maps them onto JavaScript objects and which TypeScript types are used for them.
 
@@ -249,9 +249,12 @@ Compared to the first example the `WebAssembly.instantiate` call now takes `calc
 
 The WebAssembly component model introduces the concept of resources. Resources define a standardized mechanisms for encapsulating and managing state. The state is thereby managed on one side of the call boundary and access and manipulated from the other side of the call boundary. Resources are heavily used in the [WASI preview 0.2](https://bytecodealliance.org/articles/WASI-0.2) APIs. An example are file descriptors. Their state is managed on the host side and accessed and manipulated from the WebAssembly side.
 
-But resources work in the other direction as well. Their state can be managed in the WebAssembly side and accessed and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. So instead of having a calc function, to which we pass all arguments, we define a calculator engine, which we construct with the arguments and then call execute on. The wit file for such a resource looks like this:
+But resources work in the other direction as well. Their state can be managed in the WebAssembly side and accessed and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. In the next example we will define a resource that implements a calculator providing simple support for the [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) use by [Hewlett-Packard](https://www.hp.com/) hand-held calculators.
 
 ```wit
+// wit/calculator.wit
+package vscode:example;
+
 interface types {
 
 	enum operation {
@@ -262,43 +265,64 @@ interface types {
 	}
 
 	resource engine {
-		constructor(left: u32, right: u32, operation: operation);
+		constructor();
+		push-operand: func(operand: u32);
+		push-operation: func(operation: operation);
 		execute: func() -> u32;
 	}
 }
-
 world calculator {
 	export types;
 }
 ```
 
-Below is the implementation of the engine in Rust
+Below is the simple implementation of the calculator resource in Rust:
 
 ```rust
-struct CalcEngine {
-	left: u32,
-	right: u32,
-	operation: Operation,
-}
-
-impl GuestEngine for CalcEngine {
-
-	fn new(left: u32, right: u32, operation: Operation) -> Self {
-		Self { left, right, operation }
+impl EngineImpl {
+	fn new() -> Self {
+		EngineImpl {
+			left: None,
+			right: None,
+		}
 	}
 
-	fn execute(&self) -> u32 {
-		match self.operation {
-			Operation::Add => self.left + self.right,
-			Operation::Sub => self.left - self.right,
-			Operation::Mul => self.left * self.right,
-			Operation::Div => self.left / self.right,
+	fn push_operand(&mut self, operand: u32) {
+		if self.left == None {
+			self.left = Some(operand);
+		} else {
+			self.right = Some(operand);
 		}
+	}
+
+	fn push_operation(&mut self, operation: Operation) {
+		match operation {
+			Operation::Add => {
+				let result = self.left.unwrap() + self.right.unwrap();
+				self.left = Some(result);
+			},
+			Operation::Sub => {
+				let result = self.left.unwrap() - self.right.unwrap();
+				self.left = Some(result);
+			},
+			Operation::Mul => {
+				let result = self.left.unwrap() * self.right.unwrap();
+				self.left = Some(result);
+			},
+			Operation::Div => {
+				let result = self.left.unwrap() / self.right.unwrap();
+				self.left = Some(result);
+			},
+		}
+	}
+
+	fn execute(&mut self) -> u32 {
+		return self.left.unwrap();
 	}
 }
 ```
 
-On the VS Code side we bind the exports the same way as we did before. The only difference is that the bind will provide us with a proxy class to instantiate and manage a calculator engine on the WebAssembly side.
+On the VS Code side we bind the exports the same way as we did before. The only difference is that the bind will provide us with a proxy class to instantiate and manage a calculator resource on the WebAssembly side.
 
 ```typescript
 // Bind the JavaScript Api
@@ -308,129 +332,27 @@ context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-
 	channel.show();
 	channel.appendLine('Running calculator example');
 
-	const add = new api.types.Engine(1, 2, Types.Operation.add);
-	channel.appendLine(`Add ${add.execute()}`);
+	// Create a new calculator engine
+	const calculator = new api.types.Engine();
 
-	const sub = new api.types.Engine(10, 8, Types.Operation.sub);
-	channel.appendLine(`Sub ${sub.execute()}`);
+	// Push some operands and operations
+	calculator.pushOperand(10);
+	calculator.pushOperand(20);
+	calculator.pushOperation(Types.Operation.add);
+	calculator.pushOperand(2);
+	calculator.pushOperation(Types.Operation.mul);
 
-	// ...
-}
+	// Calculate the result
+	const result = calculator.execute();
+	channel.appendLine(`Result: ${result}`);
+}));
 ```
 
-The full source code of the example can again be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
+Executing the corresponding command will print `Result: 60` to the output channel. As mentioned early the whole state of resources lives on one side of the call boundary and is accessed from the other side using handles. So no copying of data happens, besides the arguments passed to methods send to the resources.
 
-# Language Servers and WebAssembly
+![How resources are accessed](resource-memory.png)
 
-When we started to work on [WebAssembly support for VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) one of our envisioned use case was to be able to execute language servers using WebAssembly. With the latest changes we did to [VSCode's LSP libraries](https://github.com/Microsoft/vscode-languageserver-node) and the introduction of a new module to bridge between WebAssembly and LSP, implementing a WebAssembly language server is now as easy as implementing it as a operation system process. In addition WebAssembly language servers run on the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which has full support for WASI preview 1. So language server can access the files in the workspace using the normal fs API of their programming language, even if the files are remote (e.g. in a GitHub repository).
-
-Since most language server libraries support custom messages, it is also very easy to add features to a language server, that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet of a Rust language server based on the `lsp_server` crate that adds a custom request to count the files in a provided workspace folder:
-
-```rust
-#[derive(Deserialize, Serialize, Debug)]
-#[serde(rename_all = "camelCase")]
-pub struct CountFilesParams {
-    pub folder: String,
-}
-
-pub enum CountFilesRequest {}
-impl Request for CountFilesRequest {
-    type Params = CountFilesParams;
-    type Result = u32;
-    const METHOD: &'static str = "wasm-language-server/countFilesInDirectory";
-}
-
-//...
-
-for msg in &connection.receiver {
-    match msg {
-		//....
-		match cast::<CountFilesRequest>(req) {
-    		Ok((id, params)) => {
-        		let result = count_files_in_directory(params.folder.as_str());
-        		let json = serde_json::to_value(&result).unwrap();
-        		let resp = Response { id, result: Some(json), error: None };
-        		connection.sender.send(Message::Response(resp))?;
-        		continue;
-    		}
-    		Err(err @ ExtractError::JsonError { .. }) => panic!("{err:?}"),
-    		Err(ExtractError::MethodMismatch(req)) => req,
-		}
-	}
-	//...
-}
-
-fn count_files_in_directory(path: &str) -> usize {
-    let result = WalkDir::new(path)
-        .into_iter()
-        .filter_map(Result::ok)
-        .filter(|entry| entry.file_type().is_file())
-        .count();
-    return result;
-}
-```
-
-The new `@vscode/wasm-wasi-lsp` npm module can be used to easily create a WebAssembly language server inside the extension's TypeScript code. Instantiating the WebAssembly code as a worker with WASI support is done using the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which is described in detail in our [Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) blog post.
-
-```typescript
-import { createStdioOptions, startServer } from '@vscode/wasm-wasi-lsp';
-
-export async function activate(context: ExtensionContext) {
-	const wasm: Wasm = await Wasm.load();
-
-	// ...
-
-	// The server options to run the WebAssembly language server.
-	const serverOptions: ServerOptions = async () => {
-		const options: ProcessOptions = {
-			stdio: createStdioOptions(),
-			mountPoints: [
-				{ kind: 'workspaceFolder' },
-			]
-		};
-
-		// Load the WebAssembly code
-		const filename = Uri.joinPath(context.extensionUri, 'server', 'target', 'wasm32-wasi-preview1-threads', 'release', 'server.wasm');
-		const bits = await workspace.fs.readFile(filename);
-		const module = await WebAssembly.compile(bits);
-
-		// Create the wasm worker that runs the LSP server
-		const process = await wasm.createProcess('lsp-server', module, { initial: 160, maximum: 160, shared: true }, options);
-
-		// Hook stderr to the output channel
-		const decoder = new TextDecoder('utf-8');
-		process.stderr!.onData((data) => {
-			channel.append(decoder.decode(data));
-		});
-
-		return startServer(process);
-	};
-
-
-	let client = new LanguageClient('lspClient', 'LSP Client', serverOptions, clientOptions);
-	await client.start();
-
-	// ....
-}
-```
-
-Sending the custom message to calculate the number of files insider a workspace folder is straight forward as well:
-
-```typescript
-type CountFileParams = { folder: string };
-const CountFilesRequest = new RequestType<CountFileParams, number, void>('wasm-language-server/countFilesInFolder');
-
-// We assume we do have a folder.
-const folder = workspace.workspaceFolders![0].uri;
-// We need to convert the folder URI to a URI that maps to the mounted WASI file system. This is something
-// @vscode/wasm-wasi-lsp does for us.
-const result = await client.sendRequest(CountFilesRequest, { folder: client.code2ProtocolConverter.asUri(folder!) });
-```
-
-@@ May be another screen shot.
-
-As with the other examples the full source code can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
-
+The full source code of the example can again be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model-resource).
 
 # Using VS Code's API directly from Rust
 
