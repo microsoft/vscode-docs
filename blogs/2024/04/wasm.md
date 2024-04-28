@@ -244,9 +244,9 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 }
 ```
 
-Compared to the first example the `WebAssembly.instantiate` call now takes the result of `calculator._.imports.create(service, wasmContext)` as a second argument.  The call `imports.create` generates the low level WASM bindings from the service implementation. In the first example we passed an empty object literal since no imports we necessary. Running the example will create a second output channel named `Calculator - Log` with the following content:
+Compared to the first example the `WebAssembly.instantiate` call now takes the result of `calculator._.imports.create(service, wasmContext)` as a second argument.  The call `imports.create` generates the low level WASM bindings from the service implementation. In the first example we passed an empty object literal since no imports we necessary. This time we execute the extension in VS Code desktop under the debugger. Due to the nice work [Connor Peet](https://github.com/connor4312) did, it is even possible to set breakpoints in the Rust code and step through it using VS Code's debugger.
 
-![The log output of the calculator](calculator-log.png)
+<video src="calculator-log.mp4" title="Execute the Calculator command]." autoplay loop controls muted></video>
 
 # Using Component Model Resources
 
@@ -389,7 +389,7 @@ pub fn deactivate() {
 }
 ```
 
-This looks very similar to an extension written in TypeScript. Due to the nice work [Connor Peet](https://github.com/connor4312) did, it is even possible to step through the Rust code using VS Code's debugger:
+This looks very similar to an extension written in TypeScript.
 
 <video src="rust-extension.mp4" title="Extension written in Rust." autoplay loop controls muted></video>
 
