@@ -2,11 +2,11 @@
 Order: 82
 TOCTitle: VS Code Extensions and WebAssemblies
 PageTitle: VS Code Extensions and WebAssemblies
-MetaDescription: Using WebAssemblies for extension development.
+MetaDescription: Using WebAssemblies for Extension Development.
 Date: 2024-04-30
 Author: Dirk Bäumer
 ---
-# Using WebAssemblies for extension development
+# Using WebAssemblies for Extension Development
 
 VS Code has, through the [WebAssembly Execution Engine](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension, support to execute WASM binaries. The major use case is to compile programs written in C/C++ or Rust to WebAssembly and then execute these programs one to one in VS Code. A great example is [Visual Studio Code for Education](https://vscodeedu.com/), which uses this support to execute the Python interpreter in VS Code for the Web. This [blog post](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) describes in detail how this works.
 
@@ -252,7 +252,7 @@ Compared to the first example the `WebAssembly.instantiate` call now takes the r
 
 The WebAssembly component model introduces the concept of resources. Resources define a standardized mechanisms for encapsulating and managing state. The state is thereby managed on one side of the call boundary and access and manipulated from the other side of the call boundary. Resources are heavily used in the [WASI preview 0.2](https://bytecodealliance.org/articles/WASI-0.2) APIs. An example are file descriptors. Their state is managed on the host side and accessed and manipulated from the WebAssembly side.
 
-But resources work in the other direction as well. Their state can be managed in the WebAssembly side and accessed and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. In the next example we will define a resource that implements a calculator providing simple support for the [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) use by [Hewlett-Packard](https://www.hp.com/) hand-held calculators.
+But resources work in the other direction as well. Their state can be managed in the WebAssembly side and accessed and manipulated from the host side. This direction is especially useful for VS Code to implement stateful services in WebAssembly and access them from the TypeScript side. In the next example we will define a resource, that implements a calculator providing simple support for the [reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) use by [Hewlett-Packard](https://www.hp.com/) hand-held calculators.
 
 ```wit
 // wit/calculator.wit
@@ -279,7 +279,7 @@ world calculator {
 }
 ```
 
-Below is the simple implementation of the calculator resource in Rust:
+Below is a simple implementation of the calculator resource in Rust:
 
 ```rust
 impl EngineImpl {
@@ -325,11 +325,11 @@ impl EngineImpl {
 }
 ```
 
-On the VS Code side we bind the exports the same way as we did before. The only difference is that the bind will provide us with a proxy class to instantiate and manage a calculator resource on the WebAssembly side.
+On the VS Code side we bind the exports the same way as we did before. The only difference is, that the bind will provide us with a proxy class to instantiate and manage a calculator resource on the WebAssembly side.
 
 ```typescript
 // Bind the JavaScript Api
-const api = calculator._.bindExports(instance.exports as calculator._.Exports, wasmContext);
+const api = calculator._.exports.bind(instance.exports as calculator._.Exports, wasmContext);
 
 context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-component-model.run', () => {
 	channel.show();
@@ -351,7 +351,7 @@ context.subscriptions.push(vscode.commands.registerCommand('vscode-samples.wasm-
 }));
 ```
 
-Executing the corresponding command will print `Result: 60` to the output channel. As mentioned early the whole state of resources lives on one side of the call boundary and is accessed from the other side using handles. So no copying of data happens, besides the arguments passed to methods send to the resources.
+Executing the corresponding command will print `Result: 60` to the output channel. As mentioned earlier, the whole state of resources lives on one side of the call boundary and is accessed from the other side using handles. So no copying of data happens, besides the arguments passed to methods send to the resources.
 
 ![How resources are accessed](resource-memory.png)
 
@@ -359,7 +359,7 @@ The full source code of the example can again be found in [VS Code's extension s
 
 # Using VS Code's API directly from Rust
 
-Component model resource can be used to encapsulate and manage state across WebAssembly components and the host. One additional idea we explored is to use resources to proxy the VS Code API idiomatically into WebAssembly components. The benefit of such an approach is, that the whole extension can be written in a language that compiles to WebAssembly. Below the source code of an extension written in Rust:
+Component model resource can be used to encapsulate and manage state across WebAssembly components and the host. One additional idea we explored is to use resources to proxy the VS Code API idiomatically into WebAssembly components. The benefit of such an approach is, that the whole extension can be written in a language that compiles to WebAssembly. Below, the source code of an extension written in Rust:
 
 ```rust
 use std::rc::Rc;
@@ -391,12 +391,24 @@ pub fn deactivate() {
 
 This looks very similar to an extension written in TypeScript.
 
-<video src="rust-extension.mp4" title="Extension written in Rust." autoplay loop controls muted></video>
 
 Although the exploration looks very promising we decided to not push this further right now. Major reason is the missing async support in WASM. A lot of VS Code API is async and can therefore not easily be proxied into WebAssembly code. We could run the WebAssembly code in a separate worker and use the same mechanism we use for the [WASI Preview 1 support](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) to synchronize between the WebAssembly worker and the extension host worker. However, this approach would lead to unexpected behavior when doing sync API calls, since those calls would be executed async under the hood. Since the extension host worker yields between the two async executions there is no guarantee, that, between two sync calls, the underlying state wouldn't change (e.g. something like `setX(5); getX();` could return a value different than 5).
 
-Furthermore, there is work under way to add full async support to WebAssemblies in the Preview 3 time frame. Luke Wagner gave an overview about the current state of the async support at [Day 2 of this years Plumber’s Summit](https://bytecodealliance.org/articles/plumbers-day-2). So we deiced to wait for this to arrive since it will allow us to tell a nicer and more complete story.
+Furthermore, there is work under way to add full async support to WebAssemblies in the Preview 3 time frame. Luke Wagner gave an overview about the current state of the async support at [Day 2 of this years Plumber’s Summit](https://bytecodealliance.org/articles/plumbers-day-2). So we deiced to wait for this to arrive, since it will allow us to tell a nicer and more complete story.
 
 For those that are interested the corresponding Wit files, the Rust code and the TypeScript code can be found in the [rust-api](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/dbaeumer/early-kingfisher-tan/rust-api/package.json#L1) folder of the vscode-wasm repository.
 
 # What comes next
+
+We already started to work on a second blog post to cover more areas where WebAssembly code can be used for extension development. The major topics will be:
+
+- How to write [language servers](https://microsoft.github.io/language-server-protocol/) in WebAssembly.
+- How to use the generate meta model to transparently off load long running WebAssembly code into a separate worker.
+
+Now that we have a VS Code idiomatic implementation of the component model we will continue the effort to implement the WASI preview 2 for VS Code.
+
+Thanks,
+
+Dirk and the VS Code team
+
+Happy Coding!
