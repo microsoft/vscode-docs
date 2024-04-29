@@ -1,12 +1,12 @@
 ---
 Order: 82
-TOCTitle: VS Code Extensions and WebAssemblies
-PageTitle: VS Code Extensions and WebAssemblies
-MetaDescription: Using WebAssemblies for Extension Development.
+TOCTitle: VS Code Extensions and WebAssembly
+PageTitle: VS Code Extensions and WebAssembly
+MetaDescription: Using WebAssembly for Extension Development.
 Date: 2024-04-30
 Author: Dirk Bäumer
 ---
-# Using WebAssemblies for Extension Development
+# Using WebAssembly for Extension Development
 
 VS Code supports, through the [WebAssembly Execution Engine](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension, the execution of WASM binaries. The major use case is to compile programs written in C/C++ or Rust to WebAssembly and then execute these programs one to one in VS Code. A great example is [Visual Studio Code for Education](https://vscodeedu.com/), which uses this support to execute the Python interpreter in VS Code for the Web. This [blog post](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) describes in detail, how this works.
 
@@ -394,7 +394,7 @@ This also looks very similar to an extension written in TypeScript.
 
 Although the exploration looks very promising, we decided to not push further with this right now. The major reason is the missing async support in WASM. A lot of VS Code API is async and can therefore not easily be proxied into WebAssembly code. We could run the WebAssembly code in a separate worker and use the same mechanism we use for the [WASI Preview 1 support](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) to synchronize between the WebAssembly worker and the extension host worker. However, this approach would lead to unexpected behavior while doing sync API calls, since those calls would be executed async under the hood. As a result the observable state could change between the two syn calls (e.g. something like `setX(5); getX();` could return a value different than 5).
 
-Furthermore, there is work under way to add full async support to WebAssemblies in the Preview 3 time frame. Luke Wagner gave an overview about the current state of the async support at [Day 2 of this years Plumber’s Summit](https://bytecodealliance.org/articles/plumbers-day-2). We decided to wait for this to arrive, since it will allow us to tell a nicer and more complete story.
+Furthermore, there is work under way to add full async support to WASI in the Preview 3 time frame. Luke Wagner gave an overview about the current state of the async support at [Day 2 of this years Plumber’s Summit](https://bytecodealliance.org/articles/plumbers-day-2). We decided to wait for this to arrive, since it will allow us to tell a nicer and more complete story.
 
 For those that are interested the corresponding Wit files, the Rust code and the TypeScript code can be found in the [rust-api](https://insiders.vscode.dev/github/microsoft/vscode-wasi/blob/dbaeumer/early-kingfisher-tan/rust-api/package.json#L1) folder of the vscode-wasm repository.
 
