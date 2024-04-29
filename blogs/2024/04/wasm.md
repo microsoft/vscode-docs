@@ -187,7 +187,7 @@ Below is a table showing the available Wit types, how VS Code's component model 
 
 It is important to note that the component model has no support for pointers. You cannot pass object graphs or recursive data structures around. In that sense, it has the same limitations as [JSON](https://en.wikipedia.org/wiki/JSON).
 
-The [jco](https://github.com/bytecodealliance/jco) project has also support to generate JavaScript/TypeScript bindings for WebAssembly components via the transpile command. As mentioned above, we implemented our own tooling due to the special needs we have with VS Code. However, we have bi-weekly meetings with the JCO team to reach alignment across the tools wherever possible. The minimum requirement is that both tools should use the same JavaScript and TypeScript representations for Wit data types. We also look into whether we can share code between both tools.
+The [jco](https://github.com/bytecodealliance/jco) project has also support to generate JavaScript/TypeScript bindings for WebAssembly components via the `type` command. As mentioned above, we implemented our own tooling due to the special needs we have with VS Code. However, we have bi-weekly meetings with the JCO team to reach alignment across the tools wherever possible. The minimum requirement is that both tools should use the same JavaScript and TypeScript representations for Wit data types. We also look into whether we can share code between both tools.
 
 # Calling TypeScript from WebAssembly code
 
