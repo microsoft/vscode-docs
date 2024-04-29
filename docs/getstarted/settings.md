@@ -356,8 +356,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Disables all product telemetry.
     "telemetry.telemetryLevel": "all",
 
-// Editor
-
     // Controls whether the editor shows CodeLens.
     "diffEditor.codeLens": false,
 
@@ -797,7 +795,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
     "editor.lightbulb.enabled": "on",
 
-    // Controls the line height.
+    // Controls the line height. 
     //  - Use 0 to automatically compute the line height from the font size.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
@@ -1437,6 +1435,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Only show outgoing changes in the Source Control view when any exist.
     "scm.showOutgoingChanges": "auto",
 
+    // Controls the default working set to use when switching to a source control history item group that does not have a working set.
+    //  - empty: Use an empty working set when switching to a source control history item group that does not have a working set.
+    //  - current: Use the current working set when switching to a source control history item group that does not have a working set.
+    "scm.workingSets.default": "current",
+
+    // Controls whether to store editor working sets when switching between source control history item groups.
+    "scm.workingSets.enabled": false,
+
 // Security
 
     // A set of UNC host names (without leading or trailing backslash, for example `192.168.0.1` or `my-server`) to allow without user confirmation. If a UNC host is being accessed that is not allowed via this setting or has not been acknowledged via user confirmation, an error will occur and the operation stopped.
@@ -1541,6 +1547,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
         "jupyter-notebook": false,
+        "terminalEditor": true,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -2378,6 +2385,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - reuseEditor: Search in an existing search editor if present, otherwise in a new search editor.
     //  - newEditor: Search in a new search editor.
     "search.mode": "view",
+
+    // Controls whether the last typed input to Quick Search should be restored when opening it the next time.
+    "search.quickAccess.preserveInput": false,
 
     // Controls sorting order of editor history in quick open when filtering.
     //  - default: History entries are sorted by relevance based on the filter value used. More relevant entries appear first.
@@ -3785,7 +3795,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether code cells in the interactive window are collapsed by default.
     "interactiveWindow.collapseCellInputCode": "fromEditor",
 
-    // When enabled notebook breadcrumbs contain code cells.
+    // The limit of notebook output size in kilobytes (KB) where notebook files will no longer be backed up for hot reload. Use 0 for unlimited.
+    "notebook.backup.sizeLimit": 10000,
+
+    // When enabled, notebook breadcrumbs contain code cells.
     "notebook.breadcrumbs.showCodeCells": true,
 
     // Show available diagnostics for cell failures.
@@ -3880,7 +3893,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled cursor can navigate to the next/previous cell when the current cursor in the cell editor is at the first/last line.
     "notebook.navigation.allowNavigateToSurroundingCells": true,
 
-    // When enabled notebook outline shows code cells.
+    // When enabled, notebook outline shows code cells.
     "notebook.outline.showCodeCells": false,
 
     // When enabled, notebook outline shows code cell symbols.
@@ -3903,6 +3916,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Control whether to disable filepath links in the output of notebook cells.
     "notebook.output.linkifyFilePaths": true,
+
+    // Control whether to render error output in a minimal style.
+    "notebook.output.minimalErrorRendering": false,
 
     // Initially render notebook outputs in a scrollable region when longer than the limit.
     "notebook.output.scrolling": true,
@@ -3976,6 +3992,16 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
     "terminal.integrated.allowChords": true,
+
+    // An array of strings containing the URI schemes that the terminal is allowed to open links for.
+    "terminal.integrated.allowedLinkSchemes": [
+        "file",
+        "http",
+        "https",
+        "mailto",
+        "vscode",
+        "vscode-insiders"
+    ],
 
     // Whether to allow menubar mnemonics (for example Alt+F) to trigger the open of the menubar. Note that this will cause all alt keystrokes to skip the shell when true. This does nothing on macOS.
     "terminal.integrated.allowMnemonics": false,
@@ -4175,6 +4201,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to treat the option key as the meta key in the terminal on macOS.
     "terminal.integrated.macOptionIsMeta": false,
+
+    // Controls how terminal reacts to middle click.
+    //  - default: The platform default to focus the terminal. On Linux this will also paste the selection.
+    //  - paste: Paste on middle click.
+    "terminal.integrated.middleClickBehavior": "default",
 
     // When set, the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
     // - 1: Do nothing and use the standard theme colors.
@@ -4827,12 +4858,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "announcement": "auto"
     },
 
-    // Plays a signal on loop while the response is pending.
-    "accessibility.signals.chatResponsePending": {
-        "sound": "auto",
-        "announcement": "auto"
-    },
-
     // Indicates when the response has been received.
     "accessibility.signals.chatResponseReceived": {
         "sound": "auto"
@@ -4917,6 +4942,24 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Plays a signal when the debugger stopped on a breakpoint.
     "accessibility.signals.onDebugBreak": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when the active line has a warning.
+    "accessibility.signals.positionHasError": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when the active line has a warning.
+    "accessibility.signals.positionHasWarning": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal on loop while progress is occurring.
+    "accessibility.signals.progress": {
         "sound": "auto",
         "announcement": "auto"
     },
