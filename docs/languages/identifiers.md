@@ -117,6 +117,7 @@ Shell Script (Bash) | `shellscript`
 Slim | `slim`
 SQL | `sql`
 Stylus | `stylus`
+Svelte | `svelte`
 Swift | `swift`
 TypeScript | `typescript`
 TypeScript JSX | `typescriptreact`
