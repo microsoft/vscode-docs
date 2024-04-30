@@ -232,6 +232,11 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
 - `sideBarSectionHeader.border`: Side bar section header border color.
 - `sideBarActivityBarTop.border`: Border color between the activity bar at the top/bottom and the views.
+- `sideBarTitle.background`: Side bar title background color. The side bar is the container for views like explorer and search.
+- `sideBarStickyScroll.background`: Background color of sticky scroll in the side bar.
+- `sideBarStickyScroll.border`: Border color of sticky scroll in the side bar.
+- `sideBarStickyScroll.shadow`: Shadow color of sticky scroll in the side bar.
+
 
 ## Minimap
 
@@ -740,6 +745,9 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSection.dropBackground`: Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.background`: Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelStickyScroll.background`: Background color of sticky scroll in the panel.
+- `panelStickyScroll.border`: Border color of sticky scroll in the panel.
+- `panelStickyScroll.shadow`: Shadow color of sticky scroll in the panel.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `outputView.background`: Output view background color.
 - `outputViewStickyScroll.background`: Output view sticky scroll background color.
