@@ -6,7 +6,7 @@ ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
 DateApproved: 04/04/2024
 MetaDescription: Overview of Visual Studio Code's introductory videos.
-MetaSocialImage: images/introvideos/opengraph_introvideos.png
+MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---
 # Introductory Videos
 

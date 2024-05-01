@@ -11,7 +11,9 @@ Author: Reynald Adolphe
 
 April 15, 2024 by Reynald Adolphe, [@ReynaldAdolphe](https://twitter.com/ReynaldAdolphe)
 
-[VS Code Day](https://aka.ms/vscodeday-b-register) is our annual event where you'll learn how to elevate your development workflow with the latest and greatest features of Visual Studio Code. This year, we'll have a big focus on AI but not limited to just that. You’ll hear from the VS Code team and other industry experts on topics like AI-powered programming with GitHub Copilot, building and deploying generative AI apps to the cloud, enhancing the C# development experience, and more!  
+> **Watch [all content from VS Code Day 2024](https://youtube.com/live/iCDfAC4f25w) now.**
+
+VS Code Day is our annual event where you'll learn how to elevate your development workflow with the latest and greatest features of Visual Studio Code. This year, we'll have a big focus on AI but not limited to just that. You’ll hear from the VS Code team and other industry experts on topics like AI-powered programming with GitHub Copilot, building and deploying generative AI apps to the cloud, enhancing the C# development experience, and more!
 
 <video src="VS Code Day - Promo.mp4" title="VS Code Day 2024 Promotion video" autoplay muted loop controls></video>
 
@@ -68,15 +70,13 @@ VS Code Day will be a 2-day event full of fun and learning. On the first day, jo
 
 - **Bookmark the Channels**: Subscribe to [VS Code](https://aka.ms/vscodeday-b-code) & [Sonny’s](https://aka.ms/vscodeday-b-sonny) channel hosting the event to get real-time updates.
 
-- **Schedule Smart**: With a packed agenda, plan ahead to catch live sessions or set aside time for replays. 
+- **Schedule Smart**: With a packed agenda, plan ahead to catch live sessions or set aside time for replays.
 
-- **Engage and Interact**: Use this opportunity to engage with the community. Share your thoughts, ask questions, and make connections. 
+- **Engage and Interact**: Use this opportunity to engage with the community. Share your thoughts, ask questions, and make connections.
 
 - **[Register for the VS Code Day Skills Challenge](https://aka.ms/VSCodeDayCSC)**! Kickstart or pivot your career with our program focused on VS Code and GitHub Copilot, covering areas like Data Science and Artificial Intelligence. Enjoy simple lessons, practical exercises, and live workshops to explore the latest in VS Code. Register at [https://aka.ms/VSCodeDayChallenge](https://aka.ms/VSCodeDayChallenge)!
 
 So, get ready for two days filled with learning and discovery. VS Code Day is your portal to the latest in development, packed with sessions to inspire and challenge you. We can’t wait to see you there!
-
-Register here: [https://aka.ms/vscodeday](https://aka.ms/vscodeday)
 
 Happy Coding!
 

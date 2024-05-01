@@ -5,7 +5,7 @@ ContentId: 4eb2543d-84a7-4e11-b835-0d238ce7ed7a
 PageTitle: Push Django images to a registry in Visual Studio Code
 DateApproved: 1/17/2023
 MetaDescription: How to push a Django image to a container registry using the VS Code docker extension
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: ../python/images/tutorial/python-social.png
 ---
 
 # Push Django images to a registry

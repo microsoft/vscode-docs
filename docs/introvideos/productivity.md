@@ -6,7 +6,7 @@ ContentId: 9b79fbb2-f7d1-4b54-a4ad-e5ccb0ebd891
 PageTitle: Visual Studio Code productivity tips
 DateApproved: 11/18/2021
 MetaDescription: Become a Visual Studio Code power user with these productivity tips.
-MetaSocialImage: images/opengraph/introvideos.png
+MetaSocialImage: images/opengraph/introvideos-social.png
 ---
 # Productivity Tips
 
