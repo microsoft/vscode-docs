@@ -45,7 +45,7 @@ When you do something that requires GitHub authentication, you'll see a prompt t
 
 ![Authentication Prompt](images/github/auth-prompt.png)
 
-Follow the steps to sign into GitHub and return to VS Code. If authenticating with an existing repository doesn't work automatically, you may need to manually provide a personal access token. See [Personal Access Token authentication](https://github.com/microsoft/vscode-pull-request-github/wiki#personal-access-token-authentication) for more information.
+Follow the steps to sign into GitHub and return to VS Code. If you have a personal access token (PAT) and you prefer to use that for sign in, then simply hit "Cancel" on the sign in prompt until you are prompted to enter a PAT.
 
 Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
