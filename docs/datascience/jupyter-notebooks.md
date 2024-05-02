@@ -6,7 +6,7 @@ ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 
 # Jupyter Notebooks in VS Code

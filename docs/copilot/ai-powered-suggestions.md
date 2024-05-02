@@ -4,13 +4,13 @@ Area: copilot
 TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 PageTitle: AI-powered code completions with GitHub Copilot
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Code completions with GitHub Copilot in VS Code
 
-GitHub Copilot provides autocomplete-style code completions from an AI pair programmer as you code. As you start writing code or code-related items (comments, test, and more), Copilot presents suggestions automatically in the editor to help you code more efficiently. GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks.
+GitHub Copilot acts as an AI-powered pair programmer, automatically offering suggestions to complete your code, comments, tests, and more. It provides these suggestions directly in the editor while you write your code, and it can work with a broad range of programming languages and frameworks.
 
 ## Getting started
 

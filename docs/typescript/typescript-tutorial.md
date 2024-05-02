@@ -4,9 +4,9 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: TypeScript tutorial with Visual Studio Code.
-MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
+MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---
 # TypeScript tutorial in Visual Studio Code
 

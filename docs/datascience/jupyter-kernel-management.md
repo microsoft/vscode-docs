@@ -6,7 +6,7 @@ ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04
 PageTitle: Manage Jupyter Kernels in Visual Studio Code
 DateApproved: 8/7/2023
 MetaDescription: Descriptions of kernel selection options and tutorials on managing different types of kernels when working with Jupyter Notebooks in Visual Studio Code.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 
 # Manage Jupyter Kernels in VS Code

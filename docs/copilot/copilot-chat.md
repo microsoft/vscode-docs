@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -206,9 +206,11 @@ Examples of built-in commands:
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
 * `@workspace /tests` (or `/tests`): generate unit tests for the selected code
-* `@vscode /api` (or `/api`): ask about VS Code extension development
 * `@workspace /new` (or `/new`): scaffold code for a new workspace
 * `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
+* `@vscode /api` (or `/api`): ask about VS Code extension development
+* `@vscode /search` (or `/search`): generate query parameters for the Search view
+* `@terminal /explain`: explain terminal functionality or shell commands
 
 ## Improve the performance of Copilot Chat
 

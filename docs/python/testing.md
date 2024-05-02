@@ -6,7 +6,7 @@ ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
 DateApproved: 1/20/2023
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # Python testing in Visual Studio Code
 
