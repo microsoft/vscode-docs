@@ -70,7 +70,7 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 ```
 
-If you encounter any issues check the Dev Container's [known limitations](/docs/devcontainers/containers.md#known-limitations).
+If you encounter any issues check the Dev Containers' [known limitations](/docs/devcontainers/containers.md#known-limitations).
 
 ## Sharing GPG Keys
 
