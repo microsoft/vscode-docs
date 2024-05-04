@@ -70,6 +70,8 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 ```
 
+If you encounter any issues check the Dev Container's [known limitations](/docs/devcontainers/containers.md#known-limitations).
+
 ## Sharing GPG Keys
 
 If you want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://docs.github.com/authentication/managing-commit-signature-verification).
