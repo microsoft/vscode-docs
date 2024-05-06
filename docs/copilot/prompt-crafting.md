@@ -123,7 +123,7 @@ Chat participants, such as `@workspace` or `@vscode`, can contribute chat variab
 
 For example, the `#file` variable lets you reference specific files from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #file:package.json?" or "How do I add an extension in #file:devcontainer.json?". By using the `#file` variable, you can get more targeted and accurate responses from Copilot.
 
-Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#use-chat-variables).
+Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-variables).
 
 ### Be specific and keep it simple
 
