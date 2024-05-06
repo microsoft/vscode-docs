@@ -16,7 +16,7 @@ Copilot Chat might use syntax highlighting, indentation, and other formatting fe
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
 
-* Start an **inline chat** conversation directly from the editor for help while you're coding
+* Start an **inline chat** conversation directly from the editor or the terminal for help while you're coding
 * Use the **Chat view** to have an AI assistant on the side to help you at any time
 * Launch **Quick Chat** to ask a quick question and get back into what you're doing
 
@@ -40,7 +40,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 ## Inline chat
 
-A key functionality of Copilot is answering questions inline, as you're coding. This allows you to harness the power of AI while staying in your existing editor workflow.
+A key functionality of Copilot is answering questions inline, as you're coding or entering commands in the terminal. This enables you to harness the power of AI while staying in the flow of the task at hand.
 
 In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat. You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code", or "How do I add functionality to do X?".
 
@@ -57,6 +57,18 @@ With the `inlineChat.mode` setting, you can configure how inline chat shows upda
 The following example shows the `preview` mode for inline chat.
 
 ![Copilot inline chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
+
+### Terminal inline chat
+
+Similar to inline chat in the editor, you can bring up Copilot inline chat in the terminal to help you answer questions related to the terminal and shell commands. The terminal inline chat uses the `@terminal` chat participant, which has context about the integrated terminal's shell and its contents. For example, you can ask questions such as "how to instal npm packages", or "list the top 5 largest files in the src directory".
+
+To start inline chat in the terminal, press the `kb(inlinechat.start)` keyboard shortcut.
+
+![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/copilot-chat/terminal-chat-2.png)
+
+Once a command is suggested, use **Run** (`kb(workbench.action.terminal.chat.runCommand)`) to run the command in the terminal, or **Insert** (`kb(workbench.action.terminal.chat.insertCommand)`) to insert the command into the terminal.
+
+Optionally, you can edit the command directly in the Copilot response before running it by placing the cursor in the response or by pressing `kbstyle(Ctrl+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on Windows & Linux, or `kbstyle(Cmd+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on macOS.
 
 ## Chat view
 
@@ -226,11 +238,13 @@ By using a chat variable, you can be more specific about the context that you in
 
 Examples of built-in chat variables are:
 
-* `#selection`: the visible source code in the active editor
+* `#codebase`: the contents of the current workspace. It includes information about the files and folders in your workspace, as well as any settings or configurations specific to that workspace.
 * `#editor`: the current selection in the active editor. The editor content is implicitly included in the Chat view context.
 * `#file`: include a specified file in your workspace as context with your chat prompt.
-* `#terminalSelection`: the active terminal's selection
-* `#terminalLastCommand`: the active terminal's last run command
+* `#git`: information about the current git repository, such as the workspace folder, branch name, remotes, and more.
+* `#selection`: the visible source code in the active editor.
+* `#terminalLastCommand`: the active terminal's last run command.
+* `#terminalSelection`: the active terminal's selection.
 
 > **Note**: if possible, the full contents of the file will be included when you use `#file`. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
 
