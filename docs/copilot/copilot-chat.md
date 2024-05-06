@@ -196,7 +196,7 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 
 With `@terminal` you can ask questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
 
-Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [chat variables](#use-chat-variables).
+Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [chat variables](#chat-variables).
 
 ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/copilot-chat/terminal-command-explanation.png)
 
@@ -224,17 +224,9 @@ Examples of built-in commands:
 * `@vscode /search` (or `/search`): generate query parameters for the Search view
 * `@terminal /explain`: explain terminal functionality or shell commands
 
-## Improve the performance of Copilot Chat
-
-Copilot works best when it has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
-
-You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
-
-### Use chat variables
+## Chat variables
 
 Chat participants, such as `@workspace` or `@vscode`, can contribute chat variables that provide domain-specific context. You can reference a chat variable in your chat prompt by using the `#` symbol. For example, the `#selection` variable contains the text selection in the active editor.
-
-By using a chat variable, you can be more specific about the context that you include in your chat prompt. For example, the prompt "which sorting algo is used #selection" focuses the chat request on the selected code snippet.
 
 Examples of built-in chat variables are:
 
@@ -247,6 +239,16 @@ Examples of built-in chat variables are:
 * `#terminalSelection`: the active terminal's selection.
 
 > **Note**: if possible, the full contents of the file will be included when you use `#file`. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
+
+## Improve the performance of Copilot Chat
+
+Copilot works best when it has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
+
+You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
+
+### Use chat variables
+
+By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt "which sorting algo is used #selection" focuses the chat request on the selected code snippet.
 
 ### Use chat participants and commands
 
