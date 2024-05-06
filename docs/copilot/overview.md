@@ -16,7 +16,7 @@ With GitHub Copilot in VS Code you can:
 
 * Get inline code suggestions while you're writing and iterating on code.
 * Start a chat conversation to generate or refactor source code, produce documentation comments, or generate unit tests.
-* Get help with fixing errors in your code, or resolve error while running commands in the terminal.
+* Get help with fixing errors in your code, or resolve errors while running commands in the terminal.
 * Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
 * Use chat features to discover and configure your VS Code setup.
 
@@ -48,7 +48,7 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 * [Jumpstart your project](#jumpstart-your-project)
 * [Generate unit test cases](#generate-unit-test-cases)
 * [Generate code documentation](#generate-code-documentation)
-* [Improve your productivity](#productivity-improvements)
+* [Improve your productivity in VS Code](#productivity-improvements)
 
 ### Code completions in the editor
 
@@ -125,6 +125,10 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 * **Ask help in the Command Palette** to help you find the relevant command in VS Code. You can describe the functionality and Copilot can help identify the matching functionality. For example, type "code preview in scrollbar" in the Command Palette, and Copilot can identify that you're referring to the `editor.minimap` settings.
 
     ![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
+
+* **Use terminal inline chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+
+    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
 
 ## Additional resources
 
