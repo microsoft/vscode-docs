@@ -93,6 +93,8 @@ If you run **Git: Checkout to**, you will see a dropdown list containing all of 
 
 The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
 
+> **Tip**: VS Code can automatically save and restore open editors when you switch to another branch. Use the `scm.workingSets.enabled` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `scm.workingSets.default` setting.
+
 ## Remotes
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.

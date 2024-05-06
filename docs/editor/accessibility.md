@@ -164,7 +164,7 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, Jupyter notebook output, terminal output, and chat responses.
 
 ## Screen reader mode
 
