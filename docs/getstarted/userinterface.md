@@ -296,7 +296,7 @@ The following sample displays the `/src/orders/index.html` file with a tab label
 
 ![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
 
-> **Note**: The custom tab labels also apply in the Open Editors view.
+> **Note**: The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 
 ## Preview mode
 
