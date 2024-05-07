@@ -73,13 +73,12 @@ struct Calculator;
 impl Guest for Calculator {
 
     fn calc(op: Operation) -> u32 {
-		let result = match op {
+		match op {
 			Operation::Add(operands) => operands.left + operands.right,
 			Operation::Sub(operands) => operands.left - operands.right,
 			Operation::Mul(operands) => operands.left * operands.right,
 			Operation::Div(operands) => operands.left / operands.right,
-		};
-		return result;
+		}
 	}
 }
 
@@ -216,7 +215,7 @@ fn calc(op: Operation) -> u32 {
 		// ...
 	};
 	log(&format!("Finished calculation: {:?}", op));
-	return result;
+	result
 }
 ```
 On the TypeScript side, the only action required from an extension developer is to provide an implementation of the log function. The VS Code component model then facilitates the generation of the necessary bindings, which are to be passed as imports to the WebAssembly instance.
@@ -300,28 +299,18 @@ impl EngineImpl {
 	}
 
 	fn push_operation(&mut self, operation: Operation) {
-		match operation {
-			Operation::Add => {
-				let result = self.left.unwrap() + self.right.unwrap();
-				self.left = Some(result);
-			},
-			Operation::Sub => {
-				let result = self.left.unwrap() - self.right.unwrap();
-				self.left = Some(result);
-			},
-			Operation::Mul => {
-				let result = self.left.unwrap() * self.right.unwrap();
-				self.left = Some(result);
-			},
-			Operation::Div => {
-				let result = self.left.unwrap() / self.right.unwrap();
-				self.left = Some(result);
-			},
-		}
+        let left = self.left.unwrap();
+        let right = self.right.unwrap();
+        self.left = Some(match operation {
+			Operation::Add => left + right,
+			Operation::Sub => left - right,
+			Operation::Mul => left * right,
+			Operation::Div => left / right,
+		});
 	}
 
 	fn execute(&mut self) -> u32 {
-		return self.left.unwrap();
+		self.left.unwrap()
 	}
 }
 ```
