@@ -87,19 +87,35 @@ While editing, you can right-click different identifiers to take advantage of se
 ## Quick Fixes
 
 The add imports Quick Fix when using Pylance allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
-![Adding an import](images/editing/quickFix.gif)
+
+![Add import code action](images/editing/quickFix.png)
 
 This Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib` as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp, `panel` as pn, and `holoviews` as hv.
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
-The import suggestions list is ordered with import statements for packages (or modules) at the top. It will also include statements for more modules and/or members (classes, objects, etc.) from specified packages.
+The import suggestions list displays  the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.  In the case where the 3 high-confidence import options aren’t what you are looking for, Pylance has a **Search for additional import matches** Code Action, which displays a quick pick menu that allows you to search for import options that prefix-match the missing import symbol.
 
-Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting.
+![Search for additional import matches Code Action](images/editing/search-imports-code-action.gif)
 
-## Refactoring
+Pylance also offers a **Change spelling** Code Action, which displays import suggestions for missing imports due to typos.
 
-The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method** and **Rename Module**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
+![Change spelling code action on missing import due to a typo](images/editing/change-spelling-code-action.gif)
+
+
+Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting. Note that user symbol aliases (e.g. `import foo as bar`) are not supported by these Code Actions.
+
+### Implement All Inherited Abstract Classes
+
+In Python, abstract classes serve as "blueprints" for other classes and help build modular, reusable code by promoting clear structure and requirements for subclasses to adhere to. To define an abstract class in Python, you can create a class that inherits from the `ABC` class in the `abc` module, and annotate its methods with the `@abstractmethod decorator`. Then, you can create new classes that inherit from this abstract class, and define an implementation for the base methods.
+
+Pylance offers a code action to simplify the process of creating these classes. When defining a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
+
+![Implement inherited abstract classes](images/editing/implement-inherited-abstract-classes.gif)
+
+## Refactorings
+
+The Python extension adds the following refactoring functionalities via the Pylance extension: **Extract Variable**, **Extract Method**, **Rename Module** and **Move Symbol**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
 
 ### Extract Variable
 
@@ -124,6 +140,16 @@ After a Python file/module is renamed, Pylance can find all instances that may n
 To customize which references need to be updated, you can toggle the checkboxes at the line or from the file level in **Refactor Preview**. Once you've made your selections, you can select **Apply Refactoring** or **Discard Refactoring**.
 
 ![Renaming a module](images/editing/refactorRenameModule.gif)
+
+### Move Symbol
+
+The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: **Move symbol to...**, which displays a file picker so you can select the destination file for the symbol to be moved to,  and **Move symbol**, which creates a new file with the symbol name, located on the same directory as the source file where the Code Action was invoked.
+
+You can access this Code Action by hovering over the symbol you want to move, then selecting the light bulb that appears next to it. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
+
+
+![Move Symbol refactoring options](images/editing/move-symbol.gif)
+
 
 ### Sort Imports
 
