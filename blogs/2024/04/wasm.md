@@ -13,7 +13,7 @@ Visual Studio Code supports the execution of WASM binaries through the [WebAssem
 
 In January 2024, the Bytecode Alliance launched the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). A key technology in the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). The WebAssembly Component Model streamlines interactions between WebAssembly components and their host environments by standardizing interfaces, data types, and module composition. This standardization is facilitated through the use of a WIT ([WASM Interface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. WIT files help describe the interactions between a JavaScript/TypeScript extension (the host) and a WebAssembly component performing computations coded in another language, such as Rust or C/C++.
 
-This blog post outlines how developers can leverage the component model to integrate a WebAssembly library into their extension. We focus on three use cases: (a) implementing a library using WebAssembly and calling it from extension code in TypeScript, (b) calling the VS Code API from WebAssembly code, and (c) demonstrating how to use resources to encapsulate and manage stateful objects in either WebAssembly or TypeScript code.
+This blog post outlines how developers can leverage the component model to integrate a WebAssembly library into their extension. We focus on three use cases: (a) implementing a library using WebAssembly and calling it from extension code in JavaScript/TypeScript, (b) calling the VS Code API from WebAssembly code, and (c) demonstrating how to use resources to encapsulate and manage stateful objects in either WebAssembly or TypeScript code.
 
 The examples require that you have the latest versions of the following tools installed, alongside VS Code and NodeJS: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools), and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen).
 
@@ -148,7 +148,7 @@ When you compile and run the above code in VS Code for the Web, it produces the 
 <video src="calculator.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
 ```
 
-You can find the full source code for this example in the [VS Code extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
+You can find the full source code for this example in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model/src/extension.ts#L1).
 
 ## Inside @vscode/wasm-component-model
 
@@ -347,7 +347,7 @@ When you run the corresponding command, it prints `Result: 60` to the output cha
 
 ![Diagram illustrating how resources are accessed.](resource-memory.png)
 
-The full source code for this example is available in the [VS Code extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model-resource).
+The full source code for this example is available in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-resource/src/extension.ts#L1).
 
 ## Using VS Code APIs directly from Rust
 
