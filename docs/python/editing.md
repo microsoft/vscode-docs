@@ -86,6 +86,8 @@ While editing, you can right-click different identifiers to take advantage of se
 
 ## Quick Fixes
 
+### Add Missing Imports
+
 The add imports Quick Fix when using Pylance allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
 
 ![Add import code action](images/editing/quickFix.png)
