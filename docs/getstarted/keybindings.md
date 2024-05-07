@@ -429,6 +429,7 @@ Scroll Page Down|`kb(scrollPageDown)`|`scrollPageDown`
 Scroll Page Up|`kb(scrollPageUp)`|`scrollPageUp`
 Fold (collapse) region|`kb(editor.fold)`|`editor.fold`
 Unfold (uncollapse) region|`kb(editor.unfold)`|`editor.unfold`
+Toggle Fold region|`kb(editor.toggleFold)`|`editor.toggleFold`
 Fold (collapse) all subregions|`kb(editor.foldRecursively)`|`editor.foldRecursively`
 Unfold (uncollapse) all subregions|`kb(editor.unfoldRecursively)`|`editor.unfoldRecursively`
 Fold (collapse) all regions|`kb(editor.foldAll)`|`editor.foldAll`

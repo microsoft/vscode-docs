@@ -644,7 +644,7 @@ Whole document format: `kb(editor.action.formatDocument)`
 
 ### Code folding
 
-Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
+Keyboard Shortcut: `kb(editor.fold)`, `kb(editor.unfold)` and `kb(editor.toggleFold)`
 
 ![code folding](images/tips-and-tricks/code_folding.gif)
 
