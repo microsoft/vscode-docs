@@ -146,9 +146,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
 When you compile and run the above code in VS Code for the Web, it produces the following output in the `Calculator` channel:
 
-```html
 <video src="calculator.mp4" title="Video showing how to run the Calculator command in VS Code for the Web." autoplay loop controls muted></video>
-```
 
 You can find the full source code for this example in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model/src/extension.ts#L1).
 
