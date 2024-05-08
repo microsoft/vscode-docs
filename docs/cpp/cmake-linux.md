@@ -32,6 +32,12 @@ To complete this tutorial on Ubuntu, install the following:
 
 1. You'll also need to install CMake, a compiler, a debugger, and build tools.
 
+### Video: What is a build system? How do you add CMake to your project?
+
+Watch this video to understand when a build system will help you and how to set up CMake for your project, or follow the steps in the following sections.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_BWU5mWqVA4?si=8vEQOyuekiNaLdKd" title="C++ in VS Code: Building your Code with CMake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Ensure that CMake is installed
 
 The VS Code CMake Tools extension does its work by using CMake installed on your system. For best results, use CMake version 3.27 or greater.
