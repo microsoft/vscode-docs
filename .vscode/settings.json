@@ -25,16 +25,5 @@
     "editor.codeActionsOnSave": {
         "source.organizeLinkDefinitions": "explicit"
     },
-    "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
-    "cSpell.words": [
-        "autoplay",
-        "Bäumer",
-        "bindgen",
-        "Connor",
-        "Peet",
-        "serde",
-        "struct",
-        "usize",
-        "WASI"
-    ]
+    "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>"
 }
