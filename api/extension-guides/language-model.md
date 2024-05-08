@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -153,7 +153,8 @@ The part of the extension for building prompts and interpreting language model r
 
 Once we finalize the Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
+- By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" to the `categories` field in your `package.json`. If your extension contributes a Chat Participant, add "Chat" as well.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 

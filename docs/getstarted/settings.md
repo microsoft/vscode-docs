@@ -4,71 +4,65 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
 
 You can configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
-VS Code provides several different scopes for settings. When you open a workspace, you will see at least the following two scopes:
+VS Code provides different scopes for settings:
 
-* **User Settings** - Settings that apply globally to any instance of VS Code you open.
-* **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
+* **User settings** - Settings that apply globally to any instance of VS Code you open.
+* **Workspace settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
 In this article, we'll first describe user settings as these are your personal settings for customizing VS Code. Later we'll cover [Workspace settings](#workspace-settings), which will be specific to the project you're working on.
 
 ## Settings editor
 
-To modify user settings, you'll use the Settings editor to review and change VS Code settings.
+Use the Settings editor to review and change VS Code settings. To open the Settings editor, navigate to **File** > **Preferences** > **Settings**. Alternately, open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-To open the Settings editor, navigate to **File** > **Preferences** > **Settings**.
-
-You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
-
-When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
+When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the search bar, it not only shows and highlights the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
 
-In the example below, the Side Bar location and file icon theme have been changed.
+Changes to settings are applied directly by VS Code, as you change them. Modified settings are indicated with a blue line, similar to modified lines in the editor.
+
+In the example below, the Side Bar location and File Icon Theme were changed.
 
 ![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
 
-Changes to settings are applied by VS Code as you change them. Modified settings are indicated with a **blue line** similar to modified lines in the editor.
-
-The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset the setting to its default value as well as copy the setting ID or JSON name-value pair.
+The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset a setting to its default value, and to copy the setting ID or copy a JSON name-value pair.
 
 ![Settings edit gear context menu](images/settings/more-actions-context-menu.png)
 
 ### Edit settings
 
-Each setting can be edited by either a **checkbox**, an **input** or a **dropdown**. Edit the text or select the option you want to change to the desired settings.
+Each setting can be edited by either a checkbox, an text input field, or a dropdown. Edit the text or select the option you want to change to the desired settings.
 
 ![An example setting with a dropdown](images/settings/settings-edit.png)
 
 ### Settings groups
 
-Settings are represented in groups so that you can navigate them easily. There is a **Commonly Used** group at the top, which shows popular customizations.
+Settings are represented in groups, so that you can navigate to them easily. There is a **Commonly Used** group at the top, which shows popular customizations.
 
-Below, the Source Control settings are focused by selecting **Source Control** in the tree view.
+In the following example, the source control settings are focused by selecting **Source Control** in the tree view.
 
 ![Settings editor with the Source Control section of the table of contents selected](images/settings/settings-groups.png)
 
-**Note**: VS Code extensions can also add their own custom settings, and those settings will be visible under an **Extensions** section.
+> **Note**: VS Code extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
 
 ## Changing a setting
 
-As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the wide border on the left with various icons for different views such as the File Explorer, Search, Source Control, and Extensions. You might want to hide the Activity Bar to give the editor a little more room, or if you prefer to open views via the **View** menu or Command Palette.
+As an example, let's hide the [Activity Bar](/docs/getstarted/userinterface.md#basic-layout) from VS Code. You might want to hide the Activity Bar to give the editor a little more room, or if you prefer to open views via the **View** menu or Command Palette.
 
-![Activity Bar display on the left of the editor](images/settings/activity-bar.png)
+1. Open the Settings Editor (`kb(workbench.action.openSettings)`) and type "activity" in the search bar.
 
-Open the Settings Editor (`kb(workbench.action.openSettings)`) and type "activity" in the Search bar. You should see at least five settings.
+![Settings editor with 'activity' in the search bar with at least five settings](images/settings/search-for-activity.png)
 
-![Settings editor with 'activity' in the Search bar with at least five settings](images/settings/search-for-activity.png)
+1. You can further limit the scope to just those settings under the **Appearance** group in the table of contents on the left. There should now be just three settings.
 
-You can further limit the scope to just those settings under the **Appearance** group in the table of contents on the left. There should now be just three settings.
-
-You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting value to be different than the default value, you see a blue line to the left.
+1. You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting value to be different than the default value, you see a blue line to the left.
 
 ![Activity Bar: Visible unchecked and Activity Bar is hidden](images/settings/activity-bar-hidden.png)
 
@@ -76,18 +70,19 @@ You can always reset a setting to the default value by hovering over a setting t
 
 ## Settings editor filters
 
-The Settings editor Search bar has several filters to make it easier to manage your settings.
-To the right of the Search bar is a filter button with a funnel icon that provides some options to easily add a filter to the Search bar.
+The Settings editor search bar has several filters to make it easier to manage your settings. To the right of the search bar is a filter button with a funnel icon that provides options to easily add a filter to the search bar.
 
 ### Modified settings
 
-To check which settings you have configured, there is a `@modified` filter in the Search bar. A setting shows up under this filter if its value differs from the default value, or if its value is explicitly set in the respective settings JSON file. This filter can be useful if you have forgotten whether you configured a setting, or if the editor is not behaving as you expect because you accidentally configured a setting.
+To check which settings you have configured, there is a `@modified` filter in the search bar. A setting shows up under this filter if its value differs from the default value, or if its value is explicitly set in the respective settings JSON file.
+
+This filter can be useful if you have forgotten whether you configured a setting, or if the editor is not behaving as you expect because you accidentally configured a setting.
 
 ![Settings editor with @modified filter showing changed settings](images/settings/modified-filter-settings.png)
 
 ### Other filters
 
-There are several other handy filters to help with searching through settings.
+There are several other handy filters to help with searching through settings. Type the `@` symbol in the search bar to discover the different filters.
 
 ![Setting editor @ tag filter dropdown](images/settings/settings-editor-filters.png)
 
@@ -99,7 +94,7 @@ Here are some of the filters available:
 * `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
 * `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
 
-The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
+The search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
 ![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
 
@@ -117,7 +112,7 @@ Extension authors can learn more about adding custom settings in the [configurat
 
 ## settings.json
 
-The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open User Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
+VS Code stores setting values in a `settings.json` file. The Settings editor is the user interface that enables you to review and modify setting values that are stored in a `settings.json` file. You can also review and edit this file directly by opening it in the editor with the **Preferences: Open User Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
 
 ![User settings.json open in the editor](images/settings/settings-json-in-editor.png)
 
@@ -125,13 +120,13 @@ The `settings.json` file has full IntelliSense with smart completions for settin
 
 ![IntelliSense for settings.json open in the editor](images/settings/settings-json-intellisense.png)
 
-Some settings can only be edited in `settings.json` such as **Workbench: Color Customizations** and show a **Edit in settings.json** link in the Settings editor.
+Some settings can only be edited in `settings.json` such as **Workbench: Color Customizations** and show an **Edit in settings.json** link in the Settings editor.
 
 ![Workbench: Color Customizations setting with Edit in settings.json link](images/settings/edit-in-settings-json-link.png)
 
 ### Changing settings.json
 
-As an example, lets change the editor line number color. Click the **Edit in settings.json** link and add the following JSON:
+As an example, lets change the editor line number color. Select the **Edit in settings.json** link and add the following JSON:
 
 ```json
      "workbench.colorCustomizations": {
@@ -139,7 +134,7 @@ As an example, lets change the editor line number color. Click the **Edit in set
     }
 ```
 
-Here the line numbers in the editor for the `settings.json` file are now green.
+Notice that the line numbers in the editor for the `settings.json` file are now green.
 
 ![settings.json editor with green line numbers](images/settings/color-customization-example.png)
 
@@ -159,7 +154,7 @@ Depending on your platform, the user settings file is located here:
 
 ### Reset all settings
 
-While you can reset settings individually via the Settings editor **Reset Setting** command, you can reset all changed settings by opening `settings.json` and deleting the entries between the braces `{}`. Be careful since there will be no way to recover your previous setting values.
+While you can reset settings individually via the Settings editor **Reset Setting** command, you can reset all changed settings by opening `settings.json` and deleting the entries between the braces `{}`. Be careful since there is no way to recover your previous setting values.
 
 ## Workspace settings
 
@@ -189,8 +184,8 @@ When you add a Workspace Settings `settings.json` file to your project or source
 
 One way to customize language-specific settings is by opening the Settings editor, pressing on the filter button, and selecting the language option to add a language filter. Alternatively, one can directly type a language filter of the form `@lang:languageId` into the search widget. The settings that show up will be configurable for that specific language, and will show the setting value specific to that language, if applicable.
 
-When modifying a setting while there is a language filter in place, the setting will be configured in the given scope for that language.
-For example, when modifying the user-scope `diffEditor.codeLens` setting while there is a `@lang:css` filter in the search widget, the Settings editor will save the new value to the CSS-specific section of the user settings file.
+When you modify a setting while there is a language filter in place, the setting is configured in the given scope for that language.
+For example, when modifying the user-scope `diffEditor.codeLens` setting while there is a `@lang:css` filter in the search widget, the Settings editor saves the new value to the CSS-specific section of the user settings file.
 
 ![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-example.png)
 
@@ -360,8 +355,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - crash: Sends OS level crash reports.
     //  - off: Disables all product telemetry.
     "telemetry.telemetryLevel": "all",
-
-// Editor
 
     // Controls whether the editor shows CodeLens.
     "diffEditor.codeLens": false,
@@ -802,7 +795,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
     "editor.lightbulb.enabled": "on",
 
-    // Controls the line height.
+    // Controls the line height. 
     //  - Use 0 to automatically compute the line height from the font size.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
@@ -1442,6 +1435,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Only show outgoing changes in the Source Control view when any exist.
     "scm.showOutgoingChanges": "auto",
 
+    // Controls the default working set to use when switching to a source control history item group that does not have a working set.
+    //  - empty: Use an empty working set when switching to a source control history item group that does not have a working set.
+    //  - current: Use the current working set when switching to a source control history item group that does not have a working set.
+    "scm.workingSets.default": "current",
+
+    // Controls whether to store editor working sets when switching between source control history item groups.
+    "scm.workingSets.enabled": false,
+
 // Security
 
     // A set of UNC host names (without leading or trailing backslash, for example `192.168.0.1` or `my-server`) to allow without user confirmation. If a UNC host is being accessed that is not allowed via this setting or has not been acknowledged via user confirmation, an error will occur and the operation stopped.
@@ -1546,6 +1547,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
         "jupyter-notebook": false,
+        "terminalEditor": true,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -2383,6 +2385,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - reuseEditor: Search in an existing search editor if present, otherwise in a new search editor.
     //  - newEditor: Search in a new search editor.
     "search.mode": "view",
+
+    // Controls whether the last typed input to Quick Search should be restored when opening it the next time.
+    "search.quickAccess.preserveInput": false,
 
     // Controls sorting order of editor history in quick open when filtering.
     //  - default: History entries are sorted by relevance based on the filter value used. More relevant entries appear first.
@@ -3790,7 +3795,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether code cells in the interactive window are collapsed by default.
     "interactiveWindow.collapseCellInputCode": "fromEditor",
 
-    // When enabled notebook breadcrumbs contain code cells.
+    // The limit of notebook output size in kilobytes (KB) where notebook files will no longer be backed up for hot reload. Use 0 for unlimited.
+    "notebook.backup.sizeLimit": 10000,
+
+    // When enabled, notebook breadcrumbs contain code cells.
     "notebook.breadcrumbs.showCodeCells": true,
 
     // Show available diagnostics for cell failures.
@@ -3885,7 +3893,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled cursor can navigate to the next/previous cell when the current cursor in the cell editor is at the first/last line.
     "notebook.navigation.allowNavigateToSurroundingCells": true,
 
-    // When enabled notebook outline shows code cells.
+    // When enabled, notebook outline shows code cells.
     "notebook.outline.showCodeCells": false,
 
     // When enabled, notebook outline shows code cell symbols.
@@ -3908,6 +3916,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Control whether to disable filepath links in the output of notebook cells.
     "notebook.output.linkifyFilePaths": true,
+
+    // Control whether to render error output in a minimal style.
+    "notebook.output.minimalErrorRendering": false,
 
     // Initially render notebook outputs in a scrollable region when longer than the limit.
     "notebook.output.scrolling": true,
@@ -3981,6 +3992,16 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
     "terminal.integrated.allowChords": true,
+
+    // An array of strings containing the URI schemes that the terminal is allowed to open links for.
+    "terminal.integrated.allowedLinkSchemes": [
+        "file",
+        "http",
+        "https",
+        "mailto",
+        "vscode",
+        "vscode-insiders"
+    ],
 
     // Whether to allow menubar mnemonics (for example Alt+F) to trigger the open of the menubar. Note that this will cause all alt keystrokes to skip the shell when true. This does nothing on macOS.
     "terminal.integrated.allowMnemonics": false,
@@ -4180,6 +4201,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to treat the option key as the meta key in the terminal on macOS.
     "terminal.integrated.macOptionIsMeta": false,
+
+    // Controls how terminal reacts to middle click.
+    //  - default: The platform default to focus the terminal. On Linux this will also paste the selection.
+    //  - paste: Paste on middle click.
+    "terminal.integrated.middleClickBehavior": "default",
 
     // When set, the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
     // - 1: Do nothing and use the standard theme colors.
@@ -4832,12 +4858,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "announcement": "auto"
     },
 
-    // Plays a signal on loop while the response is pending.
-    "accessibility.signals.chatResponsePending": {
-        "sound": "auto",
-        "announcement": "auto"
-    },
-
     // Indicates when the response has been received.
     "accessibility.signals.chatResponseReceived": {
         "sound": "auto"
@@ -4922,6 +4942,24 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Plays a signal when the debugger stopped on a breakpoint.
     "accessibility.signals.onDebugBreak": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when the active line has a warning.
+    "accessibility.signals.positionHasError": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when the active line has a warning.
+    "accessibility.signals.positionHasWarning": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal on loop while progress is occurring.
+    "accessibility.signals.progress": {
         "sound": "auto",
         "announcement": "auto"
     },

@@ -1,15 +1,16 @@
 ---
-Order: 6
+Order: 7
 Area: copilot
-TOCTitle: Prompt crafting
+TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-PageTitle: Prompt crafting for GitHub Copilot
-DateApproved: 04/04/2024
-MetaDescription: Optimize your development experience with GitHub Copilot in VS Code through crafting chat prompts and providing context.
+PageTitle: Best practices for GitHub Copilot in VS Code
+DateApproved: 05/02/2024
+MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot optimization with prompt crafting and context setting
+# Best practices for using GitHub Copilot in VS Code
 
-This article covers best practices for using GitHub Copilot in Visual Studio Code, so that you make the most of your AI pair programming experience.
+This article covers best practices for using GitHub Copilot in Visual Studio Code by using prompt crafting and providing the right context to GitHub Copilot.
 
 >**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
@@ -122,7 +123,7 @@ Chat participants, such as `@workspace` or `@vscode`, can contribute chat variab
 
 For example, the `#file` variable lets you reference specific files from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #file:package.json?" or "How do I add an extension in #file:devcontainer.json?". By using the `#file` variable, you can get more targeted and accurate responses from Copilot.
 
-Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#use-chat-variables).
+Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-variables).
 
 ### Be specific and keep it simple
 

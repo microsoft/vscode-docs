@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -44,7 +44,7 @@ For a TypeScript project, fill out the following fields:
 
 ```
 
-Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
+Inside the editor, open `src/extension.ts` and press `kb(workbench.action.debug.start)` or run the command **Debug: Start Debugging** from the Command Palette (`kb(workbench.action.showCommands)`). This will compile and run the extension in a new **Extension Development Host** window.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
@@ -53,6 +53,8 @@ Run the **Hello World** command from the Command Palette (`kb(workbench.action.s
 </video>
 
 You should see the `Hello World from HelloWorld!` notification showing up. Success!
+
+If you aren't able to see the **Hello World** command in the debug window, check the `package.json` file and make sure that `engines.vscode` version is compatible with the installed version of VS Code.
 
 ## Developing the extension
 

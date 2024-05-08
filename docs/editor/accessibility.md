@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -25,7 +25,7 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 ### Persisted zoom level
 
-When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
+When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
 
 ## Accessibility help
 
@@ -164,7 +164,7 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, Jupyter notebook output, and chat responses.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, Jupyter notebook output, terminal output, and chat responses.
 
 ## Screen reader mode
 

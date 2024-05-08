@@ -1,17 +1,16 @@
 ---
-Order: 10
+Order: 3
 Area: copilot
-TOCTitle: Getting started tutorial
+TOCTitle: Getting Started Tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Getting started with GitHub Copilot in VS Code
 
-This tutorial walks you through setting up the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension, and discovering the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with AI-powered code suggestions, use chat conversations to refactor your code, and fix code errors with smart actions.
-
-In this tutorial, you're using GitHub Copilot to help you create a `Calculator` class in TypeScript.
+This tutorial walks you through the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to get AI-powered code suggestions in the editor, use chat conversations to refactor your code, and fix code errors with smart actions.
 
 > **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
 
@@ -19,38 +18,13 @@ For an overview of what you can do with GitHub Copilot in VS Code, see the [GitH
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Set up VS Code for GitHub Copilot
+## Prerequisites
 
-### Step 1: Set up your GitHub Copilot subscription
+* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
+* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-| Account type | Instructions |
-| ------------ | ------------ |
-| Personal account | Set up a subscription to **GitHub Copilot Individual** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup).<br/><br/>If you didn't yet activate your free trial for Copilot, the GitHub Copilot extension notifies you in VS Code.<br/>![Copilot sign up notification in VS Code](images/getting-started/copilot-access-toast.png) |
-| Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account.<br/>![Screenshot of Copilot settings, showing how to request access from an organization.](images/getting-started/request-cfb-access-settings.png) |
-
-Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
-
-### Step 2: Install the GitHub Copilot extension
-
-You use the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to power your artificial intelligence (AI) suggestions in VS Code.
-
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
-
-When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
-
-### Step 3: Sign in to GitHub
-
-To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub account that has access to GitHub Copilot.
-
-If you didn't previously authorize VS Code in your GitHub account, you're prompted to sign in to GitHub in VS Code:
-
-![VS Code notification to sign into the Copilot extension](images/getting-started/copilot-auth-toast.png)
-
-In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
-
-> **Note**: If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Get your first code suggestion
 
@@ -59,10 +33,6 @@ Now that you've signed up for Copilot and activated the extension, let's see its
 To get started with GitHub Copilot in VS Code, you don't have to do anything special. As you're typing code in the editor, Copilot automatically presents you code suggestions in the editor to help you code more efficiently.
 
 1. Open Visual Studio Code and create a new TypeScript file `Calculator.ts`.
-
-1. Notice from the status bar that GitHub Copilot is active.
-
-    ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/getting-started/vscode-status-bar-copilot-active.jpg)
 
 1. In the TypeScript file, start typing the following class definition.
 
@@ -144,7 +114,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started/copilot-chat-view.png)
 
-1. Type "what is recursion?" in the chat input field and press `kb(inlineChat.accept)` to send the request to Copilot.
+1. Type "what is recursion?" in the chat input field and press `kb(workbench.action.chat.submit)` to send the request to Copilot.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 

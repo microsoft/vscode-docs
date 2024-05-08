@@ -4,8 +4,9 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 MetaDescription: Enhance your coding with AI-powered suggestions and chat conversations with GitHub Copilot in Visual Studio Code.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code
 
@@ -15,7 +16,7 @@ With GitHub Copilot in VS Code you can:
 
 * Get inline code suggestions while you're writing and iterating on code.
 * Start a chat conversation to generate or refactor source code, produce documentation comments, or generate unit tests.
-* Get help with fixing errors in your code, or resolve error while running commands in the terminal.
+* Get help with fixing errors in your code, or resolve errors while running commands in the terminal.
 * Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
 * Use chat features to discover and configure your VS Code setup.
 
@@ -29,12 +30,12 @@ With GitHub Copilot in VS Code you can:
 
 * To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization. Sign up for a [GitHub Copilot free trial](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) in your personal account.
 
-Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md).
 
 ## Copilot tutorials
 
-* [GitHub Copilot quickstart](/docs/copilot/getting-started.md) to get set up and discover the key features of Copilot in VS Code.
-* [Get started with Copilot Chat](/docs/copilot/getting-started-chat.md) to explore Copilot Chat in depth.
+* [GitHub Copilot Quickstart](/docs/copilot/getting-started.md) - discover the key features of GitHub Copilot in VS Code.
+* [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md) - get started with AI chat conversations.
 
 ## Use cases for GitHub Copilot in VS Code
 
@@ -47,7 +48,7 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 * [Jumpstart your project](#jumpstart-your-project)
 * [Generate unit test cases](#generate-unit-test-cases)
 * [Generate code documentation](#generate-code-documentation)
-* [Improve your productivity](#productivity-improvements)
+* [Improve your productivity in VS Code](#productivity-improvements)
 
 ### Code completions in the editor
 
@@ -124,6 +125,10 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 * **Ask help in the Command Palette** to help you find the relevant command in VS Code. You can describe the functionality and Copilot can help identify the matching functionality. For example, type "code preview in scrollbar" in the Command Palette, and Copilot can identify that you're referring to the `editor.minimap` settings.
 
     ![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
+
+* **Use terminal inline chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+
+    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
 
 ## Additional resources
 

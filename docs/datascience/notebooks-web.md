@@ -6,7 +6,7 @@ ContentId: 0faf5b06-ddad-4594-8d5e-fa409c7da82c
 PageTitle: Jupyter Notebooks on the web
 DateApproved: 1/9/2023
 MetaDescription: Working with Jupyter notebooks on the web with Visual Studio Code.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 
 # Jupyter Notebooks on the web

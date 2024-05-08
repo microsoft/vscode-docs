@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 04/04/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -94,6 +94,7 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
@@ -204,10 +205,10 @@ In practice, extensions typically send a request to the language model. Once the
 
 #### Use the chat message history
 
-Participants have access to the message history of the current chat session. For example, use the following code snippet to rerieve all the previous `@cat` messages in the current chat session:
+Participants have access to the message history of the current chat session. A participant can only access messages where it was mentioned. A `history` item is either a `ChatRequestTurn` or a `ChatResponseTurn`. For example, use the following code snippet to retrieve all the previous requests that the user sent to your participant in the current chat session:
 
 ```typescript
-const previousMessages = context.history.filter(h => h instanceof vscode.ChatResponseTurn && h.participant == 'chat-sample.cat');
+const previousMessages = context.history.filter(h => h instanceof vscode.ChatRequestTurn);
 ```
 
 History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
@@ -321,6 +322,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace, your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
+- By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
