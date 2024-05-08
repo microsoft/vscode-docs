@@ -75,7 +75,7 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 | fixAll | `[]` | A list of code actions to run when running the **Fix All** command or the `source.fixAll` code action. <br> Accepted values in this list: <ul><li> `source.unusedImports`: removes all unused imports in the open file</li> <li> `source.convertImportFormat`: converts the imports according to the `python.analysis.importFormat` setting </li> |
 | logLevel | `Error` | Specifies the level of logging to be performed by the language server.<br> The possible levels of logging, in increasing level of information provided, are `Error`, `Warning`, `Information`, and `Trace`.|
-| autoIndent | true | Whether Pylance should automatically indent code on type. <br> Accepted values are `true` or `false`. |
+| autoIndent | true | Whether to automatically adjust indentation based on language semantics when typing Python code. <br> Accepted values are `true` or `false`. |
 
 **Diagnostic severity rules**
 

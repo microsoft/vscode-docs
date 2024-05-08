@@ -96,7 +96,7 @@ This Code Action also recognizes some of the popular abbreviations for the follo
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
-The import suggestions list displays  the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.  In the case where the 3 high-confidence import options aren’t what you are looking for, Pylance has a **Search for additional import matches** Code Action, which displays a quick pick menu that allows you to search for import options that prefix-match the missing import symbol.
+The import suggestions list displays the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.  In the case where the 3 high-confidence import options aren’t what you are looking for, Pylance has a **Search for additional import matches** Code Action, which displays a quick pick menu that allows you to search for import options that prefix-match the missing import symbol.
 
 ![Search for additional import matches Code Action](images/editing/search-imports-code-action.gif)
 
@@ -145,9 +145,9 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 ### Move Symbol
 
-The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: **Move symbol to...**, which displays a file picker so you can select the destination file for the symbol to be moved to,  and **Move symbol**, which creates a new file with the symbol name, located on the same directory as the source file where the Code Action was invoked.
+The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: **Move symbol to...**, which displays a file picker so you can select the destination file for the symbol to be moved to,  and **Move symbol to new file**, which creates a new file with the symbol name, located on the same directory as the source file where the Code Action was invoked.
 
-You can access this Code Action by hovering over the symbol you want to move, then selecting the light bulb that appears next to it. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
+You can access these Code Actions by hovering over the symbol you want to move, then selecting the light bulb that appears next to the desired action. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
 
 
 ![Move Symbol refactoring options](images/editing/move-symbol.gif)
