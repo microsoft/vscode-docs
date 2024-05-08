@@ -17,6 +17,8 @@ This blog post outlines how developers can leverage the component model to integ
 
 The examples require that you have the latest versions of the following tools installed, alongside VS Code and NodeJS: [rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools), and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen).
 
+I also want to say thank you to L. Pereira and Luke Wagner from [Fastly](https://www.fastly.com/) for their valuable feedback on this article.
+
 ## A Calculator in Rust
 
 In the first example, we demonstrate how a developer can integrate a library written in Rust into a VS Code extension. As previously mentioned, components are described using a WIT file. In our example, the library performs simple operations such as addition, subtraction, multiplication, and division. The corresponding WIT file is shown below:
