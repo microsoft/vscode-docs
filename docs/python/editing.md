@@ -156,7 +156,7 @@ You can access these Code Actions by hovering over the symbol you want to move, 
 
 In Python, abstract classes serve as "blueprints" for other classes and help build modular, reusable code by promoting clear structure and requirements for subclasses to adhere to. To define an abstract class in Python, you can create a class that inherits from the `ABC` class in the `abc` module, and annotate its methods with the `@abstractmethod` decorator. Then, you can create new classes that inherit from this abstract class, and define an implementation for the base methods.
 
-Pylance offers a code action to simplify the process of creating these classes. When you define a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
+Pylance offers a Code Action to simplify the process of creating these classes. When you define a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
 
 ![Implement inherited abstract classes](images/editing/implement-inherited-abstract-classes.gif)
 
