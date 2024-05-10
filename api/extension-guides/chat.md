@@ -41,6 +41,7 @@ To develop a chat extension make sure to:
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [`@vscode/prompt-tsx` npm module](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
 ## Parts of the chat user experience
 
@@ -175,6 +176,8 @@ Next, you need to implement the actual logic for processing the user request. Of
 While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". Learn how you can [use the chat message history](#use-the-chat-message-history).
 
 If you want to process a request differently based on the location of the chat input, you can use the `location` property of the `vscode.ChatRequest`. For example, if the user sends a request from the terminal inline chat, you might look up a shell command. Whereas, if the user uses the Chat view, you could return a more elaborate response.
+
+You can use the [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) library to craft chat messages and manage conversation history with respect to your chosen model's context window constraints.
 
 #### Return the chat response
 
