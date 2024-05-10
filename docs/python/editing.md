@@ -88,7 +88,7 @@ While editing, you can right-click different identifiers to take advantage of se
 
 ### Add import
 
-The add import Quick Fix when using Pylance allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
+When using Pylance, the add import Quick Fix enables you to quickly complete import statements for modules that are installed in your environment. As you start typing a package name in the editor, a Code Action is available to automatically complete the line of source code. Hover over the text (marked with a squiggle) and select the Code Action light bulb. You can then select from the list of potential imports.
 
 ![Add import code action](images/editing/quickFix.png)
 
@@ -99,22 +99,22 @@ This Code Action also recognizes some of the popular abbreviations for the follo
 The import suggestions list displays the top 3 high-confidence import options, prioritized based on: most recently used imports, symbols from the same module, symbols from the standard library, symbols from user modules, symbols from third-party packages, and finally sorting by module and symbol name.
 
 ### Search for additional import matches
-The add import Quick Fix only shows 3 high-confidence import options by default. In the case where they aren't what you are looking for, Pylance has a **Search for additional import matches** Quick Fix for missing import errors, which also displays a quick pick menu that allows you to search for import options that prefix-match the missing import symbol.
+By default, the add import Quick Fix only shows 3 high-confidence import options. If they don't list what you are looking for, you can use the Pylance **Search for additional import matches** Quick Fix for missing import errors. This Quick Fix displays a quick pick menu that enables you to search for import options that prefix-match the missing import symbol.
 
 ![Search for additional import matches Code Action](images/editing/search-imports-code-action.gif)
 
 
 ### Change spelling
-The **Change spelling** Quick Fix is displayed by Pylance on unresolved variable or missing imports diagnostics when they are likely caused by typos. This Code Action suggests the correct spelling of the symbol based on the closest matches found in the workspace.
+Pylance displays the **Change spelling** Quick Fix on unresolved variables or missing imports diagnostics when they are likely caused by typos. This Code Action suggests the correct spelling of the symbol, based on the closest matches found in the workspace.
 
 ![Change spelling code action on missing import due to a typo](images/editing/change-spelling-code-action.gif)
 
 
-> **Note**: Symbol aliases defined in user code (e.g.  `bar` on `import foo as bar`) are not supported by these Quick Fixes for performance reasons. Just like with auto imports, only top-level symbols are suggested by default, but you can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting.
+> **Note**: Symbol aliases defined in user code (for example,  the `bar` alias in `import foo as bar`) are not supported by these Quick Fixes for performance reasons. Just like with auto imports, only top-level symbols are suggested by default, but you can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting.
 
 ## Refactorings
 
-The Python extension adds the following refactoring functionalities via the Pylance extension: **Extract Variable**, **Extract Method**, **Rename Module**, **Move Symbol** and **Implement All Inherited Abstract Classes**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
+The Python extension adds the following refactoring functionalities via the Pylance extension: **Extract Variable**, **Extract Method**, **Rename Module**, **Move Symbol** and **Implement All Inherited Abstract Classes**. It also supports extensions that implement additional refactoring features, such as **Sort Imports**.
 
 ### Extract Variable
 
@@ -142,7 +142,10 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 ### Move Symbol
 
-The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: **Move symbol to...**, which displays a file picker so you can select the destination file for the symbol to be moved to,  and **Move symbol to new file**, which creates a new file with the symbol name, located on the same directory as the source file where the Code Action was invoked.
+The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: 
+
+* **Move symbol to...**: displays a file picker to select the destination file for the symbol to be moved to.
+* **Move symbol to new file**: creates a new file with the symbol name, located in the same directory as the source file where the Code Action was invoked.
 
 You can access these Code Actions by hovering over the symbol you want to move, then selecting the light bulb that appears next to the desired action. Alternatively, you can right-click on the symbol and select **Refactor...** from the context menu.
 
@@ -153,7 +156,7 @@ You can access these Code Actions by hovering over the symbol you want to move, 
 
 In Python, abstract classes serve as "blueprints" for other classes and help build modular, reusable code by promoting clear structure and requirements for subclasses to adhere to. To define an abstract class in Python, you can create a class that inherits from the `ABC` class in the `abc` module, and annotate its methods with the `@abstractmethod` decorator. Then, you can create new classes that inherit from this abstract class, and define an implementation for the base methods.
 
-Pylance offers a code action to simplify the process of creating these classes. When defining a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
+Pylance offers a code action to simplify the process of creating these classes. When you define a new class that inherits from an abstract one, you can now use the **Implement all inherited abstract classes** Code Action to automatically implement all abstract methods and properties from the parent class:
 
 ![Implement inherited abstract classes](images/editing/implement-inherited-abstract-classes.gif)
 
