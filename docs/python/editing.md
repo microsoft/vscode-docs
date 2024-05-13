@@ -112,7 +112,7 @@ Pylance displays the **Change spelling** Quick Fix on unresolved variables or mi
 
 > **Note**: For user symbols, these Quick Fixes will suggest the imports only from the files where they are defined. Import suggestions from files where the user symbols are external/imported aren't supported.
 >
-> Also note that for symbols coming from installed packages (typically located under the `site-packages` folder of your Python environment), only those defined in the package's `__init__.py` file are suggested by these Quick Fixes. You can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting, but please note it may impact Pylance's performance.
+> Also note that for symbols coming from installed packages (typically located under the `site-packages` folder of your Python environment), only those defined in the package's root folder, such as in its `__init__.py` file, are suggested by these Quick Fixes. You can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting, but please note it may impact Pylance's performance.
 
 ## Refactorings
 
