@@ -597,7 +597,7 @@ For video files, make sure that both the video and audio track's media formats a
 
 ### Context menus
 
-Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points.md#contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
+Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
 
 To add a new context menu item to your webview, first add a new entry in `menus` under the new `webview/context` section. Each contribution takes a `command` (which is also where the item's title comes from) and a `when` clause. The [when clause](/api/references/when-clause-contexts) should include `webviewId == 'YOUR_WEBVIEW_VIEW_TYPE'` to make sure the context menus only apply to your extension's webviews:
 
