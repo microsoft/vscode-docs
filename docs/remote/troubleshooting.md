@@ -70,9 +70,7 @@ Run one of the following commands, in a **local terminal window** replacing user
 
 * Connecting to a **Windows** SSH host:
 
-  * The host uses OpenSSH Server and the user belongs to the administrator group:
-
-    [A different host path is used](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
+  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
@@ -107,9 +105,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 
 * Connecting to a **Windows** SSH host:
 
-  * The host uses OpenSSH Server and the user belongs to the administrator group:
-
-    [A different host path is used then.](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile)
+  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
