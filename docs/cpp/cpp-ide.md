@@ -147,7 +147,7 @@ Use the **Go to References** feature to understand how often and where a symbol 
 
 ### Go to type definition
 
-Use the **Go to Type Definition** feature to jump to where a type is defined in your source code. Select a type in your source code and press `kb(editor.action.goToTypeDefinition)` or right-click and choose **Go to Type Definition** from the context menu.
+Use the **Go to Type Definition** feature to jump to where a type is defined in your source code. Select a type in your source code, right-click to open the context menu, and choose **Go to Type Definition**.
 
 ## Next steps
 
