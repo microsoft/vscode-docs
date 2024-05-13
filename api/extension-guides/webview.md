@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -597,7 +597,7 @@ For video files, make sure that both the video and audio track's media formats a
 
 ### Context menus
 
-Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points.md#contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
+Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
 
 To add a new context menu item to your webview, first add a new entry in `menus` under the new `webview/context` section. Each contribution takes a `command` (which is also where the item's title comes from) and a `when` clause. The [when clause](/api/references/when-clause-contexts) should include `webviewId == 'YOUR_WEBVIEW_VIEW_TYPE'` to make sure the context menus only apply to your extension's webviews:
 
@@ -1121,9 +1121,9 @@ function getWebviewContent() {
 }
 ```
 
-![persistence retrain](images/webview/persistence-retrain.gif)
+![retainContextWhenHidden demo](images/webview/retainContextWhenHidden.gif)
 
-Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
+Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content keep running even when the tab is not active or visible. You can also send messages to a hidden webview when `retainContextWhenHidden` is enabled.
 
 Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
 

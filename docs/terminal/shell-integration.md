@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -67,8 +67,6 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 ```
 
 **Git Bash**
-
-⚠️ This is currently experimental and automatic injection is not supported
 
 Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in VS Code.
 
@@ -191,7 +189,7 @@ The following keybindings should work in PowerShell when shell integration is en
 The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/editor/accessibility.md#terminal-accessibility). Some examples of enhancements are:
 
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
-- An [audio cue](/docs/editor/accessibility.md#audio-cues) plays when a command fails.
+- An [audio cue](/docs/editor/accessibility.md#accessibility-signals) plays when a command fails.
 - Underlying text box synchronizing such that using the arrow and backspace keys behave more correctly.
 
 ## Supported escape sequences
@@ -208,7 +206,7 @@ These sequences should be ignored by other terminals, but unless other terminals
 - `OSC 633 ; B ST` - Mark prompt end.
 - `OSC 633 ; C ST` - Mark pre-execution.
 - `OSC 633 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
-- `OSC 633 ; E ; <commandline> ST` - Explicitly set the command line.
+- `OSC 633 ; E ; <commandline> [; <nonce] ST` - Explicitly set the command line with an optional nonce.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
 
@@ -240,13 +238,16 @@ VS Code supports Final Term's shell integration sequences, which allow non-VS Co
 - `OSC 133 ; C ST` - Mark pre-execution.
 - `OSC 133 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
 
-### SetMark 'OSC 1337 ; SetMark ST'
+### iTerm2 shell integration
 
-This sequence adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
+The following sequences that iTerm2 pioneered are supported:
 
-![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
+- `OSC 1337 ; CurrentDir=<Cwd> S` - Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
+- `OSC 1337 ; SetMark ST` - Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
-These marks integrate with command navigation to make them easy to navigate to via ctrl/cmd+up and ctrl/cmd+down by default.
+    ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
+
+    These marks integrate with command navigation to make them easy to navigate to via `kb(workbench.action.terminal.scrollToPreviousCommand)` and `kb(workbench.action.terminal.scrollToNextCommand)`.
 
 ## Common questions
 

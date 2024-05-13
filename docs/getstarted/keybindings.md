@@ -4,25 +4,31 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
-MetaSocialImage: images/keybinding/customization_keybindings.png
+MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
+Visual Studio Code lets you perform most tasks directly from the keyboard. This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key bindings for another platform, hover your mouse over the key you are interested in.
 
 ## Keyboard Shortcuts editor
 
-Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts**.
+VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keybindings, and enables you to change / remove / reset their keybindings using the available actions. You can use the search box to find commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts** or by using the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`).
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
 Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `kbstyle(Cmd+\)` in US keyboard layout will be shown as `kbstyle(Ctrl+Shift+Alt+Cmd+7)` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
 
 For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
+
+## Customize shortcuts for UI actions
+
+You can quickly customize the keybinding for user interface actions. Right-click on any action item in your workbench, and select **Customize Keybinding**. If the action has a `when` clause, it's automatically included, making it easier to set up your keybindings just the way you need them.
+
+<video src="images/keybinding/customize-keybinding.mp4" title="Video that shows how to customize the keybinding for the split editor action." autoplay loop controls muted></video>
 
 ## Keymap extensions
 
@@ -82,14 +88,13 @@ You can view any user modified keyboard shortcuts in VS Code in the **Keyboard S
 
 ## Advanced customization
 
-All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file, where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
 
-* To configure keyboard shortcuts through the JSON  file, open **Keyboard Shortcuts** editor and select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
-* This will open your `keybindings.json` file where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
+To open the `keybindings.json` file:
 
-![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+* Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 
-You can also open the `keybindings.json` file from the Command Palette (`kb(workbench.action.showCommands)`) with the **Preferences: Open Keyboard Shortcuts (JSON)** command.
+  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png) in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
 
@@ -424,6 +429,7 @@ Scroll Page Down|`kb(scrollPageDown)`|`scrollPageDown`
 Scroll Page Up|`kb(scrollPageUp)`|`scrollPageUp`
 Fold (collapse) region|`kb(editor.fold)`|`editor.fold`
 Unfold (uncollapse) region|`kb(editor.unfold)`|`editor.unfold`
+Toggle Fold region|`kb(editor.toggleFold)`|`editor.toggleFold`
 Fold (collapse) all subregions|`kb(editor.foldRecursively)`|`editor.foldRecursively`
 Unfold (uncollapse) all subregions|`kb(editor.unfoldRecursively)`|`editor.unfoldRecursively`
 Fold (collapse) all regions|`kb(editor.foldAll)`|`editor.foldAll`

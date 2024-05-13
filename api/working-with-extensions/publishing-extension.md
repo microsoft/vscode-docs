@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -91,7 +91,7 @@ First off, follow the documentation to [create your own organization](https://le
 
 ### Create a publisher
 
-A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
+A **publisher** is an identity that can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` identifier in its [`package.json` file](/api/references/extension-manifest).
 
 To create a publisher:
 
@@ -497,7 +497,7 @@ One easy mistake to make when creating the PAT (Personal Access Token) is to sel
 
 ### I can't unpublish my extension through the `vsce` tool?
 
-You may have changed your extension ID or publisher name. You can also manage your extensions directly via the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage). For example, update or [unpublish](#unpublishing-extensions).
+You may have changed your extension ID or publisher ID. You can also manage your extensions directly via the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage). For example, update or [unpublish](#unpublishing-extensions).
 
 ### Why does vsce not preserve file attributes?
 

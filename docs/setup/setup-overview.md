@@ -4,9 +4,9 @@ Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setting up Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Get Visual Studio Code up and running.
-MetaSocialImage: quicksetup_QuickSetup.png
+MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
 # Setting up Visual Studio Code
 
@@ -74,7 +74,7 @@ We have a list of [System Requirements](/docs/supporting/requirements.md).
 
 ### How big is VS Code?
 
-VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
+VS Code is a small download (< 200 MB) and has a disk footprint of less than 500 MB, so you can quickly install VS Code and try it out.
 
 ### How do I create and run a new project?
 

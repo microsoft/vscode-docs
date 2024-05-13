@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -110,6 +110,21 @@ By default, the task/debug features will use the default profile. This may not b
   // for tasks and debug
   "terminal.integrated.automationProfile.osx": {
     "path": "/bin/sh"
+  }
+}
+```
+
+## Profile-specific keybindings
+
+Launching a terminal with a specific profile via a [dedicated keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
+
+```json
+{
+  "key": "ctrl+shift+t",
+  "command": "workbench.action.terminal.newWithProfile",
+  "args": {
+    "profileName": "zsh",
+    "location": "editor"
   }
 }
 ```

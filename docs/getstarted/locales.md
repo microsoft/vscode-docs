@@ -4,20 +4,20 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
 
 Visual Studio Code ships by default with English as the display language and other [languages](#available-locales) rely on Language Pack [extensions](/docs/editor/extension-marketplace.md) available from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
 
- VS Code detects the operating system's UI language and will prompt you to install the appropriate Language Pack, if available on the Marketplace. Below is an example recommending a Simplified Chinese Language Pack:
+VS Code detects the operating system's UI language and prompts you to install the appropriate Language Pack, if available on the Marketplace. Below is an example recommending a Simplified Chinese Language Pack:
 
 ![Language Pack recommendation](images/locales/lang-pack-recommendation.png)
 
-After installing the Language Pack extension and following the prompt to restart, VS Code will use the Language Pack matching your operating system's UI language.
+After installing the Language Pack extension and following the prompt to restart, VS Code uses the Language Pack matching your operating system's UI language.
 
->**Note**: This topic explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
+>**Note**: This article explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
 
 ## Changing the Display Language
 
@@ -27,15 +27,15 @@ Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** th
 
 ![configure display language command](images/locales/configure-language-command.png)
 
-Press `kbstyle(Enter)` and a list of installed languages by [locale](#available-locales) is displayed, with the current `locale` highlighted.
+Press `kbstyle(Enter)` and a list of available languages by [locale](#available-locales) is displayed, with the active (current) language highlighted.
 
 ![installed languages list](images/locales/installed-languages-list.png)
 
-Use the **Install additional languages...** option to install more Language Packs from the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs), or select a different `locale` from the list. Changing the `locale` requires a restart of VS Code. You will be prompted to restart when you select a `locale`.
+Select another language to change the display language. If the Language Pack is not yet installed, VS Code installs it. You are prompted to restart when you select a different display language.
 
 The **Configure Display Language** command writes to the Runtime Configuration Arguments file `argv.json` in your user VS Code folder (`.vscode`).
 
-The `locale` can also be changed by editing the `argv.json` file directly (**Preferences: Configure Runtime Arguments**) and restarting VS Code.
+The display language can also be changed by editing the `argv.json` file directly (**Preferences: Configure Runtime Arguments**) and restarting VS Code.
 
 ## Available locales
 
@@ -61,7 +61,7 @@ Hungarian | `hu`
 
 As described above, VS Code ships with English as the default display language, but other languages are available through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs).
 
-You can search for Language Packs in the Extensions view (`kb(workbench.view.extensions)`) by typing the language you are looking for along with `category:"Language Packs"`.
+You can also search for Language Packs in the Extensions view (`kb(workbench.view.extensions)`) by typing the language you are looking for along with `category:"Language Packs"`.
 
 ![German Language Pack](images/locales/german-language-pack.png)
 

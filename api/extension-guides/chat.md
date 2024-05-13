@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -41,6 +41,7 @@ To develop a chat extension make sure to:
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [`@vscode/prompt-tsx` npm module](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
 ## Parts of the chat user experience
 
@@ -79,21 +80,29 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it in your `package.json` by providing the `name` and `description`:
+The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`:
+
 ```json
 "contributes": {
         "chatParticipants": [
             {
+                "id": "chat-sample.cat",
                 "name": "cat",
-                "description": "Meow! What can I teach you?"
+                "description": "Meow! What can I teach you?",
+                "isSticky": true
             }
         ]
 }
 ```
 
-Up-front registration of participants and commands in `package.json` is required so VS Code can activate your extension at the right time, and not before it is needed.
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
-After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide a name and a [request handler](#implement-a-request-handler). Users can then reference the chat participant in the Chat view by using the `@` symbol and the name you provided.
+The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+
+Up-front registration of participants and [commands](#register-commands) in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
+
+After registration, all your extension has to do is create the participant by using `vscode.chat.createChatParticipant`. When creating the participant, you have to provide the ID, which you defined in `package.json`, and a [request handler](#implement-a-request-handler).
 
 The following code snippet shows how to create the `@cat` chat participant (after you register it in your `package.json`):
 
@@ -101,19 +110,16 @@ The following code snippet shows how to create the `@cat` chat participant (afte
 export function activate(context: vscode.ExtensionContext) {
 
     // Register the chat participant and its request handler
-    const cat = vscode.chat.createChatParticipant('cat', handler);
+    const cat = vscode.chat.createChatParticipant('chat-sample.cat', handler);
 
     // Optionally, set some properties for @cat
-    cat.isSticky = true; // Whenever a user starts interacting with @cat, @cat will automatically be added to the following messages
     cat.iconPath = vscode.Uri.joinPath(context.extensionUri, 'cat.jpeg');
 
     // Add the chat request handler here
 }
 ```
 
-The icon and description are shown in the chat user interface. The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
-
-After registering the chat participant, you now need to implement the request handler to process a user's request.
+After registering and creating the chat participant, you now need to implement the request handler to process a user's request.
 
 ### Implement a request handler
 
@@ -140,7 +146,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
 #### Determine the request intent
 
-To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), chat location, and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
@@ -168,6 +174,10 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 Next, you need to implement the actual logic for processing the user request. Often, chat extensions use the [Language Model API](/api/extension-guides/language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
 
 While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". Learn how you can [use the chat message history](#use-the-chat-message-history).
+
+If you want to process a request differently based on the location of the chat input, you can use the `location` property of the `vscode.ChatRequest`. For example, if the user sends a request from the terminal inline chat, you might look up a shell command. Whereas, if the user uses the Chat view, you could return a more elaborate response.
+
+You can use the [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) library to craft chat messages and manage conversation history with respect to your chosen model's context window constraints.
 
 #### Return the chat response
 
@@ -198,10 +208,10 @@ In practice, extensions typically send a request to the language model. Once the
 
 #### Use the chat message history
 
-Participants have access to the history of the current chat session. For example, using the following code snippet the `@cat` participant can get all the previous `@cat` messages in the current chat session:
+Participants have access to the message history of the current chat session. A participant can only access messages where it was mentioned. A `history` item is either a `ChatRequestTurn` or a `ChatResponseTurn`. For example, use the following code snippet to retrieve all the previous requests that the user sent to your participant in the current chat session:
 
 ```typescript
- const previousMessages = context.history.filter(h => h.participant.name == 'cat');
+const previousMessages = context.history.filter(h => h instanceof vscode.ChatRequestTurn);
 ```
 
 History will not be automatically included in the prompt, it is up to the participant to decide if it wants to add history as additional context when passing messages to the language model.
@@ -220,8 +230,10 @@ Chat participants can contribute commands with their description by adding them 
 "contributes": {
     "chatParticipants": [
         {
+            "id": "chat-sample.cat",
             "name": "cat",
             "description": "Meow! What can I teach you?",
+            "isSticky": true,
             "commands": [
                 {
                     "name": "teach",
@@ -313,6 +325,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace, your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
+- By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).

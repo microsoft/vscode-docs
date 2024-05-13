@@ -4,23 +4,24 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
-# Color Themes
+# Themes
 
-Color themes let you modify the colors in Visual Studio Code's user interface to suit your preferences and work environment.
+## Color Themes
+
+Color themes enable you to modify the colors in the Visual Studio Code user interface to match your preferences and work environment. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
 
 ![Preview themes from the Command Palette](images/themes/themes_hero.gif)
 
-## Selecting the Color Theme
+To select a different Color Theme:
 
-1. In VS Code, open the Color Theme picker with **File** > **Preferences** > **Theme** > **Color Theme**.
-2. You can also use the keyboard shortcut `kb(workbench.action.selectTheme)` to display the picker.
-3. Use the cursor keys to preview the colors of the theme.
-4. Select the theme you want and press `kbstyle(Enter)`.
+1. Select the **File** > **Preferences** > **Theme** > **Color Theme** menu item, or use the **Preferences: Color Theme** command (`kb(workbench.action.selectTheme)`) to display the Color Theme picker.
 
-![Themes in the Command Palette](images/themes/colorthemes.png)
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the colors of the theme.
+
+1. Select the theme you want and press `kbstyle(Enter)`.
 
 The active color theme is stored in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
@@ -29,32 +30,38 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
   "workbench.colorTheme": "Solarized Dark"
 ```
 
-> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
+> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace-specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
+>
+> ![Screenshot of Settings editor to set a workspace-specific Color Theme.](images/themes/workspace-color-theme.png)
 
 ## Color Themes from the Marketplace
 
-There are several out-of-the-box color themes in VS Code for you to try.
+There are several out-of-the-box color themes in VS Code for you to try. Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md) by the community.
 
-Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md) by the community.  If you find one you want to use, install it and restart VS Code and the new theme will be available.
+You can select Color Themes from the VS Code Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
 
-You can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box using the `@category:"themes"` filter.
+![Screenshot of Color Theme picker, highlighting the option to browse themes from the VS Code Marketplace.](images/themes/additional-color-themes.png)
+
+Alternately, you can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box by using the `@category:"themes"` filter.
 
 ![Searching for themes in the Extensions view](images/themes/category-themes.png)
 
-## Auto switch based on OS color scheme
+## Automatically switch based on OS color scheme
 
 Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
 
+Similarly, you can use the `window.autoDetectHighContrast` setting to automatically detect if the OS switched to a high-contrast color scheme.
+
 To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes in the Settings editor:
 
-* **Workbench: Preferred Dark Color Theme** - defaults to "Dark Modern"
-* **Workbench: Preferred Light Color Theme** - defaults to "Light Modern"
-* **Workbench: Preferred High Contrast Color Theme** - defaults to "Dark High Contrast"
-* **Workbench: Preferred High Contrast Light Color Theme** - defaults to "Light High Contrast"
+* **Workbench: Preferred Dark Color Theme** - defaults to Dark Modern
+* **Workbench: Preferred Light Color Theme** - defaults to Light Modern
+* **Workbench: Preferred High Contrast Color Theme** - defaults to Dark High Contrast
+* **Workbench: Preferred High Contrast Light Color Theme** - defaults to Light High Contrast
 
 ![Settings editor filtered on the preferred color themes settings](images/themes/preferred-color-themes.png)
 
-## Customizing a Color Theme
+## Customize a Color Theme
 
 ### Workbench colors
 
@@ -66,7 +73,7 @@ To set the colors of VS Code UI elements such as list & trees (File Explorer, su
 
 You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/api/references/theme-color.md).
 
-To customize a specific theme only, use the following syntax:
+To make customizations to a specific theme, use the following syntax:
 
 ```json
 "workbench.colorCustomizations": {
@@ -76,7 +83,7 @@ To customize a specific theme only, use the following syntax:
 }
 ```
 
-If a customization applies to more than one themes, you can name multiple themes or use `*` as wildcard at the beginning and the end of the name:
+If a customization applies to more than one theme, you can name multiple themes or use `*` as a wildcard at the beginning and end of the name:
 
 ```json
 "workbench.colorCustomizations": {
@@ -95,13 +102,13 @@ To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomiza
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
-A pre-configured set of syntax tokens ('comments', 'strings', ...) is available for the most common constructs. If you want more, you can do so by directly specifying TextMate theme color rules:
+A preconfigured set of syntax tokens ('comments', 'strings', ...) is available for the most common constructs. If you want more, you can do so by directly specifying TextMate theme color rules:
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
->**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
+>**Note**: Directly configuring TextMate rules is an advanced skill, as you need to understand how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
 
-Again, to customize specific themes, you can do this in one of the following ways:
+To customize specific themes, you can do this in one of the following ways:
 
 ```json
 "editor.tokenColorCustomizations": {
@@ -140,7 +147,7 @@ The settings `editor.semanticHighlighting.enabled` serves as the main control on
 * `true` and `false` turn semantic highlighting on or off for all themes.
 * `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
 
-Users can override the theme setting by:
+You can override the theme setting by:
 
 ```json
 "editor.semanticTokenColorCustomizations": {
@@ -150,9 +157,9 @@ Users can override the theme setting by:
 }
 ```
 
-When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
+When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic tokens are rendered with that color, without the need for any additional coloring rules.
 
-Additional styling rules can be configured by the user in `editor.semanticTokenColorCustomizations"`:
+Additional styling rules can be configured in `editor.semanticTokenColorCustomizations"`:
 
 ```json
 "editor.semanticTokenColorCustomizations": {
@@ -165,61 +172,62 @@ Additional styling rules can be configured by the user in `editor.semanticTokenC
 }
 ```
 
-To see what semantic tokens are computed and how they are styled, users can use the scope inspector (**Developer: Inspect Editor Tokens and Scopes**), which displays information for the text at the current cursor position.
+To see what semantic tokens are computed and how they are styled, you can use the scope inspector (**Developer: Inspect Editor Tokens and Scopes**), which displays information for the text at the current cursor position.
 
 ![scope inspector](images/themes/semantic-highlighting-scope-inspector.png)
 
-If semantic tokens are available for the language at the given position and enabled by theme, the inspect tool shows a section `semantic token type`. The section shows the semantic token information (type and any number of modifiers) as well as the styling rules that apply.
+If semantic tokens are available for the language at the given position and enabled by theme, the inspect tool shows a section **semantic token type**. The section shows the semantic token information (type and any number of modifiers) and the styling rules that apply.
 
 More information on semantic tokens and styling rule syntax can be found in the [Semantic Highlighting Guide](/api/language-extensions/semantic-highlight-guide.md).
 
-## Creating your own Color Theme
+## Create your own Color Theme
 
 Creating and publishing a theme extension is easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
-VS Code's Yeoman [extension generator](/api/get-started/your-first-extension.md) will help you generate the rest of the extension.
+VS Code's Yeoman [extension generator](/api/get-started/your-first-extension.md) helps you generate the rest of the extension.
 
-See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) topic in our Extension API section to learn more.
+See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) article in our Extension API section to learn more.
 
 ## Remove default Color Themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Click the **Filter Extensions** button from the top of the Extensions view, select the **Built-in** option, and you'll see a **THEMES** section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Select the **Filter Extensions** button from the top of the Extensions view, select the **Built-in** option, and you see a **THEMES** section that lists the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 
-You can disable a built-in theme extension as you would any other VS Code [extension](/docs/editor/extension-marketplace.md) with the **Disable** command on the gear context menu.
+You can disable a built-in theme extension, as you would any other VS Code [extension](/docs/editor/extension-marketplace.md) with the **Disable** command on the gear context menu.
 
 ![disable theme](images/themes/disable-theme.png)
 
 ## File Icon Themes
 
-File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
+File icons indicate a particular file type. These icons are shown alongside the file name in the Explorer view and in tabbed headings. File Icon Themes can be contributed by extensions.
 
-### Selecting the File Icon Theme
+To select a different File Icon Theme:
 
-1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **Theme** > **File Icon Theme**.
-2. You can also use the **Preferences: File Icon Theme** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
-3. Use the cursor keys to preview the icons of the theme.
-4. Select the theme you want and hit `kbstyle(Enter)`.
+1. Select the **File** > **Preferences** > **Theme** > **File Icon Theme** menu item, or use the **Preferences: File Icon Theme** command to display the File Icon Theme picker.
+
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the icons of the theme.
+
+1. Select the theme you want and press `kbstyle(Enter)`.
 
 ![file icon theme dropdown](images/themes/file-icon-theme-dropdown.png)
 
-By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once a file icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
+By default, the **Seti** File Icon Theme is used and those are the icons you see in the Explorer view. VS Code remembers your File Icon Theme selection across restarts. You can disable file icons by selecting **None**.
 
-VS code ships with two file icon themes; **Minimal** and **Seti**. To install more file icon themes, select the **Install Additional File Icon Themes** item in the file icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
+VS Code ships with two file icon themes: **Minimal** and **Seti**. To install more File Icon Themes, select the **Install Additional File Icon Themes** item in the File Icon Theme picker, which opens the Extensions view, filtered by icon themes.
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
-The active File Icon theme is persisted in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
+The active File Icon Theme is persisted in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
   // Specifies the file icon theme used in the workbench.
   "workbench.iconTheme": "vs-seti"
 ```
 
-## Creating your own File Icon Theme
+## Create your own File Icon Theme
 
-You can create your own File Icon Theme from icons (preferably SVG), see the [File Icon Theme](/api/extension-guides/file-icon-theme.md) topic in our Extension API section for details.
+You can create your own File Icon Theme from icons (preferably SVG), see the [File Icon Theme](/api/extension-guides/file-icon-theme.md) article in our Extension API section for details.
 
 ## VS Code for the Web
 
@@ -229,14 +237,32 @@ You can share and experience color themes through VS Code for the Web through th
 
 For instance, you can go to [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
 
-You can learn more about previewing and sharing themes with VS Code for the Web in its [documentation](/docs/editor/vscode-web.md#themes).
+You can learn more about previewing and sharing themes with in the [VS Code for the Web documentation](/docs/editor/vscode-web.md#themes).
+
+## Product Icon Themes
+
+Product Icon Themes enable you to change the icons in the VS Code user interface, other than the icons for specific file types. For example, you can modify the icons for the views in the Activity Bar, or the icons in the title bar for changing the layout.
+
+Notice in the following image how the Activity Bar icons are updated when selecting a different Product Icon Theme.
+
+![Screenshot of the Product Icon Theme dropdown, and how the Activity Bar icons are changed.](images/themes/product-icon-theme-dropdown.png)
+
+To select a different Product Icon Theme:
+
+1. Select the **File** > **Preferences** > **Theme** > **Product Icon Theme** menu item, or use the **Preferences: Product Icon Theme** command to display the Product Icon Theme picker.
+
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the icons of the theme.
+
+1. Select the theme you want and press `kbstyle(Enter)`.
+
+By default, VS Code comes with one Product Icon Theme, **Default**. You can select more Product Icon Themes from the VS Code Marketplace directly from the Product Icon Theme picker by selecting **Browse Additional Product Icon Themes...**.
 
 ## Next steps
 
-Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these topics:
+Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these articles:
 
 * [Settings](/docs/getstarted/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language.
+* [Snippets](/docs/editor/userdefinedsnippets.md) - Add extra snippets to your favorite language.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.
 * [File Icon Theme](/api/extension-guides/file-icon-theme.md) - File Icon Theme extension API.

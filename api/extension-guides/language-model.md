@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -31,15 +31,14 @@ The process for using the Language Model API consists of the following steps:
 
 To interact with a language model, extensions should first craft their prompt and then send a request to the language model. Extensions can use two types of prompts:
 
-- `LanguageModelSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
-- `LanguageModelUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
+- `LanguageModelChatSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
+- `LanguageModelChatUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelUserMessage('I want to understand recursion')
+    new vscode.LanguageModelChatSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelChatUserMessage('I want to understand recursion')
 ];
-const chatRequest = vscode.lm.sendChatRequest(craftedPrompt, {}, token);
 ```
 
 For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
@@ -154,7 +153,8 @@ The part of the extension for building prompts and interpreting language model r
 
 Once we finalize the Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
 
-- By publishing to the VS Marketplace your extension is adhering to the GitHub Copilot extensibility acceptable development and use policy
+- Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
+- By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" to the `categories` field in your `package.json`. If your extension contributes a Chat Participant, add "Chat" as well.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 

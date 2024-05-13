@@ -4,9 +4,9 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
-MetaSocialImage: codebasics_CodeBasics.png
+MetaSocialImage: images/codebasics/code-basics-social.png
 ---
 # Basic Editing
 
@@ -163,6 +163,8 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
+>**Tip:** You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
+
 ### Advanced search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
@@ -216,7 +218,7 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 
 The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
 
-In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, you can configure the behavior for single-clicking or double-clicking a search result with the `search.searchEditor.singleClickBehaviour` and `search.searchEditor.doubleClickBehaviour` settings. For example, to open a peek definition window or to open the source location.
 
 You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
 

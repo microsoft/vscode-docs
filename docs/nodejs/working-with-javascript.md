@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript

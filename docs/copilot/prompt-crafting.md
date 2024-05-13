@@ -1,19 +1,27 @@
 ---
-Order: 6
+Order: 7
 Area: copilot
-TOCTitle: Prompt crafting
+TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-PageTitle: Prompt crafting for GitHub Copilot
-DateApproved: 02/28/2024
-MetaDescription: Optimize your development experience with GitHub Copilot in VS Code through crafting chat prompts and providing context.
+PageTitle: Best practices for GitHub Copilot in VS Code
+DateApproved: 05/02/2024
+MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot optimization with prompt crafting and context setting
+# Best practices for using GitHub Copilot in VS Code
 
-This article covers best practices for using GitHub Copilot in Visual Studio Code, so that you make the most of your AI pair programming experience.
+This article covers best practices for using GitHub Copilot in Visual Studio Code by using prompt crafting and providing the right context to GitHub Copilot.
 
 >**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
+
+There are different options for optimizing your Copilot experience for inline suggestions and chat:
+
+- [Get the most out of inline suggestions](#getting-the-most-out-of-copilot-inline-suggestions)
+- [Get the most out of Copilot Chat](#getting-the-most-out-of-copilot-chat)
 
 ## Getting the most out of Copilot inline suggestions
 
@@ -25,7 +33,7 @@ Copilot works best when it has sufficient context to know what you're doing and 
 
 #### Open files
 
-Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
+For code completions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
 
 #### Top level comment
 
@@ -95,29 +103,33 @@ You can also get assistance from Copilot via a [chat interface](/docs/copilot/ov
 
 When you're using chat to interact with GitHub Copilot, there are several things you can do to optimize your experience.
 
-### Use agents and slash commands
+### Use chat participants and slash commands
 
-Agents are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate agent, Copilot Chat can find and provide better information to send to the Copilot backend. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
+Chat participants are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate participant, Copilot Chat can find and provide better information to send to the Copilot backend. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
 
-![Asking the @vscode agent how to change the VS Code colors](images/prompt-crafting/agent-example.png)
+![Asking the @vscode participant how to change the VS Code colors](images/prompt-crafting/agent-example.png)
 
 Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
 ![Inline chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
 
-You could write out your project scope or current task with a natural language query but using agents and slash commands is more concise and explicit.
+You could write out your project scope or current task with a natural language query but using chat participants and slash commands is more concise and explicit.
 
-### Use context variables
+Learn more about [chat participants](/docs/copilot/copilot-chat.md#chat-participants) and [slash commands](/docs/copilot/copilot-chat.md#slash-commands) in Copilot Chat.
 
-You can use context variables to provide extra context to your questions in chat by using the `#` symbol:
+### Use chat variables for context
 
-The `#selection` context variable enables you to focus Copilot's suggestions on the specific text you select in the editor.
+Chat participants, such as `@workspace` or `@vscode`, can contribute chat variables that provide domain-specific context. You can reference a chat variable in your chat prompt by using the `#` symbol. By using a chat variable, you can be more specific about the context that you include in your chat prompt.
 
-The `#file` variable lets you reference specific files from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #file:package.json?" or "How do I add an extension in #file:devcontainer.json?". By using the `#file` variable, you can get more targeted and accurate responses from Copilot.
+For example, the `#file` variable lets you reference specific files from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #file:package.json?" or "How do I add an extension in #file:devcontainer.json?". By using the `#file` variable, you can get more targeted and accurate responses from Copilot.
 
-With the `#editor` context variable, you have control over whether to include the visible code of the active editor in your prompt to Copilot Chat. Previously, this information was automatically included when you hadn't selected text in the editor. Now, you can choose to explicitly add the visible code to the context or omit it for more general questions.
+Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-variables).
 
-By combining the `#file`, `#editor`, and `#selection` variables, you have full control over the context you provide to Copilot Chat, ensuring that you receive the most relevant and helpful answers.
+### Be specific and keep it simple
+
+When you ask Copilot to do something, be specific in your ask and break down a large task into separate, smalller tasks. For example, don't ask Copilot to create an Express app, that uses TypeScript and Pug, and that has a products page that retrieves data from a MongoDB database. Instead, first ask Copilot to create the Express app with TypeScript and Pug. Next, ask to add a products page, and finally ask to retrieve the customer data from a database.
+
+When you ask Copilot to do a specific task, be specific about the inputs, outputs, APIs, or frameworks you want to use. The more specific your prompt is, the better the outcome will be. For example, instead of "read product data from the database", use "read all products by category, return the data in JSON format, and use the Mongoose library".
 
 ### Iterate on your solution
 
@@ -138,28 +150,6 @@ You can even ask Copilot to follow coding conventions or improve variable names:
 Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
 
 ![Ask inline chat to use better variable names on existing code](images/prompt-crafting/fibonacci-better-var-names.png)
-
-### Chat view locations
-
-You can access the Copilot Chat view via the Activity Bar. Like other views in VS Code, you can [drag and drop](/docs/editor/custom-layout.md#drag-and-drop-views-and-panels) the Chat view anywhere.
-
-For example, you can move it to the [Secondary Side Bar](/docs/editor/custom-layout.md#secondary-side-bar), so that you can use other views like the Explorer at the same time:
-
-![Copilot view moved to Secondary Side Bar](images/prompt-crafting/secondary-sidebar.png)
-
-Another option is to drag and drop the Chat view into the Panel region, for example not to take away screen space for the editor.
-
-![Chat view in the Panel region](images/prompt-crafting/chat-in-panel.png)
-
-If you need a larger display area for Copilot Chat, you can open the Chat view in the editor region. From the Chat view title bar **More Actions** (`...`) menu, select **Open Session in Editor**.
-
-![Copilot Chat view title bar More Actions with Open Session in Editor selected](images/prompt-crafting/open-session-in-editor.png)
-
-Just like any open editor, you can move editor-hosted Chat views into separate [Editor Groups](/docs/getstarted/userinterface.md#editor-groups) and use display customizations such as [Grid layout](/docs/editor/custom-layout.md#grid-layout) to have multiple chat sessions open in the editor region.
-
-To move the Chat view back to the side bar, use the **Open Session in Side Bar** command in the editor title bar when the Chat view is the active editor.
-
-![Chat view in editor with Open Session in Side bar displayed](images/prompt-crafting/open-session-in-sidebar.png)
 
 ## More resources about prompting for Copilot
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools
@@ -25,11 +25,11 @@ You'll find the components above mentioned often in our documentation and walkth
 
 ## VS Code extensions
 
-You can extend the VS Code editor itself through [extensions](/docs/editor/extension-marketplace.md). The VS Code community has built hundreds of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
+You can extend the VS Code editor itself through [extensions](/docs/editor/extension-marketplace.md). The VS Code community has built thousands of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
+
+The following list shows some of the popular extensions in the VS Code Marketplace. Select an extension tile to view the extension details.
 
 <div class="marketplace-extensions-top"></div>
-
-The extensions shown above are the current most popular on Marketplace. Click on an extension tile above to read the description and reviews of the extension.
 
 ## Additional tools
 

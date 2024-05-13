@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 02/28/2024
+DateApproved: 05/02/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -194,7 +194,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 
 ## Activity Bar
 
-The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
+The Activity Bar is usually displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
 - `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
@@ -210,6 +210,8 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBarTop.activeBorder`: Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.inactiveForeground`: Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.background`: Background color of the activity bar when set to top / bottom.
+- `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
 
 ## Profiles
 
@@ -229,6 +231,12 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
 - `sideBarSectionHeader.border`: Side bar section header border color.
+- `sideBarActivityBarTop.border`: Border color between the activity bar at the top/bottom and the views.
+- `sideBarTitle.background`: Side bar title background color. The side bar is the container for views like explorer and search.
+- `sideBarStickyScroll.background`: Background color of sticky scroll in the side bar.
+- `sideBarStickyScroll.border`: Border color of sticky scroll in the side bar.
+- `sideBarStickyScroll.shadow`: Shadow color of sticky scroll in the side bar.
+
 
 ## Minimap
 
@@ -325,6 +333,10 @@ All other editor colors are listed here:
 - `editorLineNumber.dimmedForeground`: Color of the final editor line when editor.renderFinalNewline is set to dimmed.
 - `editorCursor.background`: The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `editorCursor.foreground`: Color of the editor cursor.
+- `editorMultiCursor.primary.foreground`: Color of the primary editor cursor when multiple cursors are present.
+- `editorMultiCursor.primary.background`: The background color of the primary editor cursor when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
+- `editorMultiCursor.secondary.foreground`: Color of secondary editor cursors when multiple cursors are present.
+- `editorMultiCursor.secondary.background`: The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
 
 Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
 
@@ -733,6 +745,9 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSection.dropBackground`: Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.background`: Panel section header background color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelStickyScroll.background`: Background color of sticky scroll in the panel.
+- `panelStickyScroll.border`: Border color of sticky scroll in the panel.
+- `panelStickyScroll.shadow`: Shadow color of sticky scroll in the panel.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `outputView.background`: Output view background color.
 - `outputViewStickyScroll.background`: Output view sticky scroll background color.
@@ -957,13 +972,19 @@ The following customizations are available:
 
 ## Testing colors
 
-- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
-- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
-- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
 - `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
 - `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
 - `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
 - `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.iconErrored.retired`: Retired color for the 'Errored' icon in the test explorer.
+- `testing.iconFailed.retired`: Retired color for the 'failed' icon in the test explorer.
+- `testing.iconPassed.retired`: Retired color for the 'passed' icon in the test explorer.
+- `testing.iconQueued.retired`: Retired color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset.retired`: Retired color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped.retired`: Retired color for the 'Skipped' icon in the test explorer.
 - `testing.peekBorder`: Color of the peek view borders and arrow.
 - `testing.peekHeaderBackground`: Color of the peek view borders and arrow.
 - `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
