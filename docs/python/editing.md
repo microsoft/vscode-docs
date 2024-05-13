@@ -110,7 +110,9 @@ Pylance displays the **Change spelling** Quick Fix on unresolved variables or mi
 ![Change spelling code action on missing import due to a typo](images/editing/change-spelling-code-action.gif)
 
 
-> **Note**: Symbol aliases defined in user code (for example,  the `bar` alias in `import foo as bar`) are not supported by these Quick Fixes for performance reasons. Just like with auto imports, only top-level symbols are suggested by default, but you can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting.
+> **Note**: For user symbols, these Quick Fixes will suggest the imports only from the files where they are defined. Import suggestions from files where the user symbols are external/imported aren't supported.
+>
+> Also note that for symbols coming from installed packages (typically located under the `site-packages` folder of your Python environment), only those defined in the package's `__init__.py` file are suggested by these Quick Fixes. You can customize this behavior for specific packages through the `python.analysis.packageIndexDepths` setting, but please note it may impact Pylance's performance.
 
 ## Refactorings
 
@@ -142,7 +144,7 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 ### Move Symbol
 
-The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files: 
+The Pylance extension offers two Code Actions to simplify the process of moving symbols to different files:
 
 * **Move symbol to...**: displays a file picker to select the destination file for the symbol to be moved to.
 * **Move symbol to new file**: creates a new file with the symbol name, located in the same directory as the source file where the Code Action was invoked.
