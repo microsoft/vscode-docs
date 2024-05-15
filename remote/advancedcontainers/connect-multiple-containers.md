@@ -35,23 +35,20 @@ The location of the `.git` folder is important, since we will need to ensure the
 Next, assume the `docker-compose.yml` in the root is as follows:
 
 ```yaml
-version: '3'
 services:
   python-api:
     image: mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
     volumes:
       # Mount the root folder that contains .git
-      - .:/workspace:cached
+      - .:/workspace
     command: sleep infinity
-    links:
-      - node-app
     # ...
 
   node-app:
     image: mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
     volumes:
       # Mount the root folder that contains .git
-      - .:/workspace:cached
+      - .:/workspace
     command: sleep infinity
     # ...
 ```
@@ -80,7 +77,7 @@ Next, you can set up `./devcontainer/node-container/devcontainer.json` for Node.
 }
 ```
 
-The `"shutdownAction":"none"` in the `devcontainer.json` files is optional, but will leave the containers running when VS Code closes -- which prevents you from accidentally shutting down both containers by closing one window.
+The `"shutdownAction": "none"` in the `devcontainer.json` files is optional, but will leave the containers running when VS Code closes -- which prevents you from accidentally shutting down both containers by closing one window.
 
 ## Connect to multiple containers in multiple VS Code windows
 
@@ -110,16 +107,15 @@ If you want to [extend your Docker Compose file for development](/docs/devcontai
 For example, consider this `docker-compose.devcontainer.yml` file:
 
 ```yaml
-version: '3'
 services:
   python-api:
     volumes:
-      - ~:~/local-home-folder:cached # Additional bind mount
+      - ~:~/local-home-folder # Additional bind mount
     # ...
 
   node-app:
     volumes:
-      - ~/some-folder:~/some-folder:cached # Additional bind mount
+      - ~/some-folder:~/some-folder # Additional bind mount
     # ...
 ```
 
