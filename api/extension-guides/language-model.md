@@ -19,7 +19,7 @@ The process for using the Language Model API consists of the following steps:
 1. Send the language model request
 1. Interpret the response
 
-> **Note**: The Language Model API is in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
@@ -29,14 +29,14 @@ The process for using the Language Model API consists of the following steps:
 
 ## Prompt crafting
 
-To interact with a language model, extensions should first craft their prompt and then send a request to the language model. Extensions can use two types of prompts:
+To interact with a language model, extensions should first craft their prompt and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompt can also define the context in which user messages are interpreted.
 
-- `LanguageModelChatSystemMessage`: provides instructions to the language model on the broad task that you're using the model for. It defines the context in which user messages are interpreted. In the following example, the system message is used to specify the persona used by the model in its replies and what rules the model should follow.
-- `LanguageModelChatUserMessage`: the specific request or instruction coming from the user, or determined by the specific task to be accomplished. For example, to provide alternative names for renaming a symbol.
+In the following example, the first message is used to specify the persona used by the model in its replies and what rules the model should follow.
+The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished.
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelChatSystemMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelChatUserMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
     new vscode.LanguageModelChatUserMessage('I want to understand recursion')
 ];
 ```
@@ -47,7 +47,7 @@ For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https
 
 ## Send the language model request
 
-Once you've built the prompt for the language model, you can send the request by using `sendChatRequest`. You have to provide the name of the specific language model as an input parameter. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time.
+Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family` or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
 
 When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
 
@@ -55,7 +55,8 @@ The following code snippet shows how to make a language model request:
 
 ```typescript
 try {
-    const chatRequest = vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', craftedPrompt, {}, token);
+    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-3.5-turbo' });
+    const request = model.sendRequest(craftedPrompt, {}, token);
 } catch (err) {
     // Making the chat request might fail because
     // - model does not exist
@@ -84,9 +85,9 @@ The following code snippet shows how an extension can register a command, which 
     // Replace all variables in active editor with cat names and words
     const text = textEditor.document.getText();
     const messages = [
-        new vscode.LanguageModelChatSystemMessage(`You are a cat! Think carefully and step by step like a cat would.
+        vscode.LanguageModelChatMessage.User(`You are a cat! Think carefully and step by step like a cat would.
         Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
-        new vscode.LanguageModelChatUserMessage(text)
+        vscode.LanguageModelChatMessage.User(text)
     ];
 
     try {
@@ -107,7 +108,7 @@ The following code snippet shows how an extension can register a command, which 
 
     try {
         // Stream the code into the editor as it is coming in from the Language Model
-        for await (const fragment of chatRequest.stream) {
+        for await (const fragment of chatRequest.text) {
             await textEditor.edit(edit => {
                 const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
                 const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
@@ -151,7 +152,7 @@ The part of the extension for building prompts and interpreting language model r
 
 ## Publishing your extension
 
-Once we finalize the Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, you can publish your extension to the Visual Studio Marketplace:
 
 - Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
