@@ -25,7 +25,7 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat and Language Model API are in a [proposed state](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) and we are actively working on adding more functionality. Share your feedback in [this GitHub issue](https://github.com/microsoft/vscode/issues/199908) or create new issues.
+> **Note:** The Chat and Language Model API are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
 
 ## Prerequisites
 
@@ -41,7 +41,6 @@ To develop a chat extension make sure to:
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
-- [`@vscode/prompt-tsx` npm module](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
 ## Parts of the chat user experience
 
@@ -88,6 +87,7 @@ The first step to create a chat extension is to register it in your `package.jso
             {
                 "id": "chat-sample.cat",
                 "name": "cat",
+                "fullName": "Cat",
                 "description": "Meow! What can I teach you?",
                 "isSticky": true
             }
@@ -95,8 +95,7 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
-We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use capital case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
@@ -177,8 +176,6 @@ While processing the current request, you might want to refer to previous chat m
 
 If you want to process a request differently based on the location of the chat input, you can use the `location` property of the `vscode.ChatRequest`. For example, if the user sends a request from the terminal inline chat, you might look up a shell command. Whereas, if the user uses the Chat view, you could return a more elaborate response.
 
-You can use the [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) library to craft chat messages and manage conversation history with respect to your chosen model's context window constraints.
-
 #### Return the chat response
 
 Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, progress, buttons, and file trees. For example to generate this response:
@@ -232,6 +229,7 @@ Chat participants can contribute commands with their description by adding them 
         {
             "id": "chat-sample.cat",
             "name": "cat",
+            "fullName": "Cat",
             "description": "Meow! What can I teach you?",
             "isSticky": true,
             "commands": [
@@ -271,6 +269,8 @@ cat.followupProvider = {
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
 ## Variables
+
+> **Note:** The Variables API is still in a proposed state and we are actively working on it.
 
 Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preferred.
 
@@ -323,7 +323,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Publishing your extension
 
-Once you have created your AI extension, and once we finalize the Chat and Language Model API (expected in the next couple of months), you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, you can publish your extension to the Visual Studio Marketplace:
 
 - Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
