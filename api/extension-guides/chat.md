@@ -38,7 +38,7 @@ To develop a chat extension make sure to:
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [Use the Language Model API](/api/extension-guides/language-model)
-- [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
+- [ChatParticipant API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L18580)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
