@@ -1963,7 +1963,7 @@ when <a href="#window.showInputBox">window.showInputBox</a> does not offer the r
 
 
 
-<a name="window.createQuickPick"></a><span class="ts" id=2818 data-target="#details-2818" data-toggle="collapse"><span class="ident">createQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#QuickPick">QuickPick</a>&lt;<a class="type-intrinsic">T</a>&gt;</span>
+<a name="window.createQuickPick"></a><span class="ts" id=2818 data-target="#details-2818" data-toggle="collapse"><span class="ident">createQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#QuickPick">QuickPick&lt;T&gt;</a></span>
 <div class="details collapse" id="details-2818">
 <div class="comment"><p>Creates a <a href="#QuickPick">QuickPick</a> to let the user pick an item from a list
 of items of type T.</p>
