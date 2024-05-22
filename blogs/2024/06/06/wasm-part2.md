@@ -28,7 +28,7 @@ Doing so is quite easy since VS Code's component model implementation provides a
 
 When we started working on [WebAssembly support for VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi), one of our envisioned use cases was to execute language servers using WebAssembly. With the latest changes to [VS Code's LSP libraries](https://github.com/Microsoft/vscode-languageserver-node) and the introduction of a new module to bridge between WebAssembly and LSP, implementing a WebAssembly language server is now as straightforward as implementing it as an operating system process. Additionally, WebAssembly language servers run on the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which fully supports WASI Preview 1. This means that language servers can access the files in the workspace using the normal filesystem API of their programming language, even if the files are stored remotely (e.g., in a GitHub repository).
 
-Below is a code snippet of a Rust language server based on the [example server](https://insiders.vscode.dev/github.com/rust-lang/rust-analyzer/blob/master/lib/lsp-server/examples/goto_def.rs#L1) from the `lsp_server` crate. It doesn't perform any language analysis; it simply returns a predefined result for a `GotoDefinition` request:
+Below is a code snippet of a Rust language server based on the [example server](https://insiders.vscode.dev/github.com/rust-lang/rust-analyzer/blob/master/lib/lsp-server/examples/goto_def.rs#L1) from the `lsp_server` crate. It doesn't perform any language analysis. It simply returns a predefined result for a `GotoDefinition` request:
 
 ```rust
 match cast::<GotoDefinition>(req) {
@@ -164,6 +164,8 @@ window.showInformationMessage(`The workspace contains ${result} files.`);
 Running this on the `vscode-languageserver` repository shows the following notification:
 
 ![Running count all files](count-files.png)
+
+It should also be highlighted that a language server doesn't necessarily need to implement any of the features specified in the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) specification. If an extension wants to integrate library code that can only be compiled to the WASI Preview 1 target, implementing a language server with custom messages might be a good choice.
 
 ## What Comes Next
 
