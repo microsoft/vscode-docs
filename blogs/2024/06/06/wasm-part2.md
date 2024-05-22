@@ -1,5 +1,5 @@
 ---
-Order: 86
+Order: 87
 TOCTitle: VS Code Extensions and WebAssembly - Part Two
 PageTitle: VS Code Extensions and WebAssembly - Part Two
 MetaDescription: Using WebAssembly for Extension Development.
