@@ -78,39 +78,33 @@ sudo apt-get install build-essential gdb
 
 ## Create a CMake project
 
-If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory, you can skip to [Select a kit](#select-a-kit) to configure your existing project.
+If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory, you can skip to [Configure Hello World](#configure-hello-world) to configure your existing project.
 
-Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `cmakeQuickStart`, navigate into it, and open VS Code in that folder by entering the following commands:
+Otherwise, please view [our docs for getting started with CMake](cmake-quickstart)
 
-```bash
-mkdir cmakeQuickStart
-cd cmakeQuickStart
-code .
-```
+### Configure Hello World
 
-The `code .` command opens VS Code in the current working folder, which becomes your "workspace".
+Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code - Using CMake Presets and CMake Kits/Variants
 
-### Create a CMake hello world project
+#### Configure using Presets
+We recommend using CMake Presets for managing your CMake configurations. CMake Presets allow you to have a central JSON file where you can store all the configurations for your project and share with others, across different IDEs, and across different operating systems.
 
-The CMake Tools extension can create the files for a basic CMake project for you. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Quick Start** command:
+If you followed the [CMake quick start guide above](cmake-quickstart), you should have CMake Presets in your project.
 
-![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
+If your project has a `CMakePresets.json` file, you can utilize your Configure and Build presets to specify how to build your project on your machine.
 
-Enter a project name. This will be written to `CMakeLists.txt` and a few initial source files.
+You can view the active configuration of presets in the Project Status View on the left-hand CMake Tools under the **Configure** and **Build** node. You can always select these nodes under the **Configure** and **Build** node to set or change your Configure and Build presets.
 
-Next, select **Executable** as the project type to create a basic source file (`main.cpp`) that includes a basic `main()` function.
+![CMake Side Panel with presets](images/cpp/cmake-side-panel-presets.png)
 
-![Choose project type](images/cpp/cmake-choose-type.png)
+You can lso set any of your presets them by opening the command palette (`kb(workbench.action.showCommands)`) and running **CMake: Select Configure Preset** to select your desired configure preset and  **CMake: Select Build Preset** to select your desired build preset.
 
-**Note:** If you had wanted to create a basic source and header file, you would have selected **Library** instead. But for this tutorial, **Executable** will do. If you are prompted to configure IntelliSense for the folder, select **Allow**.
+![CMake Select presets](images/cpp/select-cmake-preset.png)
 
-This creates a hello world CMake project containing `main.cpp`, `CMakeLists.txt` (which tells the CMake tools how to build your project), and a folder named `build` for your build files:
+#### Configure Using Kits
+If your project does not have a `CMakePresets.json` file, you'll need to use kits. A kit represents a toolchain, which is the compiler, linker, and other tools used to build your project.
 
-![Project contents](images/cpp/cmake-project-contents.png)
-
-### Select a kit
-
-Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. Do that by scanning for 'kits'. A kit represents a toolchain, which is the compiler, linker, and other tools used to build your project. To scan for kits:
+To scan for kits:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. The extension will automatically scan for kits on your computer and create a list of compilers found on your system.
 
@@ -118,17 +112,13 @@ Before you can use the CMake Tools extension to build a project, you need to con
 
     ![Select the kit](images/cpp/cmake-selectkit.png)
 
-## Configure Hello World
-
-There are two things you must do to configure your CMake project: select a kit (which you just did) and select a variant.
-
 The kit you selected previously is shown in the **Project Status** view in the CMake Tools sidebar. For example:
 
 ![Selected kit in Sidebar](images/cpp/cmake-kit.png)
 
 To change the kit, you can click on the kit in the **Project Status** view in the CMake Tools sidebar, or run the **CMake: Select a Kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
-### Select a variant
+##### Select a variant
 
 A variant contains instructions for how to build your project. By default, the CMake Tools extension provides four variants, each corresponding to a default build type: `Debug`, `Release`, `MinRelSize`, and `RelWithDebInfo`. These options do the following:
 
@@ -149,7 +139,7 @@ The selected variant will appear in the Status bar next to the active kit.
 
 ### CMake: Configure
 
-Now that you've selected a kit and a variant, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Configure** command to configure your project. This generates build files in the project's build folder using the kit and variant you selected.
+Now that you've selected your configuration settings via presets or kits/variants, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Configure** command to configure your project. This generates build files in the project's build folder using the kit and variant you selected.
 
 ## Build hello world
 
