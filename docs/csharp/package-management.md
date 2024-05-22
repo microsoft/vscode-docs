@@ -21,7 +21,7 @@ In C# Dev Kit, you can perform NuGet package operations in either of two ways: c
 
 ### Add a package
 
-To add a NuGet package to your project, use the command “NuGet: Add NuGet Package”.
+To add a NuGet package to your project, use the command **NuGet: Add NuGet Package**.
 
 ![alt text](images/package-management/nuget-command-addpackage.png)
 
