@@ -43,7 +43,7 @@ Once you select a package and version number, C# Dev Kit will add it to your pro
 
 ### Update a package
 
-To update a NuGet package in your project, use the command “NuGet: Update NuGet Package”. If you have more than one project in your solution, you will be asked to select which project contains the package that you would like to update. Next, you will see a list of the packages that are currently installed in your project which have an update available. Choose which one you want to update. If no packages in your solution have an update available, you will see a message notifying you of this.
+To update a NuGet package in your project, use the command **NuGet: Update NuGet Package**. If you have more than one project in your solution, you will be asked to select which project contains the package that you would like to update. Next, you will see a list of the packages that are currently installed in your project which have an update available. Choose which one you want to update. If no packages in your solution have an update available, you will see a message notifying you of this.
 
 Finally, you will be able to select which version you would like to update the package to from a dropdown list of all available versions.
 
