@@ -165,7 +165,7 @@ Running this on the `vscode-languageserver` repository shows the following notif
 
 ![Running count all files](count-files.png)
 
-It should also be highlighted that a language server doesn't necessarily need to implement any of the features specified in the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) specification. If an extension wants to integrate library code that can only be compiled to the WASI Preview 1 target, implementing a language server with custom messages might be a good choice.
+It should also be highlighted that a language server doesn't necessarily need to implement any of the features specified in the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) specification. If an extension wants to integrate library code that can only be compiled to the WASI Preview 1 target, implementing a language server with custom messages might be a good choice until VS Code supports the WASI 0.2 preview in its component model implementation.
 
 ## What Comes Next
 
