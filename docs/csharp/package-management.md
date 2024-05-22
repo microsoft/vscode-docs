@@ -27,7 +27,7 @@ To add a NuGet package to your project, use the command **NuGet: Add NuGet Packa
 
 If you have more than one project in your solution, you will be asked to select which project you want to add the package to.
 
-![alt text](images\package-management\nuget-command-addackage-projectselection.png)
+![alt text](images/package-management/nuget-command-addackage-projectselection.png)
 
 Then you can search for packages by name.
 
