@@ -33,7 +33,7 @@ Then you can search for packages by name.
 
 ![alt text](images/package-management/nuget-command-addpackage-search1.png)
 
-![alt text](images/package-management\nuget-command-addpackage-search2.png)
+![alt text](images/package-management/nuget-command-addpackage-search2.png)
 
 Next, select the version you want to apply.
 
