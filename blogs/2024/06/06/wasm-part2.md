@@ -93,7 +93,7 @@ Running the code will add a `Goto Definition` entry into the context menu of pla
 
 ![Running the got definition action](goto-definition.png)
 
-Since most language server libraries support custom messages, it is also very easy to add features to a language server, that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet of a Rust language server based on the `lsp_server` crate that adds a custom request to count the files in a provided workspace folder:
+Most language server libraries support custom messages. It is therefore very easy to add features to a language server, that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet that adds a custom message handler to the Rust language server from above that counts the files in a given workspace folder:
 
 ```rust
 #[derive(Deserialize, Serialize, Debug)]
@@ -138,6 +138,24 @@ fn count_files_in_directory(path: &str) -> usize {
     return result;
 }
 ```
+
+The TypeScript code to send this custom request to the LSP server looks like this:
+
+```typescript
+const folder = workspace.workspaceFolders![0].uri;
+const result = await client.sendRequest(CountFilesRequest, { folder: client.code2ProtocolConverter.asUri(folder) });
+window.showInformationMessage(`The workspace contains ${result} files.`);
+```
+
+Running this on the `vscode-languageserver` repository shows the following notification:
+
+![Running count all files](count-files.png)
+
+
+
+
+
+
 
 The new `@vscode/wasm-wasi-lsp` npm module can be used to easily create a WebAssembly language server inside the extension's TypeScript code. Instantiating the WebAssembly code as a worker with WASI support is done using the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which is described in detail in our [Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) blog post.
 
