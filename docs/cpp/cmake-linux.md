@@ -97,7 +97,7 @@ You can view the active configuration of presets in the Project Status View on t
 
 ![CMake Side Panel with presets](images/cpp/cmake-side-panel-presets.png)
 
-You can lso set any of your presets them by opening the command palette (`kb(workbench.action.showCommands)`) and running **CMake: Select Configure Preset** to select your desired configure preset and  **CMake: Select Build Preset** to select your desired build preset.
+You can also set any of your presets them by opening the command palette (`kb(workbench.action.showCommands)`) and running **CMake: Select Configure Preset** to select your desired configure preset and  **CMake: Select Build Preset** to select your desired build preset.
 
 ![CMake Select presets](images/cpp/select-cmake-preset.png)
 
@@ -139,7 +139,7 @@ The selected variant will appear in the Status bar next to the active kit.
 
 ### CMake: Configure
 
-Now that you've selected your configuration settings via presets or kits/variants, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Configure** command to configure your project. This generates build files in the project's build folder using the kit and variant you selected.
+Now that you've selected your configuration settings via presets or kits/variants, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Configure** command to configure your project. This generates build files in the project's build folder using the configurations you selected.
 
 ## Build hello world
 
