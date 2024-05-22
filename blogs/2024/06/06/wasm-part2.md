@@ -13,6 +13,13 @@ Last month's blog post about using [WebAssembly for Extension Development]() dem
 
 The examples require that you have the latest versions of the following tools installed, in addition to VS Code and NodeJS: the [Rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools), and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen).
 
+
+## Executing WebAssembly code in a Worker
+
+All the examples provided in the previous blog post executed the WebAssembly code inside VS Code's extension host main thread. This is fine as long as the execution time is short. However, long-running operations should be executed in a worker to ensure that the extension host main thread remains available for other extensions.
+
+Doing so is quite easy since VS Code's component model implementation provides a meta model that allows us to generate all the necessary glue code automatically.
+
 ## A Language Server in Rust
 
 When we started working on [WebAssembly support for VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi), one of our envisioned use cases was to execute language servers using WebAssembly. With the latest changes to [VS Code's LSP libraries](https://github.com/Microsoft/vscode-languageserver-node) and the introduction of a new module to bridge between WebAssembly and LSP, implementing a WebAssembly language server is now as straightforward as implementing it as an operating system process. Additionally, WebAssembly language servers run on the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which fully supports WASI Preview 1. This means that language servers can access the files in the workspace using the normal filesystem API of their programming language, even if the files are stored remotely (e.g., in a GitHub repository).
@@ -154,85 +161,9 @@ Running this on the `vscode-languageserver` repository shows the following notif
 
 ![Running count all files](count-files.png)
 
-
-
-
-
-
-
-The new `@vscode/wasm-wasi-lsp` npm module can be used to easily create a WebAssembly language server inside the extension's TypeScript code. Instantiating the WebAssembly code as a worker with WASI support is done using the [WebAssembly Core Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core), which is described in detail in our [Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) blog post.
-
-```typescript
-import { createStdioOptions, startServer } from '@vscode/wasm-wasi-lsp';
-
-export async function activate(context: ExtensionContext) {
-	const wasm: Wasm = await Wasm.load();
-
-	// ...
-
-	// The server options to run the WebAssembly language server.
-	const serverOptions: ServerOptions = async () => {
-		const options: ProcessOptions = {
-			stdio: createStdioOptions(),
-			mountPoints: [
-				{ kind: 'workspaceFolder' },
-			]
-		};
-
-		// Load the WebAssembly code
-		const filename = Uri.joinPath(context.extensionUri, 'server', 'target', 'wasm32-wasip1-threads', 'release', 'server.wasm');
-		const bits = await workspace.fs.readFile(filename);
-		const module = await WebAssembly.compile(bits);
-
-		// Create the wasm worker that runs the LSP server
-		const process = await wasm.createProcess('lsp-server', module, { initial: 160, maximum: 160, shared: true }, options);
-
-		// Hook stderr to the output channel
-		const decoder = new TextDecoder('utf-8');
-		process.stderr!.onData((data) => {
-			channel.append(decoder.decode(data));
-		});
-
-		return startServer(process);
-	};
-
-
-	let client = new LanguageClient('lspClient', 'LSP Client', serverOptions, clientOptions);
-	await client.start();
-
-	// ....
-}
-```
-
-Sending the custom message to calculate the number of files insider a workspace folder is straight forward as well:
-
-```typescript
-type CountFileParams = { folder: string };
-const CountFilesRequest = new RequestType<CountFileParams, number, void>('wasm-language-server/countFilesInFolder');
-
-// We assume we do have a folder.
-const folder = workspace.workspaceFolders![0].uri;
-// We need to convert the folder URI to a URI that maps to the mounted WASI file system. This is something
-// @vscode/wasm-wasi-lsp does for us.
-const result = await client.sendRequest(CountFilesRequest, { folder: client.code2ProtocolConverter.asUri(folder!) });
-```
-
-@@ May be another screen shot.
-
-As with the other examples the full source code can be found in [VS Code's extension sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/wasm-component-model).
-
-
-
-
-
 ## What Comes Next
 
-We are currently preparing a follow-up blog post that will cover more areas where WebAssembly code can be utilized for extension development. The major topics will include:
-
-- Writing [language servers](https://microsoft.github.io/language-server-protocol/) in WebAssembly.
-- Using the generated meta model to transparently offload long-running WebAssembly code into a separate worker.
-
-With a VS Code idiomatic implementation of the component model in place, we continue our efforts to implement the WASI 0.2 preview for VS Code.
+As already mentioned in the previous blog post we will continue our efforts to implement the WASI 0.2 preview for VS Code. We also plan to look into broadening the examples to other languages that compile to WASM.
 
 Thanks,
 
