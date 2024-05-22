@@ -111,10 +111,10 @@ It is important to note that the `@vscode/wasm-wasi-lsp` npm module automaticall
 Most language server libraries support custom messages, making it easy to add features to a language server that are not already present in the [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/). Below is a code snippet that adds a custom message handler to the Rust language server mentioned above, which counts the files in a given workspace folder:
 
 ```rust
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CountFilesParams {
-    pub folder: String,
+    pub folder: Url,
 }
 
 pub enum CountFilesRequest {}
@@ -131,7 +131,8 @@ for msg in &connection.receiver {
 		//....
 		match cast::<CountFilesRequest>(req) {
     		Ok((id, params)) => {
-        		let result = count_files_in_directory(params.folder.as_str());
+				eprintln!("Received countFiles request #{} {}", id, params.folder);
+        		let result = count_files_in_directory(&params.folder.path());
         		let json = serde_json::to_value(&result).unwrap();
         		let resp = Response { id, result: Some(json), error: None };
         		connection.sender.send(Message::Response(resp))?;
