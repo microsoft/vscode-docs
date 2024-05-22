@@ -10,7 +10,7 @@ MetaDescription: C# package management with NuGet in Visual Studio Code
 
 # NuGet in Visual Studio Code
 
-NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those roles. You can manage your NuGet packages directly from the C# Dev Kit Solution explorer and commands in the command palette. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. For more information, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those roles. You can manage your NuGet packages directly from the C# Dev Kit Solution explorer and commands in the Command Palette. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. For more information, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
