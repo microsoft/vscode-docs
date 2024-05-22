@@ -17,7 +17,7 @@ NuGet is the package manager for .NET. It defines how packages for .NET are crea
 
 ## NuGet Commands in C# Dev Kit
 
-In C# Dev Kit, you can perform NuGet package operations in either of two ways: commands in the command palette or through right-click actions in the C# Dev Kit solution explorer. The below documentation details how to use each NuGet command through both of the two methods.
+In C# Dev Kit, you can perform NuGet package operations in either of two ways: commands in the Command Palette or through right-click actions in the C# Dev Kit Solution explorer. The below documentation details how to use each NuGet command through both of the two methods.
 
 ### Add a package
 
