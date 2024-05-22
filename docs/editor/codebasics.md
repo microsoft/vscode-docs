@@ -163,6 +163,8 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
+>**Tip:** You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
+
 ### Advanced search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)

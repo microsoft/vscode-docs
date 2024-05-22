@@ -9,7 +9,7 @@ MetaDescription: A guide to adding AI-powered features to a VS Code extension by
 
 # Language Model API
 
-The Language Model API enables you to [use the Language Model](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
+The Language Model API enables you to [use the Language Model](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
 You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
 
@@ -19,18 +19,20 @@ The process for using the Language Model API consists of the following steps:
 1. Send the language model request
 1. Interpret the response
 
-> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. Thus we suggest that you use the `engines` property in your `package.json` to specify your extension requires VS Code versions greater then or equal to `1.90.0`. VS Code stable will gracefully handle extensions that use the Language Model API before it is finalized.
+> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [LanguageModels API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.languageModels.d.ts)
+- [LanguageModels API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Prompt crafting
 
-To interact with a language model, extensions should first craft their prompt and then send a request to the language model. Prompts can be used to provide instructions to the language model on the broad task that you're using the model for. It can define the context in which user messages are interpreted. In the following example, the first message is used to specify the persona used by the model in its replies and what rules the model should follow.
-The second message provides the specific request or instruction coming from the user. It determines the specific task to be accomplished.
+To interact with a language model, extensions should first craft their prompt and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompt can also define the context in which user messages are interpreted.
+
+In the following example, the first message is used to specify the persona used by the model in its replies and what rules the model should follow.
+The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished.
 
 ```typescript
 const craftedPrompt = [
@@ -150,7 +152,7 @@ The part of the extension for building prompts and interpreting language model r
 
 ## Publishing your extension
 
-Once you have created your AI extension you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, you can publish your extension to the Visual Studio Marketplace:
 
 - Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).

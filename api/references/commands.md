@@ -359,6 +359,8 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
   * 'selectionLines': Array of the start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
   If no levels or direction is set, folds the region at the locations or if already collapsed, the first uncollapsed parent instead.
 
+`editor.toggleFold` - Folds or unfolds the content in the editor depending on its current state
+
 `editor.actions.findWithArgs` - Open a new In-Editor Find Widget with specific options.
 
 * searchString - String to prefill the find input

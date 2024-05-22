@@ -22,10 +22,8 @@ To provide the best editing experience, the C++ extension needs to know where to
 To specify additional include directories,
 
 1. Select an `#include` path that has no reference.
-1. Select the light bulb that appears and choose **Edit "includePath" setting**, which opens the C/C++ extension's Settings editor.
-1. Under the **Include Path** section, you can specify the paths for any additional include directories.
-
-To specify additional include directories, select an #include that has no reference. Next, select the light bulb that appears and choose `Edit "includePath" setting`, which opens the C/C++ Extension's Configurations interface. Under the Include Path section, you can specify the paths for any additional include directories.
+2. Select the light bulb that appears and choose **`Edit "includePath" setting`**, which opens the C/C++ extension's Settings editor.
+3. Under the **Include Path** section, you can specify the paths for any additional include directories.
 
 ![Process of adding a new header to the include path](images/intellisense/AddingIncludePathToConfig.gif)
 
@@ -149,7 +147,7 @@ Use the **Go to References** feature to understand how often and where a symbol 
 
 ### Go to type definition
 
-Use the **Go to Type Definition** feature to jump to where a type is defined in your source code. Select a type in your source code and press `kb(editor.action.goToTypeDefinition)` or right-click and choose **Go to Type Definition** from the context menu.
+Use the **Go to Type Definition** feature to jump to where a type is defined in your source code. Select a type in your source code, right-click to open the context menu, and choose **Go to Type Definition**.
 
 ## Next steps
 

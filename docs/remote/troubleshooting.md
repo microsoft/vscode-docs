@@ -70,6 +70,17 @@ Run one of the following commands, in a **local terminal window** replacing user
 
 * Connecting to a **Windows** SSH host:
 
+  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
+
+    ```bash
+    export USER_AT_HOST="your-user-name-on-host@hostname"
+    export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
+
+    ssh $USER_AT_HOST "powershell Add-Content -Force -Path \"\$Env:PROGRAMDATA\\ssh\\administrators_authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
+    ```
+
+  * Otherwise:
+
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
     export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
@@ -93,6 +104,17 @@ Run one of the following commands, in a **local PowerShell** window replacing us
     ```
 
 * Connecting to a **Windows** SSH host:
+
+  * The host uses OpenSSH Server and the user [belongs to the administrator group](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration#authorizedkeysfile):
+
+    ```powershell
+    $USER_AT_HOST="your-user-name-on-host@hostname"
+    $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
+
+    Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"Add-Content -Force -Path `"`$Env:PROGRAMDATA\ssh\administrators_authorized_keys`" `""
+    ```
+
+  * Otherwise:
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"

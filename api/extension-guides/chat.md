@@ -25,7 +25,7 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat and Language Model API are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. Thus we suggest that you use the `engines` property in your `package.json` to specify your extension requires VS Code versions greater then or equal to `1.90.0`. VS Code stable will gracefully handle extensions that use the Language Chat API before it is finalized.
+> **Note:** The Chat and Language Model API are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To develop a chat extension make sure to:
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [Use the Language Model API](/api/extension-guides/language-model)
-- [ChatParticipant API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatParticipant.d.ts)
+- [ChatParticipant API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L18580)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
@@ -95,7 +95,7 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use a capitalcase `fullName`, the `fullName` will be shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
@@ -323,7 +323,7 @@ Chat extensions should explicitly ask for user consent if they are about to do a
 
 ## Publishing your extension
 
-Once you have created your AI extension you can publish your extension to the Visual Studio Marketplace:
+Once you have created your AI extension, you can publish your extension to the Visual Studio Marketplace:
 
 - Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
