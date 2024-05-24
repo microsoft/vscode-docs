@@ -27,7 +27,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
   ![Additional Options](images/cpp/cmake-quickstart-options.png)
 
-Next, select **Executable** as the project type to create a basic source file (`main.cpp`) that includes a basic `main()` function.
+1. Next, select **Executable** as the project type to create a basic source file (`main.cpp`) that includes a basic `main()` function.
 
 ![Choose project type](images/cpp/cmake-choose-type.png)
 
