@@ -106,7 +106,7 @@ If your project does not have a `CMakePresets.json` file, you need to use kits. 
 
 To scan for kits:
 
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. The extension will automatically scan for kits on your computer and create a list of compilers found on your system.
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run **CMake: Select a Kit**. The extension automatically scans for kits on your computer and creates a list of compilers found on your system.
 
 1. Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like:
 
