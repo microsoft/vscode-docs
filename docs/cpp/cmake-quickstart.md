@@ -39,7 +39,9 @@ This sucessfully creates `CMakeLists.txt` (which tells the CMake tools how to bu
 
 Next, let's continue with CMake Quick Start to create a CmakePresets.json file.
 
-Select **Add a New Preset** and **Create from Compilers.** The extension will automatically scan for kits on your computer and create a list of compilers found on your system.
+1. Select **Add a New Preset** and **Create from Compilers**.
+
+  The extension automatically scans for kits on your computer and creates a list of compilers found on your system.
 
 Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like this:
 
