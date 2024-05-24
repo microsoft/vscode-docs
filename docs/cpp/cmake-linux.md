@@ -80,7 +80,7 @@ sudo apt-get install build-essential gdb
 
 If you do not have an existing CMake project, follow the steps in [Create a CMake project](cmake-quickstart.md).
 
-If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory, you can skip to [Configure Hello World](#configure-hello-world) to configure your existing project.
+If you already have an existing CMake project that has a `CMakeLists.txt` file in the root directory, skip to [Configure Hello World](#configure-hello-world) to configure your project.
 
 ### Configure Hello World
 
