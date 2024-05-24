@@ -43,7 +43,9 @@ Next, let's continue with CMake Quick Start to create a CmakePresets.json file.
 
   The extension automatically scans for kits on your computer and creates a list of compilers found on your system.
 
-Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like this:
+1. Select the compiler you want to use.
+
+  For example, depending on the compilers you have installed, you might see something like this:
 
   ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
