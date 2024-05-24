@@ -15,7 +15,7 @@ The ```code .``` command opens VS Code in the current working folder, which beco
 
 The CMake Tools extension can create the files for a basic CMake project for you. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Quick Start** command:
 
-![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
+  ![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
 
 Enter a project name, and select and **C++** as the project language. This will be written to `CMakeLists.txt` and a few initial source files.
 
