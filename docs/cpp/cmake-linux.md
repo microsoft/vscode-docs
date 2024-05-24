@@ -87,7 +87,7 @@ If you already have an existing CMake project that has a `CMakeLists.txt` file i
 Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code: CMake Presets and CMake Kits/Variants.
 
 #### Configure using CMake Presets
-We recommend using CMake Presets for managing your CMake configurations. CMake Presets allow you to have a central JSON file where you can store all the configurations for your project and share with others, across different IDEs, and across different operating systems.
+We recommend using CMake Presets for managing your CMake configurations. CMake Presets enable you to specify a common JSON file, where you store all the configurations for your project. You can then share this file with others, across different IDEs, and across different operating systems.
 
 If you followed the [CMake quick start guide above](cmake-quickstart), you should have CMake Presets in your project.
 
