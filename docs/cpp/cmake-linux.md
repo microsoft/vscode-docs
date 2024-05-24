@@ -97,7 +97,7 @@ You can view the active configuration of presets in the Project Status View on t
 
 ![CMake Side Panel with presets](images/cpp/cmake-side-panel-presets.png)
 
-You can also set any of your presets them by opening the command palette (`kb(workbench.action.showCommands)`) and running **CMake: Select Configure Preset** to select your desired configure preset and  **CMake: Select Build Preset** to select your desired build preset.
+You can also set any of your presets by running the **CMake: Select Configure Preset** or **CMake: Select Build Preset** commands in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![CMake Select presets](images/cpp/select-cmake-preset.png)
 
