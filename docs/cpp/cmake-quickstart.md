@@ -43,7 +43,7 @@ Select **Add a New Preset** and **Create from Compilers.** The extension will au
 
 Select the compiler you want to use. For example, depending on the compilers you have installed, you might see something like this:
 
-![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
+  ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
 1. Enter a name for this new preset. This will be written to `CMakePresets.json`.
 
