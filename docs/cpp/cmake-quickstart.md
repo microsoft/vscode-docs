@@ -45,7 +45,7 @@ Select the compiler you want to use. For example, depending on the compilers you
 
 ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
-Enter a name for this new preset. This will be written to `CMakePresets.json`.
+1. Enter a name for this new preset. This will be written to `CMakePresets.json`.
 
 After completing these steps, you should now have a complete hello world CMake project that contains the following files: `main.cpp`, `CMakeLists.txt`, and `CMakePresets.json`.
 
