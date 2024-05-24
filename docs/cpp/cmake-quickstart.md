@@ -9,7 +9,7 @@ mkdir helloworld
 cd helloworld
 code .
 ```
-The code . command opens VS Code in the current working folder, which becomes your "workspace".
+The ```code .``` command opens VS Code in the current working folder, which becomes your "workspace".
 
 ## Create a CMakeLists.txt file
 
