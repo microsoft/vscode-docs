@@ -2,7 +2,7 @@
 
 If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory, you can skip to [Create a CmakePresets.json file](#Create-a-CMakePresets.json-file) to configure your project.
 
-Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called HelloWorld, navigate into it, and open VS Code in that folder by entering the following commands:
+Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `HelloWorld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
 ```bash
 mkdir helloworld
