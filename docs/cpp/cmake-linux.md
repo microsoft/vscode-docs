@@ -112,7 +112,7 @@ To scan for kits:
 
     ![Select the kit](images/cpp/cmake-selectkit.png)
 
-The kit you selected previously is shown in the **Project Status** view in the CMake Tools sidebar. For example:
+The kit you selected previously is shown in the **Project Status** section in the CMake Tools view. For example:
 
 ![Selected kit in Sidebar](images/cpp/cmake-kit.png)
 
