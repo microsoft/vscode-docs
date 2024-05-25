@@ -391,11 +391,11 @@ If you're coming from buffer-centric editors such as Emacs or vi, you can emulat
 ```json
 "workbench.editor.showTabs": "single",
 "workbench.editor.revealIfOpen": true,
-"workbench.editor.revealIfOpenInActiveGroup": true,
+"workbench.editor.moveToActiveGroupIfOpen": true,
 "workbench.editor.closeEmptyGroups": false,
 ```
 
-VS Code has a model where Editors live hierarchically within Editor Groups, and to split your screen you must use Editor Groups. Using `revealIfOpen` with `revealIfOpenInActiveGroup` causes Quick Open to move already-open Editors into the active Editor Group. This allows you to emulate buffer-centric environments—no tabs, split your screen, and you can view any Editor within any Editor Group without opening a file multiple times.
+VS Code has a model where Editors live hierarchically within Editor Groups, and to split your screen you must use Editor Groups. Using `revealIfOpen` with `moveToActiveGroupIfOpen` causes Quick Open to move already-open Editors into the active Editor Group. This allows you to emulate buffer-centric environments—no tabs, split your screen, and you can view any Editor within any Editor Group without opening a file multiple times.
 
 ## Window management
 
