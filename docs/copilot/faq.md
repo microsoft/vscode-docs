@@ -89,7 +89,7 @@ Check each requirement if Copilot Chat doesn't work:
 
 ### Why is my Copilot Chat extension blocked?
 
-If you receive a message that a third-party extension is blocked from using Copilot Chat, the extension was likely disabled due to a detected pattern of abuse coming from that specific extension. Contact the publisher of the extension when you encounter this issue. You can find the publisher information on the extension details page in the VS Code Marketplace.
+If you receive a message that an extension is blocked from using Copilot Chat, the extension was likely disabled due to a detected pattern of abuse coming from that specific extension. Contact the publisher of the extension when you encounter this issue. You can find the publisher information on the extension details page in the Visual Studio Marketplace.
 
 ## Additional resources
 
