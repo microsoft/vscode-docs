@@ -11,7 +11,13 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
-Chat participants are domain experts that can answer user queries within a specific domain. They can choose to fully use AI for the query processing, or to forward the user request to a backend service. Participants can also provide the language model access to tools. With the help of the language model, the participant might select a tool and define how to invoke it. Some participants just make use of the Language Model to get answers to custom prompts (for example, the [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/en-us/semantic-kernel/agents/) that invoke tools with the help of the Language Model. An example of such an advanced participant is the built-in `@workspace`. `@workspace` knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
+
+- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
+- Forward the user request to a backend service
+- Use procedural logic and local resources
+
+Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample cat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/semantic-kernel/agents/) that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
 When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A `ResponseStream` can include:
 
@@ -25,7 +31,7 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat and Language Model API are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
+> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
 
 ## Prerequisites
 
@@ -51,7 +57,7 @@ The following screenshot shows the different chat concepts in the Visual Studio 
 1. Use the `@` syntax to invoke the `@cat` chat participant
 1. Use the `/` syntax to call the `/teach` command
 1. User-provided query, also known as the user prompt
-1. Icon that indicates that Copilot is using the `@cat` chat participant
+1. Icon and participant `fullName` that indicate that Copilot is using the `@cat` chat participant
 1. Markdown response, provided by `@cat`
 1. Code fragment included in the markdown response
 1. Button included in the `@cat` response, the button invokes a VS Code command
@@ -95,7 +101,7 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest to use a lowercase `name` to align with existing chat participants. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest to use a lowercase `name` to align with existing chat participants. `name` can not contain spaces. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
@@ -201,7 +207,7 @@ stream.button({
 });
 ```
 
-In practice, extensions typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming Language Model APIs. This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
+In practice, extensions typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming [Language Model API](/api/extension-guides/language-model). This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
 
 #### Use the chat message history
 
@@ -312,7 +318,7 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
 
-It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including the system message and instructions to the model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
+It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including instructions to the language model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
 
 For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
