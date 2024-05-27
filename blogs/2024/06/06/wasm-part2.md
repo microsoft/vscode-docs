@@ -18,7 +18,25 @@ The examples require that you have the latest versions of the following tools in
 
 All the examples provided in the previous blog post executed the WebAssembly code inside VS Code's extension host main thread. This is fine as long as the execution time is short. However, long-running operations should be executed in a worker to ensure that the extension host main thread remains available for other extensions.
 
-Doing so is quite easy since VS Code's component model implementation provides a meta model that allows us to generate all the necessary glue code on the worker side automatically.
+Doing so is quite easy since VS Code's component model implementation provides a meta model that allows us to generate all the necessary glue code on the worker and extension main side automatically.
+
+Below, the code necessary for the worker. The example assumes that the code is store in a file names `worker.ts`
+
+```typescript
+import { Connection, RAL } from '@vscode/wasm-component-model';
+import { calculator } from './calculator';
+
+async function main(): Promise<void> {
+	const connection = await Connection.createWorker(calculator._);
+	connection.listen()
+};
+
+main().catch(RAL().console.error);
+```
+
+All the code does is to create a connection to talk to the extension host main worker and initialize the connection with the `calculator` world generate by the `wit2ts` tool.
+
+On the extension side all we need to do
 
 ```typescript
 /// Still needs to be inserted. Polishing the way how this works.
