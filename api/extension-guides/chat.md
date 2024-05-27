@@ -11,6 +11,8 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
+It is also possible to extend GitHub Copilot by contributing a [GitHub App](https://github.com/marketplace). A GitHub App is backed by a service, and will work across all the GitHub Copilot surfaces (github.com, Visual Studio, VS Code). GitHub Apps do not have full access to the VS Code API. To extend GitHub Copilot through a GitHub App you should join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program).
+
 Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
 
 - Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
