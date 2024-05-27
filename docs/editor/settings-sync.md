@@ -11,9 +11,11 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
+> **Note**: VS Code does not synchronize settings to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
 ## Turning on Settings Sync
 
-You can turn on Settings Sync by using the **Backup and Sync Settings...** entry in the **Manage** gear menu at the bottom of the Activity Bar.
+You can turn on Settings Sync by using the **Backup and Sync Settings...** entry in the **Manage** gear menu or the **Accounts** menu at the bottom of the Activity Bar.
 
 ![Screenshot of the Manage menu, highlighting the Backup and Sync Settings command.](images/settings-sync/turn-on-sync.png)
 

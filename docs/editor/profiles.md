@@ -110,6 +110,14 @@ An extension can be applied to all profiles by clicking on the **Apply Extension
 
 This will make this extension available in all profiles. You can always revert this by unchecking the **Apply Extension to all Profiles** action.
 
+## Synchronize profiles across machines
+
+You can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles are available.
+
+![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
+
+> **Note**: VS Code does not synchronize settings to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
 ## Share Profiles
 
 ### Export
@@ -399,12 +407,6 @@ Temporary Profiles are useful if you want to try a new configuration or test an 
 ### How can I remove the profile from my project?
 
 You can set your project back to the Default Profile. If you'd like to remove all profile workspace associations, you can use the **Developer: Reset Workspace Profiles Associations**, which will set all local folders currently assigned a profile back to the Default Profile. **Reset Workspace Profiles Associations** does not delete any existing profiles.
-
-### Do profiles sync across machines (via Settings Sync)?
-
-Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles are available.
-
-![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 
 ### Why are some settings not exported when exporting a profile?
 

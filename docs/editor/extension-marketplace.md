@@ -293,6 +293,14 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 ![Show Recommendations](images/extension-marketplace/recommendations.png)
 
+## Synchronize extensions across machines
+
+You can use [Settings Sync](/docs/editor/settings-sync.md) to share your installed extensions across various machines. Make sure to select **Extensions** from the list of settings when you configure Settings Sync.
+
+![Screenshot of the Settings Sync configuration Quick Pick, highlighting the Extensions option.](images/extension-marketplace/settings-sync-extensions.png)
+
+> **Note**: VS Code does not synchronize settings to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
 ## Next steps
 
 Here are a few topics you may find interesting...

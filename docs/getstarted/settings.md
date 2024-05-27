@@ -318,11 +318,13 @@ The first time you open a workspace that defines any of these settings, VS Code 
 
 ## Settings Sync
 
-You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Turn on Settings Sync** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
 
 ![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
 
 You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/settings-sync.md) user guide.
+
+> **Note**: VS Code does not synchronize settings to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Common questions
 
@@ -795,7 +797,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
     "editor.lightbulb.enabled": "on",
 
-    // Controls the line height. 
+    // Controls the line height.
     //  - Use 0 to automatically compute the line height from the font size.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
