@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: cpp
 TOCTitle: Refactoring
 ContentId: 5b5da770-b59f-4eca-94a3-78e824d16b52
