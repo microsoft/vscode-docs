@@ -56,7 +56,7 @@ Next, continue with the CMake Quick Start to create a `CMakePresets.json` file.
 
 1. Select **Add a New Preset** and **Create from Compilers**.
 
-  The extension automatically scans for kits on your computer and creates a list of compilers found on your system.
+    The extension automatically scans for kits on your computer and creates a list of compilers found on your system.
 
 1. Select the compiler you want to use.
 
