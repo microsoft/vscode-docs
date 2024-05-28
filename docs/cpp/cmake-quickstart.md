@@ -38,7 +38,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
 1. Select **CTest** as an additional option to add support for testing. You can also select **CPack** for CPack support.
 
-  ![Additional Options](images/cpp/cmake-quickstart-options.png)
+    ![Additional Options](images/cpp/cmake-quickstart-options.png)
 
 1. Next, select **Executable** as the project type to create a basic source file (`main.cpp`) that includes a basic `main()` function.
 
