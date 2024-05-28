@@ -89,7 +89,7 @@ Before you can use the CMake Tools extension to build a project, you need to con
 #### Configure using CMake Presets
 We recommend using CMake Presets for managing your CMake configurations. CMake Presets enable you to specify a common JSON file, where you store all the configurations for your project. You can then share this file with others, across different IDEs, and across different operating systems.
 
-If you followed the [CMake quick start guide above](cmake-quickstart), you should have CMake Presets in your project.
+If you created a project by following the step in [Create a CMake project](cmake-quickstart), your project is configured to use CMake Presets.
 
 If your project has a `CMakePresets.json` file, you can utilize your Configure and Build presets to specify how to build your project on your machine.
 
