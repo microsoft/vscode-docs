@@ -62,7 +62,7 @@ Next, continue with the CMake Quick Start to create a `CMakePresets.json` file.
 
   For example, depending on the compilers you have installed, you might see something like this:
 
-  ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
+    ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
 1. Enter a name for this new preset. This will be written to `CMakePresets.json`.
 
