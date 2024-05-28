@@ -9,6 +9,8 @@ Author: Dirk Bäumer
 
 # Using WebAssembly for Extension Development
 
+April 30, 2024 by Dirk Bäumer
+
 Visual Studio Code supports the execution of WASM binaries through the [WebAssembly Execution Engine](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension. The primary use case is to compile programs written in C/C++ or Rust into WebAssembly, and then run these programs directly in VS Code. A notable example is [Visual Studio Code for Education](https://vscodeedu.com/), which utilizes this support to run the Python interpreter in VS Code for the Web. This [blog post](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) provides detailed insights into how this is implemented.
 
 In January 2024, the Bytecode Alliance launched the [WASI 0.2 preview](https://bytecodealliance.org/articles/WASI-0.2). A key technology in the WASI 0.2 preview is the [Component Model](https://github.com/WebAssembly/component-model/). The WebAssembly Component Model streamlines interactions between WebAssembly components and their host environments by standardizing interfaces, data types, and module composition. This standardization is facilitated through the use of a WIT ([WASM Interface Type](https://component-model.bytecodealliance.org/design/wit.html)) file. WIT files help describe the interactions between a JavaScript/TypeScript extension (the host) and a WebAssembly component performing computations coded in another language, such as Rust or C/C++.
