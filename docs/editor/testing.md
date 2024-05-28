@@ -42,6 +42,7 @@ MetaDescription: One of the great things in Visual Studio Code is testing suppor
 - Test Coverage panel
 - View coverage in editor
 - View coverage in Explorer view
+- Also shown in diff editor
 
 ## Task integration
 
