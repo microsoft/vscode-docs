@@ -352,3 +352,9 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
 
 If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
+
+### My extensions don't synchronize when connected to a remote window
+
+[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
+
+VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.

@@ -116,7 +116,7 @@ You can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles
 
 ![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 
-> **Note**: VS Code does not synchronize settings to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Share Profiles
 
