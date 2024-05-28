@@ -104,7 +104,7 @@ You can also set any of your presets by running the **CMake: Select Configure Pr
 
 ![CMake Select presets](images/cpp/select-cmake-preset.png)
 
-#### Configure Using CMake Kits
+#### Configure using CMake Kits
 If your project does not have a `CMakePresets.json` file, you need to use kits. A kit represents a toolchain, which is the compiler, linker, and other tools used to build your project.
 
 To scan for kits:
