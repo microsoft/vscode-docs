@@ -11,6 +11,7 @@ MetaDescription: One of the great things in Visual Studio Code is testing suppor
 
 - Intro about testing (types of tests, importance)
 - Overview of testing capabilities in VS Code
+- How to get started - process flow for testing
 - Hero image
 
 ## Testing extensions
