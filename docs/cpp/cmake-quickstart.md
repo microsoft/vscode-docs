@@ -28,7 +28,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Quick Start** command:
 
-  ![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
+    ![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
 
 1. Enter a project name, and select and **C++** as the project language.
 
