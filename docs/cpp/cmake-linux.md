@@ -93,7 +93,7 @@ If you followed the [CMake quick start guide above](cmake-quickstart), you shoul
 
 If your project has a `CMakePresets.json` file, you can utilize your Configure and Build presets to specify how to build your project on your machine.
 
-You can view the active configuration of presets in the Project Status View on the left-hand CMake Tools under the **Configure** and **Build** node. You can always select these nodes under the **Configure** and **Build** node to set or change your Configure and Build presets.
+You can view the active configuration of presets in the Project Status in the CMake Tools view under the **Configure** and **Build** node. You can select these nodes at any time to set or change your Configure and Build presets.
 
 ![CMake Side Panel with presets](images/cpp/cmake-side-panel-presets.png)
 
