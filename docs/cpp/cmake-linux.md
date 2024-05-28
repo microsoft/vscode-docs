@@ -121,7 +121,7 @@ To scan for kits:
 
 To change the kit, you can select the kit in the **Project Status** section in the CMake Tools view, or run the **CMake: Select a Kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
-##### Select a variant
+Then, you'll need to select a variant.
 
 A variant contains instructions for how to build your project. By default, the CMake Tools extension provides four variants, each corresponding to a default build type: `Debug`, `Release`, `MinRelSize`, and `RelWithDebInfo`. These options do the following:
 
