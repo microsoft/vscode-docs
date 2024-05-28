@@ -268,7 +268,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
 * _title_ - Human readable title for the diff editor
-* _options_ - (optional) Editor options. See vscode.TextDocumentShowOptions
+* _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
 
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
