@@ -60,7 +60,7 @@ Next, continue with the CMake Quick Start to create a `CMakePresets.json` file.
 
 1. Select the compiler you want to use.
 
-  For example, depending on the compilers you have installed, you might see something like this:
+    For example, depending on the compilers you have installed, you might see something like this:
 
     ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
