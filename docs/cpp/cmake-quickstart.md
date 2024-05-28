@@ -64,7 +64,9 @@ Next, continue with the CMake Quick Start to create a `CMakePresets.json` file.
 
     ![Add a new preset](images/cpp/cmake-quickstart-selectkit.png)
 
-1. Enter a name for this new preset. This will be written to `CMakePresets.json`.
+1. Enter a name for this new preset.
+
+    The name for the preset will be written to `CMakePresets.json`.
 
 After completing these steps, you should now have a complete hello world CMake project that contains the following files: `main.cpp`, `CMakeLists.txt`, and `CMakePresets.json`.
 
