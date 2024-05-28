@@ -948,7 +948,7 @@ The **terminal tab context menu** has these default groups:
 - `1_create` - Commands related to creating terminals.
 - `3_run` - Commands related to running/executing something in the terminal.
 - `5_manage` - Commands related to managing a terminal.
-- `7_configure` - Commands related to terminal 0configuration.
+- `7_configure` - Commands related to terminal configuration.
 
 The **terminal context menu** has these default groups:
 
