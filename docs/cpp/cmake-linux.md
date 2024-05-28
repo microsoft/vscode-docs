@@ -114,7 +114,7 @@ To scan for kits:
 
     The kit you selected previously is now shown in the **Project Status** section in the CMake Tools view.
 
-![Selected kit in Sidebar](images/cpp/cmake-kit.png)
+    ![Selected kit in Sidebar](images/cpp/cmake-kit.png)
 
 To change the kit, you can select the kit in the **Project Status** section in the CMake Tools view, or run the **CMake: Select a Kit** command again from the Command Palette. If you don't see the compiler you're looking for, you can edit the `cmake-tools-kits.json` file in your project. To edit the file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **CMake: Edit User-Local CMake Kits** command.
 
