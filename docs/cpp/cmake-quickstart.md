@@ -32,7 +32,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
 1. Enter a project name, and select and **C++** as the project language.
 
-  This information will be written to `CMakeLists.txt` and a few initial source files.
+    This information will be written to `CMakeLists.txt` and a few initial source files.
 
   > **Note:** If you had other source code files in this folder that you wanted to add as targets to the `CmakeLists.txt`, an option to add these would now be given. But for this tutorial, we will stick with just the hello world file.
 
