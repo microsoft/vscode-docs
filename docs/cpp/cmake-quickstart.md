@@ -34,7 +34,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
     This information will be written to `CMakeLists.txt` and a few initial source files.
 
-  > **Note:** If you had other source code files in this folder that you wanted to add as targets to the `CmakeLists.txt`, an option to add these would now be given. But for this tutorial, we will stick with just the hello world file.
+    > **Note:** If you had other source code files in this folder that you wanted to add as targets to the `CmakeLists.txt`, an option to add these would now be given. But for this tutorial, we will stick with just the hello world file.
 
 1. Select **CTest** as an additional option to add support for testing. You can also select **CPack** for CPack support.
 
