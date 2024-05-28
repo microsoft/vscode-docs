@@ -41,7 +41,7 @@ This sucessfully creates `CMakeLists.txt` (which tells the CMake tools how to bu
 
 ## Create a CMakePresets.json file
 
-Next, let's continue with CMake Quick Start to create a CmakePresets.json file.
+Next, continue with the CMake Quick Start to create a `CMakePresets.json` file.
 
 1. Select **Add a New Preset** and **Create from Compilers**.
 
