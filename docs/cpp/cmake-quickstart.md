@@ -35,7 +35,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
 **Note:** If you had wanted to create a basic source and header file, you would have selected **Library** instead. But for this tutorial, **Executable** will do. If you are prompted to configure IntelliSense for the folder, select **Allow**.
 
-This sucessfully creates `CMakeLists.txt` (which tells the CMake tools how to build your project).
+This successfully creates the `CMakeLists.txt` file, which tells the CMake tools how to build your project.
 
 ![Project contents](images/cpp/cmake-quickstart-cmakelists.png)
 
