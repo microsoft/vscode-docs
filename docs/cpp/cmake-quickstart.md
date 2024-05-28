@@ -11,7 +11,7 @@ MetaDescription: Create a Hello World project by using the CMake Quick Start in 
 
 In this article, you'll learn how to create a CMake hello world project from scratch using the CMake Tools extension in VS Code.
 
-If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a CmakePresets.json file](#Create-a-CMakePresets.json-file) to configure your project with CMake presets.
+If you have an existing CMake project that already has a `CMakeLists.txt` file in the root directory but no CMake presets, you can skip to [Create a `CMakePresets.json` file](#Create-a-CMakePresets.json-file) to configure your project with CMake presets.
 
 Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `HelloWorld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
