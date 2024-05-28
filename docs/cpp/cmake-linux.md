@@ -91,7 +91,7 @@ We recommend using CMake Presets for managing your CMake configurations. CMake P
 
 If you created a project by following the step in [Create a CMake project](cmake-quickstart), your project is configured to use CMake Presets.
 
-If your project has a `CMakePresets.json` file, you can utilize your Configure and Build presets to specify how to build your project on your machine.
+If your project has a `CMakePresets.json` file, you can use the Configure and Build presets for specifying how to build your project on your machine.
 
 You can view the active configuration of presets in the Project Status in the CMake Tools view under the **Configure** and **Build** node. You can select these nodes at any time to set or change your Configure and Build presets.
 
