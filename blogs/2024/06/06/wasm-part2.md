@@ -49,7 +49,7 @@ const log = vscode.window.createOutputChannel('Calculator - Log', { log: true })
 context.subscriptions.push(log);
 
 // The implementation of the log function that is called from WASM
-const service: calculator.Imports = {
+const service: calculator.Imports.Promisified = {
 	log: (msg: string) => {
 		log.info(msg);
 	}
@@ -64,6 +64,7 @@ const module = await WebAssembly.compile(bits);
 const worker = new Worker(vscode.Uri.joinPath(context.extensionUri, './out/worker.js').fsPath);
 // Bind the world to the worker
 const api = await calculator._.bind(service, module, worker);
+
 vscode.commands.registerCommand('vscode-samples.wasm-component-model-async.run', async () => {
 	channel.show();
 	channel.appendLine('Running calculator example');
@@ -77,6 +78,10 @@ vscode.commands.registerCommand('vscode-samples.wasm-component-model-async.run',
 	channel.appendLine(`Div ${await api.calc(div)}`);
 });
 ```
+It is important to note that the WIT file used in this example is no different than the one used for the [calculator example](https://code.visualstudio.com/blogs/2024/05/08/wasm#_a-calculator-in-rust) in the previous blog post.
+
+You can find the full source code for this example in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-async/src/extension.ts#L1).
+
 
 ## A WebAssembly based language server
 
