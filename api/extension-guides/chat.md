@@ -11,6 +11,8 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
+It is also possible to extend GitHub Copilot by contributing a [GitHub App](https://github.com/marketplace). A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. GitHub Apps do not have full access to the VS Code API. To extend GitHub Copilot through a GitHub App, you should join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program).
+
 Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
 
 - Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
@@ -43,10 +45,8 @@ To develop a chat extension make sure to:
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [Use the Language Model API](/api/extension-guides/language-model)
 - [ChatParticipant API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L18580)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
 ## Parts of the chat user experience
 
@@ -335,3 +335,9 @@ Once you have created your AI extension, you can publish your extension to the V
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
+
+## Additional resources
+
+- [Video: Enhancing VS Code extensions with GitHub Copilot](https://build.microsoft.com/sessions/57efc1aa-83c0-45c5-b8c3-ad095478bb0a?source=sessions)
+- [Use the Language Model API](/api/extension-guides/language-model) in your extension
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
