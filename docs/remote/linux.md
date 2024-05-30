@@ -21,7 +21,7 @@ The extensions are known to work when connecting to recent stable/LTS version of
 
 The following non-Linux SSH hosts are also supported:
 
-* **Windows 10 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) and enabling `remote.SSH.useLocalServer` [in VS Code settings](/docs/getstarted/settings.md).
+* **Windows 10/11 / Server 2016/2019 SSH hosts** (1803+) using the [official OpenSSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 * **macOS** 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 
 However, if you are using a non-standard configuration or downstream distribution of Linux, you may run into issues. This document provides information on requirements as well as tips to help you get up and running even if your configuration is only community-supported.
