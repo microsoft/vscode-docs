@@ -117,19 +117,14 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## GPU acceleration
 
-The terminal features three different renderers, each of which have different trade offs:
+The terminal features two different renderers, each of which have different trade offs:
 
 - WebGL renderer - True GPU acceleration.
-- Canvas renderer - GPU acceleration by using the [`CanvasRenderingContext2D` web API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), slower than WebGL but faster than DOM.
 - DOM renderer - A fallback renderer that's much slower but has great compatibility.
 
 GPU acceleration driven by the WebGL renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
-When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
-
-The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the WebGL, canvas, and DOM renderers sequentially, settling at the first without detected issues.
-
-Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"off"` typically resolves rendering-related problems like these at the cost of performance.
+The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
 
 ### Custom glyphs
 
