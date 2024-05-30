@@ -21,40 +21,36 @@ In C# Dev Kit, you can perform NuGet package operations in either of two ways: c
 
 ### Add a package
 
-To add a NuGet package to your project, use the command **NuGet: Add NuGet Package**.
+1. To add a NuGet package to your project, use the command “NuGet: Add NuGet Package”.
+![Screenshot showing command 'NuGet: Add NuGet Package' in the command palette ](images/package-management/nuget-command-addpackage.png)
 
-![alt text](images/package-management/nuget-command-addpackage.png)
+2. If you have more than one project in your solution, you will be asked to select which project you want to add the package to.
+![Screenshot showing quickpick menu with dropdown options "Project" and "Project2"](images/package-management/nuget-command-addackage-projectselection.png)
 
-If you have more than one project in your solution, you will be asked to select which project you want to add the package to.
+3. Then you can search for packages by name.
+![Screenshot showing command palette search bar with placeholder text that reads "Enter a search term to search for a NuGet package."](images/package-management/nuget-command-addpackage-search1.png)
+![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package". The quickpick options show a list of example NuGet packages to choose from.](images/package-management/nuget-command-addpackage-search2.png)
 
-![alt text](images/package-management/nuget-command-addackage-projectselection.png)
+4. Next, select the version you want to apply.
+![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package version". The quickpick options show a list of example NuGet package versions to choose from.](images/package-management/nuget-command-addpackage-versionselection.png)
 
-Then you can search for packages by name.
-
-![alt text](images/package-management/nuget-command-addpackage-search1.png)
-
-![alt text](images/package-management/nuget-command-addpackage-search2.png)
-
-Next, select the version you want to apply.
-
-![alt text](images/package-management/nuget-command-addpackage-versionselection.png)
-
-Once you select a package and version number, C# Dev Kit will add it to your project and update your project file and references.
+5. Once you select a package and version number, C# Dev Kit will add it to your project and update your project file and references.
 
 ### Update a package
 
-To update a NuGet package in your project, use the command **NuGet: Update NuGet Package**. If you have more than one project in your solution, you will be asked to select which project contains the package that you would like to update. Next, you will see a list of the packages that are currently installed in your project which have an update available. Choose which one you want to update. If no packages in your solution have an update available, you will see a message notifying you of this.
-
-Finally, you will be able to select which version you would like to update the package to from a dropdown list of all available versions.
-
-![alt text](images/package-management/nuget-command-update-versionselector.png)
-
-C# Dev Kit will then perform the necessary changes and update your project file and references.
+1. To update a NuGet package in your project, use the command **NuGet: Update NuGet Package**.
+2. If you have more than one project in your solution, you will be asked to select which project contains the package that you would like to update.
+3. Next, you will see a list of the packages that are currently installed in your project which have an update available. Choose which one you want to update. If no packages in your solution have an update available, you will see a message notifying you of this.
+4. Finally, you will be able to select which version you would like to update the package to from a dropdown list of all available versions.
+![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package version". The quickpick options show a list of example NuGet packages to choose from. There are indicators on the list to show which version is currently installed in the users project ("current"), and which is the latest available version ("latest")](images/package-management/nuget-command-update-versionselector.png)
+5. C# Dev Kit will then perform the necessary changes and update your project file and references.
 
 ### Remove a package
 
-To remove a NuGet package from your project, use the command “NuGet: Remove NuGet Package.” If you have more than one project in your solution, you will be asked to select which project that you would like to remove a package from.
-NExt, you will see a list of the packages that are currently installed in your project and let you choose which one you want to remove. C# Dev Kit will then perform the necessary changes and update your project file and references.
+1. To remove a NuGet package from your project, use the command **NuGet: Remove NuGet Package**.
+2. If you have more than one project in your solution, you will be asked to select which project that you would like to remove a package from.
+3. Next, you will see a list of the packages that are currently installed in your project and let you choose which one you want to remove.
+4. C# Dev Kit will then perform the necessary changes and update your project file and references.
 
 ## Dependency management
 
