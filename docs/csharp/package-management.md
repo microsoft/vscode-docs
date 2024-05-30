@@ -10,21 +10,21 @@ MetaDescription: C# package management with NuGet in Visual Studio Code
 
 # NuGet in Visual Studio Code
 
-NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those roles. You can manage your NuGet packages directly from the C# Dev Kit Solution explorer and commands in the Command Palette. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. For more information, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette. To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
 
-## NuGet Commands in C# Dev Kit
+## NuGet commands in C# Dev Kit
 
-In C# Dev Kit, you can perform NuGet package operations in either of two ways: commands in the Command Palette or through right-click actions in the C# Dev Kit Solution explorer. The below documentation details how to use each NuGet command through both of the two methods.
+In C# Dev Kit, you can perform NuGet package operations in either of two ways: by using the Command Palette (`kb(workbench.action.showCommands)`) or by right-clicking in the C# Dev Kit Solution explorer. The following sections describe how to use each NuGet command through both of the two methods.
 
 ### Add a package
 
-1. To add a NuGet package to your project, use the command “NuGet: Add NuGet Package”.
+1. To add a NuGet package to your project, use the command **NuGet: Add NuGet Package**.
 ![Screenshot showing command 'NuGet: Add NuGet Package' in the command palette ](images/package-management/nuget-command-addpackage.png)
 
-2. If you have more than one project in your solution, you will be asked to select which project you want to add the package to.
+2. If you have more than one project in your solution, you are asked to select which project you want to add the package to.
 ![Screenshot showing quickpick menu with dropdown options "Project" and "Project2"](images/package-management/nuget-command-addackage-projectselection.png)
 
 3. Then you can search for packages by name.
@@ -34,23 +34,23 @@ In C# Dev Kit, you can perform NuGet package operations in either of two ways: c
 4. Next, select the version you want to apply.
 ![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package version". The quickpick options show a list of example NuGet package versions to choose from.](images/package-management/nuget-command-addpackage-versionselection.png)
 
-5. Once you select a package and version number, C# Dev Kit will add it to your project and update your project file and references.
+5. After you select a package and version number, C# Dev Kit adds it to your project and updates your project file and references.
 
 ### Update a package
 
 1. To update a NuGet package in your project, use the command **NuGet: Update NuGet Package**.
-2. If you have more than one project in your solution, you will be asked to select which project contains the package that you would like to update.
-3. Next, you will see a list of the packages that are currently installed in your project which have an update available. Choose which one you want to update. If no packages in your solution have an update available, you will see a message notifying you of this.
-4. Finally, you will be able to select which version you would like to update the package to from a dropdown list of all available versions.
+2. If you have more than one project in your solution, you are asked to select which project contains the package that you would like to update.
+3. Next, choose which package to update from the list of packages that are currently installed in your project and that have an update available. If no packages in your solution have an update available, you see a message notifying you of this.
+4. Finally, you can select which version you would like to update the package to from a dropdown list of available versions.
 ![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package version". The quickpick options show a list of example NuGet packages to choose from. There are indicators on the list to show which version is currently installed in the users project ("current"), and which is the latest available version ("latest")](images/package-management/nuget-command-update-versionselector.png)
-5. C# Dev Kit will then perform the necessary changes and update your project file and references.
+5. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
 ### Remove a package
 
 1. To remove a NuGet package from your project, use the command **NuGet: Remove NuGet Package**.
-2. If you have more than one project in your solution, you will be asked to select which project that you would like to remove a package from.
-3. Next, you will see a list of the packages that are currently installed in your project and let you choose which one you want to remove.
-4. C# Dev Kit will then perform the necessary changes and update your project file and references.
+2. If you have more than one project in your solution, you are asked to select which project that you would like to remove a package from.
+3. Next, choose which package you want to remove from the list of packages that are currently installed in your project.
+4. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
 ## Dependency management
 
