@@ -29,8 +29,8 @@ import { calculator } from './calculator';
 
 async function main(): Promise<void> {
 	const connection = await Connection.createWorker(calculator._);
-	connection.listen()
-};
+	connection.listen();
+}
 
 main().catch(RAL().console.error);
 ```
@@ -50,7 +50,9 @@ context.subscriptions.push(log);
 
 // The implementation of the log function that is called from WASM
 const service: calculator.Imports.Promisified = {
-	log: (msg: string) => {
+	log: async (msg: string): Promise<void> => {
+		// Wait 100ms to slow things down :-)
+		await new Promise(resolve => setTimeout(resolve, 100));
 		log.info(msg);
 	}
 };
@@ -79,7 +81,11 @@ vscode.commands.registerCommand('vscode-samples.wasm-component-model-async.run',
 });
 ```
 
-It is important to note that the WIT file used in this example is no different from the one used for the [calculator example](https://code.visualstudio.com/blogs/2024/05/08/wasm#_a-calculator-in-rust) in the previous blog post.
+There are a couple of important things to note:
+
+- The WIT file used in this example is no different from the one used for the [calculator example](https://code.visualstudio.com/blogs/2024/05/08/wasm#_a-calculator-in-rust) in the previous blog post.
+- Since the execution of the WebAssembly code happens in a worker, the implementation of imported services (for example, the `log` function above) can return a `Promise` as well, but they don't have to.
+- Every call from the worker that executes the WebAssembly code to the extension host main thread requires synchronizing the two workers using `Atomics.wait` and `Atomics.notify`. This synchronization adds overhead, so the imported API should be designed with this constraint in mind.
 
 You can find the full source code for this example in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-async/src/extension.ts#L1).
 
