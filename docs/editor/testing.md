@@ -19,7 +19,7 @@ In this article, you'll learn how to get started with testing in VS Code, discov
 
 Testing support in VS Code is language-specific and depends on the [extensions](#testing-extensions) you have installed. The testing features are provided by the language extensions, which can be language servers, test runners, or other tools that support testing in that language. To get started with testing in VS Code, first install the appropriate language extension for your project.
 
-Once you have the language extension installed, you can start discovering and running tests in your project. The [Test Explorer](#automatic-test-discovery-in-test-explorer) view in VS Code helps you discover and run tests in your workspace.
+Once you have the language extension installed, you can start discovering and running tests in your project. The [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run your tests.
 
 After you run your tests, you can view the test results in the Test Explorer view, editor gutter, and Test Results panel. To diagnose issues with your tests, you can also [run and debug tests](#run-and-debug-tests) and set breakpoints in your test and application code.
 
@@ -33,15 +33,35 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 
 <!-- <div class="marketplace-extensions-testing"></div> -->
 
-> **Tip**: The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you.
+> **Tip**: The extensions shown above are dynamically queried. Select an extension tile to read the description and reviews to decide which extension is best for you.
 
 ## Automatic test discovery in Test Explorer
 
-- Test Explorer view discovers and lists tests in workspace
-- Tree view
-- Filtering
-- View test result status
-- Click-through to test code
+The Test Explorer view provides a centralized place to manage and run your tests. You can access the Test Explorer view by selecting the beaker icon in the Activity Bar or by using the **Testing: Focus on Test Explorer View** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+If you have a project with tests, the Test Explorer view automatically discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
+
+![Test Explorer view](images/testing/test-explorer-view.png)
+
+You can run tests from the Test Explorer by selecting the play button. Learn more about running and debugging tests in the [Run and debug tests](#run-and-debug-tests) section.
+
+The tree view shows the test result status for each test by using a visual indicator, and enables you to run and debug tests, and navigate to the test code.
+
+![Test Explorer view with test results](images/testing/test-explorer-view-test-results.png)
+
+> **Tip**: You can navigate to the test code by double-clicking on the test in the Test Explorer view. If you select a test that failed, the editor opens the test file, highlights the failed test, and shows the error message.
+
+If you have many tests, you can use the filtering options to quickly find the tests you're interested in. You can use the **Filter** button to filter tests by status or only show tests for the current file. You can also use the search box to search for specific tests by name or use the `@` symbol to search by status.
+
+![Test Explorer view with filtering options](images/testing/test-explorer-view-filtering.png)
+
+In the **More Actions** menu, you can access additional functionality, such as sort and display options.
+
+If you add new tests or make changes to your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+Use the **Show Output** button to view the test output in the **Test Results** panel.
+
+![Test Results panel](images/testing/test-results-panel.png)
 
 ## Run and debug tests
 
