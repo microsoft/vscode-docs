@@ -106,3 +106,35 @@ RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 To apply your configuration changes, you need to rebuild the container. You can do this by running **Dev Containers: Rebuild Container** from the Command Palette (`F1`). The next time the container starts, your GPG keys should be accessible inside the container as well.
 
 >**Note**: If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
+
+### Using GPG >= 2.4.1
+
+As of GPG version 2.4.1, fresh installations use `use-keyboxd` by default, which changes how keys are managed. Instead of using `pubring.kbx`, keys are maintained by the `keyboxd` process.
+
+VS Code expects `~/.gnupg/pubring.kbx` to exist for accessing GPG keys. With `use-keyboxd` enabled, `pubring.kbx` is no longer used, which makes the keys inaccessible to your dev container.
+
+
+Use the following temporary workaround to disable `use-keyboxd` and continue to use `pubring.kbx`:
+
+1. Export your keys
+   ```bash
+   gpg --export > all-keys.asc
+   gpg --export-secret-keys > all-secret-keys.asc
+   ```
+2. Disable `use-keyboxd`
+
+   Edit the configuration file `~/.gnupg/common.conf` and comment out the following line:
+   ```plaintext
+   use-keyboxd
+   ```
+   Change it to:
+   ```plaintext
+   # use-keyboxd
+   ```
+3. Import your keys back into `pubring.kbx`
+   ```bash
+   gpg --import all-keys.asc
+   gpg --import all-secret-keys.asc
+   ```
+
+After completing these steps, your GPG keys are now accessible from within your dev container.
