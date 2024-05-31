@@ -59,20 +59,33 @@ In the **More Actions** menu, you can access additional functionality, such as s
 
 If you add new tests or make changes to your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-Use the **Show Output** button to view the test output in the **Test Results** panel.
+## Run and debug tests
+
+After the discovery of the tests in your project, you can run and debug your tests, and view test results directly from within VS Code. You have multiple options to run and debug tests:
+
+- Use the actions in the Test Explorer view to run all or a subset of tests
+- Use the controls in the editor gutter to run tests while you're editing your test code
+- Use the commands to run tests from the Command Palette (`kb(workbench.action.showCommands)`)
+
+In the Test Explorer, use the controls in the section heading to run or debug all tests. You can also run or debug individual tests by selecting the play or debug icon next to the test name. In the tree view, when you select to run or debug on a specific node, all tests under that node are run or debugged.
+
+![Run and debug tests in Test Explorer](images/testing/run-debug-tests-test-explorer.png)
+
+While you're viewing your test code in the editor, you can use the play control in the gutter to run the test at the current cursor position. Right-click on the gutter control to view other actions, such as debugging the test.
+
+![Run and debug tests in editor gutter](images/testing/run-debug-tests-editor-gutter.png)
+
+> **Tip**: you can configure the default testing action for the gutter control by using the `testing.defaultGutterClickAction` setting.
+
+After running a test, the editor gutter displays the test status.
+
+When you run tests, the test result status is displayed in the Test Explorer view and editor gutter. The test results are color-coded to indicate the status of the test (pass or fail). When a test fails, notice that the test error message is shown as an overlay in the editor.
+
+Use the **Show Output** button in the Test Explorer to view the test output in the **Test Results** panel.
 
 ![Test Results panel](images/testing/test-results-panel.png)
 
-## Run and debug tests
-
-- Running & debugging
-    - Use Test Explorer
-    - Use Commands
-    - Use controls in the editor gutter
-
-- View test results
-    - Test results are visually presented in the Test Explorer view and editor (gutter)
-    - Test Results panel
+You can access the commands for the Test Explorer, such as running or debugging tests, via the Command Palette (`kb(workbench.action.showCommands)`). Enter `Test Explorer:` to find the corresponding commands.
 
 ## Test coverage
 
