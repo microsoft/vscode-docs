@@ -29,7 +29,7 @@ To optimize your testing workflow, you can [create tasks to run your tests](#tas
 
 ## Testing extensions
 
-You can find extensions that support testing by looking in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Testing&sortBy=Installs). You can also go to the Extensions view (`kb(workbench.view.extensions)`), and filter by the **Testing** category. You can then sort by **Install count** or ratings to see which extensions are popular.
+You can find extensions that support testing by looking in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Testing&sortBy=Installs). You can also go to the Extensions view (`kb(workbench.view.extensions)`), and filter by the **Testing** category.
 
 <!-- <div class="marketplace-extensions-testing"></div> -->
 
@@ -121,16 +121,53 @@ After you run tests with coverage, you can view the coverage results in differen
 
 ## Task integration
 
-- Create task to run tests (Test: Run test), optionally create keyboard shortcut
-- Configure to run in background
+Tasks in VS Code can be configured to run scripts and start processes within VS Code, without having to enter a command line or write new code. In VS Code, you can define a default test task that runs your tests, and optionally create keyboard shortcuts to run the tests.
+
+Use the command **Tasks: Configure Default Test Task** to configure the default test task. VS Code tries to automatically detect the test task, for example based on your `package.json` file. After you select the default test task, the `tasks.json` file is opened for you to customize the task.
+
+The following code snippet shows a `tasks.json` file that specifies the `node --test` command as the default test task.
+
+```json
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "node --test src/tests/**.js"
+		}
+	]
+}
+```
+
+To run the test task, use the command **Tasks: Run Test Task** or [create a keyboard shortcut](/docs/getstarted/keybindings.md) for the command.
 
 Learn more about [using and configuring Tasks](/docs/editor/tasks.md).
 
+> **Note**: Individual language extension providers might provide specific functionality for automating the test execution process.
+
 ## Test configuration settings
 
-- Configure `testing.xxx` for general testing settings
-- Add table of settings
+There are multiple settings that you can configure to customize the testing experience in VS Code. Each language extension might provide additional settings specific to testing in that language. Here are some common settings that you can configure:
+
+| Setting ID | Details |
+|-|-|
+| `testing.countBadge` | Controls the count badge on the Testing icon on the Activity Bar |
+| `testing.gutterEnabled` | Configure whether to show the test control in the editor gutter |
+| `testing.defaultGutterClickAction` | Configure the default action when selecting the gutter test control |
+| `testing.coverageBarThresholds` | Configure the colors for the coverage bar thresholds for the Test Coverage view |
+| `testing.displayedCoveragePercent` | Configure what percentage value is displayed in the Test Coverage view (total, statement, or minimum) |
+| `testing.showCoverageInExplorer` | Configure whether to show the coverage percentage in the Explorer view |
+
+You can find all testing-related settings in the Settings editor (`kb(workbench.action.openSettings)`).
 
 ## Next steps
 
-- Get started with testing in Python, Java, C#
+- Get started with testing in [Python](/docs/python/testing.md), [Java](/docs/java/java-testing.md), or [C#](/docs/csharp/testing.md)
+- Learn more about [using and configuring Tasks](/docs/editor/tasks.md)
