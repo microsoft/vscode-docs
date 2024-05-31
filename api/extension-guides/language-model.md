@@ -19,35 +19,99 @@ The process for using the Language Model API consists of the following steps:
 1. Send the language model request
 1. Interpret the response
 
+The following sections provide more details on how to implement these steps in your extension.
+
 > **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [LanguageModels API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190)
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
 
-## Prompt crafting
+## Build the language model prompt
 
-To interact with a language model, extensions should first craft their prompt and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompt can also define the context in which user messages are interpreted.
+To interact with a language model, extensions should first craft their prompt, and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompts can also define the context in which user messages are interpreted.
 
-In the following example, the first message is used to specify the persona used by the model in its replies and what rules the model should follow.
-The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished.
+The Language Model API supports two approaches for building a language model prompt:
+
+- Use the `LanguageModelChatMessage` class to create the prompt by providing one or more user messages as strings
+- Use [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) to declare the prompt by using the TSX syntax
+
+You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed.
+
+To learn more about the concepts of prompt engineering, we suggest reading OpenAI's excellent [Prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
+
+>**Tip:** take advantage of the rich VS Code extension API to get the most relevant context and include it in your prompt. For example, to include the contents of the active file in the editor.
+
+### Use the `LanguageModelChatMessage` class
+
+The Language Model API provides the `LanguageModelChatMessage` class to create user messages. A language model prompt consists of one or more user messages that define the context in which the user's message is interpreted.
+
+In the following example, the first message provides context for the prompt:
+
+- The persona used by the model in its replies (in this case, a cat)
+- The rules the model should follow when generating responses (in this case, explaining computer science concepts in a funny manner by using cat metaphors)
+
+The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished, given the context provided by the first message.
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelChatUserMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelChatUserMessage('I want to understand recursion')
+    new vscode.LanguageModelChatMessage.User('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelChatMessage.User('I want to understand recursion')
 ];
 ```
 
-For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
+### Use `@vscode/prompt-tsx`
 
->**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file).
+The `@vscode/prompt-tsx` library enables you to declare the prompt by using the TSX syntax. This approach provides more control over how the language model prompt is composed.
+
+In the following example, you declare the prompt in a separate file `play.tsx` by using the `@vscode/prompt-tsx` library. The prompt consists of two user messages `<UserMessage>`. Notice how the second user message uses the `userQuery` property to include the user's request in the prompt.
+
+```tsx
+// play.tsx
+import {
+ BasePromptElementProps,
+ PromptElement,
+ PromptSizing,
+ UserMessage
+} from '@vscode/prompt-tsx';
+
+export interface PromptProps extends BasePromptElementProps {
+ userQuery: string;
+}
+
+export class PlayPrompt extends PromptElement<PromptProps, void> {
+ render(state: void, sizing: PromptSizing) {
+  return (
+   <>
+    <UserMessage>
+     You are a cat! Reply in the voice of a cat, using cat analogies when
+     appropriate. Be concise to prepare for cat play time. Give a small random
+     python code sample (that has cat names for variables).
+    </UserMessage>
+    <UserMessage>{this.props.userQuery}</UserMessage>
+   </>
+  );
+ }
+}
+```
+
+The following code snippet shows the extension code, where you use the `renderPrompt` function to render the prompt that you defined in `play.tsx`. Notice how the value of the `userQuery` property is set to the user's request.
+
+```typescript
+import { renderPrompt, Cl100KBaseTokenizer } from '@vscode/prompt-tsx';
+import { PlayPrompt } from './play';
+
+const { messages } = await renderPrompt(
+    PlayPrompt,
+    { userQuery: 'I want to understand recursion' },
+    { modelMaxPromptTokens: model.maxInputTokens },
+    new Cl100KBaseTokenizer());
+```
 
 ## Send the language model request
 
-Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family` or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
+Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family`, or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. We expect that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
 
 When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
 
@@ -72,7 +136,7 @@ try {
 
 ## Interpret the response
 
-After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform additional logic.
+After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform extra logic.
 
 The response from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
 
@@ -161,4 +225,6 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Build a chat extension](/api/extension-guides/chat)
+- [Build a VS Code chat extension](/api/extension-guides/chat)
+- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)

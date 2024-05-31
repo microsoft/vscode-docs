@@ -336,7 +336,7 @@ Once you have created your AI extension, you can publish your extension to the V
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
-## Additional resources
+## Related content
 
 - [Video: Enhancing VS Code extensions with GitHub Copilot](https://build.microsoft.com/sessions/57efc1aa-83c0-45c5-b8c3-ad095478bb0a?source=sessions)
 - [Use the Language Model API](/api/extension-guides/language-model) in your extension
