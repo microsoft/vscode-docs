@@ -107,22 +107,22 @@ To apply your configuration changes, you need to rebuild the container. You can 
 
 >**Note**: If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
 
-### Note on GPG >= 2.4.1 and use-keyboxd
+### Using GPG >= 2.4.1
 
 As of GPG version 2.4.1, fresh installations use `use-keyboxd` by default, which changes how keys are managed. Instead of using `pubring.kbx`, keys are maintained by the `keyboxd` process.
 
-Visual Studio Code expects `~/.gnupg/pubring.kbx` to exist for accessing GPG keys. This can cause issues because, with `use-keyboxd` enabled, `pubring.kbx` is no longer used, making the keys inaccessible to your Dev Container.
+VS Code expects `~/.gnupg/pubring.kbx` to exist for accessing GPG keys. With `use-keyboxd` enabled, `pubring.kbx` is no longer used, which makes the keys inaccessible to your dev container.
 
-#### Temporary Configuration
 
-To continue using `pubring.kbx`, you can disable `use-keyboxd`:
+Use the following temporary workaround to disable `use-keyboxd` and continue to use `pubring.kbx`:
 
-1. **Export your keys**:
+1. Export your keys
    ```bash
    gpg --export > all-keys.asc
    gpg --export-secret-keys > all-secret-keys.asc
    ```
-2. **Disable `use-keyboxd`**:
+2. Disable `use-keyboxd`
+
    Edit the configuration file `~/.gnupg/common.conf` and comment out the following line:
    ```plaintext
    use-keyboxd
@@ -131,10 +131,10 @@ To continue using `pubring.kbx`, you can disable `use-keyboxd`:
    ```plaintext
    # use-keyboxd
    ```
-3. **Import your keys back into `pubring.kbx`**:
+3. Import your keys back into `pubring.kbx`
    ```bash
    gpg --import all-keys.asc
    gpg --import all-secret-keys.asc
    ```
 
-This ensures that your GPG keys are accessible within your Dev Container.
+After completing these steps, your GPG keys are now accessible from within your dev container.
