@@ -17,31 +17,165 @@ For JavaScript, different bundlers are available. Popular ones are [rollup.js](h
 
 ## Using esbuild
 
-`esbuild` is a fast bundler that's simple to configure. To acquire esbuild, open the terminal and type:
+`esbuild` is a fast JavaScript bundler that's simple to configure. To acquire esbuild, open the terminal and type:
 
 ```bash
 npm i --save-dev esbuild
 ```
 
-For an example of a complete extension using esbuild, check out the [test-adapter-converter](https://github.com/microsoft/vscode-test-adapter-converter).
-
 ### Run esbuild
 
-You can run esbuild from the command line but to reduce repetition, using npm scripts is helpful.
+You can run esbuild from the command line but to reduce repetition and enable problem reporting, it is helpful to use a build script, `esbuild.js`:
 
-Merge these entries into the `scripts` section in `package.json`:
+```js
+const esbuild = require("esbuild");
+
+const production = process.argv.includes('--production');
+const watch = process.argv.includes('--watch');
+
+async function main() {
+	const ctx = await esbuild.context({
+		entryPoints: [
+			'src/extension.ts'
+		],
+		bundle: true,
+		format: 'cjs',
+		minify: production,
+		sourcemap: !production,
+		sourcesContent: false,
+		platform: 'node',
+		outfile: 'dist/extension.js',
+		external: ['vscode'],
+		logLevel: 'silent',
+		plugins: [
+			/* add to the end of plugins array */
+			esbuildProblemMatcherPlugin,
+		],
+	});
+	if (watch) {
+		await ctx.watch();
+	} else {
+		await ctx.rebuild();
+		await ctx.dispose();
+	}
+}
+
+/**
+ * @type {import('esbuild').Plugin}
+ */
+const esbuildProblemMatcherPlugin = {
+	name: 'esbuild-problem-matcher',
+
+	setup(build) {
+		build.onStart(() => {
+			console.log('[watch] build started');
+		});
+		build.onEnd((result) => {
+			result.errors.forEach(({ text, location }) => {
+				console.error(`✘ [ERROR] ${text}`);
+				console.error(`    ${location.file}:${location.line}:${location.column}:`);
+			});
+			console.log('[watch] build finished');
+		});
+	}
+};
+
+main().catch(e => {
+	console.error(e);
+	process.exit(1);
+});
+```
+
+The build script does the following:
+- It creates a build context with esbuild. The context is configured to:
+  - Bundle the code in `src/extension.ts` into a single file `dist/extension.js`.
+  - Minify the code if the `--production` flag was passed.
+  - Generate source maps unless the `--production` flag was passed.
+  - Exclude the 'vscode' module from the bundle (since it's provided by the VS Code runtime).
+  - Use the esbuildProblemMatcherPlugin plugin to report errors that prevented the bundler to complete. This plugin emits the errors in a format that is detected by the `esbuild` problem matcher with also needs to be installed as an extension.
+- If the `--watch` flag was passed, it starts watching the source files for changes and rebuilds the bundle whenever a change is detected.
+
+esbuild can work directly with TypeScript files. However, esbuild simply strips off all type declarations without doing any type checks.
+Only syntax error are reported and can cause esbuild to fail.
+
+For that reason, we separatly run the TypeScript compiler (`tsc`) to check the types, but without emmiting any code (flag `--noEmit`).
+
+The `scripts` section in `package.json` now looks like that
 
 ```json
 "scripts": {
-    "vscode:prepublish": "npm run esbuild-base -- --minify",
-    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
-    "esbuild": "npm run esbuild-base -- --sourcemap",
-    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "test-compile": "tsc -p ./"
-},
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "vscode:prepublish": "npm run package",
+    "package": "npm run check-types && node esbuild.js --production"
+}
 ```
 
-The `esbuild` and `esbuild-watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--minify` flag and no `--sourcemap` compresses the code and creates a small bundle, but also makes debugging hard, so other flags are used during development. To run above scripts, open a terminal and type `npm run esbuild` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
+`npm-run-all` is a node module that runs scripts in parallel whose name match a given prefix. For us, it runs the `watch:esbuild` and `watch:tsc` scripts. You need to add `npm-run-all` to the `devDependencies` section in `package.json`.
+
+The `compile` and `watch` scripts are for development and they produce the bundle file with source maps. The `package` script is used by the `vscode:prepublish` script which is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--production` flag to the esbuild script will cause it to compress the code and create a small bundle, but also makes debugging hard, so other flags are used during development. To run above scripts, open a terminal and type `npm run watch` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+If you configure `.vscode/tasks.json` the following way, you will get a separate terminal for each watch task.
+```json
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+            "label": "watch",
+            "dependsOn": [
+                "npm: watch:tsc",
+                "npm: watch:esbuild"
+            ],
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "type": "npm",
+            "script": "watch:esbuild",
+            "group": "build",
+            "problemMatcher": "$esbuild-watch",
+            "isBackground": true,
+            "label": "npm: watch:esbuild",
+            "presentation": {
+                "group": "watch",
+                "reveal": "never"
+            }
+        },
+		{
+            "type": "npm",
+            "script": "watch:tsc",
+            "group": "build",
+            "problemMatcher": "$tsc-watch",
+            "isBackground": true,
+            "label": "npm: watch:tsc",
+            "presentation": {
+                "group": "watch",
+                "reveal": "never"
+            }
+        }
+    ]
+}
+```
+
+This watch tasks depends on the extension `connor4312.esbuild-problem-matchers` for problem matching that you need to install for the task to report problems in the problems view.
+
+To not forget that, add the a `.vscode/extensions.json` file to your workspace:
+```json
+{
+  "recommendations": ["connor4312.esbuild-problem-matchers"]
+}
+```
 
 Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#Publishing) section for more details.
 
@@ -135,15 +269,14 @@ Merge these entries into the `scripts` section in `package.json`:
 
 ```json
 "scripts": {
+    "compile": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
     "vscode:prepublish": "npm run package",
-    "webpack": "webpack --mode development",
-    "webpack-dev": "webpack --mode development --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
-    "test-compile": "tsc -p ./"
 },
 ```
 
-The `webpack` and `webpack-dev` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so else `development` is used. To run above scripts, open a terminal and type `npm run webpack` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
+The `compile` and `watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. The difference is in the [mode](https://webpack.js.org/concepts/mode/) and that controls the level of optimization. Using `production` yields the smallest bundle but also takes longer, so else `development` is used. To run above scripts, open a terminal and type `npm run compile` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Run the extension
 
@@ -151,7 +284,20 @@ Before you can run the extension, the `main` property in `package.json` must poi
 
 ## Tests
 
-Extension authors often write unit tests for their extension source code. With the correct architectural layering, where the extension source code doesn't depend on tests, the webpack produced bundle shouldn't contain any test code. To run unit tests, only a simple compile is necessary. In the sample, there is a `test-compile` script, which uses the TypeScript compiler to compile the extension into the `out` folder. With that intermediate JavaScript available, the following snippet for `launch.json` is enough to run tests.
+Extension authors often write unit tests for their extension source code. With the correct architectural layering, where the extension source code doesn't depend on tests, the webpack and esbuild produced bundle shouldn't contain any test code. To run unit tests, only a simple compile is necessary.
+
+Merge these entries into the `scripts` section in `package.json`:
+
+```json
+"scripts": {
+    "compile-tests": "tsc -p . --outDir out",
+    "pretest": "npm run compile-tests",
+    "test": "vscode-test"
+}
+```
+
+
+ The `compile-tests` script uses the TypeScript compiler to compile the extension into the `out` folder. With that intermediate JavaScript available, the following snippet for `launch.json` is enough to run tests.
 
 ```json
 {
@@ -166,11 +312,11 @@ Extension authors often write unit tests for their extension source code. With t
     "outFiles": [
         "${workspaceFolder}/out/test/**/*.js"
     ],
-    "preLaunchTask": "npm: test-compile"
+    "preLaunchTask": "npm: compile-tests"
 }
 ```
 
-This configuration for running tests is the same for non-webpacked extensions. There is no reason to webpack unit tests because they are not part of the published portion of an extension.
+This configuration for running tests is the same for non-bundled extensions. There is no reason to bundle unit tests because they are not part of the published portion of an extension.
 
 ## Publishing
 
@@ -185,18 +331,19 @@ out/
 src/
 tsconfig.json
 webpack.config.js
+esbuild.js
 ```
 
 ## Migrate an existing extension
 
-Migrating an existing extension to use webpack is easy and similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/microsoft/vscode-references-view/pull/50).
+Migrating an existing extension to use esbuild or webpack is easy and similar to the getting started guide above. A real world sample that adopted webpack is the VS Code's References view through this [pull request](https://github.com/microsoft/vscode-references-view/pull/50).
 
 There you can see:
 
-* Add `webpack`, `webpack-cli`, and `ts-loader` as `devDependencies`.
-* Update npm scripts so that webpack is used for development.
-* Update the debugger configuration `launch.json` file.
-* Add and tweak the `webpack.config.js` configuration file.
+* Add `esbuild` resp. `webpack`, `webpack-cli`, and `ts-loader` as `devDependencies`.
+* Update npm scripts to use the bundlers as shown above
+* Update the task configuration `tasks.json` file.
+* Add and tweak the `esbuild.js` or `webpack.config.js` build file.
 * Update `.vscodeignore` to exclude `node_modules` and intermediate output files.
 * Enjoy an extension that installs and loads much faster!
 
