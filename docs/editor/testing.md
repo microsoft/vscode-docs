@@ -89,11 +89,35 @@ You can access the commands for the Test Explorer, such as running or debugging 
 
 ## Test coverage
 
-- Run tests with coverage
-- Test Coverage panel
-- View coverage in editor
-- View coverage in Explorer view
-- Also shown in diff editor
+Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code provides built-in support for running tests with coverage and viewing the coverage results.
+
+Similar to running and debugging tests, you can run tests with coverage by using the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Run tests with coverage](images/testing/run-tests-with-coverage.png)
+
+After you run tests with coverage, you can view the coverage results in different locations:
+
+- In the Test Coverage view
+
+    A tree view shows the tests with their coverage percentage. A color indicator also gives a visual cue about the coverage percentage. Hover over each line to see more details about the coverage results.
+
+    ![Test Coverage view](images/testing/test-coverage-view.png)
+
+- As an overlay in the editor
+
+    For code files that have test coverage, the editor shows a color overlay in the gutter to indicate which lines are covered by tests or not. When you hover over the gutter, notice that for covered lines, there is also an indicator for the number of times the line was executed.
+
+    ![View coverage in editor](images/testing/view-coverage-in-editor.png)
+
+- In the Explorer view, which shows the coverage percentage of your code files
+
+    The Explorer view shows the coverage percentage of your code files. Hover over a file or node in the Explorer to see more details about the coverage results.
+
+    ![View coverage in Explorer view](images/testing/view-coverage-in-explorer.png)
+
+- In the diff editor
+
+    If you have a diff editor open, the coverage results are also shown in the diff editor, similar to how they're shown in the editor.
 
 ## Task integration
 
