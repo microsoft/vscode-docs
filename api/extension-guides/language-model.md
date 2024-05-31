@@ -27,6 +27,7 @@ The following sections provide more details on how to implement these steps in y
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [LanguageModels API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190)
+- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
 ## Build the language model prompt
 
@@ -37,7 +38,7 @@ The Language Model API supports two approaches for building a language model pro
 - Use the `LanguageModelChatMessage` class to create the prompt by providing one or more user messages as strings
 - Use [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) to declare the prompt by using the TSX syntax
 
-You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed.
+You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed. For example, you can assign a priority to each chat message to dynamically adapt to each language model's context window size. If a rendered prompt has more message tokens than can fit into the available context window, the prompt renderer prunes messages with the lowest priority, while preserving the message order. Learn more about [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx).
 
 To learn more about the concepts of prompt engineering, we suggest reading OpenAI's excellent [Prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
 
@@ -226,5 +227,5 @@ Once you have created your AI extension, you can publish your extension to the V
 ## Related content
 
 - [Build a VS Code chat extension](/api/extension-guides/chat)
-- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
+- [Learn more about @vscode/prompt-tsx](https://www.npmjs.com/package/@vscode/prompt-tsx)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
