@@ -1,0 +1,9 @@
+$ gh pr checkout 12
+remote: Enumerating objects: 66, done.
+remote: Counting objects: 100% (66/66), done.
+remote: Total 83 (delta 66), reused 66 (delta 66), pack-reused 17
+Unpacking objects: 100% (83/83), done.
+From https://github.com/owner/repo
+* [new ref] refs/pull/8896/head -> patch-2
+M README.md
+Switched to branch 'patch-2'
