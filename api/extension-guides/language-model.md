@@ -33,12 +33,19 @@ The following sections provide more details on how to implement these steps in y
 
 To interact with a language model, extensions should first craft their prompt, and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompts can also define the context in which user messages are interpreted.
 
-The Language Model API supports two approaches for building a language model prompt:
+The Language Model API supports two types of messages when building the language model prompt:
 
-- Use the `LanguageModelChatMessage` class to create the prompt by providing one or more user messages as strings
-- Use [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) to declare the prompt by using the TSX syntax
+- **User** - used for providing instructions and the user's request
+- **Assistant** - used for adding the history of previous language model responses as context to the prompt
 
-You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed. For example, you can assign a priority to each chat message to dynamically adapt to each language model's context window size. If a rendered prompt has more message tokens than can fit into the available context window, the prompt renderer prunes messages with the lowest priority, while preserving the message order. Learn more about [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx).
+> **Note**: Currently, the Language Model API doesn't support the use of system messages.
+
+You can use two approaches for building the language model prompt:
+
+- `LanguageModelChatMessage` - create the prompt by providing one or more messages as strings. You might use this approach if you're just getting started with the Language Model API.
+- [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) - declare the prompt by using the TSX syntax.
+
+You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed. For example, the library can help with dynamically adapting the length of the prompt to each language model's context window size. Learn more about [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) or explore the [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample) to get started.
 
 To learn more about the concepts of prompt engineering, we suggest reading OpenAI's excellent [Prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
 
@@ -46,7 +53,7 @@ To learn more about the concepts of prompt engineering, we suggest reading OpenA
 
 ### Use the `LanguageModelChatMessage` class
 
-The Language Model API provides the `LanguageModelChatMessage` class to create user messages. A language model prompt consists of one or more user messages that define the context in which the user's message is interpreted.
+The Language Model API provides the `LanguageModelChatMessage` class to represent and create chat messages. You can use the `LanguageModelChatMessage.User` or `LanguageModelChatMessage.Assistant` methods to create user or assistant messages respectively.
 
 In the following example, the first message provides context for the prompt:
 
@@ -60,54 +67,6 @@ const craftedPrompt = [
     new vscode.LanguageModelChatMessage.User('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
     new vscode.LanguageModelChatMessage.User('I want to understand recursion')
 ];
-```
-
-### Use `@vscode/prompt-tsx`
-
-The `@vscode/prompt-tsx` library enables you to declare the prompt by using the TSX syntax. This approach provides more control over how the language model prompt is composed.
-
-In the following example, you declare the prompt in a separate file `play.tsx` by using the `@vscode/prompt-tsx` library. The prompt consists of two user messages `<UserMessage>`. Notice how the second user message uses the `userQuery` property to include the user's request in the prompt.
-
-```tsx
-// play.tsx
-import {
- BasePromptElementProps,
- PromptElement,
- PromptSizing,
- UserMessage
-} from '@vscode/prompt-tsx';
-
-export interface PromptProps extends BasePromptElementProps {
- userQuery: string;
-}
-
-export class PlayPrompt extends PromptElement<PromptProps, void> {
- render(state: void, sizing: PromptSizing) {
-  return (
-   <>
-    <UserMessage>
-     You are a cat! Reply in the voice of a cat, using cat analogies when
-     appropriate. Be concise to prepare for cat play time. Give a small random
-     python code sample (that has cat names for variables).
-    </UserMessage>
-    <UserMessage>{this.props.userQuery}</UserMessage>
-   </>
-  );
- }
-}
-```
-
-The following code snippet shows the extension code, where you use the `renderPrompt` function to render the prompt that you defined in `play.tsx`. Notice how the value of the `userQuery` property is set to the user's request.
-
-```typescript
-import { renderPrompt, Cl100KBaseTokenizer } from '@vscode/prompt-tsx';
-import { PlayPrompt } from './play';
-
-const { messages } = await renderPrompt(
-    PlayPrompt,
-    { userQuery: 'I want to understand recursion' },
-    { modelMaxPromptTokens: model.maxInputTokens },
-    new Cl100KBaseTokenizer());
 ```
 
 ## Send the language model request
@@ -228,4 +187,5 @@ Once you have created your AI extension, you can publish your extension to the V
 
 - [Build a VS Code chat extension](/api/extension-guides/chat)
 - [Learn more about @vscode/prompt-tsx](https://www.npmjs.com/package/@vscode/prompt-tsx)
+- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
