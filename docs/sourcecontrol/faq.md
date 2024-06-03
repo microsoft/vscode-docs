@@ -21,11 +21,11 @@ Revert your last commit with the **Git: Undo Last Commit** command. This will re
 
 The **Git: Rename Branch…** command will prompt you for the new name.
 
-### How to I undo a git add before committing?
+### How to undo a git add before committing?
 
 Added files listed in the **Staged Changes** can be unstaged with the **-** icon or by drag-and-drop.
 
-### How to I edit the most recent commit message?
+### How to edit the most recent commit message?
 
 To update the commit message for the last local commit use the **Git: Commit Staged (Amend)** command. It will open an editor to edit and save the last message. Make sure that no other changes are staged, as they would be included with the commit.
 
