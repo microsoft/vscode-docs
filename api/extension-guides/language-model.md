@@ -73,7 +73,24 @@ const craftedPrompt = [
 
 Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family`, or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. We expect that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
 
-When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
+If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
+
+```typescript
+const models = await vscode.lm.selectChatModels({
+  vendor: 'copilot'
+});
+
+// No models available
+if (models.length === 0) {
+  // TODO: handle the case when no models are available
+}
+```
+
+Copilot's language models require consent from the user before an extension can use them. Consent is implemented as authentication dialog. Because of that, `selectChatModels` should be called as part of a user-initiated action, such as a command.
+
+When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded.
+
+Use `LanguageModelError` to distinguish between different types of errors.
 
 The following code snippet shows how to make a language model request:
 
@@ -87,7 +104,10 @@ try {
     // - user consent not given
     // - quota limits were exceeded
     if (err instanceof vscode.LanguageModelError) {
-        console.log(err.message, err.code, err.cause)
+        console.log(err.message, err.code, err.cause);
+        if (err.cause instanceof Error && err.cause.message.includes('off_topic')) {
+            stream.markdown(vscode.l10n.t('I\'m sorry, I can only explain computer science concepts.'));
+        }
     } else {
         // add other error handling logic
     }
@@ -107,7 +127,12 @@ The following code snippet shows how an extension can register a command, which 
 ```typescript
  vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
     // Replace all variables in active editor with cat names and words
+
+    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-3.5-turbo' });
+    let chatResponse: vscode.LanguageModelChatResponse | undefined;
+
     const text = textEditor.document.getText();
+
     const messages = [
         vscode.LanguageModelChatMessage.User(`You are a cat! Think carefully and step by step like a cat would.
         Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
@@ -115,12 +140,12 @@ The following code snippet shows how an extension can register a command, which 
     ];
 
     try {
-        const chatRequest = await vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', messages, {}, new vscode.CancellationTokenSource().token);
+        chatResponse = await model.sendRequest(messages, {}, new vscode.CancellationTokenSource().token);
     } catch (err) {
         if (err instanceof vscode.LanguageModelError) {
             console.log(err.message, err.code, err.cause)
         }
-        return
+        return;
     }
 
     // Clear the editor content before inserting new content
@@ -132,7 +157,7 @@ The following code snippet shows how an extension can register a command, which 
 
     try {
         // Stream the code into the editor as it is coming in from the Language Model
-        for await (const fragment of chatRequest.text) {
+        for await (const fragment of chatResponse.text) {
             await textEditor.edit(edit => {
                 const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
                 const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
