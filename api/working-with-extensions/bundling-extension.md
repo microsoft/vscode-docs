@@ -92,7 +92,7 @@ The build script does the following:
   - Minify the code if the `--production` flag was passed.
   - Generate source maps unless the `--production` flag was passed.
   - Exclude the 'vscode' module from the bundle (since it's provided by the VS Code runtime).
-  - Use the esbuildProblemMatcherPlugin plugin to report errors that prevented the bundler to complete. This plugin emits the errors in a format that is detected by the `esbuild` problem matcher with also needs to be installed as an extension.
+- Use the esbuildProblemMatcherPlugin plugin to report errors that prevented the bundler to complete. This plugin emits the errors in a format that is detected by the `esbuild` problem matcher with also needs to be installed as an extension.
 - If the `--watch` flag was passed, it starts watching the source files for changes and rebuilds the bundle whenever a change is detected.
 
 esbuild can work directly with TypeScript files. However, esbuild simply strips off all type declarations without doing any type checks.
@@ -135,9 +135,6 @@ If you configure `.vscode/tasks.json` the following way, you will get a separate
             "group": {
                 "kind": "build",
                 "isDefault": true
-            },
-            "runOptions": {
-                "runOn": "folderOpen"
             }
         },
         {
@@ -168,9 +165,9 @@ If you configure `.vscode/tasks.json` the following way, you will get a separate
 }
 ```
 
-This watch tasks depends on the extension `connor4312.esbuild-problem-matchers` for problem matching that you need to install for the task to report problems in the problems view.
+This watch tasks depends on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the task to report problems in the problems view.  This extension needs to be installed for the launch to complete.
 
-To not forget that, add the a `.vscode/extensions.json` file to your workspace:
+To not forget that, add the a `.vscode/extensions.json` file to the workspace:
 ```json
 {
   "recommendations": ["connor4312.esbuild-problem-matchers"]
@@ -196,6 +193,8 @@ Webpack is a JavaScript bundler but many VS Code extensions are written in TypeS
 ```bash
 npm i --save-dev ts-loader
 ```
+
+All files are available in the [webpack-extension](https://github.com/microsoft/vscode-extension-samples/blob/main/webpack-sample) sample.
 
 ### Configure webpack
 
