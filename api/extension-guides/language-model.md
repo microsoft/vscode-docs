@@ -110,6 +110,7 @@ try {
         }
     } else {
         // add other error handling logic
+        throw err;
     }
 }
 ```
@@ -144,6 +145,8 @@ The following code snippet shows how an extension can register a command, which 
     } catch (err) {
         if (err instanceof vscode.LanguageModelError) {
             console.log(err.message, err.code, err.cause)
+        } else {
+            throw err;
         }
         return;
     }
