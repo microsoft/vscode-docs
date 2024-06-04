@@ -167,14 +167,15 @@ If you configure `.vscode/tasks.json` the following way, you will get a separate
 
 This watch tasks depends on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the task to report problems in the problems view.  This extension needs to be installed for the launch to complete.
 
-To not forget that, add the a `.vscode/extensions.json` file to the workspace:
+To not forget that, add a `.vscode/extensions.json` file to the workspace:
+
 ```json
 {
   "recommendations": ["connor4312.esbuild-problem-matchers"]
 }
 ```
 
-Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#Publishing) section for more details.
+Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#publishing) section for more details.
 
 Jump down to the [Tests](#tests) section to continue reading.
 
@@ -258,7 +259,7 @@ In the sample above, the following are defined:
 * The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
 * The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exist on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
-Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#Publishing) section for more details.
+Finally, you will want to update your `.vscodeignore` file so that compiled files are included in the published extension. Check out the [Publishing](#publishing) section for more details.
 
 ### Run webpack
 
