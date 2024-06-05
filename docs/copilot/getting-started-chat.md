@@ -48,7 +48,7 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
 1. Let's get more information about Express.js. Enter *how to get started with express* in the chat input field.
 
-    The response contains step-by-step instructions for setting up an Express.js app and might also include code blocks with shell commands or JavaScript code.
+    The response contains step-by-step instructions for setting up an Express.js app and might also include code blocks with shell commands or implementation code. Code blocks in the chat response support IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
     ![Screenshot of VS Code Copilot Chat view, showing the chat response with code blocks in the response.](./images/getting-started-chat/copilot-chat-view-express-app.png)
 
