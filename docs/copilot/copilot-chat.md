@@ -74,7 +74,7 @@ Optionally, you can edit the command directly in the Copilot response before run
 
 The Chat view enables you to have a chat conversation with Copilot in a separate view. You can access the Chat view via the Activity Bar or by pressing `kb(workbench.action.chat.open)`:
 
-![Copilot view in VS Code Activity Bar](images/copilot-chat/copilot-view.png)
+![Copilot view in VS Code Activity Bar](images/copilot-chat/copilot-chat-view.png)
 
 Copilot suggests potential questions to get you started, such as "/fix the problems in my code". You can select any of these suggestions, or use the chat input field to type your own chat prompt:
 
@@ -149,7 +149,7 @@ Smart actions are integrated in your VS Code flow (for example, in Quick Fix and
 
 The most powerful smart action is `/fix`. Here is a relatively simple TypeScript calculator with an error noting that "Argument of type 'string' is not assignable to parameter of type 'number'". Select the *sparkle* icon, and then choose **Fix using Copilot**.
 
-![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/editor-copilot-menu.png)
+![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/smart-action-fix-with-copilot.png)
 
 Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code.
 
@@ -166,6 +166,8 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@terminal` has context about the integrated terminal shell and its contents.
 
 You can prepend your chat inputs with a specific participant to help Copilot give you a more relevant response.
+
+Extensions can also contribute chat participants to provide specialized help for their domain.
 
 ### @workspace
 
@@ -204,7 +206,7 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 
 ## Slash commands
 
-Chat participants can also contribute what we call slash commands, which are shortcuts to specific functionality provided by the chat participant. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
+Chat participants can contribute *slash commands*, which are shortcuts to specific, commonly-used functionality provided by the chat participant. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
 
 For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
 
