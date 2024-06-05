@@ -130,6 +130,10 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 
     ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
 
+* **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
+
+    ![Inline chat suggesting a new name for a symbol in a Python file](images/overview/copilot-inline-chat-rename-suggestion.png)
+
 ## Additional resources
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
