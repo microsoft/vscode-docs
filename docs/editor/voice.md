@@ -33,6 +33,12 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 
 **Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `accessibility.voice.speechTimeout` setting, or disable this functionality when you configure the setting to `0`.
 
+Copilot Chat also supports text-to-speech capabilities. When you enable the `accessibility.voice.autoSynthesize` setting, Copilot Chat responses are automatically read out aloud when voice was also used as input. To interrupt the synthesis, select the icon or press `kb(workbench.action.speech.stopReadAloud)`.
+
+Each chat response also shows a new speaker icon, so that you can selectively read out a response aloud.
+
+![Text to Speech for a Chat Response](images/accessibility/text-to-speech.png)
+
 ## Walky talky mode
 
 When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictation.start)` or `kb(workbench.action.chat.startVoiceChat)`), either in the editor or chat, you can press and hold the keybinding to start the voice recognition. When you release the keybinding, voice recognition will stop. In addition, when used in chat, the prompt will be submitted.
