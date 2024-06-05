@@ -57,7 +57,11 @@ You can configure a profile just as you would normally change any VS Code config
 
 ### Workspace associations
 
-When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
+When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set.
+
+If no profile has been set, you can specify which profile should be used when opening a new window by configuring the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
+
+![Configure custom profile for new window](images/profiles/profile-new-window.png)
 
 ## Managing profiles
 
