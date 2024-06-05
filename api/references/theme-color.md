@@ -217,6 +217,7 @@ The Activity Bar is usually displayed either on the far left or right of the wor
 
 - `profileBadge.background`: Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
 - `profileBadge.foreground`: Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.
+- `profiles.sashBorder`: The color of the Profiles editor splitview sash border.
 
 ## Side Bar
 
@@ -295,6 +296,9 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
 - `tab.activeBorder`: Bottom border for the active tab.
+- `tab.selectedBorderTop`: Border to the top of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+- `tab.selectedBackground`: Background of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+- `tab.selectedForeground`: Foreground of a selected tab. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
@@ -364,6 +368,8 @@ Find colors depend on the current find string in the Find/Replace dialog.
 ![Find matches](images/theme-color/findmatches.png)
 
 - `editor.findMatchBackground`: Color of the current search match.
+- `editor.findMatchForeground`: Text color of the current search match.
+- `editor.findMatchHighlightForeground`: Foreground color of the other search matches.
 - `editor.findMatchHighlightBackground`: Color of the other search matches. The color must not be opaque so as not to hide underlying decorations.
 - `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque so as not to hide underlying decorations.
 - `editor.findMatchBorder`: Border color of the current search match.
@@ -949,6 +955,7 @@ The following customizations are available:
 - `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
 - `terminalStickyScroll.background`: The background color of the sticky scroll overlay in the terminal.
 - `terminalStickyScrollHover.background`: The background color of the sticky scroll overlay in the terminal when hovered.
+- `terminal.initialHintForeground`: Foreground color of the terminal initial hint.
 
 ## Debug colors
 
