@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -48,7 +48,7 @@ When you open another file, the editor that is active will display the content o
 
 By default, editors open to the right-hand side of the active one. You can change this behavior with the `workbench.editor.openSideBySideDirection` setting to open new editors to the bottom of the active one instead.
 
-When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
@@ -237,9 +237,11 @@ Centered editor layout allows you to center align the editor area. This is usefu
 
 ## Tabs
 
-VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items and you can drag and drop tabs to reorder them.
+VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
 
 ![tabs hero](images/userinterface/tabs-hero.png)
+
+You can drag and drop tabs to reorder them. To perform an action on multiple tabs at once, hold down the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and select the tabs you want to act on. To select a range of tabs, hold down the `kbstyle(Shift)` key and select the first and last tabs in the range.
 
 When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
 
@@ -251,9 +253,9 @@ If you don't want to use tabs, you can disable the feature by setting the `workb
     "workbench.editor.showTabs": "single"
 ```
 
-> **Tip**: Double-click in the editor title area to create a new tab.
-
 See the section below to optimize VS Code for [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+
+> **Tip**: Double-click in the editor title area to quickly create a new tab.
 
 ### Tab ordering
 
@@ -264,6 +266,10 @@ For example, you might like new tabbed items to appear on the left:
 ```json
     "workbench.editor.openPositioning": "left"
 ```
+
+You can reorder tabs by dragging and dropping them.
+
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
 
 ### Wrapped tabs
 

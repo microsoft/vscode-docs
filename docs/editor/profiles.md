@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -57,7 +57,11 @@ You can configure a profile just as you would normally change any VS Code config
 
 ### Workspace associations
 
-When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
+When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set.
+
+If no profile has been set, you can specify which profile should be used when opening a new window by configuring the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
+
+![Configure custom profile for new window](images/profiles/profile-new-window.png)
 
 ## Managing profiles
 

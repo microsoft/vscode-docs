@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 ---
 # Source Control FAQ
 
@@ -21,11 +21,11 @@ Revert your last commit with the **Git: Undo Last Commit** command. This will re
 
 The **Git: Rename Branch…** command will prompt you for the new name.
 
-### How to I undo a git add before committing?
+### How to undo a git add before committing?
 
 Added files listed in the **Staged Changes** can be unstaged with the **-** icon or by drag-and-drop.
 
-### How to I edit the most recent commit message?
+### How to edit the most recent commit message?
 
 To update the commit message for the last local commit use the **Git: Commit Staged (Amend)** command. It will open an editor to edit and save the last message. Make sure that no other changes are staged, as they would be included with the commit.
 

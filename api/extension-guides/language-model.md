@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -9,7 +9,7 @@ MetaDescription: A guide to adding AI-powered features to a VS Code extension by
 
 # Language Model API
 
-The Language Model API enables you to [use the Language Model](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
+The Language Model API enables you to [use the Language Model](/api/references/vscode-api#lm) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
 You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
 
@@ -21,12 +21,12 @@ The process for using the Language Model API consists of the following steps:
 
 The following sections provide more details on how to implement these steps in your extension.
 
-> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
+> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized. Because the stable `vscode.d.ts` does not yet have the Chat and Language Model API, we suggest that you copy over the `vscode.d.ts` from the [VS Code repo](http://github.com/microsoft/vscode) inside your extension. If you are starting from the Cat sample no action is needed.
 
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [LanguageModels API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L19190)
+- [LanguageModels API](/api/references/vscode-api#lm)
 - [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
 ## Build the language model prompt
