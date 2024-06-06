@@ -3,15 +3,15 @@ Order: 87
 TOCTitle: VS Code Extensions and WebAssembly - Part Two
 PageTitle: VS Code Extensions and WebAssembly - Part Two
 MetaDescription: Use WebAssembly in VS Code extensions to run in a separate worker, or write a language server with a language that compiles to WebAssembly.
-Date: 2024-05-28
+Date: 2024-06-07
 Author: Dirk Bäumer
 ---
 
 # Using WebAssembly for Extension Development - Part Two
 
-May 28, 2024 by Dirk Bäumer
+June 7, 2024 by Dirk Bäumer
 
-In the previous blog post about using [WebAssembly for Extension Development](/blogs/2024/05/08/wasm.md), we demonstrated how the component model can be used to integrate WebAssembly code into your Visual Studio Code extension. In this blog post, we focus on two additional use cases: (a) running the WebAssembly code in a worker to avoid blocking the extension host's main thread, and (b) creating a language server using a language that compiles to WebAssembly.
+In the previous blog post about using [WebAssembly for Extension Development](/blogs/2024/05/08/wasm.md), we demonstrated how the component model can be used to integrate WebAssembly code into your Visual Studio Code extension. In this blog post, we focus on two additional independent use cases: (a) running the WebAssembly code in a [worker](#executing-webassembly-code-in-a-worker) to avoid blocking the extension host's main thread, and (b) creating a [language server](#a-webassembly-based-language-server) using a language that compiles to WebAssembly.
 
 To run the examples in this blog post, you need the following tools: VS Code, Node.js, the [Rust compiler toolchain](https://www.rust-lang.org/), [wasm-tools](https://github.com/bytecodealliance/wasm-tools), and [wit-bindgen](https://github.com/bytecodealliance/wit-bindgen).
 
@@ -84,8 +84,14 @@ vscode.commands.registerCommand('vscode-samples.wasm-component-model-async.run',
 There are a couple of important things to note:
 
 - The WIT file used in this example is no different from the one used for the [calculator example](https://code.visualstudio.com/blogs/2024/05/08/wasm#_a-calculator-in-rust) in the previous blog post.
-- Since the execution of the WebAssembly code happens in a worker, the implementation of imported services (for example, the `log` function above) can return a `Promise` as well, but it doesn't have to.
-- Every call from the worker that executes the WebAssembly code to the extension host main thread requires synchronizing the two workers using `Atomics.wait` and `Atomics.notify`. This synchronization adds overhead. The imported API should be designed with this constraint in mind.
+- Since the execution of the WebAssembly code happens in a worker, the implementation of imported services (for example, the `log` function above) can return a `Promise`, but it doesn't have to.
+- WebAssembly currently only supports a synchronous execution model. As a result, every call from the worker that executes the WebAssembly code to the extension host main thread to call imported services requires the following steps:
+  1. Post a message to the extension host main thread describing the service to be called (for example, call the `log` function).
+  2. Suspend the worker execution using `Atomics.wait`.
+  3. Process the message in the extension host main thread.
+  4. Resume the worker and notify it about the result using `Atomics.notify`.
+
+This synchronization adds measurable time overhead. Although all these steps are handled transparently by the component model, developers should be aware of them and consider this when designing the imported API surface.
 
 You can find the full source code for this example in the [VS Code extension sample repository](https://insiders.vscode.dev/github/microsoft/vscode-extension-samples/blob/main/wasm-component-model-async/src/extension.ts#L1).
 
