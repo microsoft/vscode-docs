@@ -727,7 +727,7 @@ Contribute definition of a programming language. This will introduce a new langu
 
 The main effects of `contributes.languages` are:
 
-- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
+- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.languageId` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
 - Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
