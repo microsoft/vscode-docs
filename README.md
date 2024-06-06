@@ -14,7 +14,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 ## Index
 
 - [Index](#index)
-- [Visual Studio Code](#visual-studio-code)
+- [Visual Studio Code][def]
 - [Feedback](#feedback)
 - [Documentation Issues](#documentation-issues)
 - [Contributing](#contributing)
@@ -85,3 +85,6 @@ The history of this repo before we adopted LFS can be found at [microsoft/vscode
 Steps for how to publish documentation changes can be found [here](https://github.com/microsoft/vscode-website#publishing-a-documentation-change) in the (private) repository of the VS Code website.
 
 Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on https://code.visualstudio.com but the intent is that they will usually be live within 24 hours.
+
+
+[def]: #visual-studio-code
