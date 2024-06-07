@@ -1,5 +1,5 @@
 ---
-Order: 23
+Order: 24
 Area: editor
 TOCTitle: Voice interactions
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
@@ -32,6 +32,12 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 
 **Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `accessibility.voice.speechTimeout` setting, or disable this functionality when you configure the setting to `0`.
+
+Copilot Chat also supports text-to-speech capabilities. When you enable the `accessibility.voice.autoSynthesize` setting, Copilot Chat responses are automatically read out aloud when voice was also used as input. To interrupt the synthesis, select the icon or press `kb(workbench.action.speech.stopReadAloud)`.
+
+Each chat response also shows a new speaker icon, so that you can selectively read out a response aloud.
+
+![Text to Speech for a Chat Response](images/accessibility/text-to-speech.png)
 
 ## Walky talky mode
 

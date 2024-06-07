@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -204,14 +204,19 @@ The Extensions view search box supports filters to help you find and manage exte
 
 ![intellisense on extension search filters](images/extension-marketplace/extension-search-filters.png)
 
-Here are the Extensions view filters:
+Here are some of the Extensions view filters:
 
 * `@builtin` - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
+* `@deprecated` - Show deprecated extensions.
 * `@disabled` - Show disabled installed extensions.
-* `@installed` - Show installed extensions.
-* `@updates` - Show outdated installed extensions. A newer version is available on the Marketplace.
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
+* `@featured` - Show featured extensions.
+* `@installed` - Show installed extensions.
+* `@popular` - Show popular extensions.
+* `@recentlyPublished` - Show extensions that were recently published in the Marketplace.
 * `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
+* `@updates` - Show outdated installed extensions. A newer version is available on the Marketplace.
+* `@workspaceUnsupported` - Show extensions that are not supported for this workspace.
 * `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list:
   * `@category:themes`
   * `@category:formatters`

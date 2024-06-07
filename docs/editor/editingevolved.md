@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -153,7 +153,7 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 ![errors in problems panel](images/editingevolved/errors.png)
 
-> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)` which will show an inline zone detailing the problem and possible Code Actions (if available):
+> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible Code Actions (if available):
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 

@@ -141,6 +141,12 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ![Conditional Breakpoints](images/debugging/conditional-breakpoint.gif)
 
+### Breakpoint - Function Breakpoint
+
+The debugger also supports functional breakpoints. You can set your breakpoint to break on the specific function by clicking on the `+` in the Breakpoints section of the Debug pane.
+
+![Function Breakpoints](images/debugging/function-breakpoint.gif)
+
 ### Breakpoint - Logpoints
 
 Logpoints (also known as Tracepoints in Visual Studio) allow you to send output to Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.

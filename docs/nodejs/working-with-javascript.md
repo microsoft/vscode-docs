@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -53,7 +53,7 @@ You can alternately explicitly list packages to acquire type declaration files f
 }
 ```
 
-Most common JavaScript libraries ship with declaration files or have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
+Most common JavaScript libraries ship with declaration files or have type declaration files available.
 
 ### Fixing npm not installed warning for Automatic Type Acquisition
 

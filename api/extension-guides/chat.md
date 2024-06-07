@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -33,7 +33,7 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
+> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized. Because the stable `vscode.d.ts` does not yet have the Chat and Language Model API, we suggest that you copy over the `vscode.d.ts` from the [VS Code repo](http://github.com/microsoft/vscode) inside your extension. If you are starting from the Cat sample no action is needed.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To develop a chat extension make sure to:
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [ChatParticipant API](https://github.com/microsoft/vscode/blob/5d6671dacb9d6a582b9354ea317211a8e2b2f918/src/vscode-dts/vscode.d.ts#L18580)
+- [ChatParticipant API](/api/references/vscode-api#chat)
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 
 ## Parts of the chat user experience
@@ -336,7 +336,7 @@ Once you have created your AI extension, you can publish your extension to the V
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 
-## Additional resources
+## Related content
 
 - [Video: Enhancing VS Code extensions with GitHub Copilot](https://build.microsoft.com/sessions/57efc1aa-83c0-45c5-b8c3-ad095478bb0a?source=sessions)
 - [Use the Language Model API](/api/extension-guides/language-model) in your extension

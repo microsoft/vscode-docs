@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -840,6 +840,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size of section headers in the minimap.
     "editor.minimap.sectionHeaderFontSize": 9,
 
+    // Controls the amount of space (in pixels) between characters of section header.
+    "editor.minimap.sectionHeaderLetterSpacing": 1,
+
     // Controls whether MARK: comments are shown as section headers in the minimap.
     "editor.minimap.showMarkSectionHeaders": true,
 
@@ -1313,21 +1316,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
     "inlineChat.mode": "live",
 
-    // Controls the font family in chat codeblocks.
-    "chat.editor.fontFamily": "default",
-
-    // Controls the font size in pixels in chat codeblocks.
-    "chat.editor.fontSize": 14,
-
-    // Controls the font weight in chat codeblocks.
-    "chat.editor.fontWeight": "default",
-
-    // Controls the line height in pixels in chat codeblocks. Use 0 to compute the line height from the font size.
-    "chat.editor.lineHeight": 0,
-
-    // Controls whether lines should wrap in chat codeblocks.
-    "chat.editor.wordWrap": "off",
-
 // SCM
 
     // Controls whether inline actions are always visible in the Source Control view.
@@ -1542,14 +1530,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the last typed input to the command palette should be restored when opening it the next time.
     "workbench.commandPalette.preserveInput": false,
 
+    // Controls whether to always show the editor actions, even when the editor group is not active.
+    "workbench.editor.alwaysShowEditorActions": false,
+
     // If an editor matching one of the listed types is opened as the first in an editor group and more than one group is open, the group is automatically locked. Locked groups will only be used for opening editors when explicitly chosen by a user gesture (for example drag and drop), but not by default. Consequently, the active editor in a locked group is less likely to be replaced accidentally with a different editor.
     "workbench.editor.autoLockGroups": {
         "default": false,
         "workbench.editor.chatSession": false,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
-        "jupyter-notebook": false,
         "terminalEditor": true,
+        "jupyter-notebook": false,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
@@ -2022,6 +2013,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - maximized: Open new windows maximized.
     //  - fullscreen: Open new windows in full screen mode.
     "window.newWindowDimensions": "default",
+
+    // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the default profile if no active window exists.
+    "window.newWindowProfile": null,
 
     // Controls whether files should open in a new window when using a command line or file dialog.
     // Note that there can still be cases where this setting is ignored (e.g. when using the `--new-window` or `--reuse-window` command line option).
@@ -3358,6 +3352,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Suppresses semantic errors.
     "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": true,
 
+    // Enable/disable package acquisition on the web. This enables IntelliSense for imported packages.
+    "typescript.tsserver.web.typeAcquisition.enabled": false,
+
     // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
     //  - prompt: Prompt on each rename.
     //  - always: Always update paths automatically.
@@ -3405,6 +3402,9 @@ Below are the Visual Studio Code default settings and their values. You can also
         "yellow": 60,
         "green": 90
     },
+
+    // Controls whether the coverage toolbar is shown in the editor.
+    "testing.coverageToolbarEnabled": false,
 
     // Controls the action to take when left-clicking on a test decoration in the gutter.
     //  - run: Run the test.
@@ -3832,6 +3832,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Control whether extra actions are shown in a dropdown next to the run button.
     "notebook.consolidatedRunButton": false,
 
+    // Defines a default notebook formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
+    "notebook.defaultFormatter": null,
+
     // Whether to use the enhanced text diff editor for notebook.
     "notebook.diff.enablePreview": true,
 
@@ -3854,7 +3857,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "notebook.editorOptionsCustomizations": {},
 
     // Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.
-    "notebook.find.scope": {
+    "notebook.find.filters": {
         "markupSource": true,
         "markupPreview": true,
         "codeSource": true,
@@ -3888,6 +3891,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the display of line numbers in the cell editor.
     "notebook.lineNumbers": "off",
+
+    // Controls the line height in pixels of markdown cells in notebooks. When set to `0`, `normal` will be used
+    "notebook.markdown.lineHeight": 0,
 
     // Controls the font size in pixels of rendered markup in notebooks. When set to `0`, 120% of `editor.fontSize` is used.
     "notebook.markup.fontSize": 0,
@@ -3949,6 +3955,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - mouseover: The folding controls are visible only on mouseover.
     "notebook.showFoldingControls": "mouseover",
 
+    // Controls whether to render notebook Sticky Scroll headers in the notebook editor.
+    "notebook.stickyScroll.enabled": false,
+
     // Control whether nested sticky lines appear to stack flat or indented.
     //  - flat: Nested sticky lines appear flat.
     //  - indented: Nested sticky lines appear indented.
@@ -3959,6 +3968,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
     "interactiveWindow.alwaysScrollOnNewCell": true,
+
+    // Execute the interactive window (REPL) input box with shift+enter, so that enter can be used to create a newline.
+    "interactiveWindow.executeWithShiftEnter": true,
 
     // Prompt to save the interactive window when it is closed. Only new interactive windows will be affected by this setting change.
     "interactiveWindow.promptToSaveOnClose": false,
@@ -4075,6 +4087,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.defaultProfile.osx": null,
 
     // The default terminal profile on Windows.
+    //  - null: Automatically detect the default
+    //  - PowerShell: $(terminal-powershell) PowerShell
+    // - path: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+    //  - Windows PowerShell: $(terminal-powershell) Windows PowerShell
+    // - path: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+    //  - Git Bash: $(terminal) Git Bash
+    // - path: C:\Program Files\Git\bin\bash.exe
+    // - args: ['--login','-i']
+    //  - Command Prompt: $(terminal-cmd) Command Prompt
+    // - path: C:\WINDOWS\System32\cmd.exe
+    // - args: []
+    //  - JavaScript Debug Terminal: $($(debug)) JavaScript Debug Terminal
+    // - extensionIdentifier: ms-vscode.js-debug
     "terminal.integrated.defaultProfile.windows": null,
 
     // Controls whether to detect and set the `$LANG` environment variable to a UTF-8 compliant option since VS Code's terminal only supports UTF-8 encoded data coming from the shell.
@@ -4086,6 +4111,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
     "terminal.integrated.drawBoldTextInBrightColors": true,
 
+    // This is now deprecated. Instead use the `terminal.integrated.enableVisualBell` and `accessibility.signals.terminalBell` settings.
+    //
+    "terminal.integrated.enableBell": false,
 
     // Whether to enable file links in terminals. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
     //  - off: Always off.
@@ -4093,7 +4121,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - notRemote: Enable only when not in a remote workspace.
     "terminal.integrated.enableFileLinks": "on",
 
-    // Enables image support in the terminal, this will only work when `terminal.integrated.gpuAcceleration` is enabled.
+    // Enables image support in the terminal, this will only work when `terminal.integrated.gpuAcceleration` is enabled. Both sixel and iTerm's inline image protocol are supported on Linux and macOS, Windows support will light up automatically when ConPTY passes through the sequences. Images will currently not be restored between window reloads/reconnects.
     "terminal.integrated.enableImages": false,
 
     // Controls whether to show a warning dialog when pasting multiple lines into the terminal.
@@ -4153,8 +4181,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the terminal will leverage the GPU to do its rendering.
     //  - auto: Let VS Code detect which renderer will give the best experience.
     //  - on: Enable GPU acceleration within the terminal.
-    //  - off: Disable GPU acceleration within the terminal.
-    //  - canvas: Use the terminal's fallback canvas renderer which uses a 2d context instead of webgl which may perform better on some systems.
+    //  - off: Disable GPU acceleration within the terminal. The terminal will render much slower when GPU acceleration is off but it should reliably work on all systems.
     "terminal.integrated.gpuAcceleration": "auto",
 
     // Whether to hide the terminal view on startup, avoiding creating a terminal when there are no persistent sessions.
@@ -4171,6 +4198,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Whether new shells should inherit their environment from VS Code, which may source a login shell to ensure $PATH and other development variables are initialized. This has no effect on Windows.
     "terminal.integrated.inheritEnv": true,
+
+    // Controls if the first terminal without input will show a hint about available actions when it is focused.
+    "terminal.integrated.initialHint": true,
 
     // Controls the letter spacing of the terminal. This is an integer value which represents the number of additional pixels to add between characters.
     "terminal.integrated.letterSpacing": 0,
@@ -4240,8 +4270,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A set of terminal profile customizations for Windows which allows adding, removing or changing how terminals are launched. Profiles are made up of a mandatory path, optional arguments and other presentation options.
     "terminal.integrated.profiles.windows": { },
 
-    // Rescale glyphs horizontally that are a single cell wide but have glyphs that would overlap following cell(s). Emoji glyphs are never rescaled.
-    "terminal.integrated.rescaleOverlappingGlyphs": false,
+    // Rescale glyphs horizontally that are a single cell wide but have glyphs that would overlap following cell(s).
+    "terminal.integrated.rescaleOverlappingGlyphs": true,
 
     // Controls how terminal reacts to right click.
     //  - default: Show the context menu.
@@ -4291,6 +4321,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines the maximum number of sticky lines to show. Sticky scroll lines will never exceed 40% of the viewport regardless of this setting.
     "terminal.integrated.stickyScroll.maxLineCount": 5,
 
+    // Enables experimental terminal Intellisense suggestions for supported shells (PowerShell) when `terminal.integrated.shellIntegration.enabled` is set to `true`.
+    "terminal.integrated.suggest.enabled": false,
+
+    // Controls whether suggestions should automatically show up while typing.
+    "terminal.integrated.suggest.quickSuggestions": true,
+
+    // Controls whether suggestions should automatically show up when typing trigger characters.
+    "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
+
     // A theme color ID to associate with terminal icons by default.
     "terminal.integrated.tabs.defaultColor": null,
 
@@ -4330,7 +4369,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - right: Show the terminal tabs view to the right of the terminal
     "terminal.integrated.tabs.location": "right",
 
-    // Separator used by `terminal.integrated.tabs.title` and `terminal.integrated.tabs.description`.
+    // Separator used by `terminal.integrated.tabs.title#` and `#terminal.integrated.tabs.description`.
     "terminal.integrated.tabs.separator": " - ",
 
     // Controls whether terminal split and kill buttons are displays next to the new terminal button.
@@ -4340,7 +4379,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never: Never show the actions
     "terminal.integrated.tabs.showActions": "singleTerminalOrNarrow",
 
-    // Shows the active terminal information in the view.
+    // Shows the active terminal information in the view. This is particularly useful when the title within the tabs aren't visible.
     //  - always: Always show the active terminal
     //  - singleTerminal: Show the active terminal when it is the only terminal opened
     //  - singleTerminalOrNarrow: Show the active terminal when it is the only terminal opened or when the tabs view is in its narrow textless state
@@ -4372,10 +4411,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
     "terminal.integrated.windowsEnableConpty": true,
 
-    // A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection.
-    "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’|",
-
-// Tasks
+    // A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection. Since this is used for link detection, including characters such as `:` that are used when detecting links will cause the line and column part of links like `file:10:5` to be ignored.
+    "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’“”|",
 
     // Enable automatic tasks - note that tasks won't run in an untrusted workspace.
     //  - on: Always
@@ -4415,12 +4452,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable verbose logging for tasks.
     "task.verboseLogging": false,
 
-// Problems
-
     // Controls whether Problems view should automatically reveal files when opening them.
     "problems.autoReveal": true,
 
-    // Show Errors & Warnings on files and folder.
+    // Show Errors & Warnings on files and folder. Overwritten by `problems.visibility` when it is off.
     "problems.decorations.enabled": true,
 
     // Controls the default view mode of the Problems view.
@@ -4436,8 +4471,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the problems are visible throughout the editor and workbench.
     "problems.visibility": true,
-
-// Breadcrumb Navigation
 
     // Enable/disable navigation breadcrumbs.
     "breadcrumbs.enabled": true,
@@ -4541,8 +4574,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - type: Show symbol outline in symbol type order.
     "breadcrumbs.symbolSortOrder": "position",
 
-// Outline
-
     // Controls whether Outline items are collapsed or expanded.
     //  - alwaysCollapse: Collapse all items.
     //  - alwaysExpand: Expand all items.
@@ -4638,12 +4669,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, Outline shows `variable`-symbols.
     "outline.showVariables": true,
 
-// Timeline
+    // Experimental. Controls whether the Timeline view will load the next page of items when you scroll to the end of the list.
+    "timeline.pageOnScroll": false,
 
     // The number of items to show in the Timeline view by default and when loading more items. Setting to `null` (the default) will automatically choose a page size based on the visible area of the Timeline view.
     "timeline.pageSize": null,
-
-// Default Configuration Overrides
 
     // Configure settings to be overridden for the clojure language.
     "[clojure]":  {
@@ -4854,6 +4884,26 @@ Below are the Visual Studio Code default settings and their values. You can also
     // On keypress, close the Accessible View and focus the element from which it was invoked.
     "accessibility.accessibleView.closeOnKeyPress": true,
 
+    // Configures the behavior of signals (audio cues and announcements) in the workbench. Includes volume, debounce position changes, and delays for different types of signals.
+    "accessibility.signalOptions": {
+        "volume": 70,
+        "debouncePositionChanges": false,
+        "experimental.delays": {
+            "general": {
+                "announcement": 3000,
+                "sound": 400
+            },
+            "warningAtPosition": {
+                "announcement": 3000,
+                "sound": 1000
+            },
+            "errorAtPosition": {
+                "announcement": 3000,
+                "sound": 1000
+            }
+        }
+    },
+
     // Plays a signal when a chat request is made.
     "accessibility.signals.chatRequestSent": {
         "sound": "auto",
@@ -4870,9 +4920,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "sound": "auto",
         "announcement": "auto"
     },
-
-    // Whether or not position changes should be debounced
-    "accessibility.signals.debouncePositionChanges": false,
 
     // Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
     "accessibility.signals.diffLineDeleted": {
@@ -4972,9 +5019,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "announcement": "never"
     },
 
-    // The volume of the sounds in percent (0-100).
-    "accessibility.signals.sounds.volume": 70,
-
     // Plays a signal when a task is completed.
     "accessibility.signals.taskCompleted": {
         "sound": "auto",
@@ -4995,6 +5039,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Plays a signal when a terminal command fails (non-zero exit code).
     "accessibility.signals.terminalCommandFailed": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+    "accessibility.signals.terminalCommandSucceeded": {
         "sound": "auto",
         "announcement": "auto"
     },
@@ -5058,6 +5108,21 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls if deletions in base or one of the inputs should be indicated by a vertical bar.
     "mergeEditor.showDeletionMarkers": true,
+
+    // Controls the font family in chat codeblocks.
+    "chat.editor.fontFamily": "default",
+
+    // Controls the font size in pixels in chat codeblocks.
+    "chat.editor.fontSize": 14,
+
+    // Controls the font weight in chat codeblocks.
+    "chat.editor.fontWeight": "default",
+
+    // Controls the line height in pixels in chat codeblocks. Use 0 to compute the line height from the font size.
+    "chat.editor.lineHeight": 0,
+
+    // Controls whether lines should wrap in chat codeblocks.
+    "chat.editor.wordWrap": "off",
 
 // Emmet
 
