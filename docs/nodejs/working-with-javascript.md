@@ -53,7 +53,7 @@ You can alternately explicitly list packages to acquire type declaration files f
 }
 ```
 
-Most common JavaScript libraries ship with declaration files or have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
+Most common JavaScript libraries ship with declaration files or have type declaration files available.
 
 ### Fixing npm not installed warning for Automatic Type Acquisition
 
