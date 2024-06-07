@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Testing
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
 PageTitle: Testing in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 06/05/2024
 MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -17,9 +17,9 @@ In this article, you'll learn how to get started with testing in VS Code, discov
 
 ## Getting started with testing in VS Code
 
-Testing support in VS Code is language-specific and depends on the [extensions](#testing-extensions) you have installed. The testing features are provided by the language extensions, which can be language servers, test runners, or other tools that support testing in that language. To get started with testing in VS Code, first install the appropriate language extension for your project.
+Testing support in VS Code is language-specific and depends on the [extensions](#testing-extensions) you have installed. Language extensions or standalone extension can implement the testing features for a particular language or testing framework. To get started with testing in VS Code, first install the appropriate extension for your project.
 
-Once you have the language extension installed, you can start discovering and running tests in your project. The [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run your tests.
+After you have installed the extension, you can start discovering and running tests in your project. The [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run your tests.
 
 After you run your tests, you can view the test results in the Test Explorer view, editor gutter, and Test Results panel. To diagnose issues with your tests, you can also [run and debug tests](#run-and-debug-tests) and set breakpoints in your test and application code.
 
@@ -31,7 +31,7 @@ To optimize your testing workflow, you can [create tasks to run your tests](#tas
 
 You can find extensions that support testing by looking in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Testing&sortBy=Installs). You can also go to the Extensions view (`kb(workbench.view.extensions)`), and filter by the **Testing** category.
 
-<!-- <div class="marketplace-extensions-testing"></div> -->
+<div class="marketplace-extensions-testing-tools-curated"></div>
 
 > **Tip**: The extensions shown above are dynamically queried. Select an extension tile to read the description and reviews to decide which extension is best for you.
 
@@ -39,7 +39,7 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 
 The Test Explorer view provides a centralized place to manage and run your tests. You can access the Test Explorer view by selecting the beaker icon in the Activity Bar or by using the **Testing: Focus on Test Explorer View** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-If you have a project with tests, the Test Explorer view automatically discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
+If you have a project with tests, the Test Explorer view discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
 
 ![Test Explorer view](images/testing/test-explorer-view.png)
 
@@ -58,6 +58,8 @@ If you have many tests, you can use the filtering options to quickly find the te
 In the **More Actions** menu, you can access additional functionality, such as sort and display options.
 
 If you add new tests or make changes to your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+> **Note**: Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. Consult the documentation of the testing extension for more information.
 
 ## Run and debug tests
 
@@ -89,7 +91,7 @@ You can access the commands for the Test Explorer, such as running or debugging 
 
 ## Test coverage
 
-Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code provides built-in support for running tests with coverage and viewing the coverage results.
+Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code supports running tests with coverage and viewing the coverage results if the corresponding testing extension support test coverage.
 
 Similar to running and debugging tests, you can run tests with coverage by using the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -105,7 +107,7 @@ After you run tests with coverage, you can view the coverage results in differen
 
 - As an overlay in the editor
 
-    For code files that have test coverage, the editor shows a color overlay in the gutter to indicate which lines are covered by tests or not. When you hover over the gutter, notice that for covered lines, there is also an indicator for the number of times the line was executed.
+    For code files that have test coverage, the editor shows a color overlay in the gutter to indicate which lines are covered by tests or not. When you hover over the gutter, notice that for covered lines, there is also an indicator for the number of times the line was executed. You can also select the **Show Inline Coverage** button in the editor title bar or use the **Test: Show Inline Coverage** command (`kb(testing.toggleInlineCoverage)`) to toggle the coverage overlay.
 
     ![View coverage in editor](images/testing/view-coverage-in-editor.png)
 
@@ -150,7 +152,7 @@ To run the test task, use the command **Tasks: Run Test Task** or [create a keyb
 
 Learn more about [using and configuring Tasks](/docs/editor/tasks.md).
 
-> **Note**: Individual language extension providers might provide specific functionality for automating the test execution process.
+> **Note**: Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
 
 ## Test configuration settings
 
