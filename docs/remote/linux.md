@@ -47,10 +47,10 @@ You may encounter issues with certain extensions with native dependencies with *
 |--------------|-------------------|------------------|-------|
 | General |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 \| grep GLIBCXX` to see if libstdc++ 3.4.25 is available. |
 | General for Arm32 | `libatomic1` | No additional requirements. | |
-| Ubuntu 20.04+, Debian 10+, Raspberry Pi OS Buster/10+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
-| RHEL / CentOS 8+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
+| Ubuntu 20.04+, Debian 10+, Raspberry Pi OS Buster/10+ and downstream distributions | `libc6 libstdc++6 ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
+| RHEL / CentOS 8+ | `glibc libgcc libstdc++ ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
 | Alpine Linux 3.16+ | `musl libgcc libstdc++`. musl >= 1.2.3, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
-| openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 4.18, glibc, libstdc++6|
+| openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 4.18, glibc, libstdc++6|
 
 ## Tips by Linux distribution
 
