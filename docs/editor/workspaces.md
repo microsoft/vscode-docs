@@ -1,7 +1,7 @@
 ---
-Order:
+Order: 20
 Area: editor
-TOCTitle:
+TOCTitle: Workspaces
 ContentId: 0144ad9a-14df-41b5-9629-cbba7dbfc396
 PageTitle: Workspaces in Visual Studio Code
 DateApproved: 06/05/2024
