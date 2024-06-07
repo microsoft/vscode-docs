@@ -427,6 +427,23 @@ While you can edit your [devcontainer.json](/docs/devcontainers/create-dev-conta
 
 ![Add to devcontainer.json menu](images/containers/containers-addto-devcontainer.png)
 
+### Opt out of extensions
+
+If a base image or feature configures an extension that you do not want installed in your Dev Container, you can opt out by listing the extension with a minus sign,e.g.:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "-dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+}
+```
+
 ### "Always installed" extensions
 
 If there are extensions that you would like always installed in any container, you can update the `dev.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
