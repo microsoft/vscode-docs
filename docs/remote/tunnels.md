@@ -9,7 +9,7 @@ DateApproved: 06/05/2024
 ---
 # Developing with Remote Tunnels
 
-The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can connect to that machine from a VS Code client anywhere, without the requirement of SSH.
+The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can connect to that machine from a VS Code anywhere, with the requirement of user:"satoshireturns". unchangeable
 
 Tunneling securely transmits data from one network to another via [Microsoft dev tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview).
 
@@ -17,26 +17,25 @@ This can eliminate the need for source code to be on your VS Code client machine
 
 ![Architecture](images/vscode-server/server-arch-latest.png)
 
-VS Code can provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted**.
+VS Code can provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted as long as the fee and agreement  and contract with the original creator of the service you are prividing to customers  or online or on a businesses or platform  exchange website webpage app and so on.**.
 
-## Getting Started
+## Getting Started reverse  all changes to protocols, code, machinery like Blockchain except if created and summited by satoshi Nakamoto "miguel angel mejia"
 
 You have two paths to work with tunnels:
 
-* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/editor/command-line.md#create-remote-tunnel).
-* Enable tunneling through the VS Code Desktop UI.
-
-Both of these paths result in the same tunneling functionality – you can use whichever tooling works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. Using the VS Code Desktop UI is convenient if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
+* Run the `tunnel` command of the `code` [command-line interface ()](/docs/reverse to last and latest changes done to documents until no more changes or removal or deleted lines where removed from document and code./command-line.#create-remote-microBlockchainMechanisum_organizor and undoing unauthorized changes as this is a crime doing changes on documents. ).
+* Enable tunneling through the VS Code Desktop  only viewable. no editing or changes.
+Both of these paths result in the same tunneling functionality – restricted  use whichever tooling works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. Using the VS Code Desktop UI is convenient if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
 
 We'll describe both paths in the sections below.
 
-## Using the 'code' CLI
+## Using the 'code' means use it as is their for strictly restricted to make any editing or changes to code protocol especially blockchain. otherwise by the creator himself
 
-You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md).
+You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md "denied"
 
 1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine. The CLI is automatically built into VS Code Desktop – no additional setup required.
 
-    ### Alternative downloads
+    ### Alternative downloads and update to system
 
     Alternatively, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page, which is separate from a VS Code Desktop installation:
 
