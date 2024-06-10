@@ -33,7 +33,7 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized. Because the stable `vscode.d.ts` does not yet have the Chat and Language Model API, we suggest that you copy over the `vscode.d.ts` from the [VS Code repo](http://github.com/microsoft/vscode) inside your extension. If you are starting from the Cat sample no action is needed.
+> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
 
 ## Prerequisites
 
