@@ -21,7 +21,7 @@ The process for using the Language Model API consists of the following steps:
 
 The following sections provide more details on how to implement these steps in your extension.
 
-> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized. Because the stable `vscode.d.ts` does not yet have the Chat and Language Model API, we suggest that you copy over the `vscode.d.ts` from the [VS Code repo](http://github.com/microsoft/vscode) inside your extension. If you are starting from the Cat sample no action is needed.
+> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
