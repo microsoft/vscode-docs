@@ -57,7 +57,7 @@ To install the MinGW-w64 toolchain, check out this video or follow the steps bel
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
    1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\ucrt64\bin`.
    1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
-   1. You will have to open a NEW console window for the updated PATH to work.
+      You have to reopen any console windows for the updated `PATH` environment variable to be available.
 
 ### Check your MinGW installation
 
