@@ -92,12 +92,13 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. Enter `Y` when prompted whether to proceed with the installation.
 
-1. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
+1. Add the path of your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
    1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\ucrt64\bin`.
-   1. Select **OK** to save the updated PATH. For the new `PATH` to be available, reopen your console windows.
+   1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
+      You have to reopen any console windows for the updated `PATH` environment variable to be available.
 1. Check that your MinGW-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
 ```bash
