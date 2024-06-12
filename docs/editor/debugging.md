@@ -174,7 +174,7 @@ Optionally, breakpoints can be shown in the editor's overview ruler by enabling 
 
 ## Logpoints
 
-A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the debug console. Logpoints enable you to  inject logging while debugging without modifying the source code. Instead of adding a `console.log` statement, you can add a Logpoint during a debugging session and not risk having logging statements left in your code. For example, logpoints are especially useful for when you're debugging production servers that cannot be paused or stopped.
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the debug console. Logpoints enable you to  inject logging while debugging without modifying the source code. Instead of adding a `console.log` statement, you can add a Logpoint during a debugging session and not risk having logging statements left in your code. For example, logpoints are especially useful when you're debugging production servers that cannot be paused or stopped.
 
 A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
