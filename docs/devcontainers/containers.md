@@ -429,7 +429,7 @@ While you can edit your [devcontainer.json](/docs/devcontainers/create-dev-conta
 
 ### Opt out of extensions
 
-If a base image or Feature configures an extension that you do not want installed in your dev container, you can opt out by listing the extension with a minus sign, e.g.:
+If a base image or Feature configures an extension that you do not want installed in your dev container, you can opt out by listing the extension with a minus sign. For example:
 
 ```json
 {
