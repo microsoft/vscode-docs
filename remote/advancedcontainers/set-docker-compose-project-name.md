@@ -28,7 +28,7 @@ $env:COMPOSE_PROJECT_NAME=foo
 code .
 ```
 
-Or add the following to a `.env` file in the same folder as the `docker-compose.yml`:
+Alternatively, add the following entry to a `.env` file in the same folder as the `docker-compose.yml`:
 
 ```
 COMPOSE_PROJECT_NAME=foo
