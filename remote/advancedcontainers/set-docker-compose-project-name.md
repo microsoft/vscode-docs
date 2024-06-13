@@ -11,7 +11,9 @@ DateApproved: 06/05/2024
 
 Visual Studio Code will respect the value you configure for the Docker Compose [project name](https://docs.docker.com/compose/project-name/).
 
-For example, when the `COMPOSE_PROJECT_NAME` environment variable is set for the VS Code process or in a `.env` file in the same folder as the `docker-compose.yml`:
+You can set the `COMPOSE_PROJECT_NAME` environment variable for the VS Code process, or specify it in a `.env` file in the same folder as the `docker-compose.yml`.
+
+> **Note**: make sure to close all open VS Code windows first.
 
 After shutting down all VS Code windows, you can start VS Code from the command line as follows:
 
