@@ -34,4 +34,4 @@ Alternatively, add the following entry to a `.env` file in the same folder as th
 COMPOSE_PROJECT_NAME=foo
 ```
 
-When no project name is configured and the `docker-compose.yml` is in the `.devcontainer` folder the Docker Compose default of using the `docker-compose.yml` folder's basename is overridden with `${project-folder-basename}_devcontainer` to avoid name collisions with other projects.
+When no project name is configured and the `docker-compose.yml` is in the `.devcontainer` folder, the Docker Compose default of using the `docker-compose.yml` folder's basename is overridden with `${project-folder-basename}_devcontainer` to avoid name collisions with other projects.
