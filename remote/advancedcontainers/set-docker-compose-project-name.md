@@ -15,7 +15,7 @@ You can set the `COMPOSE_PROJECT_NAME` environment variable for the VS Code proc
 
 > **Note**: make sure to close all open VS Code windows first.
 
-After shutting down all VS Code windows, you can start VS Code from the command line as follows:
+To start VS Code from the command line:
 
 ```bash
 # from bash
