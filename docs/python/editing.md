@@ -36,7 +36,9 @@ Enabling the full set of IntelliSense features by default could end up making yo
 
 ### Enable Auto Imports
 
-Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
+Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added once you accept the suggestion that pops up as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
+
+![Completion with auto import displayed on the suggestion list](images/editing/auto-import-suggestion.png)
 
 ### Enable IntelliSense for custom package locations
 
