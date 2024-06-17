@@ -71,7 +71,7 @@ const craftedPrompt = [
 
 ## Send the language model request
 
-Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family`, or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. We expect that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
+Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family`, or `version` of the model you want to get. Currently, only `gpt-3.5-turbo` and `gpt-4` are supported. We expect that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
 
 If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
 
@@ -186,9 +186,9 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `copilot-gpt-3.5-turbo`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `copilot-gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
+Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `gpt-3.5-turbo`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
 
->**Note:** both `copilot-gpt-3.5-turbo` and `copilot-gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
+>**Note:** both `gpt-3.5-turbo` and `gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
 
 ### Rate limiting
 
