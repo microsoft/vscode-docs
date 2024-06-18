@@ -17,12 +17,49 @@ This tutorial guides you through the basics of using the integrated terminal in 
 
 ## Run your first command in the terminal
 
-- How to access the terminal (keybindings, command, menu)
-- Run a simple command like `ls` or `dir` and view the output
+While you're writing code, you might have to run shell commands to build, test, or deploy your application. The integrated terminal in VS Code enables you to run these commands without leaving the editor.
+
+To get started with the terminal:
+
+1. Start VS Code and open a folder or workspace.
+
+1. Open the terminal by selecting **View** > **Terminal** from the menu bar, or by pressing `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+
+    Based on your operating system configuration, the terminal opens with a default shell like Bash, PowerShell, or Command Prompt.
+
+    ![Open the terminal](./images/getting-started/open-terminal.png)
+
+    Note that the shell starts at the root of the workspace folder.
+
+1. Enter a basic command like `ls` (on macOS and Linux) or `dir` (on Windows) to list the files in the current directory.
+
+    The terminal displays the output of the command, similar to a standalone terminal, except that you stay within the editor.
+
+    ![Run a command in the terminal](./images/getting-started/terminal-output.png)
+
+    > **Tip**: You can enlarge the terminal by dragging the terminal panel's border or by selecting the chevron up icon to maximize the panel.
 
 ## Interact with command outputs
 
-- Navigate to files/URLs using links in output (call out :line:col support in file links) - everything is clickable
+The terminal in VS Code also provides features to interact with the command outputs, which can be helpful during development. Commands often output file paths or URLs that you might want to open or navigate to. For example, the compiler or linter might return an error message with a file path and line number.
+
+Let's see how you can interact with the command outputs in the terminal:
+
+1. Open the terminal where you previously ran the `ls` or `dir` command.
+
+1. In terminal, hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key, hover over a file name, and then select the link.
+
+    Notice that when you hover over text in the output, it changes into a link. When you select a file name, VS Code opens the selected file in the editor.
+
+    ![Navigate to files/URLs using links in terminal output](./images/getting-started/terminal-links.png)
+
+    All text in the terminal output is clickable. If you select a hyperlink in the terminal, it opens the link in the default browser. For other text, VS Code opens a Quick Pick that enables you to search for that text across your workspace.
+
+    The terminal also support directly navigating to a specific line and column in a file. The following example shows the output of the `grep` command that returns the file name and the line number, separated by a colon. You can select the link to navigate to that line in the file.
+
+    ![Navigate to a specific line in a file](./images/getting-started/terminal-line-column.png)
+
+Learn more about the different types of [links in the terminal](/docs/terminal/basics.md#links).
 
 ## Navigate to previous commands
 
