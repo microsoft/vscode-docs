@@ -91,7 +91,27 @@ Learn more about the different types of [links in the terminal](/docs/terminal/b
 
 ## Navigate to previous commands
 
-- Use a keybinding to navigate to a previous command in the terminal history
+As you work in the terminal, you might need to review a previous command and its output, or maybe you want to rerun a command. You can quickly navigate to the previous commands by using keyboard shortcuts.
+
+To navigate to previous commands:
+
+1. Open the terminal you used previously.
+
+1. Press the `kb(workbench.action.terminal.scrollToPreviousCommand)` keyboard shortcut to scroll to the previous command in the terminal history.
+
+    Notice that the terminal highlights and scrolls to the previous command.
+
+    ![Navigate to the previous command](./images/getting-started/previous-command.png)
+
+    If you keep pressing `kb(workbench.action.terminal.scrollToPreviousCommand)` multiple times, the terminal scrolls further through the command history. You can use the `kb(workbench.action.terminal.scrollToNextCommand)` keyboard shortcut to navigate in the other direction.
+
+1. Depending on which shell you're using, you can see a circle icon in the gutter next to a previously run command.
+
+1. Select the circle icon to view the available options for that command. Select **Rerun Command** to run the command again.
+
+    ![Rerun a command](./images/getting-started/rerun-command.png)
+
+Learn more about [navigating through the command history](/docs/terminal/shell-integration.md#command-navigation).
 
 ## Run commands in another shell
 
