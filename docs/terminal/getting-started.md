@@ -55,7 +55,35 @@ Let's see how you can interact with the command outputs in the terminal:
 
     All text in the terminal output is clickable. If you select a hyperlink in the terminal, it opens the link in the default browser. For other text, VS Code opens a Quick Pick that enables you to search for that text across your workspace.
 
-    The terminal also support directly navigating to a specific line and column in a file. The following example shows the output of the `grep` command that returns the file name and the line number, separated by a colon. You can select the link to navigate to that line in the file.
+1. Run the following command to create a `Command.txt` file in the terminal that contains a list of commands.
+
+    * PowerShell
+
+        ```powershell
+        Get-Command | Out-File -FilePath .\Command.txt
+        ```
+
+    * Bash
+
+        ```bash
+        ls -l /usr/bin > Command.txt
+        ```
+
+1. Use the following command to search for a command in the `Command.txt` file.
+
+    * PowerShell
+
+        ```powershell
+        Get-ChildItem *.txt | Select-String "dir"
+        ```
+
+    * Bash
+
+        ```bash
+        grep -n "dir" *.txt
+        ```
+
+    Notice that the output contains the file name and the line number where the search result is found. The terminal identifies this as a link, and you can then select the link to open the file in the editor at that specific line in the file.
 
     ![Navigate to a specific line in a file](./images/getting-started/terminal-line-column.png)
 
