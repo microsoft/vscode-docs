@@ -115,10 +115,31 @@ Learn more about [navigating through the command history](/docs/terminal/shell-i
 
 ## Run commands in another shell
 
-- Add a new terminal with a different shell
-- Run a command in the new terminal
-- View the list of terminals
-- Close the terminal
+The integrated terminal supports having multiple terminals open at the same time. For example, you could dedicate one terminal to run Git commands and another terminal to run build scripts. You can also run commands in different shells based on your preference.
+
+To add a new terminal in a different shell:
+
+1. Open the terminal.
+
+1. Select the down chevron icon in the terminal panel to open the terminal dropdown, and then select from one of the available shells.
+
+    > **Note**: The available shells depend on the shells installed on your machine.
+
+    ![Select a different shell](./images/getting-started/select-shell.png)
+
+    A new terminal opens with the selected shell. You can enter commands in the new terminal like you did previously.
+
+1. You can view the open terminals from the list in the terminal panel.
+
+    ![View the list of terminals](./images/getting-started/terminal-list.png)
+
+1. To switch to another terminal, select it from the list of terminals.
+
+1. To close an open terminal, select the trashcan icon when hovering over the terminal list.
+
+    ![Close a terminal](./images/getting-started/close-terminal.png)
+
+Learn more about [managing terminals](/docs/terminal/basics.md#managing-terminals).
 
 ## Arrange the terminal window
 
