@@ -139,14 +139,14 @@ To add a new terminal in a different shell:
 
     ![Close a terminal](./images/getting-started/close-terminal.png)
 
+> **Tip**: You can also select the `+` icon to create a new terminal for the default shell, use the `kb(workbench.action.terminal.new)` keyboard shortcut, or select **Terminal** > **New Terminal** from the menu bar.
+
 Learn more about [managing terminals](/docs/terminal/basics.md#managing-terminals).
-
-## Arrange the terminal window
-
-- Move the terminal into an editor window, optionally make it floating
 
 ## Next steps
 
-- Terminal basics
-- Terminal profiles
-- Terminal customization
+In this tutorial, you learned how to get started with the integrated terminal in VS Code. Here are some additional topics to explore:
+
+* Learn the [fundamental concepts and features of the integrated terminal](/docs/terminal/basics.md)
+* Explore how to [create and manage terminal profiles](/docs/terminal/profiles.md) to customize your terminal experience
+* Discover various ways to [customize the appearance and behavior](/docs/terminal/customization.md) of the terminal
