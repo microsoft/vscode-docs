@@ -11,13 +11,13 @@ MetaDescription: Learn how to get started running shell commands with the integr
 
 Visual Studio Code includes a fully featured integrated terminal. You can use it to run commands like `echo`, `ls`, and `git`, just like a standalone terminal. The terminal in VS Code also provides integration with the editor to support features such as links to workspace files and error detection.
 
-The integrated terminal can use various shells installed on your machine. A shell is a program that interprets and executes the commands by interacting with the operating system. Examples of shells include Bash, Zsh, and PowerShell.
+The terminal can use various shells installed on your machine. A shell is a program that interprets and executes the commands by interacting with the operating system. Examples of shells include Bash, Zsh, and PowerShell.
 
-This tutorial guides you through the basics of using the integrated terminal in Visual Studio Code.
+This tutorial guides you through the basics of using the terminal in Visual Studio Code.
 
 ## Run your first command in the terminal
 
-While you're writing code, you might have to run shell commands to build, test, or deploy your application. The integrated terminal in VS Code enables you to run these commands without leaving the editor.
+While you're writing code, you might have to run shell commands to build, test, or deploy your application. The terminal in VS Code enables you to run these commands without leaving the editor.
 
 To get started with the terminal:
 
@@ -61,7 +61,7 @@ Let's see how you can interact with the command outputs in the terminal:
         Get-Command | Out-File -FilePath .\Command.txt
         ```
 
-    * Bash
+    * Bash / Zsh
 
         ```bash
         ls -l /usr/bin > Command.txt
@@ -75,7 +75,7 @@ Let's see how you can interact with the command outputs in the terminal:
         Get-ChildItem *.txt | Select-String "dir"
         ```
 
-    * Bash
+    * Bash / Zsh
 
         ```bash
         grep -n "dir" *.txt
@@ -113,7 +113,7 @@ Learn more about [navigating through the command history](/docs/terminal/shell-i
 
 ## Run commands in another shell
 
-The integrated terminal supports having multiple terminals open at the same time. For example, you could dedicate one terminal to run Git commands and another terminal to run build scripts. You can also run commands in different shells based on your preference.
+The terminal supports having multiple terminals open at the same time. For example, you could dedicate one terminal to run Git commands and another terminal to run build scripts. You can also run commands in different shells based on your preference.
 
 To add a new terminal in a different shell:
 
@@ -135,11 +135,11 @@ To add a new terminal in a different shell:
 
     > **Tip**: You can rename a terminal in the list by right-clicking on it and selecting **Rename**.
 
-1. Right-click a terminal in the terminal list and select **Move Terminal into Editor Area**.
-
-    ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
+1. Drag a terminal from the terminal list into the editor area.
 
     The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/editor/custom-layout.md#editor).
+
+    ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
 
 1. Select the trashcan icon when hovering over the terminal list to close an open terminal.
 
@@ -149,8 +149,8 @@ Learn more about [managing terminals](/docs/terminal/basics.md#managing-terminal
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the integrated terminal in VS Code. Here are some more topics to explore:
+In this tutorial, you learned how to get started with the terminal in VS Code. Here are some more topics to explore:
 
-* Learn the [fundamental concepts and features of the integrated terminal](/docs/terminal/basics.md)
+* Learn the [fundamental concepts and features of the terminal](/docs/terminal/basics.md)
 * Explore how to [create and manage terminal profiles](/docs/terminal/profiles.md)
 * Discover various ways to [customize the appearance and behavior](/docs/terminal/appearance.md) of the terminal
