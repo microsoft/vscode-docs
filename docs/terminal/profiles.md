@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a

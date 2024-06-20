@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
