@@ -23,6 +23,35 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 To help make your extension fit seamlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
+## Issue Reporting
+
+We enable extension authors to attach any additional information while reporting an issue via `workbench.action.openIssueReporter` command.
+
+To let extensions benefit from this in the separate case of navigating the normal issue reporter flow via `Help: Reporter Issues...`, extension authors can contribute a custom command (which will invoke `openIssueReporter`) and a menu contribution point to `issue/reporter`.
+
+An example of a contributed command and menu for `contributes` in `package.json` (See [Contribution Points](/api/references/contribution-points) for adding a menu contribution and command):
+
+``` json
+"commands": [
+    {
+        "command": "extension.myCommand",
+        "title": "Report Issue"
+    }
+],
+    "menus": {
+        "issue/reporter": [
+            {
+                "command": "extension.myCommand"
+            }
+        ]
+    }
+
+```
+
+Additionally, all installed extensions can be quickly reported on via Quick Open. By typing `issue  ` in Quick Open (`workbench.action.quickOpen`), you can quickly select or search for an installed extension to report on.
+
+We ask extensions that previously contributed a `workbench.action.openIssueReporter` command in the command palette to start utilizing this new issue reporting flow.
+
 ## Testing and Publishing
 
 This section includes topics that help you develop high-quality VS Code extensions. For example, you can learn
