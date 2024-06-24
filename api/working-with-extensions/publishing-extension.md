@@ -344,7 +344,7 @@ If validation is passed, you will see the corresponding badge next to your publi
 
 > **Notes**:
 > - Any changes to the publisher display name will revoke the verified badge.
-> - Any violations from the publisher will revoke the verified badge.
+> - Any future [Terms of Use](https://cdn.vsassets.io/v/M190_20210811.1/_content/Microsoft-Visual-Studio-Marketplace-Terms-of-Use.pdf) or above mentioned validation violations from the publisher will revoke the verified badge.
 
 ### Eligible domains
 
