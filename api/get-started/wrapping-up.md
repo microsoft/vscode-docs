@@ -29,7 +29,7 @@ Users can report an issue for an extension via the `workbench.action.openIssueRe
 
 Extension authors can attach any additional information when users report an issue. 
 
-To let extensions benefit from this in the separate case of navigating the normal issue reporter flow via `Help: Reporter Issues...`, extension authors can contribute a custom command (which will invoke `openIssueReporter`) and a menu contribution point to `issue/reporter`.
+By contributing a custom command and a `issue/reporter` menu contribution point, your extension can integrate in the **Help: Report Issue...** issue reporter flow. This custom command will in turn invoke `openIssueReporter`.
 
 An example of a contributed command and menu for `contributes` in `package.json` (See [Contribution Points](/api/references/contribution-points) for adding a menu contribution and command):
 
