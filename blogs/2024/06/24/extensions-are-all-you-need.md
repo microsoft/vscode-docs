@@ -17,7 +17,7 @@ The same way that transformers were transformative (sorry) for AI, we believe Gi
 
 VS Code is one of the most widely used developer tools in history. This popularity is largely due to the vast ecosystem of extensions that have been contributed by the community. If you’re a VS Code user, you can probably list right off the top of your head a handful of extensions that you cannot live without. Imagine the possibilities if those extensions would leverage the power of AI and GitHub Copilot.
 
-The true power of AI is unlocked when it when it knows about your specific context. And VS Code has that knowledge. Extensions can use the VS Code API to harness this context and deliver the best, most relevant AI-driven answers and interactions right in VS Code where all the developers are already.
+The true power of AI is unlocked when it knows about your specific context. And VS Code has that knowledge. Extensions can use the VS Code API to harness this context and deliver the best, most relevant AI-driven answers and interactions right in VS Code where all the developers are already.
 
 In this post, we’ll look at the new APIs that empower extensions to interact directly with Language Models and the Chat experience contributed by GitHub Copilot. We’ll look at how you can start building with these APIs today, and we’ll showcase a few early adopters that have started to take advantage of these APIs to enrich their extension.
 
