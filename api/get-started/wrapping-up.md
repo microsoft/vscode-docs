@@ -26,7 +26,6 @@ To help make your extension fit seamlessly into the VS Code user interface, refe
 ## Issue Reporting
 
 Users can report an issue for an extension via the `workbench.action.openIssueReporter` command. Additionally, all installed extensions can be quickly reported on via Quick Open. By typing `issue  ` in Quick Open (`workbench.action.quickOpen`), users can quickly select or search for an installed extension to report on.
-
 Extension authors can attach any additional information when users report an issue. 
 
 By contributing a custom command and a `issue/reporter` menu contribution point, your extension can integrate in the **Help: Report Issue...** issue reporter flow. This custom command will in turn invoke `openIssueReporter`.
