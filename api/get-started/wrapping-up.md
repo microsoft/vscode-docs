@@ -50,7 +50,6 @@ An example of a contributed command and menu for `contributes` in `package.json`
 
 ```
 
-Additionally, all installed extensions can be quickly reported on via Quick Open. By typing `issue  ` in Quick Open (`workbench.action.quickOpen`), you can quickly select or search for an installed extension to report on.
 
 We ask extensions that previously contributed a `workbench.action.openIssueReporter` command in the command palette to start utilizing this new issue reporting flow.
 
