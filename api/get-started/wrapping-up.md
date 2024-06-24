@@ -51,7 +51,7 @@ An example of a contributed command and menu for `contributes` in `package.json`
 ```
 
 
-We ask extensions that previously contributed a `workbench.action.openIssueReporter` command in the command palette to start utilizing this new issue reporting flow.
+We ask extensions that previously contributed a `workbench.action.openIssueReporter` command in the command palette to start using this new issue reporting flow.
 
 ## Testing and Publishing
 
