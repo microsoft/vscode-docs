@@ -1,13 +1,13 @@
 ---
 Order: 88
-TOCTitle: Extensions are all you need
-PageTitle: Extensions are all you need
+TOCTitle: Copilot extensions are all you need
+PageTitle: GitHub Copilot Extensions are all you need
 MetaDescription: Learn how to extend GitHub Copilot by using the Chat and Language Model APIs in your Visual Studio Code extension. Get inspired by early adopters and their extensions.
 Date: 2024-06-24
 Author: Isidor Nikolic
 ---
 
-# Extensions are all you need
+# GitHub Copilot Extensions are all you need
 
 June 24, 2024 by Isidor Nikolic, [@isidorn](https://x.com/isidorn)
 
