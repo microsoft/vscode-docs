@@ -2,7 +2,7 @@
 Order: 88
 TOCTitle: Extensions are all you need
 PageTitle: Extensions are all you need
-MetaDescription: Learn how to extend GitHub Copilot by using the Chat and Language Model APIs in Visual Studio Code. Get inspired by early adopters and their extensions.
+MetaDescription: Learn how to extend GitHub Copilot by using the Chat and Language Model APIs in your Visual Studio Code extension. Get inspired by early adopters and their extensions.
 Date: 2024-06-24
 Author: Isidor Nikolic
 ---
@@ -31,7 +31,7 @@ This year at Build, we announced a new set of APIs for GitHub Copilot in VS Code
 
 Make sure to watch our Build session about [Enhancing VS Code extensions with GitHub Copilot](https://www.youtube.com/watch?v=YI7kjWzIiTM) to learn all about these APIs.
 
-You might be most familiar with using LLMs through a chat interface. One way for your extension to leverage the power of GitHub Copilot is to build a **chat participant** that users can interact with in the Chat view inside VS Code. You can create a chat participant with the [Chat API](https://code.visualstudio.com/api/extension-guides/chat), and use the Language Model API to process natural language and formulate a response to the user query. Learn more about the [Chat API](https://code.visualstudio.com/api/extension-guides/chat) in our extension guide that uses a @cat code mentor as an example for the new API concepts.
+You might be most familiar with using LLMs through a chat interface. One way for your extension to leverage the power of GitHub Copilot is to build a **chat participant** that users can interact with in the Chat view inside VS Code. You can create a chat participant with the [Chat API](https://code.visualstudio.com/api/extension-guides/chat), and use the Language Model API to process natural language and formulate a response to the user query. Learn more about the [Chat API](https://code.visualstudio.com/api/extension-guides/chat) in our extension guide that uses a `@cat` code mentor as an example for the new API concepts.
 
 ![Screenshot of the Chat view in VS Code, showing the cat sample participant.](chat-extension-sample.png)
 
@@ -49,7 +49,7 @@ We believe that the most delightful user experiences will arise from combining C
 
 Alternatively, you can extend GitHub Copilot by creating a GitHub App that contributes  a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. GitHub Apps do not have full access to the VS Code API. To extend GitHub Copilot through a GitHub App, you should join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program).
 
-We announced GitHub Copilot Extensions via GitHub Apps at the Microsoft Build conference, and we are already seeing some great extensions on the [GitHub Marketplace](https://github.com/marketplace?type=apps&copilot_app=true)
+We announced GitHub Copilot Extensions via GitHub Apps at the Microsoft Build conference, and we are already seeing some great extensions on the [GitHub Marketplace](https://github.com/marketplace?type=apps&copilot_app=true).
 
 Watch our Build session about [extending GitHub Copilot](https://www.youtube.com/watch?v=RXaLlCeaBIA) to see it in action.
 
@@ -59,11 +59,11 @@ We are excited to showcase what the VS Code extension community has built with t
 
 ### Stripe
 
-Stripe enables developers to accept payments and move money online. The new @stripe chat participant brings the knowledge of Stripe’s documentation, code examples, and best practices to your fingertips, so you can build and maintain your Stripe integration without leaving VS Code.
+Stripe enables developers to accept payments and move money online. The new `@stripe` chat participant brings the knowledge of Stripe’s documentation, code examples, and best practices to your fingertips, so you can build and maintain your Stripe integration without leaving VS Code.
 
 > “We’re constantly working to make it easier for developers to integrate Stripe, which is why we’re excited to extend Copilot with Stripe-specific context and functionality. The new extensibility APIs are well-crafted and easy to build on, so we were able to move very quickly.” - Ian McCrystal (EM, Stripe Developer AI team)
 
-The @stripe participant helps you to:
+The `@stripe` participant helps you to:
 
 * Generate and debug Stripe API code and insert it into your project
 * Get answers to your questions, grounded in Stripe documentation
@@ -71,13 +71,13 @@ The @stripe participant helps you to:
 
 ![Screenshot of the Stripe chat participant in the Chat view in VS Code.](stripe-chat-participant.png)
 
-The @stripe participant will be available to all Stripe VS Code extension users by mid-July.
+The `@stripe` participant will be available to all Stripe VS Code extension users by mid-July.
 
 ### MongoDB
 
-MongoDB developers love the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension that enables seamless data navigation, query building, prototyping with playgrounds, and exporting to popular languages. The @mongodb chat participant deeply integrates with the extension, enabling developers to leverage the powerful combination of GitHub Copilot and the extension to make application development with MongoDB even faster within VS Code.
+MongoDB developers love the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension that enables seamless data navigation, query building, prototyping with playgrounds, and exporting to popular languages. The `@mongodb` chat participant deeply integrates with the extension, enabling developers to leverage the powerful combination of GitHub Copilot and the extension to make application development with MongoDB even faster within VS Code.
 
-The MongoDB chat participant:
+The `@mongodb` chat participant:
 
 * Generates MongoDB queries from natural language
 * Offers insights into query performance and error patterns from database logs
@@ -94,13 +94,13 @@ Parallels, the popular macOS virtualization software, recently unveiled a new [P
 
 > "Easy and Powerful APIs with good examples allowed us to quickly create a powerful copilot participant that would have otherwise required considerable effort and time.” – Carlos Lapao (Solutions Architect, Parallels)
 
-Through the new @parallels chat participant, you can effortlessly execute most virtual machine operations using natural language. You can, for instance, say "@parallels start the Windows 11 VM" and have the chat participant act on your behalf.
+Through the new `@parallels` chat participant, you can effortlessly execute most virtual machine operations using natural language. You can, for instance, say "@parallels start the Windows 11 VM" and have the chat participant act on your behalf.
 
 ![Screenshot of the Parallels chat participant in the Chat view in VS Code.](parallels-chat-participant.png)
 
 ### PostgreSQL
 
-PostgreSQL is an extremely popular relational database platform that you can now chat with directly by using the [PostgreSQL Chat Participant](https://marketplace.visualstudio.com/items?itemName=robconery.pg-chat) extension. The @pg chat participant will learn your database schema and provide answers for you, grounded in the database schema. You can also use it to generate schema, get help on SQL queries, and even generate code for interacting with your database.
+PostgreSQL is an extremely popular relational database platform that you can now chat with directly by using the [PostgreSQL Chat Participant](https://marketplace.visualstudio.com/items?itemName=robconery.pg-chat) extension. The `@pg` chat participant will learn your database schema and provide answers for you, grounded in the database schema. You can also use it to generate schema, get help on SQL queries, and even generate code for interacting with your database.
 
 ![Screenshot of the PostgreSQL chat participant in the Chat view in VS Code.](postgresql-chat-participant.png)
 
@@ -110,19 +110,17 @@ We are just getting started. As with all product initiatives in VS Code, we will
 
 * Intent detection so chat participants are automatically invoked
 * GPT-4o language model support
-* Increased token limit for model requests
+* Increased token limit for model requests (current limit is 4K tokens)
 * Chat participants in editor inline chat, terminal and notebooks
 * Variable Resolving API - allows extensions to contribute chat variables, which provide context from the extension's domain
 * Tools API – converts natural language into tool calling with arguments; allow extensions to register tools that can be called by other participants
 
 ## Available today to everyone!
 
-Chat and Language Model APIs are available in VS Code Insiders today and will be in VS Code Stable at the start of July. It is easy to start building powerful AI extensions with our [documentation](https://code.visualstudio.com/api/extension-guides/chat) and [sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample).
+Chat and Language Model APIs are available in VS Code Insiders today and will be in VS Code Stable at the start of July. It is easy to start building powerful AI extensions with our [documentation](https://code.visualstudio.com/api/extension-guides/chat) and [sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). If you questions or feedback, you can open an issue in our repository.
 
 Already today, you can publish your extensions that depends on the Language Model and Chat API to the VS Marketplace. The real question is: what incredible extensions will you create? The possibilities are endless, and only you can bring these innovative ideas to life. So, dive into our great extension development flow, harness the power of AI with the right user context, and let your creativity shape the future of development! The building part is fun – go and enjoy yourself!
 
 Thanks,
 
 Isidor and the VS Code team
-
-Happy Coding!
