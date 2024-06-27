@@ -3,11 +3,13 @@ Order: 86
 TOCTitle: VS Code Extensions and WebAssembly
 PageTitle: VS Code Extensions and WebAssembly
 MetaDescription: Using WebAssembly for Extension Development.
-Date: 2024-04-30
+Date: 2024-05-08
 Author: Dirk Bäumer
 ---
 
 # Using WebAssembly for Extension Development
+
+May 8, 2024 by Dirk Bäumer
 
 Visual Studio Code supports the execution of WASM binaries through the [WebAssembly Execution Engine](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension. The primary use case is to compile programs written in C/C++ or Rust into WebAssembly, and then run these programs directly in VS Code. A notable example is [Visual Studio Code for Education](https://vscodeedu.com/), which utilizes this support to run the Python interpreter in VS Code for the Web. This [blog post](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) provides detailed insights into how this is implemented.
 

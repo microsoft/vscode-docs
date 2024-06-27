@@ -19,35 +19,82 @@ The process for using the Language Model API consists of the following steps:
 1. Send the language model request
 1. Interpret the response
 
-> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized. Because the stable `vscode.d.ts` does not yet have the Chat and Language Model API, we suggest that you copy over the `vscode.d.ts` from the [VS Code repo](http://github.com/microsoft/vscode) inside your extension. If you are starting from the Cat sample no action is needed.
+The following sections provide more details on how to implement these steps in your extension.
+
+> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [LanguageModels API](/api/references/vscode-api#lm)
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
 
-## Prompt crafting
+## Build the language model prompt
 
-To interact with a language model, extensions should first craft their prompt and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompt can also define the context in which user messages are interpreted.
+To interact with a language model, extensions should first craft their prompt, and then send a request to the language model. You can use prompts to provide instructions to the language model on the broad task that you're using the model for. Prompts can also define the context in which user messages are interpreted.
 
-In the following example, the first message is used to specify the persona used by the model in its replies and what rules the model should follow.
-The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished.
+The Language Model API supports two types of messages when building the language model prompt:
+
+- **User** - used for providing instructions and the user's request
+- **Assistant** - used for adding the history of previous language model responses as context to the prompt
+
+> **Note**: Currently, the Language Model API doesn't support the use of system messages.
+
+You can use two approaches for building the language model prompt:
+
+- `LanguageModelChatMessage` - create the prompt by providing one or more messages as strings. You might use this approach if you're just getting started with the Language Model API.
+- [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) - declare the prompt by using the TSX syntax.
+
+You can use the `prompt-tsx` library if you want more control over how the language model prompt is composed. For example, the library can help with dynamically adapting the length of the prompt to each language model's context window size. Learn more about [`@vscode/prompt-tsx`](https://www.npmjs.com/package/@vscode/prompt-tsx) or explore the [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample) to get started.
+
+To learn more about the concepts of prompt engineering, we suggest reading OpenAI's excellent [Prompt engineering guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
+
+>**Tip:** take advantage of the rich VS Code extension API to get the most relevant context and include it in your prompt. For example, to include the contents of the active file in the editor.
+
+### Use the `LanguageModelChatMessage` class
+
+The Language Model API provides the `LanguageModelChatMessage` class to represent and create chat messages. You can use the `LanguageModelChatMessage.User` or `LanguageModelChatMessage.Assistant` methods to create user or assistant messages respectively.
+
+In the following example, the first message provides context for the prompt:
+
+- The persona used by the model in its replies (in this case, a cat)
+- The rules the model should follow when generating responses (in this case, explaining computer science concepts in a funny manner by using cat metaphors)
+
+The second message then provides the specific request or instruction coming from the user. It determines the specific task to be accomplished, given the context provided by the first message.
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelChatUserMessage('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelChatUserMessage('I want to understand recursion')
+    new vscode.LanguageModelChatMessage.User('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    new vscode.LanguageModelChatMessage.User('I want to understand recursion')
 ];
 ```
 
-For prompt engineering, we suggest reading OpenAI's excellent [guidelines](https://platform.openai.com/docs/guides/prompt-engineering).
-
->**Tip:** use the rich VS Code extension API to get the most relevant context to include in a prompt (e.g. the active file).
-
 ## Send the language model request
 
-Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family` or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. It's expected that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
+Once you've built the prompt for the language model, you first select the language model you want to use with the [`selectChatModels`](/api/references/vscode-api#lm.selectChatModels) method. This method returns an array of language models that match the specified criteria. Then, you send the request to the language model by using the [`sendRequest`](/api/references/vscode-api#LanguageModelChat) method.
+
+To select the language model, you can specify the following properties: `vendor`, `id`, `family`, or `version`. Use these properties to either broadly match all models of a given vendor or family, or select one specific model by its ID. Learn more about these properties in the [API reference](/api/references/vscode-api#LanguageModelChat).
+
+> **Note**: Currently, only `gpt-3.5-turbo` and `gpt-4` are supported for the language model family. We expect that the list of supported models will grow over time.
+
+If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
+
+The following example shows how to select all `Copilot` models, regardless of the family or version:
+
+```typescript
+const models = await vscode.lm.selectChatModels({
+  vendor: 'copilot'
+});
+
+// No models available
+if (models.length === 0) {
+  // TODO: handle the case when no models are available
+}
+```
+
+> **Important**: Copilot's language models require consent from the user before an extension can use them. Consent is implemented as an authentication dialog. Because of that, `selectChatModels` should be called as part of a user-initiated action, such as a command.
+
+After you select a model, you can send a request to the language model by invoking the [`sendRequest`](/api/references/vscode-api#LanguageModelChat) method on the model instance. You pass the [prompt](#build-the-language-model-prompt) you crafted earlier, along with any additional options, and a cancellation token.
 
 When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
 
@@ -63,18 +110,22 @@ try {
     // - user consent not given
     // - quota limits were exceeded
     if (err instanceof vscode.LanguageModelError) {
-        console.log(err.message, err.code, err.cause)
+        console.log(err.message, err.code, err.cause);
+        if (err.cause instanceof Error && err.cause.message.includes('off_topic')) {
+            stream.markdown(vscode.l10n.t('I\'m sorry, I can only explain computer science concepts.'));
+        }
     } else {
         // add other error handling logic
+        throw err;
     }
 }
 ```
 
 ## Interpret the response
 
-After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform additional logic.
+After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform extra logic.
 
-The response from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
+The response ([`LanguageModelChatResponse`](/api/references/vscode-api#LanguageModelChatResponse)) from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
 
 Errors might occur while processing the streaming response, such as network connection issues. Make sure to add appropriate error handling in your code to handle these errors.
 
@@ -83,7 +134,12 @@ The following code snippet shows how an extension can register a command, which 
 ```typescript
  vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
     // Replace all variables in active editor with cat names and words
+
+    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-3.5-turbo' });
+    let chatResponse: vscode.LanguageModelChatResponse | undefined;
+
     const text = textEditor.document.getText();
+
     const messages = [
         vscode.LanguageModelChatMessage.User(`You are a cat! Think carefully and step by step like a cat would.
         Your job is to replace all variable names in the following code with funny cat variable names. Be creative. IMPORTANT respond just with code. Do not use markdown!`),
@@ -91,12 +147,14 @@ The following code snippet shows how an extension can register a command, which 
     ];
 
     try {
-        const chatRequest = await vscode.lm.sendChatRequest('copilot-gpt-3.5-turbo', messages, {}, new vscode.CancellationTokenSource().token);
+        chatResponse = await model.sendRequest(messages, {}, new vscode.CancellationTokenSource().token);
     } catch (err) {
         if (err instanceof vscode.LanguageModelError) {
             console.log(err.message, err.code, err.cause)
+        } else {
+            throw err;
         }
-        return
+        return;
     }
 
     // Clear the editor content before inserting new content
@@ -108,7 +166,7 @@ The following code snippet shows how an extension can register a command, which 
 
     try {
         // Stream the code into the editor as it is coming in from the Language Model
-        for await (const fragment of chatRequest.text) {
+        for await (const fragment of chatResponse.text) {
             await textEditor.edit(edit => {
                 const lastLine = textEditor.document.lineAt(textEditor.document.lineCount - 1);
                 const position = new vscode.Position(lastLine.lineNumber, lastLine.text.length);
@@ -134,9 +192,9 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `copilot-gpt-3.5-turbo`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `copilot-gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
+Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models, such as `gpt-3.5-turbo`, because they are faster and might allow for a smoother user experience. You might use more powerful but slower models, such as  `gpt-4`, for complex tasks and only after the faster models prove to be inadequate.
 
->**Note:** both `copilot-gpt-3.5-turbo` and `copilot-gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
+> **Note**: both `gpt-3.5-turbo` and `gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
 
 ### Rate limiting
 
@@ -161,4 +219,7 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Build a chat extension](/api/extension-guides/chat)
+- [Build a VS Code chat extension](/api/extension-guides/chat)
+- [Learn more about @vscode/prompt-tsx](https://www.npmjs.com/package/@vscode/prompt-tsx)
+- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
+- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
