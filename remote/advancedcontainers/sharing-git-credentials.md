@@ -32,7 +32,7 @@ There are some cases when you may be cloning your repository using SSH keys inst
 You can add your local SSH keys to the agent if it is running by using the `ssh-add` command. For example, run this from a terminal or PowerShell:
 
 ```bash
-ssh-add $HOME/.ssh/github_rsa
+ssh-add $HOME/.ssh/<your ssh key>
 ```
 
 On Windows and Linux, you may get an error because the agent is not running (macOS typically has it running by default). Follow these steps to resolve the problem:
@@ -66,9 +66,13 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> $HOME/.ssh/ssh-agent
    fi
-   eval `cat $HOME/.ssh/ssh-agent`
+   eval `cat $HOME/.ssh/ssh-agent` > /dev/null
+   ssh-add $HOME/.ssh/<your ssh key> 2> /dev/null
 fi
 ```
+On the last line, replace `<your ssh key>` with your specific ssh key.
+
+For example `ssh-add $HOME/.ssh/id_ed25519 2> /dev/null`
 
 If you encounter any issues, you may want to check the Dev Containers extension's [known limitations](/docs/devcontainers/containers.md#known-limitations).
 
