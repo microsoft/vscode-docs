@@ -716,6 +716,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-sign-in"></i>|sign-in|
 |<i class="codicon codicon-sign-out"></i>|sign-out|
 |<i class="codicon codicon-smiley"></i>|smiley|
+|<i class="codicon codicon-snake"></i>|snake|
 |<i class="codicon codicon-sparkle"></i>|sparkle|
 |<i class="codicon codicon-sort-precedence"></i>|sort-precedence|
 |<i class="codicon codicon-source-control"></i>|source-control|
@@ -760,7 +761,6 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-symbol-property"></i>|symbol-property|
 |<i class="codicon codicon-symbol-reference"></i>|symbol-reference|
 |<i class="codicon codicon-symbol-ruler"></i>|symbol-ruler|
-|<i class="codicon codicon-snake"></i>|snake|
 |<i class="codicon codicon-symbol-snippet"></i>|symbol-snippet|
 |<i class="codicon codicon-symbol-string"></i>|symbol-string|
 |<i class="codicon codicon-symbol-struct"></i>|symbol-struct|

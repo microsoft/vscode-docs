@@ -71,9 +71,15 @@ const craftedPrompt = [
 
 ## Send the language model request
 
-Once you've built the prompt for the language model, you need to select the language model by specifying the `vendor`, `id`, `family`, or `version` of the model you want to get. Currently, only `copilot-gpt-3.5-turbo` and `copilot-gpt-4` are supported. We expect that the list of supported models will grow over time. Once you have the model, you can send the request to it by using `sendRequest`.
+Once you've built the prompt for the language model, you first select the language model you want to use with the [`selectChatModels`](/api/references/vscode-api#lm.selectChatModels) method. This method returns an array of language models that match the specified criteria. Then, you send the request to the language model by using the [`sendRequest`](/api/references/vscode-api#LanguageModelChat) method.
+
+To select the language model, you can specify the following properties: `vendor`, `id`, `family`, or `version`. Use these properties to either broadly match all models of a given vendor or family, or select one specific model by its ID. Learn more about these properties in the [API reference](/api/references/vscode-api#LanguageModelChat).
+
+> **Note**: Currently, only `gpt-3.5-turbo` and `gpt-4` are supported for the language model family. We expect that the list of supported models will grow over time.
 
 If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
+
+The following example shows how to select all `Copilot` models, regardless of the family or version:
 
 ```typescript
 const models = await vscode.lm.selectChatModels({
@@ -86,11 +92,11 @@ if (models.length === 0) {
 }
 ```
 
-Copilot's language models require consent from the user before an extension can use them. Consent is implemented as authentication dialog. Because of that, `selectChatModels` should be called as part of a user-initiated action, such as a command.
+> **Important**: Copilot's language models require consent from the user before an extension can use them. Consent is implemented as an authentication dialog. Because of that, `selectChatModels` should be called as part of a user-initiated action, such as a command.
 
-When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded.
+After you select a model, you can send a request to the language model by invoking the [`sendRequest`](/api/references/vscode-api#LanguageModelChat) method on the model instance. You pass the [prompt](#build-the-language-model-prompt) you crafted earlier, along with any additional options, and a cancellation token.
 
-Use `LanguageModelError` to distinguish between different types of errors.
+When you make a request to the Language Model API, the request might fail. For example, because the model doesn't exist, or the user didn't give consent to use the Language Model API, or because quota limits are exceeded. Use `LanguageModelError` to distinguish between different types of errors.
 
 The following code snippet shows how to make a language model request:
 
@@ -119,7 +125,7 @@ try {
 
 After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform extra logic.
 
-The response from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
+The response ([`LanguageModelChatResponse`](/api/references/vscode-api#LanguageModelChatResponse)) from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
 
 Errors might occur while processing the streaming response, such as network connection issues. Make sure to add appropriate error handling in your code to handle these errors.
 
@@ -186,9 +192,9 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models first (e.g `copilot-gpt-3.5-turbo`), because they are faster and might allow for a smooth user experience. You might use more powerful, but slower models (for example, `copilot-gpt-4`) for complex tasks, and only after the faster models prove to be inadequate.
+Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models, such as `gpt-3.5-turbo`, because they are faster and might allow for a smoother user experience. You might use more powerful but slower models, such as  `gpt-4`, for complex tasks and only after the faster models prove to be inadequate.
 
->**Note:** both `copilot-gpt-3.5-turbo` and `copilot-gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
+> **Note**: both `gpt-3.5-turbo` and `gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
 
 ### Rate limiting
 
