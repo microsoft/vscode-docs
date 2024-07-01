@@ -437,9 +437,9 @@ Here are some things to try when your breakpoints turn gray:
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
 
-### Overriding Source Map Paths
+### Overriding source map paths
 
-The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most toos, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
+The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most tools, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
 
 ```js
 {
