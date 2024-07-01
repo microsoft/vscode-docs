@@ -96,6 +96,13 @@ If a customization applies to more than one theme, you can name multiple themes 
 }
 ```
 
+If a theme sets a color or border that you don't like, you can now use `default` to set it back to the original value
+```json
+  "workbench.colorCustomizations": {
+      "diffEditor.removedTextBorder": "default"
+  }
+```
+
 ### Editor syntax highlighting
 
 To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
