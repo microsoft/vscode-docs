@@ -437,6 +437,23 @@ Here are some things to try when your breakpoints turn gray:
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
 
+### Overriding Source Map Paths
+
+The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most toos, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
+
+```js
+{
+  'webpack:///./~/*': "${workspaceFolder}/node_modules/*",
+  'webpack:////*': '/*',
+  'webpack://@?:*/?:*/*': "${workspaceFolder}/*",
+  // and some more patterns...
+}
+```
+
+This maps paths or URLs in the source map from the left to the right. The pattern `?:*` is a non-greedy, non-capturing match, and `*` is a greedy capturing match. The debugger then replaces the corresponding `*` in the right-hand pattern with the fragment captured from the source map path. For example, the last pattern in the above example would map `webpack://@my/package/foo/bar` to `${workspaceFolder}/foo/bar`.
+
+Note that for browser debugging, the `webRoot` is used in place of the `workspaceFolder` in the default `sourceMapPathOverrides`.
+
 ## Remote debugging
 
 > **Note:** VS Code now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
