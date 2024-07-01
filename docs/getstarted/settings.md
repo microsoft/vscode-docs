@@ -1539,6 +1539,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "workbench.editor.chatSession": false,
         "workbench.editorinputs.searchEditorInput": false,
         "workbench.editors.gettingStartedInput": false,
+        "repl": false,
         "terminalEditor": true,
         "jupyter-notebook": false,
         "imagePreview.previewEditor": false,
@@ -2087,6 +2088,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, will limit auto save of editors to files that are inside the opened workspace. Only applies when `files.autoSave` is enabled.
     "files.autoSaveWorkspaceFilesOnly": false,
 
+    // List of character set encodings that the editor should attempt to guess in the order they are listed. In case it cannot be determined, `files.encoding` is respected.
+    "files.candidateGuessEncodings": [],
+
     // The default language identifier that is assigned to new files. If configured to `${activeEditorLanguage}`, will use the language identifier of the currently active text editor if any.
     "files.defaultLanguage": "",
 
@@ -2396,6 +2400,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to include results from a global symbol search in the file results for Quick Open.
     "search.quickOpen.includeSymbols": false,
 
+    // Number of threads to use for searching. When set to 0, the engine automatically determines this value.
+    "search.ripgrep.maxThreads": 0,
+
     // The default number of surrounding context lines to use when creating new Search Editors. If using `search.searchEditor.reusePriorSearchConfiguration`, this can be set to `null` (empty) to use the prior Search Editor's configuration.
     "search.searchEditor.defaultNumberOfContextLines": 1,
 
@@ -2453,6 +2460,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "search.useReplacePreview": true,
 
 // HTTP
+
+    // Specifies domain names for which proxy settings should be ignored for HTTP/HTTPS requests.
+    "http.noProxy": [],
 
     // The proxy setting to use. If not set, will be inherited from the `http_proxy` and `https_proxy` environment variables.
     "http.proxy": "",
@@ -2624,6 +2634,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the debug sub-sessions are shown in the debug tool bar. When this setting is false the stop command on a sub-session will also stop the parent session.
     "debug.showSubSessionsInToolBar": false,
+
+    // Show variable type in variable pane during debug session
+    "debug.showVariableTypes": false,
 
     // Before starting a new debug session in an integrated or external terminal, clear the terminal.
     "debug.terminal.clearBeforeReusing": false,
@@ -3322,6 +3335,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
     "typescript.tsdk": "",
 
+    // Enables region-based diagnostics in TypeScript.
+    "typescript.tsserver.enableRegionDiagnostics": true,
+
     // Enables tracing TS server performance to a directory. These trace files can be used to diagnose TS Server performance issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
     "typescript.tsserver.enableTracing": false,
 
@@ -3748,6 +3764,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, automatically checks extensions for updates. If an extension has an update, it is marked as outdated in the Extensions view. The updates are fetched from a Microsoft online service.
     "extensions.autoCheckUpdates": true,
 
+    // If activated, extensions will automatically restart following an update if the window is not in focus.
+    "extensions.autoRestart": false,
+
     // Controls the automatic update behavior of extensions. The updates are fetched from a Microsoft online service.
     //  - true: Download and install updates automatically for all extensions except for those updates are ignored.
     //  - onlyEnabledExtensions: Download and install updates automatically only for enabled extensions except for those updates are ignored. Disabled extensions are not updated automatically.
@@ -3955,7 +3974,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - mouseover: The folding controls are visible only on mouseover.
     "notebook.showFoldingControls": "mouseover",
 
-    // Controls whether to render notebook Sticky Scroll headers in the notebook editor.
+    // Experimental. Controls whether to render notebook Sticky Scroll headers in the notebook editor.
     "notebook.stickyScroll.enabled": false,
 
     // Control whether nested sticky lines appear to stack flat or indented.
@@ -3970,10 +3989,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "interactiveWindow.alwaysScrollOnNewCell": true,
 
     // Execute the interactive window (REPL) input box with shift+enter, so that enter can be used to create a newline.
-    "interactiveWindow.executeWithShiftEnter": true,
+    "interactiveWindow.executeWithShiftEnter": false,
 
     // Prompt to save the interactive window when it is closed. Only new interactive windows will be affected by this setting change.
     "interactiveWindow.promptToSaveOnClose": false,
+
+    // Display a hint in the Interactive Window (REPL) input box to indicate how to execute code.
+    "interactiveWindow.showExecutionHint": true,
 
 // Terminal
 
@@ -4098,6 +4120,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - Command Prompt: $(terminal-cmd) Command Prompt
     // - path: C:\WINDOWS\System32\cmd.exe
     // - args: []
+    //  - Ubuntu-22.04 (WSL): $(terminal-ubuntu) Ubuntu-22.04 (WSL)
+    // - path: C:\WINDOWS\System32\wsl.exe
+    // - args: ['-d','Ubuntu-22.04']
     //  - JavaScript Debug Terminal: $($(debug)) JavaScript Debug Terminal
     // - extensionIdentifier: ms-vscode.js-debug
     "terminal.integrated.defaultProfile.windows": null,
@@ -4884,27 +4909,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // On keypress, close the Accessible View and focus the element from which it was invoked.
     "accessibility.accessibleView.closeOnKeyPress": true,
 
-    // Configures the behavior of signals (audio cues and announcements) in the workbench. Includes volume, debounce position changes, and delays for different types of signals.
-    "accessibility.signalOptions": {
-        "volume": 70,
-        "debouncePositionChanges": false,
-        "experimental.delays": {
-            "general": {
-                "announcement": 3000,
-                "sound": 400
-            },
-            "warningAtPosition": {
-                "announcement": 3000,
-                "sound": 1000
-            },
-            "errorAtPosition": {
-                "announcement": 3000,
-                "sound": 1000
-            }
-        }
-    },
+    // Whether or not position changes should be debounced
+    "accessibility.signalOptions.debouncePositionChanges": false,
 
-    // Plays a signal when a chat request is made.
+    // The volume of the sounds in percent (0-100).
+    "accessibility.signalOptions.volume": 70,
+
+    // Indicates when a chat request is made.
     "accessibility.signals.chatRequestSent": {
         "sound": "auto",
         "announcement": "auto"
@@ -4915,7 +4926,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "sound": "auto"
     },
 
-    // Plays a signal when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+    // Indicates when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
     "accessibility.signals.clear": {
         "sound": "auto",
         "announcement": "auto"
@@ -4936,13 +4947,13 @@ Below are the Visual Studio Code default settings and their values. You can also
         "sound": "auto"
     },
 
-    // Plays a signal when a file or notebook is formatted.
+    // Indicates when a file or notebook is formatted.
     "accessibility.signals.format": {
         "sound": "never",
         "announcement": "never"
     },
 
-    // Plays a signal when the active line has a breakpoint.
+    // Indicates when the active line has a breakpoint.
     "accessibility.signals.lineHasBreakpoint": {
         "sound": "auto",
         "announcement": "auto"
@@ -4965,105 +4976,108 @@ Below are the Visual Studio Code default settings and their values. You can also
         "sound": "auto"
     },
 
-    // Plays a signal when the active line has a warning.
+    // Indicates when the active line has a warning.
     "accessibility.signals.lineHasWarning": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when trying to read a line with inlay hints that has no inlay hints.
+    // Indicates when trying to read a line with inlay hints that has no inlay hints.
     "accessibility.signals.noInlayHints": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a notebook cell execution is successfully completed.
+    // Indicates when a notebook cell execution is successfully completed.
     "accessibility.signals.notebookCellCompleted": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a notebook cell execution fails.
+    // Indicates when a notebook cell execution fails.
     "accessibility.signals.notebookCellFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when the debugger stopped on a breakpoint.
+    // Indicates when the debugger stopped on a breakpoint.
     "accessibility.signals.onDebugBreak": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when the active line has a warning.
+    // Indicates when the active line has a warning.
     "accessibility.signals.positionHasError": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when the active line has a warning.
+    // Indicates when the active line has a warning.
     "accessibility.signals.positionHasWarning": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal on loop while progress is occurring.
+    // Indicates on loop while progress is occurring.
     "accessibility.signals.progress": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a file is saved.
+    // Indicates when a file is saved.
     "accessibility.signals.save": {
         "sound": "never",
         "announcement": "never"
     },
 
-    // Plays a signal when a task is completed.
+    // Indicates when a task is completed.
     "accessibility.signals.taskCompleted": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a task fails (non-zero exit code).
+    // Indicates when a task fails (non-zero exit code).
     "accessibility.signals.taskFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when the terminal bell is ringing.
+    // Indicates when the terminal bell is ringing.
     "accessibility.signals.terminalBell": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a terminal command fails (non-zero exit code).
+    // Indicates when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
     "accessibility.signals.terminalCommandFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+    // Indicates when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
     "accessibility.signals.terminalCommandSucceeded": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Plays a signal when terminal Quick Fixes are available.
+    // Indicates when terminal Quick Fixes are available.
     "accessibility.signals.terminalQuickFix": {
         "sound": "auto",
         "announcement": "auto"
     },
 
-    // Indicates when the voice recording has started.
+    // Plays a sound / audio cue when the voice recording has started.
     "accessibility.signals.voiceRecordingStarted": {
         "sound": "on"
     },
 
-    // Indicates when the voice recording has stopped.
+    // Plays a sound / audio cue when the voice recording has stopped.
     "accessibility.signals.voiceRecordingStopped": {
         "sound": "auto"
     },
+
+    // Controls whether links should be underlined in the workbench.
+    "accessibility.underlineLinks": false,
 
     // Provide information about actions that can be taken in the comment widget or in a file which contains comments.
     "accessibility.verbosity.comments": true,
@@ -5097,6 +5111,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Provide information about how to access the chat help menu when the chat input is focused.
     "accessibility.verbosity.panelChat": true,
+
+    // Provide information about relevant actions for the REPL input.
+    "accessibility.verbosity.replInputHint": true,
 
     // Provide information about how to access the terminal accessibility help menu when the terminal is focused.
     "accessibility.verbosity.terminal": true,
