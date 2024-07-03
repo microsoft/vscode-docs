@@ -41,14 +41,10 @@ jobs:
     path: vscode-website/dist
     persistCredentials: true
   - task: NodeTool@0
-    displayName: Use Node 18.x
+    displayName: Use Node 20.x
     inputs:
-      versionSpec: 18.x
+      versionSpec: 20.x
       checkLatest: true
-  - task: Npm@0
-    displayName: npm install yarn
-    inputs:
-      arguments: -g yarn
   - task: Bash@3
     displayName: Build Dist Setup
     inputs:
