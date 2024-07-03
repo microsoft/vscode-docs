@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 06/05/2024
+DateApproved: 07/03/2024
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -436,6 +436,23 @@ Here are some things to try when your breakpoints turn gray:
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
+
+### Overriding source map paths
+
+The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most tools, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
+
+```js
+{
+  'webpack:///./~/*': "${workspaceFolder}/node_modules/*",
+  'webpack:////*': '/*',
+  'webpack://@?:*/?:*/*': "${workspaceFolder}/*",
+  // and some more patterns...
+}
+```
+
+This maps paths or URLs in the source map from the left to the right. The pattern `?:*` is a non-greedy, non-capturing match, and `*` is a greedy capturing match. The debugger then replaces the corresponding `*` in the right-hand pattern with the fragment captured from the source map path. For example, the last pattern in the above example would map `webpack://@my/package/foo/bar` to `${workspaceFolder}/foo/bar`.
+
+Note that for browser debugging, the `webRoot` is used in place of the `workspaceFolder` in the default `sourceMapPathOverrides`.
 
 ## Remote debugging
 
