@@ -31,6 +31,10 @@ Each extension in the list includes a brief description, the publisher, the down
 
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
+If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
+
+When [Settings Sync](/docs/editor/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+
 ### Find and install an extension
 
 For example, let's install the popular [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) extension. This extension highlights text like 'TODO:' and 'FIXME:' in your source code so you can quickly find undone sections.
