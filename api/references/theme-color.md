@@ -619,7 +619,6 @@ For coloring inserted and removed text, use either a background or a border colo
 - `inlineChat.background`: Background color of the interactive editor widget.
 - `inlineChat.border`: Border color of the interactive editor widget.
 - `inlineChat.shadow`: Shadow color of the interactive editor widget.
-- `inlineChat.regionHighlight`: Background highlighting of the current interactive region. Must be transparent.
 - `inlineChatInput.border`: Border color of the interactive editor input.
 - `inlineChatInput.focusBorder`: Border color of the interactive editor input when focused.
 - `inlineChatInput.placeholderForeground`: Foreground color of the interactive editor input placeholder.
