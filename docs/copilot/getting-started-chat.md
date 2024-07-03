@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
-DateApproved: 06/05/2024
+DateApproved: 07/03/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

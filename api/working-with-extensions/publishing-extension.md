@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 06/05/2024
+DateApproved: 07/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -336,7 +336,7 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions content eligibility, legitimacy, trust and positive reputation. New publishers will need a consistent track record demonstrating these for at least 6 months. 
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions content eligibility, legitimacy, trust and positive reputation. New publishers will need a consistent track record demonstrating these for at least 6 months.
 
 If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
