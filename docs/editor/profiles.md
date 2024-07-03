@@ -21,7 +21,7 @@ To create a new profile, you can use the **File** > **Preferences** > **Profiles
 
 You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.).
 
-You can also access the Profile command menu via the **Manage** gear button in the lower right of the Activity bar.
+You can also access the **Profiles** command menu via the **Manage** gear button in the Activity bar.
 
 ![Create Profile command via the Manage button in the Activity bar](images/profiles/create-profile-via-manage.png)
 
@@ -59,17 +59,13 @@ You can configure a profile just as you would normally change any VS Code config
 
 When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set.
 
-If no profile has been set, you can specify which profile should be used when opening a new window by configuring the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
-
-![Configure custom profile for new window](images/profiles/profile-new-window.png)
-
 ## Managing profiles
 
 ### Switch profiles
 
 You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which presents a dropdown listing your available profiles.
 
-You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
+You can also switch profiles by selecting a profile from the list displayed in the **Profiles** menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
 
 ### Edit a profile
 
@@ -78,6 +74,14 @@ You can edit an existing profile via the **Edit** command in the Profiles menu.
 ### Delete a profile
 
 You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
+
+### Open a new window with a profile
+
+When you open a new VS Code window, the profile used is the one associated with the workspace you are opening or the profile specified in the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
+
+![Configure custom profile for new window](images/profiles/profile-new-window.png)
+
+You can directly open a new VS Code window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
 
 ## Profile contents
 
