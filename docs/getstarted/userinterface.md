@@ -292,7 +292,7 @@ To enable custom display labels for tabs, set the `workbench.editor.customLabels
 You can specify one or more naming patterns for the tab display labels with the `workbench.editor.customLabels.patterns` setting. A name pattern consists of two components:
 
 - **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
-- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
 
 The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
 
@@ -303,6 +303,15 @@ The following sample displays the `/src/orders/index.html` file with a tab label
 ```
 
 ![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+
+The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
+
+* `${filename}` => editor
+* `${extname}` => test.ts
+* `${extname(0)}` => ts
+* `${extname(1)}` => test
+* `${extname(-1)}` => test
+* `${extname(-2)}` => ts
 
 > **Note**: The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 
