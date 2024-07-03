@@ -341,6 +341,7 @@ All other editor colors are listed here:
 - `editorMultiCursor.primary.background`: The background color of the primary editor cursor when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
 - `editorMultiCursor.secondary.foreground`: Color of secondary editor cursors when multiple cursors are present.
 - `editorMultiCursor.secondary.background`: The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
+- `editor.placeholder.foreground`: Foreground color of the placeholder text in the editor.
 
 Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
 
@@ -514,6 +515,7 @@ Bracket pair guides:
 Folding:
 
 - `editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations.
+- `editor.foldPlaceholderForeground`: Color of the collapsed text after the first line of a folded range.
 
 Overview ruler:
 
@@ -617,6 +619,7 @@ For coloring inserted and removed text, use either a background or a border colo
 ## Inline Chat colors
 
 - `inlineChat.background`: Background color of the interactive editor widget.
+- `inlineChat.foreground`: Foreground color of the interactive editor widget
 - `inlineChat.border`: Border color of the interactive editor widget.
 - `inlineChat.shadow`: Shadow color of the interactive editor widget.
 - `inlineChatInput.border`: Border color of the interactive editor input.
@@ -953,6 +956,7 @@ The following customizations are available:
 - `terminalOverviewRuler.cursorForeground`: The overview ruler cursor color.
 - `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
 - `terminalStickyScroll.background`: The background color of the sticky scroll overlay in the terminal.
+- `terminalStickyScroll.border`: The border of the sticky scroll overlay in the terminal.
 - `terminalStickyScrollHover.background`: The background color of the sticky scroll overlay in the terminal when hovered.
 - `terminal.initialHintForeground`: Foreground color of the terminal initial hint.
 
@@ -975,6 +979,7 @@ The following customizations are available:
 - `debugTokenExpression.boolean`: Foreground color for booleans in debug views.
 - `debugTokenExpression.number`: Foreground color for numbers in debug views.
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views.
+- `debugTokenExpression.type`: Foreground color for the token types shown in the debug views (ie. the Variables or Watch view).
 
 ## Testing colors
 
