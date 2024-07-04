@@ -912,6 +912,12 @@ git config --global diff.tool vscode
 git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
 
+## Compare file with the clipboard
+
+Keyboard Shortcut: `kb(workbench.files.action.compareWithClipboard)`
+
+Quickly compare the active file with the contents of the clipboard with the **File: Compare Active File with Clipboard** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
 ## Debugging
 
 ### Configure debugger
