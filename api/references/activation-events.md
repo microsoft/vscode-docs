@@ -24,6 +24,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
+- [`onTaskType`](/api/references/activation-events#onTaskType)
 - [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
@@ -216,6 +217,18 @@ This activation event is emitted and interested extensions will be activated **s
 ...
 "activationEvents": [
     "onStartupFinished"
+]
+...
+```
+
+### onTaskType
+
+This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+
+```json
+...
+"activationEvents": [
+    "onTaskType":"npm"
 ]
 ...
 ```
