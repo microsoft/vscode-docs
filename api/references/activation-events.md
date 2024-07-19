@@ -223,7 +223,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ### onTaskType
 
-This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved. Include this if your extension contributes a build task or if your task is likely to be used as the prelaunch task.
 
 ```json
 ...
