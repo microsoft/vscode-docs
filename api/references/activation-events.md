@@ -223,7 +223,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ### onTaskType
 
-This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved. Include this if your extension contributes a build task or if your task is likely to be used as the prelaunch task.
+This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
 
 ```json
 ...
@@ -232,6 +232,8 @@ This activation event is emitted emitted whenever tasks of a certain type need t
 ]
 ...
 ```
+
+> **Note**: Beginning with VS Code 1.76.0, tasks contributed by your extension do not require a corresponding `onTaskType` activation event declaration for your extension to be activated.
 
 ## Start up
 
