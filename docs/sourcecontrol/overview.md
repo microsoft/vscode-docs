@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 06/05/2024
+DateApproved: 07/03/2024
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -171,7 +171,7 @@ The Diff editor has a separate gutter in the middle, which enables you to **Stag
 
 ![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
 
->**Tip:** You can diff any two files by first right clicking on a file in the Explorer or **OPEN EDITORS** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With** and you will be presented with a list of recent files.
+> **Tip**: You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
 
 ### Accessible Diff Viewer
 

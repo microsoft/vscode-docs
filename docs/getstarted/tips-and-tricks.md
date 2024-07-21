@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 06/05/2024
+DateApproved: 07/03/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -911,6 +911,12 @@ git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 git config --global diff.tool vscode
 git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
+
+## Compare file with the clipboard
+
+Keyboard Shortcut: `kb(workbench.files.action.compareWithClipboard)`
+
+Quickly compare the active file with the contents of the clipboard with the **File: Compare Active File with Clipboard** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Debugging
 
