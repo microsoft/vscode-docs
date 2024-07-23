@@ -360,7 +360,7 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
 
-If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
+If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section. You can get support  with publishing or managing an exension by signing in at https://marketplace.visualstudio.com/manage and clicking on the 'Contact Microsoft' link at the top right.
 
 ### My extensions don't synchronize when connected to a remote window
 
