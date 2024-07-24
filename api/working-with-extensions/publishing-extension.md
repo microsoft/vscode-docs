@@ -522,3 +522,7 @@ The same rule applies for the [display name](/api/references/extension-manifest)
 ### What package managers are supported?
 
 You can either use npm or yarn v1 to manage your extension's dependencies.
+
+### I need help with my VS Marketplace account or support in publishing an extension?
+
+You can reach out to the VS Marketplace support team by signing in at [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) and clicking on the ‘Contact Microsoft’ link at the top right.
