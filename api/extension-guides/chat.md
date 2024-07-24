@@ -32,8 +32,6 @@ To help the user take the conversation further, participants can provide *follow
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
 
-> **Note:** The Chat API and [Language Model API](/api/extension-guides/language-model) are finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Chat API before it is finalized.
-
 ## Extending GitHub Copilot via GitHub Apps
 
 Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API. To extend GitHub Copilot through a GitHub App, you should join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program).
