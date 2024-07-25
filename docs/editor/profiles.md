@@ -217,6 +217,7 @@ This profile also sets the following settings:
     "editor.lineHeight": 17,
     "breadcrumbs.enabled": false,
     "files.autoSave": "afterDelay",
+    "notebook.output.scrolling": true,
     "jupyter.themeMatplotlibPlots": true,
     "jupyter.widgetScriptSources": [
         "unpkg.com",
