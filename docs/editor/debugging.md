@@ -12,7 +12,18 @@ MetaSocialImage: images/debugging/debugging-social.png
 
 One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## User interface
+
+The following diagram shows the main components of the debugging user interface:
+
 ![Debugging diagram](images/debugging/debugging_hero.png)
+
+1. **Run and Debug view**: displays all information related to running, debugging, and managing debug configuration settings.
+1. **Debug toolbar**: has buttons for the most common debugging actions.
+1. **Debug console**: enables viewing and interacting with the output of your code running in the debugger.
+1. **Debug sidebar**: during a debug session, lets you interact with the call stack, breakpoints, variables, and watch variables.
 
 ## Debugger extensions
 
@@ -529,10 +540,9 @@ To learn about VS Code's Node.js debugging support, take a look at:
 * [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in VS Code.
 * [TypeScript](/docs/typescript/typescript-debugging.md) - The Node.js debugger also supports TypeScript debugging.
 
-To see tutorials on the basics of Node.js debugging, check out these videos:
+To see a tutorial on the basics of debugging, check out this video:
 
-* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Showcases the basics of debugging.
-* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Shows how to attach a debugger to a running Node.js process.
+* [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
 
 To learn about debugging support for other programming languages via VS Code extensions:
 
