@@ -338,7 +338,7 @@ Once you have created your AI extension, you can publish your extension to the V
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
-- If your extension already contributes non Chat functionality, we recommend that you do not introduce an extension dependency on GitHub Copilot in the [extension manifest](/api/references/extension-manifest). That way your extension users that do not use GitHub Copilot can use your non Chat functionality without GitHub Copilot being installed.
+- If your extension already contributes functionality other than chat, we recommend that you do not introduce an extension dependency on GitHub Copilot in the [extension manifest](/api/references/extension-manifest). This ensures that extension users that do not use GitHub Copilot can use the non-chat functionality without having to install GitHub Copilot.
 
 ## Related content
 
