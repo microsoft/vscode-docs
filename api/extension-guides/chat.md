@@ -69,7 +69,7 @@ The following screenshot shows the different chat concepts in the Visual Studio 
 
 ## Develop a chat extension
 
-A chat extension is an extension that contributes a chat participant to the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) view.
+A chat extension is an extension that contributes a chat participant to the [Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) view.
 
 The minimum functionality that is needed for implementing a chat extension is:
 
