@@ -77,7 +77,7 @@ You can save your Jupyter Notebook using the keyboard shortcut `kbstyle(Ctrl+S)`
 
 ## Export your Jupyter Notebook
 
-You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select the **Export** action on the main toolbar. You'll then be presented with a dropdown of file format options.
+You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select **...** > **Export** on the main toolbar. You're then presented with a dropdown of file format options.
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
 
