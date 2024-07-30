@@ -78,13 +78,13 @@ sudo apt-get install build-essential gdb
 
 ## Create a CMake project
 
-If you do not have an existing CMake project, follow the steps in [Create a CMake project](cmake-quickstart.md).
+If you do not have an existing CMake project, follow the steps in [Create a CMake project](cmake-quickstart).
 
 If you already have an existing CMake project that has a `CMakeLists.txt` file in the root directory, continue to [Configure Hello World](#configure-hello-world) to configure your project.
 
 ### Configure Hello World
 
-Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code: 
+Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code:
 
 - Use CMake Presets (recommended)
 - Use CMake Kits/Variants
