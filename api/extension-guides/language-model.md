@@ -192,7 +192,7 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for it's performance and quality. `gpt-3.5-turbo`, and `gpt-4` are also available. To get a full list of available models, you can use this code snippet:
+Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for its performance and quality. In addition, `gpt-3.5-turbo`, and `gpt-4` are also available. To get a full list of available models, you can use this code snippet:
 ```typescript
 const allModels = await vscode.lm.selectChatModels(MODEL_SELECTOR);
 ```
