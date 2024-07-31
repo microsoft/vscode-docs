@@ -9,8 +9,6 @@ MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code
 ---
 # Extension Marketplace
 
-**Increase the power of Visual Studio Code through Extensions**
-
 The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This article explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ## Browse for extensions
@@ -146,7 +144,13 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 ### Extension auto-update
 
-VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to restart the extension host (**Restart Extensions**). If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command that sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md) to `false`.
+VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
+
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+
+![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
+
+You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
 
 If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
 
@@ -270,6 +274,8 @@ code --install-extension myextension.vsix
 ```
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
+
+> **Note**: When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
 
 If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
