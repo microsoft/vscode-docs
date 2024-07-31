@@ -371,7 +371,7 @@ See more in the [JSON](/docs/languages/json.md) documentation.
 
 ### Configure the default browser
 
-In VS Code, you can `Ctrl` (`Cmd` on macOS) + click on a link to open it in your default browser. You can configure the default browser by setting the `workbench.externalBrowser` [setting](/docs/getstarted/settings.md).
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `workbench.externalBrowser` [setting](/docs/getstarted/settings.md).
 
 Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
 
