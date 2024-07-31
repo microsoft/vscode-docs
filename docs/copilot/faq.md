@@ -31,6 +31,22 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 
 - Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
 
+### How can I switch accounts for Copilot
+
+To switch to another GitHub account for using Copilot, first sign out of your GitHub account in VS Code, and then sign in with another account.
+
+1. Sign out of your current GitHub account in VS Code:
+
+    Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+
+    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
+
+1. Sign in to GitHub in VS Code:
+
+    Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
+
+    ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
+
 ## General
 
 ### Network and firewall configuration for Copilot
