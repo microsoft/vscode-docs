@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: FAQ
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
 PageTitle: GitHub Copilot frequently asked questions
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -30,6 +30,22 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 - To use GitHub Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
 
 - Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
+
+### How can I switch accounts for Copilot
+
+To switch to another GitHub account for using Copilot, first sign out of your GitHub account in VS Code, and then sign in with another account.
+
+1. Sign out of your current GitHub account in VS Code:
+
+    Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+
+    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
+
+1. Sign in to GitHub in VS Code:
+
+    Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
+
+    ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
 
 ## General
 

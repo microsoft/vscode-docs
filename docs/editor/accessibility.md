@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -164,7 +164,7 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View to inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, Jupyter notebook output, terminal output, and chat responses.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View and inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, notebook output, terminal output, chat responses, debug console output, and more.
 
 ## Screen reader mode
 

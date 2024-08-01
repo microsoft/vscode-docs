@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -368,6 +368,16 @@ or to use a custom schema:
 ```
 
 See more in the [JSON](/docs/languages/json.md) documentation.
+
+### Configure the default browser
+
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `workbench.externalBrowser` [setting](/docs/getstarted/settings.md).
+
+Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
+
+```json
+"workbench.externalBrowser": "edge"
+```
 
 ## Extensions
 

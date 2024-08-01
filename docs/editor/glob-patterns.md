@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Glob Patterns Reference
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
 PageTitle: Visual Studio Code glob patterns reference
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference

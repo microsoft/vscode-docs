@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -24,6 +24,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
+- [`onTaskType`](/api/references/activation-events#onTaskType)
 - [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
@@ -219,6 +220,20 @@ This activation event is emitted and interested extensions will be activated **s
 ]
 ...
 ```
+
+### onTaskType
+
+This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+
+```json
+...
+"activationEvents": [
+    "onTaskType":"npm"
+]
+...
+```
+
+> **Note**: Beginning with VS Code 1.76.0, tasks contributed by your extension do not require a corresponding `onTaskType` activation event declaration for your extension to be activated.
 
 ## Start up
 
