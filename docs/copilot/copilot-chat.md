@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -194,6 +194,10 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 
 ![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
+With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand enable developer mode` to open the VS Code Developer Tools.
+
+![Toggle Developer Tools with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand-developer-mode.png)
+
 ### @terminal
 
 With `@terminal` you can ask questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
@@ -220,10 +224,11 @@ Examples of built-in commands:
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
 * `@workspace /tests` (or `/tests`): generate unit tests for the selected code
-* `@workspace /new` (or `/new`): scaffold code for a new workspace
+* `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
 * `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
 * `@vscode /api` (or `/api`): ask about VS Code extension development
 * `@vscode /search` (or `/search`): generate query parameters for the Search view
+* `@vscode /runCommand`: search or run a VS Code command
 * `@terminal /explain`: explain terminal functionality or shell commands
 
 ## Chat context

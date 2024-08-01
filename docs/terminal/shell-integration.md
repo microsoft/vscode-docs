@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -183,6 +183,23 @@ The following keybindings should work in PowerShell when shell integration is en
 - `kbstyle(Shift+Enter)`: Defaults to `AddLine` on all platforms
 - `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
 - `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
+
+## Experimental intellisense for PowerShell
+
+Experimental intellisense for PowerShell will show a completion list when typing in PowerShell, similar to the editor. Behind the scenes this is powered by the PowerShell session's native completion API, so context-aware completions like variables are available.
+
+![PowerShell intellisense will show completions like Get-Alias, Get-ChildItem, etc. when typing Get-](images/shell-integration/pwsh-intellisense.png)
+
+This can be turned on with the following setting, currently only on Windows and macOS:
+
+```json
+"terminal.integrated.suggest.enabled": true
+```
+
+### Git and VS Code completions
+
+When experimental intellisense is enabled, completions for CLIs `git`, `code` and `code-insiders` are turned on by default. If your PowerShell profile already has completions you may want to turn these off using the `terminal.integrated.suggest.builtinCompletions` setting.
+
 
 ## Enhanced accessibility
 

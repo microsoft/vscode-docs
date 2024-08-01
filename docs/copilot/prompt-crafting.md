@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

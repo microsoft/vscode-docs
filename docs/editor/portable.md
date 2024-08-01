@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode

@@ -58,15 +58,16 @@ The Panel region displays UI elements such as the Problems, Terminal, and Output
 
 ### Panel position
 
-You can also move the region to the left or right of the editor with the **Move Panel** commands:
+You can move the region to the left, right, bottom, or top of the editor. You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, or via the Panel title bar context menu.
+
+![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
+
+You can also use the **Move Panel** commands in the Command Palette:
 
 * **View: Move Panel Left** (`workbench.action.positionPanelLeft`)
 * **View: Move Panel Right** (`workbench.action.positionPanelRight`)
 * **View: Move Panel To Bottom** (`workbench.action.positionPanelBottom`)
-
-You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel title bar context menu, or using the new **View: Move Panel** commands.
-
-![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
+* **View: Move Panel To Top** (`workbench.action.positionPanelTop`)
 
 ### Panel alignment
 
