@@ -75,7 +75,7 @@ Once you've built the prompt for the language model, you first select the langua
 
 To select the language model, you can specify the following properties: `vendor`, `id`, `family`, or `version`. Use these properties to either broadly match all models of a given vendor or family, or select one specific model by its ID. Learn more about these properties in the [API reference](/api/references/vscode-api#LanguageModelChat).
 
-> **Note**: Currently, only `gpt-3.5-turbo` and `gpt-4` are supported for the language model family. We expect that the list of supported models will grow over time.
+> **Note**: Currently, `gpt-4o`, `gpt-4` and `gpt-3.5-turbo` are supported for the language model family. We expect that the list of supported models will grow over time.
 
 If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
 
@@ -102,7 +102,7 @@ The following code snippet shows how to make a language model request:
 
 ```typescript
 try {
-    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-3.5-turbo' });
+    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-4o' });
     const request = model.sendRequest(craftedPrompt, {}, token);
 } catch (err) {
     // Making the chat request might fail because
@@ -135,7 +135,7 @@ The following code snippet shows how an extension can register a command, which 
  vscode.commands.registerTextEditorCommand('cat.namesInEditor', async (textEditor: vscode.TextEditor) => {
     // Replace all variables in active editor with cat names and words
 
-    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-3.5-turbo' });
+    const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot', family: 'gpt-4o' });
     let chatResponse: vscode.LanguageModelChatResponse | undefined;
 
     const text = textEditor.document.getText();
@@ -192,9 +192,11 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend starting with less powerful models, such as `gpt-3.5-turbo`, because they are faster and might allow for a smoother user experience. You might use more powerful but slower models, such as  `gpt-4`, for complex tasks and only after the faster models prove to be inadequate.
-
-> **Note**: both `gpt-3.5-turbo` and `gpt-4` models have the limit of `4K` tokens. These limits will be expanded as we learn more how extensions are using the language models.
+Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for its performance and quality. In addition, `gpt-3.5-turbo`, and `gpt-4` are also available. To get a full list of available models, you can use this code snippet:
+```typescript
+const allModels = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+```
+> **Note**: All models have a limit of `4K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
 
 ### Rate limiting
 
