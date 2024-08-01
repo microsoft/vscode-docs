@@ -334,7 +334,7 @@ cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
 });
 ```
 
-Any other user interaction with your chat response should be measured as a positive metric (e.g. user clicking on a button that your response generated). Measuring success with telemetry is crucial when working with AI since it is an indeterministic technology. Measure and iteratively improve your participant to ensure a good user experience.
+Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is an nondeterministic technology. Measure and iteratively improve your participant to ensure a good user experience.
 
 ## Guidelines
 
