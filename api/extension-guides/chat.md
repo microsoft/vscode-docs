@@ -317,7 +317,7 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 
 ## Measuring success
 
-We recommend measuring the success of your participant by telemetry logging `Unhelpful` user feedback events, and by telemetry logging the total number of requests your participant handled. Thus, an initial participant success metric can be defined as: `unhelpful_feedback_count / total_requests`.
+We recommend that you measure the success of your participant by adding telemetry logging for `Unhelpful` user feedback events, and for the total number of requests that your participant handled. An initial participant success metric can then be defined as: `unhelpful_feedback_count / total_requests`.
 
 ```typescript
 const logger = vscode.env.createTelemetryLogger({
