@@ -42,7 +42,7 @@ In this guide you will learn how to:
 1. Enter `3000` when prompted for the application port.
 1. Select either **Yes** or **No** when prompted to include Docker Compose files. Compose is typically used when running multiple containers at once.
 
-The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
+The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `compose.yaml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
 ## Add an environment variable to the image
 
