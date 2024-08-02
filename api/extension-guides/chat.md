@@ -325,16 +325,14 @@ const logger = vscode.env.createTelemetryLogger({
 });
 
 cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
-    if (logger.isUsageEnabled) {
-        // Log chat result feedback to be able to compute the success matric of the participant
-        logger.logUsage('chatResultFeedback', {
-            kind: feedback.kind
-        });
-    }
+    // Log chat result feedback to be able to compute the success matric of the participant
+    logger.logUsage('chatResultFeedback', {
+        kind: feedback.kind
+    });
 });
 ```
 
-Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is an nondeterministic technology. Measure and iteratively improve your participant to ensure a good user experience.
+Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is a nondeterministic technology. Run experiments, measure and iteratively improve your participant to ensure a good user experience.
 
 ## Guidelines
 
