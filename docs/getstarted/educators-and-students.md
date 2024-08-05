@@ -9,7 +9,7 @@ MetaDescription: Resources for educators and students to get started with Visual
 ---
 # VS Code for Educators and Students
 
-Welcome to the world of Visual Studio Code for Educators and Students! In this article, we introduce you to various tools, extension packs, and learning paths that can help you get started with coding in Visual Studio Code. Whether you're an educator looking for resources to enhance your classroom experience, or a student eager to learn and explore coding, this guide is here to help you get started.
+Welcome to the world of using Visual Studio Code as an educator or student! In this article, we introduce you to various tools, extension packs, and learning paths that can help you get started with coding in Visual Studio Code. Whether you're an educator looking for resources to enhance your classroom experience, or a student eager to learn and explore coding, this guide is here to help you get started.
 
 ## Educator resources
 
