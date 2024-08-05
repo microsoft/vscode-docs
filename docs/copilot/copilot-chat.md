@@ -226,7 +226,6 @@ Examples of built-in commands:
 * `@workspace /tests` (or `/tests`): generate unit tests for the selected code
 * `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
 * `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
-* `@vscode /api` (or `/api`): ask about VS Code extension development
 * `@vscode /search` (or `/search`): generate query parameters for the Search view
 * `@vscode /runCommand`: search or run a VS Code command
 * `@terminal /explain`: explain terminal functionality or shell commands
@@ -244,6 +243,7 @@ Examples of built-in chat variables are:
 * `#selection`: the visible source code in the active editor.
 * `#terminalLastCommand`: the active terminal's last run command.
 * `#terminalSelection`: the active terminal's selection.
+* `#vscodeAPI`: use VS Code API references to answer questions about VS Code extension development.
 
 > **Note**: if possible, the full contents of the file will be included when you use `#file`. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
 
