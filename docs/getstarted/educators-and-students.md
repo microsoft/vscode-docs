@@ -47,59 +47,9 @@ To start using CodeTour, you need to download the CodeTour extension from the VS
 
 To use CodeTour effectively in your classroom, we recommend following the guidelines in the [CodeTour repository](https://github.com/microsoft/codetour#getting-started).
 
-## Collaborate with Live Share
+## Student resources
 
-### What is Live Share?
-
-[Live Share](https://learn.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
-
-When it comes to Live Share, seeing is believing. Check out this video to see Live Share in action:
-
-<iframe src="https://youtube.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
-
->**Note**: The video mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
-
-When you share a collaborative session, the person you're working with sees the context of the workspace in their editor. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
-
-Each of you can open files, navigate, edit code, or highlight - and changes are instantly reflected. As you edit you can see your classmate's cursor, jump to the same location, and follow their actions.
-
-You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
-
-For more details about what you can do with Live Share, visit the [how-to-guide](https://learn.microsoft.com/visualstudio/liveshare/use/install-live-share-visual-studio-code).
-
-### Get started with Live Share
-
-To get started with using Live Share in VS Code, you'll need to download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the VS Code Marketplace.
-
-![Live Share extension](images/educators-and-students/live-share-extension.png)
-
-This extension includes everything you need to start collaboratively editing and debugging in real time. This provides you and your team/class with a one-step installation, in order to begin pair programming, performing remote code reviews, driving interactive lectures, and more, without needing to leave Visual Studio Code.
-
-Once you log into your GitHub account, you can see the Live Share icon in the Activity Bar.
-
-![Live Share icon in the Activity Bar](images/educators-and-students/liveshare-icon.png)
-
-#### Starting a Live Share session
-
-If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session is automatically copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share extension installed.
-
-![Live Share invitation](images/educators-and-students/liveshare-invitation.png)
-
-When your classmate joins the session, you get a notification, and see their name come up under Participants.
-
-![Live Share joined](images/educators-and-students/liveshare-joined.png)
-
-#### Joining a Live Share session
-
-If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you received.
-
-![Joining a Live Share session](images/educators-and-students/liveshare-join-session.png)
-
-You should be able to see and interact with your classmate's code on your screen!
-
-## Free student lessons
-
-### Get started with VS Code
+### Lessons for getting started with VS Code
 
 | Title | Description |
 |-------|-------------|
@@ -150,3 +100,60 @@ Inspired by the film "Space Jam: A New Legacy," this learning path shows basketb
 | Title | Description |
 |-------|-------------|
 | [Use basketball stats to optimize game play with Visual Studio Code](https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa) | Analyze basketball stats and create an app in this learning path inspired by the film "Space Jam: A New Legacy." |
+
+## Tools for both educators and students
+
+### Collaborate with Live Share
+
+[Live Share](https://learn.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate in real time with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
+
+<iframe src="https://youtube.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
+
+>**Note**: The video mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
+
+When you share a collaborative session, the person you're working with sees the workspace files in their editor and also receives editor context, such as language services or debugging configuration. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
+
+Each of you can open files, navigate, edit code, or highlight, and changes are instantly reflected. As you edit, you can see your classmate's cursor, jump to the same location, and follow their actions.
+
+You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
+
+For more details about what you can do with Live Share, visit the [how-to-guide](https://learn.microsoft.com/visualstudio/liveshare/use/install-live-share-visual-studio-code).
+
+#### Get started with Live Share
+
+To get started with using Live Share in VS Code, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the VS Code Marketplace.
+
+    > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
+
+Once you log into your GitHub account, you can see the Live Share icon in the Activity Bar.
+
+![Live Share icon in the Activity Bar](images/educators-and-students/liveshare-icon.png)
+
+#### Starting a Live Share session
+
+If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session is automatically copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share extension installed.
+
+![Live Share invitation](images/educators-and-students/liveshare-invitation.png)
+
+When your classmate joins the session, you get a notification, and see their name come up under Participants.
+
+![Live Share joined](images/educators-and-students/liveshare-joined.png)
+
+#### Joining a Live Share session
+
+If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you received.
+
+![Joining a Live Share session](images/educators-and-students/liveshare-join-session.png)
+
+You should be able to see and interact with your classmate's code on your screen!
+
+#### Joining a Live Share session from the browser
+
+If you want to join a Live Share session but you don't have Visual Studio Code installed on your machine, you can use [Visual Studio Code for the Web](/docs/editor/vscode-web.md) to join a session. VS Code for the Web provides a zero-install Visual Studio Code experience running entirely in your browser. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
+
+After you navigate to VS Code for the Web, you can then install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension, and [join the Live Share session](#joining-a-live-share-session).
+
+## Next steps
+
+- Watch the [VS Code intro videos](/docs/getstarted/introvideos.md)
+- Check out the [VS Code tips and tricks](/docs/getstarted/tips-and-tricks.md)
