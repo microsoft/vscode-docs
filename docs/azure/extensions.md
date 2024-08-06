@@ -9,7 +9,7 @@ DateApproved: 02/1/2024
 ---
 # Azure Extensions
 
-You can use [Azure](https://azure.microsoft.com) directly from Visual Studio Code through extensions. Using either the [Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) or the various extensions in the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack, you can have your application running in Azure in minutes.
+You can use Azure directly from Visual Studio Code through extensions. The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains various extensions that will have your application running in Azure in minutes.
 
 ![app service](images/extensions/azure-tools.png)
 
