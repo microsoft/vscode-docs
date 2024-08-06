@@ -6,7 +6,7 @@ ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 PageTitle: C# programming with Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
-MetaSocialImage: images/csharp/languages_csharp.png
+MetaSocialImage: images/csharp/languages-csharp-social.png
 ---
 # Working with C&#35;
 

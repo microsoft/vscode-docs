@@ -1,12 +1,12 @@
 ---
-Order: 5
+Order: 7
 Area: datascience
 TOCTitle: PyTorch Support
 ContentId: 7B5266AD-3D3E-491F-BD7C-B883C592D943
 PageTitle: PyTorch Development in Visual Studio Code
 DateApproved: 1/9/2023
 MetaDescription: This topic highlights some of the PyTorch features available within Visual Studio Code.
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # PyTorch support in Visual Studio Code
 

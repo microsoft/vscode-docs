@@ -6,7 +6,7 @@ ContentId: 12bf713e-5f20-46ac-81bb-8e05565aba3a
 PageTitle: Deploy Python Web Apps
 DateApproved: 10/12/2022
 MetaDescription: How to deploy Python applications to Azure with Visual Studio Code
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # Deploy Python Web Apps
 

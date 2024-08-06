@@ -4,8 +4,8 @@ Area: educators
 TOCTitle: Coding Packs
 ContentId: 8dc80adf-5b97-48d0-8c85-1c014c9dc50f
 PageTitle: Visual Studio Code Installers
-DateApproved: 10/22/2020
-MetaDescription: Visual Studio Code Coding Packs for programming languages such as Java and .NET
+DateApproved: 06/11/2024
+MetaDescription: Visual Studio Code Coding Packs for programming languages such as Java
 ---
 # Coding Packs
 
@@ -25,19 +25,3 @@ This will install:
 - Java extension pack in VS Code
 
 ![Java Installer](images/installers/java-installer.png)
-
-## .NET Coding Pack
-
-The .NET coding pack includes everything you need to start coding with .NET.
-
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Download - Windows</a>
-<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Download - macOS</a>
-
-This will install:
-
-- VS Code
-- .NET SDK and add it to the PATH
-- .NET Extension pack in VS Code
-
-![.NET Installer](images/installers/dotnet-installer.png)
-

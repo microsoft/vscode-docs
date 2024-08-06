@@ -93,7 +93,7 @@ The Python extension automatically detects Python interpreters that are installe
 
 The current environment is shown on the right side of the VS Code Status Bar:
 
-![Status Bar showing a selected interpreter](/docs/python/images/shared/environment-in-status-bar.png)
+![Status Bar showing a selected interpreter](../python/images/shared/environment-in-status-bar.png)
 
 The Status Bar also indicates if no interpreter is selected:
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 02/1/2024
+DateApproved: 08/01/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -727,7 +727,7 @@ Contribute definition of a programming language. This will introduce a new langu
 
 The main effects of `contributes.languages` are:
 
-- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.getLanguageId()` and the `onLanguage` Activation Events.
+- Define a `languageId` that can be reused in other parts of VS Code API, such as `vscode.TextDocument.languageId` and the `onLanguage` Activation Events.
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
 - Associate file name extensions (`extensions`), file names (`filenames`), file name [glob patterns](/docs/editor/glob-patterns) (`filenamePatterns`), files that begin with a specific line (such as hashbang) (`firstLine`), and `mimetypes` to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
@@ -942,6 +942,21 @@ The **editor title menu** has these default groups:
 - `5_close` - Commands related to closing editors.
 
 `navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
+
+The **terminal tab context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_run` - Commands related to running/executing something in the terminal.
+- `5_manage` - Commands related to managing a terminal.
+- `7_configure` - Commands related to terminal configuration.
+
+The **terminal context menu** has these default groups:
+
+- `1_create` - Commands related to creating terminals.
+- `3_edit` - Commands related to manipulating text, the selection or the clipboard.
+- `5_clear` - Commands related to clearing the terminal.
+- `7_kill` - Commands related to closing/killing the terminal.
+- `9_config` - Commands related to terminal configuration.
 
 The **Timeline view item context menu** has these default groups:
 

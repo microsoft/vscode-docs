@@ -6,7 +6,7 @@ ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
 DateApproved: 6/12/2023
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 # Getting Started with Python in VS Code
 
@@ -166,7 +166,7 @@ Congrats, you just ran your first Python code in Visual Studio Code!
 
 Let's now try debugging our Python program. Debugging support is provided by the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), which is automatically installed with the Python extension. To ensure it has been installed correctly, open the **Extensions** view (`kb(workbench.view.extensions)`) and search for `@installed python debugger`. You should see the Python Debugger extension listed in the results.
 
-![Python Debugger extension shown in installed extensions view in VS Code.](/docs/python/images/shared/python-debugger-extension.png)
+![Python Debugger extension shown in installed extensions view in VS Code.](images/shared/python-debugger-extension.png)
 
 Next, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, click in the editor's left gutter, next to the line numbers. When you set a breakpoint, a red circle appears in the gutter.
 

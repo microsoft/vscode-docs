@@ -231,6 +231,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/testing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/editor/command-line</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -316,6 +321,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/setup</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/ai-powered-suggestions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-chat</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/getting-started</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -327,6 +347,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/workspace-context</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -691,6 +716,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/datascience/python-interactive</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/data-wrangler-quick-start</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/data-wrangler</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/datascience/pytorch-support</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -882,6 +922,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/cpp/cmake-linux</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/cmake-quickstart</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 02/1/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -99,6 +99,7 @@ Makefile | `makefile`
 Markdown | `markdown`
 Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
+OCaml | `ocaml`
 Pascal | `pascal`
 Perl | `perl` and `perl6`
 PHP | `php`
@@ -116,6 +117,7 @@ Shell Script (Bash) | `shellscript`
 Slim | `slim`
 SQL | `sql`
 Stylus | `stylus`
+Svelte | `svelte`
 Swift | `swift`
 TypeScript | `typescript`
 TypeScript JSX | `typescriptreact`

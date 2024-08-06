@@ -4,3 +4,7 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.md diff=markdown
+
+# Fine-tune GitHub's language detection
+docs/** -linguist-documentation
+*.md linguist-detectable

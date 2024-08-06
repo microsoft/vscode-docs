@@ -1,154 +1,212 @@
 ---
-Order: 5
+Order: 4
 Area: copilot
-TOCTitle: Copilot Chat tutorial
+TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
-DateApproved: 02/1/2024
+DateApproved: 08/01/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
+MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Getting started with GitHub Copilot in VS Code
+# Getting started with GitHub Copilot Chat in VS Code
 
 This tutorial walks you through using the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
 
-If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Getting Started](/docs/copilot/getting-started.md) or the [GitHub Copilot Overview](/docs/copilot/overview.md).
+If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md) or get set up and discover the key capabilities in the [GitHub Copilot Getting Started Tutorial](/docs/copilot/getting-started.md).
 
 ## Prerequisites
 
-If you want to use GitHub Copilot, you either need a subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-To get started, go through the steps to [Set up VS Code for GitHub Copilot](/docs/copilot/getting-started.md#set-up-vs-code-for-github-copilot).
+* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
 
-## Install the GitHub Copilot Chat extension
-
-The Chat features are available by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
-
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot-chat">Install the GitHub Copilot Chat extension</a>
+Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
 ## Get your first Copilot chat conversation
 
-As you're iterating over your code, there might be moments where you need help from your AI pair programmer to accomplish a task. In the [Copilot Getting Started](/docs/copilot/getting-started.md), you used Copilot inline suggestions and optionally provided context by using code comments.
+GitHub Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
-In some cases, it might be more efficient to just ask Copilot about a specific topic by using a chat message. For example, a common cause for errors is when a method receives invalid input. In this step, you start with a simple calculator in TypeScript, and use GitHub Copilot Chat to refactor the code to add error handling.
+In this tutorial, you'll be creating a simple Node.js web application. So, let's get started and ask Copilot to tell us more about web frameworks for Node.js.
 
-![Video that shows asking Copilot to add error handling to our code. Copilot presents a diff view with the suggested code changes.](./images/getting-started-chat/copilot-chat-add-error-handling.gif)
+1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
 
-Let's use GitHub Copilot to help us add error handling to our code.
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started-chat/copilot-chat-view.png)
 
-1. Open Visual Studio Code and create a new TypeScript file `Calculator.ts`.
+    > **Tip**: You can drag the Chat view to the Secondary side bar to keep the Chat view and Explorer view open at the same time. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar).
 
-1. In the TypeScript file, paste the following code that implements a simple `Calculator` class.
+1. In the chat input field, enter *give a list of nodejs web server frameworks*, and then press `kb(workbench.action.chat.submit)` to send the request to Copilot.
 
-    ```typescript
-    class Calc {
-        add(a: number, b: number): number {
-            return a + b;
-        }
-    
-        subtract(a: number, b: number): number {
-            return a - b;
-        }
-    
-        factorial(a: number): number {
-            if (a === 0 || a === 1) {
-                return 1;
-            }
-            return a * this.factorial(a - 1);
-        }
-    }
-    
-    let calculator = new Calc();
-    console.log(calculator.add(5, 3));
-    ```
+    Copilot returns a list of web frameworks and with some additional information. So, you can search for coding information while you stay in VS Code.
 
-    Notice that the `factorial` method will actually fail when given a negative number as input.
+    Note that your results might be different from what is shown in the screenshots. AI models are non-deterministic, which means that they can return different responses when asked the same question. This might be due to additional learning and adaption over time, language variation, changes in context, such as your chat history, and more.
 
-1. In the editor, select the code block for the `factorial` method.
+    ![Screenshot of VS Code, showing the Copilot Chat view, showing the chat response and a suggested follow-up question.](./images/getting-started-chat/copilot-chat-view-node-frameworks.png)
 
-    By selecting text in the editor, you're providing extra context to GitHub Copilot about what to act upon.
+    Notice that Copilot also suggests relevant follow-up questions, which you can select to directly submit directly to Copilot.
 
-1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
+    > **Tip**: To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input field.
 
-    With inline chat, you can ask Copilot any questions while you're in the editor writing and iterating on your code.
+1. Let's get more information about Express.js. Enter *how to get started with express* in the chat input field.
 
-1. Enter *Add error handling* in the input box, and then press `kb(Enter)`.
+    The response contains step-by-step instructions for setting up an Express.js app and might also include code blocks with shell commands or implementation code. Code blocks in the chat response support IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
-    Copilot sends the request, and then shows an inline diff with the proposed code changes.
+    ![Screenshot of VS Code Copilot Chat view, showing the chat response with code blocks in the response.](./images/getting-started-chat/copilot-chat-view-express-app.png)
+
+    You can interact with these code blocks by copying the content in the editor or inserting it in the terminal.
+
+    ![Screenshot of VS Code Copilot Chat view, showing the context menu for code blocks.](./images/getting-started-chat/copilot-chat-view-code-block-actions.png)
+
+    > **Tip**: Experiment with different questions and see how Copilot responds. For example, you can ask for only code samples ("give me 3 code samples to create an express app"), or ask how to add basic authentication to an Express app ("how to create an express app with basic auth"), and much more!
+
+## Generate a new workspace
+
+Even to create a simple Express.js application involves creating multiple files: a JavaScript file to set up the server, a `package.json`, HTML (template) files, and more. Rather than asking Copilot to generate each individual file, you can instruct it to create an entire workspace for you.
+
+Let's ask Copilot to generate a workspace for an Express.js and Pug application.
+
+1. Enter *@workspace /new express with typescript and pug* in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
+
+    Notice how this chat prompt is structured to provide clear and concise instructions to Copilot. Let's break it down:
+
+    * `@workspace` is a *chat participant*, which are domain experts that can perform tasks or answer questions in a specific domain. In this case, `@workspace` knows about VS Code workspaces and your codebase.
+
+    * `/new` is a *slash command* that tells the `@workspace` participant that you want to create a new workspace. Slash commmands are a shorthand for commonly used instructions. You can enter the `/` symbol in the chat input to get the list of supported commands.
+
+1. Copilot returns a file tree that represents the new workspace files, and a button to create the workspace.
+
+    ![Screenshot of VS Code Copilot Chat view, showing a file tree for a new workspace and a 'Create workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
+
+    You can select any file in the file tree to preview its content.
+
+1. Select **Create workspace** to create a new workspace and select a folder on disk where the workspace should be created.
+
+    When the workspace creation finishes, VS Code reloads with the new workspace.
+
+    ![Screenshot of VS Code, showing the newly created workspace for an Express app.](./images/getting-started-chat/copilot-chat-create-workspace-result.png)
+
+Congratulations! You've just created a workspace with Copilot Chat by using natural language. The advantage of this approach is that you tweak your request as you like. Maybe you prefer using Express.js with EJS, or not use Express.js at all and use plain Node.js with Bootstrap. Choose what you prefer most!
+
+## Use chat participants
+
+Previously, you used `@workspace` to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
+
+1. In the Chat view, enter the *@workspace how to add a new page?*
+
+    ![Screenshot of VS Code Copilot Chat view, showing the results for added a page.](./images/getting-started-chat/copilot-chat-view-add-page.png)
+
+    Copilot returns step-by-step instructions for adding a new page that are specific to your code. This is because you added `@workspace` in the chat prompt, which has the context about your specific workspace contents. If you wouldn't include `@workspace`, you would get more generic instructions.
+
+1. Optionally, follow the instructions and add a new page to your app.
+
+    > **Tip**: You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
+
+1. There are more chat participants that you can use. Start typing `@` in the chat window to get the list of available chat participants.
+
+    ![Screenshot of VS Code Copilot Chat view, showing the list of chat participants.](./images/getting-started-chat/copilot-chat-view-participants.png)
+
+    > **Note**: The list of participants might vary based on the extensions you have installed in VS Code.
+
+1. Let's use `@vscode` to ask about VS Code. Enter `@vscode how to debug node.js app` in the chat input field.
+
+    You get instructions about how to debug a Node.js app in VS Code, and also get a button to directly access the corresponding VS Code functionality.
+
+    ![Screenshot of VS Code Copilot Chat view, showing results and a button to open the Command Palette in VS Code.](./images/getting-started-chat/copilot-chat-view-node-debugging.png)
+
+## Stay in the flow with inline chat
+
+While the Chat view is great for keeping a conversation going with Copilot, having access to chat directly from the editor might be more efficient for particular scenarios. For example, when you're reviewing code changes, writing unit tests, or refactoring code.
+
+Let's look at how to use chat for code refactoring.
+
+1. Open the `app.ts` file in the editor and put the cursor on the line where the port number is set (`const port = 3000`).
+
+    For more complex code changes, you can select a block of code to provide more context to Copilot about what you want to change.
+
+1. Press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat, or right-click and select **Copilot** > **Start in Editor**.
+
+    Copilot inline chat enables you to ask questions to Copilot directly from the editor.
+
+    ![Screenshot of VS Code editor, highlighting the inline chat popup control.](./images/getting-started-chat/copilot-inline-chat-popup.png)
+
+    Let's now ask Copilot to refactor the code to make the port number configurable.
+
+1. Enter *make configurable* in the chat input field and press `kbstyle(Enter)`.
+
+    Notice how Copilot updates the selected code and suggests reading the port number from an environment variable.
+
+    ![Screenshot of VS Code editor with the suggested code change.](./images/getting-started-chat/copilot-inline-chat-configurable-port.png)
+
+    You can view the applied changes by selecting the **Toggle Changes** control.
+
+    ![Screenshot of VS Code inline chat, highlighting the 'Show changes' button and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
 
 1. Select **Accept** or **Discard** to apply or ignore the changes.
 
-    If you're not happy with the suggested code changes, you can select the **Regenerate** button to get another suggestion.
+    If you're not happy with the suggested code changes, you can select the **Rerun Request** button to get another suggestion.
 
-## Generate code documentation
+    > **Tip**: Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
 
-To make your code more readable and maintainable, you can add code documentation. This can be a tedious task, so let's use Copilot to help generate documentation comments for our code.
+Congratulations on using Copilot inline chat in the editor to help you with code refactoring!
 
-![Video that shows using Copilot Chat to add documentation comments to a method.](./images/getting-started-chat/copilot-chat-add-docs.gif)
+## Use smart actions
 
-1. In the editor, select the code block for the `add` method.
+There are some common scenarios where you might invoke Copilot directly, without having to enter a chat prompt. For example, Copilot can help with adding code documentation, generating unit tests, or help you fix coding errors.
 
-1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
+Let's see how to use smart actions to fix a coding error.
 
-1. Enter the */doc* slash command in the input box and press `kb(Enter)`.
+1. Open the `app.ts` file and select one of the symbols that has a red squiggle.
 
-    Copilot chat has several slash commands, which are a shorthand notation for command chat instructions. The */doc* command is short for generating documentation comments.
+1. Select the sparkle icon to view the Copilot code actions, and then select **Fix using Copilot**.
 
-    To view the list of slash commands, enter just */* in the chat input box.
+    ![Screenshot of VS Code, highlighting the sparkle and Copilot smart actions context menu.](./images/getting-started-chat/copilot-smart-action-fix.png)
 
-1. Notice that Copilot suggests a documentation comment.
+1. Copilot inline chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
 
-1. Either **Accept** or **Discard** the suggestion.
+    ![Screenshot of VS Code inline chat, showing the result of the fix smart action.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
 
-## Improve your code understanding
+    Notice how Copilot uses the `/fix` slash command, followed by the error message. You can also use the `/fix` command directly in the chat input field to get help with fixing coding errors.
 
-So far, you used Copilot to generate code suggestions. Next, you use Copilot to help you with code understanding. For example, you might be learning a new programming language, or you're jumping into a new code base.
+In addition to **Fix This**, Copilot provides more smart code actions, such as **Explain This**, **Generate Docs** (`/doc`), and **Generate Tests** (`/tests`). You can access these actions via the editor context menu and then selecting **Copilot**.
 
-![Video that shows using the Chat view to explain a code fragment and refactor it to not use recursion.](./images/getting-started-chat/copilot-chat-add-docs.gif)
+![Screenshot of VS Code Copilot smart action context menu.](./images/getting-started-chat/copilot-smart-action-menu.png)
 
-Let's ask Copilot to help us with better understand the `factorial` method.
+And if you come across some block of code that's unclear, use `/explain` to get Copilot to give you an explanation and help improve your code understanding.
 
-1. In the editor, select the code block for the `factorial` method.
+## Add chat context
 
-1. Then press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
+Previously, you used `@workspace` to ask questions about your workspace. What if you want to ask Copilot a question about something specific, maybe a particular file or a symbol in your code? How can you provide that context to Copilot without having to describe everything extensively in natural language?
 
-1. Enter */explain* in the chat input box and press `kb(Enter)`.
+Let's ask Copilot about what the purpose of a specific file in the workspace is.
 
-1. Notice that the Chat view opens automatically, and a request is sent to GitHub Copilot.
+1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
 
-    > **Note:** you can open the Chat view directly from the Activity Bar at any time, to start a conversation with GitHub Copilot.
+1. Select the **Attach Context** button next to the chat input field to open the context Quick Pick.
 
-1. Copilot returns a detailed description of what the method does and explains the implementation.
+    ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/getting-started-chat/copilot-chat-view-attach-context.png)
 
-    The Chat view maintains the context of your questions, and lets you ask follow-on questions. For example, in the previous answer, it was stated that the `factorial` method uses recursion, so you might ask *What is recursion*.
+    In the context Quick Pick, you can select different types of context to add to your chat prompt, such as a file from your workspace, a symbol, the current selection, and more.
 
-1. Let's now ask if Copilot can make our code better by entering *Can you make this code more efficient* in the Chat view input box.
+1. Start typing `index.ts` to find the corresponding file, and then select the `src\types\index.ts` file.
 
-    Notice that Copilot understands that *this code* refers to source code that we referred to earlier, when asking for an explanation.
+    ![Screenshot of VS Code context Quick Pick, highlighting the selected' index.ts' file.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
 
-1. Let's now copy the code block that Copilot returned and use it to improve our code.
+    After you select the file, notice that the file is added in the Chat view. Optionally, you can add more files or other context types to your chat prompt.
 
-    You can also immediately insert the code block in the editor at the cursor location, or insert it in a new file.
+1. Now enter the following prompt in the chat input field: *@workspace what does this do*. Then, press `kbstyle(Enter)` to send the request.
 
-## Find your way around VS Code
+    ![Screenshot of VS Code Copilot Chat view, showing the chat prompt with the attached file context.](./images/getting-started-chat/copilot-chat-view-context-prompt.png)
 
-With GitHub Copilot Chat in VS Code, you can not only ask about your code, but you can also ask questions about VS Code itself. For example, you might be looking for a specific command or setting.
+    Copilot now returns an explanation about the purpose of the code in the selected file.
 
-![Video that shows using the Chat view to find VS Code features such as the 'auto save' setting.](./images/getting-started-chat/copilot-chat-vscode.gif)
+1. Instead of using the **Attach Context** control, you can also reference different types of context by `#` in the chat input field.
 
-Follow these examples or experiment yourself to let Copilot help you explore VS Code features:
-
-1. In the Chat view, enter the following text: *@vscode How do I disable auto-save?*
-
-    Notice that Copilot returns a JSON fragment for setting the `files.autoSave` value. Also, the result also contains a button for directly opening the Settings editor.
-
-1. In the Chat view, enter the following text: *@vscode How do I change the color of VS Code?*
-
-    Notice that Copilot presents you with a button to open the Command Palette and prepopulates the command.
-
-    You can also be less specific when asking Copilot for a VS Code feature. For example, try "@vscode What's that thing to not get interrupted while coding?"
+    ![Screenshot of VS Code Copilot Chat view, showing the list of chat variables.](./images/getting-started-chat/copilot-chat-view-variables.png)
 
 ## Congratulations
 
-Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations about your improving or explaining your code, and about finding your way around VS Code.
+Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations to help refactor your code, fix problems, or improve your code understanding.
 
-Next, learn more about the features in GitHub Copilot in VS Code in the [GitHub Copilot Overview](/docs/copilot/overview.md).
+## Additional resources
+
+* Get an overview of [GitHub Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
+* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/prompt-crafting.md)

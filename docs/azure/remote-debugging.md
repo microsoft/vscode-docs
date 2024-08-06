@@ -13,31 +13,39 @@ Connect the Visual Studio Code debugger to your Node.js applications running on 
 
 ## Install the extension
 
-Remote debugging support for VS Code is provided by the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension for apps deployed to Azure. To install the Azure App Service extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'app service' to filter the results. Select the Microsoft **Azure App Service** extension.
+Remote debugging support for VS Code is provided by the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension for apps deployed to Azure.
 
 ![Select App Service extension](images/remote-debugging/install-app-service.png)
 
+To install the Azure App Service extension:
+
+1. Open the Extensions view by pressing `kb(workbench.view.extensions)`
+1. Search for 'azure app service' to filter the results.
+1. Select the Microsoft **Azure App Service** extension and select **Install**.
+
 ## Connect to Azure
 
-Once you've installed the Azure App Service extension, you'll notice there is a new **Azure** Activity Bar view. Select the Azure view and you'll see the Azure App Service Explorer.
+After you install the Azure App Service extension, notice that there's an **Azure** view added to the Activity Bar. Select the Azure view to open the Azure App Service Explorer.
 
 ![App Service explorer](images/remote-debugging/app-service-explorer.png)
 
-Select **Sign in to Azure** in the App Service Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`) to sign in to your Azure Account. If you don't have an account, select **Create a Free Azure Account...** to create a free account and get $200 in Azure Credits to try out any combination of Azure services.
+Select **Sign in to Azure** in the App Service Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`) to sign in to your Azure Account. If you don't have an account, select **Create an Azure Account...** to create an Azure free account to try out any combination of Azure services.
 
-> **Tip:** If you don't have an app deployed to Azure App Service, start by following [this tutorial](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app) to get an app deployed.
+> **Tip:** If you don't have an app deployed to Azure App Service yet, start by following this tutorial to [deploy a Node.js + MongoDB web app to Azure](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app).
 
 ## Start a remote debugging session
 
-Right-click your app in the App Service explorer and select **Start Remote Debugging**. This process requires that the app be restarted with the debugger enabled - you'll be prompted to confirm the restart.
+To start a remote debugging session for your application, right-click your app in the App Service Explorer and select **Start Remote Debugging**.
 
 ![Start remote debugging](images/remote-debugging/start-remote-debugging.png)
 
-Once restarted, VS Code will connect to the app's debugging port via an SSH tunnel. It may take a little time to establish the connection. Once connected, VS Code will switch into debugging mode and work the same as it does when debugging an app locally.
+This process requires that the app be restarted with the debugger enabled. You are prompted to confirm the restart.
+
+Once restarted, VS Code connects to the app's debugging port via an SSH tunnel. It might take some time to establish the connection. Once connected, VS Code switches to debugging mode and works in the same way as when you're debugging an app locally.
 
 ![Remote breakpoint](images/remote-debugging/remote-breakpoint.png)
 
-When you're ready to end your remote debugging session, disconnect from the debugger as you would normally and confirm that you want to restart the app.
+When you're ready to end your remote debugging session, disconnect from the debugger as you would normally, and confirm that you want to restart the app.
 
 ## Next steps
 
