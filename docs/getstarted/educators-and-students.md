@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 10
 Area: getstarted
 TOCTitle: Educators & Students
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
