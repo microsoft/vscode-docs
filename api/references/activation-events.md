@@ -14,8 +14,21 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onLanguage`](/api/references/activation-events#onLanguage)
 - [`onCommand`](/api/references/activation-events#onCommand)
 - [`onDebug`](/api/references/activation-events#onDebug)
+  - [`onDebugAdapterProtocolTracker`](/api/references/activation-events#onDebugAdapterProtocolTracker)
+  - [`onDebugDynamicConfigurations`](/api/references/activation-events#onDebugDynamicConfigurations)
   - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
   - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
+- [`onEditSession`](/api/references/activation-events#onEditSession)
+- [`onSearch`](/api/references/activation-events#onSearch)
+- [`onOpenExternalUri`](/api/references/activation-events#onOpenExternalUri)
+- [`onNotebook`](/api/references/activation-events#onNotebook)
+- [`onRenderer`](/api/references/activation-events#onRenderer)
+- [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
+- [`onTerminalQuickFixRequest`](/api/references/activation-events#onTerminalQuickFixRequest)
+- [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
+- [`onIssueReporterOpened`](/api/references/activation-events#onIssueReporterOpened)
+- [`onChatParticipant`](/api/references/activation-events#onChatParticipant)
+- [`onLanguageModelTool`](/api/references/activation-events#onLanguageModelTool)
 - [`workspaceContains`](/api/references/activation-events#workspaceContains)
 - [`onFileSystem`](/api/references/activation-events#onFileSystem)
 - [`onView`](/api/references/activation-events#onView)
@@ -93,6 +106,14 @@ This activation event is emitted and interested extensions will be activated bef
 ```
 
 These are two more fine-grained `onDebug` activation events:
+
+### onDebugAdapterProtocolTracker
+
+`onDebugAdapterProtocolTracker` is emitted whenever a debug session with the specific type is about to be launched and a debug protocol tracker might be needed.
+
+### onDebugDynamicConfigurations
+
+`onDebugDynamicConfigurations` is emitted whenever a list of all debug configurations needs to be created (and all provideDebugConfigurations methods for the "dynamic" scope need to be called).
 
 ### onDebugInitialConfigurations
 
@@ -221,7 +242,7 @@ This activation event is emitted and interested extensions will be activated **s
 ...
 ```
 
-### onTaskType
+## onTaskType
 
 This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
 
@@ -234,6 +255,139 @@ This activation event is emitted emitted whenever tasks of a certain type need t
 ```
 
 > **Note**: Beginning with VS Code 1.76.0, tasks contributed by your extension do not require a corresponding `onTaskType` activation event declaration for your extension to be activated.
+
+## onEditSession
+
+`onEditSession` is emitted whenever an edit session is accessed for the given scheme.
+
+```json
+...
+"activationEvents": [
+    "onEditSession:file"
+]
+...
+```
+
+## onSearch
+
+An activation event emitted whenever a search is started for the given scheme.
+
+```json
+...
+"activationEvents": [
+    "onSearch:file"
+]
+...
+```
+
+## onOpenExternalUri
+
+An activation event emitted whenever an external URI, such as an http or https link, is being opened.
+
+```json
+...
+"activationEvents": [
+    "onOpenExternalUri"
+]
+...
+```
+
+## onNotebook
+
+An activation event emitted whenever the specified notebook document is opened for the given view type.
+
+```json
+...
+"activationEvents": [
+    "onNotebook:jupyter-notebook",
+    "onNotebook:interactive"
+]
+...
+```
+
+## onRenderer
+
+An activation event emitted whenever a given notebook output renderer is used.
+
+```json
+...
+"activationEvents": [
+    "onRenderer:ms-toolsai.jupyter-renderers"
+]
+...
+```
+
+## onTerminalProfile
+
+An activation event emitted when a specific terminal profile is launched.
+
+```json
+...
+"activationEvents": [
+    "onTerminalProfile:terminalTest.terminal-profile"
+]
+...
+```
+
+## onTerminalQuickFixRequest
+
+An activation event emitted when a quick fix command matches the selector associated with this ID.
+
+```json
+...
+"activationEvents": [
+    "onTerminalQuickFixRequest:my-quick-fix"
+]
+...
+```
+
+## onWalkthrough
+
+An activation event emitted when a specified walkthrough is opened.
+
+```json
+...
+"activationEvents": [
+    "onWalkthrough:nodejsWelcome"
+]
+...
+```
+
+## onIssueReporterOpened
+
+An activation event emitted when the issue reporter is opened.
+
+```json
+...
+"activationEvents": [
+    "onIssueReporterOpened"
+]
+...
+```
+
+## onChatParticipant
+
+An activation event emitted when the specified chat participant is invoked.
+
+```json
+...
+"activationEvents": [
+    "onChatParticipant:my-chat-participant"
+]
+...
+```
+
+## onLanguageModelTool
+
+An activation event emitted when the specified language model tool is invoked.
+
+```json
+...
+"activationEvents": [
+    "onChatParticipant:my-language-model-tool"
+]
+...
+```
 
 ## Start up
 
