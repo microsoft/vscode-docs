@@ -674,6 +674,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": ["relative", "${workspaceFolder}"],
+                "source": "gcc",
                 "pattern": {
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                     "file": 1,
