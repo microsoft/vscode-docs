@@ -639,6 +639,8 @@ A matcher that captures the above warning (and errors) looks like this:
     "owner": "cpp",
     // The file name for reported problems is relative to the opened folder.
     "fileLocation": ["relative", "${workspaceFolder}"],
+    // The name that will be shown as the source of the problem.
+    "source": "gcc",
     // The actual pattern to match problems in the output.
     "pattern": {
         // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
