@@ -24,7 +24,6 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onNotebook`](/api/references/activation-events#onNotebook)
 - [`onRenderer`](/api/references/activation-events#onRenderer)
 - [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
-- [`onTerminalQuickFixRequest`](/api/references/activation-events#onTerminalQuickFixRequest)
 - [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
 - [`onIssueReporterOpened`](/api/references/activation-events#onIssueReporterOpened)
 - [`onChatParticipant`](/api/references/activation-events#onChatParticipant)
@@ -325,18 +324,6 @@ An activation event emitted when a specific terminal profile is launched.
 ...
 "activationEvents": [
     "onTerminalProfile:terminalTest.terminal-profile"
-]
-...
-```
-
-## onTerminalQuickFixRequest
-
-An activation event emitted when a quick fix command matches the selector associated with this ID.
-
-```json
-...
-"activationEvents": [
-    "onTerminalQuickFixRequest:my-quick-fix"
 ]
 ...
 ```
