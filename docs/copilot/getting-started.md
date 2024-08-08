@@ -142,8 +142,6 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
     ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
 
-    Notice that the second argument gets a red squiggle because the method only accepts one argument.
-
 1. Notice that the Copilot inline chat comes up, prepopulated with the error message, and a solution to fix the problem.
 
     ![Screenshot of VS Code editor, showing the Copilot inline chat proposing to install the express npm package to solve the problem.](./images/getting-started/copilot-code-action-fix-result.png)
