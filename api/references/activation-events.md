@@ -11,32 +11,32 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 
 **Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
-- [`onLanguage`](/api/references/activation-events#onLanguage)
-- [`onCommand`](/api/references/activation-events#onCommand)
-- [`onDebug`](/api/references/activation-events#onDebug)
-  - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
-  - [`onDebugDynamicConfigurations`](/api/references/activation-events#onDebugDynamicConfigurations)
-  - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
-  - [`onDebugAdapterProtocolTracker`](/api/references/activation-events#onDebugAdapterProtocolTracker)
-- [`workspaceContains`](/api/references/activation-events#workspaceContains)
-- [`onFileSystem`](/api/references/activation-events#onFileSystem)
-- [`onEditSession`](/api/references/activation-events#onEditSession)
-- [`onSearch`](/api/references/activation-events#onSearch)
-- [`onView`](/api/references/activation-events#onView)
-- [`onUri`](/api/references/activation-events#onUri)
-- [`onOpenExternalUri`](/api/references/activation-events#onOpenExternalUri)
-- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
-- [`onNotebook`](/api/references/activation-events#onNotebook)
-- [`onRenderer`](/api/references/activation-events#onRenderer)
 - [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
-- [`onTaskType`](/api/references/activation-events#onTaskType)
-- [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
-- [`onTerminalQuickFixRequest`](/api/references/activation-events#onTerminalQuickFixRequest)
-- [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
+- [`onChatParticipant`](/api/references/activation-events#onChatParticipant)
+- [`onCommand`](/api/references/activation-events#onCommand)
+- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
+- [`onDebug`](/api/references/activation-events#onDebug)
+  - [`onDebugAdapterProtocolTracker`](/api/references/activation-events#onDebugAdapterProtocolTracker)
+  - [`onDebugDynamicConfigurations`](/api/references/activation-events#onDebugDynamicConfigurations)
+  - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
+  - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
+- [`onEditSession`](/api/references/activation-events#onEditSession)
+- [`onFileSystem`](/api/references/activation-events#onFileSystem)
 - [`onIssueReporterOpened`](/api/references/activation-events#onIssueReporterOpened)
+- [`onLanguage`](/api/references/activation-events#onLanguage)
+- [`onLanguageModelTool`](/api/references/activation-events#onLanguageModelTool)
+- [`onNotebook`](/api/references/activation-events#onNotebook)
+- [`onOpenExternalUri`](/api/references/activation-events#onOpenExternalUri)
+- [`onRenderer`](/api/references/activation-events#onRenderer)
+- [`onSearch`](/api/references/activation-events#onSearch)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 - [`onTaskType`](/api/references/activation-events#onTaskType)
+- [`onTerminalProfile`](/api/references/activation-events#onTerminalProfile)
+- [`onUri`](/api/references/activation-events#onUri)
+- [`onView`](/api/references/activation-events#onView)
+- [`onWalkthrough`](/api/references/activation-events#onWalkthrough)
+- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
+- [`workspaceContains`](/api/references/activation-events#workspaceContains)
 - [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
@@ -99,9 +99,9 @@ This activation event is emitted and interested extensions will be activated bef
 
 These are four more fine-grained `onDebug` activation events:
 
-### onDebugInitialConfigurations
+### onDebugAdapterProtocolTracker
 
-This activation event is emitted just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called to provide initial debug configurations, such as whenever a `launch.json` needs to be created.
+`onDebugAdapterProtocolTracker` is emitted whenever a debug session with the specific type is about to be launched and a debug protocol tracker might be needed.
 
 ### onDebugDynamicConfigurations
 
@@ -109,15 +109,15 @@ This activation event is emitted just before the `provideDebugConfigurations` me
 
 The presence of this activation event is used as a signal that the extension contributes dynamic debug configurations.
 
+### onDebugInitialConfigurations
+
+This activation event is emitted just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called to provide initial debug configurations, such as whenever a `launch.json` needs to be created.
+
 ### onDebugResolve
 
 `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
 
 **Rule of thumb:** If activation of a debug extension is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Using a DebugConfigurationProvider](/api/extension-guides/debugger-extension#using-a-debugconfigurationprovider) for more details on these methods.
-
-### onDebugAdapterProtocolTracker
-
-`onDebugAdapterProtocolTracker:type` is emitted whenever a debug session with the specific type is about to be launched and a debug protocol tracker might be needed.
 
 ## workspaceContains
 
@@ -138,14 +138,6 @@ The presence of this activation event is used as a signal that the extension con
     "onFileSystem:sftp"
 ]
 ```
-
-## onEditSession
-
-`onEditSession:scheme` is emitted when an edit session is accessed with the given scheme.
-
-## onSearch
-
-`onSearch:scheme` is emitted when a search is started in the folder with the given scheme.
 
 ## onView
 
@@ -177,10 +169,6 @@ If the `vscode.git` extension defines `onUri` as an activation event, it will be
 - `vscode://vscode.git/clone?url=https%3A%2F%2Fgithub.com%2FMicrosoft%2Fvscode-vsce.git`
 - `vscode-insiders://vscode.git/init` (for VS Code Insiders)
 
-## onOpenExternalUri
-
-This activation event is emitted when an external uri (such as a http or https link) is being opened.
-
 ## onWebviewPanel
 
 This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a [webview](/api/extension-guides/webview) with the matching `viewType`.
@@ -211,14 +199,6 @@ will cause the extension to be activated when VS Code needs to restore a custom 
 
 > **Note**: Beginning with VS Code 1.74.0, custom editors contributed by your extension do not require a corresponding `onCustomEditor` activation event declaration for your extension to be activated.
 
-## onNotebook
-
-`onNotebook:type` is emitted when the specified notebook document type is opened.
-
-## onRenderer
-
-`onRenderer:id` is emitted when a notebook output renderer is used.
-
 ## onAuthenticationRequest
 
 This activation event is emitted and interested extensions will be activated whenever an extension requests an authentication session (via the `authentication.getSession()` API) with the matching `providerId`.
@@ -235,26 +215,6 @@ will cause the extension to be activated when VS Code needs retrieve an `Authent
 
 > **Note**: Beginning with VS Code 1.74.0, authentication providers contributed by your extension do not require a corresponding `onAuthenticationRequest` activation event declaration for your extension to be activated.
 
-## onTaskType
-
-`onTaskType:type` is emitted when tasks of a certain type need to be listed or resolved.
-
-## onTerminalProfile
-
-`onTerminalProfile:id` is emitted when a specific terminal profile is launched.
-
-## onTerminalQuickFixRequest
-
-`onTerminalQuickFixRequest:id` is emitted when a command matches the selector with this ID.
-
-## onWalkthrough
-
-`onWalkthrough:id` is emitted when a specified walkthrough is opened.
-
-## onIssueReporterOpened
-
-This activation event is emitted when the issue reporter is opened (e.g. **Help: Report Issue**).
-
 ## onStartupFinished
 
 This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup. Currently, this event is emitted after all the `*` activated extensions have finished activating.
@@ -265,19 +225,118 @@ This activation event is emitted and interested extensions will be activated **s
 ]
 ```
 
-### onTaskType
+## onTaskType
 
-This activation event is emitted emitted whenever tasks of a certain type need to be listed or resolved.
+`onTaskType:type` is emitted emitted whenever tasks of a certain type need to be listed or resolved.
 
 ```json
-...
 "activationEvents": [
     "onTaskType":"npm"
 ]
-...
 ```
 
 > **Note**: Beginning with VS Code 1.76.0, tasks contributed by your extension do not require a corresponding `onTaskType` activation event declaration for your extension to be activated.
+
+## onEditSession
+
+`onEditSession:scheme` is emitted when an edit session is accessed with the given scheme.
+
+```json
+"activationEvents": [
+    "onEditSession:file"
+]
+```
+
+## onSearch
+
+`onSearch:scheme` is emitted when a search is started in the folder with the given scheme.
+
+```json
+"activationEvents": [
+    "onSearch:file"
+]
+```
+
+## onOpenExternalUri
+
+An activation event emitted whenever an external URI, such as an http or https link, is being opened.
+
+```json
+"activationEvents": [
+    "onOpenExternalUri"
+]
+```
+
+## onNotebook
+
+`onNotebook:type` is emitted when the specified notebook document type is opened.
+
+```json
+"activationEvents": [
+    "onNotebook:jupyter-notebook",
+    "onNotebook:interactive"
+]
+```
+
+## onRenderer
+
+`onRenderer:id` is emitted when a notebook output renderer is used.
+
+```json
+"activationEvents": [
+    "onRenderer:ms-toolsai.jupyter-renderers"
+]
+```
+
+## onTerminalProfile
+
+`onTerminalProfile:id` is emitted when a specific terminal profile is launched.
+
+```json
+"activationEvents": [
+    "onTerminalProfile:terminalTest.terminal-profile"
+]
+```
+
+## onWalkthrough
+
+`onWalkthrough:id` is emitted when a specified walkthrough is opened.
+
+```json
+"activationEvents": [
+    "onWalkthrough:nodejsWelcome"
+]
+```
+
+## onIssueReporterOpened
+
+This activation event is emitted when the issue reporter is opened (for example, by using **Help: Report Issue**).
+
+```json
+"activationEvents": [
+    "onIssueReporterOpened"
+]
+```
+
+## onChatParticipant
+
+An activation event emitted when the specified chat participant is invoked.
+
+```json
+"activationEvents": [
+    "onChatParticipant:my-chat-participant"
+]
+```
+
+## onLanguageModelTool
+
+An activation event emitted when the specified language model tool is invoked.
+
+```json
+"activationEvents": [
+    "onChatParticipant:my-language-model-tool"
+]
+```
 
 ## Start up
 
