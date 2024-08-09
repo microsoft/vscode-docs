@@ -9,9 +9,23 @@ DateApproved: 02/1/2024
 ---
 # Azure Extensions
 
-You can use Azure directly from Visual Studio Code through extensions. The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains various extensions that will have your application running in Azure in minutes.
+You can use Azure directly from Visual Studio Code through a range of extensions. The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains various extensions designed to deploy your application to Azure within minutes.
 
 ![app service](images/extensions/azure-tools.png)
+
+## Which extension should I use?
+
+The table below describes the various extensions available in the Azure Tools extension pack for VS Code and highlights common use cases.
+
+|Type of Developer|Description|When to use|
+|----------------------|---------------------|-------------|
+|Fullstack developer|Developers who work on both frontend and backend aspects of apps.|**Azure Container Apps:** Create or manage containerized apps that handle various parts of their stack.</br> **Azure Functions:** Create serverless functions to handle backend tasks and integrate with frontend apps.</br> **App Service:** Deploy complete web solutions, including dynamic backend services, APIs, and server-side logic.|
+|Backend developer|Developers building microservices architectures and leveraging containers to encapsulate/manage individual microservices.|**Azure Container Apps:** Server-side logic, APIs, and microservices</br> **Azure Functions:** Server-side logic and APIs</br> **Azure Container Apps:** Deploying and managing containerized backend services</br> **Azure Functions:** Build scalable, event-driven backend services without managing infrastructure</br> **App Service:** Deploy RESTful APIs, microservices or other backend components|
+|DevOps Engineer|Engineers responsible for setting up or maintaining CI/CD pipelines and managing cloud infrastructure.|**Azure Container Apps:** Automate the deployment/scaling of containerized applications</br> **Azure Functions:** Automate the deployment of serverless functions and integrate them into a broader DevOps workflow</br> **App Service:** Integrate code repositories with automated deployment processes and monitor application performance and logs</br> **Static Web Apps:** Automate the deployment process and ensure seamless integration with GitHub Actions or Azure DevOps|
+|Frontend developer|Developers who specialize in building user interfaces using frameworks and libraries like React, Angular, Vue.js, or plain HTML/CSS/JavaScript.|**Static Web Apps**, **App Service**, **Storage**, **Azure Functions:** A streamline workflow to develop, preview, and deploy static websites and single-page apps|
+|Enterprise Developer|Developers working on large-scale apps, services for businesses, and building Software as a Service (SaaS) apps.|**Azure Container Apps**, **Azure Functions**, **App Service:** Deployment, scaling, and monitoring capabilities for mission-critical apps</br> Using containers to create scalable, multi-tenant services and automate various backend processes|
+|API developer|Creates and manages APIs for various clients and apps|**Azure Functions** or **Azure Container Apps:** Develop and deploy serverless APIs</br> **Storage:** API data storage needs (blobs, queues, tables, and files, upload and download data)|
+|Data engineer|Processes and analyzes data streams|**Azure Container Apps:** Deploy data processing and machine learning models in containers, Scalable and reproducible environments for their data-driven apps</br> **Azure Functions:** Trigger data processing workflows, handle ETL tasks, and respond to data changes in real-time|
 
 ## Visual Studio Code Marketplace
 
@@ -20,20 +34,6 @@ There are many VS Code extensions on the [Marketplace](https://marketplace.visua
 <div class="marketplace-extensions-azure-curated"></div>
 
 > **Tip:** Click on an extension tile above to read the description and reviews in the Marketplace.
-
-## Which extension should I use?
-
-The following table describes the different extensions found in the Azure Toolkit for VS Code and provides common scenarios.
-
-|Type of Developer|Description|VS Code extensions|When to use|
-|----------------------|---------------------|-------------|-------------|
-|Fullstack developer|Developers who work on both frontend and backend aspects of apps.|Static Web Apps, Azure Functions, Storage, App Service, Azure Container Apps|Azure Container Apps: Create or manage containerized apps that handle various parts of their stack.</br> Azure Functions: Create serverless functions to handle backend tasks and integrate with frontend apps.</br> App Service: Deploy complete web solutions, including dynamic backend services, APIs, and server-side logic.|
-|Backend developer|Developers building microservices architectures and leveraging containers to encapsulate/manage individual microservices.|Azure Container Apps, App Service, Azure Functions|Azure Container Apps: Server-side logic, APIs, and microservices</br>Azure Functions: Server-side logic and APIs</br> Azure Container Apps: Deploying and managing containerized backend services</br> Azure Functions: Build scalable, event-driven backend services without managing infrastructure</br> App Service: Deploy RESTful APIs, microservices or other backend components|
-|DevOps Engineer|Engineers responsible for setting up or maintaining CI/CD pipelines and managing cloud infrastructure.| Azure Container Apps, Static Web Apps, App Service, Azure Functions|Azure Container Apps: Automate the deployment/scaling of containerized applications</br> Azure Functions: Automate the deployment of serverless functions and integrate them into a broader DevOps workflow</br> App Service: Integrate code repositories with automated deployment processes and monitor application performance and logs</br> Static Web Apps: Automate the deployment process and ensure seamless integration with GitHub Actions or Azure DevOps|
-|Frontend developer|Developers who specialize in building user interfaces using frameworks and libraries like React, Angular, Vue.js, or plain HTML/CSS/JavaScript.|Static Web Apps, App Service, Storage, Azure Functions|A streamline workflow to develop, preview, and deploy static websites and single-page apps|
-|Enterprise Developer|Developers working on large-scale apps, services for businesses, and building Software as a Service (SaaS) apps.|Azure Container Apps, Azure Functions, App Service|Deployment, scaling, and monitoring capabilities for mission-critical apps</br> Using containers to create scalable, multi-tenant services and automate various backend processes|
-|API developer|Creates and manages APIs for various clients and apps|App Service, Azure Functions, Azure Storage, Azure Container Apps|Azure Functions: Develop and deploy serverless APIs</br> Storage: API data storage needs (blobs, queues, tables, and files, upload and download data)|
-|Data engineer|Processes and analyzes data streams|Azure Functions, Storage, Azure Container Apps|Azure Container Apps: Deploy data processing and machine learning models in containers, Scalable and reproducible environments for their data-driven apps</br> Azure Functions: Trigger data processing workflows, handle ETL tasks, and respond to data changes in real-time|
 
 ## Searching for extensions
 
