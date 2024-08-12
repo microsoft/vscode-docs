@@ -164,7 +164,7 @@ In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(edito
 
 ## Accessible View
 
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View and inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, notebook output, terminal output, chat responses, debug console output, and more.
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View and inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, notebook output, terminal output, chat responses, inline completions, debug console output, and more.
 
 ## Screen reader mode
 
