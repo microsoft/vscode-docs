@@ -10,19 +10,17 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot extensibility in VS Code
 
-- What is GitHub Copilot (link to docs)
-- Overview of GitHub Copilot extensibility
-  - Chat participant
-  - Enhance your extension with AI
-- Why extend GitHub Copilot? (link to blog post)
+GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort. You can get code suggestions as you type in the editor, chat with Copilot to ask for help with your code, or get help with writing tests, fixing bugs, or refactoring code.
 
-<!--
-## GitHub Copilot extensibility options
+Visual Studio Code is built with extensibility in mind. Almost every part of VS Code can be customized and enhanced through the Extension API. You can extend GitHub Copilot in your own Visual Studio Code extensions to enhance the experience for your users by adding AI-powered features to your extension. For example, let users ask domain-specific questions to your extension by using natural language, or combine large language models with your own business logic to provide intelligent code editing features, and much more.
 
-### Create a chat participant
+You have different options to extend GitHub Copilot in your VS Code extension:
 
-### Enhance your extension with AI
--->
+- Use the [Chat API](/api/extension-guides/chat.md) to create a **chat participant** to give users a natural-language interface and provide domain-specific help via the Chat view in VS Code.
+
+- Use the [**Language Model API**](/api/extension-guides/language-model.md) and the VS Code extension API to build AI-powered features into VS Code.
+
+With GitHub Copilot, you can expand the capabilities of your extension by using the power of AI and give developers a richer and more productive experience.
 
 ## Get started
 
