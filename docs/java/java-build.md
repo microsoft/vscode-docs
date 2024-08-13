@@ -145,7 +145,7 @@ The extension supports delegate the test execution to Gradle. You can configure 
   <source src="/docs/java/java-build/delegate-test-to-gradle.mp4" type="video/mp4">
 </video>
 
-> Note: Makes sure you have installed the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension to use this feature.
+> Note: Make sure you have installed the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension to use this feature.
 
 ### Working with Gradle tasks
 
