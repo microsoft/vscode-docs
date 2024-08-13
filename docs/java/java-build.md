@@ -139,7 +139,7 @@ By default, if you have installed the Gradle for Java extension, the Gradle Buil
 You can view the Gradle build output in the Build Server for Gradle (Build) output channel and trace the interactions between VS Code and the Gradle Build Server in the Build Server for Gradle (Log) output channel.
 
 ### Delegate tests to Gradle
-The extension supports delegate the test execution to Gradle. You can configure the test profile you want to use in the Testing explorer.
+The extension supports delegating the test execution to Gradle. You can configure the test profile you want to use in the Testing explorer.
 
 <video autoplay loop muted playsinline controls title="Delegate tests to Gradle">
   <source src="/docs/java/java-build/delegate-test-to-gradle.mp4" type="video/mp4">
