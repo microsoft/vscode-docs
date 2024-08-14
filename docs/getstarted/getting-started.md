@@ -19,7 +19,7 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 - Set up Visual Studio Code on your computer
 - [Install Node.js](https://nodejs.org/)
 
-## Step 1: Open a workspace
+## Step 1: Open a folder in VS Code
 
 - Create a folder
 - Open folder in VS Code
@@ -39,18 +39,18 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 - Use settings (font size/type?)
 - More: keybindings, snippets, extensions
 
-## Step 4: Install a language extension
-
-- What is an extension
-- Install an extension
-
-## Step 5: Write some code
+## Step 4: Write some code
 
 - Add a file
-- Write some code - intro to IntelliSense
+- Write some code - intro to IntelliSense, Code Actions, etc.
 - Enable Auto Save
 
 Include a reference to using Copilot
+
+## Step 5: Install a language extension
+
+- What is an extension
+- Install an extension
 
 ## Step 6: Run and debug your code
 
