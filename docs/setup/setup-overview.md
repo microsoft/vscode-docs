@@ -2,7 +2,7 @@
 Order: 1
 Area: setup
 TOCTitle: Overview
-ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
+ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53Ahttps://code.visualstudio.com/download
 PageTitle: Setting up Visual Studio Code
 DateApproved: 08/01/2024
 MetaDescription: Get Visual Studio Code up and running.
