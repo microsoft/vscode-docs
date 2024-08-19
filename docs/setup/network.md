@@ -104,7 +104,7 @@ Extensions don't benefit yet from the same proxy support that VS Code supports. 
 
 Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
 
-Due to both of these constraints, the `http.proxy`, `http.proxyStrictSSL` and `http.proxyAuthorization` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
+Due to both of these constraints, the `setting(http.proxy)`, `setting(http.proxyStrictSSL)` and `setting(http.proxyAuthorization)` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
 
 ## Troubleshooting
 

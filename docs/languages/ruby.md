@@ -75,7 +75,7 @@ Ruby LSP is able to display useful information about inferred or implicit values
 
 ![Ruby program with inlay hints displayed](images/ruby/ruby_lsp_inlay_hints.png)
 
-While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`) or use the following to disable this feature only for Ruby LSP:
+While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`setting(editor.inlayHints.enabled)`) or use the following to disable this feature only for Ruby LSP:
 
 ```json
 "rubyLsp.enabledFeatures": {
@@ -128,7 +128,7 @@ When the linter finds errors and warnings in your source code, Ruby LSP can ofte
 
 ![Quick Fixes for linting violations](images/ruby/ruby_lsp_quickfix.png)
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
 The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
 

@@ -19,15 +19,15 @@ VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. Th
 
 There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
 
-* `php.validate.enable`: controls whether to enable PHP linting at all. Enabled by default.
-* `php.validate.executablePath`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
-* `php.validate.run`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
+* `setting(php.validate.enable)`: controls whether to enable PHP linting at all. Enabled by default.
+* `setting(php.validate.executablePath)`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
+* `setting(php.validate.run)`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
 
 To change the PHP settings, open your **User or Workspace Settings** (`kb(workbench.action.openSettings)`) and type 'php' to filter the list of available settings.
 
 ![show PHP settings](images/php/php-settings.png)
 
-To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `php.validate.executablePath` setting with the path to your PHP installation:
+To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `setting(php.validate.executablePath)` setting with the path to your PHP installation:
 
 ### Windows
 
@@ -65,7 +65,7 @@ There are many PHP language extensions available on the [VS Code Marketplace](ht
 
 ### Disable built-in PHP support
 
-To disable the built-in PHP smart completions in favor of suggestions from an installed PHP extension, uncheck **PHP > Suggest: Basic**, which sets `php.suggest.basic` to false in your `settings.json` file.
+To disable the built-in PHP smart completions in favor of suggestions from an installed PHP extension, uncheck **PHP > Suggest: Basic**, which sets `setting(php.suggest.basic)` to false in your `settings.json` file.
 
 ## Debugging
 

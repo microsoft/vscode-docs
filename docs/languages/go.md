@@ -78,7 +78,7 @@ You can add additional lint checks using the `go.lintOnSave` setting and configu
 
 You can format your Go file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette or the context menu in the editor.
 
-By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
+By default, formatting is run when you save your Go file. You can disable this behavior by setting `setting(editor.formatOnSave)` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
 
 ```json
 "[go]": {

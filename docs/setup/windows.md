@@ -112,13 +112,13 @@ Subscribe to [issue #122951](https://github.com/microsoft/vscode/issues/122951) 
 
 ### Working with UNC paths
 
-Beginning with version `1.78.1`, VS Code on Windows will only allow to access UNC paths (these begin with a leading `\\`) that were either approved by the user on startup or where the host name is configured to be allowed via the new `security.allowedUNCHosts` setting.
+Beginning with version `1.78.1`, VS Code on Windows will only allow to access UNC paths (these begin with a leading `\\`) that were either approved by the user on startup or where the host name is configured to be allowed via the new `setting(security.allowedUNCHosts)` setting.
 
 If you rely on using UNC paths in VS Code, you can either
-* configure the host to be allowed via the `security.allowedUNCHosts` setting (for example add `server-a` when you open a path such as `\\server-a\path`)
+* configure the host to be allowed via the `setting(security.allowedUNCHosts)` setting (for example add `server-a` when you open a path such as `\\server-a\path`)
 * map the UNC path as network drive and use the drive letter instead of the UNC path ([documentation](https://support.microsoft.com/en-us/windows/map-a-network-drive-in-windows-29ce55d1-34e3-a7e2-4801-131475f9557d))
 * define a global environment variable `NODE_UNC_HOST_ALLOWLIST` with the backslash-separated list of hostnames to allow, for example: `server-a\server-b` to allow the hosts `server-a` and `server-b`.
 
-*Note:* if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `security.allowedUNCHosts` has to be configured on the remote machine and not the local machine.
+*Note:* if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `setting(security.allowedUNCHosts)` has to be configured on the remote machine and not the local machine.
 
 This change was done to improve the security when using VS Code with UNC paths. Please refer to the associated [security advisory](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr) for more information.
