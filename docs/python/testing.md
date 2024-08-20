@@ -163,6 +163,25 @@ If discovery fails (for example, the test framework isn't installed or you have 
 
 ![Discovery failure error messaged displayed in the Test Explorer](images/testing/test-discovery-error.png)
 
+### Django unittests
+
+The Python extension also offers support for running Django unittests! However, if you are writing tests for your Django application, there are a few additional steps needed in order to have your tests discovered.
+
+First, ensure you have correctly set `"python.testing.unittestEnabled": true,` in your `settings.json` file. Follow the steps below to add `MANAGE_PY_PATH` as an environment variable:
+
+- Create a file named `.env` at the root of your project.
+- Add `MANAGE_PY_PATH='path-string-to-manange.py-path'` to the `.env` file, replacing `path-string-to-manange.py-path` with the path to your application's `manage.py` file (Note: you can copy the path by right clicking on the file and selecting **Copy Path**).
+- Add the following to your `settings.json` file `"python.envFile": "${workspaceFolder}/.env”` to incorporate this file in your environment (edit path as necessary if `.env` is not at root).
+
+Navigate to the Testing Panel, and refresh the tree-view to see your Django tests populate!
+
+In the case your tests are not discovered, try the following troubleshooting steps:
+
+- Add `"python.testing.unittestArgs": []` in `settings.json`
+- Look at the Python Output Panel for any error messages that may have triggered.
+- Try running commands in the Command Line, then transfer the same command to how it is represented in VS Code. For example, you may run `python manage.py test --arg` in the Command Line which is represented by setting `MANAGE_PY_PATH='./manage.py'` and `"python.testing.unittestArgs": [--arg]` in VS Code. Check the output as it should print the commands that are actually ran.
+- Attempt using the absolute path for `manage.py`, if you initially tried using the relative path.
+
 Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests).
 
 ## Run tests
