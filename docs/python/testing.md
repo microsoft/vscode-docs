@@ -165,16 +165,16 @@ If discovery fails (for example, the test framework isn't installed or you have 
 
 ### Django unittests
 
-The Python extension also offers support for running Django unittests! However, if you are writing tests for your Django application, there are a few additional steps needed in order to have your tests discovered.
+The Python extension also offers support for running Django unittests! You get your Django tests discovered with only a few additional set up steps.
 
 First, ensure you have correctly set `"python.testing.unittestEnabled": true,` in your `settings.json` file, then follow the steps below to add `MANAGE_PY_PATH` as an environment variable:
 
 - Create a file named `.env` at the root of your project.
-- Add `MANAGE_PY_PATH='path-string-to-manange.py-path'` to the `.env` file, replacing `path-string-to-manange.py-path` with the path to your application's `manage.py` file (Note: you can copy the path by right clicking on the file and selecting **Copy Path**).
-- Add the following to your `settings.json` file `"python.envFile": "${workspaceFolder}/.env”` to incorporate this file in your environment (edit path as necessary if `.env` is not at root).
+- Add `MANAGE_PY_PATH='path-string-to-manange.py-path'` to the `.env` file, replacing `path-string-to-manange.py-path` with the path to your application's `manage.py` file (Note: you can copy the path by right clicking on the file in the File Explorer and selecting **Copy Path**).
+- Add  `"python.envFile": "${workspaceFolder}/.env”` to your `settings.json` file, so the Python extension can load the environment variables in this file when running and discovering tests (edit path as necessary if `.env` is not at root).
 - Add Django args to `"python.testing.unittestArgs": []` in `settings.json` as needed, and remove any arguments that are not compatible with Django.
 
-Navigate to the Testing Panel, and refresh the tree-view to see your Django tests populate!
+Navigate to the Testing Panel, and refresh the tree-view to have your Django tests displayed!
 
 In the case your tests are not discovered, try the following troubleshooting steps:
 
