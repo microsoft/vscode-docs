@@ -173,6 +173,7 @@ First, ensure you have correctly set `"python.testing.unittestEnabled": true,` i
 - Add `MANAGE_PY_PATH='path-string-to-manange.py-path'` to the `.env` file, replacing `path-string-to-manange.py-path` with the path to your application's `manage.py` file (Note: you can copy the path by right clicking on the file and selecting **Copy Path**).
 - Add the following to your `settings.json` file `"python.envFile": "${workspaceFolder}/.env”` to incorporate this file in your environment (edit path as necessary if `.env` is not at root).
 - Add Django args to `"python.testing.unittestArgs": []` in `settings.json` as needed, and remove any arguments that are not compatible with Django.
+
 Navigate to the Testing Panel, and refresh the tree-view to see your Django tests populate!
 
 In the case your tests are not discovered, try the following troubleshooting steps:
