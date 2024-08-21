@@ -2,9 +2,9 @@
 Order: 2
 Area: azure
 TOCTitle: Extensions
-PageTitle: Visual Studio Code Azure Extensions
+PageTitle: Visual Studio Code Azure Extensions Getting Started
 ContentId:
-MetaDescription: Visual Studio Code Azure Extensions
+MetaDescription: Visual Studio Code Azure Extensions Getting Started guide for developers
 DateApproved: 08/21/2024
 ---
 # Azure Tools FAQ
