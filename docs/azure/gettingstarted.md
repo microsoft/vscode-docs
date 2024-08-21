@@ -3,9 +3,9 @@ Order: 2
 Area: azure
 TOCTitle: Extensions
 PageTitle: Visual Studio Code Azure Extensions
-ContentId: d2e93075-4cfe-48f4-b05e-f985c86d9713
+ContentId:
 MetaDescription: Visual Studio Code Azure Extensions
-DateApproved: 02/1/2024
+DateApproved: 08/21/2024
 ---
 # Productivity guide for Azure Tools
 

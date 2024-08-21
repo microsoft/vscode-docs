@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: azure
 TOCTitle: MongoDB
 PageTitle: Working with MongoDB in Visual Studio Code
