@@ -43,4 +43,4 @@ You can also search for Azure or cloud extensions in the VS Code Extensions view
 
 ## Next steps
 
-* [Azure Tools Productivity guide](/docs/azure/gettingstarted.md) - Learn how to get started quickly.
+* [Azure Tools FAQ](/docs/azure/gettingstarted.md) - Learn how to get started quickly.

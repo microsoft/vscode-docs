@@ -95,7 +95,7 @@ You can use one of the following solutions to resolve this problem:
 
 * **WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
-* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-from-docker) (only) in the container.
+* **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker) (only) in the container.
 
 * Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 

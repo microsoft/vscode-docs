@@ -7,9 +7,9 @@ ContentId:
 MetaDescription: Visual Studio Code Azure Extensions
 DateApproved: 08/21/2024
 ---
-# Productivity guide for Azure Tools
+# Azure Tools FAQ
 
-This productivity guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
+This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
 
 ## Get started
 
