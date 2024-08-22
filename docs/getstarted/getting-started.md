@@ -91,9 +91,35 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ## Step 3: Customize the user interface
 
-- Change appearance with themes
-- Use settings (font size/type?)
-- More: keybindings, snippets, extensions
+VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
+
+Now that you've explored the user interface, let's start by using color themes to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
+
+To select a different Color Theme:
+
+1. Select the **File** > **Preferences** > **Theme** > **Color Theme** menu item, or enter **Color Theme** command in the Command Palette (`kb(workbench.action.selectTheme)`) to display the Color Theme picker.
+
+    TODO: add gif of changing color themes
+
+1. Use the Up and Down keys to navigate through the list and preview the colors of the theme.
+
+    As you move through the list, the active theme is previewed in VS Code.
+
+    > **Tip**: You can also select Color Themes from the VS Code Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes....**
+
+Beyond changing the color theme of the user interface, you can customize almost every part of VS Code by using settings. Maybe you prefer a different font for the editor, change word wrapping, or enable [floating editor windows](/docs/editor/custom-layout.md#floating-editor-windows).
+
+Let's use the Settings Editor to modify the tab size in the editor:
+
+1. Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`) to open the Settings Editor.
+
+    TODO: add screenshot of the Settings Editor
+
+1. Modify the value of the **Editor: Tab Size** setting, and notice how the tab size in the editor changes.
+
+    > **Tip**: To change a setting only for the current workspace, select the **Workspace** tab in the Settings Editor and change the setting there.
+
+There are many more ways to customize your VS Code experience, such as [changing default keyboard shortcuts](/docs/getstarted/keybindings.md), adding [code snippets](/docs/editor/userdefinedsnippets.md), or by adding extensions.
 
 ## Step 4: Write some code
 
