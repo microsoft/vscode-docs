@@ -93,7 +93,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
 
-Now that you've explored the user interface, let's start by using color themes to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
+Let's start by using color themes to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
 
 To select a different Color Theme:
 
@@ -101,7 +101,7 @@ To select a different Color Theme:
 
     TODO: add gif of changing color themes
 
-1. Use the Up and Down keys to navigate through the list and preview the colors of the theme.
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the colors of the theme.
 
     As you move through the list, the active theme is previewed in VS Code.
 
@@ -123,34 +123,125 @@ There are many more ways to customize your VS Code experience, such as [changing
 
 ## Step 4: Write some code
 
-- Add a file
-- Write some code - intro to IntelliSense, Code Actions, etc.
-- Enable Auto Save
+With VS Code configured and customized to your liking, let's start writing some code!
 
-Include a reference to using Copilot
+VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In this tutorial, you create a sample JavaScript file and use some of the basic code editing features that VS Code offers. In the next step, you install a language extension to add support for a different language.
+
+1. In the Explorer view, select the **New File...** button to create a new file. Enter the name `app.js` and press `kbstyle(Enter)`.
+
+    You should now have two files in the Explorer view, `index.html` and `app.js`. As you select either one of the files, the corresponding editor opens.
+
+1. Select the `app.js` file in the Explorer view and start typing the following JavaScript code:
+
+    ```javascript
+    function sayHello(name) {
+        console.log('Hello, ' + name);
+    }
+
+    sayHello('VS Code');
+    ```
+
+    As you type, you should see suggestions popping up that help you complete your code. This is called *IntelliSense*. You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
+
+    You can also notice the formatting of the code to help you distinguish between different parts of the code. This is called *syntax highlighting*.
+
+1. Put the cursor on the `console.log` line, select the lightbulb icon, and then select **Convert to template string** to use a Code Action to simplify the string concatenation.
+
+    **Code Actions** are suggestions that help you apply quick fixes to your code. You can also use the `kb(workbench.action.terminal.showQuickFixes)` keyboard shortcut to open the lightbulb menu.
+
+    TODO: add screenshot of the lightbulb menu
+
+> **Tip**: As you make changes to your code, you can use the **File** > **Auto Save** menu item to automatically save your changes.
+
+1. You can further experiment with IntelliSense in the different files in your workspace. For example, in the `index.html` file, start typing `<` to see suggestions for HTML tags.
+
+1. Let's add a new file `hello.py` to your workspace. VS Code automatically identifies the language of the file as Python.
+
+    When you start typing in the editor, notice that there are no suggestions and IntelliSense for Python. This is because VS Code does not have built-in support for Python. You can add support for Python by installing a language extension.
+
+    In the next step, you install a language extension to add support for different languages to VS Code.
 
 ## Step 5: Install a language extension
 
-- What is an extension
-- Install an extension
+The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Let's install a language extension to add support for Python, or any other programming language you are interested in.
+
+1. Select the **Extensions** view in the Activity Bar.
+
+    The Extensions view opens, showing you the installed extensions and some recommended extensions.
+
+    TODO: add screenshot of the Extensions view
+
+1. Enter *Python* in the search box in the Extensions view to search for Python-related extensions.
+
+    TODO: add screenshot of the Extensions view
+
+1. Select the **Python** extension published by Microsoft and select the **Install** button.
+
+    After the extension is installed, the **Install** button changes into a gear icon.
+
+1. In the `hello.py` editor, start typing the following Python code and notice that IntelliSense is now available:
+
+    ```python
+    def say_hello(name):
+        print("Hello, " + name)
+
+    say_hello("VS Code")
+    ```
+
+Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
+
+Some language extensions also contribute debugging functionality. In the next step, you learn about how to run and debug in VS Code.
 
 ## Step 6: Run and debug your code
 
-- Make sure Node is
-- Run code from integrated terminal
-- Set breakpoint
-- Use F5 to run and debug
+One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications, and there are extensions available for many other programming languages, such as Python, Java, C#, and more.
 
-Include a reference to remote tools
+> **Note**: VS Code has built-in debugging capabilities, but you need to have the necessary runtime and VS Code extension installed on your computer to use them. For example, to debug a Python program, you need to have Python installed on your computer.
+
+Let's debug the `app.js` file you created earlier to explore the debugging features in VS Code. In this tutorial, you use the built-in Node.js debugger, but most concepts and features are applicable to other debuggers as well.
+
+1. Make sure you have Node.js installed on your computer. If you don't have it installed, you can download it from [https://nodejs.org/](https://nodejs.org/).
+
+1. In the `app.js` file, put the cursor on the `console.log` line and press `kbstyle(F9)` to set a breakpoint.
+
+    A red dot appears in the left margin of the editor, indicating that a breakpoint is set. You can also click in the left margin of the editor to set or remove a breakpoint.
+
+1. Select the **Run and Debug** view in the Activity Bar.
+
+    The **Run and Debug** view shows a list of run and debug configurations. You can create your own configurations, or use the built-in **Run** and **Debug** configurations.
+
+    TODO: add screenshot of the Run and Debug view
+
+1. Select the **Run and Debug** button to start a debugging session.
+
+    Alternatively, you can also press `kbstyle(F5)` to directly start a debugging session.
+
+    Notice that the program starts and the execution stops at the breakpoint you set.
+
+1. Hover over the `name` variable in the `console.log` line to inspect its value.
+
+    In the Run and Debug view you can also see the list of variables and their values.
+
+    TODO: add screenshot of hover and variables view
+
+1. Use the controls in the Debug toolbar to continue the execution.
+
+    TODO: add screenshot of the Debug toolbar
+
+There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, launch configurations, etcetera. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
 
 ## Next steps
 
-Congratulations! You've completed the tutorial. Here are some next steps to help you continue learning about Visual Studio Code:
+Congratulations! You've completed the tutorial and experienced some of the key features of Visual Studio Code. There is much more to learn about VS Code, and many more features to explore.
+
+Here are some next steps to help you continue learning about Visual Studio Code:
 
 - Check out the [VS Code tips and tricks](/docs/getstarted/tips-and-tricks.md)
 - [VS Code Editor basics](/docs/editor/codebasics.md)
 - [Using source control](/docs/sourcecontrol/overview.md)
 - [Using the integrated terminal](/docs/terminal/getting-started.md)
-- [Running tests](/docs/editor/testing.md)
+- [Running unit tests](/docs/editor/testing.md)
 
 - Watch more [VS Code intro videos](/docs/getstarted/introvideos.md)
