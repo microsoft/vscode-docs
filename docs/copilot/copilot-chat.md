@@ -52,7 +52,7 @@ Depending on your question, Copilot can also suggest code modifications or refac
 
 ![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/copilot-chat/inline-chat-convert-sort.png)
 
-With the `inlineChat.mode` setting, you can configure how inline chat shows updates in the editor. The default setting value is `live`, which means that the updates are applied directly in the editor, and you can compare the changes by using the inline diff viewer. If you prefer to preview the changes side-by-side, you configure the setting to `preview`.
+With the `setting(inlineChat.mode)` setting, you can configure how inline chat shows updates in the editor. The default setting value is `live`, which means that the updates are applied directly in the editor, and you can compare the changes by using the inline diff viewer. If you prefer to preview the changes side-by-side, you configure the setting to `preview`.
 
 The following example shows the `preview` mode for inline chat.
 
