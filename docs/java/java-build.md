@@ -128,7 +128,24 @@ There are several ways to create a Maven project:
 
 ## Gradle
 
-VS Code supports Gradle Java project (not including Android) via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. The extension provides a visual interface for your Gradle build, you can use this interface to view Gradle Tasks and Project dependencies, or run Gradle Tasks as VS Code Tasks. The extension also offers a better Gradle build file authoring experience including syntax highlighting, error reporting, and auto-completion.
+VS Code supports Gradle Java projects (excluding Android) through the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. This extension offers several components to enhance your Gradle Java project experience:
+- **Gradle Build Server:** The [Gradle Build Server](https://github.com/microsoft/build-server-for-gradle) is used to import gradle projects and delegate build tasks to the Gradle daemon, ensuring consistent project output as if running Gradle tasks from the command line.
+- **Visual Interface:** Allows you to view and manage Gradle tasks and project dependencies, and run Gradle tasks directly within VS Code.
+- **Gradle Language Server:** Provides an improved authoring experience for Gradle build files, including syntax highlighting, error reporting, and auto-completion.
+
+### Gradle Build Server
+By default, if you have installed the Gradle for Java extension, the Gradle Build Server is used to import Gradle projects. You can toggle the Gradle Build Server on or off by setting `java.gradle.buildServer.enabled`.
+
+You can view the Gradle build output in the Build Server for Gradle (Build) output channel and trace the interactions between VS Code and the Gradle Build Server in the Build Server for Gradle (Log) output channel.
+
+### Delegate tests to Gradle
+The extension supports delegating the test execution to Gradle. You can configure the test profile you want to use in the Testing explorer.
+
+<video autoplay loop muted playsinline controls title="Delegate tests to Gradle">
+  <source src="/docs/java/java-build/delegate-test-to-gradle.mp4" type="video/mp4">
+</video>
+
+> Note: Make sure you have installed the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension to use this feature.
 
 ### Working with Gradle tasks
 
@@ -186,7 +203,7 @@ When you are trying to declare a new dependency, the extension will provide a de
   <source src="/docs/java/java-build/gradle-dependency-completion.mp4" type="video/mp4">
 </video>
 
-### Additional resources
+## Additional resources
 
 Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/main#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/main/Troubleshooting.md).
 

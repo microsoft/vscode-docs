@@ -315,6 +315,25 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 });
 ```
 
+## Measuring success
+
+We recommend that you measure the success of your participant by adding telemetry logging for `Unhelpful` user feedback events, and for the total number of requests that your participant handled. An initial participant success metric can then be defined as: `unhelpful_feedback_count / total_requests`.
+
+```typescript
+const logger = vscode.env.createTelemetryLogger({
+     // telemetry logging implementation goes here
+});
+
+cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
+    // Log chat result feedback to be able to compute the success matric of the participant
+    logger.logUsage('chatResultFeedback', {
+        kind: feedback.kind
+    });
+});
+```
+
+Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is a nondeterministic technology. Run experiments, measure and iteratively improve your participant to ensure a good user experience.
+
 ## Guidelines
 
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
