@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Getting Started Tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -118,13 +118,13 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
-    Notice how the chat response contains rich results, consisting of text and a code block.
+    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
-1. You can also drag the Chat view to the Secondary side bar, for example if you want to view both the Chat view and Explorer view.
+1. Select the title of the Chat view and drag it to the right side of the editor to dock it to the Secondary side bar.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
 
-    Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
+    Putting the Chat view in the Secondary side bar can be useful if you want to open another view in the Primary side bar, for example the Explorer view to navigate your workspace. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 
 ## Fix coding errors with Copilot
 
@@ -141,8 +141,6 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 1. Select the sparkle to view the Copilot code actions, and then select **Fix using Copilot**.
 
     ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
-
-    Notice that the second argument gets a red squiggle because the method only accepts one argument.
 
 1. Notice that the Copilot inline chat comes up, prepopulated with the error message, and a solution to fix the problem.
 

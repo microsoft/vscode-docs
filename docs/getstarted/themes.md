@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Themes
@@ -94,6 +94,14 @@ If a customization applies to more than one theme, you can name multiple themes 
         "activityBar.background": "#ff0000"
     }
 }
+```
+
+If a theme sets a color or border that you don't like, you can use `default` to set it back to the original value:
+
+```json
+  "workbench.colorCustomizations": {
+      "diffEditor.removedTextBorder": "default"
+  }
 ```
 
 ### Editor syntax highlighting

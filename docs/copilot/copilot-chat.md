@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -40,15 +40,15 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 ## Inline chat
 
-A key functionality of Copilot is answering questions inline, as you're coding or entering commands in the terminal. This enables you to harness the power of AI while staying in the flow of the task at hand.
+A key functionality of Copilot is answering questions inline, while you're coding in the editor or entering commands in the terminal. With Copilot inline chat, you can ask questions about code, get explanations, and even generate code snippets without leaving the context of your work. In any file, press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
 
-In any file, you can press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat. You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code", or "How do I add functionality to do X?".
+You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code", or "How do I add functionality to do X?".
 
 ![Copilot inline chat asking information about the used sorting algorithm](images/copilot-chat/inline-chat-question-example.png)
 
-If you have code selected in the editor, Copilot scopes your question to the selection.
+If you have a block of code selected in the editor, Copilot scopes your question to the selection.
 
-Depending on your question, Copilot can also suggest code modifications. Copilot gives a preview of the updates, which you can then accept (`kb(inlineChat.acceptChanges)`) or discard (`kb(inlineChat.discard)`). Optionally, you can generate a new code suggestion.
+Depending on your question, Copilot can also suggest code modifications or refactorings. Copilot gives a preview of the updates, which you can then accept (`kb(inlineChat.acceptChanges)`) or discard (`kb(inlineChat.discard)`). Optionally, you can generate a new code suggestion.
 
 ![Copilot inline chat asking to convert a sort alogrithm to use bubble sort](images/copilot-chat/inline-chat-convert-sort.png)
 
@@ -58,7 +58,7 @@ The following example shows the `preview` mode for inline chat.
 
 ![Copilot inline chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 
-### Terminal inline chat
+## Terminal inline chat
 
 Similar to inline chat in the editor, you can bring up Copilot inline chat in the terminal to help you answer questions related to the terminal and shell commands. The terminal inline chat uses the `@terminal` chat participant, which has context about the integrated terminal's shell and its contents. For example, you can ask questions such as "how to instal npm packages", or "list the top 5 largest files in the src directory".
 
@@ -74,9 +74,9 @@ Optionally, you can edit the command directly in the Copilot response before run
 
 The Chat view enables you to have a chat conversation with Copilot in a separate view. You can access the Chat view via the Activity Bar or by pressing `kb(workbench.action.chat.open)`:
 
-![Copilot view in VS Code Activity Bar](images/copilot-chat/copilot-view.png)
+![Copilot view in VS Code Activity Bar](images/copilot-chat/copilot-chat-view.png)
 
-Copilot suggests potential questions to get you started, such as "/fix the problems in my code". You can select any of these suggestions, or use the chat input field to type your own chat prompt:
+To get started, type your question in the chat input field. For example, ask a question about a general programming topic, or ask about the specific code in your workspace.
 
 ![Copilot explaining a devcontainer.json file](images/copilot-chat/devcontainer-explain.png)
 
@@ -86,15 +86,15 @@ Copilot Chat can provide rich and interactive results that contain: simple text,
 
 The following example shows a chat prompt to create an Express app, which returns a tree view with a suggested workspace structure and a button to create a new workspace.
 
-![Copilot response containing rich results, such as a file tree with a proposed workspace structure, and a button to create a new workspace](images/copilot-chat/chat-view-rich-response.png)
+![Copilot response containing rich results, such as a file tree with a proposed workspace structure, and a button to create a new workspace](images/copilot-chat/copilot-chat-view-workspace-file-tree.png)
 
-As you continue asking questions, Copilot maintains the history of your conversation, and provides related follow-up questions or commands in its response too.
+As you keep the conversation going, Copilot maintains the history of your chat messages and responses, and provides related follow-up questions or commands in its response too.
 
 > **Tip**: To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input box.
 
 ### Code blocks
 
-Depending on your question, Copilot Chat might return source code in a code block.
+Depending on your question, Copilot Chat might return source code in a code block. Depending on the language extension, the code block in the chat response might support IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
 ![A Copilot Chat code block with JSON to change the color of comments in VS Code](images/copilot-chat/copy-code-block.png)
 
@@ -119,7 +119,7 @@ You can control the font for code blocks in chat with the following settings:
 
 ## Quick chat
 
-If you want to ask Copilot a quick question and don't want to start a full Chat view session or open inline chat in your editor, you can use the Quick Chat dropdown. To open Quick Chat, you can run **Chat: Open Quick Chat** in the Command Palette, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
+If you want to ask Copilot a quick question and don't want to start a full Chat view session or open inline chat in your editor, you can use the Quick Chat dropdown. To open Quick Chat, run **Chat: Open Quick Chat** in the Command Palette, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 ![Quick Chat dropdown](images/copilot-chat/quick-chat-dropdown.png)
 
@@ -143,13 +143,15 @@ Learn more about how to [iterate over a Copilot chat conversation](/docs/copilot
 
 ## Chat smart actions
 
-Smart actions are integrated in your VS Code flow (for example, in Quick Fix and context menus) and they do not require you to write any prompt at all. To make it easier to use Copilot Chat features, there is a **Copilot** menu group in the editor context menu. Right-click in the editor and navigate to **Copilot** to see the available options.
+To make it easier to use Copilot Chat features, smart actions are integrated in your VS Code flow and they do not require you to write any prompt at all. For example, you can access Copilot smart actions from the editor context menu or through Quick Fix actions.
+
+Access the smart actions by selecting a block of code, right-clicking, and choosing **Copilot**. The smart actions are context-aware and can help you with common tasks, such as generating documentation, fixing code, or explaining code.
 
 ![Editor context menu with the Copilot menu group expanded](images/copilot-chat/editor-copilot-menu.png)
 
 The most powerful smart action is `/fix`. Here is a relatively simple TypeScript calculator with an error noting that "Argument of type 'string' is not assignable to parameter of type 'number'". Select the *sparkle* icon, and then choose **Fix using Copilot**.
 
-![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/editor-copilot-menu.png)
+![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/smart-action-fix-with-copilot.png)
 
 Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code.
 
@@ -165,7 +167,7 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
 
-You can prepend your chat inputs with a specific participant to help Copilot give you a more relevant response.
+Extensions can also contribute chat participants to provide specialized help for their domain.
 
 ### @workspace
 
@@ -192,11 +194,15 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 
 ![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
+With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand enable developer mode` to open the VS Code Developer Tools.
+
+![Toggle Developer Tools with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand-developer-mode.png)
+
 ### @terminal
 
 With `@terminal` you can ask questions about the integrated terminal shell, its buffer, and the current selection. In the following example, you use the Quick fix **Explain using Copilot** in the terminal to get information about a failed shell command.
 
-Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [chat variables](#chat-variables).
+Notice how the prompt in the Chat view is populated with `@terminal #terminalLastCommand` to help correct the error. `#terminalLastCommand` is a chat variable, which allows you to add more context to the chat prompt. Learn more about [adding context to chat](#chat-context).
 
 ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/copilot-chat/terminal-command-explanation.png)
 
@@ -204,9 +210,9 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 
 ## Slash commands
 
-Chat participants can also contribute what we call slash commands, which are shortcuts to specific functionality provided by the chat participant. One of the tasks when answering questions is to determine the intent, understanding what you want to do.
+One of the tasks when answering questions is to determine the intent, understanding what you want to do. You can use natural language to describe your intent, but it can be ambiguous. To help with this, you can use *slash commands*. Chat participants can contribute slash commands, which are shortcuts to specific, commonly-used functionality provided by that chat participant.
 
-For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project, but "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing.
+For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project. Instead, you can also use "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing. In this case, the `/new` slash command is a shortcut to create a new workspace.
 
 Once the intent is clear, `@workspace` has a better chance of addressing your needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that generates these files in a new folder.
 
@@ -218,27 +224,32 @@ Examples of built-in commands:
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
 * `@workspace /tests` (or `/tests`): generate unit tests for the selected code
-* `@workspace /new` (or `/new`): scaffold code for a new workspace
+* `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
 * `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
-* `@vscode /api` (or `/api`): ask about VS Code extension development
 * `@vscode /search` (or `/search`): generate query parameters for the Search view
+* `@vscode /runCommand`: search or run a VS Code command
 * `@terminal /explain`: explain terminal functionality or shell commands
 
-## Chat variables
+## Chat context
 
-Chat participants, such as `@workspace` or `@vscode`, can contribute chat variables that provide domain-specific context. You can reference a chat variable in your chat prompt by using the `#` symbol. For example, the `#selection` variable contains the text selection in the active editor.
+Chat participants, such as `@workspace` or `@vscode`, can contribute chat variables that contain domain-specific context. You can reference a chat variable in your chat prompt by using the `#` symbol. For example, the `#selection` variable contains the text selection in the active editor.
 
 Examples of built-in chat variables are:
 
 * `#codebase`: the contents of the current workspace. It includes information about the files and folders in your workspace, as well as any settings or configurations specific to that workspace.
-* `#editor`: the current selection in the active editor. The editor content is implicitly included in the Chat view context.
+* `#editor`: the code in the active editor. The editor content is implicitly included in the Chat view context.
 * `#file`: include a specified file in your workspace as context with your chat prompt.
 * `#git`: information about the current git repository, such as the workspace folder, branch name, remotes, and more.
 * `#selection`: the visible source code in the active editor.
 * `#terminalLastCommand`: the active terminal's last run command.
 * `#terminalSelection`: the active terminal's selection.
+* `#vscodeAPI`: use VS Code API references to answer questions about VS Code extension development.
 
 > **Note**: if possible, the full contents of the file will be included when you use `#file`. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
+
+Instead of using the `#` symbol, you can also add context to your chat message by using the **Attach Context** button in the Chat view. You can then select the specific type of context from a Quick Pick, such as the current selection, one or more files from the workspace, or one or more symbols from your source code.
+
+![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
 
 ## Improve the performance of Copilot Chat
 

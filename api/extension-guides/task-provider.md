@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49744351-83ef-4ef6-99e7-2485e6e9c79f
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to contribute tasks to Visual Studio Code through an extension (plug-in).
@@ -42,10 +42,10 @@ This contributes a task definition for `rake` tasks. The task definition has two
 
 ### When clause
 
-A task definition may optional have a `when` property. The `when` property specifies the condition under which task of this type will be available. The `when` property functions in the same way [as other places in VS Code](/api/references/when-clause-contexts), where there is a `when` property. The following contexts should always be considered when creating a task definition:
+A task definition may optionally have a `when` property. The `when` property specifies the condition under which a task of this type will be available. The `when` property functions in the same way [as other places in VS Code](/api/references/when-clause-contexts), where there is a `when` property. The following contexts should always be considered when creating a task definition:
 
-- `shellExecutionSupported`: True when VS Code can run `ShellExecution` tasks, such as VS Code is run as a desktop application or when using one of the remote extensions, such as Dev Containers.
-- `processExecutionSupported`: True when VS Code can run `ProcessExecution` tasks, such as VS Code is run as a desktop application or when using one of the remote extensions, such as Dev Containers. Currently, it will always have the same value as `shellExecutionSupported`.
+- `shellExecutionSupported`: True when VS Code can run `ShellExecution` tasks, such as when VS Code is run as a desktop application or when using one of the remote extensions, such as Dev Containers.
+- `processExecutionSupported`: True when VS Code can run `ProcessExecution` tasks, such as when VS Code is run as a desktop application or when using one of the remote extensions, such as Dev Containers. Currently, it will always have the same value as `shellExecutionSupported`.
 - `customExecutionSupported`: True when VS Code can run `CustomExecution`. This is always true.
 
 ## Task provider

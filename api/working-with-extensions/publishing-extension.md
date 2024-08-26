@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -336,13 +336,15 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions content eligibility, legitimacy, trust and positive reputation. New publishers will need a consistent track record demonstrating these for at least 6 months.
 
-Once verified, you will also see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
+If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
 ![Verified publisher manage](images/publishing-extension/verified-publisher-manage.png)
 
-> **Note**: Any changes to the publisher display name will revoke the verified badge.
+> **Notes**:
+> - Any changes to the publisher display name will revoke the verified badge.
+> - Any future [Terms of Use](https://cdn.vsassets.io/v/M190_20210811.1/_content/Microsoft-Visual-Studio-Marketplace-Terms-of-Use.pdf) or above mentioned validation violations from the publisher will revoke the verified badge.
 
 ### Eligible domains
 
@@ -520,3 +522,7 @@ The same rule applies for the [display name](/api/references/extension-manifest)
 ### What package managers are supported?
 
 You can either use npm or yarn v1 to manage your extension's dependencies.
+
+### I need help with my VS Marketplace account or support in publishing an extension?
+
+You can reach out to the VS Marketplace support team by signing in at [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) and clicking on the ‘Contact Microsoft’ link at the top right.

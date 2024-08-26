@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 ---
 # Developing inside a Container
 
@@ -426,6 +426,23 @@ However, some extensions may require you to [install additional software](/docs/
 While you can edit your [devcontainer.json](/docs/devcontainers/create-dev-container.md#create-a-devcontainerjson-file) file by hand to add a list of extension IDs, you can also right-click on any extension in the Extensions view and select **Add to devcontainer.json**.
 
 ![Add to devcontainer.json menu](images/containers/containers-addto-devcontainer.png)
+
+### Opt out of extensions
+
+If a base image or Feature configures an extension that you do not want installed in your dev container, you can opt out by listing the extension with a minus sign. For example:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "-dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+}
+```
 
 ### "Always installed" extensions
 

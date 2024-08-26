@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -21,7 +21,7 @@ To create a new profile, you can use the **File** > **Preferences** > **Profiles
 
 You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.).
 
-You can also access the Profile command menu via the **Manage** gear button in the lower right of the Activity bar.
+You can also access the **Profiles** command menu via the **Manage** gear button in the Activity bar.
 
 ![Create Profile command via the Manage button in the Activity bar](images/profiles/create-profile-via-manage.png)
 
@@ -57,7 +57,7 @@ You can configure a profile just as you would normally change any VS Code config
 
 ### Workspace associations
 
-When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
+When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set.
 
 ## Managing profiles
 
@@ -65,7 +65,7 @@ When you create or select an existing profile, it is associated with the current
 
 You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which presents a dropdown listing your available profiles.
 
-You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
+You can also switch profiles by selecting a profile from the list displayed in the **Profiles** menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
 
 ### Edit a profile
 
@@ -74,6 +74,14 @@ You can edit an existing profile via the **Edit** command in the Profiles menu.
 ### Delete a profile
 
 You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
+
+### Open a new window with a profile
+
+When you open a new VS Code window, the profile used is the one associated with the workspace you are opening or the profile specified in the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
+
+![Configure custom profile for new window](images/profiles/profile-new-window.png)
+
+You can directly open a new VS Code window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
 
 ## Profile contents
 
@@ -109,6 +117,14 @@ An extension can be applied to all profiles by clicking on the **Apply Extension
 ![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
 
 This will make this extension available in all profiles. You can always revert this by unchecking the **Apply Extension to all Profiles** action.
+
+## Synchronize profiles across machines
+
+You can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles are available.
+
+![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
+
+> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Share Profiles
 
@@ -399,12 +415,6 @@ Temporary Profiles are useful if you want to try a new configuration or test an 
 ### How can I remove the profile from my project?
 
 You can set your project back to the Default Profile. If you'd like to remove all profile workspace associations, you can use the **Developer: Reset Workspace Profiles Associations**, which will set all local folders currently assigned a profile back to the Default Profile. **Reset Workspace Profiles Associations** does not delete any existing profiles.
-
-### Do profiles sync across machines (via Settings Sync)?
-
-Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles are available.
-
-![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 
 ### Why are some settings not exported when exporting a profile?
 

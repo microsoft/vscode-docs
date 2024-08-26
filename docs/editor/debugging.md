@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -12,7 +12,18 @@ MetaSocialImage: images/debugging/debugging-social.png
 
 One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## User interface
+
+The following diagram shows the main components of the debugging user interface:
+
 ![Debugging diagram](images/debugging/debugging_hero.png)
+
+1. **Run and Debug view**: displays all information related to running, debugging, and managing debug configuration settings.
+1. **Debug toolbar**: has buttons for the most common debugging actions.
+1. **Debug console**: enables viewing and interacting with the output of your code running in the debugger.
+1. **Debug sidebar**: during a debug session, lets you interact with the call stack, breakpoints, variables, and watch variables.
 
 ## Debugger extensions
 
@@ -174,9 +185,11 @@ Optionally, breakpoints can be shown in the editor's overview ruler by enabling 
 
 ## Logpoints
 
-A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be paused or stopped.
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the debug console. Logpoints enable you to  inject logging while debugging without modifying the source code. They are especially useful when you're debugging production servers that cannot be paused or stopped. Logpoints can also help you save time by not having to add or remove logging statements in your code.
 
 A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
+
+Add a logpoint with the **Add Logpoint** command in the left editor gutter context menu, or by using the **Debug: Add Logpoint...** command. You can also configure the setting `debug.gutterMiddleClickAction` to toggle a logpoint when pressing the middle mouse button in the editor gutter.
 
 ![Logpoints](images/debugging/log-points.gif)
 
@@ -527,10 +540,9 @@ To learn about VS Code's Node.js debugging support, take a look at:
 * [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in VS Code.
 * [TypeScript](/docs/typescript/typescript-debugging.md) - The Node.js debugger also supports TypeScript debugging.
 
-To see tutorials on the basics of Node.js debugging, check out these videos:
+To see a tutorial on the basics of debugging, check out this video:
 
-* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Showcases the basics of debugging.
-* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Shows how to attach a debugger to a running Node.js process.
+* [Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn about debugging in VS Code.
 
 To learn about debugging support for other programming languages via VS Code extensions:
 

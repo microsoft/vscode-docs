@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -123,7 +123,11 @@ Chat participants, such as `@workspace` or `@vscode`, can contribute chat variab
 
 For example, the `#file` variable lets you reference specific files from your workspace in your chat prompt. This helps make the answers from Copilot Chat more relevant to your code by providing context about the file you are working with. You can ask questions like "Can you suggest improvements to #file:package.json?" or "How do I add an extension in #file:devcontainer.json?". By using the `#file` variable, you can get more targeted and accurate responses from Copilot.
 
-Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-variables).
+You can also add context to your chat message by using the **Attach Context** button in the Chat view. You can then select the specific type of context from a Quick Pick, such as the current selection, one or more files from the workspace, or one or more symbols from your source code.
+
+![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/prompt-crafting/copilot-chat-view-attach-context.png)
+
+Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-context).
 
 ### Be specific and keep it simple
 

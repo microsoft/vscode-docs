@@ -4,30 +4,40 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
+> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
 ## Turning on Settings Sync
 
-You can turn on Settings Sync using the **Turn On Settings Sync...** entry in the **Manage** gear menu at the bottom of the Activity Bar.
+You can turn on Settings Sync by using the **Backup and Sync Settings...** entry in the **Manage** gear menu or the **Accounts** menu at the bottom of the Activity Bar.
 
-![Turn on Sync command](images/settings-sync/turn-on-sync.png)
+![Screenshot of the Manage menu, highlighting the Backup and Sync Settings command.](images/settings-sync/turn-on-sync.png)
 
-You will be asked to sign in and what preferences you would like to sync; currently Settings, Keyboard Shortcuts, Extensions, User Snippets, and UI State are supported.
+To use Sync settings, you need to sign in and select which settings you want to sync. Currently, the Settings Sync supports the following settings:
 
-![Settings Sync configure dialog](images/settings-sync/sync-configure.png)
+* Settings
+* Keyboard shortcuts
+* User snippets
+* User tasks
+* UI State
+* Extensions
+* Profiles
 
-Selecting the **Sign in & Turn on** button will ask you to choose between signing in with your Microsoft or GitHub account.
+![Screenshot of the Settings Sync configure Quick Pick to select the settings to synchronize.](images/settings-sync/sync-configure.png)
 
-![Settings Sync configure dialog](images/settings-sync/sync-accounts.png)
+When you select the **Sign in** button, you can choose between signing in with your Microsoft or GitHub account.
 
-After making this selection, the browser will open so that you can sign in to your Microsoft or GitHub account. When a Microsoft account is chosen, you can use either personal accounts, such as Outlook accounts, or Azure accounts, and you can also link a GitHub account to a new or existing Microsoft account.
+![Screenshot of the Settings Sync Quick Pick to choose an account type.](images/settings-sync/sync-accounts.png)
 
-After signing in, Settings Sync will be turned on and continue to synchronize your preferences automatically in the background.
+After making this selection, the browser opens so that you can sign in to your Microsoft or GitHub account. If you choose a Microsoft account, you can use either personal accounts, such as Outlook accounts, or Azure accounts, and you can also link a GitHub account to a new or existing Microsoft account.
+
+After signing in, Settings Sync is turned on and continues to synchronize your preferences automatically in the background.
 
 ## Merge or Replace
 
@@ -147,7 +157,7 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 ## Troubleshooting keychain issues
 
 >**Note**: This section applies to VS Code version **1.80 and higher**. In 1.80, we moved away from [keytar](https://github.com/atom/node-keytar), due to its archival, in favor of Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage).
-
+>
 >**Note**: keychain, keyring, wallet, credential store are synonymous in this document.
 
 Settings Sync persists authentication information on desktop using the OS keychain for encryption. Using the keychain can fail in some cases if the keychain is misconfigured or the environment isn't recognized.

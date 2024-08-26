@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -268,6 +268,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
 * _title_ - Human readable title for the diff editor
+* _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
 
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 

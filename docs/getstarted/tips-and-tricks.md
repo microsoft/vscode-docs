@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -369,6 +369,16 @@ or to use a custom schema:
 
 See more in the [JSON](/docs/languages/json.md) documentation.
 
+### Configure the default browser
+
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `workbench.externalBrowser` [setting](/docs/getstarted/settings.md).
+
+Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
+
+```json
+"workbench.externalBrowser": "edge"
+```
+
 ## Extensions
 
 Keyboard Shortcut: `kb(workbench.view.extensions)`
@@ -409,6 +419,20 @@ Are you interested in creating your own extension? You can learn how to do this 
 * jsonValidation
 
 ## Files and folders
+
+### Simple file dialog
+
+With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
+
+After you enable the Simple File Dialog, you can browse and select files and folders by using a Quick Pick inside VS Code.
+
+![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
+
+To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/getstarted/settings.md):
+
+```json
+    "files.simpleDialog.enable": true
+```
 
 ### Integrated Terminal
 
@@ -897,6 +921,12 @@ git config --global mergetool.vscode.cmd 'code --wait $MERGED'
 git config --global diff.tool vscode
 git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
+
+## Compare file with the clipboard
+
+Keyboard Shortcut: `kb(workbench.files.action.compareWithClipboard)`
+
+Quickly compare the active file with the contents of the clipboard with the **File: Compare Active File with Clipboard** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Debugging
 

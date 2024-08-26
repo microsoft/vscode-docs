@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 05/02/2024
+DateApproved: 08/01/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -48,7 +48,7 @@ When you open another file, the editor that is active will display the content o
 
 By default, editors open to the right-hand side of the active one. You can change this behavior with the `workbench.editor.openSideBySideDirection` setting to open new editors to the bottom of the active one instead.
 
-When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
@@ -90,6 +90,8 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 
 >**Tip:** You can enable/disable Sticky Scroll with the `"editor.stickyScroll.enabled"` setting.
 
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `editor.stickyScroll.defaultModel` setting.
+
 ### Indent Guides
 
 The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.guides.indentation": false` in your user or workspace [settings](/docs/getstarted/settings.md).
@@ -112,7 +114,7 @@ After you open a folder in VS Code, the contents of the folder are shown in the 
 * Move files and folders with drag and drop.
 * Use the context menu to explore all options.
 
->**Tip:** You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view.
+>**Tip:** You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `explorer.autoOpenDroppedFile` setting, you to configure whether to automatically open the file or not.
 
 VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
@@ -237,9 +239,11 @@ Centered editor layout allows you to center align the editor area. This is usefu
 
 ## Tabs
 
-VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items and you can drag and drop tabs to reorder them.
+VS Code shows open items with tabs (tabbed headings) in the title area above the editor. When you open a file, a new tab is added for that file. Tabs let you quickly navigate between items.
 
 ![tabs hero](images/userinterface/tabs-hero.png)
+
+You can drag and drop tabs to reorder them. To perform an action on multiple tabs at once, hold down the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and select the tabs you want to act on. To select a range of tabs, hold down the `kbstyle(Shift)` key and select the first and last tabs in the range.
 
 When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
 
@@ -251,9 +255,9 @@ If you don't want to use tabs, you can disable the feature by setting the `workb
     "workbench.editor.showTabs": "single"
 ```
 
-> **Tip**: Double-click in the editor title area to create a new tab.
-
 See the section below to optimize VS Code for [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+
+> **Tip**: Double-click in the editor title area to quickly create a new tab.
 
 ### Tab ordering
 
@@ -264,6 +268,10 @@ For example, you might like new tabbed items to appear on the left:
 ```json
     "workbench.editor.openPositioning": "left"
 ```
+
+You can reorder tabs by dragging and dropping them.
+
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
 
 ### Wrapped tabs
 
@@ -284,7 +292,7 @@ To enable custom display labels for tabs, set the `workbench.editor.customLabels
 You can specify one or more naming patterns for the tab display labels with the `workbench.editor.customLabels.patterns` setting. A name pattern consists of two components:
 
 - **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
-- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
+- **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
 
 The following sample displays the `/src/orders/index.html` file with a tab label of `orders/index`.
 
@@ -295,6 +303,15 @@ The following sample displays the `/src/orders/index.html` file with a tab label
 ```
 
 ![Screenshot of Setting editor to enable and specify custom labels for tabs](images/userinterface/tabs-custom-labels.png)
+
+The following examples use the `${extname}` variable for the file `tests/editor.test.ts`:
+
+* `${filename}` => editor
+* `${extname}` => test.ts
+* `${extname(0)}` => ts
+* `${extname(1)}` => test
+* `${extname(-1)}` => test
+* `${extname(-2)}` => ts
 
 > **Note**: The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 
