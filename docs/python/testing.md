@@ -163,23 +163,24 @@ If discovery fails (for example, the test framework isn't installed or you have 
 
 ![Discovery failure error messaged displayed in the Test Explorer](images/testing/test-discovery-error.png)
 
-### Django unittests
+### Django unit tests
 
-The Python extension also offers support for running Django unittests! You get your Django tests discovered with only a few additional set up steps.
+The Python extension also offers support for running Django unit tests! You get your Django tests discovered with only a few additional set up steps.
 
 First, ensure you have correctly set `"python.testing.unittestEnabled": true,` in your `settings.json` file, then follow the steps below to add `MANAGE_PY_PATH` as an environment variable:
 
 - Create a file named `.env` at the root of your project.
-- Add `MANAGE_PY_PATH='path-string-to-manange.py-path'` to the `.env` file, replacing `path-string-to-manange.py-path` with the path to your application's `manage.py` file (Note: you can copy the path by right clicking on the file in the File Explorer and selecting **Copy Path**).
+- Add `MANAGE_PY_PATH='path-string-to-manage.py-path'` to the `.env` file, replacing `path-string-to-manage.py-path` with the path to your application's `manage.py` file. 
+    > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
 - Add  `"python.envFile": "${workspaceFolder}/.env"` to your `settings.json` file, so the Python extension can load the environment variables in this file when running and discovering tests (edit path as necessary if `.env` is not at root).
 - Add Django args to `"python.testing.unittestArgs": []` in `settings.json` as needed, and remove any arguments that are not compatible with Django.
 
-Navigate to the Testing Panel, and refresh the tree-view to have your Django tests displayed!
+Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
-In the case your tests are not discovered, try the following troubleshooting steps:
+If your tests are still not showing in the Testing view, try the following troubleshooting steps:
 
 - Search for error messages in the **Python** output panel.
-- Try running commands in the Command Line, then transfer the same command to how it is represented in VS Code. For example, you may run `python manage.py test --arg` in the Command Line which is represented by setting `MANAGE_PY_PATH='./manage.py'` and `"python.testing.unittestArgs": [--arg]` in VS Code. Check the output as it should print the commands that are actually ran.
+- Try running commands in the command line, then transfer the same command to how it is represented in VS Code. For example, you may run `python manage.py test --arg` in the command line, which is represented by setting `MANAGE_PY_PATH='./manage.py'` and `"python.testing.unittestArgs": [--arg]` in VS Code. Check the output as it should print the commands that are actually ran.
 - Attempt using the absolute path for `manage.py`, if you initially tried using the relative path.
 
 Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests).
