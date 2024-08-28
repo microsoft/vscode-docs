@@ -9,7 +9,7 @@ MetaDescription: This tutorial gives you an overview of the key features of Visu
 ---
 # Tutorial: Get started with Visual Studio Code
 
-In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly.
+In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly. You learn about the different components of the user interface and how to customize it to your liking. You then write some code and use the built-in code editing features, such as IntelliSense and Code Actions, and you learn about running and debugging your code. By installing a language extension, you add support for a different programming language.
 
 <iframe src="https://www.youtube.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
@@ -155,6 +155,8 @@ In this tutorial, you create a sample JavaScript file and use some of the basic 
 
     Notice also the formatting of the code, to help you distinguish between different parts of the code. This is called *syntax highlighting*.
 
+    > **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save files whenever you make changes.
+
 1. Put the cursor on the `Hello,` string, select the lightbulb icon, and then select **Convert to template string** to use a Code Action to simplify the string concatenation.
 
     **Code Actions** are suggestions that help you apply quick fixes to your code. You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
@@ -169,7 +171,7 @@ In this tutorial, you create a sample JavaScript file and use some of the basic 
 
     In the next step, you install a language extension to add support for different languages to VS Code.
 
-> **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save the file whenever you make changes.
+> **Tip**: Enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests. Use [GitHub Copilot](/docs/copilot/overview.md) in VS Code to generate code, or to learn from the code it generates.
 
 ## Step 5: Install a language extension
 
@@ -183,7 +185,7 @@ Let's install a language extension to add support for Python, or any other progr
 
     ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
 
-1. Enter *Python* in the search box in the Extensions view to search for Python-related extensions.
+1. Enter *Python* in the Extension view search box to browse for Python-related extensions.
 
     The list of extensions shows for each extension its name, short description, publisher, install count, and rating.
 
@@ -256,14 +258,12 @@ There are many more debugging features in VS Code, such as watch variables, cond
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code.
 
-Here are some next steps to help you continue learning about Visual Studio Code:
+Now that you've learned the basics of Visual Studio Code, you can:
 
-- [VS Code Editor basics](/docs/editor/codebasics.md)
-- [VS Code tips and tricks](/docs/getstarted/tips-and-tricks.md)
-- [Use source control](/docs/sourcecontrol/overview.md)
+- Work with [Git repositories and source control](/docs/sourcecontrol/overview.md)
+
+- [Discover and run unit tests for your code](/docs/editor/testing.md)
+
 - [Use the integrated terminal](/docs/terminal/getting-started.md)
-- [Run unit tests](/docs/editor/testing.md)
 
-If you prefer more video tutorials:
-
-- Watch more [VS Code intro videos](/docs/getstarted/introvideos.md)
+- [Enhance your coding with AI and GitHub Copilot](https://docs.github.com/en/copilot/overview)
