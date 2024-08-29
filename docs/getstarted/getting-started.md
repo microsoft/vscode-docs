@@ -31,25 +31,25 @@ Let's start by creating a folder and opening it in VS Code.
 
 1. Open Visual Studio Code.
 
-    When you first open VS Code, you should see the **Welcome** page with different action to get started. You can also explore some of the VS Code product walkthroughs.
+    When you first open VS Code, you should see the **Welcome** page with different actions to get started. You can also explore some of the VS Code product walkthroughs.
 
-1. On the Welcome page, select **Open Folder...**, and then select the folder you created previously.
+1. On the Welcome page, select **Open Folder...**, and then select the folder you created.
 
-    The VS Code window reloads and you should see the folder name at the top of the **Explorer** view. In the Explorer view, you view and manage the files and folders in your workspace.
+    The VS Code window reloads and you should see the folder name at the top of the **Explorer** view. Use the Explorer view to view and manage the files and folders in your workspace.
 
     ![Screenshot that shows VS Code after opening a folder, highlighting the Explorer view.](images/getting-started/open-folder.png)
 
-    Alternatively, you can also select **Open Folder...** from the **File** menu or press `kb(workbench.action.files.openFolder)` to open a folder.
+    Alternatively, you can select **Open Folder...** from the **File** menu or press `kb(workbench.action.files.openFolder)` to open a folder.
 
-> **Tip**: When you use the command line, pass the folder name as parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
+> **Tip**: When you use the command line, pass the folder name as a parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
 
 ## Step 2: Explore the user interface
 
 Now that you have a folder open in VS Code, let's take a quick tour of the user interface.
 
-1. Use the **Activity Bar** on the side of the window to quickly access different views, such as the **Explorer**, **Search**, or **Source Control** view.
+1. Use the **Activity Bar** on the side of the window to quickly access different views, such as the **Explorer**, **Search**, or **Source Control** views.
 
-    When you select a view, the **Primary Side Bar** shows view-specific information. For example, when you select the **Run and Debug** view, you can access the functionality for running and debugging your workspace.
+    When you select a view, the **Primary Side Bar** shows view-specific information. For example, when you select the **Run and Debug** view, you can access the functionality for running and debugging your code.
 
     ![Screenshot that shows the Activity Bar and the Run and Debug view in the Primary Side Bar.](images/getting-started/activity-bar-and-side-bar.png)
 
@@ -58,8 +58,6 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 1. Select the Explorer view in the Activity Bar.
 
 1. Select the **New File...** button to create a new file in your workspace. Enter the name `index.html` and press `kbstyle(Enter)`.
-
-    You can also right-click in the empty area of the Explorer view and select **New File** to create a new file.
 
     ![Screenshot that shows the New File button in the Explorer view.](images/getting-started/explorer-new-file.png)
 
@@ -77,7 +75,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
     > **Tip**: You can move the Panel area with the **View** > **Appearance** > **Panel Position** menu, for example to the left or right for more vertical space.
 
-1. At the bottom, the **Status Bar** shows information about the file you edit, and the workspace you have open.
+1. At the bottom, the **Status Bar** shows information about the file you are editing, and the workspace you have open.
 
     Notice that the Status Bar shows the language mode, indentation, and the line ending of the current editor. If the folder you opened is a Git repository, the Git status and current branch are shown in the Status Bar.
 
