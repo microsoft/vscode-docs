@@ -19,6 +19,8 @@ MetaSocialImage: images/tutorial/python-social.png
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/suAkMeWJ1yE?si=ShcQNtdcfTX_1Wc7" title="Get started with Jupyter Notebooks in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Setting up your environment
 
 To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
