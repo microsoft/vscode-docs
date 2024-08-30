@@ -315,25 +315,29 @@ Below are all the supported commands for testing with the Python extension in VS
 
 ## Django unit tests
 
-The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional set up steps.
+The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
 
 
-1. Set `"python.testing.unittestEnabled": true,` in your `settings.json`.
+1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/getstarted/settings.md#settingsjson).
 2. Add `MANAGE_PY_PATH` as an environment variable:
-   1. Create a file named `.env` at the root of your project.
-   2. Add `MANAGE_PY_PATH='path-string-to-manage.py-path'` to the `.env` file, replacing `path-string-to-manage.py-path` with the path to your application's `manage.py` file.
+    1. Create a `.env` file at the root of your project.
+    2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
-    3. Add  `"python.envFile": "${workspaceFolder}/.env"` to your `settings.json` file, so the Python extension can load the environment variables in this file when running and discovering tests (edit path as necessary if `.env` is not at root).
-    4. Add Django test arguments to `"python.testing.unittestArgs": []` in `settings.json` as needed, and remove any arguments that are not compatible with Django.
+    3. Add `"python.envFile": "${workspaceFolder}/.env"` to your `settings.json` [file](/docs/getstarted/settings.md#settingsjson), so the Python extension can load the environment variables in this file when running and discovering tests.
+        > **Note**: Modify the path to the `.env` file if it's not at the root of your project.
+    4. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/getstarted/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
 ### Troubleshooting
 If your Django unit tests are not showing in the Testing view, try the following troubleshooting steps:
 
-- Search for error messages in the **Python** output panel. They may provide helpful hints as to why your tests are not being discovered.
-- Try [running the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into VS Code settings. For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code's settings. You can also check the **Python** output panel as it displays the commands that are ran by the Python extension.
-- Attempt using the absolute path for `manage.py` when setting the `MANAGE_PY_PATH` environment variable, if you initially tried using the relative path.
+- Search for error messages in the **Python** Output panel. They might provide a hint as to why your tests are not being discovered.
+- Try to [run the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into VS Code settings.
+    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code settings. 
+    
+    Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
+- Use the absolute path to the `manage.py` file when setting the `MANAGE_PY_PATH` environment variable, if you initially used the relative path.
 
 ## IntelliSense for pytest
 
