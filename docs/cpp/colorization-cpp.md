@@ -12,7 +12,7 @@ MetaDescription: How to customize semantic colorization of C++ code in Visual St
 The Visual Studio Code C/C++ extension now supports semantic colorization, when IntelliSense is enabled.  Use of enhanced colorization is controlled by the C_Cpp.enhancedColorization setting.  This setting is enabled by default.
 
 ```json
-"C_Cpp.enhancedColorization": "Enabled"
+"C_Cpp.enhancedColorization": "enabled"
 ```
 
 ## Themes
