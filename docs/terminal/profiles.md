@@ -210,7 +210,7 @@ When PowerShell 6+ is installed, Windows PowerShell is not included in the profi
 
 ## WSL
 
-When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `terminal.integrated.useWslProfiles` setting, then here's an example of how to manually configure a WSL shell:
+When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `setting(terminal.integrated.useWslProfiles)` setting, then here's an example of how to manually configure a WSL shell:
 
 ```jsonc
 {

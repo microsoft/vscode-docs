@@ -31,9 +31,9 @@ You can use your voice to talk to [GitHub Copilot Chat](https://marketplace.visu
 
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 
-**Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `accessibility.voice.speechTimeout` setting, or disable this functionality when you configure the setting to `0`.
+**Note:** when using voice for GitHub Copilot Chat, the chat prompt will automatically submit when you pause. You can configure the time to wait before submitting via the `setting(accessibility.voice.speechTimeout)` setting, or disable this functionality when you configure the setting to `0`.
 
-Copilot Chat also supports text-to-speech capabilities. When you enable the `accessibility.voice.autoSynthesize` setting, Copilot Chat responses are automatically read out aloud when voice was also used as input. To interrupt the synthesis, select the icon or press `kb(workbench.action.speech.stopReadAloud)`.
+Copilot Chat also supports text-to-speech capabilities. When you enable the `setting(accessibility.voice.autoSynthesize)` setting, Copilot Chat responses are automatically read out aloud when voice was also used as input. To interrupt the synthesis, select the icon or press `kb(workbench.action.speech.stopReadAloud)`.
 
 Each chat response also shows a new speaker icon, so that you can selectively read out a response aloud.
 
@@ -45,13 +45,13 @@ When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictati
 
 ## "Hey Code"
 
-It is possible to enable a mode where VS Code will always listen for the phrase "Hey Code" to start a voice chat session. Configure the `accessibility.voice.keywordActivation` setting accordingly to enable this. When VS Code is listening for "Hey Code", a microphone icon appears in the status bar to indicate as such:
+It is possible to enable a mode where VS Code will always listen for the phrase "Hey Code" to start a voice chat session. Configure the `setting(accessibility.voice.keywordActivation)` setting accordingly to enable this. When VS Code is listening for "Hey Code", a microphone icon appears in the status bar to indicate as such:
 
 ![Screenshot of a status bar entry to signal active listening to "Hey Code"](images/accessibility/hey-code.png)
 
 ## Support for multiple languages
 
-You can select from one of the 26 supported languages by using the `accessibility.voice.speechLanguage` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/getstarted/locales.md), if that language is available.
+You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/getstarted/locales.md), if that language is available.
 
 Each language for the speech extension comes as its own extension. When you start speech recognition for the first time, you will see an extension installation for each language you selected.
 

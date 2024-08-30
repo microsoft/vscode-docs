@@ -77,7 +77,7 @@ You can delete a profile via the **Delete Profile** command. The **Delete Profil
 
 ### Open a new window with a profile
 
-When you open a new VS Code window, the profile used is the one associated with the workspace you are opening or the profile specified in the `window.newWindowProfile` [setting](/docs/getstarted/settings.md).
+When you open a new VS Code window, the profile used is the one associated with the workspace you are opening or the profile specified in the `setting(window.newWindowProfile)` [setting](/docs/getstarted/settings.md).
 
 ![Configure custom profile for new window](images/profiles/profile-new-window.png)
 
