@@ -21,11 +21,9 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 
 ## Step 1: Open a folder in VS Code
 
-You can use VS Code for individual files or you can open a folder to work on a project with multiple files.
+VS Code is a great lightweight editor where you can with individual files seamlessly, for example for quick edits or to view a file. However, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
 
-When you open a folder in VS Code, this is called a *workspace*. A workspace enables VS Code to configure settings that only apply to a specific folder, store and restore the UI state associated with the folder, persist task or debug configurations, and more. Learn more about [workspaces](/docs/editor/workspaces.md).
-
-Let's start by creating a folder and opening it in VS Code.
+Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
 1. Create a new folder `vscode101` on your computer.
 
@@ -35,7 +33,7 @@ Let's start by creating a folder and opening it in VS Code.
 
 1. On the Welcome page, select **Open Folder...**, and then select the folder you created.
 
-    The VS Code window reloads and you should see the folder name at the top of the **Explorer** view. Use the Explorer view to view and manage the files and folders in your workspace.
+    The VS Code window reloads and you should see the folder name at the top of the **Explorer** view. You'll use the Explorer view to view and manage the files and folders in your workspace.
 
     ![Screenshot that shows VS Code after opening a folder, highlighting the Explorer view.](images/getting-started/open-folder.png)
 
@@ -47,69 +45,113 @@ Let's start by creating a folder and opening it in VS Code.
 
 Now that you have a folder open in VS Code, let's take a quick tour of the user interface.
 
-1. Use the **Activity Bar** on the side of the window to quickly access different views, such as the **Explorer**, **Search**, or **Source Control** views.
+### Switch between views with the Activity Bar
 
-    When you select a view, the **Primary Side Bar** shows view-specific information. For example, when you select the **Run and Debug** view, you can access the functionality for running and debugging your code.
+The **Activity Bar** is located on the side of the window and gives you quick access to different views, such as the **Explorer**, **Search**, **Source Control**, and **Run and Debug** views.
+
+1. Use the Activity Bar to explore the different views.
+
+    As you hover over the Activity Bar, you can see the name of each view and the keyboard shortcut to open each view. You'll find that many of the features in VS Code have keyboard shortcuts already assigned to them, and you can also customize these shortcuts to your liking.
+
+    ![Screenshot that highlights the Activity Bar.](images/getting-started/activity-bar.png)
+
+1. Notice the **Primary Side Bar** that opens when you select a view in the Activity Bar.
+
+    The Primary Side Bar shows view-specific information. For example, the Source Control view shows the changes in your Git repository, and the Run and Debug view enables you to configure and start debugging sessions.
 
     ![Screenshot that shows the Activity Bar and the Run and Debug view in the Primary Side Bar.](images/getting-started/activity-bar-and-side-bar.png)
 
-    > **Tip**: Select the current view in the Activity Bar again to toggle the Primary Side Bar open and closed.
+> **Tip**: Select the current view in the Activity Bar again to toggle the Primary Side Bar open and closed.
 
-1. Select the Explorer view in the Activity Bar.
+### View and edit files with the Editor
 
-1. Select the **New File...** button to create a new file in your workspace. Enter the name `index.html` and press `kbstyle(Enter)`.
+The **Editor** is located in the main area of the window and is where you view and edit files in your workspace.
+
+1. Select the Explorer view in the Activity Bar, and then select the **New File...** button to create a new file in your workspace.
 
     ![Screenshot that shows the New File button in the Explorer view.](images/getting-started/explorer-new-file.png)
 
-    After the file is created, an **Editor** opens in the main area of the window, where you can start typing and editing the file.
+1. Enter the name `index.html` and press `kbstyle(Enter)`.
+
+    A file is added to your workspace and an Editor opens in the main area of the window, where you can start typing and editing the file.
 
     ![Screenshot that shows the Editor in the main area of the window.](images/getting-started/new-file-editor.png)
 
+1. Add more files to your workspace and notice that each file opens in a new Editor tab.
+
     You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing).
 
-1. Open the **Panel** by selecting **View** > **Appearance** > **Panel** from the menu (or press `kb(workbench.action.togglePanel)`).
+    ![Screenshot that shows multiple Editor tabs.](images/getting-started/multiple-editors.png)
 
-    The Panel area, below the Editor, contains different views, such as output, debug information, and the integrated terminal.
+### Access the terminal from the Panel area
+
+The **Panel** area is located below the Editor and contains different views, such as the output and debug information, and also gives you access to the integrated terminal.
+
+1. Open the Panel area by selecting **View** > **Appearance** > **Panel** from the menu (or press `kb(workbench.action.togglePanel)`).
+
+    Notice the different view in the Panel area. As you use different features in VS Code, such as debugging your code, you'll use the information and functionality in these views.
 
     ![Screenshot that shows the Panel area with the Terminal view.](images/getting-started/vscode-panel.png)
 
     > **Tip**: You can move the Panel area with the **View** > **Appearance** > **Panel Position** menu, for example to the left or right for more vertical space.
 
-1. At the bottom, the **Status Bar** shows information about the file you are editing, and the workspace you have open.
+1. Open the integrated terminal by selecting **Terminal** in the Panel area > **New Terminal**, and try running some shell commands.
 
-    Notice that the Status Bar shows the language mode, indentation, and the line ending of the current editor. If the folder you opened is a Git repository, the Git status and current branch are shown in the Status Bar.
+    The terminal enables you to run shell commands directly in VS Code, without switching to another terminal application. For example, you can use the terminal to install dependencies for your project, or run a development server. Notice that the terminal working directory is the root of your workspace.
 
-    ![Screenshot that shows the Status Bar at the bottom of the window.](images/getting-started/status-bar.png)
+    ![Screenshot that shows the integrated terminal in the Panel area.](images/getting-started/vscode-terminal.png)
 
-    > **Tip**: You can interact with the fields in the Status Bar, for example to change the language mode or indentation, or to create a new branch in the Git repository.
+    You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
 
-1. Select **View** > **Command Palette** (or press `kb(workbench.action.showCommands)`) to open the **Command Palette**.
+### Access commands with the Command Palette
 
-    Many of the commands in VS Code are available through the Command Palette. For example, enter *Create new file* in the Command Palette to create a file in your workspace, or enter *Git* to view the list of Git actions you can trigger.
+Many of the commands in VS Code are available through the Command Palette. For example, enter *Create new file* in the Command Palette to create a file in your workspace, or enter *Git* to view the list of Git actions you can trigger.
+
+1. Select **View** > **Command Palette** or press `kb(workbench.action.showCommands)` to open the **Command Palette**.
 
     ![Screenshot that shows the Command Palette, listing the entries for 'Create new file'.](images/getting-started/command-palette.png)
 
     > **Tip**: Notice that the Command Palette shows the default keyboard shortcut for commands that have one. You can use the keyboard shortcut to run the command directly.
 
-    You can also use the Command Palette to navigate to files (press `kb(workbench.action.quickOpen)` for Quick Open), search for symbols in files, and more. Learn more about the [Command Palette](/docs/getstarted/userinterface.md#command-palette) in the VS Code documentation.
+1. Press `kb(workbench.action.quickOpen)` to use the Command Palette to navigate to a file in your workspace. Start typing to filter the list.
+
+    The **Quick Open** feature enables you to quickly open a file in your workspace, or search for symbols in files. Get more info the [Command Palette](/docs/getstarted/userinterface.md#command-palette) in the VS Code documentation.
+
+    ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
+
+### View status information with the Status Bar
+
+The **Status Bar** is located at the bottom of the window and shows information about the file you are editing, and the workspace you have open. For example, if the folder you opened is a Git repository, the Status Bar shows the Git status and current branch.
+
+1. Open a file by selecting it in the Explorer view.
+
+    The Status Bar shows the language mode, indentation, and the line ending of the current editor.
+
+    ![Screenshot that shows the Status Bar at the bottom of the window.](images/getting-started/status-bar.png)
+
+1. Select the indentation field in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
+
+    For a Git repository, you can select the branch name in the Status Bar and create a new branch.
 
 ## Step 3: Customize the user interface
 
-VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
+Each developer has their own preferences for how their coding environment should look like. VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
 
 Let's start by using **Color Themes** to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
 
 To select a different Color Theme:
 
-1. Select the **File** > **Preferences** > **Theme** > **Color Theme** menu item, or enter **Color Theme** command in the Command Palette (`kb(workbench.action.selectTheme)`) to display the Color Theme picker.
+1. Select the **Manage** button (gear icon) in the Activity Bar, and then select **Themes** > **Color Theme** to display the Color Theme picker.
+
+    Alternatively, you can enter **Color Theme** in the Command Palette or press `kb(workbench.action.selectTheme)`.
 
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the colors of the theme.
 
-    As you move through the list, the active theme is previewed in VS Code.
+    VS Code comes with a list of built-in themes that you can choose from. As you move through the list, the active theme is previewed in VS Code.
 
     ![Screen capture that shows how to switch between different color themes by using the Command Palette.](images/themes/themes_hero.gif)
 
-    > **Tip**: You can also select Color Themes from the VS Code Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
+    > **Tip**: You can also select Color Themes from the VS Code Marketplace directly by selecting **Browse Additional Color Themes...** from the Color Theme picker.
 
 Beyond changing the color theme of the user interface, you can customize almost every part of VS Code by using settings. Maybe you prefer a different font for the editor, change word wrapping, or enable [floating editor windows](/docs/editor/custom-layout.md#floating-editor-windows).
 
@@ -125,19 +167,15 @@ Let's use the **Settings Editor** to modify the tab size in the editor:
 
     > **Tip**: Use the search box in the Settings Editor to quickly find a setting.
 
-There are many more ways to customize your VS Code experience, such as [changing default keyboard shortcuts](/docs/getstarted/keybindings.md), adding [code snippets](/docs/editor/userdefinedsnippets.md), or by adding extensions.
+There are many more ways to customize your VS Code experience, such as [changing default keyboard shortcuts](/docs/getstarted/keybindings.md), adding [code snippets](/docs/editor/userdefinedsnippets.md), or by adding extensions from the [Visual Studio Marketplace](#step-5-install-a-language-extension).
 
 ## Step 4: Write some code
 
-VS Code is first and foremost a code editor, so let's start by writing some code! VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more.
+VS Code is first and foremost a code editor, so let's start by writing some code! VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In this tutorial, you create a sample JavaScript file and use some of the code editing features that VS Code offers.
 
-In this tutorial, you create a sample JavaScript file and use some of the basic code editing features that VS Code offers. In the next step, you install a language extension to add support for a different language.
+VS Code supports many programming languages and in the next step, you'll install a language extension to add support for a different language.
 
-1. In the Explorer view, select the **New File...** button and create a new file `app.js`.
-
-    You should now have two files in the Explorer view, `index.html` and `app.js`. As you select either one of the files, the corresponding editor opens.
-
-1. Select the `app.js` file in the Explorer view and start typing the following JavaScript code:
+1. In the Explorer view, create a new file `app.js`, and start typing the following JavaScript code:
 
     ```javascript
     function sayHello(name) {
@@ -147,13 +185,11 @@ In this tutorial, you create a sample JavaScript file and use some of the basic 
     sayHello('VS Code');
     ```
 
-    As you type, you should see suggestions popping up that help you complete your code. This is called *IntelliSense*. You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
+    As you type, you should see suggestions popping up that help you complete your code (*IntelliSense*). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
+
+    Notice also the formatting of the code (*syntax highlighting*), to help you distinguish between different parts of the code.
 
     ![Screen capture that shows IntelliSense in action for a JavaScript file.](images/getting-started/javascript-intellisense.gif)
-
-    Notice also the formatting of the code, to help you distinguish between different parts of the code. This is called *syntax highlighting*.
-
-    > **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save files whenever you make changes.
 
 1. Put the cursor on the `Hello,` string, select the lightbulb icon, and then select **Convert to template string** to use a Code Action to simplify the string concatenation.
 
@@ -163,37 +199,27 @@ In this tutorial, you create a sample JavaScript file and use some of the basic 
 
     You can further experiment with IntelliSense in the different files in your workspace. For example, in the `index.html` file, start typing `<` to see suggestions for HTML tags.
 
-1. Let's add a new Python file `hello.py` to your workspace.
+    > **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save files whenever you make changes.
 
-    When you start typing in the editor, notice that there are no suggestions and IntelliSense for Python. This is because VS Code does not have built-in support for Python. You can add support for Python by installing a language extension.
-
-    In the next step, you install a language extension to add support for different languages to VS Code.
-
-> **Tip**: Enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests. Use [GitHub Copilot](/docs/copilot/overview.md) in VS Code to generate code, or to learn from the code it generates.
+> **Tip**: You can further enhance your coding with artificial intelligence (AI) and [GitHub Copilot](/docs/copilot/overview.md). For example, get suggestions for lines of code or entire functions, perform code refactorings, generate code-related artifacts like tests, or produce code documentation, all from within the editor.
 
 ## Step 5: Install a language extension
 
-The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
+The features that VS Code includes out-of-the-box are just the start. VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your specific development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
 Let's install a language extension to add support for Python, or any other programming language you are interested in.
 
 1. Select the **Extensions** view in the Activity Bar.
 
-    The Extensions view enables you to browse and install extensions from within VS Code. When you open the Extensions view, you see the list of installed extensions, and a list of popular and recommended extensions.
+    The Extensions view enables you to browse and install extensions from within VS Code.
 
     ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
 
-1. Enter *Python* in the Extension view search box to browse for Python-related extensions.
-
-    The list of extensions shows for each extension its name, short description, publisher, install count, and rating.
-
-1. Select the **Python** extension published by Microsoft and select the **Install** button.
+1. Enter *Python* in the Extension view search box to browse for Python-related extensions, select the **Python** extension published by Microsoft and select the **Install** button.
 
     ![Screenshot that shows the Extensions view with a search for Python extensions.](images/getting-started/extensions-search-python.png)
 
-    After the extension is installed, the **Install** button changes into a gear icon.
-
-1. In the `hello.py` editor, start typing the following Python code and notice that IntelliSense is now available:
+1. Now, create a new Python file `hello.py` in your workspace and start typing the following Python code:
 
     ```python
     def say_hello(name):
@@ -202,39 +228,25 @@ Let's install a language extension to add support for Python, or any other progr
     say_hello("VS Code")
     ```
 
+    Notice that you now get suggestions and IntelliSense for Python code.
+
     ![Screen capture that shows IntelliSense in action for a Python file.](images/getting-started/python-intellisense.gif)
 
 Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
-
-Some language extensions also contribute debugging functionality. In the next step, you learn about running and debugging in VS Code.
 
 ## Step 6: Run and debug your code
 
 One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications, and there are extensions available for many other programming languages, such as Python, Java, C#, and more.
 
+> **Note**: Make sure you have the necessary runtime and VS Code extensions installed on your computer. For example, to debug a Python program, you need to have Python installed on your computer.
+
 In this tutorial, you debug the `app.js` file to explore the built-in Node.js debugger. Most debugging concepts and features are applicable to other debuggers as well.
 
-> **Note**: VS Code has built-in debugging capabilities, but you need to have the necessary runtime and VS Code extension installed on your computer to use them. For example, to debug a Python program, you need to have Python installed on your computer.
-
-Let's first validate our program runs from the command line.
-
-1. Make sure you have Node.js installed on your computer. You can download it from [https://nodejs.org/](https://nodejs.org/).
-
-1. Let's first validate our program runs from the command line. Open the terminal by pressing `kb(workbench.action.terminal.toggleTerminal)` and enter the following command:
-
-    ```bash
-    node app.js
-    ```
-
-    You should see the output `Hello, VS Code` in the terminal.
-
-    The terminal enables you to run shell commands directly in VS Code, without switching to another terminal application. You can switch between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
-
-Now let's debug the `app.js` program by using the built-in Node.js debugger.
+Let's debug the `app.js` program by using the built-in Node.js debugger.
 
 1. In the `app.js` file, put the cursor on the `console.log` line and press `kbstyle(F9)` to set a breakpoint.
 
-    A red dot appears in the left margin of the editor, indicating that a breakpoint is set. You can also click in the left margin of the editor to set or remove a breakpoint. With a breakpoint, you can pause the execution of your program at a specific line of code.
+    A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
 
     ![Screenshot that shows a breakpoint in the editor.](images/getting-started/javascript-set-breakpoint.png)
 
@@ -254,11 +266,9 @@ There are many more debugging features in VS Code, such as watch variables, cond
 
 ## Next steps
 
-Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code.
+Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-Now that you've learned the basics of Visual Studio Code, you can:
-
-- Work with [Git repositories and source control](/docs/sourcecontrol/overview.md)
+- [Work with Git repositories and source control](/docs/sourcecontrol/overview.md)
 
 - [Discover and run unit tests for your code](/docs/editor/testing.md)
 
