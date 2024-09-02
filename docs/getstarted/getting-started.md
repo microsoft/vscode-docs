@@ -135,7 +135,7 @@ The **Status Bar** is located at the bottom of the window and shows information 
 
 ## Step 3: Customize the user interface
 
-Each developer has their own preferences for how their coding environment should look like. VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
+Each developer has their own preferences for how their coding environment should look. VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
 
 Let's start by using **Color Themes** to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
 
