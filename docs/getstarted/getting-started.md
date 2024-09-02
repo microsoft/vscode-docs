@@ -39,7 +39,7 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
     Alternatively, you can select **Open Folder...** from the **File** menu or press `kb(workbench.action.files.openFolder)` to open a folder.
 
-> **Tip**: When you use the command line, pass the folder name as a parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
+> **Tip**: If you use the command line to work with VS Code, pass the folder name as a parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
 
 ## Step 2: Explore the user interface
 
