@@ -20,7 +20,7 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 
 ## Step 1: Open a folder in VS Code
 
-VS Code is a great lightweight editor where you can with individual files seamlessly, for example for quick edits or to view a file. However, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
+VS Code is a great lightweight editor where you can work with individual files seamlessly, for example for quick edits or to view a file. Alternatively, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
 
 Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
@@ -38,7 +38,7 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
     Alternatively, you can select **Open Folder...** from the **File** menu or press `kb(workbench.action.files.openFolder)` to open a folder.
 
-> **Tip**: When you use the command line, pass the folder name as a parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
+> **Tip**: If you use the command line to work with VS Code, pass the folder name as a parameter to directly launch VS Code for that folder. For example, enter `code .` to open the current folder in VS Code.
 
 ## Step 2: Explore the user interface
 
@@ -128,13 +128,13 @@ The **Status Bar** is located at the bottom of the window and shows information 
 
     ![Screenshot that shows the Status Bar at the bottom of the window.](images/getting-started/status-bar.png)
 
-1. Select the indentation field in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
+1. Select the indentation field (shown as `Spaces: 4` in the above image) in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
 
     For a Git repository, you can select the branch name in the Status Bar and create a new branch.
 
 ## Step 3: Customize the user interface
 
-Each developer has their own preferences for how their coding environment should look like. VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
+Each developer has their own preferences for how their coding environment should look. VS Code enables you to change the layout, colors, keyboard shortcuts, and nearly every other aspect of the editor through various settings.
 
 Let's start by using **Color Themes** to customize the colors in VS Code. A Color Theme affects both the VS Code user interface elements and the editor highlighting colors.
 
@@ -265,7 +265,7 @@ Let's debug the `app.js` program by using the built-in Node.js debugger.
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, launch configurations, etcetera. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
+There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
 
 ## Optional: Explore AI features with GitHub Copilot
 
