@@ -128,9 +128,9 @@ The **Status Bar** is located at the bottom of the window and shows information 
 
     ![Screenshot that shows the Status Bar at the bottom of the window.](images/getting-started/status-bar.png)
 
-1. Select the indentation field (shown as `Spaces: 4` in the above image) in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
+1. Select the indentation field (shown as `Spaces: 4` in the screenshot) in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
 
-    For a Git repository, you can select the branch name in the Status Bar and create a new branch.
+    If you've opened a Git repository, you can select the branch name in the Status Bar to create a new branch.
 
 ## Step 3: Customize the user interface
 
@@ -156,7 +156,7 @@ To select a different Color Theme:
 
 Beyond changing the color theme of the user interface, you can customize almost every part of VS Code by using settings. Maybe you prefer a different font for the editor, change word wrapping, or enable [floating editor windows](/docs/editor/custom-layout.md#floating-editor-windows).
 
-Let's use the **Settings Editor** to modify the tab size in the editor:
+Let's use the **Settings Editor** to modify the font size in the editor:
 
 1. Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`) to open the Settings Editor.
 
@@ -218,7 +218,7 @@ Let's install a language extension to add support for Python, or any other progr
 
     ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
 
-1. Enter *Python* in the Extension view search box to browse for Python-related extensions, select the **Python** extension published by Microsoft and select the **Install** button.
+1. Enter *Python* in the Extension view search box to browse for Python-related extensions, select the **Python** extension published by Microsoft, and select the **Install** button.
 
     ![Screenshot that shows the Extensions view with a search for Python extensions.](images/getting-started/extensions-search-python.png)
 
