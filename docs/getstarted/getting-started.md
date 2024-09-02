@@ -21,7 +21,7 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 
 ## Step 1: Open a folder in VS Code
 
-VS Code is a great lightweight editor where you can with individual files seamlessly, for example for quick edits or to view a file. However, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
+VS Code is a great lightweight editor where you can work with individual files seamlessly, for example for quick edits or to view a file. Alternatively, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
 
 Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
