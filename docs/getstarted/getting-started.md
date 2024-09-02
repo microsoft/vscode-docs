@@ -15,9 +15,8 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 
 ## Prerequisites
 
-- [Download Visual Studio Code](https://code.visualstudio.com/download)
-- [Set up Visual Studio Code on your computer](/docs/setup/setup-overview.md)
-- [Install Node.js](https://nodejs.org/)
+- [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
+- [Install Node.js](https://nodejs.org/) for running and debugging the sample JavaScript program in this tutorial
 
 ## Step 1: Open a folder in VS Code
 
@@ -29,7 +28,7 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
 1. Open Visual Studio Code.
 
-    When you first open VS Code, you should see the **Welcome** page with different actions to get started. You can also explore some of the VS Code product walkthroughs.
+    When you first open VS Code, you should see the **Welcome** page with different actions to get started.
 
 1. On the Welcome page, select **Open Folder...**, and then select the folder you created.
 
@@ -143,6 +142,8 @@ To select a different Color Theme:
 
 1. Select the **Manage** button (gear icon) in the Activity Bar, and then select **Themes** > **Color Theme** to display the Color Theme picker.
 
+    ![Screenshot that shows the Manage menu to change the color theme, highlighting the Manage button in the Activity Bar.](images/getting-started/change-color-theme.png)
+
     Alternatively, you can enter **Color Theme** in the Command Palette or press `kb(workbench.action.selectTheme)`.
 
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate through the list and preview the colors of the theme.
@@ -161,7 +162,9 @@ Let's use the **Settings Editor** to modify the tab size in the editor:
 
     ![Screenshot that shows the Settings Editor.](images/getting-started/settings-editor.png)
 
-1. Modify the value of the **Editor: Tab Size** setting, and notice how the change is applied directly to your editor.
+1. Modify the value of the **Editor: Font Size** setting to *36*.
+
+    When you switch to the `index.html` editor tab, notice how font size change is immediately applied in the editor.
 
     By default, when you change a setting, it applies to all your VS Code workspaces (**User Settings**). Switch to the **Workspace** tab to change a setting that only applies to the current workspace.
 
@@ -191,17 +194,17 @@ VS Code supports many programming languages and in the next step, you'll install
 
     ![Screen capture that shows IntelliSense in action for a JavaScript file.](images/getting-started/javascript-intellisense.gif)
 
-1. Put the cursor on the `Hello,` string, select the lightbulb icon, and then select **Convert to template string** to use a Code Action to simplify the string concatenation.
+1. Put the cursor on the `Hello,` string, select the lightbulb icon, and then select **Convert to template string**.
 
-    **Code Actions** are suggestions that help you apply quick fixes to your code. You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
+    The lightbulb indicates that there are **Code Actions** available, which are suggestions that help you apply quick fixes to your code. You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
+
+    In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``, which is a special JavaScript construct to embed expressions in strings.
 
     ![Screenshot that shows the lightbulb Code Action to convert a string concatenation to a template string.](images/getting-started/code-action-template-string.png)
 
     You can further experiment with IntelliSense in the different files in your workspace. For example, in the `index.html` file, start typing `<` to see suggestions for HTML tags.
 
     > **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save files whenever you make changes.
-
-> **Tip**: You can further enhance your coding with artificial intelligence (AI) and [GitHub Copilot](/docs/copilot/overview.md). For example, get suggestions for lines of code or entire functions, perform code refactorings, generate code-related artifacts like tests, or produce code documentation, all from within the editor.
 
 ## Step 5: Install a language extension
 
@@ -250,9 +253,9 @@ Let's debug the `app.js` program by using the built-in Node.js debugger.
 
     ![Screenshot that shows a breakpoint in the editor.](images/getting-started/javascript-set-breakpoint.png)
 
-1. Press `kbstyle(F5)` to start a debugging session, and then select the **Node.js** debugger from the list.
+1. Make sure to select the `app.js` file, and then press `kbstyle(F5)` to start a debugging session.
 
-    Notice that the program starts and that the execution stops at the breakpoint you set.
+    Notice that the program starts and that the execution stops at the breakpoint you set. VS Code uses the built-in Node.js debugger to debug the program.
 
     ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
 
@@ -260,9 +263,15 @@ Let's debug the `app.js` program by using the built-in Node.js debugger.
 
 1. Press the **Continue** button in the Debug toolbar or press `kbstyle(F5)` to continue the execution.
 
-    ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar.png)
+    ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
 There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, launch configurations, etcetera. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
+
+## Optional: Explore AI features with GitHub Copilot
+
+You can further enhance your coding with artificial intelligence (AI) and [GitHub Copilot](/docs/copilot/overview.md). For example, get suggestions for lines of code or entire functions, perform code refactorings, generate code-related artifacts like tests, or produce code documentation, all from within the editor.
+
+[![GitHub Copilot extension in the VS Code Marketplace](images/getting-started/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
 ## Next steps
 
