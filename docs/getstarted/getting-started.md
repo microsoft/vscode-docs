@@ -129,7 +129,7 @@ The **Status Bar** is located at the bottom of the window and shows information 
 
     ![Screenshot that shows the Status Bar at the bottom of the window.](images/getting-started/status-bar.png)
 
-1. Select the indentation field in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
+1. Select the indentation field (shown as `Spaces: 4` in the above image) in the Status Bar to modify the indentation of the current file. For example, to use tabs instead of spaces.
 
     For a Git repository, you can select the branch name in the Status Bar and create a new branch.
 
