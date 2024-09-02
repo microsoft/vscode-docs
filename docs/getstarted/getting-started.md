@@ -262,7 +262,7 @@ Let's debug the `app.js` program by using the built-in Node.js debugger.
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar.png)
 
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, launch configurations, etcetera. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
+There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
 
 ## Next steps
 
