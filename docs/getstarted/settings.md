@@ -481,6 +481,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether each bracket type has its own independent color pool.
     "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
 
+    // Enable triggering `editor.codeActionsOnSave` when `files.autoSave` is set to `afterDelay`.
+    "editor.codeActions.triggerOnFocusChange": false,
+
     // Run Code Actions for the editor on save.
     "editor.codeActionsOnSave": {},
 
@@ -795,7 +798,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Disable the code action menu.
     //  - onCode: Show the code action menu when the cursor is on lines with code.
     //  - on: Show the code action menu when the cursor is on lines with code or on empty lines.
-    "editor.lightbulb.enabled": "on",
+    "editor.lightbulb.enabled": "onCode",
 
     // Controls the line height.
     //  - Use 0 to automatically compute the line height from the font size.
@@ -1316,6 +1319,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
     "inlineChat.mode": "live",
 
+    // Whether inline chat opens directly as zone widget, between the lines, or as overlay widget which turns into a zone.
+    "inlineChat.startWithOverlayWidget": false,
+
 // SCM
 
     // Controls whether inline actions are always visible in the Source Control view.
@@ -1326,6 +1332,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the Source Control view should automatically reveal and select files when opening them.
     "scm.autoReveal": true,
+
+    // Controls whether the Source Control view should render folders in a compact form. In such a form, single child folders will be compressed in a combined tree element.
+    "scm.compactFolders": true,
 
     // Controls the count badge on the Source Control icon on the Activity Bar.
     //  - all: Show the sum of all Source Control Provider count badges.
@@ -1407,26 +1416,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether an action button can be shown in the Source Control view.
     "scm.showActionButton": true,
 
-    // Controls whether the All Changes entry is shown for incoming/outgoing changes in the Source Control view.
-    "scm.showChangesSummary": true,
-
-    // Controls whether to render incoming/outgoing changes using a graph in the Source Control view.
-    "scm.showHistoryGraph": true,
-
-    // Controls whether incoming changes are shown in the Source Control view.
-    //  - always: Always show incoming changes in the Source Control view.
-    //  - never: Never show incoming changes in the Source Control view.
-    //  - auto: Only show incoming changes in the Source Control view when any exist.
-    "scm.showIncomingChanges": "auto",
-
     // Controls whether an action button can be shown in the Source Control input.
     "scm.showInputActionButton": true,
-
-    // Controls whether outgoing changes are shown in the Source Control view.
-    //  - always: Always show outgoing changes in the Source Control view.
-    //  - never: Never show outgoing changes in the Source Control view.
-    //  - auto: Only show outgoing changes in the Source Control view when any exist.
-    "scm.showOutgoingChanges": "auto",
 
     // Controls the default working set to use when switching to a source control history item group that does not have a working set.
     //  - empty: Use an empty working set when switching to a source control history item group that does not have a working set.
@@ -2349,6 +2340,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - unicode: Names are sorted in Unicode order.
     "explorer.sortOrderLexicographicOptions": "default",
 
+    // Controls whether the file and folder sort order, should be reversed.
+    "explorer.sortOrderReverse": false,
+
 // Search
 
     // Controls the positioning of the actionbar on rows in the search view.
@@ -2420,6 +2414,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - goToLocation: Double-clicking opens the result in the active editor group.
     //  - openLocationToSide: Double-clicking opens the result in the editor group to the side, creating one if it does not yet exist.
     "search.searchEditor.doubleClickBehaviour": "goToLocation",
+
+    // When a search is triggered, focus the Search Editor results instead of the Search Editor input.
+    "search.searchEditor.focusResultsOnSearch": false,
 
     // When enabled, new Search Editors will reuse the includes, excludes, and flags of the previously opened Search Editor.
     "search.searchEditor.reusePriorSearchConfiguration": false,
@@ -3033,6 +3030,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Specify glob patterns of files to exclude from auto imports.
     "javascript.preferences.autoImportFileExcludePatterns": [],
 
+    // Specify regular expressions to exclude auto imports with matching import specifiers.
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": [],
+
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
     //  - relative: Prefers a relative path to the imported file location.
@@ -3052,6 +3052,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - braces: Insert `={}` after attribute names.
     //  - none: Only insert attribute names.
     "javascript.preferences.jsxAttributeCompletionStyle": "auto",
+
+    // Advanced preferences that control how imports are ordered.
+    "javascript.preferences.organizeImports": {},
 
     // Preferred quote style to use for Quick Fixes.
     //  - auto: Infer quote type from existing code
@@ -3249,6 +3252,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Specify glob patterns of files to exclude from auto imports.
     "typescript.preferences.autoImportFileExcludePatterns": [],
 
+    // Specify regular expressions to exclude auto imports with matching import specifiers.
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": [],
+
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
     //  - relative: Prefers a relative path to the imported file location.
@@ -3274,6 +3280,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - braces: Insert `={}` after attribute names.
     //  - none: Only insert attribute names.
     "typescript.preferences.jsxAttributeCompletionStyle": "auto",
+
+    // Advanced preferences that control how imports are ordered.
+    "typescript.preferences.organizeImports": {},
 
     // Include the `type` keyword in auto-imports whenever possible.
     "typescript.preferences.preferTypeOnlyAutoImports": false,
@@ -3381,10 +3390,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "typescript.tsserver.web.projectWideIntellisense.enabled": true,
 
     // Suppresses semantic errors.
-    "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": true,
+    "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": false,
 
     // Enable/disable package acquisition on the web. This enables IntelliSense for imported packages.
-    "typescript.tsserver.web.typeAcquisition.enabled": false,
+    "typescript.tsserver.web.typeAcquisition.enabled": true,
 
     // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
     //  - prompt: Prompt on each rename.
@@ -3909,7 +3918,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Control whether the actions on the notebook toolbar should render label or not.
     "notebook.globalToolbarShowLabel": "always",
 
-    // When enabled the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.
+    // When enabled, the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.
     "notebook.gotoSymbols.showAllSymbols": true,
 
     // When enabled, insert a final new line into the end of code cells when saving a notebook.
@@ -3988,7 +3997,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - mouseover: The folding controls are visible only on mouseover.
     "notebook.showFoldingControls": "mouseover",
 
-    // Controls whether to render notebook Sticky Scroll headers in the notebook editor.
+    // Experimental. Control whether to render notebook Sticky Scroll headers in the notebook editor.
     "notebook.stickyScroll.enabled": false,
 
     // Control whether nested sticky lines appear to stack flat or indented.
@@ -4379,6 +4388,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the number of recently used commands to keep in the terminal command history. Set to 0 to disable terminal command history.
     "terminal.integrated.shellIntegration.history": 100,
 
+    // Whether to show the command guide when hovering over a command in the terminal.
+    "terminal.integrated.shellIntegration.showCommandGuide": true,
+
     // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
     "terminal.integrated.showExitAlert": true,
 
@@ -4406,18 +4418,19 @@ Below are the Visual Studio Code default settings and their values. You can also
         "pwshGit": true
     },
 
-    // Enables experimental terminal Intellisense suggestions for supported shells (PowerShell) when `terminal.integrated.shellIntegration.enabled` is set to `true`.
+    // Enables experimental terminal Intellisense suggestions for supported shells (PowerShell v7+) when `terminal.integrated.shellIntegration.enabled` is set to `true`.
     "terminal.integrated.suggest.enabled": false,
 
     // Controls whether suggestions should automatically show up while typing.
     "terminal.integrated.suggest.quickSuggestions": true,
 
     // Controls whether suggestions should run immediately when `Enter` (not `Tab`) is used to accept the result.
+    //  - ignore: Ignore suggestions and send the enter directly to the shell without completing.
     //  - never: Never run on `Enter`.
     //  - exactMatch: Run on `Enter` when the suggestion is typed in its entirety.
     //  - exactMatchIgnoreExtension: Run on `Enter` when the suggestion is typed in its entirety or when a file is typed without its extension included.
     //  - always: Always run on `Enter`.
-    "terminal.integrated.suggest.runOnEnter": "exactMatchIgnoreExtension",
+    "terminal.integrated.suggest.runOnEnter": "ignore",
 
     // Controls whether suggestions should automatically show up when typing trigger characters.
     "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
@@ -5651,6 +5664,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - USGovernment: Azure US Government
     //  - custom: A custom Microsoft Sovereign Cloud
     "microsoft-sovereign-cloud.environment": "",
+
+    // Use the Microsoft Authentication Library (MSAL) to sign in with a Microsoft account.
+    "microsoft.useMsal": false,
 
 // JavaScript Debugger
 
