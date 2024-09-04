@@ -80,6 +80,10 @@ A set of colors to control the interactions with actions across the workbench.
 - `toolbar.hoverBackground`: Toolbar background when hovering over actions using the mouse
 - `toolbar.hoverOutline`: Toolbar outline when hovering over actions using the mouse
 - `toolbar.activeBackground`: Toolbar background when holding the mouse over actions
+- `editorActionList.background`: Action List background color.
+- `editorActionList.foreground`: Action List foreground color.
+- `editorActionList.focusForeground`: Action List foreground color for the focused item.
+- `editorActionList.focusBackground`: Action List background color for the focused item.
 
 ## Button control
 
@@ -100,6 +104,13 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `checkbox.border`: Border color of checkbox widget.
 - `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
 - `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
+- `radio.activeForeground`: Foreground color of active radio option.
+- `radio.activeBackground`: Background color of active radio option.
+- `radio.activeBorder`: Border color of the active radio option.
+- `radio.inactiveForeground`: Foreground color of inactive radio option.
+- `radio.inactiveBackground`: Background color of inactive radio option.
+- `radio.inactiveBorder`: Border color of the inactive radio option.
+- `radio.inactiveHoverBackground`: Background color of inactive active radio option when hovering.
 
 ## Dropdown control
 
@@ -959,6 +970,8 @@ The following customizations are available:
 - `terminalStickyScroll.border`: The border of the sticky scroll overlay in the terminal.
 - `terminalStickyScrollHover.background`: The background color of the sticky scroll overlay in the terminal when hovered.
 - `terminal.initialHintForeground`: Foreground color of the terminal initial hint.
+- `terminalOverviewRuler.border`: The overview ruler left-side border color.
+- `terminalCommandGuide.foreground`: The foreground color of the terminal command guide that appears to the left of a command and its output on hover.
 
 ## Debug colors
 
@@ -1038,6 +1051,18 @@ The following customizations are available:
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
+
+## Source Control Graph colors
+
+- `scmGraph.historyItemGroupLocal`: Local history item group color.
+- `scmGraph.historyItemGroupRemote`: Remote history item group color.
+- `scmGraph.historyItemGroupBase`: Base history item group color.
+- `scmGraph.historyItemHoverLabelForeground`: History item hover label foreground color.
+- `scmGraph.foreground1`: Source control graph foreground color (1).
+- `scmGraph.foreground2`: Source control graph foreground color (2).
+- `scmGraph.foreground3`: Source control graph foreground color (3).
+- `scmGraph.historyItemHoverAdditionsForeground`: History item hover additions foreground color.
+- `scmGraph.historyItemHoverDeletionsForeground`: History item hover deletions foreground color.
 
 ## Settings Editor colors
 
