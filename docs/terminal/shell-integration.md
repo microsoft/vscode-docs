@@ -104,7 +104,11 @@ The commands detected by shell integration feed into the command navigation feat
 
 ## Command guide
 
-The command guide is a bar that shows up beside a command and its output when hovered. This helps more quickly identify the command and also is a way to verify that shell integration is working properly. Themes control the color of the command guide and it can be disabled with the `terminal.integrated.shellIntegration.showCommandGuide` setting.
+The command guide is a bar that shows up beside a command and its output when hovered. This helps more quickly identify the command and also is a way to verify that shell integration is working properly.
+
+![Screenshot of the terminal, highlighting the command guide vertical bar on the left-hand side to indicate the boundary of a command.](images/shell-integration/terminal-command-guide.png)
+
+You can customize the color of the command guide by using Color Themes. To toggle the command guide, configure the `setting(terminal.integrated.shellIntegration.showCommandGuide)` setting.
 
 ## Sticky scroll
 
