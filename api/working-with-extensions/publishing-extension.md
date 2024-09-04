@@ -339,7 +339,7 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
 
 If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
