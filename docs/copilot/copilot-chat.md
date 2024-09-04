@@ -239,7 +239,6 @@ Examples of built-in chat variables are:
 * `#codebase`: the contents of the current workspace. It includes information about the files and folders in your workspace, as well as any settings or configurations specific to that workspace.
 * `#editor`: the code in the active editor. The editor content is implicitly included in the Chat view context.
 * `#file`: include a specified file in your workspace as context with your chat prompt.
-* `#git`: information about the current git repository, such as the workspace folder, branch name, remotes, and more.
 * `#selection`: the visible source code in the active editor.
 * `#terminalLastCommand`: the active terminal's last run command.
 * `#terminalSelection`: the active terminal's selection.
