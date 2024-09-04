@@ -53,13 +53,13 @@ If you already synced from a machine and turning on sync from another machine, y
 
 ## Configuring synced data
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `settingsSync.ignoredSettings`.
+Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
 
-Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `settingsSync.keybindingsPerPlatform`.
+Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `setting(settingsSync.keybindingsPerPlatform)`.
 
-All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `settingsSync.ignoredExtensions`.
+All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `setting(settingsSync.ignoredExtensions)`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-extensions.png)
 

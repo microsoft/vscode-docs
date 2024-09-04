@@ -206,7 +206,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 ### Tune your settings
 
-By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+By default, VS Code shows the Settings editor to view and edit settings. You can also edit the underlying `settings.json` file by using the **Open User Settings (JSON)** command or by changing your default settings editor with the `setting(workbench.settings.editor)` setting.
 
 Open User Settings `settings.json`
 
@@ -371,7 +371,7 @@ See more in the [JSON](/docs/languages/json.md) documentation.
 
 ### Configure the default browser
 
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `workbench.externalBrowser` [setting](/docs/getstarted/settings.md).
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/getstarted/settings.md).
 
 Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
 
@@ -551,7 +551,7 @@ You can add additional cursors to all occurrences of the current selection with 
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
@@ -568,7 +568,7 @@ You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-sele
 
 ### Vertical rulers
 
-You can add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+You can add vertical column rulers to the editor with the `setting(editor.rulers)` setting, which takes an array of column character positions where you'd like vertical rulers.
 
 ```json
 {
@@ -582,7 +582,7 @@ You can add vertical column rulers to the editor with the `editor.rulers` settin
 
 ### Fast scrolling
 
-Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
+Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`setting(editor.fastScrollSensitivity)`) setting.
 
 ### Locked scrolling
 
@@ -1019,11 +1019,11 @@ For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the followin
 
 ### Run npm scripts as tasks from the Explorer
 
-From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to `run`. Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+From the Explorer view you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `setting(npm.scriptExplorerAction)` to `run`. Use the setting `setting(npm.exclude)` to exclude scripts in `package.json` files contained in particular folders.
 
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
-With the setting `npm.enableRunFromFolder`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
+With the setting `setting(npm.enableRunFromFolder)`, you can enable to run npm scripts from the Explorer view context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
 
 ## Portable mode
 

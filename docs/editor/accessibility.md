@@ -25,7 +25,7 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 ### Persisted zoom level
 
-When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
+When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `setting(window.zoomLevel)` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
 
 ## Accessibility help
 
@@ -108,7 +108,7 @@ One of the best approaches to selecting the best colors for a specific condition
 
 ## Dim unfocused editors and terminals
 
-Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Turn on this feature by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `accessibility.dimUnfocused.opacity`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
+Unfocused views can be dimmed to make it clearer where typed input will go. This is especially useful when working with multiple editor groups or terminals. Turn on this feature by setting `"accessibility.dimUnfocused.enabled": true`. You can control the dimness level with `setting(accessibility.dimUnfocused.opacity)`, which takes the opacity fraction from 0.2 to 1 (default 0.75).
 
 ## Keyboard navigation
 
@@ -138,7 +138,7 @@ All elements in the workbench support tab navigation. To avoid having too many t
 
 By default, pressing `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your indentation setting) and does not leave the open file. You can toggle `kbstyle(Tab)` trapping with `kb(editor.action.toggleTabFocusMode)`, and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see a **Tab moves focus** indicator in the Status Bar.
 
-Tab trapping also exists in the integrated terminal. The default behavior for the feature can be configured with `editor.tabFocusMode`.
+Tab trapping also exists in the integrated terminal. The default behavior for the feature can be configured with `setting(editor.tabFocusMode)`.
 
 ![A Tab moves focus status bar item shows when the mode is active](images/accessibility/tab-moves-focus.png)
 
@@ -158,7 +158,7 @@ VS Code supports screen readers in the editor using a strategy based on text pag
 
 The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.nextInFiles)` and `kb(editor.action.marker.prevInFiles)`) allow screen readers to announce the error and warning messages.
 
-When suggestions pop up, they are announced to screen readers. Navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)` and dismiss them with `kbstyle(Shift+Escape)`. If suggestions get in your way, you can turn them off with the `editor.quickSuggestions` setting.
+When suggestions pop up, they are announced to screen readers. Navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)` and dismiss them with `kbstyle(Shift+Escape)`. If suggestions get in your way, you can turn them off with the `setting(editor.quickSuggestions)` setting.
 
 In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`) will show the Accessible Diff Viewer with diffs presented in a unified patch format. Navigate through the unchanged, inserted, or deleted lines with `kbstyle(Up)` and `kbstyle(Down)`. Press `kbstyle(Enter)` to return focus to the modified pane of the diff editor at the selected line number (or the closest line number that still exists, if a deleted line is selected). Use `kbstyle(Escape)` or `kbstyle(Shift+Escape)` to dismiss the Accessible Diff Viewer.
 
@@ -172,7 +172,7 @@ When VS Code detects that a screen reader is being used, it goes into an optimiz
 
 ![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 
-Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
+Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`setting(editor.accessibilitySupport)`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
 
 ## Input control and result navigation
 
@@ -182,7 +182,7 @@ Navigating between an input control (for example, search or filter input) and it
 
 You can display terminal accessibility help via `kb(editor.action.accessibilityHelp)`, which describes useful tips when using a screen reader. One tip is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the buffer in the terminal. This will automatically enter the screen reader's browse mode, depending on your screen reader, for an accessible view of the entire terminal buffer.
 
-Use `editor.tabFocusMode` to control whether the terminal receives the `kbstyle(Tab)` key instead of the workbench, similar to the editor.
+Use `setting(editor.tabFocusMode)` to control whether the terminal receives the `kbstyle(Tab)` key instead of the workbench, similar to the editor.
 
 ### Shell integration
 
@@ -192,9 +192,9 @@ Another shell integration powered command, **Go to Symbol in Accessible View** (
 
 ### Minimum contrast ratio
 
-Set `terminal.integrated.minimumContrastRatio` to a number between 1 and 21 to adjust text color luminance until the desired contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+Set `setting(terminal.integrated.minimumContrastRatio)` to a number between 1 and 21 to adjust text color luminance until the desired contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
 
-Note that the `terminal.integrated.minimumContrastRatio` setting will not apply to `powerline` characters.
+Note that the `setting(terminal.integrated.minimumContrastRatio)` setting will not apply to `powerline` characters.
 
 ## Status bar accessibility
 

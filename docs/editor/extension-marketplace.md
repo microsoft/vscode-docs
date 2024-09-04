@@ -146,13 +146,13 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/getstarted/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
 
 ![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
 You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
 
-If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
+If you don't want VS Code to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
 
 ### Update an extension manually
 
@@ -344,8 +344,8 @@ Once downloaded, you can then install the extension via the **Install from VSIX*
 
 Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
-* `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
-* `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
+* `setting(extensions.showRecommendationsOnlyOnDemand)` - Set to true to remove the **RECOMMENDED** section.
+* `setting(extensions.ignoreRecommendations)` - Set to true to silence extension recommendation notifications.
 
 The **Show Recommended Extensions** command is always available if you want to see recommendations.
 

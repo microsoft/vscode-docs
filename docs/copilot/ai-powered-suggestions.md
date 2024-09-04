@@ -79,7 +79,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ### Settings
 
-You can configure the font for the inline suggestions with the `editor.inlineSuggest.fontFamily` setting.
+You can configure the font for the inline suggestions with the `setting(editor.inlineSuggest.fontFamily)` setting.
 
 ## Next steps
 

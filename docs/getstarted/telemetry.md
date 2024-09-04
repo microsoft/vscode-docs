@@ -23,7 +23,7 @@ VS Code and this page refer to three different types of data with respect to tel
 
 ## Disable telemetry reporting
 
-With the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md), you can control the different types of telemetry we send with a single setting. Here is a table of the different types of data sent with each value of `telemetry.telemetryLevel`:
+With the `setting(telemetry.telemetryLevel)` user [setting](/docs/getstarted/settings.md), you can control the different types of telemetry we send with a single setting. Here is a table of the different types of data sent with each value of `setting(telemetry.telemetryLevel)`:
 
 |       | Crash Reports         | Error Telemetry | Usage Data     |
 |:------|:---------------------:|:---------------:|:--------------:|
@@ -32,7 +32,7 @@ With the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md)
 | crash |            ✓          |        -        |        -       |
 | off   |            -          |        -        |        -       |
 
-For example, if you don't want to send any telemetry data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+For example, if you don't want to send any telemetry data to Microsoft, you can set the `setting(telemetry.telemetryLevel)` user [setting](/docs/getstarted/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
 
@@ -46,7 +46,7 @@ If you use the JSON editor for your settings, add the following line:
 
 ## Extensions and telemetry
 
-VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
+VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `setting(telemetry.telemetryLevel)` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
 
 Extension authors may refer to the ["For Extension Authors"](#for-extension-authors) section for guidance on implementing telemetry best practices within their extension.
 
