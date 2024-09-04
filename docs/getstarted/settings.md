@@ -32,9 +32,11 @@ In the example below, the Side Bar location and File Icon Theme were changed.
 
 ![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
 
-The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset a setting to its default value, and to copy the setting ID or copy a JSON name-value pair.
+The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset a setting to its default value, and to copy the setting ID, copy a JSON name-value pair, or copy the settings URL.
 
 ![Settings edit gear context menu](images/settings/more-actions-context-menu.png)
+
+> **Tip**: A settings URL enables you to navigate directly to a specific setting in the Settings editor from the browser. The URL is in the format `vscode://settings/<settingName>`, where `<settingName>` is the ID of the setting you want to navigate to. For example, to navigate to the `workbench.colorTheme` setting, use the URL `vscode://settings/workbench.colorTheme`.
 
 ### Edit settings
 
