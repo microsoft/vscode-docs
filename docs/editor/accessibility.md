@@ -221,6 +221,7 @@ The VS Code debugger UI is user accessible and has the following features:
 * Both the Run and Debug view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
+* While debugging and with the focus in an editor, invoking the **Debug: Add to Watch** command announces the variable's value.
 
 ## Accessibility Signals
 
@@ -257,6 +258,7 @@ After you enable that setting, VS Code should work with the Orca screen reader.
 
 Read on to find out about:
 
+* [Voice interactions](/docs/editor/voice.md) - Learn how to use voice commands in VS Code.
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
