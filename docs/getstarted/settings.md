@@ -140,7 +140,7 @@ Notice that the line numbers in the editor for the `settings.json` file are now 
 
 ![settings.json editor with green line numbers](images/settings/color-customization-example.png)
 
-Remove the `workbench.colorCustomizations` setting code block to return the line number color to the default.
+Remove the `setting(workbench.colorCustomizations)` setting code block to return the line number color to the default.
 
 >**Note**: The example above changes the editor line number for all [Color Themes](/docs/getstarted/themes.md), but you can tune colors per [specific Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) or even [create your own Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) extension.
 
@@ -187,13 +187,13 @@ When you add a Workspace Settings `settings.json` file to your project or source
 One way to customize language-specific settings is by opening the Settings editor, pressing on the filter button, and selecting the language option to add a language filter. Alternatively, one can directly type a language filter of the form `@lang:languageId` into the search widget. The settings that show up will be configurable for that specific language, and will show the setting value specific to that language, if applicable.
 
 When you modify a setting while there is a language filter in place, the setting is configured in the given scope for that language.
-For example, when modifying the user-scope `diffEditor.codeLens` setting while there is a `@lang:css` filter in the search widget, the Settings editor saves the new value to the CSS-specific section of the user settings file.
+For example, when modifying the user-scope `setting(diffEditor.codeLens)` setting while there is a `@lang:css` filter in the search widget, the Settings editor saves the new value to the CSS-specific section of the user settings file.
 
 ![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-example.png)
 
 >**Note:** If you enter more than one language filter in the search widget, the current behavior is that only the first language filter will be used.
 
-Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want. Then, the Settings editor opens with a language filter for the selected language, which allows you to modify language-specific settings for that language. Though, if you have the `workbench.settings.editor` setting set to `json`, then the `settings.json` file opens with a new language entry where you can add applicable settings.
+Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want. Then, the Settings editor opens with a language filter for the selected language, which allows you to modify language-specific settings for that language. Though, if you have the `setting(workbench.settings.editor)` setting set to `json`, then the `settings.json` file opens with a new language entry where you can add applicable settings.
 
 ![Configure language-specific settings command typed up in the Command Palette](images/settings/pref-config-lang-settings.png)
 
@@ -205,7 +205,7 @@ Now you can start editing settings specifically for that language:
 
 ![Settings editor showing a specific language filter](images/settings/lang-based-settings-editor.png)
 
-Or, if `workbench.settings.editor` is set to `json`, now you can start adding language-specific settings to your user settings:
+Or, if `setting(workbench.settings.editor)` is set to `json`, now you can start adding language-specific settings to your user settings:
 
 ![Suggestions for language-specific settings shown in the settings JSON file](images/settings/lang-based-settings.png)
 
@@ -271,7 +271,7 @@ Setting values can be of various types:
 
 Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 
-For example, `workbench.colorCustomizations` takes an Object that specifies a group of UI elements and their desired colors. If your user settings set the editor backgrounds to blue and green:
+For example, `setting(workbench.colorCustomizations)` takes an Object that specifies a group of UI elements and their desired colors. If your user settings set the editor backgrounds to blue and green:
 
 ```json
   "workbench.colorCustomizations": {
@@ -311,10 +311,10 @@ Some settings allow you to specify an executable that VS Code will run to perfor
 
 Here is the list of settings not supported in workspace settings:
 
-* `git.path`
-* `terminal.external.windowsExec`
-* `terminal.external.osxExec`
-* `terminal.external.linuxExec`
+* `setting(git.path)`
+* `setting(terminal.external.windowsExec)`
+* `setting(terminal.external.osxExec)`
+* `setting(terminal.external.linuxExec)`
 
 The first time you open a workspace that defines any of these settings, VS Code will warn you and then always ignore the values after that.
 

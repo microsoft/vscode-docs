@@ -27,7 +27,7 @@ VS Code supports the following glob syntax:
 
 ## Special cases
 
-Glob patterns in the Search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
+Glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 ## Common questions
 

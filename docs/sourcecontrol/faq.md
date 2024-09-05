@@ -79,7 +79,7 @@ VS Code uses `git rev-parse --show-toplevel` to determine the root of a Git repo
 
 To avoid confusion, and to reduce the risk of data loss, VS Code will display a notification and a new welcome view in the Source Control view, and will not automatically open Git repositories from the parent folders of workspaces and open files.
 
-You can control how Git repositories from parent folders are handled using the `git.openRepositoryInParentFolders` setting. If you would like to restore the old behavior, set the `git.openRepositoryInParentFolders` setting to `always`.
+You can control how Git repositories from parent folders are handled using the `setting(git.openRepositoryInParentFolders)` setting. If you would like to restore the old behavior, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
 
 ### Can I use SSH Git authentication with VS Code?
 

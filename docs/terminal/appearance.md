@@ -19,12 +19,12 @@ _[Sapphire](https://marketplace.visualstudio.com/items?itemName=tyriar.theme-sap
 
 Text in the terminal can be customized with the following settings:
 
-- `terminal.integrated.fontFamily`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `"'Fira Code', monospace"` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
-- `terminal.integrated.fontSize`: Changes the font size of text in the terminal.
-- `terminal.integrated.letterSpacing`: Configures additional horizontal spacing between characters in pixels.
-- `terminal.integrated.lineHeight`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
-- `terminal.integrated.fontWeight`: Configures the font weight of "normal" text.
-- `terminal.integrated.fontWeightBold`: Configures the font weight of "bold" text.
+- `setting(terminal.integrated.fontFamily)`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `"'Fira Code', monospace"` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
+- `setting(terminal.integrated.fontSize)`: Changes the font size of text in the terminal.
+- `setting(terminal.integrated.letterSpacing)`: Configures additional horizontal spacing between characters in pixels.
+- `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
+- `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
+- `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
 
 ### Powerline symbols and Nerd Fonts
 
@@ -44,10 +44,10 @@ Nerd Fonts work the same and typically have a `" NF"` suffix, the following is a
 
 The terminal cursor style and whether it blinks can be customized with the following settings:
 
-- `terminal.integrated.cursorStyle`: Defines the shape of the cursor, can be block, line or underline.
-- `terminal.integrated.cursorWidth`: How wide in pixels the cursor should be when the cursor style is set to `line`.
-- `terminal.integrated.cursorBlinking`: Whether the cursor should blink when the terminal is focused.
-- `terminal.integrated.cursorStyleInactive`: Defines the shape of the cursor, can be outline, block, line, underline or none.
+- `setting(terminal.integrated.cursorStyle)`: Defines the shape of the cursor, can be block, line or underline.
+- `setting(terminal.integrated.cursorWidth)`: How wide in pixels the cursor should be when the cursor style is set to `line`.
+- `setting(terminal.integrated.cursorBlinking)`: Whether the cursor should blink when the terminal is focused.
+- `setting(terminal.integrated.cursorStyleInactive)`: Defines the shape of the cursor, can be outline, block, line, underline or none.
 
 ## Customizing tabs
 
@@ -59,19 +59,19 @@ Terminal tabs appear on the right of the terminal view when there are two or mor
 
 The default visibility is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
 
-- `terminal.integrated.tabs.hideCondition`: When to hide the tabs to the right, set to `"never"` to always show them.
-- `terminal.integrated.tabs.showActiveTerminal`: When to show the active terminal in the terminal view header.
-- `terminal.integrated.tabs.showActions`: When to show the active terminal's actions in the view header.
-- `terminal.integrated.tabs.location`: Whether the tabs should be shown on the left or right of the terminal.
-- `terminal.integrated.tabs.enabled`: Whether to use tabs, disabling will show the original dropdown view.
+- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `"never"` to always show them.
+- `setting(terminal.integrated.tabs.showActiveTerminal)`: When to show the active terminal in the terminal view header.
+- `setting(terminal.integrated.tabs.showActions)`: When to show the active terminal's actions in the view header.
+- `setting(terminal.integrated.tabs.location)`: Whether the tabs should be shown on the left or right of the terminal.
+- `setting(terminal.integrated.tabs.enabled)`: Whether to use tabs, disabling will show the original dropdown view.
 
 ### Tab text
 
 The text on each tab is determined by the following settings:
 
-- `terminal.integrated.tabs.title`: Tab title.
-- `terminal.integrated.tabs.description`: Text that appears to the right of the title.
-- `terminal.integrated.tabs.separator`: Separator character between the title and description.
+- `setting(terminal.integrated.tabs.title)`: Tab title.
+- `setting(terminal.integrated.tabs.description)`: Text that appears to the right of the title.
+- `setting(terminal.integrated.tabs.separator)`: Separator character between the title and description.
 
 By default, the title displays what the shell's detected process name.
 
@@ -83,7 +83,7 @@ Other terminals often display the escape sequence sent by the shell as the title
 
 ### Icons
 
-Each terminal has an associated icon that is determined by its [terminal profile](/docs/terminal/profiles.md). The default icon and its color, which will be used if not defined in a profile, can be configured with the `terminal.integrated.tabs.defaultIcon` and `terminal.integrated.tabs.defaultColor` settings.
+Each terminal has an associated icon that is determined by its [terminal profile](/docs/terminal/profiles.md). The default icon and its color, which will be used if not defined in a profile, can be configured with the `setting(terminal.integrated.tabs.defaultIcon)` and `setting(terminal.integrated.tabs.defaultColor)` settings.
 
 ### Status
 
@@ -95,13 +95,13 @@ A terminal's "status", if any, is signified by an icon that appears on the right
 
 ### Visual bell
 
-When the terminal's bell is triggered, a yellow bell icon is briefly shown. This can be disabled with `terminal.integrated.enableBell` and the duration can be configured with `terminal.integrated.bellDuration`.
+When the terminal's bell is triggered, a yellow bell icon is briefly shown. This can be disabled with `setting(terminal.integrated.enableBell)` and the duration can be configured with `setting(terminal.integrated.bellDuration)`.
 
 ## Terminal colors
 
 While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](/docs/getstarted/themes.md), but they can also be configured independently from the theme with the [workbench.colorCustomizations](/docs/getstarted/themes.md#workbench-colors) setting.
 
-Whether bold text uses the normal ANSI colors or the bright variant can be configured with the `terminal.integrated.drawBoldTextInBrightColors` setting.
+Whether bold text uses the normal ANSI colors or the bright variant can be configured with the `setting(terminal.integrated.drawBoldTextInBrightColors)` setting.
 
 ### Minimum contrast ratio
 
@@ -124,7 +124,7 @@ The terminal features two different renderers, each of which have different trad
 
 GPU acceleration driven by the WebGL renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
-The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
+The default `setting(terminal.integrated.gpuAcceleration)` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
 
 ### Custom glyphs
 

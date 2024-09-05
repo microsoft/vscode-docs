@@ -305,7 +305,10 @@ See more information in [Marketplace Presentation Tips](/api/references/extensio
 
 ### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details.
+You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details. 
+
+#### Prerequisites
+To become verified, a publisher must have one or more extensions on the VS Marketplace for a minimum of 6 months, and the registration of the domain must also be at least 6 months old. Please wait until these criteria are met before applying for verification.
 
 ![Verified publisher indicators in VS Code](images/publishing-extension/verified-publisher.png)
 
@@ -336,7 +339,7 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions content eligibility, legitimacy, trust and positive reputation. New publishers will need a consistent track record demonstrating these for at least 6 months.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
 
 If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
