@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -162,10 +162,6 @@ When suggestions pop up, they are announced to screen readers. Navigate the sugg
 
 In the diff view pane, the **Go to Next/Previous Difference** actions (`kb(editor.action.accessibleDiffViewer.next)` and `kb(editor.action.accessibleDiffViewer.prev)`) will show the Accessible Diff Viewer with diffs presented in a unified patch format. Navigate through the unchanged, inserted, or deleted lines with `kbstyle(Up)` and `kbstyle(Down)`. Press `kbstyle(Enter)` to return focus to the modified pane of the diff editor at the selected line number (or the closest line number that still exists, if a deleted line is selected). Use `kbstyle(Escape)` or `kbstyle(Shift+Escape)` to dismiss the Accessible Diff Viewer.
 
-## Accessible View
-
-Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View and inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, notebook output, terminal output, chat responses, debug console output, and more.
-
 ## Screen reader mode
 
 When VS Code detects that a screen reader is being used, it goes into an optimized screen reader mode for UI such as the editor and Integrated Terminal. The Status bar will display **Screen Reader Optimized** in the lower right. You can exit screen reader mode by clicking on the display text or using the **Toggle Screen Reader Accessibility Mode** command.
@@ -173,6 +169,18 @@ When VS Code detects that a screen reader is being used, it goes into an optimiz
 ![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
 
 Some features, such as folding and minimap (code overview), are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`setting(editor.accessibilitySupport)`) and the values are `on`, `off`, or the default `auto` that automatically detects a screen reader through querying the platform.
+
+## Resize table columns via the keyboard
+
+The `list.resizeColumn` command enables you to resize columns by using the keyboard. You can [assign a keyboard shortcut](#keyboard-navigation) to trigger this command.
+
+When you trigger this command, select the column you want to resize, and provide a percentage of the width you want to set. The following video shows how to apply this to resize a column in the Keyboard Shortcuts editor.
+
+<video src="images/accessibility/resize-columns.mp4" title="Resize columns in the Keyboard Shortcuts editor via the keyboard." autoplay loop controls muted></video>
+
+## Accessible View
+
+Run the command **Open Accessible View** `kb(editor.action.accessibleView)` to display an Accessible View and inspect content character by character, line by line. The Accessible View is currently available for hovers, notifications, comments, notebook output, terminal output, chat responses, inline completions, debug console output, and more.
 
 ## Input control and result navigation
 
@@ -213,6 +221,7 @@ The VS Code debugger UI is user accessible and has the following features:
 * Both the Run and Debug view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
+* While debugging and with the focus in an editor, invoking the **Debug: Add to Watch** command announces the variable's value.
 
 ## Accessibility Signals
 
@@ -249,6 +258,7 @@ After you enable that setting, VS Code should work with the Orca screen reader.
 
 Read on to find out about:
 
+* [Voice interactions](/docs/editor/voice.md) - Learn how to use voice commands in VS Code.
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

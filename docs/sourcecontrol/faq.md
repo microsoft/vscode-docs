@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 ---
 # Source Control FAQ
 

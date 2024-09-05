@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -103,9 +103,9 @@ VS Code is able to periodically fetch changes from your remotes. This enables VS
 
 >**Tip:** You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
 
-## Incoming and outgoing changes
+## Source Control Graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Incoming/Outgoing** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 
@@ -113,11 +113,8 @@ The graph contains the current branch, the current branch's upstream branch, and
 
 The graph provides the following functionality:
 
-* Multi-select entries to see changes across multiple history items that belong to the same branch.
-* Filter history items from the remote/base branches through the `...` menu.
+* Select an entry to see the corresponding changes in the commit.
 * Perform Fetch, Pull, and Push actions by hovering over the **Incoming/Outgoing** heading.
-
-You can disable the graph visualization of incoming/outgoing changes by toggling the <code codesetting="scm.showHistoryGraph">scm.showHistoryGraph</code> setting.
 
 ## Git Status Bar actions
 
