@@ -323,7 +323,7 @@ The Python extension also offers support for discovering and running Django unit
     1. Create a `.env` file at the root of your project.
     2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
-    4. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/getstarted/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
+3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/getstarted/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
 
 > **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](https://code.visualstudio.com/docs/editor/variables-reference), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/getstarted/settings.md#settingsjson), so the Python extension can load the environment variables in this file when running and discovering tests. See our [Python environment variables](https://code.visualstudio.com/docs/python/environments#_environment-variables) docs for more information on environment variables.
 
