@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Collaborate on GitHub
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -241,9 +241,11 @@ If you are using the [browser-based editor](/docs/remote/codespaces.md#browserba
 
 ![Continue Working On from web-based editor](images/github/codespaces-continue.png)
 
-The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes.
+The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which stores your pending changes on the same VS Code service used for Settings Sync.
 
 These changes are deleted from our service once they are applied to your target development environment. If you choose to continue without your uncommitted changes, you can always change this preference later by configuring the setting `"workbench.cloudChanges.continueOn": "prompt"`.
+
+In the event that your pending changes are not automatically applied to your target development environment, you can view, manage, and delete your stored changes using the **Cloud Changes: Show Cloud Changes** command.
 
 ## GitHub Copilot
 

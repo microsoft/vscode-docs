@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/debugging/debugging-social.png
 
 One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3HiLLByBWkg" title="Getting started with debugging in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## User interface
 

@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 ---
 # Remote Development Tips and Tricks
 
@@ -43,13 +43,13 @@ ssh-keygen -t ed25519 -b 4096
 
 * For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
 
-    ```
+    ```bash
     chmod 400 ~/.ssh/id_ed25519
     ```
 
 * For Windows, run the following command in PowerShell to grant explicit read access to your username:
 
-    ```
+    ```powershell
     icacls "privateKeyPath" /grant <username>:R
     ```
 

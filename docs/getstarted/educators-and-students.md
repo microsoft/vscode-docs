@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Educators & Students
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
 PageTitle: Visual Studio Code for Educators and Students
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Resources for educators and students to get started with Visual Studio Code.
 ---
 # VS Code for Educators and Students
@@ -107,7 +107,7 @@ Inspired by the film "Space Jam: A New Legacy," this learning path shows basketb
 
 [Live Share](https://learn.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate in real time with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
 
-<iframe src="https://youtube.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Collaborate with Live Share"></iframe>
 
 >**Note**: The video mentions the deprecated Live Share Extension Pack and Live Share Audio extension. To follow along with the video, you only need to install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension.
 

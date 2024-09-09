@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 1/4/2022
+DateApproved: 09/05/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -76,7 +76,7 @@ This document describes some of the key features included in those Java extensio
 
 ### Install a Java Development Kit (JDK)
 
-A Java Development Kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
+A Java Development Kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.8 or above.
 
 We recommend you to consider installing the JDK from one of these sources:
 

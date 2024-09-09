@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -101,6 +101,14 @@ The command and overview ruler decorations can be configured with the `setting(t
 ## Command navigation
 
 The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. To select from the current position to the command, you can also hold down `kbStyle(Shift)`, pressing `kbStyle(Shift+Ctrl/Cmd+Up)` and `kbStyle(Shift+Ctrl/Cmd+Down)`.
+
+## Command guide
+
+The command guide is a bar that shows up beside a command and its output when hovered. This helps more quickly identify the command and also is a way to verify that shell integration is working properly.
+
+![Screenshot of the terminal, highlighting the command guide vertical bar on the left-hand side to indicate the boundary of a command.](images/shell-integration/terminal-command-guide.png)
+
+You can customize the color of the command guide by using Color Themes. To toggle the command guide, configure the `setting(terminal.integrated.shellIntegration.showCommandGuide)` setting.
 
 ## Sticky scroll
 

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Enhance your coding with AI-powered suggestions and chat conversations with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -20,7 +20,7 @@ With GitHub Copilot in VS Code you can:
 * Ask questions to help ramp-up on a new code base, or accelerate learning a new programming language or framework.
 * Use chat features to discover and configure your VS Code setup.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jXp5D5ZnxGM" title="Get to know GitHub Copilot in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jXp5D5ZnxGM" title="Get to know GitHub Copilot in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 

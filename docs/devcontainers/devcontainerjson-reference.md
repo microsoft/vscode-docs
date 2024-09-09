@@ -5,7 +5,7 @@ TOCTitle: devcontainer.json
 PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 ---
 # devcontainer.json reference
 
