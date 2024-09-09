@@ -29,7 +29,13 @@ sudo apt install ./<file>.deb
 
 Note that other binaries are also available on the [VS Code download page](/Download).
 
-Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Alternatively, the repository and key can also be installed manually with the following script:
+Installing the .deb package will prompt to install the apt repository and signing key to enable auto-updating using the system's package manager. To automatically install the apt repository and signing key, such as on a non-interactive terminal, run the following command first:
+
+```bash
+echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+```
+
+The apt repository and key can also be installed manually with the following script:
 
 ```bash
 sudo apt-get install wget gpg
