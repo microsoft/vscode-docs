@@ -16,11 +16,10 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 ## Prerequisites
 
 - [Download and install Visual Studio Code on your computer](https://code.visualstudio.com/download)
-- [Install Node.js](https://nodejs.org/) for running and debugging the sample JavaScript program in this tutorial
 
 ## Step 1: Open a folder in VS Code
 
-VS Code is a great lightweight editor where you can work with individual files seamlessly, for example for quick edits or to view a file. Alternatively, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
+In VS Code, you can work with individual files seamlessly, for example for quick edits or to view a file. Alternatively, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
 
 Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
@@ -164,7 +163,7 @@ Let's use the **Settings Editor** to modify the font size in the editor:
 
 1. Modify the value of the **Editor: Font Size** setting to *36*.
 
-    When you switch to the `index.html` editor tab, notice how font size change is immediately applied in the editor.
+    When you switch to the `index.html` editor tab, notice how the font size change is immediately applied in the editor. You can select the gear icon next to the setting and select **Reset Setting** to reset the value back to its default value.
 
     By default, when you change a setting, it applies to all your VS Code workspaces (**User Settings**). Switch to the **Workspace** tab to change a setting that only applies to the current workspace.
 
@@ -176,7 +175,7 @@ There are many more ways to customize your VS Code experience, such as [changing
 
 VS Code is first and foremost a code editor, so let's start by writing some code! VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In this tutorial, you create a sample JavaScript file and use some of the code editing features that VS Code offers.
 
-VS Code supports many programming languages and in the next step, you'll install a language extension to add support for a different language.
+VS Code supports many programming languages and in a next step, you'll install a language extension to add support for a different language, namely Python.
 
 1. In the Explorer view, create a new file `app.js`, and start typing the following JavaScript code:
 
@@ -206,7 +205,41 @@ VS Code supports many programming languages and in the next step, you'll install
 
     > **Tip**: Toggle the **File** > **Auto Save** menu item to automatically save files whenever you make changes.
 
-## Step 5: Install a language extension
+## Step 5: Use source control
+
+As you're writing code, you'll want to save your work in a source control system to track changes or collaborate with others. Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box.
+
+Let's use the built-in Git support to commit the changes you've made previously.
+
+1. Make sure you have [Git](https://git-scm.com/) installed on your computer. You can check if Git is installed by opening the terminal and entering `git --version`.
+
+1. Select the **Source Control** view in the Activity Bar, and select **Initialize Repository** to create a new Git repository for your workspace.
+
+    You also have the option to directly publish your changes to a [GitHub repository](https://github.com) by selecting **Publish to GitHub**.
+
+    ![Screenshot that shows the Source Control view, highlighting the Initialize Repository button.](images/getting-started/source-control-initialize.png)
+
+1. After you initialize a repository, the Source Control view shows the changes you've made in your workspace.
+
+    Notice the letter indicating the type of change alongside each file. For example, `U` indicates an untracked/new file.
+
+    When you hover over a change, you can choose to discard or stage the change. Staging a change means that you've marked it as ready to be committed.
+
+    ![Screenshot that shows the Source Control view with changes in the workspace.](images/getting-started/source-control-changes.png)
+
+1. Select **+** next to **Changes** to stage all changes at once.
+
+1. Enter a commit message, for example `Add hello function`, and then select the **Commit** to commit the changes to your Git repository.
+
+    ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
+
+1. The **Source Control Graph** shows a visual representation of the commit history of your Git repository. You can use the graph to explore the commit history, compare changes, and more.
+
+    ![Screenshot that shows the Source Control Graph in the Source Control view.](images/getting-started/source-control-graph.png)
+
+There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
+
+## Step 6: Install a language extension
 
 The features that VS Code includes out-of-the-box are just the start. VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your specific development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -237,25 +270,35 @@ Let's install a language extension to add support for Python, or any other progr
 
 Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
 
-## Step 6: Run and debug your code
+## Step 7: Run and debug your code
 
-One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications, and there are extensions available for many other programming languages, such as Python, Java, C#, and more.
+One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
 
-> **Note**: Make sure you have the necessary runtime and VS Code extensions installed on your computer. For example, to debug a Python program, you need to have Python installed on your computer.
+Let's debug the `hello.py` program you created in the previous step.
 
-In this tutorial, you debug the `app.js` file to explore the built-in Node.js debugger. Most debugging concepts and features are applicable to other debuggers as well.
+1. Make sure that [Python 3](https://www.python.org/downloads/) is installed on your computer.
 
-Let's debug the `app.js` program by using the built-in Node.js debugger.
+    To run and debug programs in VS Code, you need to have the necessary runtime installed on your computer. For example, to run and debug a Node.js program, you need to have the Node.js runtime installed.
 
-1. In the `app.js` file, put the cursor on the `console.log` line and press `kbstyle(F9)` to set a breakpoint.
+1. In the `hello.py` file, put the cursor on the `print` line, and press `kbstyle(F9)` to set a breakpoint.
 
     A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
 
-    ![Screenshot that shows a breakpoint in the editor.](images/getting-started/javascript-set-breakpoint.png)
+    ![Screenshot that shows a breakpoint in the editor.](images/getting-started/python-set-breakpoint.png)
 
-1. Make sure to select the `app.js` file, and then press `kbstyle(F5)` to start a debugging session.
+1. Press `kbstyle(F5)` to start a debugging session, select **Python Debugger** in the Quick Pick menu, and then select **Python File** to debug the current Python file.
 
-    Notice that the program starts and that the execution stops at the breakpoint you set. VS Code uses the built-in Node.js debugger to debug the program.
+    Select the Python debugger:
+
+    ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-select-debugger.png)
+
+    Choose to run the current Python file:
+
+    ![Screenshot that shows the Quick Pick menu to select the Python debug configuration.](images/getting-started/python-debug-configuration.png)
+
+1. Notice that the program starts and that the execution stops at the breakpoint you set.
+
+    VS Code uses the Python Debugger you installed via the extension to run and debug the program.
 
     ![Screenshot that shows the program stopped at a breakpoint in the editor, highlighting the Variables view to inspect variables.](images/getting-started/vscode-debugging.png)
 
