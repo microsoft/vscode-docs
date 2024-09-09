@@ -251,11 +251,11 @@ Let's install a language extension to add support for Python, or any other progr
 
     ![Screenshot that shows the Extensions view, highlighting the Extensions icon in the Activity Bar.](images/getting-started/extensions-view.png)
 
-1. Enter *Python* in the Extension view search box to browse for Python-related extensions, select the **Python** extension published by Microsoft, and select the **Install** button.
+1. Enter *Python* in the Extension view search box to browse for Python-related extensions. Select the **Python** extension published by Microsoft, and then select the **Install** button.
 
     ![Screenshot that shows the Extensions view with a search for Python extensions.](images/getting-started/extensions-search-python.png)
 
-1. Now, create a new Python file `hello.py` in your workspace and start typing the following Python code:
+1. Now, create a new Python file `hello.py` in your workspace, and start typing the following Python code:
 
     ```python
     def say_hello(name):
@@ -264,7 +264,7 @@ Let's install a language extension to add support for Python, or any other progr
     say_hello("VS Code")
     ```
 
-    Notice that you now get suggestions and IntelliSense for Python code.
+    Notice that you now also get suggestions and IntelliSense for the Python code.
 
     ![Screen capture that shows IntelliSense in action for a Python file.](images/getting-started/python-intellisense.gif)
 
@@ -274,19 +274,19 @@ Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSe
 
 One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
 
-Let's debug the `hello.py` program you created in the previous step.
+Let's debug the `hello.py` program that you created in the previous step.
 
 1. Make sure that [Python 3](https://www.python.org/downloads/) is installed on your computer.
 
     To run and debug programs in VS Code, you need to have the necessary runtime installed on your computer. For example, to run and debug a Node.js program, you need to have the Node.js runtime installed.
 
-1. In the `hello.py` file, put the cursor on the `print` line, and press `kbstyle(F9)` to set a breakpoint.
+1. In the `hello.py` file, place the cursor on the `print` line and press `kbstyle(F9)` to set a breakpoint.
 
     A red dot appears in the left margin of the editor, indicating that a breakpoint is set. With a breakpoint, you can pause the execution of your program at a specific line of code.
 
     ![Screenshot that shows a breakpoint in the editor.](images/getting-started/python-set-breakpoint.png)
 
-1. Press `kbstyle(F5)` to start a debugging session, select **Python Debugger** in the Quick Pick menu, and then select **Python File** to debug the current Python file.
+1. Press `kbstyle(F5)` to start a debugging session. Select **Python Debugger** in the Quick Pick menu, and then select **Python File** to debug the current Python file.
 
     Select the Python debugger:
 
