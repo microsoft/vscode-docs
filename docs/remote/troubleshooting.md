@@ -43,13 +43,13 @@ ssh-keygen -t ed25519 -b 4096
 
 * For macOS / Linux, run the following shell command, replacing the path to your private key if necessary:
 
-    ```
+    ```bash
     chmod 400 ~/.ssh/id_ed25519
     ```
 
 * For Windows, run the following command in PowerShell to grant explicit read access to your username:
 
-    ```
+    ```powershell
     icacls "privateKeyPath" /grant <username>:R
     ```
 

@@ -24,7 +24,7 @@ To start VS Code from the command line:
 COMPOSE_PROJECT_NAME=foo code .
 ```
 
-```PowerShell
+```powershell
 # from PowerShell
 $env:COMPOSE_PROJECT_NAME=foo
 code .
