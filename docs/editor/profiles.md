@@ -256,11 +256,13 @@ The Doc Writer profile is a good lightweight setup for writing documentation. It
 * [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
 * [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
 * [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - View the number of words in a Markdown document in the Status Bar.
+* [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Estimate how long it takes to read your Markdown.
 
 This profile also sets the following settings:
 
 ```json
-    "workbench.colorTheme": "Default Light+ Experimental",
+    "workbench.colorTheme": "Default Light Modern",
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "editor.glyphMargin": false,
