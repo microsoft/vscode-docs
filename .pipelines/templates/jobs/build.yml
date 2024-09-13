@@ -83,3 +83,13 @@ jobs:
       archiveType: 'zip'
       includeRootFolder: false
       archiveFile: $(Build.ArtifactStagingDirectory)/out/website.zip
+    displayName: Archive complete website
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: $(Pipeline.Workspace)/vscode-website/dist/client/assets
+      archiveType: 'zip'
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/out/website-assets.zip
+    displayName: Archive website assets
+    condition: ${{ eq(parameters.jobDisplayName, 'vscode-site-vnext') }}
