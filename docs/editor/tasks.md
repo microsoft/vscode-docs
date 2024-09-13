@@ -702,6 +702,10 @@ There are a couple more properties that can be used inside a pattern. These are:
 * **endColumn** - The match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
 * **code** - The match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
 
+There is also a property that can be used outside a pattern:
+
+- **severity** - The severity to use if the pattern doesn't include one. ("error", "warning", or "info")
+
 You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
 
 >**Note:** A functional pattern must at least provide a match group for `file` and `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location`, a function pattern must provide a `line` or `location` property as well.
