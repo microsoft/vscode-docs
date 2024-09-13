@@ -25,6 +25,10 @@ Open the Welcome page from the **Help** > **Welcome** menu or use the **Help: We
 
 ![Welcome page](images/tips-and-tricks/welcome-page.png)
 
+Extensions can also contribute walkthroughs. You can also directly open a walkthrough by using the **Help: Open Walkthrough...** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
+
 If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and more.
 
 Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
