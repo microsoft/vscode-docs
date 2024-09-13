@@ -312,7 +312,7 @@ There are many more debugging features in VS Code, such as watch variables, cond
 
 ## Enhance your coding with AI and GitHub Copilot
 
-With [GitHub Copilot](/docs/copilot/overview.md), you can further enhance your coding experience in VS Code and even get you discover VS Code features and settings you didn't know about.
+With [GitHub Copilot](/docs/copilot/overview.md), you can further enhance your coding experience in VS Code and even discover VS Code features and settings you didn't know about.
 
 GitHub Copilot in VS Code can help you with a wide range of tasks, such as:
 
