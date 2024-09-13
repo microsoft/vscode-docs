@@ -1,5 +1,5 @@
 ---
-Order: 
+Order:
 Area: getstarted
 TOCTitle: Tutorial
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
@@ -330,8 +330,8 @@ GitHub Copilot in VS Code can help you with a wide range of tasks, such as:
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-- <a class="next-topic-btn" href="/docs/editor/testing.md">Discover and run unit tests for your code</a>
+- [Discover and run unit tests for your code](/docs/editor/testing.md)
 
-- <a class="next-topic-btn" href="/docs/terminal/getting-started.md">Use the integrated terminal</a>
+- [Use the integrated terminal](/docs/terminal/getting-started.md)
 
-- <a class="next-topic-btn" href="/docs/remote/remote-overview.md">Set up a remote development environment</a>
+- [Set up a remote development environment](/docs/remote/remote-overview.md)
