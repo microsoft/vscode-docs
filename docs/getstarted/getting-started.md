@@ -310,20 +310,28 @@ Let's debug the `hello.py` program that you created in the previous step.
 
 There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
 
-## Optional: Explore AI features with GitHub Copilot
+## Enhance your coding with AI and GitHub Copilot
 
-You can further enhance your coding with artificial intelligence (AI) and [GitHub Copilot](/docs/copilot/overview.md). For example, get suggestions for lines of code or entire functions, perform code refactorings, generate code-related artifacts like tests, or produce code documentation, all from within the editor.
+With [GitHub Copilot](/docs/copilot/overview.md), you can further enhance your coding experience in VS Code and even get you discover VS Code features and settings you didn't know about.
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/getting-started/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+GitHub Copilot in VS Code can help you with a wide range of tasks, such as:
+
+- **Code completion**: Get suggestions for lines of code or entire functions.
+- **Explain code**: Get explanations for code snippets to help you understand what they do.
+- **Code refactoring & generation**: Refactor your code and generate code-related artifacts like tests or documentation.
+- **Fix errors**: Get help with common coding tasks like finding and fixing bugs, or errors with shell commands.
+- **Learn about VS Code**: Ask about VS Code features, settings, or commands.
+
+<video src="./images/getting-started/copilot-chat-intro.mp4" title="Video showing Copilot Chat used for asking about VS Code, explaining what a project does, and generating unit tests."  autoplay loop controls muted></video>
+
+> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
 ## Next steps
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-- [Work with Git repositories and source control](/docs/sourcecontrol/overview.md)
+- <a class="next-topic-btn" href="/docs/editor/testing.md">Discover and run unit tests for your code</a>
 
-- [Discover and run unit tests for your code](/docs/editor/testing.md)
+- <a class="next-topic-btn" href="/docs/terminal/getting-started.md">Use the integrated terminal</a>
 
-- [Use the integrated terminal](/docs/terminal/getting-started.md)
-
-- [Enhance your coding with AI and GitHub Copilot](https://docs.github.com/en/copilot/overview)
+- <a class="next-topic-btn" href="/docs/remote/remote-overview.md">Set up a remote development environment</a>
