@@ -661,6 +661,8 @@ A matcher that captures the above warning (and errors) looks like this:
 
 Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths that are produced by the task output and matched in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
+The `severity` specifies which problem severity to use if the pattern doesn't include one. The possible values for `severity` are `error`, `warning`, or `info`.
+
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
 ```json
@@ -701,10 +703,6 @@ There are a couple more properties that can be used inside a pattern. These are:
 * **endLine** - The match group index for the problem's end line. Can be omitted if no end line value is provided by the compiler.
 * **endColumn** - The match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
 * **code** - The match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
-
-There is also a property that can be used outside a pattern:
-
-- **severity** - The severity to use if the pattern doesn't include one. ("error", "warning", or "info")
 
 You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
 
