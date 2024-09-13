@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -17,7 +17,7 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
-We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `json.validate.enable` [setting](/docs/getstarted/settings.md).
+We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/getstarted/settings.md).
 
 ![IntelliSense](images/json/intellisense.png)
 
@@ -49,7 +49,7 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (`//`) as well as block comments (`/* */`) as used in JavaScript. The mode also accepts trailing commas, but they are discouraged and the editor will display a warning.
 
-The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `files.associations` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
+The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file extensions are associated to modes. You can also directly modify the `setting(files.associations)` [setting](/docs/languages/overview.md#add-a-file-extension-to-a-language) to associate file names or file name patterns to `jsonc`.
 
 ## JSON schemas and settings
 
@@ -57,7 +57,7 @@ To understand the structure of JSON files, we use [JSON schemas](https://json-sc
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `json.schemas`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well-known JSON files such as `package.json`, `bower.json`, and `tsconfig.json`.
 
@@ -214,6 +214,6 @@ Note that `markdownDescription` is not part of the JSON schema specification but
 
 ### Offline mode
 
-`json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
+`setting(json.schemaDownload.enable)` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
 
 A warning triangle will show in the status bar when the current editor would like to use schemas that cannot be downloaded.

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Themes
@@ -48,9 +48,9 @@ Alternately, you can search for themes in the Extensions view (`kb(workbench.vie
 
 ## Automatically switch based on OS color scheme
 
-Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
+Windows and macOS support light and dark color schemes. There is a setting, `setting(window.autoDetectColorScheme)`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
 
-Similarly, you can use the `window.autoDetectHighContrast` setting to automatically detect if the OS switched to a high-contrast color scheme.
+Similarly, you can use the `setting(window.autoDetectHighContrast)` setting to automatically detect if the OS switched to a high-contrast color scheme.
 
 To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes in the Settings editor:
 
@@ -65,13 +65,13 @@ To customize the themes that are used when a color scheme changes, you can set t
 
 ### Workbench colors
 
-You can customize your active color theme with the `workbench.colorCustomizations` and `editor.tokenColorCustomizations` user [settings](/docs/getstarted/settings.md).
+You can customize your active color theme with the `setting(workbench.colorCustomizations)` and `setting(editor.tokenColorCustomizations)` user [settings](/docs/getstarted/settings.md).
 
-To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons, and more, use `workbench.colorCustomizations`.
+To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons, and more, use `setting(workbench.colorCustomizations)`.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
-You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/api/references/theme-color.md).
+You can use IntelliSense while setting `setting(workbench.colorCustomizations)` values or, for a list of all customizable colors, see the [Theme Color Reference](/api/references/theme-color.md).
 
 To make customizations to a specific theme, use the following syntax:
 
@@ -106,7 +106,7 @@ If a theme sets a color or border that you don't like, you can use `default` to 
 
 ### Editor syntax highlighting
 
-To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
+To tune the editor's syntax highlighting colors, use `setting(editor.tokenColorCustomizations)` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
@@ -150,7 +150,7 @@ Notice the color differences based on language service symbol understanding:
 * line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 * line 13: `getFoldingRanges` is colored as a function.
 
-The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
+The settings `setting(editor.semanticHighlighting.enabled)` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
 
 * `true` and `false` turn semantic highlighting on or off for all themes.
 * `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.

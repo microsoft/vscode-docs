@@ -23,7 +23,7 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
     * **Linux:** `ssh-agent` is present by default. Do `ssh-add <keyfile>`. Ubuntu was tested; you might have different results on other distributions.
 
-    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.profiles.osx` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
+    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `setting(terminal.integrated.profiles.osx)` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
 
 1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
 

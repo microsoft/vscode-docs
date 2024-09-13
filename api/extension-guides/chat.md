@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -36,12 +36,6 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 
 Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API. To extend GitHub Copilot through a GitHub App, you should join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program).
 
-## Prerequisites
-
-To develop a chat extension make sure to:
-
-- Use the [Visual Studio Code Insiders release](https://code.visualstudio.com/insiders)
-- Use the pre-release version of the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension
 
 ## Links
 

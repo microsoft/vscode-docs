@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -71,7 +71,7 @@ You can find a list of known identifiers in the [language identifier reference](
 
 ## Add a file extension to a language
 
-You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
+You can add new file extensions to an existing language with the `setting(files.associations)` [setting](/docs/getstarted/settings.md).
 
 For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
@@ -104,7 +104,7 @@ Yes, you can also add support for your favorite language through TextMate colori
 
 ### Can I map additional file extensions to a language?
 
-Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
+Yes, with the `setting(files.associations)` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
 
 Here is an example that will associate more file extensions to the PHP language:
 
@@ -127,7 +127,7 @@ Note that the pattern is a [glob pattern](/docs/editor/glob-patterns.md) that wi
 
 ### How do I set the default language for new files?
 
-Using the `files.defaultLanguage` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
+Using the `setting(files.defaultLanguage)` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
 
 This example will associate new files with the HTML language:
 

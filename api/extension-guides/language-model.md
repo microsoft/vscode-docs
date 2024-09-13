@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -20,8 +20,6 @@ The process for using the Language Model API consists of the following steps:
 1. Interpret the response
 
 The following sections provide more details on how to implement these steps in your extension.
-
-> **Note:** The Language Model API is finalized in VS Code Insiders and will be finalized in VS Code Stable release in July 2024. We suggest that you use the `engines` property in your `package.json` to specify that your extension requires VS Code versions greater than or equal to `1.90.0`. VS Code Stable will gracefully handle extensions that use the Language Model API before it is finalized.
 
 ## Links
 
@@ -64,8 +62,8 @@ The second message then provides the specific request or instruction coming from
 
 ```typescript
 const craftedPrompt = [
-    new vscode.LanguageModelChatMessage.User('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
-    new vscode.LanguageModelChatMessage.User('I want to understand recursion')
+    vscode.LanguageModelChatMessage.User('You are a cat! Think carefully and step by step like a cat would. Your job is to explain computer science concepts in the funny manner of a cat, using cat metaphors. Always start your response by stating what concept you are explaining. Always include code samples.'),
+    vscode.LanguageModelChatMessage.User('I want to understand recursion')
 ];
 ```
 
@@ -196,7 +194,7 @@ Extension authors can choose which model is the most appropriate for their exten
 ```typescript
 const allModels = await vscode.lm.selectChatModels(MODEL_SELECTOR);
 ```
-> **Note**: The recommended GPT-4o model has a limit of `6K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
+> **Note**: The recommended GPT-4o model has a limit of `16K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
 
 ### Rate limiting
 

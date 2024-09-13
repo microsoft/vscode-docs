@@ -5,7 +5,7 @@ TOCTitle: Configure separate containers
 PageTitle: Configure separate containers for multiple projects
 ContentId: d3b13c08-3c78-4891-b80a-5a15784aeb1e
 MetaDescription: Configure separate containers for multiple projects
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 ---
 # Configure separate containers
 

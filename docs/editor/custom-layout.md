@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 09/05/2024
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
@@ -23,7 +23,7 @@ The default (Primary) side bar shows views such as the File Explorer, Search, an
 
 * Right-click the Activity Bar and select **Move Primary Side Bar Right**.
 * Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
-* Set the **Workbench > Side Bar: Location** (`workbench.sideBar.location`) [setting](/docs/getstarted/settings.md) to `right`.
+* Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) [setting](/docs/getstarted/settings.md) to `right`.
 
 ### Secondary side bar
 
@@ -177,7 +177,7 @@ To navigate between the sides:
 * **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side.
 * **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
-The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
+The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.splitInGroupLayout)`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
 
 ### Grid layout
 
@@ -216,7 +216,7 @@ Pinned tabs help access files that are important to you as:
 
 Unpin an editor by clicking on the pin icon, using the **Unpin** editor tab context menu item, or the **View: Unpin Editor** command.
 
-You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`workbench.editor.pinnedTabSizing`) setting. The options are:
+You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`setting(workbench.editor.pinnedTabSizing)`) setting. The options are:
 
 * `normal`: A pinned tab inherits the look of other tabs (default)
 * `shrink`: A pinned tab shrinks to a fixed size showing parts of the editor label.
@@ -245,7 +245,7 @@ Locked groups behave differently than unlocked groups:
 
 The primary use case is for [terminals in the editor area](/docs/terminal/basics.md#terminals-in-editor-area). For example, you might want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means that even when the terminal on the right is focused, opening a file will open it on the left side without needing to manually change focus first.
 
-Auto locking groups can be configured using the `workbench.editor.autoLockGroups` setting, which defaults to only terminal editors but any editor type can be added to get the same behavior.
+Auto locking groups can be configured using the `setting(workbench.editor.autoLockGroups)` setting, which defaults to only terminal editors but any editor type can be added to get the same behavior.
 
 ![Auto Lock Groups setting with Terminal checked in the Settings editor](images/custom-layout/autolockgroup-setting.png)
 

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Getting Started Tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot getting started
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -16,7 +16,7 @@ This tutorial walks you through the key features of GitHub Copilot in Visual Stu
 
 For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 

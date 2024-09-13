@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -46,7 +46,7 @@ You can open as many editors as you like side by side vertically and horizontall
 
 When you open another file, the editor that is active will display the content of that file. If you have two editors side by side and you want to open file 'foo.cs' into the right-hand editor, make sure that this editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-By default, editors open to the right-hand side of the active one. You can change this behavior with the `workbench.editor.openSideBySideDirection` setting to open new editors to the bottom of the active one instead.
+By default, editors open to the right-hand side of the active one. You can change this behavior with the `setting(workbench.editor.openSideBySideDirection)` setting to open new editors to the bottom of the active one instead.
 
 When you have more than one editor open, you can switch between them quickly by holding the `kbstyle(Ctrl)` key (`kbstyle(Cmd)` on macOS) and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
@@ -90,7 +90,7 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 
 >**Tip:** You can enable/disable Sticky Scroll with the `"editor.stickyScroll.enabled"` setting.
 
-Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `editor.stickyScroll.defaultModel` setting.
+Sticky Scroll uses several different content models to create its headings. It is possible to choose between the outline provider model, the folding provider model, and the indentation model to determine which lines to display in the Sticky Scroll area. If a model is not available for the current language, VS Code falls back to the next model in the  order given above. The default model initially used comes from the `setting(editor.stickyScroll.defaultModel)` setting.
 
 ### Indent Guides
 
@@ -114,7 +114,7 @@ After you open a folder in VS Code, the contents of the folder are shown in the 
 * Move files and folders with drag and drop.
 * Use the context menu to explore all options.
 
->**Tip:** You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `explorer.autoOpenDroppedFile` setting, you to configure whether to automatically open the file or not.
+>**Tip:** You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
 
 VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
@@ -122,7 +122,7 @@ You can also navigate to the location of a file or folder in the native operatin
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer view.
+By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer view.
 
 >**Tip:** You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
@@ -130,7 +130,7 @@ By default, VS Code excludes some folders from showing in the Explorer view, suc
 
 You can select multiple files in the Explorer view and Open Editors section to run actions (delete, drag and drop, or open to the side) on multiple items. Hold `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) and select individual files, or hold `kbstyle(Shift)` to select a range of files. If you select two items, you can now also use the context menu **Compare Selected** command to quickly diff two files.
 
-**Note:** In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `kbstyle(Alt)` key.
+**Note:** In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
 
 ```json
 "workbench.list.multiSelectModifier": "alt"
@@ -202,9 +202,9 @@ VS Code gives you many options to configure the editor. From the **View** > **Ap
 
 ### Hide the menu bar (Windows, Linux)
 
-You can hide the menu bar on Windows and Linux by changing the setting `window.menuBarVisibility` from `classic` to `toggle` or `hidden`. A setting of `toggle` means that a single press of the `kbstyle(Alt)` key shows the menu bar again.
+You can hide the menu bar on Windows and Linux by changing the setting `setting(window.menuBarVisibility)` from `classic` to `toggle` or `hidden`. A setting of `toggle` means that a single press of the `kbstyle(Alt)` key shows the menu bar again.
 
-You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu Bar** command. This command sets `window.menuBarVisibility` from `classic` to `compact`, resulting in the menu bar moving into the Activity Bar. To return the menu bar to the `classic` position, you can run the **View: Toggle Menu Bar** command again.
+You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu Bar** command. This command sets `setting(window.menuBarVisibility)` from `classic` to `compact`, resulting in the menu bar moving into the Activity Bar. To return the menu bar to the `classic` position, you can run the **View: Toggle Menu Bar** command again.
 
 ### Settings
 
@@ -220,18 +220,18 @@ Alternately, you can modify the user settings directly in the `settings.json` fi
 
 ### Zen Mode
 
-Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching VS Code to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `zenMode.fullScreen`.
+Zen mode lets you focus on your code by hiding all UI elements, except for the editor, switching VS Code to full screen, and centering the editor. Zen mode can be toggled with the **View** > **Appearance** > **Zen Mode** menu, **View: Toggle Zen Mode** in the **Command Palette**, or with the shortcut `kb(workbench.action.toggleZenMode)`. Double press `kbstyle(Esc)` to exit Zen mode. The transition to full screen can be disabled via `setting(zenMode.fullScreen)`.
 
 Zen Mode can be further tuned with the following settings:
 
-* `zenMode.hideActivityBar`- Hide the Activity bar. Default `true`.
-* `zenMode.hideStatusBar` - Hide the Status bar. Default `true`.
-* `zenMode.hideLineNumbers` - Hide line numbers. Default `true`.
-* `zenMode.showTabs` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
-* `zenMode.fullScreen` - Put workbench in full screen display. Default `true`.
-* `zenMode.restore` - Restore Zen Mode on restart. Default `true`.
-* `zenMode.centerLayout` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
-* `zenMode.silentNotifications` - Do not display notifications. Default `true`.
+* `setting(zenMode.hideActivityBar)`- Hide the Activity bar. Default `true`.
+* `setting(zenMode.hideStatusBar)` - Hide the Status bar. Default `true`.
+* `setting(zenMode.hideLineNumbers)` - Hide line numbers. Default `true`.
+* `setting(zenMode.showTabs)` - Controls whether to show multiple, single, or no editors tabs. Default `multiple`.
+* `setting(zenMode.fullScreen)` - Put workbench in full screen display. Default `true`.
+* `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
+* `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
+* `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
 
 ### Centered Editor Layout
 
@@ -247,9 +247,9 @@ You can drag and drop tabs to reorder them. To perform an action on multiple tab
 
 When you have more open items than can fit in the title area, you can use the **Open Editors** section in the Explorer view (available through the `...` button) to display a dropdown list of tabbed items.
 
-There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`workbench.editor.titleScrollbarSizing`) to `large`.
+There is also a scroll bar between the tab and editor regions to drag editors into view. You can increase the height of the scroll bar to make it easier to drag by setting **Workbench > Editor: Title Scrollbar Sizing** (`setting(workbench.editor.titleScrollbarSizing)`) to `large`.
 
-If you don't want to use tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to `single`:
+If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` [setting](/docs/getstarted/settings.md) to `single`:
 
 ```json
     "workbench.editor.showTabs": "single"
@@ -261,7 +261,7 @@ See the section below to optimize VS Code for [working without Tabs](/docs/getst
 
 ### Tab ordering
 
-By default, new tabs are added to the right of the existing tabs. You can control where you want new tabs to appear with the `workbench.editor.openPositioning` setting.
+By default, new tabs are added to the right of the existing tabs. You can control where you want new tabs to appear with the `setting(workbench.editor.openPositioning)` setting.
 
 For example, you might like new tabbed items to appear on the left:
 
@@ -275,7 +275,7 @@ If you'd like an editor tab to always be visible, you can pin it to the editor t
 
 ### Wrapped tabs
 
-To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`workbench.editor.wrapTabs`) [setting](/docs/getstarted/settings.md).
+To see more editor tabs, you can use the **wrapped tab** layout, where editor tabs wrap to fill multiple rows above the editor region. Enable wrapped tabs with the **Workbench > Editor: Wrap Tabs** (`setting(workbench.editor.wrapTabs)`) [setting](/docs/getstarted/settings.md).
 
 ![Wrapped editor tabs filling two rows about the editor region](images/userinterface/wrapped-tabs.png)
 
@@ -283,13 +283,13 @@ To see more editor tabs, you can use the **wrapped tab** layout, where editor ta
 
 When you have multiple files with the same name open at the same time, it can be difficult to distinguish the different tabs. To help with this, you can apply a custom display label to the tabs. You can choose for which files in your workspace you want to apply a custom label to the tab.
 
-To enable custom display labels for tabs, set the `workbench.editor.customLabels.enabled` setting:
+To enable custom display labels for tabs, set the `setting(workbench.editor.customLabels.enabled)` setting:
 
 ```json
     "workbench.editor.customLabels.enabled": true
 ```
 
-You can specify one or more naming patterns for the tab display labels with the `workbench.editor.customLabels.patterns` setting. A name pattern consists of two components:
+You can specify one or more naming patterns for the tab display labels with the `setting(workbench.editor.customLabels.patterns)` setting. A name pattern consists of two components:
 
 - **Item** - a [glob pattern](/docs/editor/glob-patterns.md) that matches file paths for which to apply a custom label. For example, `**/static/**/*.html`.
 - **Value** - a template for the custom label. Templates can use variables such as `${filename}`, `${extname}`, `${extname(N)}`, `${dirname}`, and `${dirname(N)}`, which are dynamically replaced with values from the file's path.
@@ -325,8 +325,8 @@ Preview mode is indicated by italics in the tab heading:
 
 If you prefer not to use preview mode and always create a new tab, you can control the behavior with these settings:
 
-* `workbench.editor.enablePreview` - to globally enable or disable preview editors
-* `workbench.editor.enablePreviewFromQuickOpen` - to enable or disable preview editors when opened from **Quick Open**
+* `setting(workbench.editor.enablePreview)` - to globally enable or disable preview editors
+* `setting(workbench.editor.enablePreviewFromQuickOpen)` - to enable or disable preview editors when opened from **Quick Open**
 
 ## Grid editor layout
 
@@ -370,11 +370,11 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 
 ## Working without tabs
 
-If you prefer not to use tabs (tabbed headings), you can disable tabs entirely by setting `workbench.editor.showTabs` to `single` or `none`.
+If you prefer not to use tabs (tabbed headings), you can disable tabs entirely by setting `setting(workbench.editor.showTabs)` to `single` or `none`.
 
 ### Disable Preview mode
 
-Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/getstarted/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
+Without tabs, the **Open Editors** section of the Explorer view is a quick way to do file navigation. However, with [preview editor mode](/docs/getstarted/userinterface.md#preview-mode) enabled, files are not added to the Open Editors section. You can disable this feature through the `setting(workbench.editor.enablePreview)` and `setting(workbench.editor.enablePreviewFromQuickOpen)` settings.
 
 ### Use keyboard shortcuts to navigate the editor history
 
@@ -407,13 +407,13 @@ Windows/Linux:
 
 VS Code has various options to control how VS Code windows (instances) should be opened or restored between sessions.
 
-The settings `window.openFoldersInNewWindow` and `window.openFilesInNewWindow` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
+The settings `setting(window.openFoldersInNewWindow)` and `setting(window.openFilesInNewWindow)` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
 
 If configured to be `default`, VS Code decides about reusing or opening a new window, based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open in a new window, set this to `on`.
 
 > **Note**: There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
 
-The `window.restoreWindows` setting informs VS Code about how to restore the opened windows of your previous session. By default, VS Code restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
+The `setting(window.restoreWindows)` setting informs VS Code about how to restore the opened windows of your previous session. By default, VS Code restores all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on, or to `folders` to only restore windows that had folders opened.
 
 ## Next steps
 
@@ -426,7 +426,7 @@ Now that you know the overall layout of VS Code, start to customize the editor t
 
 ### How can I change the color of the indent guides?
 
-The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -69,7 +69,7 @@ Accept one of these completions to insert the full link to that header, even if 
 
 ![Adding a link to the selected header in another file](images/Markdown/md-workspace-header-suggestion-insert.png)
 
-You can configure if/when workspace header completions show with the `markdown.suggest.paths.includeWorkspaceHeaderCompletions` setting. Valid setting values are:
+You can configure if/when workspace header completions show with the `setting(markdown.suggest.paths.includeWorkspaceHeaderCompletions)` setting. Valid setting values are:
 
 * `onDoubleHash` (the default)—Show workspace header completions only after you type `##`.
 * `onSingleOrDoubleHash`—Show workspace header completions after you type `#` or `##`.
@@ -93,7 +93,7 @@ Or you can use the  **Markdown: Insert Image from Workspace** command to insert 
 
 Inserted images use Markdown image syntax `![](path/to/image.png)`. Links insert a normal Markdown link `[](path/to/file.md)`.
 
-By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `markdown.copyFiles.destination` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `markdown.copyFiles.destination` setting description for information about the available variables.
+By default VS Code automatically copies dropped or pasted images outside of the workspace into your workspace. The `setting(markdown.copyFiles.destination)` setting controls where the new image file should be created. This setting maps [globs](/docs/editor/glob-patterns.md) that match on the current Markdown document to image destinations. The image destinations can also use some simple variables. See the `setting(markdown.copyFiles.destination)` setting description for information about the available variables.
 
 For example, if you want every Markdown file under `/docs` in your workspace to put new media files into an `images` directory specific to the current file, you can write:
 
@@ -145,11 +145,11 @@ Link validation is off by default. To enable it, set `"markdown.validate.enabled
 
 There are a few settings you can use to customize link validation:
 
-* `markdown.validate.fileLinks.enabled` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
-* `markdown.validate.fragmentLinks.enabled` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
-* `markdown.validate.fileLinks.markdownFragmentLinks` - Enabled/disable validation of links to headers in the other markdown file: `[link](other-file.md#some-header)`
-* `markdown.validate.referenceLinks.enabled` - Enable/disable validation of reference links: `[link][ref]`.
-* `markdown.validate.ignoredLinks` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown is published.
+* `setting(markdown.validate.fileLinks.enabled)` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
+* `setting(markdown.validate.fragmentLinks.enabled)` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
+* `setting(markdown.validate.fileLinks.markdownFragmentLinks)` - Enabled/disable validation of links to headers in the other markdown file: `[link](other-file.md#some-header)`
+* `setting(markdown.validate.referenceLinks.enabled)` - Enable/disable validation of reference links: `[link][ref]`.
+* `setting(markdown.validate.ignoredLinks)` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown is published.
 
 ### Find All References to headers and links
 
@@ -179,13 +179,13 @@ You can also use `kb(editor.action.rename)` on:
 
 ### Automatic link updates on file move or rename
 
-With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `markdown.updateLinksOnFileMove.enabled` setting. Valid setting values are:
+With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `setting(markdown.updateLinksOnFileMove.enabled)` setting. Valid setting values are:
 
 * `never` (the default) — Don't try to update links automatically.
 * `prompt` — Confirm before updating links.
 * `always` — Update links automatically without confirmation.
 
-Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `markdown.updateLinksOnFileMove.include`.
+Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `setting(markdown.updateLinksOnFileMove.include)`.
 
 ## Markdown preview
 
@@ -215,7 +215,7 @@ VS Code automatically synchronizes the Markdown editor and the preview panes. Sc
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
-You can disable scroll synchronization using the `markdown.preview.scrollPreviewWithEditor` and `markdown.preview.scrollEditorWithPreview` [settings](/docs/getstarted/settings.md).
+You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/getstarted/settings.md).
 
 The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 

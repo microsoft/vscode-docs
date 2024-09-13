@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Testing
 ContentId: d44f1a5c-5454-4037-92d5-c2bf5d4cffed
 PageTitle: Testing in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: One of the great things in Visual Studio Code is testing support. Automatically discover tests in your project, run and debug your tests, and get test coverage results.
 ---
 # Testing
@@ -77,7 +77,7 @@ While you're viewing your test code in the editor, you can use the play control 
 
 ![Run and debug tests in editor gutter](images/testing/run-debug-tests-editor-gutter.png)
 
-> **Tip**: you can configure the default testing action for the gutter control by using the `testing.defaultGutterClickAction` setting.
+> **Tip**: you can configure the default testing action for the gutter control by using the `setting(testing.defaultGutterClickAction)` setting.
 
 After running a test, the editor gutter displays the test status.
 
@@ -160,12 +160,12 @@ There are multiple settings that you can configure to customize the testing expe
 
 | Setting ID | Details |
 |-|-|
-| `testing.countBadge` | Controls the count badge on the Testing icon on the Activity Bar |
-| `testing.gutterEnabled` | Configure whether to show the test control in the editor gutter |
-| `testing.defaultGutterClickAction` | Configure the default action when selecting the gutter test control |
-| `testing.coverageBarThresholds` | Configure the colors for the coverage bar thresholds for the Test Coverage view |
-| `testing.displayedCoveragePercent` | Configure what percentage value is displayed in the Test Coverage view (total, statement, or minimum) |
-| `testing.showCoverageInExplorer` | Configure whether to show the coverage percentage in the Explorer view |
+| `setting(testing.countBadge)` | Controls the count badge on the Testing icon on the Activity Bar |
+| `setting(testing.gutterEnabled)` | Configure whether to show the test control in the editor gutter |
+| `setting(testing.defaultGutterClickAction)` | Configure the default action when selecting the gutter test control |
+| `setting(testing.coverageBarThresholds)` | Configure the colors for the coverage bar thresholds for the Test Coverage view |
+| `setting(testing.displayedCoveragePercent)` | Configure what percentage value is displayed in the Test Coverage view (total, statement, or minimum) |
+| `setting(testing.showCoverageInExplorer)` | Configure whether to show the coverage percentage in the Explorer view |
 
 You can find all testing-related settings in the Settings editor (`kb(workbench.action.openSettings)`).
 

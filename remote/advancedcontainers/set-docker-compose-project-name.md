@@ -5,7 +5,7 @@ TOCTitle: Set Docker Compose project name
 PageTitle: Set Docker Compose project name
 ContentId: 3071cf6e-1a93-498a-91e9-48f439c589b3
 MetaDescription: Set Docker Compose project name
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 ---
 # Set Docker Compose project name
 
@@ -24,7 +24,7 @@ To start VS Code from the command line:
 COMPOSE_PROJECT_NAME=foo code .
 ```
 
-```PowerShell
+```powershell
 # from PowerShell
 $env:COMPOSE_PROJECT_NAME=foo
 code .

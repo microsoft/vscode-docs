@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -14,7 +14,7 @@ This article covers best practices for using GitHub Copilot in Visual Studio Cod
 
 >**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If you are new to VS Code or GitHub Copilot, you might want to review the [GitHub Copilot Overview](/docs/copilot/overview.md) article first or dive straight into the [Getting started](/docs/copilot/getting-started.md) tutorial.
 
@@ -45,7 +45,7 @@ Just as you would give a brief, high-level introduction to a coworker, a top lev
 
 It's best to manually set the includes or module references you need for your work. Copilot can make suggestions, but you likely know best what dependencies you need to include. This can also help let Copilot know what frameworks, libraries, and their versions you'd like it to use when crafting suggestions.
 
-In the following TypeScript example, we want to log the output of the `add`method. When we don't have any includes, Copilot suggests using `console.log`:
+In the following TypeScript example, we want to log the output of the `add` method. When we don't have any includes, Copilot suggests using `console.log`:
 
 ![Copilot inline suggestion proposes Console.log when no imports in the file.](images/prompt-crafting/copilot-suggestion-console-log.png)
 
@@ -131,7 +131,7 @@ Learn more about [using context variables with Copilot Chat](/docs/copilot/copil
 
 ### Be specific and keep it simple
 
-When you ask Copilot to do something, be specific in your ask and break down a large task into separate, smalller tasks. For example, don't ask Copilot to create an Express app, that uses TypeScript and Pug, and that has a products page that retrieves data from a MongoDB database. Instead, first ask Copilot to create the Express app with TypeScript and Pug. Next, ask to add a products page, and finally ask to retrieve the customer data from a database.
+When you ask Copilot to do something, be specific in your ask and break down a large task into separate, smaller tasks. For example, don't ask Copilot to create an Express app, that uses TypeScript and Pug, and that has a products page that retrieves data from a MongoDB database. Instead, first ask Copilot to create the Express app with TypeScript and Pug. Next, ask to add a products page, and finally ask to retrieve the customer data from a database.
 
 When you ask Copilot to do a specific task, be specific about the inputs, outputs, APIs, or frameworks you want to use. The more specific your prompt is, the better the outcome will be. For example, instead of "read product data from the database", use "read all products by category, return the data in JSON format, and use the Mongoose library".
 
