@@ -87,7 +87,7 @@ Try out these space-travel themed challenges that introduce you to data science,
 
 Check out these WONDER WOMAN 1984 inspired lessons built to help you write your first lines of Python code. In the first module, learn how to crack a Caesar Cipher code that reveals a secret message with a location. In the second module, create a personality challenge to determine which character you're most like!
 
-Follow along with the [video walkthrough of the fist lesson](https://www.youtube-nocookie.com/embed/VH_mU42lQkQ).
+Follow along with the [video walkthrough of the first lesson](https://www.youtube-nocookie.com/embed/VH_mU42lQkQ).
 
 | Title | Description |
 |-------|-------------|
