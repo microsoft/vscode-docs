@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order:
 Area: copilot
 TOCTitle: Copilot Extensibility
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
 PageTitle: GitHub Copilot extensibility overview
-DateApproved: 08/01/2024
+DateApproved: 09/05/2024
 MetaDescription: Overview of how to extend GitHub Copilot in your Visual Studio Code extension by using the Chat API or Language Model API.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -26,8 +26,8 @@ With GitHub Copilot, you can expand the capabilities of your extension by using 
 
 Get started with GitHub Copilot extensibility by taking the following tutorials:
 
-- Tutorial: Create a code tutor chat participant with the Chat API
-- Tutorial: Generate code annotations by using the Language Model API
+- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial.md)
+- [Tutorial: Generate code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial.md)
 
 ## Related content
 
