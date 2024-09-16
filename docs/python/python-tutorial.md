@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/python-social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
+In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Roll a dice!" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
 If you are new to programming, check out the [Visual Studio Code for Education - Introduction to Python](https://vscodeedu.com/courses/intro-to-python) course. This course offers a comprehensive introduction to Python, featuring structured modules in a ready-to-code browser-based development environment.
 
@@ -124,7 +124,7 @@ By using the `.py` file extension, you tell VS Code to interpret this file as a 
 Now that you have a code file in your Workspace, enter the following source code in `hello.py`:
 
 ```python
-msg = "Roll a dice"
+msg = "Roll a dice!"
 print(msg)
 ```
 
@@ -225,7 +225,7 @@ Return to the **Explorer** view (the top-most icon on the left side, which shows
 ```python
 import numpy as np
 
-msg = "Roll a dice"
+msg = "Roll a dice!"
 print(msg)
 
 print(np.random.randint(1,9))

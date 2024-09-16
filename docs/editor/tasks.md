@@ -639,6 +639,8 @@ A matcher that captures the above warning (and errors) looks like this:
     "owner": "cpp",
     // The file name for reported problems is relative to the opened folder.
     "fileLocation": ["relative", "${workspaceFolder}"],
+    // The name that will be shown as the source of the problem.
+    "source": "gcc",
     // The actual pattern to match problems in the output.
     "pattern": {
         // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
@@ -659,6 +661,8 @@ A matcher that captures the above warning (and errors) looks like this:
 
 Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths that are produced by the task output and matched in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
+The `severity` specifies which problem severity to use if the pattern doesn't include one. The possible values for `severity` are `error`, `warning`, or `info`.
+
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
 ```json
@@ -672,6 +676,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": ["relative", "${workspaceFolder}"],
+                "source": "gcc",
                 "pattern": {
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                     "file": 1,
