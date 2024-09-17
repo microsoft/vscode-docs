@@ -295,7 +295,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 
 ### Docker Extension limitations
 
-If you are using the Docker or Kubernetes extension in a Remote - SSH window, you will not be able to use the right-click **Attach VS Code to Container** option. This will only work if you are using it from your local machine.
+If you are using the Docker or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Docker or Kubernetes views will ask to pick from the available containers a second time.
 
 ### Extension limitations
 
