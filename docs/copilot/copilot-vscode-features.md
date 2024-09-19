@@ -14,7 +14,7 @@ GitHub Copilot in Visual Studio Code provides AI-powered features to help you wr
 
 You can access GitHub Copilot in VS Code through the Chat view, directly in the editor, from the integrated terminal, and via AI-powered enhancements in the VS Code user interface.
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Items in the cheat sheet marked with a <i class="codicon codicon-tag-add"></i> are experimental features, for which we're looking for your feedback. Please try them out and share your thoughts in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+The team is continuously working on improving Copilot in VS Code and adding new features. Items in the cheat sheet marked with <i class="codicon codicon-tag-add"></i> are experimental features, for which we're looking for your feedback. Try them out and share your thoughts in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
 
 ## Chat with GitHub Copilot
 
@@ -24,7 +24,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 |--------|-------------|
 | `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
-| `@` | Invoke a *chat participant*, which is a domain expert that can help you with specific questions. For example, `@workspace` can help with questions about your workspace.<br/>Example: `@workspace how is auth implemented?`  |
+| `@` | Invoke a *chat participant*, which is a domain expert that can help you in a specific are.<br/>Example: `@workspace how is auth implemented?`  |
 | Participant detection <i class="codicon codicon-tag-add"></i> | Copilot Chat can also automatically route your question to the appropriate participant. [Get more info](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental). |
 | `/` | Invoke a *slash command* to prompt for commonly used actions, such as explaining a block of code, generating tests or documentation. |
 | `/explain` | Ask Copilot to explain a block of code or a programming concept. |
@@ -60,7 +60,7 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 | Action | Description |
 |--------|-------------|
-| <i class="codicon codicon-attach"></i><br/>`kb(workbench.action.chat.attachContext)` | Open a Quick Pick to select relevant context for your chat prompt.Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
+| <i class="codicon codicon-attach"></i><br/>`kb(workbench.action.chat.attachContext)` | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
 | `#selection` | Add the current editor selection as context to your prompt. |
 | `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
 | `#editor` | Add the visible contents of the active editor as context for your prompt. |
