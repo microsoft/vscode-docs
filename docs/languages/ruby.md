@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Ruby
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
 PageTitle: Ruby with Visual Studio Code
-DateApproved: 09/05/2024
+DateApproved: 19/09/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
 # Ruby in Visual Studio Code
@@ -31,7 +31,7 @@ You can find and install the Ruby LSP extension from within VS Code via the Exte
 
 ![Ruby LSP extension in the Extensions view](images/ruby/ruby_lsp_extensions_view.png)
 
-We'll discuss many of Ruby LSP features in this topic but you can also refer to the extension's documentation at [https://github.com/Shopify/ruby-lsp](https://github.com/Shopify/ruby-lsp).
+We'll discuss many of Ruby LSP features in this topic but you can also refer to the extension's [documentation](https://shopify.github.io/ruby-lsp) and [repository](https://github.com/Shopify/ruby-lsp).
 
 ### Check your installation
 
@@ -53,7 +53,7 @@ By default, the extension tries to automatically detect the Ruby version manager
 
 The extension will automatically try to update the `ruby-lsp` language server gem periodically; if you want to force that to happen, use the Command Palette (`kb(workbench.action.showCommands)`) to execute **Ruby LSP: Update language server gem**.
 
-If you have any problems, see [troubleshooting](https://github.com/Shopify/ruby-lsp/blob/main/TROUBLESHOOTING.md) for next steps.
+If you have any problems, see [troubleshooting](https://shopify.github.io/ruby-lsp/troubleshooting.html) for next steps.
 
 ## Main features
 
@@ -208,7 +208,7 @@ After adding the launch configurations, we can debug Ruby programs by adding bre
 
 ## Next steps
 
-This has been a brief overview showing the Ruby LSP extension features within VS Code. For more information, see the details provided in the Ruby LSP [README](https://github.com/Shopify/ruby-lsp), including how to tune specific [VS Code editor](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) configurations.
+This has been a brief overview showing the Ruby LSP extension features within VS Code. For more information, see the details provided in the Ruby LSP [documentation](https://shopify.github.io/ruby-lsp), including how to tune specific [VS Code editor](https://github.com/Shopify/ruby-lsp/blob/main/vscode/README.md) configurations.
 
 To stay up to date on the latest features/bug fixes for the Ruby LSP extension, see the Releases page for the [monorepo](https://github.com/Shopify/ruby-lsp/releases), which includes both the server and VS Code extension implementations.
 
