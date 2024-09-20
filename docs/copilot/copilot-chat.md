@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b

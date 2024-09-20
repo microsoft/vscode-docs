@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: copilot
 TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289

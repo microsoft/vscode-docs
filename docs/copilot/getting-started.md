@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: copilot
 TOCTitle: Getting Started Tutorial
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289

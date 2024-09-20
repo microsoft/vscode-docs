@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: copilot
 TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
