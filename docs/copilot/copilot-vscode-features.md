@@ -3,12 +3,12 @@ Order: 2
 Area: copilot
 TOCTitle: Copilot Cheat Sheet
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-PageTitle: GitHub Copilot features in VS Code
+PageTitle: GitHub Copilot in VS Code cheat sheet
 DateApproved: 09/05/2024
-MetaDescription: Try the latest improvements and experimental features for GitHub Copilot in Visual Studio Code.
+MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot onboarding cheat sheet
+# GitHub Copilot in VS Code cheat sheet
 
 GitHub Copilot in Visual Studio Code provides AI-powered features to help you write code faster and with less effort. This cheat sheet provides a quick overview of the features for GitHub Copilot in Visual Studio Code.
 
