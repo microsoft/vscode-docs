@@ -2,24 +2,32 @@
 Order: 2
 Area: azure
 TOCTitle: Getting Started
-PageTitle: Visual Studio Code Azure Extensions Getting Started
+PageTitle: Azure Tools for Visual Studio Code
 ContentId:
-MetaDescription: Visual Studio Code Azure Extensions Getting Started guide for developers
+MetaDescription: Azure Tools for Visual Studio Code Getting Started guide for developers
 DateApproved: 08/21/2024
 ---
-# Azure Tools FAQ
+# Azure Tools for Visual Studio Code
 
-This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
+The Azure Tools extension pack enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
+
+![Explorer view](images/extensions/explorer.png)
 
 ## Get started
 
 Streamline your workflow by quickly searching for commands, settings, and keyboard shortcuts, eliminating the need to navigate through multiple menus.
 
-**Search with the Command Palette.** The most important key combination to know is Ctrl+Shift+P because it brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+**Navigate to Azure view.** Click on the Azure icon in the sidebar to open the Azure Resources view. Once you're signed in, the Resources view will display all your existing resources. You can create and manage these services right from VS Code.
+
+![Azure icon](images/extensions/azure-icon.png)
+
+**Search with the Command Palette.** The most important key combination to know is **Ctrl+Shift+P** because it brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+
+![Command palette](images/extensions/command-palette.png)
 
 **Open folders.** A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. You can open a workspace by using the **File > Open Folder...** menu, and then selecting a folder. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called Multi-root workspace.
 
-**Review settings.** To edit or review your current settings in VS Code, use Ctrl+, to open Settings. It is helpful to review settings that any of the extensions may contribute.
+**Review settings.** To edit or review your current settings in VS Code, use **Ctrl+**, to open Settings. It is helpful to review settings that any of the extensions may contribute.
 
 **Identify and customize keyboard shortcuts.** Find the list of all the assigned [VS Code shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf).
 
@@ -41,7 +49,7 @@ Save time with these features: efficiently create and manage Azure resources, or
 
 Quickly locate and review detailed log information, access your recent activities, and easily manage the resources you've recently created.
 
-**Find logs.** The Output Channel displays textual information such as logs, messages, and other information. Use Ctrl+Shift+U to show Output.
+**Find logs.** The Output Channel displays textual information such as logs, messages, and other information. Use **Ctrl+Shift+U** to show Output.
 
 **Tip:** More verbose log info is found in the Output Channel.
 
