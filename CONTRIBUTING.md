@@ -43,22 +43,18 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
+This repository contains the following top-level folders:
 
-This repository contains the following folders:
-
-* \setup
-* \introvideos
-* \getstarted
-* \editor
-* \languages
-* \nodejs
-* \typescript
-* \python
-* \java
-* \azure
-* \other
-* \supporting
+* \api - content for the API documentation at <https://code.visualstudio.com/api>
+* \blogs - content for the blog at <https://code.visualstudio.com/blogs>
+* \build - content for the documentation build process, such as the keybinding mappings and sitemap
+* \docs - content for the documentation at <https://code.visualstudio.com/docs> - the content in this folder follows the organization of the documentation table of contents
+* \images - images used in the documentation
+* \learn - (deprecated) content for the education content at <https://code.visualstudio.com/learn>
+* \release-notes - content for the release notes at <https://code.visualstudio.com/updates>
+* \remote - content for the remote development tools documentation at <https://code.visualstudio.com/docs/remote>
+* \remote-release-notes - content for the remote development tools release notes
+* \wiki - content for the repository wiki
 
 Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an `\images` folder that references the images (such as screenshots) used in the topics.
 
