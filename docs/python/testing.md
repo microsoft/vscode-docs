@@ -234,6 +234,19 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 3. Run your tests, which will now be run in parallel.
 
+## Run tests with coverage
+
+Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/testing#test-coverage.md).
+
+To run tests with coverage, select the coverage run icon in the Test Explorer or “Run with coverage” from any menu you normally trigger test runs from. The Python extension will run coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](http://coverage.py/) for unittest.
+> **Note**: Before running tests with coverage, make sure to install the correct testing package for your project.
+
+Once the coverage run is complete, lines will be highlighted in the editor for line level coverage. These can be closed and re-opened via the Run Results panel in the bottom where it says "Close Test Coverage" or "View Test Coverage" under the most recent test run. Additionally, a tab specifically for coverage will appear below the Testing tab, also with a beaker icon, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`kbstyle(F1)`). On this panel you can view line and branch coverage metrics for each file and folder in your workspace.
+
+![]()
+
+For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` to include your specifications. When the pytest argument `—cov` exists in `python.testing.pytestArgs`, the Python extension will make no edits to coverage args to allow the user’s customizations to take effect. If there is no `-cov` argument found, the extension will add `-cov=.` and `-cov-branch` to the pytest args prior to run to enable branch level coverage at the workspace root.
+
 ## Debug tests
 
 You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugging.md) articles.
