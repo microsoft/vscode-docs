@@ -31,7 +31,7 @@ In the Command Palette, type `Azure` to list the commands that are specific to A
 
 **Open folders.** A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. You can open a workspace by using the **File > Open Folder...** menu, and then selecting a folder. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called Multi-root workspace.
 
-**Review settings.** To edit or review your current settings in VS Code, use **Ctrl+**, to open Settings. It is helpful to review settings that any of the extensions may contribute.
+**Review settings.** To edit or review your current settings in VS Code, use (`kb(workbench.action.openSettings)`), to open the Settings editor. It is helpful to review settings that any of the extensions may contribute.
 
 **Identify and customize keyboard shortcuts.** Find the list of all the assigned [VS Code shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf).
 
