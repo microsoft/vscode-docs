@@ -21,7 +21,9 @@ Streamline your workflow by quickly searching for commands, settings, and keyboa
 
 ![Azure icon](images/extensions/azure-icon.png)
 
-**Search with the Command Palette.** The most important key combination to know is **Ctrl+Shift+P** because it brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+**Search Azure commands with the Command Palette.** An important key combination to know is (`kb(workbench.action.showCommands)`), which brings up the Command Palette. It is your starting point for access to all functionality within VS Code including commands, keyboard shortcuts, and opening files.
+
+In the Command Palette, type `Azure` to list the commands that are specific to Azure. For example, to open the Cloud Shell.
 
 ![Command palette](images/extensions/command-palette.png)
 
