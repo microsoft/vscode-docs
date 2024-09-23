@@ -85,7 +85,7 @@ You can configure the font for the inline suggestions with the `setting(editor.i
 
 * Get started with the introductory [Copilot tutorial](/docs/copilot/getting-started-chat.md) to get set up with Copilot in VS Code and experience Copilot hands-on.
 
-* Learn how you can use AI chat conversations with [GitHub Copilot Chat](/docs/copilot/copilot-chat.md).
+* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
 
 ## Additional resources
 
