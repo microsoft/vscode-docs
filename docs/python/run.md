@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/python-social.png
 
 # Running Python in Visual Studio Code
 
-Whether you are experimenting with smaller lines of code in a REPL or ready to run your whole project, the Python extension offers a number of ways to run Python code.
+Whether you are experimenting with smaller lines of code in a REPL or ready to run a Python script, the Python extension offers a number of ways to run Python code.
 
 ## Interactively running Python code
 
@@ -29,7 +29,7 @@ You can open this REPL via the Command Palette (`kb(workbench.action.showCommand
 
 ## Run code within your Python project
 
-Whether you are running a single line, a single file, or an entire Python application, there are a number of ways the Python extension allows you to run Python code.
+The Python extension allows you to run Python code without any configuration needed.
 
 1. Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
@@ -49,4 +49,4 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 The Python extension enables Smart Send on (`kbstyle(Shift+Enter)`) by default. Smart Send looks at the code where you cursor is placed, and sends the smallest runnable chunk of code to the Python REPL and then places your cursor at the next line of code. This allows you to more easily and efficiently execute Python code in your program.
 
-Smart Send will not work on unsupported versions of Python (i.e. Python 2). To disable Smart Send in favor or only sending the line of code at which your cursor is placed, **ADD SETTING NAME**.
+Smart Send will not work on unsupported versions of Python (i.e. Python 2). To disable Smart Send in favor of only sending code at the line which your cursor is placed, set `python.REPL.enableREPLSmartSend` to `false`.
