@@ -1,7 +1,7 @@
 ---
 Order: 24
 Area: editor
-TOCTitle: Voice interactions
+TOCTitle: Voice Interactions
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
 PageTitle: Using Voice in Visual Studio Code
 DateApproved:
