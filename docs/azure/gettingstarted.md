@@ -7,7 +7,7 @@ ContentId:
 MetaDescription: Azure Tools for Visual Studio Code Getting Started guide for developers
 DateApproved: 08/21/2024
 ---
-# Azure Tools for Visual Studio Code
+# Getting Started with Azure Tools for Visual Studio Code
 
 The Azure Tools extension pack enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
 
@@ -15,9 +15,11 @@ The Azure Tools extension pack enables developers to access Azure's cloud servic
 
 ## Get started
 
+**Install the Azure Tools extension pack.** Open VS Code, navigate to the Extensions view, and search for “Azure Tools.” Install the [Azure Tools extension pack](overview.md) from Microsoft.
+
 Streamline your workflow by quickly searching for commands, settings, and keyboard shortcuts, eliminating the need to navigate through multiple menus.
 
-**Navigate to Azure view.** Click on the Azure icon in the sidebar to open the Azure Resources view. Once you're signed in, the Resources view will display all your existing resources. You can create and manage these services right from VS Code.
+**Navigate to the Azure Resources view.** Select the Azure icon in the Activity Bar (sidebar) to open the **Azure Resources** view. Once you're signed in to your Azure account, the Azure Resources view displays all your existing resources. You can create and manage these services right from VS Code.
 
 ![Azure icon](images/extensions/azure-icon.png)
 
@@ -45,7 +47,7 @@ Save time with these features: efficiently create and manage Azure resources, or
 
 **Create Resources** Create an Azure resource from your installed extensions directly in VS Code.
 
-## Troubleshooting
+## Troubleshooting Azure apps/resources
 
 Quickly locate and review detailed log information, access your recent activities, and easily manage the resources you've recently created.
 
@@ -57,4 +59,4 @@ Quickly locate and review detailed log information, access your recent activitie
 
 ## Next steps
 
-* [More on Workspaces](/docs/editor/workspaces.md) - Learn how to configure settings that only apply to a specific folder or folders.
+* [Deployment](/docs/azure/deployment.md) - Learn how to deploy your apps to the cloud using Azure.
