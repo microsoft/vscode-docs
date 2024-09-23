@@ -261,11 +261,11 @@ To install the required packages in your virtual environment, enter the followin
 
 Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
 
-## Managing dependencies
+## Managing dependencies across environments
 When working on Python projects, it’s essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
 
-**Steps to create a requirements.txt file:**
-1. **Activate your virtual environment** (if you haven’t already)**:**
+Follow these steps to create a `requirements.txt` file:
+1. Activate your virtual environment, if you haven’t already.
    
    ```bash
    source venv/bin/activate  # On macOS/Linux
@@ -275,13 +275,13 @@ When working on Python projects, it’s essential to manage your dependencies ef
    .\venv\Scripts\activate   # On Windows
    ```
    
-2. **Generate the** `requirements.txt` **file:**
+2. Generate the `requirements.txt` file.
    
    ```powershell
    pip freeze > requirements.txt
    ```  
 
-3. **Use the** `requirements.txt` **file to install dependencies in another environment**:
+3. You can now use the `requirements.txt` file to install dependencies in another environment.
 
    ```powershell
    pip install -r requirements.txt
