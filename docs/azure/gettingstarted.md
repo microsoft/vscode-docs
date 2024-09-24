@@ -9,7 +9,7 @@ DateApproved: 08/21/2024
 ---
 # Getting Started with Azure Tools for Visual Studio Code
 
-The Azure Tools extension pack enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
+The [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) enables developers to access Azure's cloud services within their current environment, simplifying the process of building web applications, managing backend services, deploying APIs, and handling large datasets. This guide is specifically designed for Azure Tools within VS Code. It provides essential tips for getting started, writing code, deploying applications, troubleshooting with logs, utilizing Azure resources, and effectively navigating your code within VS Code.
 
 ![Explorer view](images/extensions/explorer.png)
 
