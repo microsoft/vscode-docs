@@ -1,10 +1,10 @@
 ---
-Order:
+Order: 3
 Area: python
 TOCTitle: Run Python Code
 ContentId:
 PageTitle: Running Python Code in Visual Studio Code
-DateApproved: 09/05/2024
+DateApproved: 09/24/2024
 MetaDescription: Running Python Code in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -15,17 +15,19 @@ Whether you are experimenting with smaller lines of code in a REPL or ready to r
 
 ## Interactively running Python code
 
-The Python interpreter installed on your machine allows for what’s known as an interactive REPL (Read-Evaluate-Print Loop), which reads a piece of code, evaluates it, and then prints the result to the console. You can interact with a Python REPL outside of VS Code by searching for the Terminal / Command Prompt on you system, and type `python` (Windows) or `python3` (macOS/Linux) to activate the Python REPL, notated by `>>>`. Within VS Code, there are two ways you can interact with a Python REPL.
-
-### Terminal REPL
-
-Similar to how you can interact with the Python REPL outside of VS Code, you can open a Terminal within VS Code and activate a Python REPL. To do so, you can either open a Terminal via **Open > Terminal** and use `python` (Windows) or `python3` (macOS/Linux) command to activate `>>>` or you can use the Command Palette (`kb(workbench.action.showCommands)`) and search for **Python: Open Terminal REPL** which opens a terminal for the currently selected Python interpreter.
+The Python interpreter installed on your machine allows for what’s known as an interactive REPL (Read-Evaluate-Print Loop), which reads a piece of code, evaluates it, and then prints the result to the console. After installing a Python interpreter on your machine, you can interact with the Python REPL by searching for the Terminal / Command Prompt on you system, and typing `python` (Windows) or `python3` (macOS/Linux) to activate the Python REPL, notated by `>>>`. There are two additional ways you can interact with a Python REPL in VS Code.
 
 ### Native REPL
 
-The VS Code Native REPL for Python builds upon the classic Python REPL including features such as Intellisense and syntax highlighting to make your Python development experience more efficient. **ADD SOMETHING ABOUT THE VARIABLE VIEWER!!!!!** However, this REPL still adheres to principles present in the REPL built-in to Python itself, in that history is immutable.
+The VS Code Native REPL for Python builds upon the classic Python REPL including features such as Intellisense and syntax highlighting to make your Python development experience more efficient. However, this REPL still adheres to principles present in the REPL built-in to Python itself, in that history is immutable.
 
-You can open this REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Open Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line** byb setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
+You can open the Native REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Start Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line** by setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
+
+![Gif showing the Native REPL for Python.](/docs/python/images/shared/native-repl-demo.gif)
+
+### Terminal REPL
+
+Similar to how you can interact with the Python REPL outside of VS Code, you can open a Terminal within VS Code and activate a Python REPL. To do so, you can search in the Command Palette (`kb(workbench.action.showCommands)`) for **Python: Start Terminal REPL** which opens a terminal for the currently selected Python interpreter. Alternatively, you can navigate to **Terminal > New Terminal** and type `python` (Windows) or `python3` (macOS/Linux) command.
 
 ## Run code within your Python project
 
@@ -45,8 +47,10 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 3. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
 
+4. Place your cursor on a line of code and press `kbstyle(Shift+Enter)` to activate Smart Send.
+
 ### Smart Send
 
 The Python extension enables Smart Send on (`kbstyle(Shift+Enter)`) by default. Smart Send looks at the code where you cursor is placed, and sends the smallest runnable chunk of code to the Python REPL and then places your cursor at the next line of code. This allows you to more easily and efficiently execute Python code in your program.
 
-Smart Send will not work on unsupported versions of Python (i.e. Python 2). To disable Smart Send in favor of only sending code at the line which your cursor is placed, set `python.REPL.enableREPLSmartSend` to `false`.
+Smart Send will not work on unsupported versions of Python (i.e. Python 2) or invalid Python code. To disable Smart Send in favor of only sending code at the line which your cursor is placed, set `python.REPL.enableREPLSmartSend` to `false`.
