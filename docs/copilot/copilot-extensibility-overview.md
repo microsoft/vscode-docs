@@ -10,17 +10,11 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot extensibility in VS Code
 
-You can extend GitHub Copilot in Visual Studio Code to expand the functionality of Copilot Chat or to take advantage of Copilot's Language Learning Model (LLM) to build AI features into your extension.
-
-To extend Copilot in VS Code, you build a VS Code extension with additional capabilities, including:
-
-- Adding a chat participant in the VS Code Chat view to give users a natural-language interface
-- Using the Copilot LLM to interpret user prompts and generate responses
-- Using the Copilot LLM to implement AI-powered features in your extension
+You can extend GitHub Copilot in Visual Studio Code to expand the functionality of Copilot Chat or to take advantage of Copilot's Large Language Model (LLM) to build AI features into your extension. In this article, you learn about the different ways to extend Copilot in your VS Code extension and how to get started.
 
 ## About Copilot extensibility in VS Code
 
-You have different options to extend Copilot in your VS Code extension:
+The basis for extending Copilot in VS Code is building a VS Code extension. There are different ways in which you can extend Copilot in your VS Code extension:
 
 - **VS Code Chat extension**: use the Chat API to create a chat participant that gives users a natural-language interface and provides domain-specific help via the Chat view in VS Code. Optionally, you can use the Copilot LLM to interpret user prompts and generate responses.
 
@@ -32,10 +26,12 @@ Alternatively, you can also build a **Copilot Extension**, implemented as a GitH
 
 You can extend the capabilities of Copilot in VS Code in various ways. For example, you could use them for:
 
-- Docs querying: A chat participant could allow Copilot Chat to query a third-party documentation service to find information about a specific topic.
+- Docs querying: A chat participant could allow Copilot Chat to use Retrieval-Augmented Generation (RAG) to query a third-party documentation service and generate responses based on the retrieved information.
 - AI-assisted coding: Use the Copilot LLM to provide editor annotations to provide coding suggestions.
 - AI-powered reviews: Use the Copilot LLM to review your code for security vulnerabilities or performance improvements.
 - Data retrieval: A chat participant could allow Copilot Chat to query a database or third-party data service to retrieve information about a specific topic.
+- Enterprise coding assistant: a chat participant that is grounded in the data of your enterprise and that is aware of the specific coding guidelines your company follows.
+- Enhance extensions: Use the Language Model API to add AI-powered features to your existing VS Code extensions.
 
 ## Get started with Copilot extensibility in VS Code
 
