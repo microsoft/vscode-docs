@@ -8,7 +8,7 @@ DateApproved: 09/05/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Getting started with GitHub Copilot Chat in VS Code
+# Getting started with Copilot Chat in VS Code
 
 This tutorial walks you through using the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code. You use AI-powered chat conversations to help with refactoring code, improving your code understanding, and finding your way around configuring VS Code.
 
@@ -24,7 +24,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 ## Get your first Copilot chat conversation
 
-GitHub Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
+Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
 In this tutorial, you'll be creating a simple Node.js web application. So, let's get started and ask Copilot to tell us more about web frameworks for Node.js.
 
@@ -208,5 +208,5 @@ Congratulations, you successfully used the [GitHub Copilot Chat](https://marketp
 
 ## Additional resources
 
-* Get an overview of [GitHub Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
+* Get an overview of [Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
 * Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/prompt-crafting.md)

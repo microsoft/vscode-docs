@@ -86,7 +86,7 @@ Let's use Copilot Chat to help us with generating and refactoring code.
 
 1. Select **Accept** or press `kb(inlineChat.acceptChanges)` to apply the proposed code changes.
 
-    Congratulations! You've used GitHub Copilot Chat for generating code using chat and natural language.
+    Congratulations! You've used Copilot Chat for generating code using chat and natural language.
 
     Now, let's use Copilot Chat to help us refactor the code to return a static HTML file as the home page, instead of "Hello, World!".
 
@@ -108,7 +108,7 @@ With Copilot Chat you can use a chat conversation and natural language to direct
 
 ## Use Copilot Chat for general programming questions
 
-As you're working in a new codebase, or exploring a new programming language, you might have more general questions come up. GitHub Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
+As you're working in a new codebase, or exploring a new programming language, you might have more general questions come up. Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
 
 1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
 
@@ -152,4 +152,4 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
 Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you successfully set up Copilot in VS Code, and used Copilot code completions, Copilot Chat, and code actions to help you code more efficiently.
 
-You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about GitHub Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
+You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).

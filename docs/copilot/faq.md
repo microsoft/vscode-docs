@@ -27,7 +27,7 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 
 ### My Copilot subscription is not detected in VS Code
 
-- To use GitHub Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
+- To use Copilot Chat in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub ID that has access to GitHub Copilot. If your Copilot subscription is associated with another GitHub account, you might have to sign out of your GitHub account and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
 
 - Verify that your Copilot subscription is still active in [GitHub Copilot settings](https://github.com/settings/copilot).
 

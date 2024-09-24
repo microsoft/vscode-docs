@@ -20,7 +20,7 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * Use the **Chat view** to have an AI assistant on the side to help you at any time
 * Launch **Quick Chat** to ask a quick question and get back into what you're doing
 
-You can use GitHub Copilot Chat in various scenarios, such as:
+You can use Copilot Chat in various scenarios, such as:
 
 * Answering coding questions on how to best solve a problem
 * Explaining someone else's code and suggest improvements

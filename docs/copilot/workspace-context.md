@@ -74,5 +74,5 @@ The way you phrase your question can significantly influence the quality of the 
 
 ## Related resources
 
-- Get started with the [GitHub Copilot Chat tutorial](/docs/copilot/getting-started-chat.md)
+- Get started with the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md)
 - [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md)
