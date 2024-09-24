@@ -17,8 +17,6 @@ The Azure Tools extension pack enables developers to access Azure's cloud servic
 
 **Install the Azure Tools extension pack.** Open VS Code, navigate to the Extensions view, and search for “Azure Tools.” Install the [Azure Tools extension pack](overview.md) from Microsoft.
 
-Streamline your workflow by quickly searching for commands, settings, and keyboard shortcuts, eliminating the need to navigate through multiple menus.
-
 **Navigate to the Azure Resources view.** Select the Azure icon in the Activity Bar (sidebar) to open the **Azure Resources** view. Once you're signed in to your Azure account, the Azure Resources view displays all your existing resources. You can create and manage these services right from VS Code.
 
 ![Azure icon](images/extensions/azure-icon.png)
@@ -36,8 +34,6 @@ In the Command Palette, type `Azure` to list the commands that are specific to A
 **Identify and customize keyboard shortcuts.** Find the list of all the assigned [VS Code shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf).
 
 **Redisplay notifications.** You can right-click the bell icon in the bottom right of the Status Bar in VS Code to see missed notifications.
-
-**Make VS Code more accessible.** VS Code has built-in accessibility features that are compatible with screen readers and other assistive technologies. See [Accessibility](/docs/editor/accessibility.md) for the full list of available features.
 
 ## Write Code
 

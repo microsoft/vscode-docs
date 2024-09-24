@@ -39,3 +39,4 @@ There are many VS Code extensions on the [Marketplace](https://marketplace.visua
 
 * [Azure Tools Getting Started](/docs/azure/gettingstarted.md) - Learn how to get started quickly.
 * [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/?source=docs) - Guidance for architecting solutions on Azure using established patterns and practices
+* [VS Code Getting Started](https://code.visualstudio.com/docs/getstarted/getting-started)
