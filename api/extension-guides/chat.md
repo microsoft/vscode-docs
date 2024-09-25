@@ -11,7 +11,6 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
 
-
 Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
 
 - Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
@@ -20,13 +19,7 @@ Chat participants are domain experts that can answer user queries within a speci
 
 Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/semantic-kernel/agents/) that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
-When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A `ResponseStream` can include:
-
-- Markdown for simple text and image responses
-- Buttons that invoke VS Code commands
-- Progress for longer running operations
-- References to URIs or editor locations
-- File trees (for example, to show a workspace preview when a chat participant proposes to create a new workspace)
+When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A chat response can contain rich content, such as Markdown, file trees, command buttons, and more. Get more info about the [supported response output types](#supported-chat-response-output-types).
 
 To help the user take the conversation further, participants can provide *follow-ups* for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
 
@@ -35,7 +28,6 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 ## Extending GitHub Copilot via GitHub Apps
 
 Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API. To learn more about extending GitHub Copilot through a GitHub App see the [GitHub documentation](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions).
-
 
 ## Links
 
@@ -96,7 +88,7 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest to use a lowercase `name` to align with existing chat participants. `name` can not contain spaces. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest to use title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension id). The `description` is shown in the chat input field as a placeholder text.
+We suggest using a lowercase `name` to align with existing chat participants. `name` can not contain spaces. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest using title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID). The `description` is shown in the chat input field as a placeholder text.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
 
@@ -269,11 +261,152 @@ cat.followupProvider = {
 
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
+## Supported chat response output types
+
+To return a response to a chat request, you use the [`ChatResponseStream`](/api/references/vscode-api#ChatResponseStream) parameter on the [`ChatRequestHandler`](/api/references/vscode-api#ChatRequestHandler).
+
+The following table lists the output types that the Chat view supports within a chat response. A chat response can consists of multiple of these output types.
+
+<table>
+<tr>
+    <th>Output type</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>Markdown</td>
+    <td>
+Render a fragment of Markdown text. You can use any Markdown syntax that is part of the <a href="https://commonmark.org/">CommonMark</a> specification. Use the `ChatResponseStream.markdown` method and provide the Markdown text.
+
+**Example**:
+
+```typescript
+// Render Markdown text
+stream.markdown('# This is a title \n');
+stream.markdown('This is stylized text that uses _italics_ and **bold** and has a [link](https://code.visualstudio.com).\n\n');
+stream.markdown('![VS Code](https://code.visualstudio.com/assets/favicon.ico)');
+```
+
+</td>
+</tr>
+<tr>
+    <td>Code block</td>
+    <td>
+Render a code block that supports IntelliSense, code formatting, and interactive controls to apply the code to the active editor. To show a code block, use the `ChatResponseStream.markdown` method and apply the Markdown syntax for code blocks (using backticks).
+
+**Example**:
+
+```typescript
+// Render a code block that enables users to interact with
+stream.markdown('```bash\n');
+stream.markdown('```ls -l\n');
+stream.markdown('```');
+```
+
+<td/>
+</tr>
+<tr>
+    <td>Button</td>
+    <td>
+Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the `ChatResponseStream.button` method and provide the button text and command ID.
+
+**Example**:
+
+```typescript
+// Render a button to trigger a VS Code command
+stream.button({
+    command: 'my.command',
+    title: vscode.l10n.t('Run my command')
+});
+```
+
+</td>
+</tr>
+<tr>
+    <td>File tree</td>
+    <td>
+Render a file tree control that lets users preview individual files. For example, to show a workspace preview when proposing to create a new workspace. Use the `ChatResponseStream.filetree` method and provide an array of file tree elements and the base location (folder) of the files.
+
+**Example**:
+
+```typescript
+// Create a file tree instance
+var tree: vscode.ChatResponseFileTree[] = [
+    { name: 'myworkspace', children: [
+        { name: 'README.md' },
+        { name: 'app.js' },
+        { name: 'package.json' }
+    ]}
+];
+
+// Render the file tree control at a base location
+stream.filetree(tree, baseLocation);
+```
+
+</td>
+</tr>
+<tr>
+    <td>Progress</td>
+    <td>
+Render a progress message during a long-running operation to provide the user with intermediate feedback. For example, to report the completion of each step in a multi-step operation. Use the `ChatResponseStream.progress` method and provide the message.
+
+**Example**:
+
+```typescript
+// Render a progress message
+stream.progress('Connecting to the database.');
+```
+
+</td>
+</tr>
+<tr>
+    <td>Reference</td>
+    <td>
+Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the `ChatResponseStream.reference` method and provide the reference location.
+
+**Example**:
+
+```typescript
+const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');
+const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
+const externalUri: vscode.Uri = vscode.Uri.parse('https://www.bing.com');
+
+// Add a reference to an entire file
+stream.reference(fileUri);
+
+// Add a reference to a specific selection within a file
+stream.reference(new vscode.Location(fileUri, fileRange));
+
+// Add a reference to an external URL
+stream.reference(externalUri);
+```
+
+</td>
+</tr>
+<tr>
+    <td>Anchor</td>
+    <td>
+Add an inline reference to a URI, editor location, or symbol information. Use the `ChatResponseStream.anchor` method and provide the anchor location and optional title.
+
+**Example**:
+
+```typescript
+const symbolLocation: vscode.Uri = vscode.Uri.parse('location-to-a-symbol');
+
+// Render an inline anchor to a symbol in the workspace
+stream.anchor(symbolLocation, 'MySymbol');
+```
+
+</td>
+</tr>
+</table>
+
+> **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved.md#outgoing-link-protection).
+
 ## Variables
 
 > **Note:** The Variables API is still in a proposed state and we are actively working on it.
 
-Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp` that would get resolved based on the state of the language service - what C++ version is being used and what C++ programming approach is preferred.
+Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp` that would get resolved based on the state of the language service - what C++ version is used and what C++ programming approach is preferred.
 
 Users can refer to a chat variable in a prompt by using the `#` symbol. A variable is resolved by either the chat extension that contributed that variable, or by VS Code when it's a built-in variable (for example, `#file` or `#selection`). VS Code offers the list of registered variables upon typing the `#` symbol in the chat input.
 
