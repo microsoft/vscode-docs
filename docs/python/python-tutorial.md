@@ -142,9 +142,9 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 ## Run Python code
 
-Click the **Run Python File in Terminal** play button in the top-right side of the editor.
+Click the **Run Python File** play button in the top-right side of the editor.
 
-![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the Run Python File button](images/tutorial/run-python-file-in-terminal-button.png)
 
 The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
@@ -152,13 +152,15 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 There are three other ways you can run Python code within VS Code:
 
-1. Right-click anywhere in the editor window and select **Run > Python File in Terminal** (which saves the file automatically):
+1. Right-click anywhere in the editor window and select **Run Python > Run Python File in Terminal** (which saves the file automatically):
 
    ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
-2. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
+2. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Python > Run Selection/Line in Python Terminal**. Alternatively, you can activate Smart Send using `kbstyle(Shift+Enter)` without a selection and the Python extension will send the smallest runnable block of code near where your cursor is placed to the terminal. This command is convenient for testing just a part of a file.
 
-3. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+> **Note**: If you prefer to send code at the particular line your cursor is placed, you can turn off Smart Send by setting `python.REPL.enableREPLSmartSend : "false"` in your **User** settings.
+
+1. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start Terminal REPL** command to open a REPL terminal (notated by `>>>`) for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
 Congrats, you just ran your first Python code in Visual Studio Code!
 
