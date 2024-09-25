@@ -267,140 +267,113 @@ cat.followupProvider = {
 
 To return a response to a chat request, you use the [`ChatResponseStream`](/api/references/vscode-api#ChatResponseStream) parameter on the [`ChatRequestHandler`](/api/references/vscode-api#ChatRequestHandler).
 
-The following table lists the output types that the Chat view supports within a chat response. A chat response can consists of multiple of these output types.
+The following list provides the output types for a chat response in the Chat view. A chat response can combine multiple different output types.
 
-<table>
-<tr>
-    <th>Output type</th>
-    <th>Description</th>
-</tr>
-<tr>
-    <td>Markdown</td>
-    <td>
-Render a fragment of Markdown text. You can use any Markdown syntax that is part of the <a href="https://commonmark.org/">CommonMark</a> specification. Use the `ChatResponseStream.markdown` method and provide the Markdown text.
+- **Markdown**
 
-**Example**:
+    Render a fragment of Markdown text simple text or images. You can use any Markdown syntax that is part of the [CommonMark](https://commonmark.org/) specification. Use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and provide the Markdown text.
 
-```typescript
-// Render Markdown text
-stream.markdown('# This is a title \n');
-stream.markdown('This is stylized text that uses _italics_ and **bold** and has a [link](https://code.visualstudio.com).\n\n');
-stream.markdown('![VS Code](https://code.visualstudio.com/assets/favicon.ico)');
-```
+    Example code snippet:
 
-</td>
-</tr>
-<tr>
-    <td>Code block</td>
-    <td>
-Render a code block that supports IntelliSense, code formatting, and interactive controls to apply the code to the active editor. To show a code block, use the `ChatResponseStream.markdown` method and apply the Markdown syntax for code blocks (using backticks).
+    ```typescript
+    // Render Markdown text
+    stream.markdown('# This is a title \n');
+    stream.markdown('This is stylized text that uses _italics_ and **bold**. ');
+    stream.markdown('This is a [link](https://code.visualstudio.com).\n\n');
+    stream.markdown('![VS Code](https://code.visualstudio.com/assets/favicon.ico)');
+    ```
 
-**Example**:
+- **Code block**
 
-```typescript
-// Render a code block that enables users to interact with
-stream.markdown('```bash\n');
-stream.markdown('```ls -l\n');
-stream.markdown('```');
-```
+    Render a code block that supports IntelliSense, code formatting, and interactive controls to apply the code to the active editor. To show a code block, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and apply the Markdown syntax for code blocks (using backticks).
 
-<td/>
-</tr>
-<tr>
-    <td>Button</td>
-    <td>
-Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the `ChatResponseStream.button` method and provide the button text and command ID.
+    Example code snippet:
 
-**Example**:
+    ```typescript
+    // Render a code block that enables users to interact with
+    stream.markdown('```bash\n');
+    stream.markdown('```ls -l\n');
+    stream.markdown('```');
+    ```
 
-```typescript
-// Render a button to trigger a VS Code command
-stream.button({
-    command: 'my.command',
-    title: vscode.l10n.t('Run my command')
-});
-```
+- **Command button**
 
-</td>
-</tr>
-<tr>
-    <td>File tree</td>
-    <td>
-Render a file tree control that lets users preview individual files. For example, to show a workspace preview when proposing to create a new workspace. Use the `ChatResponseStream.filetree` method and provide an array of file tree elements and the base location (folder) of the files.
+    Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the [`ChatResponseStream.button`](/api/references/vscode-api#ChatResponseStream.button) method and provide the button text and command ID.
 
-**Example**:
+    Example code snippet:
 
-```typescript
-// Create a file tree instance
-var tree: vscode.ChatResponseFileTree[] = [
-    { name: 'myworkspace', children: [
-        { name: 'README.md' },
-        { name: 'app.js' },
-        { name: 'package.json' }
-    ]}
-];
+    ```typescript
+    // Render a button to trigger a VS Code command
+    stream.button({
+        command: 'my.command',
+        title: vscode.l10n.t('Run my command')
+    });
+    ```
 
-// Render the file tree control at a base location
-stream.filetree(tree, baseLocation);
-```
+- **File tree**
 
-</td>
-</tr>
-<tr>
-    <td>Progress</td>
-    <td>
-Render a progress message during a long-running operation to provide the user with intermediate feedback. For example, to report the completion of each step in a multi-step operation. Use the `ChatResponseStream.progress` method and provide the message.
+    Render a file tree control that lets users preview individual files. For example, to show a workspace preview when proposing to create a new workspace. Use the [`ChatResponseStream.filetree`](/api/references/vscode-api#ChatResponseStream.filetree) method and provide an array of file tree elements and the base location (folder) of the files.
 
-**Example**:
+    Example code snippet:
 
-```typescript
-// Render a progress message
-stream.progress('Connecting to the database.');
-```
+    ```typescript
+    // Create a file tree instance
+    var tree: vscode.ChatResponseFileTree[] = [
+        { name: 'myworkspace', children: [
+            { name: 'README.md' },
+            { name: 'app.js' },
+            { name: 'package.json' }
+        ]}
+    ];
 
-</td>
-</tr>
-<tr>
-    <td>Reference</td>
-    <td>
-Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the `ChatResponseStream.reference` method and provide the reference location.
+    // Render the file tree control at a base location
+    stream.filetree(tree, baseLocation);
+    ```
 
-**Example**:
+- **Progress message**
 
-```typescript
-const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');
-const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
-const externalUri: vscode.Uri = vscode.Uri.parse('https://www.bing.com');
+    Render a progress message during a long-running operation to provide the user with intermediate feedback. For example, to report the completion of each step in a multi-step operation. Use the [`ChatResponseStream.progress`](/api/references/vscode-api#ChatResponseStream.progress) method and provide the message.
 
-// Add a reference to an entire file
-stream.reference(fileUri);
+    Example code snippet:
 
-// Add a reference to a specific selection within a file
-stream.reference(new vscode.Location(fileUri, fileRange));
+    ```typescript
+    // Render a progress message
+    stream.progress('Connecting to the database.');
+    ```
 
-// Add a reference to an external URL
-stream.reference(externalUri);
-```
+- **Reference**
 
-</td>
-</tr>
-<tr>
-    <td>Anchor</td>
-    <td>
-Add an inline reference to a URI, editor location, or symbol information. Use the `ChatResponseStream.anchor` method and provide the anchor location and optional title.
+    Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the [`ChatResponseStream.reference`](/api/references/vscode-api#ChatResponseStream.reference) method and provide the reference location.
 
-**Example**:
+    Example code snippet:
 
-```typescript
-const symbolLocation: vscode.Uri = vscode.Uri.parse('location-to-a-symbol');
+    ```typescript
+    const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');
+    const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
+    const externalUri: vscode.Uri = vscode.Uri.parse('https://code.visualstudio.com');
 
-// Render an inline anchor to a symbol in the workspace
-stream.anchor(symbolLocation, 'MySymbol');
-```
+    // Add a reference to an entire file
+    stream.reference(fileUri);
 
-</td>
-</tr>
-</table>
+    // Add a reference to a specific selection within a file
+    stream.reference(new vscode.Location(fileUri, fileRange));
+
+    // Add a reference to an external URL
+    stream.reference(externalUri);
+    ```
+
+- **Inline reference**
+
+    Add an inline reference to a URI, editor location, or symbol information. Use the [`ChatResponseStream.anchor`](/api/references/vscode-api#ChatResponseStream.anchor) method and provide the anchor location and optional title.
+
+    Example code snippet:
+
+    ```typescript
+    const symbolLocation: vscode.Uri = vscode.Uri.parse('location-to-a-symbol');
+
+    // Render an inline anchor to a symbol in the workspace
+    stream.anchor(symbolLocation, 'MySymbol');
+    ```
 
 > **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved.md#outgoing-link-protection).
 
