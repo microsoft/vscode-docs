@@ -194,6 +194,8 @@ stream.button({
 });
 ```
 
+Get more info about the [supported chat response output types](#supported-chat-response-output-types).
+
 In practice, extensions typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming [Language Model API](/api/extension-guides/language-model). This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
 
 #### Use the chat message history
