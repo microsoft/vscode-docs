@@ -29,7 +29,6 @@ You can find additional tutorials and walkthroughs on the
 
 ## Next steps
 
-* [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
+* [Deploy to Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/deploy-visual-studio-code) - Run microservices and containerized applications on a serverless platform.
 * [Visual Studio Code Azure Extensions](/docs/azure/overview.md) - The Azure Tools extension pack is designed to deploy your application to Azure within minutes.
-* [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage and query MongoDB databases from within VS Code.
-* [Working with Kubernetes](/docs/azure/kubernetes.md) - for automating deployment, scaling, and management of application.
+* [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
