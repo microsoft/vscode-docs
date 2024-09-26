@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 5
 Area: copilot
 TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
