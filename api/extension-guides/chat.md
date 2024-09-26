@@ -296,6 +296,22 @@ The following list provides the output types for a chat response in the Chat vie
     stream.markdown('```');
     ```
 
+- **Command link**
+
+    Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL.
+
+    To protect against command injection when you load the Markdown text from a service, you have to use a `vscode.MarkdownString` object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
+
+    Example code snippet:
+
+    ```typescript
+    // Use command URIs to link to commands from Markdown
+    var markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID})`, true);
+    markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
+
+    stream.markdown(markdownCommandString);
+    ```
+
 - **Command button**
 
     Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the [`ChatResponseStream.button`](/api/references/vscode-api#ChatResponseStream.button) method and provide the button text and command ID.
