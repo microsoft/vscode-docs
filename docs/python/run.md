@@ -29,6 +29,8 @@ You can open the Native REPL via the Command Palette (`kb(workbench.action.showC
 
 Similar to how you can interact with the Python REPL outside of VS Code, you can open a Terminal within VS Code and activate a Python REPL. To do so, you can search in the Command Palette (`kb(workbench.action.showCommands)`) for **Python: Start Terminal REPL** which opens a terminal for the currently selected Python interpreter. Alternatively, you can navigate to **Terminal > New Terminal** and type `python` (Windows) or `python3` (macOS/Linux) command.
 
+There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration). Features such as run recent command, command decorators, and improved accessibility are supported via shell integration. To enable or disable shell integration in the terminal, you can toggle `python.terminal.shellIntegration.enabled` in your settings.
+
 ## Run code within your Python project
 
 The Python extension allows you to run Python code without any configuration needed.
