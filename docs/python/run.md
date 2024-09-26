@@ -21,7 +21,7 @@ The Python interpreter installed on your machine allows for what’s known as an
 
 The VS Code Native REPL for Python builds upon the classic Python REPL and provides additional features such as Intellisense and syntax highlighting to make your Python development experience more efficient. However, this REPL still adheres to principles present in the REPL built-in to Python itself, in that historical execution order and its content are immutable.
 
-You can open the Native REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Start Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line** by setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
+You can open the Native REPL via the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Python: Start Native REPL**. Furthermore, you can send code to the Native REPL via Smart Send (`kbstyle(Shift+Enter)`) and **Run Selection/Line in Python REPL** by setting `"python.REPL.sendToNativeREPL": true` in your `settings.json` file. You can opt to continue to use the REPL built-in to Python located in the terminal ( `>>>` ) by setting `"python.REPL.sendToNativeREPL": false` in your `settings.json`.
 
 ![Gif showing the Native REPL for Python.](/docs/python/images/shared/native-repl-demo.gif)
 
