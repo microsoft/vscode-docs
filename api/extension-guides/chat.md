@@ -298,7 +298,7 @@ The following list provides the output types for a chat response in the Chat vie
 
 - **Command link**
 
-    Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL.
+    Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL. For example, the following link opens the Command Palette: `[Command Palette](command:workbench.action.showCommands)`.
 
     To protect against command injection when you load the Markdown text from a service, you have to use a `vscode.MarkdownString` object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
 
