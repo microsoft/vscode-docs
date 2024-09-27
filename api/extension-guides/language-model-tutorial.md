@@ -9,7 +9,7 @@ MetaDescription: Tutorial that walks you through creating a VS Code extension th
 
 # Tutorial: Generate AI-powered code annotations by using the Language Model API
 
-In this tutorial, you'll learn how to create a Visual Studio Code extension that uses the Language Model API to generate AI-powered code annotations. You'll create a Code Tutor extension that provides inline suggestions for how to improve your code.
+In this tutorial, You'll learn how to create a VS extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotatations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
 
 <!-- TODO: Add a screenshot of the extension in action -->
 ![]()
@@ -19,6 +19,7 @@ In this tutorial, you'll learn how to create a Visual Studio Code extension that
 You'll need the following tools and accounts to complete this tutorial:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 - [Node.js](https://nodejs.org/en/download/)
 
 ## Step 1: Scaffold out the extension
@@ -48,9 +49,9 @@ Select the following options to complete the new extension wizard...
 
 ## Step 2: Modify the package.json file to include the correct commands
 
-By default, the scaffolded project will include a single "helloWorld" command in the `package.json` file. This command will show up in the Command Palette when your extension is installed. You'll want to modify this so that it shows a "Show Code Tutor Annotations" command instead.
+By default, the scaffolded project includes a single "helloWorld" command in the `package.json` file. This shows up in the Command Palette when your extension is installed. You need to modify this so that it shows a "Tutor" command instead.
 
-In the `package.json` file, find the "contributes" section and modify the existing "helloWorld" command so that it looks like this:
+The `package.json` file defines available commands and UI controls. In the `package.json` file, find the "contributes" section and modify the existing "helloWorld" command so that it looks like this:
 
 ```json
 "contributes": {
@@ -76,7 +77,6 @@ We also want a "Tutor" button to show up at the top of the editor so that the us
   "menus": {
     "editor/title": [
       {
-        "when": "editorFocus",
         "command": "code-tutor.annotate",
         "group": "navigation"
       }
@@ -85,15 +85,14 @@ We also want a "Tutor" button to show up at the top of the editor so that the us
 }
 ```
 
-- The "editor/title" specifies where we want this menu option - which is in the title bar of whichever tab is currently open in the editor area.
-- The "when" specifies when we want this menu option to be shown. In this case, we want it to be shown whenever the editor has focus.
-- The "command" specifies which command we want to run when the user clicks this menu option. In this case, we want to run the "code-tutor.annotate" command that we defined earlier.
+- The "editor/title" specifies where we want this menu option - which is in the title bar of the acctive editor tab.
+- The "command" specifies which command we want to run when the user selects this menu option. In this case, we want to run the "code-tutor.annotate" command that we defined earlier.
 - The "group" specifies where we want this menu option to be shown in the title bar. The "navigation" group is the section that is on the top right of the editor.
 
 <!-- TODO: Add "Group" screenshot -->
 ![]()
 
-At this point, you can run the extension from the "Run and Debug" view in the sidebar. This will open a new VS Code instance with the extension installed. If you open a project that contains code files and then open a code file, you should see the "Tutor" button in the title bar of the editor. You'll also see a "Tutor" option in the Command Palette.
+Run the extension by pressing <kdb>F5</kbd>. This will open a new VS Code instance with the extension installed. If you open a code file this new VS Code instance, you should see the "Tutor" button in the title bar of the editor. You'll also see a "Tutor" option in the Command Palette.
 
 However, if you click on the "Tutor" button or select the option from the Command Palette, you'll see an error message that says "Command 'code-tutor.annotate' resulted in an error (command 'code-tutor.annotate' not found)". That's because we haven't implemented the command yet, so let's do that next.
 
@@ -113,34 +112,46 @@ Modify the line so that it looks like this:
 const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
 ```
 
-You can now run the extension again, and this time when you click on the "Tutor" button or select the option from the Command Palette, you should see a message that says "Hello from Code Tutor!".
+If your project is still running, restart it with the green restart icon in the debug bar. If you already stopped the extension, restart it with <kbd>F5</kbd>.
+
+![TODO: Image of debug bar]()
+
+This time when you click on the "Tutor" button or select the option from the Command Palette, you should see a message that says "Hello from Code Tutor!".
 
 We're now ready to start building the functionality to generate AI-powered code annotations.
 
-## Step 4
+## Step 4: Send messages to the language model
 
-To get our Code Tutor annotations working, we'll need to do a few things...
+To get our Code Tutor annotations working, we need to send it some code and ask it to provide annotations. We'll do this in three steps:
 
-1. Get the code with line numbers from the current editor.
-2. Send the code to the Language Model API to get the annotations.
+1. Get the code with line numbers from the current tab the user has open.
+2. Send that code to the Language Model API along with a custom prompt that instructs the model on how to provide annotations.
 3. Parse the annotations and display them in the editor.
 
-Let's start by getting the code from the current editor. Add the following method directly above the `export function deactivate() { }` line at the bottom of the `extension.ts` file.
+Let's start by getting the code from the current editor with line numbers. We need to provide line numbers to the model so that it can tell us which lines to add the annotations to in its response.
+
+Add the following method directly above the `export function deactivate() { }` line at the bottom of the `extension.ts` file.
 
 ```ts
-function getCodeWithLineNumbers(textEditor: vscode.TextEditor) {
- let currentLine = textEditor.visibleRanges[0].start.line;
- const endLine = textEditor.visibleRanges[0].end.line;
- let code = '';
- while (currentLine < endLine) {
-  code += `${currentLine + 1}: ${textEditor.document.lineAt(currentLine).text} \n`;
-  currentLine++;
- }
- return code;
+function getVisibleCodeWithLineNumbers(textEditor: vscode.TextEditor) {
+  // get the position of the first and last visible lines
+  let currentLine = textEditor.visibleRanges[0].start.line;
+  const endLine = textEditor.visibleRanges[0].end.line;
+
+  let code = '';
+
+  // get the text from the line at the current position.
+  // The line number is 0-based, so we add 1 to it to make it 1-based.
+  while (currentLine < endLine) {
+    code += `${currentLine + 1}: ${textEditor.document.lineAt(currentLine).text} \n`;
+    // move to the next line position
+    currentLine++;
+  }
+  return code;
 }
 ```
 
-This code uses the `visibleRanges` property of the TextEditor to get the lines that are currently visible in the editor. It then loops through these lines and adds each one to a string, along with the line number. Finally, it returns the string that contains the code with line numbers.
+This code uses the `visibleRanges` property of the TextEditor to get the position of the lines that are currently visible in the editor. It then starts with the first line position and moves to the last line position, adding each line of code to a string along with the line number. Finally, it returns the string that contains all the viewable code with line numbers.
 
 Now we can call this method from the `code-tutor.annotate` command. Modify the implementation of the command so that it looks like this:
 
@@ -153,7 +164,7 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
 });
 ```
 
-The next step is to call the GitHub Copilot language model. To do this, we first need to specify which chat model we want to use.
+The next step is to call the GitHub Copilot language model. To do this, we first need to specify which chat model we want to use. We select 4o here because it is a fast and capable model for the kind of interaction we are building.
 
 ```ts
 const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
@@ -178,7 +189,10 @@ const ANNOTATION_PROMPT = `You are a code tutor who helps students learn how to 
 `;
 ```
 
-This is a special prompt that instructs the language model on how to generate annotations. It also includes examples for how the model should format its response. This is what allows to to know what format the response will be in, so that we can parse it and display it as annotations. Now we can pass the prompt and the code with line numbers to the model.
+This is a special prompt that instructs the language model on how to generate annotations. It also includes examples for how the model should format its response. These examples are what enable us to define what the format the response will be so that we can parse it and display it as annotations.
+
+Now we can pass the prompt and the code with line numbers to the model.
+
 
 ```ts
 const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotate', async (textEditor: vscode.TextEditor) => {
@@ -226,9 +240,15 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
     // send the messages array to the model and get the response
     let chatResponse = await model.sendRequest(messages, {}, new vscode.CancellationTokenSource().token);
 
+    // loop over the response and log the messages
+    for await (const fragment of chatResponse.text) {
+      console.log(fragment);
+    }
   }
 });
 ```
+
+You can either run
 
 Then we'll send the messages to the model and get the response. Chat responses come in as fragments. These fragments usually contain single words, but sometimes they contain just punctuation. In order to display annotations as the response streams in, we want to wait until we have a complete annotation before we display it. Because of the way we have instructed our model to return its response, we know that when we see a closing `}` we have a complete annotation. We can then parse the annotation and display it in the editor.
 
