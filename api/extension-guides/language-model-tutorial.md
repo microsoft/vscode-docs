@@ -11,8 +11,7 @@ MetaDescription: Tutorial that walks you through creating a VS Code extension th
 
 In this tutorial, You'll learn how to create a VS extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotatations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
 
-<!-- TODO: Add a screenshot of the extension in action -->
-![]()
+![VS Code displaying custom annotations from GitHub Copilot as annotations](./images/lm-api/code-tutor-annotations-gif.gif)
 
 ## Prerequisites
 
@@ -85,11 +84,11 @@ const disposable = vscode.commands.registerCommand('code-tutor.annotate', () => 
 
 Run the extension by pressing <kbd>F5</kbd>. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing <kbd>F1</kbd>, and search for "tutor". You should see the "Tutor Annotations" command.
 
-![The "Toggle Tutor Annotations" command in the VS Code Command Palette]()
+![The "Toggle Tutor Annotations" command in the VS Code Command Palette](./images/lm-api/tutor-command-command-palette.png)
 
 If you select the "Tutor Annotations" command, you'll see a "Hello World" notification message.
 
-![The message 'Hello World from Code Tutor' displayed in a notification]()
+![The message 'Hello World from Code Tutor' displayed in a notification](./images/lm-api/code-tutor-hello-world.png)
 
 ## Implement the "annotate" command
 
@@ -290,7 +289,7 @@ Finally, we set the decoration on the active text editor which is what causes th
 
 If your extension is still running, restart it by selecting the green arrow from the debug bar. If you closed the debug session, press <kbd>F5</kbd> to run the extension. Open a code file in the new VS Code window instance that opens. When you select "Toggle Tutor Annotations" from the Command Palette, you should see the code annotations appear in the editor.
 
-![A code file with annotations from GitHub Copilot]()
+![A code file with annotations from GitHub Copilot](./images/lm-api/code-with-annotations.png)
 
 ## Add a button to the editor title bar
 
@@ -322,7 +321,7 @@ This causes a button to appear in the navigation area (right-side) of the editor
 
 Restart your extension with the green arrow or press <kbd>F5</kbd> if the extension is not already running. You should now see a comment icon that will trigger the "Toggle Tutor Annotations" command.
 
-![A comment icon appears in the title bar of the active tab in VS Code]()
+![A comment icon appears in the title bar of the active tab in VS Code](./images/lm-api/code-tutor-annotations-gif.gif)
 
 ## Next Steps
 
