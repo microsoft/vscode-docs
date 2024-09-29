@@ -314,7 +314,6 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
-- `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.lastPinnedBorder`: Border on the right of the last pinned editor to separate from unpinned editors.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
