@@ -625,7 +625,6 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
-- `chat.requestBackground`: The background color of a chat request.
 
 ## Inline Chat colors
 
