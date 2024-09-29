@@ -73,9 +73,11 @@ You can find the profile that is currently in use by the VS Code window in sever
 
 You can configure a profile just as you would change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
 
-### Workspace associations
+### Folders & Workspaces associations
 
-When you create or select an existing profile, it is associated with the current workspace (folder). Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set.
+When you create or select an existing profile, it is associated with the current folder or workspace. Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set. You can find the list of all folders associated with a profile in the **Folders & Workspaces** section of the **Profiles editor**.
+
+![Folders & Workspaces section](images/profiles/profiles-editor-folders-workspaces.png)
 
 ## Manage profiles
 
