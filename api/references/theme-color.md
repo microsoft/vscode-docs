@@ -314,7 +314,6 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
-- `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.lastPinnedBorder`: Border on the right of the last pinned editor to separate from unpinned editors.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
@@ -625,7 +624,6 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
-- `chat.requestBackground`: The background color of a chat request.
 
 ## Inline Chat colors
 
@@ -705,7 +703,6 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
 - `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
-  `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.
