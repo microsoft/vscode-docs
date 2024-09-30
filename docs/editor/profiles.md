@@ -430,3 +430,7 @@ You can set your project back to the Default Profile. If you'd like to remove al
 ### Why are some settings not exported when exporting a profile?
 
 When exporting profiles, machine-specific settings are not included because these setting would not be applicable on another machine. For example, settings that point to local paths are not included.
+
+### Why are templates not available when creating a new profile?
+
+Templates are available only when you are connected to the internet because they are hosted by VS Code on cloud. It requires an internet connection to download and apply the template.
