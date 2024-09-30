@@ -31,7 +31,7 @@ Similar to how you can interact with the Python REPL outside of VS Code, you can
 
 There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration). Features such as run recent command, command decorators, and improved accessibility are supported via shell integration. To enable or disable shell integration in the terminal, you can toggle `python.terminal.shellIntegration.enabled` in your settings.
 
-## Run code within your Python project
+## Run Python Code
 
 The Python extension allows you to run Python code without any configuration needed.
 
