@@ -433,4 +433,4 @@ When exporting profiles, machine-specific settings are not included because thes
 
 ### Why are templates not available when creating a new profile?
 
-Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure the check your internet connection if you notice that profile templates are not available.
+Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.
