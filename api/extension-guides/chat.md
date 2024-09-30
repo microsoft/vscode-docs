@@ -361,11 +361,10 @@ The following list provides the output types for a chat response in the Chat vie
 
     Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the [`ChatResponseStream.reference`](/api/references/vscode-api#ChatResponseStream.reference) method and provide the reference location.
 
-    > **Note**: if you're using
     Example code snippet:
 
     ```typescript
-    const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');  // On Windows, the path should be in the format of 'c:\\path\\to\\workspace\\app.js'
+    const fileUri: vscode.Uri = vscode.Uri.file('/path/to/workspace/app.js');  // On Windows, the path should be in the format of 'c:\\path\\to\\workspace\\app.js'
     const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
     const externalUri: vscode.Uri = vscode.Uri.parse('https://code.visualstudio.com');
 
