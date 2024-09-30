@@ -756,6 +756,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls font size of inlay hints in the editor. As default the `editor.fontSize` is used when the configured value is less than `5` or greater than the editor font size.
     "editor.inlayHints.fontSize": 0,
 
+    // Maximum overall length of inlay hints, for a single line, before they get truncated by the editor. Set to `0` to never truncate
+    "editor.inlayHints.maximumLength": 43,
+
     // Enables the padding around the inlay hints in the editor.
     "editor.inlayHints.padding": false,
 
@@ -776,6 +779,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls how inline suggestions interact with the suggest widget. If enabled, the suggest widget is not shown automatically when inline suggestions are available.
     "editor.inlineSuggest.suppressSuggestions": false,
+
+    // Controls whether to show syntax highlighting for inline suggestions in the editor.
+    "editor.inlineSuggest.syntaxHighlightingEnabled": false,
 
     // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
     "editor.insertSpaces": true,
@@ -1317,8 +1323,23 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
     "inlineChat.mode": "live",
 
-    // Whether inline chat opens directly as zone widget, between the lines, or as overlay widget which turns into a zone.
-    "inlineChat.startWithOverlayWidget": false,
+    // Controls whether the command center shows a menu for chat actions.
+    "chat.commandCenter.enabled": false,
+
+    // Controls the font family in chat codeblocks.
+    "chat.editor.fontFamily": "default",
+
+    // Controls the font size in pixels in chat codeblocks.
+    "chat.editor.fontSize": 14,
+
+    // Controls the font weight in chat codeblocks.
+    "chat.editor.fontWeight": "default",
+
+    // Controls the line height in pixels in chat codeblocks. Use 0 to compute the line height from the font size.
+    "chat.editor.lineHeight": 0,
+
+    // Controls whether lines should wrap in chat codeblocks.
+    "chat.editor.wordWrap": "off",
 
 // SCM
 
@@ -1383,6 +1404,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - false: Do not ignore leading and trailing whitespace.
     //  - inherit: Inherit from `diffEditor.ignoreTrimWhitespace`.
     "scm.diffDecorationsIgnoreTrimWhitespace": "false",
+
+    // Controls which badges are shown in the Source Control Graph view. The badges are shown on the right side of the graph indicating the names of history item groups.
+    //  - all: Show badges of all history item groups in the Source Control Graph view.
+    //  - filter: Show only the badges of history item groups used as a filter in the Source Control Graph view.
+    "scm.graph.badges": "filter",
+
+    // Controls whether the Source Control Graph view will load the next page of items when you scroll to the end of the list.
+    "scm.graph.pageOnScroll": true,
+
+    // The number of items to show in the Source Control Graph view by default and when loading more items.
+    "scm.graph.pageSize": 50,
 
     // Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `editor.fontFamily`'s value, or a custom font family.
     "scm.inputFontFamily": "default",
@@ -2464,6 +2496,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     "search.useReplacePreview": true,
 
 // HTTP
+    // Controls whether to use the Electron fetch implementation instead of the one from Node.js. All local extensions will get the Electron fetch implementation for the global fetch API.
+    "http.electronFetch": false,
 
     // Specifies domain names for which proxy settings should be ignored for HTTP/HTTPS requests.
     "http.noProxy": [],
@@ -3387,7 +3421,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable project-wide IntelliSense on web.
     "typescript.tsserver.web.projectWideIntellisense.enabled": true,
 
-    // Suppresses semantic errors.
+    // Suppresses semantic errors on web, even when project-wide IntelliSense is enabled.
     "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": false,
 
     // Enable/disable package acquisition on the web. This enables IntelliSense for imported packages.
@@ -3809,6 +3843,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Override the virtual workspaces support of an extension.
     "extensions.supportVirtualWorkspaces": {},
+
+    // Verify that extensions are signed before they are installed.
+    "extensions.verifySignature": true,
 
     // Enable web worker extension host.
     //  - true: The Web Worker Extension Host will always be launched.
@@ -4932,6 +4969,16 @@ Below are the Visual Studio Code default settings and their values. You can also
         "diffEditor.ignoreTrimWhitespace": false
     },
 
+// Diff editor
+
+    // Merge editor diff algorithm.
+    //  - legacy: Uses the legacy diffing algorithm.
+    //  - advanced: Uses the advanced diffing algorithm.
+    "mergeEditor.diffAlgorithm": "advanced",
+
+    // Controls if deletions in base or one of the inputs should be indicated by a vertical bar.
+    "mergeEditor.showDeletionMarkers": true,
+
 // Remote
 
     // The name under which the remote tunnel access is registered. If not set, the host name is used.
@@ -5204,28 +5251,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to access the terminal accessibility help menu when the terminal is focused.
     "accessibility.verbosity.terminal": true,
 
-    // Merge editor diff algorithm.
-    //  - legacy: Uses the legacy diffing algorithm.
-    //  - advanced: Uses the advanced diffing algorithm.
-    "mergeEditor.diffAlgorithm": "advanced",
-
-    // Controls if deletions in base or one of the inputs should be indicated by a vertical bar.
-    "mergeEditor.showDeletionMarkers": true,
-
-    // Controls the font family in chat codeblocks.
-    "chat.editor.fontFamily": "default",
-
-    // Controls the font size in pixels in chat codeblocks.
-    "chat.editor.fontSize": 14,
-
-    // Controls the font weight in chat codeblocks.
-    "chat.editor.fontWeight": "default",
-
-    // Controls the line height in pixels in chat codeblocks. Use 0 to compute the line height from the font size.
-    "chat.editor.lineHeight": 0,
-
-    // Controls whether lines should wrap in chat codeblocks.
-    "chat.editor.wordWrap": "off",
+    // Provide information about how to open the walkthrough in an Accessible View.
+    "accessibility.verbosity.walkthrough": true,
 
 // Emmet
 
