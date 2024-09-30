@@ -169,6 +169,7 @@ The task's properties have the following semantic:
 * **presentation**: Defines how the task output is handled in the user interface. In this example, the Integrated Terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
 * **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform. Environment variables configured here can only be referenced from within your task script or process and will not be resolved if they are part of your args, command, or other task attributes.
 * **runOptions**: Defines when and how a task is run.
+* **hide**: Hides the task from the Run Task quickpick. Useful for elements of a compound task that are not independently runnable.
 
 You can see the full set of task properties and values with IntelliSense in your `tasks.json` file. Bring up suggestions with **Trigger Suggest** (`kb(editor.action.triggerSuggest)`) and read the descriptions on hover or with the **Read More...** ('i') flyout.
 
