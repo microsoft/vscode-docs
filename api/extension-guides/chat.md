@@ -300,13 +300,13 @@ The following list provides the output types for a chat response in the Chat vie
 
     Render a link inline in the chat response that users can select to invoke a VS Code command. To show a command link, use the [`ChatResponseStream.markdown`](/api/references/vscode-api#ChatResponseStream.markdown) method and use the Markdown syntax for links `[link text](command:commandId)`, where you provide the command ID in the URL. For example, the following link opens the Command Palette: `[Command Palette](command:workbench.action.showCommands)`.
 
-    To protect against command injection when you load the Markdown text from a service, you have to use a `vscode.MarkdownString` object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
+    To protect against command injection when you load the Markdown text from a service, you have to use a [`vscode.MarkdownString`](/api/references/vscode-api#MarkdownString) object with the `isTrusted` property set to the list of trusted VS Code command IDs. This property is required to enable the command link to work. If the `isTrusted` property is not set or a command is not listed, the command link will not work.
 
     Example code snippet:
 
     ```typescript
     // Use command URIs to link to commands from Markdown
-    var markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID})`, true);
+    let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID})`);
     markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
 
     stream.markdown(markdownCommandString);
@@ -361,10 +361,11 @@ The following list provides the output types for a chat response in the Chat vie
 
     Add a reference for an external URL or editor location in the list references to indicate which information you use as context. Use the [`ChatResponseStream.reference`](/api/references/vscode-api#ChatResponseStream.reference) method and provide the reference location.
 
+    > **Note**: if you're using
     Example code snippet:
 
     ```typescript
-    const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');
+    const fileUri: vscode.Uri = vscode.Uri.file('\\path\\to\\workspace\\app.js');  // On Windows, the path should be in the format of 'c:\\path\\to\\workspace\\app.js'
     const fileRange: vscode.Range = new vscode.Range(0, 0, 3, 0);
     const externalUri: vscode.Uri = vscode.Uri.parse('https://code.visualstudio.com');
 
@@ -380,7 +381,7 @@ The following list provides the output types for a chat response in the Chat vie
 
 - **Inline reference**
 
-    Add an inline reference to a URI, editor location, or symbol information. Use the [`ChatResponseStream.anchor`](/api/references/vscode-api#ChatResponseStream.anchor) method and provide the anchor location and optional title.
+    Add an inline reference to a URI or editor location. Use the [`ChatResponseStream.anchor`](/api/references/vscode-api#ChatResponseStream.anchor) method and provide the anchor location and optional title. To reference a symbol (for example, a class or variable), you would use a location in an editor.
 
     Example code snippet:
 
