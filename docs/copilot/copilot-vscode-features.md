@@ -24,7 +24,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 |--------|-------------|
 | `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
-| `@` | Invoke a *chat participant*, which is a domain expert that can help you in a specific are.<br/>Example: `@workspace how is auth implemented?`  |
+| <i class="codicon codicon-mention"></i> | Type `@` in chat or select <i class="codicon codicon-mention"></i> to view the list of *chat participants*, which are domain experts that can help you in a specific area. Extensions can also contribute additional participants.<br/>Example: `@workspace how is auth implemented?`  |
 | Participant detection <i class="codicon codicon-beaker"></i> | Copilot Chat can also automatically route your question to the appropriate participant. [Get more info](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental). |
 | `/` | Invoke a *slash command* to prompt for commonly used actions, such as explaining a block of code, generating tests or documentation. |
 | `/explain` | Ask Copilot to explain a block of code or a programming concept. |
@@ -60,14 +60,17 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 | Action | Description |
 |--------|-------------|
-| <i class="codicon codicon-attach"></i><br/>`kb(workbench.action.chat.attachContext)` | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
-| `#selection` | Add the current editor selection as context to your prompt. |
+| <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
+| `#codebase` | Context variable: add relevant workspace content as context to your prompt. |
+| `#editor` | Context variable: add the visible contents of the active editor as context for your prompt. |
+| `#selection` | Context variable: add the current editor selection as context to your prompt. |
+| `#terminalSelection` | Context variable: add the current terminal selection as context to your chat prompt. |
+| `#terminalLastCommand` | Context variable: add the last run terminal command as context to your chat prompt. |
+| `#VSCodeAPI` | Context variable: add the VS Code API as context to your prompt to ask questions related to VS Code extension development.  |
 | `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
-| `#editor` | Add the visible contents of the active editor as context for your prompt. |
-| `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
-| `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
-| `#VSCodeAPI` | Add the VS Code API as context to your prompt to ask questions related to VS Code extension development.  |
-| Use recent files <i class="codicon codicon-beaker"></i> | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
+| `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
+| Drag & drop file | Drag & drop a file or editor onto the chat to attach the file as context. |
+| Recent files <i class="codicon codicon-beaker"></i> | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
 
 > **Tips**
 >
@@ -99,6 +102,8 @@ Copilot can generate code based on your chat prompt. You can customize the gener
 | Action | Description |
 |--------|-------------|
 | Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. [Get more information](https://code.visualstudio.com/updates/v1_93#_code-generation-instructions). |
+| Shared instructions <i class="codicon codicon-beaker"></i> | Define shared instructions for code generation in a `.gitHub/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code generation instructions.  |
+| Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. [Get more information](https://code.visualstudio.com/updates/v1_94#_custom-instructions-experimental). |
 
 > **Tips**
 >
@@ -112,6 +117,7 @@ Copilot can generate tests for functions and methods in your codebase. Get more 
 | Action | Description |
 |--------|-------------|
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
+| `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
 | Test coverage <i class="codicon codicon-beaker"></i> | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
@@ -133,6 +139,7 @@ Use Copilot to help fix coding problems and to get help with configuring and sta
 | Action | Description |
 |--------|-------------|
 | `/fix` | Ask Copilot for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
+| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
 | `/startDebugging` <i class="codicon codicon-beaker"></i> | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. [Get more information](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental). |
 
 > **Tips**
@@ -148,6 +155,14 @@ Copilot can analyze the changes in your commits and pull requests and provide su
 |--------|-------------|
 | Commit | Generate a commit message for the current changes in a source control commit. |
 | Pull request | Generate a pull request title and description that correspond with the changes in your pull request. |
+
+## Search
+
+Use Copilot to get more relevant search results in the Search view.
+
+| Action | Description |
+|--------|-------------|
+| Semantic search | Include search results from Copilot in the Search view that are semantically relevant. |
 
 ## Terminal
 
