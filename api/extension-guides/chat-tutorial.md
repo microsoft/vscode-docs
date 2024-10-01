@@ -9,7 +9,7 @@ MetaDescription: Tutorial that walks you through creating a GitHub Copilot chat 
 
 # Tutorial: Build a code tutorial chat participant with the Chat API
 
-In this tutorial, you'll learn how to create a Visual Studio Code extension that integrates with the GitHub Copilot Chat experience. You'll use the Chat extension API to contribute a Chat participant. Your participant will be a code tutor that can provide explanations and sample exercises for programming concepts.
+In this tutorial, you'll learn how to create a Visual Studio Code extension that integrates with the GitHub Copilot Chat experience. You'll use the Chat extension API to contribute a chat participant. Your participant will be a code tutor that can provide explanations and sample exercises for programming concepts.
 
 ## Prerequisites
 To get started, you will need the following:
