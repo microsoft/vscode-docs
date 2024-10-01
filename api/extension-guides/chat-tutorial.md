@@ -158,7 +158,7 @@ tutor.iconPath = vscode.Uri.joinPath(context.extensionUri, 'tutor.jpeg');
 
 ## Step 6: Run the code
 You are now ready to try out your chat participant!
-Press `F5` to run the code. A new window of VS Code will open with your chat participant.
+Press `kbstyle(F5)` to run the code. A new window of VS Code will open with your chat participant.
 
 In the Copilot Chat pane, if you type `@`, you will now see your participant, `@tutor`, listed!
 
