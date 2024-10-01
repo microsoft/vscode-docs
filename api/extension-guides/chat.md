@@ -312,6 +312,18 @@ The following list provides the output types for a chat response in the Chat vie
     stream.markdown(markdownCommandString);
     ```
 
+    If the command takes arguments, you need to first JSON encode the arguments and then encode the JSON string as a URI component. You then append the encoded arguments as a query string to the command link.
+
+    ```typescript
+    // Encode the command arguments
+    const encodedArgs = encodeURIComponent(JSON.stringify(args));
+
+    let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID}?${encodedArgs})`);
+    markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
+
+    stream.markdown(markdownCommandString);
+    ```
+
 - **Command button**
 
     Render a button that invokes a VS Code command. The command can be a built-in command or one that you define in your extension. Use the [`ChatResponseStream.button`](/api/references/vscode-api#ChatResponseStream.button) method and provide the button text and command ID.
