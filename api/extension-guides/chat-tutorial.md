@@ -145,7 +145,7 @@ for await (const fragment of chatResponse.text) {
 ```
 
 ## Step 5: Create the chat participant
-Once the handler is implemented, the last step is to create the Chat Participant using the `createChatParticipant` method in the Chat extension API. Make sure to use the same ID that is used in the `package.json`.
+Once the handler is implemented, the last step is to create the chat participant by using the `createChatParticipant` method in the Chat extension API. Make sure to use the same ID that you used in the `package.json`.
 ```ts
 const tutor = vscode.chat.createChatParticipant("chat-sample.code-tutor", handler);
 ```
