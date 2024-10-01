@@ -236,7 +236,7 @@ Now you can type `/exercise`, which will bring up your chat participant, and you
 ![Participant with a slash command](images/chat-tutorial/exercise-command.png)
 
 ## Next steps
-Congratulations! You have successfully created a Chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md).
+Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md).
 
 You can find the complete code for this tutorial in the [repo](https://github.com/olguzzar/code-tutor). TODO: update this link with where it will actually go
 
