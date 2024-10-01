@@ -239,9 +239,9 @@ Support for running tests in parallel with pytest is available through the `pyte
 Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/testing#_test-coverage.md).
 
 To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the “Run with coverage” option from any menu you normally trigger test runs from. The Python extension will run coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
-> **Note**: Before running tests with coverage, make sure to install the correct testing package for your project.
+> **Note**: Before running tests with coverage, make sure to install the correct testing coverage package for your project.
 
-Once the coverage run is complete, lines will be highlighted in the editor for line level coverage. These can be closed and re-opened via the Run Results panel in the bottom where it says "Close Test Coverage" or "View Test Coverage" under the most recent test run. Additionally, a Test Coverage tab will appear below the Testing tab in the Test Explorer, also with a beaker icon, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`F1)`). On this panel you can view line coverage metrics for each file and folder in your workspace.
+Once the coverage run is complete, lines will be highlighted in the editor for line level coverage. A Test Coverage tab will appear below the Testing tab in the Test Explorer, also with a beaker icon, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`F1)`). On this panel you can view line coverage metrics for each file and folder in your workspace.
 
 >**Note**: Test coverage results may also appear as a "Test Coverage" sub-tab in the Test Explorer.
 
