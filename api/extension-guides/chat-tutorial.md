@@ -18,7 +18,7 @@ To get started, you will need the following:
 - Node.js installed.
 
 ## Step 1: Set up your project
-First, you will generate the extension project using Yeoman and the VS Code Extension Generator.
+First, generate the extension project by using Yeoman and the VS Code Extension Generator.
 
 ```bash
 npx --package yo --package generator-code -- yo code
