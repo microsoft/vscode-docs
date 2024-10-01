@@ -318,6 +318,7 @@ The following list provides the output types for a chat response in the Chat vie
     // Encode the command arguments
     const encodedArgs = encodeURIComponent(JSON.stringify(args));
 
+    // Use command URIs with arguments to link to commands from Markdown
     let markdownCommandString: vscode.MarkdownString = new vscode.MarkdownString(`[Use cat names](command:${CAT_NAMES_COMMAND_ID}?${encodedArgs})`);
     markdownCommandString.isTrusted = { enabledCommands: [ CAT_NAMES_COMMAND_ID ] };
 
