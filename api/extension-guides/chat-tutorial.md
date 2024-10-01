@@ -12,10 +12,11 @@ MetaDescription: Tutorial that walks you through creating a GitHub Copilot chat 
 In this tutorial, you'll learn how to create a Visual Studio Code extension that integrates with the GitHub Copilot Chat experience. You'll use the Chat extension API to contribute a chat participant. Your participant will be a code tutor that can provide explanations and sample exercises for programming concepts.
 
 ## Prerequisites
-To get started, you will need the following:
-- Visual Studio Code (VS Code) installed.
-- The GitHub Copilot Chat extension installed, with an active GitHub Copilot subscription.
-- Node.js installed.
+
+You'll need the following tools and accounts to complete this tutorial:
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+- [Node.js](https://nodejs.org/en/download/)
 
 ## Step 1: Set up your project
 First, generate the extension project by using Yeoman and the VS Code Extension Generator.
@@ -46,6 +47,7 @@ Once your extension project is generated, there are two files you will be workin
 Delete the auto-generated code in the `extension.ts` `activate()` method. This is where you will place our logic for our chat participant.
 
 ## Step 2: Register a Chat participant
+
 In the `package.json` file, replace the auto-generated `contributes` section with the following:
 
 ```json
@@ -71,9 +73,10 @@ This code registers a chat participant with the following attributes:
 Finally, setting `isSticky: true` will automatically prepend the participant name in the chat input field after the user has started interacting with the participant.
 
 ## Step 3: Craft the prompt and select the model
+
 Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt and select the model for the requests.
 
-Crafting a good prompt is the key to getting the best response from your participant. Check out [this video](https://youtu.be/H3M95i4iS5c) for tips on prompt engineering.
+Crafting a good prompt is the key to getting the best response from your participant. Check out [this article](https://platform.openai.com/docs/guides/prompt-engineering) for tips on prompt engineering.
 
 Your code tutor should emulate a real-world tutor by guiding the student to understand the concept instead of providing direct answers. Additionally, the tutor should remain focused on the topic and refrain from answering non-programming questions.
 
@@ -82,20 +85,21 @@ Consider the following two prompts. Which is more likely to give the specified b
 2. > You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept. Respond with a guided overview of the concept in a series of messages. Do not give the user the answer directly, but guide them to find the answer themselves. If the user asks a non-programming question, politely decline to respond.
 
 
-The second prompt is more specific and gives the participant a clear direction on how to respond. Add this prompt as a `const` in the `extension.ts` file.
+The second prompt is more specific and gives the participant a clear direction on how to respond. Add this prompt in the `extension.ts` file.
 
 
 ```ts
 const BASE_PROMPT = 'You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept. Respond with a guided overview of the concept in a series of messages. Do not give the user the answer directly, but guide them to find the answer themselves. If the user asks a non-programming question, politely decline to respond.';
 ```
 
-You also need to select the model for the requests. gpt-3.5-turbo, gpt-4, and gpt-4o are available. gpt-4o is recommended since it is fast and high quality.
+You also need to select the model for the requests. gpt-4o is recommended since it is fast and high quality.
 
 ```ts
 const MODEL_SELECTOR: vscode.LanguageModelChatSelector = { vendor: 'copilot', family: 'gpt-4o' }
 ```
 
 ## Step 4: Implement the request handler
+
 Now that the prompt and model are selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
 
 First, define the handler:
@@ -145,18 +149,20 @@ for await (const fragment of chatResponse.text) {
 ```
 
 ## Step 5: Create the chat participant
+
 Once the handler is implemented, the last step is to create the chat participant by using the `createChatParticipant` method in the Chat extension API. Make sure to use the same ID that you used in the `package.json`.
 ```ts
 const tutor = vscode.chat.createChatParticipant("chat-sample.code-tutor", handler);
 ```
 
-You can further customize your participant by adding an icon for it. This will show in the Chat view when interacting with the participant.
+You should further customize your participant by adding an icon for it. This will show in the Chat view when interacting with the participant.
 
 ```ts
 tutor.iconPath = vscode.Uri.joinPath(context.extensionUri, 'tutor.jpeg');
 ```
 
 ## Step 6: Run the code
+
 You are now ready to try out your chat participant!
 Press `kbstyle(F5)` to run the code. A new window of VS Code will open with your chat participant.
 
@@ -173,6 +179,7 @@ In the screenshot below, the tutor correctly responds with a starting explanatio
 ![Participant with no message history](images/chat-tutorial/participant-no-message-history.png)
 
 ## Step 7: Add message history for more context
+
 One of the biggest values of Copilot Chat is the ability to iterate over several messages to get the best response. To do this, you want to send in the participant's message history to the chat request. You can access this through `context.history`.
 
 You'll need to retrieve that history and add it to the `messages` array. You will need to do this before the `request.prompt` is added.
@@ -199,6 +206,7 @@ Now when you run the code, you can have a conversation with your participant wit
 ![Participant with message history](images/chat-tutorial/participant-message-history.png)
 
 ## Step 8: Add a command
+
 Now that the basic participant is implemented, you can extend it by adding a command. Commands are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly.
 
 It would be great to add a command to prompt your tutor to give a practice exercise for a concept. You'll need to register the command in the `package.json` file and implement the logic in `extension.ts`. You can name the command `exercise` so that it can be invoked by typing `/exercise`.
@@ -236,7 +244,7 @@ Now you can type `/exercise`, which will bring up your chat participant, and you
 ![Participant with a slash command](images/chat-tutorial/exercise-command.png)
 
 ## Next steps
-Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md).
+Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
 You can find the complete code for this tutorial in the [repo](https://github.com/olguzzar/code-tutor). TODO: update this link with where it will actually go
 
