@@ -63,6 +63,10 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 
     ![Screenshot showing the GitHub Copilot status menu in VS Code, indicating that the Copilot status is ready.](./images/setup/copilot-status-menu.png)
 
+1. You should also see the Chat view in the Activity Bar, which you can use to chat with Copilot.
+
+    ![Screenshot showing the Chat view in the Activity Bar in VS Code.](./images/setup/vscode-chat-view.png)
+
 ## Sign out of GitHub Copilot
 
 If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
