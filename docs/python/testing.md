@@ -245,7 +245,7 @@ Once the coverage run is complete, lines will be highlighted in the editor for l
 
 >**Note**: Test coverage results may also appear as a "Test Coverage" sub-tab in the Test Explorer.
 
-![Gif showing running Python tests with coverage.](/docs/python/images/testing/python-test-coverage.gif)
+![Gif showing running Python tests with coverage.](/docs/python/images/testing/python-coverage.gif)
 
 For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
 
