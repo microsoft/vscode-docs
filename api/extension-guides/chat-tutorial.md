@@ -42,7 +42,9 @@ Select the following options to complete the setup:
 # ? Do you want to open the new folder with Visual Studio Code? Open with `code`
 ```
 
-Once your extension project is generated, there are two files you will be working in: `extension.ts` and `package.json`, which you can learn more about in the [Extension Anatomy docs](/api/get-started/extension-anatomy#extension-file-structure).
+Once your extension project is generated, there are two files you will be working in: `extension.ts` and `package.json`, which you can learn more about in the [Extension Anatomy docs](/api/get-started/extension-anatomy#extension-file-structure). As a quick overview:
+- `extension.ts` is the main entry point for your extension and contains the logic for your chat participant.
+- `package.json` contains the metadata for your extension, such as the name and description of your participant.
 
 Delete the auto-generated code in the `extension.ts` `activate()` method. This is where you will place our logic for our chat participant.
 
