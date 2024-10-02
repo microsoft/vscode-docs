@@ -39,12 +39,12 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 ## Use cases for GitHub Copilot in VS Code
 
-GitHub Copilot can provide coding assistance in a variety of scenarios:
+GitHub Copilot can provide assistance in a variety of scenarios:
 
 * [Code completions in the editor](#code-completions-in-the-editor)
-* [Answering coding questions](#answering-coding-questions)
+* [Answer coding questions](#answer-coding-questions)
 * [Code refactoring and improvements](#code-refactoring-and-improvements)
-* [Fix issues](#fix-issues)
+* [Fix coding issues](#fix-issues)
 * [Jumpstart your project](#jumpstart-your-project)
 * [Generate unit test cases](#generate-unit-test-cases)
 * [Generate code documentation](#generate-code-documentation)
@@ -56,7 +56,7 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
-### Answering coding questions
+### Answer coding questions
 
 * **Provide guidance and support for common coding tasks and challenges**. Ask Copilot about syntax or general programming concepts without requiring to navigate documentation or search online forums. Copilot gives responses in natural language format or in code snippet format. For example, you can ask questions such as "what is recursion?" or "how to create a singleton in Java?".
 
@@ -86,6 +86,10 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 
     ![Inline chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
 
+* **Propose a fix for failing tests** (preview). When you run automated tests for your code, Copilot can suggest code fixes for tests that fail with the `/fixTestFailure` command.
+
+    ![Copilot Chat /fixTestFailure for identifying and suggesting a fix for a failing test](images/overview/copilot-chat-fix-test-failure.png)
+
 * **Suggest terminal command fixes**. When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
 
     ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/overview/terminal-command-explanation.png)
@@ -102,13 +106,17 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 
 ### Generate unit test cases
 
-* **Write unit test cases for your test framework** based on the code open in the editor or the code snippet you highlight in the editor. Copilot identifies your test framework and coding style and generates matching code snippets.
+* **Configure your testing framework setup** based on your codebase. For example, if you have a JavaScript and TypeScript project, Copilot will suggest suitable testing frameworks and steps to configure them for your workspace.
+
+    ![Chat view showing the /setupTests slash command to set up a testing framework for JavaScript and TypeScript](images/overview/copilot-chat-setup-tests.png)
+
+* **Write unit test cases for your testing framework** based on the code open in the editor or the code snippet you highlight in the editor. Copilot identifies your testing framework and coding style and generates matching code snippets.
+
+    ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/overview/workspace-agent-tests-example.png)
 
 * **Identify and write test cases for edge cases and boundary conditions** that might be difficult to identify manually. For instance, Copilot can suggest test cases for error handling, null values, or unexpected input types.
 
 * **Suggest assertions** that ensure the function is working correctly, based on the code's context and semantics. For example, generate assertions to ensure that function input parameters are valid.
-
-    ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/overview/workspace-agent-tests-example.png)
 
 ### Generate code documentation
 
@@ -126,13 +134,22 @@ GitHub Copilot can provide coding assistance in a variety of scenarios:
 
     ![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
 
+* **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
+
+    ![Inline chat suggesting a new name for a symbol in a Python file](images/overview/copilot-inline-chat-rename-suggestion.png)
+
+* **Semantic search results** (preview). The Search view lists exact text matches across your files, in addition to matches that are semantically relevant based on your search text.
+
+    ![Search view showing semantic search results that are not an exact match for the search criteria.](images/overview/semantic-search-results.png)
+
 * **Use terminal inline chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
 
     ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
 
-* **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
+## Next steps
 
-    ![Inline chat suggesting a new name for a symbol in a Python file](images/overview/copilot-inline-chat-rename-suggestion.png)
+* [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
 
 ## Additional resources
 
