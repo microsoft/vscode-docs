@@ -166,7 +166,7 @@ tutor.iconPath = vscode.Uri.joinPath(context.extensionUri, 'tutor.jpeg');
 You are now ready to try out your chat participant!
 Press `kbstyle(F5)` to run the code. A new window of VS Code will open with your chat participant.
 
-In the Copilot Chat pane, if you type `@`, you will now see your participant, `@tutor`, listed!
+In the Copilot Chat pane, you can now invoke your participant by typing `@tutor`!
 
 ![Participant in Chat pane](images/chat-tutorial/participant.png)
 
@@ -174,7 +174,7 @@ Test it out by typing what you want to learn about. You should see a response gi
 
 If you type a related message to continue the conversation, you'll notice that the participant doesn't give a follow-up response based on your conversation. That's because our current participant is only sending in the user's current message, and not the participant message history.
 
-In the screenshot below, the tutor correctly responds with a starting explanation of stacks. However, in the follow-up, it does not understand that the user is continuing the conversation on stacks, so it gives a generic response.
+In the screenshot below, the tutor correctly responds with a starting explanation of stacks. However, in the follow-up, it does not understand that the user is continuing the conversation to see an implementation of stacks in Python, so it instead gives a generic response about Python.
 
 ![Participant with no message history](images/chat-tutorial/participant-no-message-history.png)
 
@@ -201,7 +201,7 @@ previousMessages.forEach((m) => {
 });
 ```
 
-Now when you run the code, you can have a conversation with your participant with all the context of the previous messages! In the screenshot below, the participant correctly understands that the user is still referring to stacks.
+Now when you run the code, you can have a conversation with your participant with all the context of the previous messages! In the screenshot below, the participant correctly understands that the user is requesting to see an implementation of stacks in Python.
 
 ![Participant with message history](images/chat-tutorial/participant-message-history.png)
 
