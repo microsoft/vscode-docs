@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -266,22 +266,22 @@ When working on Python projects, it’s essential to manage your dependencies ef
 
 Follow these steps to create a `requirements.txt` file:
 1. Activate your virtual environment, if you haven’t already.
-   
+
    ```bash
    source venv/bin/activate  # On macOS/Linux
    ```
-   
+
    ```powershell
    .\venv\Scripts\activate   # On Windows
    ```
-   
+
 2. Generate the `requirements.txt` file.
-   
+
    ```powershell
    pip freeze > requirements.txt
-   ```  
+   ```
 
-You can now use the newly generated `requirements.txt` file to install dependencies in another environment. Furthermore, you can continue to add dependencies to it as your project may grow in complexity. 
+You can now use the newly generated `requirements.txt` file to install dependencies in another environment. Furthermore, you can continue to add dependencies to it as your project may grow in complexity.
 
    ```powershell
    pip install -r requirements.txt
