@@ -56,7 +56,7 @@ In the `package.json` file, replace the auto-generated `contributes` section wit
 "contributes":{
 	"chatParticipants": [
 		{
-			"id": "chat-sample.code-tutor",
+			"id": "chat-tutorial.code-tutor",
 			"fullName": "Code Tutor",
 			"name": "tutor",
 			"description": "What can I teach you?",
@@ -67,7 +67,7 @@ In the `package.json` file, replace the auto-generated `contributes` section wit
 ```
 
 This code registers a chat participant with the following attributes:
-- Unique ID `chat-sample.code-tutor`, which will be referenced in the code
+- Unique ID `chat-tutorial.code-tutor`, which will be referenced in the code
 - Full name `Code Tutor`, which will be shown in the title area of a response from your participant
 - Name `tutor`, which will be used to reference the chat participant as `@tutor` in the Chat view
 - Description "What can I teach you?", which will be shown in the chat input field as a placeholder text
@@ -206,7 +206,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 };
 
 // create participant
-const tutor = vscode.chat.createChatParticipant("chat-sample.code-tutor", handler);
+const tutor = vscode.chat.createChatParticipant("chat-tutorial.code-tutor", handler);
 
 // add icon to participant
 tutor.iconPath = vscode.Uri.joinPath(context.extensionUri, 'tutor.jpeg');
@@ -297,7 +297,7 @@ In `package.json` add the `commands` property to the `chatParticipants` property
 "contributes": {
     "chatParticipants": [
       {
-        "id": "chat-sample.code-tutor",
+        "id": "chat-tutorial.code-tutor",
         "fullName": "Code Tutor",
         "name": "tutor",
         "description": "What can I teach you?",
