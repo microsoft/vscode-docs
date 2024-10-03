@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -223,6 +223,10 @@ The Activity Bar is usually displayed either on the far left or right of the wor
 - `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.background`: Background color of the activity bar when set to top / bottom.
 - `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
+- `activityWarningBadge.foreground`: Foreground color of the warning activity badge
+- `activityWarningBadge.background`: Background color of the warning activity badge
+- `activityErrorBadge.foreground`: Foreground color of the error activity badge
+- `activityErrorBadge.background`: Background color of the error activity badge
 
 ## Profiles
 
@@ -1051,15 +1055,19 @@ The following customizations are available:
 
 ## Source Control Graph colors
 
-- `scmGraph.historyItemGroupLocal`: Local history item group color.
-- `scmGraph.historyItemGroupRemote`: Remote history item group color.
-- `scmGraph.historyItemGroupBase`: Base history item group color.
 - `scmGraph.historyItemHoverLabelForeground`: History item hover label foreground color.
 - `scmGraph.foreground1`: Source control graph foreground color (1).
 - `scmGraph.foreground2`: Source control graph foreground color (2).
 - `scmGraph.foreground3`: Source control graph foreground color (3).
+- `scmGraph.foreground4`: Source control graph foreground color (4).
+- `scmGraph.foreground5`: Source control graph foreground color (5).
 - `scmGraph.historyItemHoverAdditionsForeground`: History item hover additions foreground color.
 - `scmGraph.historyItemHoverDeletionsForeground`: History item hover deletions foreground color.
+- `scmGraph.historyItemRefColor`: History item reference color.
+- `scmGraph.historyItemRemoteRefColor`: History item remote reference color.
+- `scmGraph.historyItemBaseRefColor`: History item base reference color.
+- `scmGraph.historyItemHoverDefaultLabelForeground`: History item hover default label foreground color.
+- `scmGraph.historyItemHoverDefaultLabelBackground`: History item hover default label background color.
 
 ## Settings Editor colors
 
@@ -1222,13 +1230,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 ## Simple Find Widget
 
 - `simpleFindWidget.sashBorder`: Border color of the sash border.
-
-## SCM
-
-- `scm.historyItemAdditionsForeground`: History item additions foreground color.
-- `scm.historyItemDeletionsForeground`: History item deletions foreground color.
-- `scm.historyItemStatisticsBorder`: History item statistics border color.
-- `scm.historyItemSelectedStatisticsBorder`: History item selected statistics border color.
 
 ## Extension colors
 
