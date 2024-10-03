@@ -151,9 +151,7 @@ You can even ask Copilot to follow coding conventions or improve variable names:
 
 ![Ask Copilot to use better variable names and new result](images/prompt-crafting/fibonacci-third.png)
 
-Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
-
-![Ask inline chat to use better variable names on existing code](images/prompt-crafting/fibonacci-better-var-names.png)
+Even if you've already accepted a result, you can always ask Copilot to iterate on the code later.
 
 ## More resources about prompting for Copilot
 
