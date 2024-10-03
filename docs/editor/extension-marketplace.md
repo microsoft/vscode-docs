@@ -376,7 +376,7 @@ When you install an extension, you might see the following error message: `Canno
 
 This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
 
-It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID.
+It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. If you want to disable extension signature verification, you can use the `setting(extensions.verifySignature)` setting.
 
 ### My extensions don't synchronize when connected to a remote window
 
