@@ -20,7 +20,7 @@ For a Data Science focused tutorial with Python, check out our [Data Science sec
 
 ## Prerequisites
 
-To successfully complete this tutorial, you need to first setup your Python development environment. Specifically, this tutorial requires:
+To successfully complete this tutorial, you need to first set up your Python development environment. Specifically, this tutorial requires:
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
@@ -260,6 +260,34 @@ To install the required packages in your virtual environment, enter the followin
    ```
 
 1. Now, rerun the program, with or without the debugger, to view the output!
+
+### Managing dependencies across environments
+When working on Python projects, it’s essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
+
+Follow these steps to create a `requirements.txt` file:
+1. Activate your virtual environment, if you haven’t already.
+   
+   ```bash
+   source venv/bin/activate  # On macOS/Linux
+   ```
+   
+   ```powershell
+   .\venv\Scripts\activate   # On Windows
+   ```
+   
+2. Generate the `requirements.txt` file.
+   
+   ```powershell
+   pip freeze > requirements.txt
+   ```  
+
+You can now use the newly generated `requirements.txt` file to install dependencies in another environment. Furthermore, you can continue to add dependencies to it as your project may grow in complexity. 
+
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+By following these steps, you ensure that your project dependencies are consistent across different environments, making it easier to collaborate with others and deploy your project.
 
 Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
 

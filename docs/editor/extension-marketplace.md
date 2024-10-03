@@ -368,6 +368,16 @@ The Marketplace also provides you with resources to make an informed decision ab
 
 If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
 
+### The extension signature cannot be verified by VS Code
+
+The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
+
+When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
+
+This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
+
+It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID.
+
 ### My extensions don't synchronize when connected to a remote window
 
 [Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.

@@ -16,7 +16,7 @@ The Python extension makes Visual Studio Code an excellent Python editor, works 
 Get started by installing:
 
 - [VS Code](https://code.visualstudio.com/)
-- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/#status-of-python-branches))
+- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
 - [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
 
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
