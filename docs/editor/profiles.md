@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -73,9 +73,13 @@ You can find the profile that is currently in use by the VS Code window in sever
 
 You can configure a profile just as you would change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
 
-### Workspace associations
+### Folder & workspace associations
 
-When you create or select an existing profile, it is associated with the current workspace (folder). Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set.
+When you create or select a profile, it is associated with the current folder or workspace. Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set.
+
+You can view the list of folders that are associated with a profile in the **Folders & Workspaces** section of the **Profiles editor**.
+
+![Folders & Workspaces section](images/profiles/profiles-editor-folders-workspaces.png)
 
 ## Manage profiles
 
@@ -256,11 +260,13 @@ The Doc Writer profile is a good lightweight setup for writing documentation. It
 * [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
 * [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
 * [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - View the number of words in a Markdown document in the Status Bar.
+* [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Estimate how long it takes to read your Markdown.
 
 This profile also sets the following settings:
 
 ```json
-    "workbench.colorTheme": "Default Light+ Experimental",
+    "workbench.colorTheme": "Default Light Modern",
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "editor.glyphMargin": false,
@@ -426,3 +432,7 @@ You can set your project back to the Default Profile. If you'd like to remove al
 ### Why are some settings not exported when exporting a profile?
 
 When exporting profiles, machine-specific settings are not included because these setting would not be applicable on another machine. For example, settings that point to local paths are not included.
+
+### Why are templates not available when creating a new profile?
+
+Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.

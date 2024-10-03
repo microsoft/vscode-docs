@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 ---
 # Developing inside a Container
 
@@ -612,7 +612,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-If you are using the Docker or Kubernetes extension from a WSL or Remote - SSH window, you will not be able to use the right-click **Attach to Container** option. This will only work if you are using it from your local machine.
+If you are using the Docker or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Docker or Kubernetes views will ask to pick from the available containers a second time.
 
 ### Extension limitations
 
