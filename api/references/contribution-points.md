@@ -141,7 +141,7 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings editor or by editing the JSON settings file directly.
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options in the Settings editor or by editing a settings.json file directly.
 
 This section can either be a single object, representing a single category of settings, or an array of objects, representing multiple categories of settings. If there are multiple categories of settings, the Settings editor will show a submenu in the table of contents for that extension, and the title keys will be used for the submenu entry names.
 
@@ -179,7 +179,7 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 ![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
-**title**
+#### title
 
 The `title` 1️⃣️ of a category is the heading used for that category.
 
@@ -200,7 +200,7 @@ For both the `title` and `displayName` fields, words like "Extension", "Configur
 - ❌ `"title": "GitMagic Configuration"`
 - ❌ `"title": "GitMagic Extension Configuration Settings"`
 
-**properties**
+#### properties
 
 The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
@@ -210,7 +210,7 @@ In the settings UI, your configuration key will be used to namespace and constru
 
 Entries will be grouped according to the hierarchy established in your keys. So for example, these entries
 
-```
+```text
 gitMagic.blame.dateFormat
 gitMagic.blame.format
 gitMagic.blame.heatMap.enabled
@@ -234,7 +234,7 @@ Otherwise, properties without an explicit order field appear in alphabetical ord
 Configuration keys are defined using a superset of [JSON
 Schema](https://json-schema.org/overview/what-is-jsonschema).
 
-**description** / **markdownDescription**
+#### description / markdownDescription
 
 Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
 
@@ -258,7 +258,7 @@ If you use `markdownDescription` instead of `description`, your setting descript
 
 For `markdownDescription`, in order to add newlines or multiple paragraphs, use the string `\n\n` to separate the paragraphs instead of just `\n`.
 
-**type**
+#### type
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.
 
@@ -289,7 +289,7 @@ Some `object` and `array` type settings will be rendered in the settings UI. Sim
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
 
-**order**
+#### order
 
 Both categories and the settings within those categories can take an integer `order` type property, which gives a reference to how they should be sorted relative to other categories and/or settings.
 
@@ -299,34 +299,33 @@ If two settings within the same category have `order` properties, the setting wi
 
 If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
 
-**enum** / **enumDescriptions** / **enumItemLabels**
+#### enum / enumDescriptions / markdownEnumDescriptions / enumItemLabels
 
-If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
+If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu of those items.
 
-![settings UI screenshot of dropdown](images/contribution-points/settings-ui-enum.png)
+You can also provide an `enumDescriptions` property, an array of strings of the same length as the `enum` property. The `enumDescriptions` property provides a description in the settings UI at the bottom of the dropdown menu corresponding to each `enum` item. \
+You can also use `markdownEnumDescriptions` instead of `enumDescriptions`, and your descriptions will be parsed as Markdown. \
+To customize the dropdown option names in the settings UI, you can use `enumItemLabels`.
 
-You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown:
+Example:
 
 ```json
 {
-  "gitMagic.blame.heatMap.location": {
+  "settingsEditorTestExtension.enumSetting": {
     "type": "string",
-    "default": "right",
-    "enum": ["left", "right"],
-    "enumDescriptions": [
-      "Adds a heatmap indicator on the left edge of the gutter blame annotations",
-      "Adds a heatmap indicator on the right edge of the gutter blame annotations"
-    ]
+    "enum": ["first", "second", "third"],
+    "enumDescriptions": ["The first enum", "The second enum", "The third enum"],
+    "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
+    "enumItemLabels": ["1st", "2nd", "3rd"],
+    "default": "first",
+    "description": "Example setting with an enum"
   }
 }
 ```
 
-You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
+![settings UI screenshot of example enum setting above](images/contribution-points/settings-ui-enum.png)
 
-To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
-![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
-
-**deprecationMessage** / **markdownDeprecationMessage**
+#### deprecationMessage / markdownDeprecationMessage
 
 If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
@@ -343,7 +342,7 @@ Example:
 }
 ```
 
-**Other JSON Schema properties**
+#### Other JSON Schema properties
 
 You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
@@ -357,7 +356,7 @@ You can use any of the validation JSON Schema properties to describe other const
 - `maxItems`, `minItems` for restricting array length
 - `editPresentation` for controlling whether a single-line inputbox or multi-line textarea is rendered for the string setting in the Settings editor
 
-**Unsupported JSON Schema properties**
+#### Unsupported JSON Schema properties
 
 Not supported in the configuration section are:
 
@@ -365,7 +364,7 @@ Not supported in the configuration section are:
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
-**scope**
+#### scope
 
 A configuration setting can have one of the following possible scopes:
 
@@ -423,7 +422,7 @@ Below are example configuration scopes from the built-in Git extension:
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
 
-**Linking to settings**
+#### Linking to settings
 
 You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
 
