@@ -79,7 +79,13 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ### Settings
 
-You can configure the font for the inline suggestions with the `setting(editor.inlineSuggest.fontFamily)` setting.
+* `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
+
+* `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
+
+* `setting(editor.inlineSuggest.showToolbar)` - enable or disable the toolbar that appears for inline completions.
+
+* `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
 ## Next steps
 
