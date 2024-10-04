@@ -304,7 +304,7 @@ If two categories have the same `order` property value, or if two settings withi
 If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu of those items.
 
 You can also provide an `enumDescriptions` property, an array of strings of the same length as the `enum` property. The `enumDescriptions` property provides a description in the settings UI at the bottom of the dropdown menu corresponding to each `enum` item. \
-You can also use `markdownEnumDescriptions` instead of `enumDescriptions`, and your descriptions will be parsed as Markdown. \
+You can also use `markdownEnumDescriptions` instead of `enumDescriptions`, and your descriptions will be parsed as Markdown. `markdownEnumDescriptions` takes precedence over `enumDescriptions`. \
 To customize the dropdown option names in the settings UI, you can use `enumItemLabels`.
 
 Example:
@@ -314,7 +314,6 @@ Example:
   "settingsEditorTestExtension.enumSetting": {
     "type": "string",
     "enum": ["first", "second", "third"],
-    "enumDescriptions": ["The first enum", "The second enum", "The third enum"],
     "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
     "enumItemLabels": ["1st", "2nd", "3rd"],
     "default": "first",
