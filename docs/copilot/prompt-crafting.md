@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 8
 Area: copilot
 TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -151,9 +151,7 @@ You can even ask Copilot to follow coding conventions or improve variable names:
 
 ![Ask Copilot to use better variable names and new result](images/prompt-crafting/fibonacci-third.png)
 
-Even if you've already accepted a result, you can always ask Copilot to iterate on the code later:
-
-![Ask inline chat to use better variable names on existing code](images/prompt-crafting/fibonacci-better-var-names.png)
+Even if you've already accepted a result, you can always ask Copilot to iterate on the code later.
 
 ## More resources about prompting for Copilot
 

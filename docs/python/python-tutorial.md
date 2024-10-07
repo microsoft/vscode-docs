@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -20,7 +20,7 @@ For a Data Science focused tutorial with Python, check out our [Data Science sec
 
 ## Prerequisites
 
-To successfully complete this tutorial, you need to first setup your Python development environment. Specifically, this tutorial requires:
+To successfully complete this tutorial, you need to first set up your Python development environment. Specifically, this tutorial requires:
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
@@ -142,9 +142,9 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 ## Run Python code
 
-Click the **Run Python File in Terminal** play button in the top-right side of the editor.
+Click the **Run Python File** play button in the top-right side of the editor.
 
-![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the Run Python File button](images/tutorial/run-python-file-in-terminal-button.png)
 
 The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
@@ -152,13 +152,15 @@ The button opens a terminal panel in which your Python interpreter is automatica
 
 There are three other ways you can run Python code within VS Code:
 
-1. Right-click anywhere in the editor window and select **Run > Python File in Terminal** (which saves the file automatically):
+1. Right-click anywhere in the editor window and select **Run Python > Run Python File in Terminal** (which saves the file automatically):
 
    ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
-2. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
+2. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Python > Run Selection/Line in Python Terminal**. Alternatively, you can activate Smart Send using `kbstyle(Shift+Enter)` without a selection and the Python extension will send the smallest runnable block of code near where your cursor is placed to the terminal. This command is convenient for testing just a part of a file.
 
-3. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+> **Note**: If you prefer to send code at the particular line your cursor is placed, you can turn off Smart Send by setting `python.REPL.enableREPLSmartSend : "false"` in your **User** settings.
+
+1. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start Terminal REPL** command to open a REPL terminal (notated by `>>>`) for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
 
 Congrats, you just ran your first Python code in Visual Studio Code!
 
@@ -258,6 +260,34 @@ To install the required packages in your virtual environment, enter the followin
    ```
 
 1. Now, rerun the program, with or without the debugger, to view the output!
+
+### Managing dependencies across environments
+When working on Python projects, it’s essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
+
+Follow these steps to create a `requirements.txt` file:
+1. Activate your virtual environment, if you haven’t already.
+
+   ```bash
+   source venv/bin/activate  # On macOS/Linux
+   ```
+
+   ```powershell
+   .\venv\Scripts\activate   # On Windows
+   ```
+
+2. Generate the `requirements.txt` file.
+
+   ```powershell
+   pip freeze > requirements.txt
+   ```
+
+You can now use the newly generated `requirements.txt` file to install dependencies in another environment. Furthermore, you can continue to add dependencies to it as your project may grow in complexity.
+
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+By following these steps, you ensure that your project dependencies are consistent across different environments, making it easier to collaborate with others and deploy your project.
 
 Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
 

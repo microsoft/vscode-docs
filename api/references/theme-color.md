@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -223,6 +223,10 @@ The Activity Bar is usually displayed either on the far left or right of the wor
 - `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
 - `activityBarTop.background`: Background color of the activity bar when set to top / bottom.
 - `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
+- `activityWarningBadge.foreground`: Foreground color of the warning activity badge
+- `activityWarningBadge.background`: Background color of the warning activity badge
+- `activityErrorBadge.foreground`: Foreground color of the error activity badge
+- `activityErrorBadge.background`: Background color of the error activity badge
 
 ## Profiles
 
@@ -314,7 +318,6 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
-- `tab.dragAndDropBorder`: Border between tabs to indicate that a tab can be inserted between two tabs. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.lastPinnedBorder`: Border on the right of the last pinned editor to separate from unpinned editors.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
@@ -625,7 +628,6 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
-- `chat.requestBackground`: The background color of a chat request.
 
 ## Inline Chat colors
 
@@ -705,7 +707,6 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
 - `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
-  `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.
@@ -1054,15 +1055,19 @@ The following customizations are available:
 
 ## Source Control Graph colors
 
-- `scmGraph.historyItemGroupLocal`: Local history item group color.
-- `scmGraph.historyItemGroupRemote`: Remote history item group color.
-- `scmGraph.historyItemGroupBase`: Base history item group color.
 - `scmGraph.historyItemHoverLabelForeground`: History item hover label foreground color.
 - `scmGraph.foreground1`: Source control graph foreground color (1).
 - `scmGraph.foreground2`: Source control graph foreground color (2).
 - `scmGraph.foreground3`: Source control graph foreground color (3).
+- `scmGraph.foreground4`: Source control graph foreground color (4).
+- `scmGraph.foreground5`: Source control graph foreground color (5).
 - `scmGraph.historyItemHoverAdditionsForeground`: History item hover additions foreground color.
 - `scmGraph.historyItemHoverDeletionsForeground`: History item hover deletions foreground color.
+- `scmGraph.historyItemRefColor`: History item reference color.
+- `scmGraph.historyItemRemoteRefColor`: History item remote reference color.
+- `scmGraph.historyItemBaseRefColor`: History item base reference color.
+- `scmGraph.historyItemHoverDefaultLabelForeground`: History item hover default label foreground color.
+- `scmGraph.historyItemHoverDefaultLabelBackground`: History item hover default label background color.
 
 ## Settings Editor colors
 
@@ -1225,13 +1230,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 ## Simple Find Widget
 
 - `simpleFindWidget.sashBorder`: Border color of the sash border.
-
-## SCM
-
-- `scm.historyItemAdditionsForeground`: History item additions foreground color.
-- `scm.historyItemDeletionsForeground`: History item deletions foreground color.
-- `scm.historyItemStatisticsBorder`: History item statistics border color.
-- `scm.historyItemSelectedStatisticsBorder`: History item selected statistics border color.
 
 ## Extension colors
 

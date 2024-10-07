@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 PageTitle: AI-powered code completions with GitHub Copilot
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -79,7 +79,13 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ### Settings
 
-You can configure the font for the inline suggestions with the `setting(editor.inlineSuggest.fontFamily)` setting.
+* `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
+
+* `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
+
+* `setting(editor.inlineSuggest.showToolbar)` - enable or disable the toolbar that appears for inline completions.
+
+* `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
 ## Next steps
 
