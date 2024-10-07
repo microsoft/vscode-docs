@@ -93,6 +93,35 @@ dotnet add [location of your test csproj file] reference [location of the csproj
 
 The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
+### Code Coverage in C# Dev Kit
+The C# Dev Kit now supports Code Coverage using Visual Studio Code's Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
+
+- What is Code Coverage?
+  Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested 
+  sections of code and improves the quality of your testing by ensuring comprehensive coverage.
+
+- Enabling Code Coverage
+  - To enable Code Coverage, ensure you have the latest version of the C# Dev Kit extension installed.
+
+- Running Tests with Code Coverage
+  - Open the Test Explorer: Access the Test Explorer from the Activity Bar.
+  - Select and Run Your Tests: Choose the tests you want to run and execute them.
+  - View Coverage Data: Code coverage data will be automatically generated and displayed alongside your test results in the Test Explorer.
+
+- Viewing Code Coverage Results
+  - Use the Command Palette: Open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and search for "Test: Show Coverage" to access the coverage data.
+  - Code Highlighting in the Editor: Coverage is also directly highlighted in the editor:
+    - Green lines: Indicate tested code.
+    - Red lines: Indicate untested code.
+  - Test Explorer Summary: The Test Explorer provides an overall coverage summary and allows you to explore specific files or methods that require additional testing.
+  
+-  Improving Test Coverage
+    - Analyze the Coverage Report: Examine the coverage report (in the Test Explorer or editor) to identify areas marked in red,     
+indicating untested code.
+    - Write Additional Tests: Create new tests to cover the untested areas highlighted in the report.
+    - Rerun and Review: Execute the tests again and review the updated coverage to ensure your code is well-tested.
+
+
 ### View test results
 
 After running/debugging the test cases the state of the related test items will be updated in both editor decorations and the Test Explorer.
