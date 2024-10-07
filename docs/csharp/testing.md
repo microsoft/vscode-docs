@@ -97,23 +97,23 @@ The Test Explorer is a tree view to show all the test cases in your workspace. Y
 The C# Dev Kit now supports Code Coverage using Visual Studio Code's Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
 
 - What is Code Coverage?
-  Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested 
+  - Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested 
   sections of code and improves the quality of your testing by ensuring comprehensive coverage.
 
 - Enabling Code Coverage
   - To enable Code Coverage, ensure you have the latest version of the C# Dev Kit extension installed.
 
 - Running Tests with Code Coverage
-  - Open the Test Explorer: Access the Test Explorer from the Activity Bar.
-  - Select and Run Your Tests: Choose the tests you want to run and execute them.
-  - View Coverage Data: Code coverage data will be automatically generated and displayed alongside your test results in the Test Explorer.
+  - 1. Open the Test Explorer: Access the Test Explorer from the Activity Bar.
+  - 2. Select and Run Your Tests: Choose the tests you want to run and execute them.
+  - 3. View Coverage Data: Code coverage data will be automatically generated and displayed alongside your test results in the Test Explorer.
 
 - Viewing Code Coverage Results
-  - Use the Command Palette: Open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and search for "Test: Show Coverage" to access the coverage data.
-  - Code Highlighting in the Editor: Coverage is also directly highlighted in the editor:
-    - Green lines: Indicate tested code.
-    - Red lines: Indicate untested code.
-  - Test Explorer Summary: The Test Explorer provides an overall coverage summary and allows you to explore specific files or methods that require additional testing.
+  - 1. Use the Command Palette: Open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and search for "Test: Show Coverage" to access the coverage data.
+  - 2. Code Highlighting in the Editor: Coverage is also directly highlighted in the editor:
+      - Green lines: Indicate tested code.
+      - Red lines: Indicate untested code.
+  - 3. Test Explorer Summary: The Test Explorer provides an overall coverage summary and allows you to explore specific files or methods that require additional testing.
   
 -  Improving Test Coverage
     - Analyze the Coverage Report: Examine the coverage report (in the Test Explorer or editor) to identify areas marked in red,     
