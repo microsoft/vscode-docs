@@ -315,7 +315,7 @@ Example:
 }
 ```
 
-![settings UI screenshot of example enum setting above](images/contribution-points/settings-ui-enum.png)
+![settings UI screenshot of example enum setting above](images/contribution-points/settings-ui-enum-example.png)
 
 #### deprecationMessage / markdownDeprecationMessage
 
