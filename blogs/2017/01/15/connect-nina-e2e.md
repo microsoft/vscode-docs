@@ -256,7 +256,7 @@ Switch back to the extensions tab, search for `docker` and select the Microsoft 
 
 <img src="/assets/blogs/2017/01/15/DockerSearch.png" width="350px" />
 
-This extension includes many things, one of which is a simple command for generating a `Dockerfile` and `docker-compose.yml` file for an existing project. To see this in action, type `F1` (to bring up the command palette) and type `docker` to display all of the commands that the Docker extension provides:
+This extension includes many things, one of which is a simple command for generating a `Dockerfile` and `compose.yaml` file for an existing project. To see this in action, type `F1` (to bring up the command palette) and type `docker` to display all of the commands that the Docker extension provides:
 
 <img src="/assets/blogs/2017/01/15/DockerCommands.png" width="350px" />
 
@@ -264,7 +264,7 @@ Select the `Docker: Add docker files to workspace` command,  select `Node.js` as
 
 <img src="/assets/blogs/2017/01/15/Dockerfile.png" width="450px" />
 
-The Docker extension also provides auto-completion for your `Dockerfiles` and `docker-compose.yml` files, which makes authoring your Docker assets a lot simpler. For example, open up the `Dockerfile` and change line 2 from:
+The Docker extension also provides auto-completion for your `Dockerfiles` and `compose.yaml` files, which makes authoring your Docker assets a lot simpler. For example, open up the `Dockerfile` and change line 2 from:
 
 ```docker
 FROM node:latest

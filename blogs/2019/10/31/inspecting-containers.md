@@ -36,7 +36,7 @@ The first thing we need is an application that we can run in a container. If you
 git clone https://github.com/microsoft/vscode-express-sample.git
 ```
 
-This application has a simple Dockerfile that is based off the Node 10 image, as well as a `docker-compose.yml` file that we will use to run the image, expose the appropriate ports, and map in the local file system. We are running Node with the `–inspect` flag so that we can debug the app as we would when running locally. In a real application, you would probably want a separate Docker Compose file for your production deployment.
+This application has a simple Dockerfile that is based off the Node 10 image, as well as a `compose.yaml` file that we will use to run the image, expose the appropriate ports, and map in the local file system. We are running Node with the `–inspect` flag so that we can debug the app as we would when running locally. In a real application, you would probably want a separate Docker Compose file for your production deployment.
 
 >**Note**: You don't need a Docker Compose file, you can also attach to containers created with a single Dockerfile.
 
@@ -80,7 +80,7 @@ Let's go ahead and open our app by selecting the **Open Folder** button and navi
 
 ![Open Folder dialog show container file system](open-folder-dialog.png)
 
-Once you have opened your source folder, you'll notice that a file has been opened in your editor with the file name `express-server.json`. This name is derived from the container image name that you have attached to. In our example, docker-compose creates the image name 'express_server', which is derived from the folder name `express` and the service name `server` defined in the `docker-compose.yml` file.  This file is a configuration file associated with your image that will remember configuration settings when you attach to containers based on this image. If you don't have Auto Save on, you'll need to make sure to save this file. Now in future sessions, VS Code will reopen this source folder when you attach to this image.
+Once you have opened your source folder, you'll notice that a file has been opened in your editor with the file name `express-server.json`. This name is derived from the container image name that you have attached to. In our example, docker-compose creates the image name 'express_server', which is derived from the folder name `express` and the service name `server` defined in the `compose.yaml` file.  This file is a configuration file associated with your image that will remember configuration settings when you attach to containers based on this image. If you don't have Auto Save on, you'll need to make sure to save this file. Now in future sessions, VS Code will reopen this source folder when you attach to this image.
 
 >**Note**: You can view this file for the current dev container by running the command **Open Container Configuration File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -96,7 +96,7 @@ For example, open `app.js`. Right click on line 8 and execute **Find All Referen
 
 ## Debug inside the container
 
-To further show how similar the dev container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `docker-compose.yaml`, so all we have to do is attach a debugger to that process.
+To further show how similar the dev container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `compose.yaml`, so all we have to do is attach a debugger to that process.
 
 In the Command Palette (`kb(workbench.action.showCommands)`), search for and select **Debug: Attach to Node Process**. There will probably be several Node processes running inside the container. We want the process that is running our application, so select the one that shows `bin/www`.
 
