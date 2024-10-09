@@ -72,7 +72,7 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`:
+The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`.
 
 ```json
 "contributes": {
@@ -88,9 +88,13 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest using a lowercase `name` to align with existing chat participants. `name` can not contain spaces. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest using title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID). The `description` is shown in the chat input field as a placeholder text.
+Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. The `fullName` is shown in the title area of a response from your participant. The `description` is used as placeholder text in the chat input field.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+
+We suggest using a lowercase `name` and using title case for the `fullName` to align with existing chat participants. Get more info about the [naming conventions for chat participants](#chat-participant-naming-conventions).
+
+> **Note**: Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
 
 Up-front registration of participants and [commands](#register-commands) in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
 
@@ -241,6 +245,8 @@ Chat participants can contribute commands with their description by adding them 
     ]
 }
 ```
+
+Get more info about the [naming conventions for slash commands](#slash-command-naming-conventions).
 
 ### Register follow-up requests
 
@@ -464,6 +470,24 @@ cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
 ```
 
 Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is a nondeterministic technology. Run experiments, measure and iteratively improve your participant to ensure a good user experience.
+
+## Naming restrictions and conventions
+
+### Chat participant naming conventions
+
+| Property | Description | Naming guidelines |
+|----------|-------------|-------------------|
+| `id`  | Globally unique identifier for the chat participant | <ul><li>String value</li><li>Use the extension name as a prefix, followed by a unique ID for your extension</li><li>Example: `chat-sample.cat`, `code-visualizer.code-visualizer-participant`</li></ul>  |
+| `name`  | Name of the chat participant, referenced by users through the `@` symbol | <ul><li>String value consisting of alphanumeric characters, underscores, and hyphens</li><li>It's recommended to only use lowercase to ensure consistency with existing chat participants</li><li>Ensure the purpose of the participant is obvious from its name by referencing your company name or its functionality</li><li>Some participant names are reserved. If you use a reserved name, the fully qualified name is show, including the extension ID</li><li>Examples: `vscode`, `terminal`, `code-visualizer`</li></ul>   |
+| `fullName` | (Optional) The full name of the participant, which is shown as the label for responses coming from the participant | <ul><li>String value</li><li>It's recommended to use [title case](https://en.wikipedia.org/wiki/Title_case)</li><li>Use your company name, brand name, or user-friendly name for your participant</li><li>Examples: `GitHub Copilot`, `VS Code`, `Math Tutor`</li></ul>   |
+| `description` | (Optional) Short description of what the chat participant does, shown as placeholder text in the chat input field or in the list of participants | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Ask questions about VS Code`, `Generate UML diagrams for your code`</li></ul>   |
+
+### Slash command naming conventions
+
+| Property | Description | Naming guidelines |
+|----------|-------------|-------------------|
+| `name`  | Name of the slash command, referenced by users through the `/` symbol | <ul><li>String value</li><li>It's recommended to use [lower camel case](https://en.wikipedia.org/wiki/Camel_case) to align with existing slash commands</li><li>Ensure the purpose of the command is obvious from its name</li><li>Examples: `fix`, `explain`, `runCommand`</li></ul>   |
+| `description` | (Optional) Short description of what the slash command does, shown as placeholder text in the chat input field or in the list of participants and commands | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Search for and execute a command in VS Code`, `Generate unit tests for the selected code`</li></ul>   |
 
 ## Guidelines
 
