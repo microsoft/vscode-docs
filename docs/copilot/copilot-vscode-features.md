@@ -156,7 +156,7 @@ Copilot can help you create a new project by generating a scaffold of the projec
 | `/new` | Use the `/new` command in the Chat view to scaffold a new project or a new file. Use natural language to describe the type of project/file you need, and preview the scaffolded content before creating it.<br/>Example: `/new Express app using typescript and svelte` |
 | `/newNotebook` | Use the `/newNotebook` command in the Chat view to generate a new Jupyter notebook based on your requirements. Use natural language to describe what the notebook should contain.<br/>Example: `/newNotebook get census data and preview key insights with Seaborn`. |
 
-## Commit changes to source control
+## Source control and issues
 
 Copilot can analyze the changes in your commits and pull requests and provide suggestions for commit messages and pull request descriptions.
 
@@ -164,6 +164,7 @@ Copilot can analyze the changes in your commits and pull requests and provide su
 |--------|-------------|
 | Commit | Generate a commit message for the current changes in a source control commit. |
 | Pull request | Generate a pull request title and description that correspond with the changes in your pull request. |
+| `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
 
 ## Search
 
