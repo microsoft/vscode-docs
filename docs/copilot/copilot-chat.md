@@ -164,6 +164,7 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
+* `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics.
 
 Extensions can also contribute chat participants to provide specialized help for their domain.
 
@@ -205,6 +206,16 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/copilot-chat/terminal-command-explanation.png)
 
 > **Note**: the terminal doesn't pull in the workspace context, which could take some time.
+
+### @github
+
+With `@github` you can ask questions about your GitHub repositories and your commits, issues, pull requests, and more. The following are examples of how you can use the `@github` participant:
+
+* `@github What are all of the open PRs assigned to me?`
+* `@github What are the latest issues assigned to me?`
+* `@github When was the latest release?`
+
+Get more information about the available [GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills) in the GitHub documentation.
 
 ## Slash commands
 
