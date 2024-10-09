@@ -45,6 +45,12 @@ To get started with extending Copilot in your VS Code extension, explore the fol
 
 - **Extension guides**: Learn how to use the [Chat API](/api/extension-guides/chat.md) and [Language Model API](/api/extension-guides/language-model.md) to extend Copilot in your VS Code extension.
 
+Here are some examples of extensions that contribute a chat participant:
+
+<div class="marketplace-extensions-curated-chat"></div>
+
+Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your more extensions.
+
 ## Related content
 
 - [Get started with Copilot Extensions](https://github.com/features/copilot/extensions)
