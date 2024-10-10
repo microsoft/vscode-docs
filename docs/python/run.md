@@ -9,9 +9,9 @@ MetaDescription: Running Python Code in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
 
-# Running Python in Visual Studio Code
+# Running Python code in Visual Studio Code
 
-Whether you are experimenting with smaller lines of code in a REPL or ready to run a Python script, the Python extension offers a number of ways to run Python code.
+Whether you are experimenting with smaller lines of Python code in the REPL or ready to run a Python script, the Python extension offers a number of ways to run your code.
 
 ## Interactively running Python code
 
@@ -31,15 +31,15 @@ Similar to how you can interact with the Python REPL outside of VS Code, you can
 
 There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration). Features such as run recent command, command decorators, and improved accessibility are supported via shell integration. To enable or disable shell integration in the terminal, you can toggle `python.terminal.shellIntegration.enabled` in your settings.
 
-## Run Python Code
+## Run Python code
 
-The Python extension allows you to run Python code without any configuration needed.
+The Python extension offers a variety of ways to run Python code without any additional configuration.
 
 1. Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
 ![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
-The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
+The button opens a terminal panel in which your Python interpreter is automatically activated, then runs the specified script (for example, `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows)):
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
