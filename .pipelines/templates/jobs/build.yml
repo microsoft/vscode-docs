@@ -17,6 +17,9 @@ jobs:
         artifactName: drop_Build_${{ parameters.jobDisplayName }}
 
   steps:
+  - checkout: self
+    destination: $(Pipeline.Workspace)/vscode-docs
+
   - download: ${{ parameters.artifactName }}
     artifact: drop_Build_Linux
     displayName: Download ${{ parameters.artifactName }}
@@ -61,13 +64,12 @@ jobs:
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
+  - powershell: mv $(Pipeline.Workspace)/vscode-docs $(Pipeline.Workspace)/vscode-website
+    displayName: Move vscode-docs within vscode-website
+
   - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
-
-  - script: npm install
-    displayName: Install Dist dependencies
-    workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
 
   - task: ArchiveFiles@2
     inputs:
