@@ -164,7 +164,7 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
-* `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics.
+* `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics, and can also perform web searches using the Bing API..
 
 Extensions can also contribute chat participants to provide specialized help for their domain.
 
@@ -216,6 +216,16 @@ With `@github` you can ask questions about your GitHub repositories and your com
 * `@github When was the latest release?`
 
 Get more information about the available [GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills) in the GitHub documentation.
+
+### Extension-contributed chat participants
+
+You can install additional chat participants from either the VS Code extensions marketplace or from the GitHub marketplace.
+
+Chat participants contributed via a VS Code extension are client-side extensions with full access to the VS Code extension API surface.
+
+Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App contributing a chat participant, the first time you `@-mention` the participant in VS Code, you will be asked to authorize its access to your local editor context.
+
+>**Note**: To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
 
 ## Slash commands
 

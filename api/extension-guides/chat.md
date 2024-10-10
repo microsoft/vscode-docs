@@ -27,7 +27,11 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 
 ## Extending GitHub Copilot via GitHub Apps
 
-Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API. To learn more about extending GitHub Copilot through a GitHub App see the [GitHub documentation](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions).
+Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API.
+
+A chat participant contributed via a GitHub App may request access to your local editor context to provide you with more contextualized answers. After you install a GitHub App contributing a chat participant, the first time you `@-mention` the participant in VS Code, you will be asked to authorize its access to your local editor context. To protect your privacy, this preference is saved on a per-workspace, unless you select 'Allow for all workspaces'.
+
+To learn more about extending GitHub Copilot through a GitHub App see the [GitHub documentation](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
 ## Links
 
