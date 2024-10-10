@@ -18,7 +18,7 @@ jobs:
 
   steps:
   - checkout: self
-    destination: $(Pipeline.Workspace)/vscode-docs
+    path: vscode-docs
 
   - download: ${{ parameters.artifactName }}
     artifact: drop_Build_Linux
