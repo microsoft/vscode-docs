@@ -219,11 +219,11 @@ Get more information about the available [GitHub skills](https://docs.github.com
 
 ### Extension-contributed chat participants
 
-You can install additional chat participants from either the VS Code extensions marketplace or from the GitHub marketplace.
+You can install additional chat participants from either the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode) or from the [GitHub Marketplace](https://github.com/marketplace).
 
-Chat participants contributed via a VS Code extension are client-side extensions with full access to the VS Code extension API surface.
+Chat participants contributed via a VS Code extension are *client-side* extensions that have full access to the VS Code extension API surface.
 
-Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App contributing a chat participant, the first time you `@-mention` the participant in VS Code, you will be asked to authorize its access to your local editor context.
+Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App that contributes a chat participant, the first time you `@-mention` the participant in VS Code, you are asked to authorize its access to your local editor context.
 
 >**Note**: To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
 
