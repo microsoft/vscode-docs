@@ -8,7 +8,7 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    name: 1es-windows-x64-2022
+    name: 1es-windows-2022-x64
     os: Windows
   templateContext:
     outputs:
