@@ -29,7 +29,14 @@ jobs:
       contents: '**'
       sourceFolder: $(Pipeline.Workspace)/${{ parameters.artifactName }}/drop_Build_Linux
       targetFolder: $(Pipeline.Workspace)/vscode-website
-    displayName: Copy ${{ parameters.artifactName }}
+    displayName: Copy ${{ parameters.artifactName }} to vscode-website
+
+  - task: CopyFiles@2
+    inputs:
+      contents: '**'
+      sourceFolder: $(Pipeline.Workspace)/vscode-docs
+      targetFolder: $(Pipeline.Workspace)/vscode-website/vscode-docs
+    displayName: Copy vscode-docs into vscode-website
 
   - task: NodeTool@0
     displayName: Install Node via .nvmrc
@@ -63,9 +70,6 @@ jobs:
   - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
-
-  - powershell: mv $(Pipeline.Workspace)/vscode-docs $(Pipeline.Workspace)/vscode-website
-    displayName: Move vscode-docs within vscode-website
 
   - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
