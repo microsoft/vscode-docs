@@ -13,10 +13,10 @@ pr: none
 
 resources:
   repositories:
-    - repository: templates
+    - repository: 1esPipelines
       type: git
-      name: OneBranch.Pipelines/GovernedTemplates
-      ref: refs/heads/main
+      name: 1ESPipelineTemplates/1ESPipelineTemplates
+      ref: refs/tags/release
 
   pipelines:
     - pipeline: vscode-website-main
@@ -24,22 +24,21 @@ resources:
       branch: main
       trigger: true
 
-variables:
-  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
-
 extends:
-  template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates
+  template: v1/1ES.Unofficial.PipelineTemplate.yml@1esPipelines
   parameters:
-    git:
-      fetchDepth: 1
-      lfs: true
-      retryCount: 3
-
-    globalSdl:
+    sdl:
       credscan:
-        suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
+        suppressionsFile: $(Build.SourcesDirectory)/.config/CredScanSuppressions.json
+      git:
+        fetchDepth: 1
+        lfs: true
+        retryCount: 3
       policheck:
         break: true
+      sourceAnalysisPool: 1es-windows-2022-x64
+      tsa:
+        enabled: true
 
     stages:
-    - template: templates\stages\build-buddy.yml
+    - template: templates/stages/build-buddy.yml@self

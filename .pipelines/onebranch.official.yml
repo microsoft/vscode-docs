@@ -13,10 +13,10 @@ pr: none
 
 resources:
   repositories:
-    - repository: templates
+    - repository: 1esPipelines
       type: git
-      name: OneBranch.Pipelines/GovernedTemplates
-      ref: refs/heads/main
+      name: 1ESPipelineTemplates/1ESPipelineTemplates
+      ref: refs/tags/release
 
   pipelines:
     - pipeline: vscode-website-prod
@@ -25,27 +25,26 @@ resources:
       trigger: true
 
 variables:
-  WindowsContainerImage: 'mcr.microsoft.com/windows/servercore:ltsc2019'
-  Codeql.enabled: true
+  Codeql.Enabled: true
   Codeql.SourceRoot: $(Pipeline.Workspace)/vscode-website
   Codeql.TSAEnabled: true
-  Codeql.TSAOptionsPath: $(Build.SourcesDirectory)\.config\tsaoptions.json
+  Codeql.TSAOptionsPath: $(Build.SourcesDirectory)/.config/tsaoptions.json
 
 extends:
-  template: v2/OneBranch.Official.CrossPlat.yml@templates
+  template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
   parameters:
-    git:
-      fetchDepth: 1
-      lfs: true
-      retryCount: 3
-
-    globalSdl:
-      asyncSdl:
-        enabled: false
+    sdl:
       credscan:
-        suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
+        suppressionsFile: $(Build.SourcesDirectory)/.config/CredScanSuppressions.json
+      git:
+        fetchDepth: 1
+        lfs: true
+        retryCount: 3
       policheck:
         break: true
+      sourceAnalysisPool: 1es-windows-2022-x64
+      tsa:
+        enabled: true
 
     stages:
-    - template: templates\stages\build-official.yml
+    - template: templates/stages/build-official.yml@self
