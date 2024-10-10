@@ -8,13 +8,13 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    type: windows
-
-  variables:
-    ob_outputDirectory: $(Build.ArtifactStagingDirectory)/out
-    ob_artifactSuffix: ${{ parameters.jobDisplayName }}
-    ob_git_path: vscode-website/vscode-docs
-    ob_sdl_codeSignValidation_excludes: -|**\*.js;-|**\*.ps1
+    name: 1es-windows-x64-2022
+    os: Windows
+  templateContext:
+    outputs:
+      - output: pipelineArtifact
+        targetPath: $(Build.ArtifactStagingDirectory)/out
+        artifactName: drop_Build_${{ parameters.jobDisplayName }}
 
   steps:
   - download: ${{ parameters.artifactName }}
@@ -27,10 +27,6 @@ jobs:
       sourceFolder: $(Pipeline.Workspace)/${{ parameters.artifactName }}/drop_Build_Linux
       targetFolder: $(Pipeline.Workspace)/vscode-website
     displayName: Copy ${{ parameters.artifactName }}
-
-  - task: CodeQL3000Init@0
-    displayName: CodeQL Initialize
-    condition: eq(variables['Codeql.enabled'], 'True')
 
   - task: NodeTool@0
     displayName: Install Node via .nvmrc
@@ -72,10 +68,6 @@ jobs:
   - script: npm install
     displayName: Install Dist dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
-
-  - task: CodeQL3000Finalize@0
-    displayName: CodeQL Finalize
-    condition: eq(variables['Codeql.enabled'], 'True')
 
   - task: ArchiveFiles@2
     inputs:
