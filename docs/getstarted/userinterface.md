@@ -168,7 +168,7 @@ The Timeline view, accessible at the bottom of the File Explorer, is a unified v
 
 ![Timeline view](images/userinterface/timeline-view.png)
 
-A filter action in the Timeline view toolbar enables you filter between source control events and local file events:
+A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
 
 ![Timeline filter drop down with Git History unchecked and Local History checked](images/userinterface/timeline-filter.png)
 
