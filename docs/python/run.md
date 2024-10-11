@@ -56,3 +56,8 @@ The Python extension offers a variety of ways to run Python code without any add
 The Python extension enables Smart Send on (`kbstyle(Shift+Enter)`) by default. Smart Send looks at the code where you cursor is placed, and sends the smallest runnable chunk of code to the Python REPL and then places your cursor at the next line of code. This allows you to more easily and efficiently execute Python code in your program.
 
 Smart Send will not work on unsupported versions of Python (i.e. Python 2) or invalid Python code. To disable Smart Send in favor of only sending code at the line which your cursor is placed, set `python.REPL.enableREPLSmartSend` to `false`.
+
+## See also
+
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
+- [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
