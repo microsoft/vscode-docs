@@ -15,7 +15,7 @@ Whether you are experimenting with smaller lines of Python code in the REPL or r
 
 ## Interactively running Python code
 
-The Python interpreter installed on your machine allows for what’s known as an interactive REPL (Read-Evaluate-Print Loop), which reads a piece of code, evaluates it, and then prints the result to the console. After installing a Python interpreter on your machine, you can interact with the Python REPL by searching for the Terminal / Command Prompt on you system, and typing `python` (Windows) or `python3` (macOS/Linux) to activate the Python REPL, notated by `>>>`. There are two additional ways you can interact with a Python REPL in VS Code.
+The Python interpreter installed on your machine allows for what's known as an interactive REPL (Read-Evaluate-Print Loop), which reads a piece of code, evaluates it, and then prints the result to the console. After installing a Python interpreter on your machine, you can interact with the Python REPL by searching for the Terminal / Command Prompt on you system, and typing `python` (Windows) or `python3` (macOS/Linux) to activate the Python REPL, notated by `>>>`. There are two additional ways you can interact with a Python REPL in VS Code.
 
 ### Native REPL
 
@@ -29,7 +29,7 @@ You can open the Native REPL via the Command Palette (`kb(workbench.action.showC
 
 Similar to how you can interact with the Python REPL outside of VS Code, you can open a Terminal within VS Code and activate a Python REPL. To do so, you can search in the Command Palette (`kb(workbench.action.showCommands)`) for **Python: Start Terminal REPL** which opens a terminal for the currently selected Python interpreter. Alternatively, you can navigate to **Terminal > New Terminal** and type `python` (Windows) or `python3` (macOS/Linux) command.
 
-There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration). Features such as run recent command, command decorators, and improved accessibility are supported via shell integration. To enable or disable shell integration in the terminal, you can toggle `python.terminal.shellIntegration.enabled` in your settings.
+There are a number of features supported in the terminal via [Terminal Shell Integration](https://code.visualstudio.com/docs/terminal/shell-integration), such as run recent command, command decorators, and improved accessibility. To enable or disable shell integration in the terminal, you can toggle `python.terminal.shellIntegration.enabled` in your settings.
 
 ## Run Python code
 
@@ -37,11 +37,11 @@ The Python extension offers a variety of ways to run Python code without any add
 
 1. Click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+    ![Using the Run Python File in Terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
-The button opens a terminal panel in which your Python interpreter is automatically activated, then runs the specified script (for example, `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows)):
+    The button opens a terminal panel in which your Python interpreter is automatically activated, then runs the specified script (for example, `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows)):
 
-![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
+    ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
 2. Right-click anywhere in the editor window and select **Run > Python File in Terminal** (which saves the file automatically):
 
