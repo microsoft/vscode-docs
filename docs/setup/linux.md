@@ -132,7 +132,7 @@ nix-env -i vscode
 The [VS Code .rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however, auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
 
 ```bash
-sudo dnf install <file>.rpm
+sudo dnf install ./code-<arch>.rpm
 ```
 
 Note that other binaries are also available on the [VS Code download page](/Download).
