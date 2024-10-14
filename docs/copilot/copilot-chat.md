@@ -164,7 +164,7 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
-* `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics, and can also perform web searches using the Bing API..
+* `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics, and can also perform web searches using the Bing API.
 
 Extensions can also contribute chat participants to provide specialized help for their domain.
 
