@@ -93,6 +93,7 @@ Argument|Description
 `--list-extensions` | List the installed extensions.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
+`--update-extensions` | Update installed extensions and exit.
 
 ![install extension](images/command-line/install-extension.png)
 
