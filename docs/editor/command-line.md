@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line interface
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -93,6 +93,7 @@ Argument|Description
 `--list-extensions` | List the installed extensions.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
+`--update-extensions` | Update installed extensions and exit.
 
 ![install extension](images/command-line/install-extension.png)
 
@@ -161,6 +162,14 @@ Open a file to line and column
 vscode://file/{full path to file}:line:column
 
 vscode://file/c:/myProject/package.json:5:10
+```
+
+Open the Settings Editor
+
+```bash
+vscode://settings/setting.name
+
+vscode://settings/editor.wordWrap
 ```
 
 You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://{full path to file}`.

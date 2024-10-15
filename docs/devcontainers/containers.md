@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 ---
 # Developing inside a Container
 
@@ -324,7 +324,7 @@ The Features sourced in VS Code UI now come from a central index, which you can 
 
 ### "Always installed" Features
 
-Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `dev.containers.defaultFeatures` User [setting](/docs/getstarted/settings.md) to set Features you'd always like installed:
+Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/getstarted/settings.md) to set Features you'd always like installed:
 
 ```json
 "dev.containers.defaultFeatures": {
@@ -427,9 +427,26 @@ While you can edit your [devcontainer.json](/docs/devcontainers/create-dev-conta
 
 ![Add to devcontainer.json menu](images/containers/containers-addto-devcontainer.png)
 
+### Opt out of extensions
+
+If a base image or Feature configures an extension that you do not want installed in your dev container, you can opt out by listing the extension with a minus sign. For example:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "-dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+}
+```
+
 ### "Always installed" extensions
 
-If there are extensions that you would like always installed in any container, you can update the `dev.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "dev.containers.defaultExtensions": [
@@ -595,7 +612,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-If you are using the Docker or Kubernetes extension from a WSL or Remote - SSH window, you will not be able to use the right-click **Attach to Container** option. This will only work if you are using it from your local machine.
+If you are using the Docker or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Docker or Kubernetes views will ask to pick from the available containers a second time.
 
 ### Extension limitations
 

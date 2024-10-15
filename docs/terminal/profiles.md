@@ -1,10 +1,10 @@
 ---
-Order: 2
+Order: 3
 Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -210,7 +210,7 @@ When PowerShell 6+ is installed, Windows PowerShell is not included in the profi
 
 ## WSL
 
-When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `terminal.integrated.useWslProfiles` setting, then here's an example of how to manually configure a WSL shell:
+When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `setting(terminal.integrated.useWslProfiles)` setting, then here's an example of how to manually configure a WSL shell:
 
 ```jsonc
 {

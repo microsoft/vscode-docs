@@ -1,10 +1,10 @@
 ---
-Order: 3
+Order: 4
 Area: copilot
-TOCTitle: Getting Started Tutorial
+TOCTitle: Quickstart
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-PageTitle: GitHub Copilot getting started
-DateApproved: 05/02/2024
+PageTitle: GitHub Copilot quickstart
+DateApproved: 10/03/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -16,7 +16,7 @@ This tutorial walks you through the key features of GitHub Copilot in Visual Stu
 
 For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2q0BoioYSxQ" title="GitHub Copilot Best Practices (what not to do)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 
@@ -62,69 +62,77 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 
 AI-powered code completions can help you with generating boilerplate or repetitive code, letting you stay in the developer flow and focus on more complex coding tasks.
 
-## Refactor your code through AI chat
+## Generate a simple web server with Copilot Chat
 
-As you work on an existing codebase, you often need to refactor or improve existing code. With the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension, you can use AI-driven chat conversations in VS Code to ask specific tasks about your code.
+With the [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension, you can start a chat conversations with Copilot in VS Code to ask specific tasks about your code by using natural language.
 
-Let's use Copilot Chat to help us with generating and refactoring code.
+Let's use Copilot Chat to help us generate a simple Express web server.
 
 1. First, add a new TypeScript file `server.ts` to your workspace.
 
-    Let's use the Copilot inline chat in the editor to generate a simple Express web server.
+    Let's use the Copilot Inline Chat in the editor to generate a simple Express web server.
 
-1. Now, press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat.
+1. Now, press `kb(inlinechat.start)` on your keyboard to bring up Copilot Inline Chat.
 
-    With Copilot inline chat you get a chat interface that lets you ask questions about your code by using natural language.
+    With Copilot Inline Chat you get a chat interface that lets you ask questions about your code by using natural language.
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat control.](./images/getting-started/copilot-inline-chat.png)
+    ![Screenshot of VS Code editor, showing the Copilot Inline Chat control.](./images/getting-started/copilot-inline-chat.png)
 
 1. Type *"add a simple express web server"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt to Copilot.
 
     Notice that Copilot returns a streaming response into the editor. The response is an implementation for a simple Node.js Express web server.
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat response for adding an Express web server.](./images/getting-started/copilot-inline-chat-express-server.png)
+    ![Screenshot of VS Code editor, showing the Copilot Inline Chat response for adding an Express web server.](./images/getting-started/copilot-inline-chat-express-server.png)
 
 1. Select **Accept** or press `kb(inlineChat.acceptChanges)` to apply the proposed code changes.
 
-    Congratulations! You've used GitHub Copilot Chat for generating code using chat and natural language.
+    Congratulations! You've used Copilot Chat for generating code using chat and natural language.
 
-    Now, let's use Copilot Chat to help us refactor the code to return a static HTML file as the home page, instead of "Hello, World!".
+Now, let's use Copilot Chat to help us refactor our code and return a static HTML file when users navigate to the home page.
 
-1. In the editor, select the `app.get('/'`, req, res) method, and then press `kb(inlinechat.start)` to start inline chat.
+## Refactor your code through AI chat
+
+As you work on an existing codebase, you often need to refactor or improve existing code. You'll use Copilot Chat to refactor and iterate over your code.
+
+Let's update the `/` route to return a static HTML page.
+
+1. In the editor, select the `app.get('/', req, res)` method, and then press `kb(inlinechat.start)` to start Inline Chat.
 
     By selecting a range of text in the editor, you provide more context to Copilot about your request.
 
 1. Type *"return a static index.html file"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
 
-    Notice how Copilot updates the existing method implementation to return an `index.html` file. Optionally, select the **Show changes** button to view a diff view and compare the changes.
+    Notice how Copilot updates the existing method implementation to return an `index.html` file.
 
-    ![Screenshot of VS Code editor, showing the Copilot inline chat suggested changes, highlighting the `Show changes` button.](./images/getting-started/copilot-inline-chat-refactor.png)
+    ![Screenshot of VS Code editor, showing the Copilot Inline Chat suggested changes, highlighting the `Show changes` button.](./images/getting-started/copilot-inline-chat-refactor.png)
 
 1. Select **Accept** or press `kb(inlineChat.acceptChanges)` to apply the proposed code changes.
 
-    Experiment further with Copilot Chat, for example to add more routes to your web server, or ask Copilot Chat to add error handling, and more.
+    Experiment further with Copilot Chat, for example to use an environment variable for the port number, to add more routes to your web server, or ask Copilot Chat to add error handling, and more.
 
-With Copilot Chat you can use a chat conversation and natural language to direct Copilot to perform specific tasks on your codebase. With inline chat, you can stay in the flow of coding, and ask for AI assistance in the moment, when you need it, without switching context.
+    ![Screenshot of VS Code editor, showing the Copilot Inline Chat to use an environment variable for the port number.](./images/getting-started/copilot-inline-chat-refactor-port.png)
+
+With Copilot Chat you can use a chat conversation and natural language to direct Copilot to perform specific tasks on your codebase. With Inline Chat, you can stay in the flow of coding, and ask for AI assistance in the moment, when you need it, without switching context.
 
 ## Use Copilot Chat for general programming questions
 
-As you're working in a new codebase, or exploring a new programming language, you might have more general questions come up. GitHub Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
+As you're working in a new codebase, or exploring a new programming language, you might have more general coding questions come up. Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
 
 1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started/copilot-chat-view.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity Bar.](./images/getting-started/copilot-chat-view.png)
 
 1. Type "what is recursion?" in the chat input field and press `kb(workbench.action.chat.submit)` to send the request to Copilot.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
-    Notice how the chat response contains rich results, consisting of text and a code block.
+    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
-1. You can also drag the Chat view to the Secondary side bar, for example if you want to view both the Chat view and Explorer view.
+1. Select the title of the Chat view and drag it to the right side of the editor to dock it to the Secondary side bar.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
 
-    Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
+    Putting the Chat view in the Secondary side bar can be useful if you want to open another view in the Primary side bar, for example the Explorer view to navigate your workspace. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 
 ## Fix coding errors with Copilot
 
@@ -142,11 +150,9 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
     ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
 
-    Notice that the second argument gets a red squiggle because the method only accepts one argument.
+1. Notice that the Copilot Inline Chat comes up, prepopulated with the error message, and a solution to fix the problem.
 
-1. Notice that the Copilot inline chat comes up, prepopulated with the error message, and a solution to fix the problem.
-
-    ![Screenshot of VS Code editor, showing the Copilot inline chat proposing to install the express npm package to solve the problem.](./images/getting-started/copilot-code-action-fix-result.png)
+    ![Screenshot of VS Code editor, showing the Copilot Inline Chat proposing to install the express npm package to solve the problem.](./images/getting-started/copilot-code-action-fix-result.png)
 
     Directly from the chat response, you can optionally select the **Insert into Terminal** button to copy the proposed command in your terminal.
 
@@ -154,4 +160,4 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
 Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you successfully set up Copilot in VS Code, and used Copilot code completions, Copilot Chat, and code actions to help you code more efficiently.
 
-You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about GitHub Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
+You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).

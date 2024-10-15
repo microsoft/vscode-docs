@@ -19,6 +19,8 @@ MetaSocialImage: images/tutorial/python-social.png
 - Connect to a remote Jupyter server
 - Debug a Jupyter Notebook
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/suAkMeWJ1yE" title="Get started with Jupyter Notebooks in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Setting up your environment
 
 To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
@@ -77,7 +79,7 @@ You can save your Jupyter Notebook using the keyboard shortcut `kbstyle(Ctrl+S)`
 
 ## Export your Jupyter Notebook
 
-You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select the **Export** action on the main toolbar. You'll then be presented with a dropdown of file format options.
+You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select **...** > **Export** on the main toolbar. You're then presented with a dropdown of file format options.
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
 

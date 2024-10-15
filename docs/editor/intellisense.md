@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -127,7 +127,7 @@ The editor supports "tab completion" which inserts the best matching completion 
 
 ![Tab Completion](images/intellisense/tabCompletion.gif)
 
-By default, tab completion is disabled. Use the `editor.tabCompletion` setting to enable it. These values exist:
+By default, tab completion is disabled. Use the `setting(editor.tabCompletion)` setting to enable it. These values exist:
 
 * `off` - (default) Tab completion is disabled.
 * `on` - Tab completion is enabled for all suggestions and repeated invocations insert the next best suggestion.
@@ -135,7 +135,7 @@ By default, tab completion is disabled. Use the `editor.tabCompletion` setting t
 
 ### Locality Bonus
 
-Sorting of suggestions depends on extension information and on how well they match the current word you are typing. In addition, you can ask the editor to boost suggestions that appear closer to the cursor position, using the `editor.suggest.localityBonus` setting.
+Sorting of suggestions depends on extension information and on how well they match the current word you are typing. In addition, you can ask the editor to boost suggestions that appear closer to the cursor position, using the `setting(editor.suggest.localityBonus)` setting.
 
 ![Sorted By Locality](images/intellisense/localitybonus.png)
 
@@ -143,9 +143,9 @@ In above images you can see that `count`, `context`, and `colocated` are sorted 
 
 ### Suggestion selection
 
-By default, VS Code pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `editor.suggestSelection` setting.
+By default, VS Code pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `setting(editor.suggestSelection)` setting.
 
-The available `editor.suggestSelection` values are:
+The available `setting(editor.suggestSelection)` values are:
 
 * `first` - (default) Always select the top list item.
 * `recentlyUsed` - The previously used item is selected unless a prefix (type to select) selects a different item.
@@ -159,7 +159,7 @@ When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item
 
 ### Snippets in suggestions
 
-By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
+By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ### Key bindings
 
@@ -227,4 +227,4 @@ This can be caused by a variety of reasons. First, try restarting VS Code. If th
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](https://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
+This issue is caused by missing type declaration (typings) files in JavaScript. Most common JavaScript libraries ship with declaration files or have type declaration files available. Make sure install the corresponding npm or yarn package for the library you are using. Learn more about IntelliSense in the [Working with JavaScript](/docs/nodejs/working-with-javascript.md#intellisense) article. For other languages, please consult the extension's documentation.

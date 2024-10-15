@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -65,7 +65,7 @@ VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md
 
 There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
 
-> **Tip**: To disable snippets suggestions, set `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `editor.snippetSuggestions` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **Tip**: To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
@@ -115,7 +115,7 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
+> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
 
 ## Formatting
 
@@ -176,7 +176,7 @@ Available refactorings include:
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
-Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`editor.codeActionWidget.includeNearbyQuickFixes`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
+Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
 The command highlights the source code that will be refactored or fixed with Quick Fixes. Normal Code Actions and non-fix refactorings can still be activated at the cursor location.
 
@@ -220,7 +220,7 @@ Organize imports can also be done automatically when you save a JavaScript file 
 
 ## Code Actions on Save
 
-The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+The `setting(editor.codeActionsOnSave)` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
 
 ```json
 // On explicit save, run fixAll source action. On auto save (window or focus change), run organizeImports source action.
@@ -235,7 +235,7 @@ As of today, the following enums are supported:
 * `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes.
 * `never`: Never triggers Code Actions on save. Same as `false`.
 
-You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
+You can also set `setting(editor.codeActionsOnSave)` to an array of Code Actions to execute in order.
 
 Here are some source actions:
 
@@ -298,25 +298,25 @@ To enable parameter name hints, set `javascript.inlayHints.parameterNames`. Ther
 
 **Variable type inlay hints** show the types of variables that don't have explicit type annotations.
 
-Setting: `javascript.inlayHints.variableTypes.enabled`
+Setting: `setting(javascript.inlayHints.variableTypes.enabled)`
 
 ![Variable type inlay hints](images/javascript/inlay-var-types.png)
 
 **Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
 
-Setting: `javascript.inlayHints.propertyDeclarationTypes.enabled`
+Setting: `setting(javascript.inlayHints.propertyDeclarationTypes.enabled)`
 
 ![Property type inlay hints](images/javascript/inlay-property-types.png)
 
 **Parameter type hints**  show the types of implicitly typed parameters.
 
-Setting: `javascript.inlayHints.parameterTypes.enabled`
+Setting: `setting(javascript.inlayHints.parameterTypes.enabled)`
 
 ![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
 
 **Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
 
-Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
+Setting: `setting(javascript.inlayHints.functionLikeReturnTypes.enabled)`
 
 ![Return type inlay hints](images/javascript/inlay-return-type.png)
 
@@ -340,7 +340,7 @@ When you move or rename a file that is imported by other files in your JavaScrip
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
+The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
 
 * `"prompt"` - The default. Asks if paths should be updated for each file move.
 * `"always"` - Always automatically update paths.
@@ -438,7 +438,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 ### How do I disable Syntax Validation when using non-ES6 constructs?
 
-Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
+Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/getstarted/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 

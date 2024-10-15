@@ -50,7 +50,7 @@ In the walkthrough, select **Set up your environment** and select **Install .NET
 To get started, go to the **Explorer** view and select **Create .NET Project**. Alternatively, you can bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET" and find and select the **.NET: New Project** command.
 
 1. After selecting the command, you'll need to choose the project template. Choose **Console app**.
-1. To run your app, select **Run > Run without Debugging** in the upper menu, or use the `kb(workbench.action.run.start)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
+1. To run your app, select **Run > Run without Debugging** in the upper menu, or use the `kb(workbench.action.debug.run)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
 
 ![Use the Command Palette to create a new .NET project](images/get-started/open-new-project.gif)
 

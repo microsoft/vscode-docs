@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
 PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 1/17/2024
+DateApproved: 10/03/2024
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -16,7 +16,7 @@ The Python extension makes Visual Studio Code an excellent Python editor, works 
 Get started by installing:
 
 - [VS Code](https://code.visualstudio.com/)
-- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/#status-of-python-branches))
+- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
 - [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
 
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
@@ -43,7 +43,7 @@ When you launch VS Code for the very first time, you will need to install the Py
 
 Code Actions (also known as Quick Fixes) are provided to help fix issues when there are warnings in your code. These helpful hints are displayed in the editor left margin as a lightbulb (💡). Select the light bulb to display Code Action options. These Code Action can come from extensions such as Python, Pylance, or VS Code itself. For more information about Code Actions, see [Python Quick Fixes](/docs/python/editing.md#quick-fixes).
 
-![Gif showing Code Actions in a Python project.](images/editing/quickFix.gif)
+![Screenshot showing Code Actions in a Python project.](images/editing/quickFix.png)
 
 ## Python commands
 

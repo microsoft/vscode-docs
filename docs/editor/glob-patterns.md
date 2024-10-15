@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Glob Patterns Reference
 ContentId: c2d81f09-3c24-4659-8aa0-9ca24ef4950d
 PageTitle: Visual Studio Code glob patterns reference
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference
@@ -27,7 +27,7 @@ VS Code supports the following glob syntax:
 
 ## Special cases
 
-Glob patterns in the Search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
+Glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 ## Common questions
 

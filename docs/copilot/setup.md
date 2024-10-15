@@ -1,10 +1,10 @@
 ---
-Order: 2
+Order: 3
 Area: copilot
 TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: Set up GitHub Copilot
-DateApproved: 02/28/2024
+DateApproved: 10/03/2024
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -41,9 +41,11 @@ If you didn't previously authorize VS Code in your GitHub account, you're prompt
 
 ![VS Code notification to sign into the Copilot extension](images/setup/copilot-auth-toast.png)
 
-In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
+Alternatively, you can sign in to GitHub in VS Code by selecting the **Accounts** menu in the Activity Bar, and then **Sign in with GitHub to use GitHub Copilot**.
 
-> **Note**: If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account. Use the **Accounts** menu in the Activity bar for signing out of your current GitHub account.
+![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
+
+In your browser, GitHub requests the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
 
 ## Validation: Check the Copilot status
 
@@ -60,6 +62,18 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
     The GitHub Copilot status should show **Ready**.
 
     ![Screenshot showing the GitHub Copilot status menu in VS Code, indicating that the Copilot status is ready.](./images/setup/copilot-status-menu.png)
+
+1. You should also see the Chat view in the Activity Bar, which you can use to chat with Copilot.
+
+    ![Screenshot showing the Chat view in the Activity Bar in VS Code.](./images/setup/vscode-chat-view.png)
+
+## Sign out of GitHub Copilot
+
+If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
+
+To sign out of your GitHub account in VS Code, select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
+
+![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
 
 ## Next steps
 

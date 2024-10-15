@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C#
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 6/6/2023
+DateApproved: 10/03/2024
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 MetaSocialImage: images/csharp/languages-csharp-social.png
 ---
@@ -101,7 +101,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information displayed in CodeLens with the `editor.codeLens` [setting](/docs/getstarted/settings.md).
+>**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/getstarted/settings.md).
 
 ## Find References/Peek Definition
 

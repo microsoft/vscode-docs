@@ -31,7 +31,7 @@ Get the latest version of MinGW-w64 via [MSYS2](https://www.msys2.org/), which p
 
 To install the MinGW-w64 toolchain, check out this video or follow the steps below:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oC69vlWofJQ?si=cj-xpNS28xNBMEcP" title="Installing MinGW to build C++ code on Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oC69vlWofJQ" title="Installing MinGW to build C++ code on Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe).
 
@@ -51,12 +51,13 @@ To install the MinGW-w64 toolchain, check out this video or follow the steps bel
 
 1. Enter `Y` when prompted whether to proceed with the installation.
 
-1. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
+1. Add the path of your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
    1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: `C:\msys64\ucrt64\bin`.
-   1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
+   1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
+      You have to reopen any console windows for the updated `PATH` environment variable to be available.
 
 ### Check your MinGW installation
 

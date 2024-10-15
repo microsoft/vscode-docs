@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Vue Tutorial
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 PageTitle: Vue JavaScript Tutorial in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using Vue in Visual Studio Code
@@ -65,17 +65,15 @@ code .
 
 VS Code will launch and display your Vue application in the File Explorer.
 
-## Volar extension
+## Vue - Official extension
 
-Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
+Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
 
-![Volar extension recommendation](images/vuejs/volar-extension-recommendation.png)
+The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, snippets, formatting) to VS Code.
 
-The Volar extension supplies Vue.js language features (syntax highlighting, IntelliSense, snippets, formatting) to VS Code.
+![Volar extension](images/vuejs/vue-extension.png)
 
-![Volar extension](images/vuejs/volar-extension.png)
-
-From the notification, press **Install** to download and install the Volar extension. You should see the Volar extension **Installing** in the Extensions view. Once the installation is complete (may take several minutes), the **Install** button changes to the **Manage** gear button.
+From the notification, press **Install** to download and install the Vue extension. You should see the Vue extension **Installing** in the Extensions view. Once the installation is complete (may take several minutes), the **Install** button changes to the **Manage** gear button.
 
 You should now see that `.vue` is a recognized file type for the Vue.js language and you have language features such as syntax highlighting, bracket matching, and hover descriptions.
 

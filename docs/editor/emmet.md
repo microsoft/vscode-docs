@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 10/03/2024
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -31,7 +31,7 @@ This setting allows using the `kbstyle(Tab)` key for indentation when text is no
 
 ### Emmet when quickSuggestions are disabled
 
-If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+If you have disabled the `setting(editor.quickSuggestions)` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
 ### Disable Emmet in suggestions
 
@@ -54,7 +54,7 @@ To ensure Emmet suggestions are always on top in the suggestion list, add the fo
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping, with the right side being the language identifier of an Emmet supported language (see the list above).
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `setting(emmet.includeLanguages)` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping, with the right side being the language identifier of an Emmet supported language (see the list above).
 
 For example:
 
@@ -72,7 +72,7 @@ Emmet has no knowledge of these new languages, and so there might be Emmet sugge
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
 ```
 
-> **Note:** If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
+> **Note:** If you used `setting(emmet.syntaxProfiles)` previously to map new file types, from VS Code 1.15 onwards you should use the setting `setting(emmet.includeLanguages)` instead. `setting(emmet.syntaxProfiles)` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
 ## Emmet with multi-cursors
 
@@ -82,9 +82,9 @@ You can use most of the Emmet actions with multi-cursors as well:
 
 ## Using filters
 
-Filters are special post-processors that modify the expanded abbreviation before it is output to the editor. There are 2 ways to use filters; either globally through the `emmet.syntaxProfiles` setting or directly in the current abbreviation.
+Filters are special post-processors that modify the expanded abbreviation before it is output to the editor. There are 2 ways to use filters; either globally through the `setting(emmet.syntaxProfiles)` setting or directly in the current abbreviation.
 
-Below is an example of the first approach using the `emmet.syntaxProfiles` setting to apply the `bem` filter for all the abbreviations in HTML files:
+Below is an example of the first approach using the `setting(emmet.syntaxProfiles)` setting to apply the `bem` filter for all the abbreviations in HTML files:
 
 ```json
 "emmet.syntaxProfiles": {
@@ -146,7 +146,7 @@ This filter is applicable only when providing abbreviations for the **Emmet: Wra
 
 ## Using custom Emmet snippets
 
-Custom Emmet snippets need to be defined in a json file named `snippets.json`. The `emmet.extensionsPath` setting should have the path to the directory containing this file.
+Custom Emmet snippets need to be defined in a json file named `snippets.json`. The `setting(emmet.extensionsPath)` setting should have the path to the directory containing this file.
 
 Below is an example for the contents of this `snippets.json` file.
 
@@ -205,7 +205,7 @@ The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets
 
 Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to customize your Emmet experience in VS Code.
 
-* `emmet.includeLanguages`
+* `setting(emmet.includeLanguages)`
 
   Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language IDs for both sides of the mapping.
 
@@ -218,11 +218,11 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
   }
   ```
 
-* `emmet.excludeLanguages`
+* `setting(emmet.excludeLanguages)`
 
   If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
 
-* `emmet.syntaxProfiles`
+* `setting(emmet.syntaxProfiles)`
 
   See [Emmet Customization of output profile](https://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile) to learn how you can customize the output of your HTML abbreviations.
 
@@ -239,7 +239,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
   }
   ```
 
-* `emmet.variables`
+* `setting(emmet.variables)`
 
   Customize variables used by Emmet snippets.
 
@@ -252,7 +252,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
   }
   ```
 
-* `emmet.showExpandedAbbreviation`
+* `setting(emmet.showExpandedAbbreviation)`
 
   Controls the Emmet suggestions that show up in the suggestion/completion list.
 
@@ -260,32 +260,32 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
   ----------- | -------
   `never` | Never show Emmet abbreviations in the suggestion list for any language.
   `inMarkupAndStylesheetFilesOnly` | Show Emmet suggestions only for languages that are purely markup and stylesheet based ('html', 'pug', 'slim', 'haml', 'xml', 'xsl', 'css', 'scss', 'sass', 'less', 'stylus').
-  `always` | Show Emmet suggestions in all Emmet supported modes as well as the languages that have a mapping in the `emmet.includeLanguages` setting.
+  `always` | Show Emmet suggestions in all Emmet supported modes as well as the languages that have a mapping in the `setting(emmet.includeLanguages)` setting.
 
   **Note:** In the `always` mode, the new Emmet implementation is not context aware. For example, if you are editing a JavaScript React file, you will get Emmet suggestions not only when writing markup but also while writing JavaScript.
 
-* `emmet.showAbbreviationSuggestions`
+* `setting(emmet.showAbbreviationSuggestions)`
 
   Shows possible emmet abbreviations as suggestions. It is `true` by default.
 
   For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
   This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.
 
-  Not applicable in stylesheets or when `emmet.showExpandedAbbreviation` is set to `never`.
+  Not applicable in stylesheets or when `setting(emmet.showExpandedAbbreviation)` is set to `never`.
 
-* `emmet.extensionsPath`
+* `setting(emmet.extensionsPath)`
 
    Provide the location of the directory that houses the `snippets.json` file which in turn has your custom snippets.
 
-* `emmet.triggerExpansionOnTab`
+* `setting(emmet.triggerExpansionOnTab)`
 
   Set this to true to enable expanding Emmet abbreviations with `kbstyle(Tab)` key. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
 
-* `emmet.showSuggestionsAsSnippets`
+* `setting(emmet.showSuggestionsAsSnippets)`
 
-  If set to `true`, then Emmet suggestions will be grouped along with other snippets allowing you to order them as per `editor.snippetSuggestions` setting. Set this to `true` and `editor.snippetSuggestions` to `top`, to ensure that Emmet suggestions always show up on top among other suggestions.
+  If set to `true`, then Emmet suggestions will be grouped along with other snippets allowing you to order them as per `setting(editor.snippetSuggestions)` setting. Set this to `true` and `setting(editor.snippetSuggestions)` to `top`, to ensure that Emmet suggestions always show up on top among other suggestions.
 
-* `emmet.preferences`
+* `setting(emmet.preferences)`
 
   You can use this setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The below customizations are currently supported:
 
@@ -353,7 +353,7 @@ HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatshee
 
 ### Abbreviations are failing to expand
 
-First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `emmet.extensionsPath` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `setting(emmet.extensionsPath)` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
 
 If abbreviations are still failing to expand:
 
@@ -362,7 +362,7 @@ If abbreviations are still failing to expand:
 
 ### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?
 
-You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
+You can set the preferences using the setting `setting(emmet.preferences)`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
 
 ### Any tips and tricks?
 
