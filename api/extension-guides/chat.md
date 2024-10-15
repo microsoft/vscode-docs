@@ -27,11 +27,7 @@ Participants can also contribute *commands*, which are a shorthand notation for 
 
 ## Extending GitHub Copilot via GitHub Apps
 
-Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API.
-
-A chat participant contributed via a GitHub App may request access to your local editor context to provide you with more contextualized answers. After you install a GitHub App contributing a chat participant, the first time you `@-mention` the participant in VS Code, you will be asked to authorize its access to your local editor context. To protect your privacy, this preference is saved on a per-workspace, unless you select 'Allow for all workspaces'.
-
-To learn more about extending GitHub Copilot through a GitHub App see the [GitHub documentation](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions).
+Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App that contributes a chat participant in the Chat view. A GitHub App is backed by a service and works across all GitHub Copilot surfaces, such as github.com, Visual Studio, or VS Code. On the other hand, GitHub Apps do not have full access to the VS Code API. To learn more about extending GitHub Copilot through a GitHub App see the [GitHub documentation](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
 ## Links
 
@@ -76,7 +72,7 @@ As a starting point for developing a chat extension, you can refer to our [chat 
 
 ### Register the chat extension
 
-The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`:
+The first step to create a chat extension is to register it in your `package.json` by providing a unique `id`, the `name`, and `description`.
 
 ```json
 "contributes": {
@@ -92,9 +88,13 @@ The first step to create a chat extension is to register it in your `package.jso
 }
 ```
 
-We suggest using a lowercase `name` to align with existing chat participants. `name` can not contain spaces. Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. We suggest using title case for the `fullName`, which is shown in the title area of a response from your participant. Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID). The `description` is shown in the chat input field as a placeholder text.
+Users can then reference the chat participant in the Chat view by using the `@` symbol and the `name` you provided. The `fullName` is shown in the title area of a response from your participant. The `description` is used as placeholder text in the chat input field.
 
 The `isSticky` property controls whether the chat participant is persistent, which means that the participant name is automatically prepended in the chat input field after the user has started interacting with the participant.
+
+We suggest using a lowercase `name` and using title case for the `fullName` to align with existing chat participants. Get more info about the [naming conventions for chat participants](#chat-participant-naming-conventions).
+
+> **Note**: Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
 
 Up-front registration of participants and [commands](#register-commands) in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
 
@@ -245,6 +245,8 @@ Chat participants can contribute commands with their description by adding them 
     ]
 }
 ```
+
+Get more info about the [naming conventions for slash commands](#slash-command-naming-conventions).
 
 ### Register follow-up requests
 
@@ -469,6 +471,26 @@ cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
 
 Any other user interaction with your chat response should be measured as a positive metric (for example, the user selecting a button that was generated in a chat response). Measuring success with telemetry is crucial when working with AI, since it is a nondeterministic technology. Run experiments, measure and iteratively improve your participant to ensure a good user experience.
 
+## Naming restrictions and conventions
+
+### Chat participant naming conventions
+
+| Property | Description | Naming guidelines |
+|----------|-------------|-------------------|
+| `id`  | Globally unique identifier for the chat participant | <ul><li>String value</li><li>Use the extension name as a prefix, followed by a unique ID for your extension</li><li>Example: `chat-sample.cat`, `code-visualizer.code-visualizer-participant`</li></ul>  |
+| `name`  | Name of the chat participant, referenced by users through the `@` symbol | <ul><li>String value consisting of alphanumeric characters, underscores, and hyphens</li><li>It's recommended to only use lowercase to ensure consistency with existing chat participants</li><li>Ensure the purpose of the participant is obvious from its name by referencing your company name or its functionality</li><li>Some participant names are reserved. If you use a reserved name, the fully qualified name is shown, including the extension ID</li><li>Examples: `vscode`, `terminal`, `code-visualizer`</li></ul>   |
+| `fullName` | (Optional) The full name of the participant, which is shown as the label for responses coming from the participant | <ul><li>String value</li><li>It's recommended to use [title case](https://en.wikipedia.org/wiki/Title_case)</li><li>Use your company name, brand name, or user-friendly name for your participant</li><li>Examples: `GitHub Copilot`, `VS Code`, `Math Tutor`</li></ul>   |
+| `description` | (Optional) Short description of what the chat participant does, shown as placeholder text in the chat input field or in the list of participants | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Ask questions about VS Code`, `Generate UML diagrams for your code`</li></ul>   |
+
+When referring to your chat participant in any of the user-facing elements, such as properties, chat responses, or chat user interface, it's recommended to not use the term *participant*, as it's the name of the API. For example, the `@cat` extension could be called "Cat extension for GitHub Copilot".
+
+### Slash command naming conventions
+
+| Property | Description | Naming guidelines |
+|----------|-------------|-------------------|
+| `name`  | Name of the slash command, referenced by users through the `/` symbol | <ul><li>String value</li><li>It's recommended to use [lower camel case](https://en.wikipedia.org/wiki/Camel_case) to align with existing slash commands</li><li>Ensure the purpose of the command is obvious from its name</li><li>Examples: `fix`, `explain`, `runCommand`</li></ul>   |
+| `description` | (Optional) Short description of what the slash command does, shown as placeholder text in the chat input field or in the list of participants and commands | <ul><li>String value</li><li>It's recommended to use sentence case, without punctuation at the end</li><li>Keep the description short to avoid horizontal scrolling</li><li>Examples: `Search for and execute a command in VS Code`, `Generate unit tests for the selected code`</li></ul>   |
+
 ## Guidelines
 
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
@@ -480,7 +502,7 @@ For example, language extensions (such as the C++ extension) can contribute in v
 - Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
 - Contribute smart actions that use the language model, optionally in combination with traditional language service knowledge, to deliver a great user experience. For example, C++ might already offer an "extract to method" smart action that uses the language model to generate a fitting default name for the new method.
 
-Chat extensions should explicitly ask for user consent if they are about to do a costly operation or are about to edit or delete something that can’t be undone. To have a great user experience, we discourage extensions from contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
+Chat extensions should explicitly ask for user consent if they are about to do a costly operation or are about to edit or delete something that can't be undone. To have a great user experience, we discourage extensions from contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
 
 ## Publishing your extension
 

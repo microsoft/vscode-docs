@@ -37,6 +37,18 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 * [GitHub Copilot Quickstart](/docs/copilot/getting-started.md) - discover the key features of GitHub Copilot in VS Code.
 * [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md) - get started with AI chat conversations.
 
+## Keyboard shortcuts
+
+Use the following keyboard shortcuts to start a chat conversation with Copilot:
+
+| Shortcut | Description |
+|----------|-------------|
+| `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
+| `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
+| `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
+
+Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+
 ## Use cases for GitHub Copilot in VS Code
 
 GitHub Copilot can provide assistance in a variety of scenarios:
