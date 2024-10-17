@@ -162,6 +162,52 @@ For symbols, the view relies on information computed by your installed extension
 
 There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
+### Timeline view
+
+The Timeline view, accessible at the bottom of the File Explorer, is a unified view for visualizing the events history for a file. For example, you can view Git commits or local file saves in a timeline view.
+
+![Timeline view](images/userinterface/timeline-view.png)
+
+A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
+
+![Timeline filter drop down with Git History unchecked and Local History checked](images/userinterface/timeline-filter.png)
+
+#### Local file history
+
+Depending on your settings, every time you save an editor, a new entry is added to the list. Each local history entry contains the full contents of the file at the time the entry was created and in certain cases, can provide more semantic information (for example, indicate a refactoring).
+
+From an entry you can:
+
+* Compare the changes to the local file or previous entry.
+* Restore the contents.
+* Delete or rename the entry.
+
+> **Tip**: if you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
+
+You can configure these settings for working with the local history:
+
+* `setting(workbench.localHistory.enabled)` - Enable or disable local history (default: true)
+* `setting(workbench.localHistory.maxFileSize)` - File size limit when creating a local history entry (default: 256 KB)
+* `setting(workbench.localHistory.maxFileEntries)` - Local history entries limit per file (default: 50)
+* `setting(workbench.localHistory.exclude)` - Glob patterns for excluding certain files from local history
+* `setting(workbench.localHistory.mergeWindow)` - Interval in seconds during which further changes are added to the last entry in local file history (default 10s)
+
+#### Commit history
+
+VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
+
+When you right-click a commit in the history, you can:
+
+* **Open Changes** - Open a diff view of the changes in the file.
+* **View Commit** - Open a multi-file diff view to view the changes for all files in the commit.
+* **Select for Compare** - Select an entry to compare with another entry.
+* **Copy Commit ID** - Copy the commit ID to the clipboard.
+* **Copy Commit Message** - Copy the commit message to the clipboard.
+
+You can configure this setting for working with the Git history:
+
+* `setting(git.timeline.date)` - Show the commit date or authored date of a file commit
+
 ## Views
 
 The Explorer view is only one of the views available in VS Code. There are also views for:
