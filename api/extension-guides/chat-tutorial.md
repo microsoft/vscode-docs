@@ -394,6 +394,6 @@ You can find the complete source code for this tutorial in the [vscode-extension
 
 ## Related content
 
-- [Chat API extension guide](/api/extension-guides/chat.md)
-- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial.md)
-- [Language Model API extension guide](/api/extension-guides/language-model.md)
+- [Chat API extension guide](/api/extension-guides/chat)
+- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial)
+- [Language Model API extension guide](/api/extension-guides/language-model)
