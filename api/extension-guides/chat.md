@@ -269,6 +269,77 @@ cat.followupProvider = {
 
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 
+### Implement participant detection
+
+To make it easier to use chat participants with natural language, you can implement participant detection. Participant detection is a way to automatically route the user's question to a suitable participant, without having to explicitly mention the participant in the prompt. For example, if the user asks "How do I optimizer this query?", the question would be automatically routed to the `@database` participant.
+
+To implement participant detection, you specify the `disambiguation` property in the extension `package.json` file. The `disambiguation` property contains a list of detection categories, each with a description and examples.
+
+| Property | Description | Examples |
+|----------|-------------|----------|
+| `category` | The detection category. If the participant serves different purposes, you can have a category for each.  | <ul><li>`cat`</li><li>`workspace_questions`</li><li>`web_questions`</li></ul> |
+| `description` | A detailed description of the kinds of questions that are suitable for this participant. | <ul><li>`The user wants to learn a specific computer science topic in an informal way.`</li><li>`The user just wants to relax and see the cat play.`</li></ul> |
+| `examples` | A list of representative example questions. | <ul><li>`Teach me C++ pointers using metaphors`</li><li>`Explain to me what is a linked list in a simple way`</li><li>`Can you show me a cat playing with a laser pointer?`</li></ul> |
+
+You can define participant detection for the overall chat participant, for specific commands, or a combination of both.
+
+The following code snippet shows how to implement participant detection at the participant level.
+
+```json
+"contributes": {
+    "chatParticipants": [
+        "id": "chat-sample.cat",
+        "fullName": "Cat",
+        "name": "cat",
+        "description": "Meow! What can I teach you?",
+
+        "disambiguation": [
+            {
+                "category": "cat",
+                "description": "The user wants to learn a specific computer science topic in an informal way.",
+                "examples": [
+                    "Teach me C++ pointers using metaphors",
+                    "Explain to me what is a linked list in a simple way",
+                    "Can you explain to me what is a function in programming?"
+                ]
+            }
+        ]
+    ]
+}
+```
+
+This code snippet shows how to implement participant detection at the command level.
+
+```json
+"contributes": {
+    "chatParticipants": [
+        "id": "chat-sample.cat",
+        "fullName": "Cat",
+        "name": "cat",
+        "description": "Meow! What can I teach you?",
+
+        "commands": [
+            {
+                "name": "play",
+                "description": "Do whatever you want, you are a cat after all",
+                "disambiguation": [
+                    {
+                        "category": "cat_play",
+                        "description": "The user just wants to relax and see the cat play.",
+                        "examples": [
+                            "Enough learning, let the cat play with a ball of yarn",
+                            "Can you show me a cat playing with a laser pointer?"
+                        ]
+                    }
+                ]
+            }
+        ],
+    ]
+}
+```
+
+> **Important**: Built-in chat participants take precedence for participant detection. Make sure to make the description and examples precise enough to avoid conflicts with built-in chat participants. For example, a chat participant that operates on workspace files might conflict with the built-in `@workspace` participant.
+
 ## Supported chat response output types
 
 To return a response to a chat request, you use the [`ChatResponseStream`](/api/references/vscode-api#ChatResponseStream) parameter on the [`ChatRequestHandler`](/api/references/vscode-api#ChatRequestHandler).
