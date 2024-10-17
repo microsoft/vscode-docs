@@ -32,7 +32,8 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity bar.](./images/getting-started-chat/copilot-chat-view.png)
 
-    > **Tip**: You can drag the Chat view to the Secondary side bar to keep the Chat view and Explorer view open at the same time. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar).
+    > [!TIP]
+    > You can drag the Chat view to the Secondary side bar to keep the Chat view and Explorer view open at the same time. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#secondary-side-bar).
 
 1. In the chat input field, enter *give a list of nodejs web server frameworks*, and then press `kb(workbench.action.chat.submit)` to send the request to Copilot.
 
@@ -44,7 +45,8 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
     Notice that Copilot also suggests relevant follow-up questions, which you can select to directly submit directly to Copilot.
 
-    > **Tip**: To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input field.
+    > [!TIP]
+    > To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input field.
 
 1. Let's get more information about Express.js. Enter *how to get started with express* in the chat input field.
 
@@ -58,7 +60,8 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
     When the chat response contains links to a file, you can drag and drop that file from the Chat view to the editor to open it.
 
-    > **Tip**: Experiment with different questions and see how Copilot responds. For example, you can ask for only code samples ("give me 3 code samples to create an express app"), or ask how to add basic authentication to an Express app ("how to create an express app with basic auth"), and much more!
+    > [!TIP]
+    > Experiment with different questions and see how Copilot responds. For example, you can ask for only code samples ("give me 3 code samples to create an express app"), or ask how to add basic authentication to an Express app ("how to create an express app with basic auth"), and much more!
 
 ## Generate a new workspace
 
@@ -102,7 +105,8 @@ Let's iterate on our generated Express app and add a new page to it.
 
 1. Optionally, follow the instructions and add a new page to your app.
 
-    > **Tip**: You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
+    > [!TIP]
+    > You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
 
 1. There are more chat participants that you can use, each with its own domain-specific expertise. Select the <i class="codicon codicon-mention"></i> icon or just type `@` in the Chat view to get the list of available chat participants.
 
@@ -148,7 +152,8 @@ Let's look at how to use chat for code refactoring.
 
     If you're not happy with the suggested code changes, you can select the **Rerun Request** button to get another suggestion.
 
-    > **Tip**: Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
+    > [!TIP]
+    > Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
 
 Congratulations on using Copilot inline chat in the editor to help you with code refactoring!
 
