@@ -1,7 +1,7 @@
 ---
 Order: 11
 Area: copilot
-TOCTitle: Copilot Settings Reference
+TOCTitle: Settings Reference
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 PageTitle: GitHub Copilot in VS Code settings reference
 DateApproved: 10/03/2024
@@ -72,7 +72,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 | Setting | Default | Description |
 |--------|----------|-------------|
-| inlineChat.accessibleDiffView |  `auto` | Whether the inline chat also renders an accessible diff viewer for its changes.  |
+| `setting(inlineChat.accessibleDiffView)` |  `auto` | Whether the inline chat also renders an accessible diff viewer for its changes.  |
 | `setting(accessibility.signals.chatRequestSent)` | `{ "sound": "auto", "announcement": "auto" }` | Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.  |
 | `setting(accessibility.signals.chatResponseReceived)` | `{ "sound": "auto" }` | Plays a sound / audio cue when the response has been received.  |
 | `setting(accessibility.verbosity.inlineChat)` | true | Provide information about how to access the inline editor chat accessibility help menu and alert with hints that describe how to use the feature when the input is focused.   |
@@ -84,5 +84,4 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Related resources
 
-* [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
 * [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
