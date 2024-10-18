@@ -128,4 +128,4 @@ return new vscode.Task(definition, vscode.TaskScope.Workspace, `${flavor} ${flag
   }));
 ```
 
-The full example, including the implementation of `Pseudoterminal` is at [https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts).
+The full example, including the implementation of `CustomBuildTaskTerminal` is at [https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample/src/customTaskProvider.ts).
