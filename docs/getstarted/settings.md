@@ -324,6 +324,22 @@ You can learn more about turning on and configuring Settings Sync in the [Settin
 
 > **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
+## Feature lifecycle
+
+Features and their corresponding settings can be in one of the following states. Depending on the state, you might be cautious about using the feature or setting in your workflow.
+
+* **Experimental** - Exploratory features available for early adopters. These features might change or be removed in the future. In the Settings editor, these settings have an `Experimental` label. You can also search experimental settings by entering `@tag:experimental` in the search box.
+
+    ![Settings editor filtered with '@tag:experimental' showing experimental settings.](images/settings/settings-editor-experimental.png)
+
+* **Preview** - Preview features and settings have the final functionality but might still be iterated on for stability and polishing. Usually, preview features are disabled by default. In the Settings editor, these settings have an `Preview` label. You can also search experimental settings by entering `@tag:preview` in the search box.
+
+    ![Settings editor filtered with '@tag:preview' showing preview settings.](images/settings/settings-editor-preview.png)
+
+* **Stable** - The feature is stable and fully supported in VS Code.
+
+Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our VS Code issues](https://github.com/microsoft/vscode/issues).
+
 ## Common questions
 
 ### VS Code says "Unable to write settings."
