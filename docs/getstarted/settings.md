@@ -338,7 +338,7 @@ Features and their corresponding settings can be in one of the following states.
 
 * **Stable** - The feature is stable and fully supported in VS Code.
 
-Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+Experimental and preview features enable you to try out new features and provide feedback. Share your feedback in [our VS Code issues](https://github.com/microsoft/vscode/issues).
 
 ## Common questions
 
