@@ -21,7 +21,7 @@ To learn more about NuGet, go to the [NuGet documentation](https://learn.microso
 
 ## NuGet commands in C# Dev Kit
 
-In the C# Dev Kit, you can perform NuGet package operations in one of two ways: 
+In C# Dev Kit, you can perform NuGet package operations in one of two ways: 
 
 * Using the Command Palette (`kb(workbench.action.showCommands)`)
 
