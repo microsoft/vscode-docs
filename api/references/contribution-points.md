@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -141,7 +141,7 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings editor or by editing the JSON settings file directly.
+Contribute settings that will be exposed to the user. The user will be able to set these configuration options in the Settings editor or by editing a settings.json file directly.
 
 This section can either be a single object, representing a single category of settings, or an array of objects, representing multiple categories of settings. If there are multiple categories of settings, the Settings editor will show a submenu in the table of contents for that extension, and the title keys will be used for the submenu entry names.
 
@@ -179,7 +179,7 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 ![settings UI screenshot with numbers](images/contribution-points/settings-ui.png)
 
-**title**
+#### title
 
 The `title` 1️⃣️ of a category is the heading used for that category.
 
@@ -191,7 +191,7 @@ The `title` 1️⃣️ of a category is the heading used for that category.
 }
 ```
 
-Note that if the extension has multiple categories of extensions, and the title of one of the categories is the same as the extension display name, then the settings for that category will be placed directly below the main extension heading, no matter what the `order` field is set to.
+For an extension with multiple categories of settings, if the title of one of the categories is the same as the extension's display name, then the settings UI will treat that category as a "default category", ignoring the `order` field for that category and placing its settings below the main extension heading.
 
 For both the `title` and `displayName` fields, words like "Extension", "Configuration", and "Settings" are redundant.
 
@@ -200,41 +200,34 @@ For both the `title` and `displayName` fields, words like "Extension", "Configur
 - ❌ `"title": "GitMagic Configuration"`
 - ❌ `"title": "GitMagic Extension Configuration Settings"`
 
-**properties**
+#### properties
 
-The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
+The `properties` 2️⃣ in your `configuration` object will form a dictionary where the keys are setting IDs and the values give more information on the setting. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique ID. A setting ID cannot be a complete prefix of another setting ID.
 
-In the settings UI, your configuration key will be used to namespace and construct a title. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique key. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+Properties without an explicit `order` field will appear in lexicographical order in the settings UI (**not** the order in which they're listed in the manifest).
 
-> Blame: **Date Format**
+### Setting titles
 
-Entries will be grouped according to the hierarchy established in your keys. So for example, these entries
+In the settings UI, multiple fields will be used to construct a display title for each setting. Capital letters in your key are used to indicate word breaks.
 
-```
-gitMagic.blame.dateFormat
-gitMagic.blame.format
-gitMagic.blame.heatMap.enabled
-gitMagic.blame.heatMap.location
-```
+#### Display titles for single-category and default category configurations
 
-will appear in a single group like this:
+If the configuration has a single category of settings, or if the category has the same title as the extension's display name, then for settings within that category, the settings UI will use the settings ID and the extension `name` field to determine the display title.
 
-> Blame: **Date Format**
->
-> Blame: **Format**
->
-> Blame › Heat Map: **Enabled**
->
-> Blame › Heat Map: **Location**
+As an example, for settings ID `gitMagic.blame.dateFormat` and extension name `authorName.gitMagic`, because the prefix of the settings ID matches with the suffix of the extension name, the `gitMagic` part of the settings ID will be removed in the display title: "Blame: **Date Format**".
 
-Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
+#### Display titles for multi-category configurations
+
+If the configuration has multiple categories of settings, and the category does not have the same title as the extension's display name, then for settings within that category, the settings UI will use the settings ID and the category `id` field to determine the display title.
+
+As an example, for settings ID `css.completion.completePropertyWithSemicolon` and category ID `css`, because the prefix of the settings ID matches with the suffix of the category ID, the `css` part of the settings ID will be removed in the settings UI, and the generated title for the setting will be "Completion: **Complete Property With Semicolon**".
 
 ### Configuration property schema
 
 Configuration keys are defined using a superset of [JSON
 Schema](https://json-schema.org/overview/what-is-jsonschema).
 
-**description** / **markdownDescription**
+#### description / markdownDescription
 
 Your `description` 3️⃣ appears after the title and before the input field, except for booleans, where the description is used as the label for the checkbox. 6️⃣
 
@@ -246,7 +239,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 }
 ```
 
-If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
+If you use `markdownDescription` instead of `description`, your setting description will be parsed as Markdown in the settings UI.
 
 ```json
 {
@@ -258,7 +251,7 @@ If you use `markdownDescription` instead of `description`, your setting descript
 
 For `markdownDescription`, in order to add newlines or multiple paragraphs, use the string `\n\n` to separate the paragraphs instead of just `\n`.
 
-**type**
+#### type
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.
 
@@ -274,7 +267,7 @@ Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be e
 
 A string setting can be rendered with a multiline text input if it sets `"editPresentation": "multilineText"` on the configuration entry.
 
-For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for the checkbox.
+For `boolean` entries, the `markdownDescription` (or `description` if `markdownDescription` is not specified) will be used as the label next to the checkbox.
 
 ```json
 {
@@ -289,7 +282,7 @@ Some `object` and `array` type settings will be rendered in the settings UI. Sim
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
 
-**order**
+#### order
 
 Both categories and the settings within those categories can take an integer `order` type property, which gives a reference to how they should be sorted relative to other categories and/or settings.
 
@@ -297,36 +290,34 @@ If two categories have `order` properties, the category with the lower order num
 
 If two settings within the same category have `order` properties, the setting with the lower order number comes first. If another setting within that same category is not given an `order` property, it will appear after settings in that category that were given that property.
 
-If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
+If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing lexicographical order within the settings UI.
 
-**enum** / **enumDescriptions** / **enumItemLabels**
+#### enum / enumDescriptions / markdownEnumDescriptions / enumItemLabels
 
-If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
+If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu of those items.
 
-![settings UI screenshot of dropdown](images/contribution-points/settings-ui-enum.png)
+You can also provide an `enumDescriptions` property, an array of strings of the same length as the `enum` property. The `enumDescriptions` property provides a description in the settings UI at the bottom of the dropdown menu corresponding to each `enum` item. \
+You can also use `markdownEnumDescriptions` instead of `enumDescriptions`, and your descriptions will be parsed as Markdown. `markdownEnumDescriptions` takes precedence over `enumDescriptions`. \
+To customize the dropdown option names in the settings UI, you can use `enumItemLabels`.
 
-You can also provide an `enumDescriptions` property, which provides descriptive text rendered at the bottom of the dropdown:
+Example:
 
 ```json
 {
-  "gitMagic.blame.heatMap.location": {
+  "settingsEditorTestExtension.enumSetting": {
     "type": "string",
-    "default": "right",
-    "enum": ["left", "right"],
-    "enumDescriptions": [
-      "Adds a heatmap indicator on the left edge of the gutter blame annotations",
-      "Adds a heatmap indicator on the right edge of the gutter blame annotations"
-    ]
+    "enum": ["first", "second", "third"],
+    "markdownEnumDescriptions": ["The *first* enum", "The *second* enum", "The *third* enum"],
+    "enumItemLabels": ["1st", "2nd", "3rd"],
+    "default": "first",
+    "description": "Example setting with an enum"
   }
 }
 ```
 
-You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
+![settings UI screenshot of example enum setting above](images/contribution-points/settings-ui-enum-example.png)
 
-To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
-![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
-
-**deprecationMessage** / **markdownDeprecationMessage**
+#### deprecationMessage / markdownDeprecationMessage
 
 If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. Also, the setting will be hidden from the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
@@ -343,7 +334,7 @@ Example:
 }
 ```
 
-**Other JSON Schema properties**
+#### Other JSON Schema properties
 
 You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
 
@@ -357,7 +348,7 @@ You can use any of the validation JSON Schema properties to describe other const
 - `maxItems`, `minItems` for restricting array length
 - `editPresentation` for controlling whether a single-line inputbox or multi-line textarea is rendered for the string setting in the Settings editor
 
-**Unsupported JSON Schema properties**
+#### Unsupported JSON Schema properties
 
 Not supported in the configuration section are:
 
@@ -365,7 +356,7 @@ Not supported in the configuration section are:
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
-**scope**
+#### scope
 
 A configuration setting can have one of the following possible scopes:
 
@@ -423,7 +414,7 @@ Below are example configuration scopes from the built-in Git extension:
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
 
-**Linking to settings**
+#### Linking to settings
 
 You can insert a link to another setting, which will be rendered as a clickable link in the settings UI, by using this special syntax in the markdown-type properties: ``` `#target.setting.id#` ```. This will work in `markdownDescription`, `markdownEnumDescriptions`, and `markdownDeprecationMessage`. Example:
 

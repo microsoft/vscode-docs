@@ -1,10 +1,10 @@
 ---
-Order: 2
+Order: 3
 Area: copilot
 TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: Set up GitHub Copilot
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -62,6 +62,10 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
     The GitHub Copilot status should show **Ready**.
 
     ![Screenshot showing the GitHub Copilot status menu in VS Code, indicating that the Copilot status is ready.](./images/setup/copilot-status-menu.png)
+
+1. You should also see the Chat view in the Activity Bar, which you can use to chat with Copilot.
+
+    ![Screenshot showing the Chat view in the Activity Bar in VS Code.](./images/setup/vscode-chat-view.png)
 
 ## Sign out of GitHub Copilot
 

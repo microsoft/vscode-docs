@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
-DateApproved: 09/05/2024
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding AI-powered features to a VS Code extension by using language models and natural language understanding.
@@ -73,7 +73,7 @@ Once you've built the prompt for the language model, you first select the langua
 
 To select the language model, you can specify the following properties: `vendor`, `id`, `family`, or `version`. Use these properties to either broadly match all models of a given vendor or family, or select one specific model by its ID. Learn more about these properties in the [API reference](/api/references/vscode-api#LanguageModelChat).
 
-> **Note**: Currently, `gpt-4o`, `gpt-4` and `gpt-3.5-turbo` are supported for the language model family. We expect that the list of supported models will grow over time.
+> **Note**: Currently, `gpt-4o` is supported for the language model family. We expect that the list of supported models grows over time. `gpt-3.5` and `gpt-4` are deprecated.
 
 If there are no models that match the specified criteria, the `selectChatModels` method returns an empty array. Your extension must appropriately handle this case.
 
@@ -190,11 +190,11 @@ We don't expect specific models to stay supported forever. When you reference a 
 
 ### Choosing the appropriate model
 
-Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for its performance and quality. In addition, `gpt-3.5-turbo`, and `gpt-4` are also available. To get a full list of available models, you can use this code snippet:
+Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for its performance and quality. To get a full list of available models, you can use this code snippet:
 ```typescript
 const allModels = await vscode.lm.selectChatModels(MODEL_SELECTOR);
 ```
-> **Note**: The recommended GPT-4o model has a limit of `16K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
+> **Note**: The recommended GPT-4o model has a limit of `64K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
 
 ### Rate limiting
 

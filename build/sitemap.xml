@@ -331,6 +331,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-vscode-features</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/setup</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -416,7 +421,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/azure/extensions</loc>
+        <loc>https://code.visualstudio.com/docs/azure/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/gettingstarted</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
