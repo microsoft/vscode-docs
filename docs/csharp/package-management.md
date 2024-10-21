@@ -25,7 +25,7 @@ In C# Dev Kit, you can perform NuGet package operations in one of two ways:
 
 * Using the Command Palette (`kb(workbench.action.showCommands)`)
 
-* Right-clicking in the C# Dev Kit Solution explorer.
+* Right-clicking in the C# Dev Kit Solution explorer
   
 The following sections describe how to use each NuGet command, using both of these two methods.
 
