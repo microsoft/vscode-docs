@@ -43,7 +43,7 @@ The following sections describe how to use each NuGet command, using both of the
 
     ![Screenshot showing command palette search bar with placeholder text that reads "Enter a search term to search for a NuGet package."](images/package-management/nuget-command-addpackage-search1.png)
 
-   The Quick Pick shows a list of example NuGet packages to choose from.
+    The Quick Pick shows a list of example NuGet packages to choose from.
 
     ![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package". The quickpick options show a list of example NuGet packages to choose from.](images/package-management/nuget-command-addpackage-search2.png)
 
