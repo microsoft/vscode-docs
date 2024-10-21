@@ -65,7 +65,7 @@ The following sections describe how to use each NuGet command, using both of the
 
     ![Screenshot showing quickpicks dropdown menu with placeholder text that reads: "Select a NuGet package version". The quickpick options show a list of example NuGet packages to choose from. There are indicators on the list to show which version is currently installed in the users project ("current"), and which is the latest available version ("latest")](images/package-management/nuget-command-update-versionselector.png)
 
-5. The C# Dev Kit then performs the necessary changes and updates to your project file and references.
+5. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
 ### Remove a package
 
