@@ -81,7 +81,7 @@ The following sections describe how to use each NuGet command, using both of the
 
 ### Automatic NuGet restore
 
-For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or when making changes to an SDK-style project. You can view in the progress and logs in the Ouput panel.
+For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Ouput panel.
 
 ![Automatic NuGet package restore](images/package-management/automatic-nuget-package-restore.png)
 
