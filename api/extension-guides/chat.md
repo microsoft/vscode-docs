@@ -273,7 +273,7 @@ cat.followupProvider = {
 
 ### Implement participant detection
 
-To make it easier to use chat participants with natural language, you can implement participant detection. Participant detection is a way to automatically route the user's question to a suitable participant, without having to explicitly mention the participant in the prompt. For example, if the user asks "How do I add a login page to my project?", the question would be automatically routed to the `@workspace` participant.
+To make it easier to use chat participants with natural language, you can implement participant detection. Participant detection is a way to automatically route the user's question to a suitable participant, without having to explicitly mention the participant in the prompt. For example, if the user asks "How do I add a login page to my project?", the question would be automatically routed to the `@workspace` participant because it can answer questions about the user's project.
 
 VS Code uses the chat participant description and examples to determine which participant to route a chat prompt to. You can specify this information in the `disambiguation` property in the extension `package.json` file. The `disambiguation` property contains a list of detection categories, each with a description and examples.
 
@@ -319,7 +319,7 @@ Apply the following guidelines to improve the accuracy of participant detection 
 - **Use natural language**: The description and examples should be written in natural language, as if you were explaining the participant to a user.
 - **Test the detection**: Test the participant detection with a variation of example questions and verify there's no conflict with built-in chat participants.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Built-in chat participants take precedence for participant detection. For example, a chat participant that operates on workspace files might conflict with the built-in `@workspace` participant.
 
 ## Supported chat response output types
