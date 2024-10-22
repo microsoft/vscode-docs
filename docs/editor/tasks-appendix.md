@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -11,7 +11,9 @@ This is additional information for Visual Studio Code [tasks](/docs/editor/tasks
 
 ## Schema for tasks.json
 
-The following interfaces define the schema of the tasks.json file.
+The following interfaces define the basic schema of the `tasks.json` file.
+
+>**Note**: Some task options are contributed by VS Code extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
 ```typescript
 
@@ -188,21 +190,41 @@ interface PresentationOptions {
 
     /**
      * Controls whether the command associated with the task is echoed
-     * in the user interface.
+     * in the user interface. Defaults to `true`.
      */
     echo?: boolean;
 
     /**
      * Controls whether the panel showing the task output is taking focus.
+     * Defaults to `false`.
      */
     focus?: boolean;
 
     /**
      * Controls if the task panel is used for this task only (dedicated),
      * shared between tasks (shared) or if a new panel is created on
-     * every task execution (new). Defaults to `shared`
+     * every task execution (new). Defaults to `shared`.
      */
     panel?: "shared" | "dedicated" | "new";
+
+    /**
+     * Controls whether to show the `Terminal will be reused by tasks,
+     * press any key to close it` message.
+     */
+    showReuseMessage?: boolean;
+
+    /**
+     * Controls whether the terminal is cleared before this task is run.
+     * Defaults to `false`.
+     */
+    clear?: boolean;
+
+    /**
+     * Controls whether the task is executed in a specific terminal
+     * group using split panes. Tasks in the same group (specified by a string value)
+     * will use split terminals to present instead of a new terminal panel.
+     */
+    group?: string;
 }
 
 /**
@@ -228,6 +250,12 @@ interface ProblemMatcher {
     owner?: string;
 
     /**
+     * A human-readable string describing the source of this problem.
+     * E.g. 'typescript' or 'super lint'.
+     */
+    source?: string;
+
+    /**
      * The severity of the VS Code problem produced by this problem matcher.
      *
      * Valid values are:
@@ -248,8 +276,21 @@ interface ProblemMatcher {
      *    the current working directory. This is the default.
      *  - ["relative", "path value"]: the filename is always
      *    treated relative to the given path value.
+     *  - "autodetect": the filename is treated relative to
+     *    the current workspace directory, and if the file
+     *    does not exist, it is treated as absolute.
+     *  - ["autodetect", "path value"]: the filename is treated
+     *    relative to the given path value, and if it does not
+     *    exist, it is treated as absolute.
+     *  - "search": performs a deep (and, possibly, heavy) file system
+     *    search within the directories.
+     *  - ["search", {include: ["${workspaceFolder}"]}]: performs
+     *    a deep search among the directories given in the "include" array.
+     *  - ["search", {include: ["${workspaceFolder}"], exclude: []}]:
+     *    performs a deep search among the directories given in the "include"
+     *    array, excluding those named in the "exclude" array.
      */
-    fileLocation?: string | string[];
+    fileLocation?: string | string[] | ["search", {include?: string[]; exclude?: string[]}];
 
     /**
      * The name of a predefined problem pattern, the inline definition

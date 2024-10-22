@@ -30,7 +30,7 @@ After enabling this feature on Insiders builds for two weeks, we felt it proved 
 
 **Nov 2 at ~1:57 pm PST** We released VS Code 1.7. The team in Zurich went to bed and the Redmond team started on our plans for 1.8.
 
-**Nov 2 at ~4:12 pm PST** We were contacted by npm. They were seeing a huge spike in registry activity from clients attempting to access non-existent packages under the `@types` scope. At its peak, these requests accounted for roughly 10% of all traffic ([Fun fact](https://news.ycombinator.com/item?id=12861093): VS Code users were sending approximately the same amount of requests npm sees from the country of India) and briefly overwhelmed their service.
+**Nov 2 at ~4:12 pm PST** We were contacted by npm. They were seeing a huge spike in registry activity from clients attempting to access non-existent packages under the `@types` scope. At its peak, these requests accounted for roughly 10% of all traffic ([Fun fact](https://news.ycombinator.com/item?id=12861093): VS Code users were sending approximately the same amount of requests npm sees from India) and briefly overwhelmed their service.
 
 The npm dev ops acted quickly to mitigate the un-intentional DDoS and diagnosed the issue as coming from the VS Code 1.7 release. The key issue was a flood of requests for non-existent packages, caused by the following algorithm:
 
@@ -45,7 +45,7 @@ Given the number of modules that do not exist under the `@types` scope, a large 
 
 ## Going forward
 
-You should have been prompted to install VS Code 1.7.1. This release has ATA disabled, however all other 1.7 features are available to use. Over the next few days, we will work with the TypeScript team on a satisfactory fix for ATA (one was started last night in this [PR](https://github.com/Microsoft/TypeScript/pull/12014)) and we will notify you when this update is available.
+You should have been prompted to install VS Code 1.7.1. This release has ATA disabled, however all other 1.7 features are available to use. Over the next few days, we will work with the TypeScript team on a satisfactory fix for ATA (one was started last night in this [PR](https://github.com/microsoft/TypeScript/pull/12014)) and we will notify you when this update is available.
 
 [#HappyCoding](https://twitter.com/hashtag/HappyCoding?src=hash)
 

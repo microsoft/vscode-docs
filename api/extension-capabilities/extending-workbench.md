@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
@@ -22,9 +22,9 @@ VS Code provides various APIs that allow you to add your own components to the W
 
 ![workbench-contribution](images/extending-workbench/workbench-contribution.png)
 
-- Activity Bar: The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) adds a [View Container](#view-container)
-- Side Bar: The built-in [NPM extension](https://github.com/Microsoft/vscode/tree/master/extensions/npm) adds a [Tree View](#tree-view) to the Explorer View
-- Editor Group: The built-in [Markdown extension](https://github.com/Microsoft/vscode/tree/master/extensions/markdown-language-features) adds a [Webview](#webview) next to other editors in the Editor Group
+- Activity Bar: The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) adds a [View Container](#views-container)
+- Side Bar: The built-in [NPM extension](https://github.com/microsoft/vscode/tree/main/extensions/npm) adds a [Tree View](#tree-view) to the Explorer View
+- Editor Group: The built-in [Markdown extension](https://github.com/microsoft/vscode/tree/main/extensions/markdown-language-features) adds a [Webview](#webview) next to other editors in the Editor Group
 - Status Bar: The [VSCodeVim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) adds a [Status Bar Item](#status-bar-item) in the Status Bar
 
 ## Views Container
@@ -37,7 +37,7 @@ With the [`contributes.views`](/api/references/contribution-points#contributes.v
 
 ## Webview
 
-Webviews are highly customizable views built with HTML/CSS/JavaScript. They display next to text editors in the Editor Group areas. Read more about Webview in the [Webview Guide](/api/extension-guides/webview).
+Webviews are highly customizable views built with HTML/CSS/JavaScript. They display next to text editors in the Editor Group areas. Read more about Webview in the [Webview guide](/api/extension-guides/webview).
 
 ## Status Bar Item
 
@@ -46,4 +46,4 @@ Extensions can create custom [`StatusBarItem`](/api/references/vscode-api#Status
 - Show text and icons
 - Run a command on click
 
-A Status Bar extension sample can be found [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/statusbar-sample).
+You can learn more by reviewing the [Status Bar extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample).

@@ -67,11 +67,11 @@ In the above example, the concrete value is:
 }
 ```
 
-A client tool would retrieve the hover content from a language server by sending a `textDocument/hover` request for document `file:///Users/dirkb/sample.ts` at position `{line: 0, character: 10}`.
+A client tool would retrieve the hover content from a language server by sending a `textDocument/hover` request for document `file:///Users/username/sample.ts` at position `{line: 0, character: 10}`.
 
-LSIF defines a format that language servers or standalone tools emit to describe that the tuple `['textDocument/hover', 'file:///Users/dirkb/sample.ts', {line: 0, character: 10}]` resolves to the above hover. The data can then be taken and persisted into a database.
+LSIF defines a format that language servers or standalone tools emit to describe that the tuple `['textDocument/hover', 'file:///Users/username/sample.ts', {line: 0, character: 10}]` resolves to the above hover. The data can then be taken and persisted into a database.
 
-LSP requests are position based, however results often only vary for ranges and not for single positions. In the above hover example, the hover value is the same for all positions of the identifier `bar`. This means the same hover value is returned when a user hovers over `b` in `bar` or over `r` in `bar`. To make the emitted data more compact, the LSIF uses ranges instead of positions. For this example, an LSIF tool emits the tuple `['textDocument/hover', 'file:///Users/dirkb/sample.ts', { start: { line: 0, character: 9 }, end: { line: 0, character: 12 }]` which includes range information.
+LSP requests are position based, however results often only vary for ranges and not for single positions. In the above hover example, the hover value is the same for all positions of the identifier `bar`. This means the same hover value is returned when a user hovers over `b` in `bar` or over `r` in `bar`. To make the emitted data more compact, the LSIF uses ranges instead of positions. For this example, an LSIF tool emits the tuple `['textDocument/hover', 'file:///Users/username/sample.ts', { start: { line: 0, character: 9 }, end: { line: 0, character: 12 }]` which includes range information.
 
 LSIF uses graphs to emit this information. In the graph, an LSP request is represented using an edge. Documents, ranges, or request results (for example, the hover) are represented using vertices. This format has the following benefits:
 
@@ -83,7 +83,7 @@ For the hover example, the emitted LSIF graph data looks as follows:
 
 ```typescript
 // a vertex representing the document
-{ id: 1, type: "vertex", label: "document", uri: "file:///Users/dirkb/sample.ts", languageId: "typescript" }
+{ id: 1, type: "vertex", label: "document", uri: "file:///Users/username/sample.ts", languageId: "typescript" }
 // a vertex representing the range for the identifier bar
 { id: 4, type: "vertex", label: "range", start: { line: 0, character: 9}, end: { line: 0, character: 12 } }
 // an edge saying that the document with id 1 contains the range with id 4
@@ -118,7 +118,7 @@ The folding range result for the document containing above function `bar` is emi
 
 ```typescript
 // a vertex representing the document
-{ id: 1, type: "vertex", label: "document", uri: "file:///Users/dirkb/sample.ts", languageId: "typescript" }
+{ id: 1, type: "vertex", label: "document", uri: "file:///Users/username/sample.ts", languageId: "typescript" }
 // a vertex representing the folding result
 { id: 2, type: "vertex", label: "foldingRangeResult", result: [ { startLine: 0, startCharacter: 20, endLine: 2, endCharacter: 1 } ] }
 // an edge connecting the folding result to the document.
@@ -127,16 +127,16 @@ The folding range result for the document containing above function `bar` is emi
 
 ![LSIF graph for a folding range result](./foldingRange.png)
 
-These are only two examples of LSP requests supported by the LSIF. The current version of the [LSIF specification](https://github.com/Microsoft/language-server-protocol/blob/master/indexFormat/specification.md) also supports document symbols, document links, Go to Definition, Go to Declaration, Go to Type Definition, Find All References, and Go to Implementation.
+These are only two examples of LSP requests supported by the LSIF. The current version of the [LSIF specification](https://github.com/microsoft/language-server-protocol/blob/main/indexFormat/specification.md) also supports document symbols, document links, Go to Definition, Go to Declaration, Go to Type Definition, Find All References, and Go to Implementation.
 
 ## We need your feedback!
 
-We have made good initial progress on the LSIF specification and we want to open the conversation to the community so you can learn what we're working on. For feedback, please comment on the issue [Language Server Index Format](https://github.com/Microsoft/language-server-protocol/issues/623).
+We have made good initial progress on the LSIF specification and we want to open the conversation to the community so you can learn what we're working on. For feedback, please comment on the issue [Language Server Index Format](https://github.com/microsoft/language-server-protocol/issues/623).
 
 ## How to get started
 
 To get started with LSIF, you can have a look at the following resources:
 
-- The [LSIF specification](https://github.com/Microsoft/language-server-protocol/blob/master/indexFormat/specification.md) - The document also describes some additional optimizations that have been done to keep the emitted data compact.
-- [LSIF Index for TypeScript](https://github.com/Microsoft/lsif-typescript) - A tool that generates LSIF for TypeScript. The README provides instructions for using the tool.
-- [Visual Studio Code extension for LSIF](https://github.com/Microsoft/vscode-lsif-extension) - An extension for VS Code that provides language comprehension features using an LSIF JSON dump. If you implement a new LSIF generator, you can use this extension to validate it with arbitrary source code.
+- The [LSIF specification](https://github.com/microsoft/language-server-protocol/blob/main/indexFormat/specification.md) - The document also describes some additional optimizations that have been done to keep the emitted data compact.
+- [LSIF Index for TypeScript](https://github.com/microsoft/lsif-typescript) - A tool that generates LSIF for TypeScript. The README provides instructions for using the tool.
+- [Visual Studio Code extension for LSIF](https://github.com/microsoft/vscode-lsif-extension) - An extension for VS Code that provides language comprehension features using an LSIF JSON dump. If you implement a new LSIF generator, you can use this extension to validate it with arbitrary source code.

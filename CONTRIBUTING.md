@@ -21,12 +21,12 @@ Thank you for your interest in VS Code documentation!
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
-* [How to fork a repository](https://help.github.com/articles/fork-a-repo)
-* [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
-* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
-* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
+* [How to fork a repository](https://docs.github.com/get-started/quickstart/fork-a-repo)
+* [How to make a pull request](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+* [Changing a commit message](https://docs.github.com/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+* [How to squash commits](https://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-commits)
 
-The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repositiory.
+The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repository.
 
 ## Documentation intent
 
@@ -43,28 +43,24 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
+This repository contains the following top-level folders:
 
-This repository contains the following folders:
+* \api - content for the API documentation at <https://code.visualstudio.com/api>
+* \blogs - content for the blog at <https://code.visualstudio.com/blogs>
+* \build - content for the documentation build process, such as the keybinding mappings and sitemap
+* \docs - content for the documentation at <https://code.visualstudio.com/docs> - the content in this folder follows the organization of the documentation table of contents
+* \images - images used in the documentation
+* \learn - (deprecated) content for the education content at <https://code.visualstudio.com/learn>
+* \release-notes - content for the release notes at <https://code.visualstudio.com/updates>
+* \remote - content for the remote development tools documentation at <https://code.visualstudio.com/docs/remote>
+* \remote-release-notes - content for the remote development tools release notes
+* \wiki - content for the repository wiki
 
-* \setup
-* \introvideos
-* \getstarted
-* \editor
-* \languages
-* \nodejs
-* \typescript
-* \python
-* \java
-* \azure
-* \other
-* \supporting
-
-Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
+Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an `\images` folder that references the images (such as screenshots) used in the topics.
 
 ### Branches
 
-We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline work flow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline workflow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
 * Spelling and grammar edits on a topic.
@@ -78,7 +74,7 @@ In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
-The topics in this repository use Markdown.  Here is a good overview of [Markdown basics](https://help.github.com/articles/markdown-basics/).
+The topics in this repository use Markdown.  Here is a good overview of [Markdown basics](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Topic Metadata
 
@@ -89,7 +85,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **TOCTitle** - The title used in the left rail Table of Contents for this page.
 * **PageTitle** - The title used in the HTML title for the page and in search results.
 * **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
-* **DateApproved** - This is set when the page is published on the VS Code website. You can ignore it.
+* **DateApproved** - The date of the most recent update or review. It is displayed at the bottom of an article to indicate freshness. The date should be updated in a significant PR.
 * **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
@@ -107,6 +103,28 @@ Use the full product name "Visual Studio Code" in the topic MetaDescription and 
 **For Doc Maintainer**:
 
 * **DateApproved** - This is set when the page is published on the VS Code website.
+
+## File and Folder names
+
+Use lowercase for file and folder names and dashes `-` as separators.
+
+For example:
+
+* `/docs/editor/workspace-trust.md`
+* `/docs/supporting/troubleshoot-terminal-launch.md`
+* `/api/extension-guides/custom-editors.md`
+
+### Moving or renaming content
+
+Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
+
+It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+
+For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+
+### sitemap
+
+The code.visualstudio.com sitemap is authored in `/build/sitemap.xml` and should be updated when new topics are added or existing content moved or renamed.
 
 ## Formatting
 
@@ -156,9 +174,9 @@ Images are important to bring the product to life and clarify the written conten
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
+When you link to an image, the path and filename are case-sensitive. The convention is for image filenames to be all lowercase and use dashes `-` for separators.
 
->For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
+>For example: `![Debug Breakpoints](images/debugging/breakpoints-view.png)`
 
 ### Key bindings
 
@@ -166,7 +184,7 @@ The VS Code website is able to show the correct key bindings depending on the re
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command identifier is included in parentheses.
 
->For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
+>For a list of key bindings and the relevant `Command Ids`, review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts).
 
 If you are listing out multiple key bindings, you can use a table.
 
@@ -180,7 +198,7 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code, we use the fenced code block notation ```` ``` ````.
 
->**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. For example, ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. For example, ```` ```json ```` or ```` ```javascript ````. [Read more →](https://docs.github.com/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting)
 
 An example of JavaScript source code:
 
@@ -190,4 +208,23 @@ function fancyAlert(arg) {
     $.facebox({ div: foo });
   }
 }
+```
+
+## Gotchas
+
+### Double opening curly braces break generated handlebar files
+
+Escape double opening curly braces in code blocks.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Hello, Flask</title>
+    </head>
+    <body>
+        <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    </body>
+</html>
 ```

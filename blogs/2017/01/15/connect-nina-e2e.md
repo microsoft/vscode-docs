@@ -1,5 +1,5 @@
 ---
-Order: 23
+Order:
 TOCTitle: Node.js Development with Visual Studio Code and Azure
 PageTitle: Node.js Development with Visual Studio Code and Azure
 MetaDescription: Node.js Development with Visual Studio Code and Azure
@@ -86,7 +86,7 @@ Behind the scenes, this is simply automating the same Git CLI commands you would
 
 ## Project / Code navigation
 
-In order to orient ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
+In order to familiarize ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
 
 1. Type `CMD+P` and enter `.js`, which lets you see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
 
@@ -344,7 +344,7 @@ Yay! We just deployed our app. However, the spinning icon indicates that the app
 
 While we could setup a MongoDB server, or replica set, and manage that infrastructure ourselves, Azure provides another solution called DocumentDB. DocumentDB is a fully-managed, geo-replicable, high-performance, NoSQL database, which provides a MongoDB-compatibility layer. This means that you can point an existing MEAN app at it, without needing to change anything but the connection string! Let's take a look at how using it looks, using the Azure portal this time, instead of the CLI.
 
-1. Go to portal.azure.com and log into the same account you were using in the CLI.
+1. Go to [portal.azure.com](https://portal.azure.com) and sign in to the same account you were using in the CLI.
 
 <img src="/assets/blogs/2017/01/15/AzurePortal.png" width="350px" />
 

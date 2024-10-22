@@ -1,5 +1,5 @@
 ---
-Order: 33
+Order:
 TOCTitle: The Icon Journey
 PageTitle: The Icon Journey
 MetaDescription: Summary of feedback about the new icons and next steps
@@ -60,7 +60,7 @@ Until we landed on the current "fish", which tested well with admittedly, a smal
 
 ## Rotation
 
-We have a lot more design freedom on the macOS (and Linux), which is why we have a different icon there. While we wanted to keep the same icon shape, we were not limited to a single color and we could resolve contrast issues by mounting the icon on a dark panel. The rotation actually adheres to the [Apple design guidelines](https://developer.apple.com/macos/human-interface-guidelines/icons-and-images/app-icon).
+We have a lot more design freedom on macOS (and Linux), which is why we have a different icon there. While we wanted to keep the same icon shape, we were not limited to a single color and we could resolve contrast issues by mounting the icon on a dark panel. The rotation actually adheres to the [Apple design guidelines](https://developer.apple.com/macos/human-interface-guidelines/icons-and-images/app-icon).
 
 That said, the feedback that the rotation is outdated and the mount makes the icon appear smaller than other icons in the Dock is completely fair.
 
@@ -82,9 +82,9 @@ Voila, Insiders:
 
 ## Icon Squatting
 
-Before VS Code existed, there was [Visual Studio Online Monaco](https://azure.microsoft.com/en-us/resources/videos/building-web-sites-with-visual-studio-online-monaco/), which was our fully browser based workbench that lets you live edit your Azure App Service web apps. Since we were calling ourselves "Visual Studio Online" and needed an icon, we "borrowed" the blue infinity.
+Before VS Code existed, there was [Visual Studio Monaco](https://azure.microsoft.com/en-us/resources/videos/building-web-sites-with-visual-studio-online-monaco/), which was our fully browser-based workbench that lets you live edit your Azure App Service web apps. Since it was an online offering and we needed an icon, we "borrowed" the blue infinity.
 
-When we first released VS Code, everything was happening so quickly, and the icon was the least of our concerns. Regardless of what you think about the new icon, [the old one looks pretty bad](https://github.com/Microsoft/vscode/issues/11274) on the desktop and in the Taskbar and Dock, it was really meant to be a favicon.
+When we first released VS Code, everything was happening so quickly, and the icon was the least of our concerns. Regardless of what you think about the new icon, [the old one looks pretty bad](https://github.com/microsoft/vscode/issues/11274) on the desktop and in the Taskbar and Dock, it was really meant to be a favicon.
 
 ![Original blue infinity icon](originalblueicon.png)
 
@@ -98,7 +98,7 @@ At this point, we pretty much ran out of colors in the family palette, except fo
 
 The Insiders builds had the orange and then green icons for about 2 months as we iterated on the problems outlined above, and there wasn't a lot of negative feedback coming in.
 
-Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a [small reference to the new icons in the release notes](https://code.visualstudio.com/updates/v1_17#_new-visual-studio-code-logo).
+Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a small reference to the new icons in our release notes.
 
 And then the issues and comments started rolling in.
 
@@ -106,17 +106,15 @@ And then the issues and comments started rolling in.
 
 ![GitHub issue 35783](vscodenewlogoissue.png)
 
-(I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.)
-
 Each day there were additional comments, each expressing a dislike of the new icon in new and interesting ways. After the first couple of days, we thought the feedback would slow and we would be able to address the individual issues. Turns out, we were wrong. The feedback just kept coming in. New issues were opened, comments came in faster than we could respond. Hacker News, Visual Studio Magazine. High School friends posted comments on FaceBook. Awesome.
 
 ## You're my boy, Blue!
 
 And that brings us to today.
 
-We've reviewed all of the feedback from the breadth of issues opened and commented upon since we released 1.17.0 where we introduced the orange icon for Stable. It is clear that the [Halloween release](https://github.com/Microsoft/vscode/issues/35783#issuecomment-337200769) of VS Code didn't work well for a lot of you, and for that we apologize.
+We've reviewed all of the feedback from the breadth of issues opened and commented upon since we released 1.17.0 where we introduced the orange icon for Stable. It is clear that the [Halloween release](https://github.com/microsoft/vscode/issues/35783#issuecomment-337200769) of VS Code didn't work well for a lot of you, and for that we apologize.
 
-Coincidentally as I write this, [mdb07a](https://github.com/mdb07a) did a nice job [summarizing the feedback and issues on Windows](https://github.com/Microsoft/vscode/issues/35783#issuecomment-338432169). I'm paraphrasing and there are more issues, but the top issues are:
+Coincidentally as I write this, [mdb07a](https://github.com/mdb07a) did a nice job [summarizing the feedback and issues on Windows](https://github.com/microsoft/vscode/issues/35783#issuecomment-338432169). I'm paraphrasing and there are more issues, but the top issues are:
 
 - The color change was far too drastic, orange is the opposite color of blue, making that which looked good before, look horrible now.
 - A flat single color icon that relies entirely on transparency to create negative space makes it less distinct and aggravates the distinguishability problems.
@@ -134,11 +132,11 @@ Which works well with the Status Bar and other blues in the editor:
 
 For folks that have difficulty seeing the difference between Stable and Insiders, the green and blue work better together. Here's the two icons using the [Sim Daltonism](https://michelf.ca/projects/sim-daltonism/) app (Deuteranomaly):
 
-![Screen shot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
+![screenshot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
 
 It is inevitable that we will have multiple products that share colors, so we are no longer concerned that VS Code shares the blue color.
 
-We are [exploring using a non-tilted icon for macOS]( https://github.com/Microsoft/vscode/issues/36692) based on @donysukardi's comment [here](https://github.com/Microsoft/vscode/issues/6607#issuecomment-335664326). We can't say yet that we'll do this, but we are going to explore it and either way, we'll post updates in that issue.
+We are [exploring using a non-tilted icon for macOS]( https://github.com/microsoft/vscode/issues/36692) based on @donysukardi's comment [here](https://github.com/microsoft/vscode/issues/6607#issuecomment-335664326). We can't say yet that we'll do this, but we are going to explore it and either way, we'll post updates in that issue.
 
 ## Looking Ahead
 

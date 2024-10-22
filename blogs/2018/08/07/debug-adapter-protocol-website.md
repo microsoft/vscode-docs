@@ -1,5 +1,5 @@
 ---
-Order: 41
+Order:
 TOCTitle: New home for Debug Adapter Protocol
 PageTitle: A new home for the Debug Adapter Protocol
 MetaDescription: A new home for the Debug Adapter Protocol
@@ -12,7 +12,7 @@ Author: André Weinand
 
 August 7, 2018 André Weinand, [@weinand](https://twitter.com/weinand)
 
-One goal of the July milestone was to move the **Debug Adapter Protocol** -- which was hiding itself in a somewhat obscure [GitHub project](https://github.com/Microsoft/vscode-debugadapter-node) -- to a more prominent website (see feature request [#19636](https://github.com/Microsoft/vscode/issues/19636)).
+One goal of the July milestone was to move the **Debug Adapter Protocol** -- which was hiding itself in a somewhat obscure [GitHub project](https://github.com/microsoft/vscode-debugadapter-node) -- to a more prominent website (see feature request [#19636](https://github.com/microsoft/vscode/issues/19636)).
 
 This blog provides some background about protocols, the Debug Adapter Protocol, and the motivation behind the move.
 
@@ -72,10 +72,10 @@ We assume that the user has already started a debug session, but is currently st
 - The user sets one or more breakpoints in a specific source file by clicking in the breakpoint gutter. The development tool sends a `setBreakpoints` request to the Debug Adapter which registers the breakpoint with the gdb debugger.
 - The user then presses the **Continue** button to resume execution. The tool sends a `continue` request to the Debug Adapter which translates this into the corresponding gdb command.
 - Some time later, the breakpoint is hit and the Debug Adapter receives some notification from gdb and translates this into a DAP `stopped` event which gets sent to the development tool.
-- In response to this `stopped` event, the development tool updates its UI and shows a stacktrace view. This triggers a `stacktrace` request which returns all the information that is displayed for the individual stack frames.
+- In response to this `stopped` event, the development tool updates its UI and shows a stack trace view. This triggers a `stacktrace` request which returns all the information that is displayed for the individual stack frames.
 - If the user selects one stack frame, the development tool requests the variables of that frame with a `variables` request.
 
-For [historical reasons](https://github.com/Microsoft/vscode-debugadapter-node/issues/58), DAP uses a JSON-based wire-format inspired by the (now obsolete) [V8 Debugging Protocol](https://github.com/dtretyakov/node-tools/wiki/Debugging-Protocol). Please note that this format is similar to but not compatible with the JSON-RPC used in the LSP.
+For [historical reasons](https://github.com/microsoft/vscode-debugadapter-node/issues/58), DAP uses a JSON-based wire-format inspired by the (now obsolete) [V8 Debugging Protocol](https://github.com/dtretyakov/node-tools/wiki/Debugging-Protocol). Please note that this format is similar to but not compatible with the JSON-RPC used in the LSP.
 
 After this short example of DAP communication, let's review the characteristics of the DAP approach:
 
@@ -90,21 +90,21 @@ These characteristics are similar to those of the Language Server Protocol publi
 
 ## A new home for the DAP
 
-Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new website [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
+Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/microsoft/vscode-debugadapter-node) to a new website [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/microsoft/debug-adapter-protocol](https://github.com/microsoft/debug-adapter-protocol).
 
 This move should emphasize that the Debug Adapter Protocol in not specific to Visual Studio Code. For example, Visual Studio is now also [supporting this protocol](https://devblogs.microsoft.com/visualstudio/adding-support-for-debug-adapters-to-visual-studio-ide).
 
 In the new location we provide:
 
 - An [overview and introduction](https://microsoft.github.io/debug-adapter-protocol/overview) to the protocol.
-- The [protocol specification](https://microsoft.github.io/debug-adapter-protocol/debugAdapterProtocol.json) as a machine-processable [JSON-schema](http://json-schema.org).
+- The [protocol specification](https://microsoft.github.io/debug-adapter-protocol/debugAdapterProtocol.json) as a machine-processable [JSON-schema](https://json-schema.org).
 - [Detailed documentation](https://microsoft.github.io/debug-adapter-protocol/specification) automatically generated from the protocol specification.
 - [Debug Adapters](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/) implementing the protocol.
 - [Development tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/) hosting the protocol.
 - [SDKs](https://microsoft.github.io/debug-adapter-protocol/implementors/sdks/) supporting the protocol.
-- Bugs, feature requests, and pull requests can be created under the [Issues](https://github.com/Microsoft/debug-adapter-protocol/issues) section of the new repository.
+- Bugs, feature requests, and pull requests can be created under the [Issues](https://github.com/microsoft/debug-adapter-protocol/issues) section of the new repository.
 
-The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will continue to host the source for the three npm modules for DAP:
+The [old location](https://github.com/microsoft/vscode-debugadapter-node) will continue to host the source for the three npm modules for DAP:
 
 - [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol)
 - [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter)
@@ -115,9 +115,9 @@ The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will c
 Since the Debug Adapter Protocol has already been available for quite some time, the move to a new website is not really an inception, but just a move to a new home...
 
 We'd like to invite all existing and future users of the DAP to visit our new home and continue the collaboration there. For example, you can help to keep the list of supporting tools and implementations up to date by submitting pull requests in GitHub against these Markdown files:
-[Debug Adapters](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/adapters.md),
-[Tools](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/tools.md), and
-[SDKs](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/sdks.md).
+[Debug Adapters](https://github.com/microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/adapters.md),
+[Tools](https://github.com/microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/tools.md), and
+[SDKs](https://github.com/microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/sdks.md).
 
 On behalf of the VS Code team: Happy Coding!
 

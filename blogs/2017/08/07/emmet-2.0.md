@@ -1,5 +1,5 @@
 ---
-Order: 30
+Order:
 TOCTitle: Emmet 2.0
 PageTitle: Emmet 2.0 in Visual Studio Code
 MetaDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code.
@@ -82,15 +82,15 @@ There are a few other changes that we have documented in the new Emmet [page](/d
 
 I want to thank [Sergey Chikuyonok](https://github.com/sergeche) for his amazing work on modularizing Emmet and helping us bring these improvements to VS Code.
 
-Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in Github issues were very helpful in getting to the current user experience.
+Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in GitHub issues were very helpful in getting to the current user experience.
 
 Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions.
 
 ## Share your thoughts on the new Emmet
 
-Do you miss any features of the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will do our best to help you out.
+Do you miss any features of the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/microsoft/vscode/issues) and we will do our best to help you out.
 
-It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
+It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder](https://github.com/microsoft/vscode/tree/main/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
 
 Happy Coding!
 

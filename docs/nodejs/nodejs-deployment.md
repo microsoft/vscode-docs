@@ -1,36 +1,24 @@
 ---
 Order: 4
 Area: nodejs
-TOCTitle: Node.js Deployment
+TOCTitle: Deploy Node.js Apps
 PageTitle: Node.js Deployment with Visual Studio Code
 ContentId: 856a4a73-a4b4-4418-b88d-1f65d0ba7824
 MetaDescription: Node.js Deployment to Azure with Visual Studio Code
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 ---
-# Deploy a Node.js Application to Azure
+# Deploy Node.js Web Apps
 
-You can deploy your Node.js applications to [Azure](https://azure.microsoft.com) directly from Visual Studio Code. Using either the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) or the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, you can have your application running in Azure in minutes.
+The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions for Visual Studio Code make it easy to deploy Node.js applications.
 
-![app service](images/nodejs-deployment/azure-app-service-tools.png)
+![Azure Tools extension](images/azure/azure-tools.png)
 
-## Azure tutorials
+## Deployment tutorials
 
-The tutorials below will walk you through creating a simple website and deploying it to Azure:
+These tutorials from Microsoft Learn describe different ways of creating and deploying Node.js apps to Azure via Visual Studio Code:
 
-Tutorial | Description
---- | ---
-[Deploy Azure Functions](/tutorials/functions-extension/getting-started) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
-[Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
-[Deploy a static website](/tutorials/static-website/getting-started) | Create, deploy, and update a static website on Azure Storage.
-
-## Azure extensions
-
-There are many other VS Code extensions on the [Marketplace](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) that make it easy to build and host applications on Azure.
-
-<div class="marketplace-extensions-azure-curated-short"></div>
-
-> **Tip:** Click on an extension tile above to read the description and reviews in the Marketplace.
-
-There is also a [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack which bundles useful Azure extensions for Node.js developers into a single installation.
+Tutorial | Description | Related Tools
+--- | --- | ---
+[Deploy Azure Functions](https://learn.microsoft.com/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api) | Build and manage Azure Functions serverless apps <br> directly in VS Code | [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) <br> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) <br> [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+[Deploy using Azure Portal <br> and Azure App Service](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app) | Manage Azure resources directly in VS Code <br> with Azure App Service | [MongoDB](https://www.mongodb.com/docs/manual/installation/) <br> [Azure Portal](https://portal.azure.com/)
+[Deploy using Docker](https://learn.microsoft.com/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container | [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) <br> [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) <br> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) <br> [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)

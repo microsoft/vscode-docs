@@ -4,105 +4,67 @@ Area: other
 TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
-DateApproved: 3/5/2018
-MetaDescription: See how to use the features of Visual Studio Code and integrate your Add-in with Office/Office 365.
+DateApproved: 6/22/2022
+MetaDescription: See how to use the features of Visual Studio Code to develop Office Add-ins.
 ---
 # Office Add-ins with Visual Studio Code
 
-[Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
+[Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/overview/office-add-ins) run inside an Office application and can interact with contents of the Office document using the rich [JavaScript API](https://learn.microsoft.com/office/dev/add-ins/develop/understanding-the-javascript-api-for-office).
 
-![Office Add-in overview](images/office/officeaddinoverview.png)
+![An Office add-in is composed of a manifest.xml file and your web app.](images/office/officeaddinoverview.png)
 
 Under the hood, an Office Add-in is just a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
 
-## Step 1: Get set up
+## Create a new Office Add-in project
 
-Follow the instructions to [Create an Office Add-in using any editor](https://dev.office.com/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
+Before you can create an Office Add-in, you must set up your development environment. To assist you with tool installation, see [Set up your development environment](https://learn.microsoft.com/office/dev/add-ins/overview/set-up-your-dev-environment).
 
-| Option | Value |
-|:------|:------|
-|New subfolder | (accept the default) |
-| Add-in name | Outlook Add-in |
-| Supported Office application | (select Outlook) |
-| Create new add-in | Yes, I want a new add-in |
-| Add [TypeScript](https://www.typescriptlang.org/) | No |
-| Choose framework | Jquery |
+Once you have your tools installed, you can create a basic add-in for Excel, OneNote, Outlook, PowerPoint, Project, or Word by completing a [5-minute quick start](https://learn.microsoft.com/office/dev/add-ins/). These quick starts use the [Yeoman Generator for Office Add-ins (also called "Yo Office")](https://learn.microsoft.com/office/dev/add-ins/develop/yeoman-generator-overview) to create a Node.js Office Add-in project that can be managed with Visual Studio Code (VS Code).
 
-## Use Visual Studio Code to develop your Office Add-in!
+## Use Visual Studio Code to develop your Office Add-in
 
-Visual Studio Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on macOS!
+Visual Studio Code is a great tool to help you develop your custom Office Add-ins, regardless of whether the add-ins run in web clients, Windows, mobile platforms, or on macOS!
 
-### Getting started
+### Get started
 
-Open the project in Visual Studio Code by entering the following on the command line from within the same folder where you ran the generator:
+To open your add-in project in VS Code, navigate to the root directory of your add-in project and enter the following on the command line.
 
 ```bash
 code .
 ```
 
-![My-office-add-in-manifest.xml in VS Code](images/office/yoofficemanifest.png)
+![The manifest.xml file of an Office Add-ins project in Visual Studio Code](images/office/office-add-in-manifest.png)
 
-Open the `manifest.xml` file that was created by Yo Office and locate the `SourceLocation` node. Update this URL to the URL where you will host the Add-in.
+Within your project, you can view and configure your [manifest](https://learn.microsoft.com/office/dev/add-ins/develop/add-in-manifests), HTML, JavaScript or TypeScript, and CSS files to define your add-in. To learn more about developing Office Add-ins in VS Code, refer to [Develop Office Add-ins with Visual Studio Code](https://learn.microsoft.com/office/dev/add-ins/develop/develop-add-ins-vscode).
 
->**Tip:** If you are using an Azure Web App as the host, the URL will look something like `https://[name-of-your-web-app].azurewebsites.net/[path-to-add-in]`. If you are using the self-hosted option listed above, it will be `http://localhost:3000/[path-to-add-in]`.
+### Debug your add-in
 
-### Debugging your Office Add-in
+Debugging your add-in's client-side JavaScript code varies based on your development environment. To assist you with debugging on certain platforms, see [Overview of debugging Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-overview).
 
-VS Code does not currently support client-side debugging. To debug your client-side Add-in, you can use the Office web clients and open the browser's developer tools and debug the Add-in just like any other client-side JavaScript application.
+If you are using [Node.js](https://nodejs.org/) or [ASP.NET Core](https://asp.net) for server-side logic to support your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
 
-If you are using Node.js or ASP.NET Core for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
+### Sideload your add-in for testing
 
-## Install the Add-in
+Sideloading allows you to test your add-in to see how it will appear and operate. Yo Office takes care of building your add-in project and sideloading it in Office. To sideload your add-in, navigate to the root directory of your project and run the following from a command line.
 
-Office Add-ins must be installed, or registered, with the Office application in order to load. This is done using the `manifest.xml` file you modified earlier.
+```bash
+npm start
+```
 
-### Side loading Mail Add-ins
+You can also manually sideload your add-in by using one of the following options:
 
-Mail Add-ins can be installed within the Outlook Web App. Browse to your [Outlook Web App](https://mail.office365.com) and login. Once logged in, click the gear icon in the top-right section and select **Manage add-ins**:
+- For Excel, OneNote, PowerPoint, and Word, follow the instructions in [Sideload an Office Add-in in Office on the web manually](https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing#sideload-an-office-add-in-in-office-on-the-web-manually).
+- For Outlook, follow the instructions in [Sideload Outlook add-ins for testing](https://learn.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing?tabs=windows#sideload-manually).
 
-![Manage Add-ins](images/office/owamanageaddins.png)
+### Publish your add-in
 
-On the **Manage add-ins** page, select the *+* icon and then select **Add from a file**.
+Deploying and publishing your add-in allows you to distribute it to users publicly or within your organization. Once you're ready to publish your add-in for others to use, you can publish it directly through VS Code using the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage). For guidance on this process, refer to [Publish an add-in developed with Visual Studio Code](https://learn.microsoft.com/office/dev/add-ins/publish/publish-add-in-vs-code).
 
-![Add from File](images/office/owaaddaddin.png)
-
-Locate the `manifest.xml` file for your custom Add-in and install it, accepting all prompts when installing it.
-
-Once that's done, select an existing email and you will see a horizontal bar below the email header that includes the Add-in:
-
-![The Add-in in action in mail](images/office/mailaddin.png)
-
-Next try creating an email, click the **Add-ins** or **Apps** menu item to get the Task Pane to appear:
-
-![Open task pane](images/office/mailaddin01.png)
-
-Select the Add-in and see it appear in the Task Pane:
-
-![Add-in in task pane](images/office/mailaddin02.png)
-
-### Deploying Add-ins to the Office 365 Tenancy's App Catalog
-
-All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](http://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
-
-![Office SharePoint Admin](images/office/o365spadmin.png)
-
-From the **SharePoint Admin Center**, select the **Apps** option in the left-hand menu and then select the **App Catalog**. On the **App Catalog** page, select the **Apps for Office** option and upload the `manifest.xml` file.
-
-![App Catalogue](images/office/appcatalog.png)
-
-### Install Content & Task Pane Add-ins in Word / Excel / PowerPoint
-
-Depending on the type of Add-in you created, you can add it to one of the Office applications. Task Pane and Content Add-ins can be installed in Word, Excel & PowerPoint. Mail Add-ins can be installed in Outlook.
-
-To install an Add-in within an Office application, select the **Insert** tab and click the **Office Add-ins** button, as shown here using the Excel Web App:
-
-![Excel Add-in](images/office/exceladdin.png)
-
-Using the Office Add-ins dialog you can select Add-ins you've uploaded to your Office 365 tenancy's App Catalog (*listed under My Organization*) or acquire Add-ins from the Office Store.
+To learn more about the various Office Add-ins deployment methods, see [Deploy and publish Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/publish/publish).
 
 ## Next steps
 
-Check out the other pages on the VS Code site to find out how you can leverage more capabilities of the editor when creating custom Office Add-ins:
+Check out the other pages on the VS Code site to find out how you can use more capabilities of the editor when creating custom Office Add-ins:
 
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
 - [User Interface](/docs/getstarted/userinterface.md) - Just starting out with VS Code? This is worth reviewing.

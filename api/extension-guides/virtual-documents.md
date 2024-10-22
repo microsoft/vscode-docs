@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 54fdcc33-7ad1-40cc-bc87-ded1841d01ad
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)
@@ -9,7 +9,7 @@ MetaDescription: A guide to using Virtual Documents in Visual Studio Code extens
 
 # Virtual Documents
 
-The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
+The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/blob/main/virtual-document-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/main/virtual-document-sample/README.md).
 
 ## TextDocumentContentProvider
 
@@ -22,9 +22,9 @@ vscode.workspace.registerTextDocumentContentProvider(myScheme, myProvider);
 Calling `registerTextDocumentContentProvider` returns a disposable with which the registration can be undone. A provider must only implement the `provideTextDocumentContent`-function which is called with an uri and cancellation token.
 
 ```ts
-const myProvider = class implements vscode.TextDocumentContentProvider {
+const myProvider = new class implements vscode.TextDocumentContentProvider {
   provideTextDocumentContent(uri: vscode.Uri): string {
-    // simply invoke cowsay, use uri-path as text
+    // invoke cowsay, use uri-path as text
     return cowsay.say({ text: uri.path });
   }
 };
@@ -51,12 +51,12 @@ With this we have a fully functional text document content provider. The next se
 
 ### Update Virtual Documents
 
-Depending on the scenario virtual documents might change. To support that, providers can implement a `onDidChange`-event. It must be fired for an uri and the editor will then ask for the new contents - assuming the document is still in use.
+Depending on the scenario virtual documents might change. To support that, providers can implement a `onDidChange`-event.
 
 The `vscode.Event`-type defines the contract for eventing in VS Code. The easiest way to implement an event is `vscode.EventEmitter`, like so:
 
 ```ts
-const myProvider = class implements vscode.TextDocumentContentProvider {
+const myProvider = new class implements vscode.TextDocumentContentProvider {
   // emitter and its event
   onDidChangeEmitter = new vscode.EventEmitter<vscode.Uri>();
   onDidChange = this.onDidChangeEmitter.event;
@@ -65,11 +65,13 @@ const myProvider = class implements vscode.TextDocumentContentProvider {
 };
 ```
 
-That's all what's needed to make VS code listen for changes of virtual document. The next section will add an editor action that uses the event emitter.
+The event emitter has a `fire` method which can be used to notify VS Code when a change has happened in a document. The document which has changed is identified by its uri given as argument to the `fire` method. The provider will then be called again to provide the updated content, assuming the document is still open.
+
+That's all what's needed to make VS Code listen for changes of virtual document. To see a more complex example making use of this feature, look at: [https://github.com/microsoft/vscode-extension-samples/blob/main/contentprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/main/contentprovider-sample/README.md).
 
 ### Add Editor Commands
 
-To illustrate above change-event and to get more cowsay, an editor action is needed that reverses what the cow just said. First we need a command that does that:
+Editor actions can be added which only interact with documents provided by an associated content provider. This is a sample command that reverses what the cow just said:
 
 ```ts
 // register a command that updates the current cowsay
@@ -118,6 +120,13 @@ This references the `cowsay.backwards`-command that defined in the `contributes/
 
 Document providers are first class citizens in VS Code, their contents appears in regular text documents, they use the same infrastructure as files etc. However, that also means that "your" documents cannot hide, they will appear in `onDidOpenTextDocument` and `onDidCloseTextDocument`-events, they are part of `vscode.workspace.textDocuments` and more. The rule for everyone is check the `scheme` of documents and then decide if you want to do something with/for the document.
 
-### File System API
+# File System API
 
 If you need more flexibility and power take a look at the [`FileSystemProvider`](/api/references/vscode-api#FileSystemProvider) API. It allows to implement a full file system, having files, folders, binary data, file-deletion, creation and more.
+
+You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md).
+
+
+When VS Code is opened on a folder or workspace of a such a file system we call it a virtual workspace. When a virtual workspace is open in a VS Code window, this is shown by a label in the remote indicator in the lower left corner, similar to remote windows. See the [Virtual Workspace Guide](/api/extension-guides/virtual-workspaces) how extensions can support that setup.
+
+

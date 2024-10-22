@@ -4,19 +4,19 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
-MetaSocialImage: images/keybinding/customization_keybindings.png
+MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
+Visual Studio Code lets you perform most tasks directly from the keyboard. This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
->**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
+>**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key bindings for another platform, hover your mouse over the key you are interested in.
 
 ## Keyboard Shortcuts editor
 
-Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on macOS)
+VS Code provides a rich keyboard shortcut editing experience with the Keyboard Shortcuts editor. The editor lists all available commands with and without keybindings, and enables you to change / remove / reset their keybindings using the available actions. You can use the search box to find commands or keybindings. You can open this editor by going to the menu under **File** > **Preferences** > **Keyboard Shortcuts** or by using the **Preferences: Open Keyboard Shortcuts** command (`kb(workbench.action.openGlobalKeybindings)`).
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
@@ -24,9 +24,15 @@ Most importantly, you can see keybindings according to your keyboard layout. For
 
 For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
 
+## Customize shortcuts for UI actions
+
+You can quickly customize the keybinding for user interface actions. Right-click on any action item in your workbench, and select **Customize Keybinding**. If the action has a `when` clause, it's automatically included, making it easier to set up your keybindings just the way you need them.
+
+<video src="images/keybinding/customize-keybinding.mp4" title="Video that shows how to customize the keybinding for the split editor action." autoplay loop controls muted></video>
+
 ## Keymap extensions
 
-Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymap Extensions** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Migrate Keyboard Shortcuts from...** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
 <div class="marketplace-extensions-curated-keymaps"></div>
 
@@ -36,7 +42,7 @@ Keyboard shortcuts are vital to productivity and changing keyboarding habits can
 
 We also have a printable version of these keyboard shortcuts. **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
 
-Below are links to the three platform-specific versions:
+Below are links to the three platform-specific versions (US English keyboard):
 
 * [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
@@ -54,14 +60,60 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
 
+## Troubleshooting keybindings
+
+To troubleshoot keybindings problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This will activate logging of dispatched keyboard shortcuts and will open an output panel with the corresponding log file.
+
+You can then press your desired keybinding and check what keyboard shortcut VS Code detects and what command is invoked.
+
+For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
+
+```
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: MetaLeft, keyCode: 57 ('Meta')
+[KeybindingService]: \ Keyboard event cannot be dispatched.
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: Slash, keyCode: 191, key: /
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: Slash, keyCode: 85 ('/')
+[KeybindingService]: | Resolving meta+[Slash]
+[KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
+```
+
+The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, which has the `when` condition `editorTextFocus && !editorReadonly` and is a built-in keybinding entry.
+
+## Viewing modified keybindings
+
+You can view any user modified keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor with the **Show User Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:user` filter to the **Keyboard Shortcuts** editor (**Source** is 'User').
+
+![Default Keyboard Shortcuts](images/keybinding/user-keyboard-shortcuts.png)
+
 ## Advanced customization
 
-All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file, where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
 
-* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on **{}** button on the right of the editor title bar.
-* This will open your `keybindings.json` file where you can overwrite the [Default Keybindings](/docs/getstarted/keybindings.md#default-keybindings).
+To open the `keybindings.json` file:
+
+* Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
+
+  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png) in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
+
+Each rule consists of:
+
+* a `key` that describes the pressed keys.
+* a `command` containing the identifier of the command to execute.
+* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
+
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
+
+When a key is pressed:
+
+* the rules are evaluated from **bottom** to **top**.
+* the first rule that matches, both the `key` and in terms of `when`, is accepted.
+* no more rules are processed.
+* if a rule is found and has a `command` set, the `command` is executed.
+
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
@@ -83,23 +135,6 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "ctrl+k enter",    "command": "workbench.action.keepEditor" },
 { "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
 ```
-
-Each rule consists of:
-
-* a `key` that describes the pressed keys.
-* a `command` containing the identifier of the command to execute.
-* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
-
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(Ctrl+K Ctrl+C)`.
-
-When a key is pressed:
-
-* the rules are evaluated from **bottom** to **top**.
-* the first rule that matches, both the `key` and in terms of `when`, is accepted.
-* no more rules are processed.
-* if a rule is found and has a `command` set, the `command` is executed.
-
-The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 ## Accepted keys
 
@@ -139,6 +174,78 @@ The type command will receive `{"text": "Hello World"}` as its first argument an
 
 For more information on commands that take arguments, refer to [Built-in Commands](/api/references/commands.md).
 
+## Running multiple commands
+
+It is possible to create a keybinding that runs several other commands sequentially using the command `runCommands`.
+
+1. Run several commands without arguments: copy current line down, mark the current line as comment, move cursor to copied line
+
+```json
+{
+  "key": "ctrl+alt+c",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      "editor.action.copyLinesDownAction",
+      "cursorUp",
+      "editor.action.addCommentLine",
+      "cursorDown"
+    ]
+  }
+},
+```
+
+2. It is also possible to pass arguments to commands: create a new untitled TypeScript file and insert a custom snippet
+
+```json
+{
+  "key": "ctrl+n",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      {
+        "command": "workbench.action.files.newUntitledFile",
+        "args": {
+          "languageId": "typescript"
+        }
+      },
+      {
+        "command": "editor.action.insertSnippet",
+        "args": {
+          "langId": "typescript",
+          "snippet": "class ${1:ClassName} {\n\tconstructor() {\n\t\t$0\n\t}\n}"
+        }
+      }
+    ]
+  }
+},
+```
+
+Note that commands run by `runCommands` receive the value of `"args"` as the first argument. So in the example above, `workbench.action.files.newUntitledFile` receives `{"languageId": "typescript" }` as its first and only argument.
+
+To pass several arguments, one needs to have `"args"` as an array:
+
+```json
+{
+  "key": "ctrl+shift+e",
+  "command": "runCommands",
+  "args": {
+    "commands": [
+      {
+        // command invoked with 2 arguments: vscode.executeCommand("myCommand", "arg1", "arg2")
+        "command": "myCommand",
+        "args": [
+          "arg1",
+          "arg2"
+        ]
+      }
+    ]
+  }
+}
+```
+
+To pass an array as the first argument, one needs to wrap the array in another array: `"args": [ [1, 2, 3] ]`.
+
 ## Removing a specific key binding rule
 
 You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
@@ -156,6 +263,13 @@ Here is an example:
 // To remove the second rule, for example, add in keybindings.json:
 { "key": "tab", "command": "-jumpToNextSnippetPlaceholder" }
 
+```
+
+To override a specific key binding rule with an empty action, you can specify an empty command:
+
+```json
+// To override and disable any `tab` keybinding, for example, add in keybindings.json:
+{ "key": "tab", "command": "" }
 ```
 
 ## Keyboard layouts
@@ -214,121 +328,40 @@ Accepted scan codes:
 * `kbstyle([Numpad0]-[Numpad9])`, `kbstyle([NumpadMultiply])`, `kbstyle([NumpadAdd])`, `kbstyle([NumpadComma])`
 * `kbstyle([NumpadSubtract])`, `kbstyle([NumpadDecimal])`, `kbstyle([NumpadDivide])`
 
-## 'when' clause contexts
+## when clause contexts
 
-VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
+VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times. A `when` clause evaluates to either Boolean true or false for enabling key bindings.
 
-Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false. For conditional expressions, you can use either equality `==` (`"editorLangId == typescript"`) or inequality `!=` (`"resourceExtname != .js"`).
+VS Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. For example, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context `debuggersAvailable` is true) and the editor isn't in debug mode (context `inDebugMode` is false):
 
-Context name | True when
------------- | ------------
-**Editor contexts** |
-editorFocus | An editor has focus, either the text or a widget.
-editorTextFocus | The text in an editor has focus (cursor is blinking).
-textInputFocus | Any editor has focus (regular editor, debug REPL, etc.).
-inputFocus | Any text input area has focus (editors or text boxes).
-editorHasSelection | Text is selected in the editor.
-editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
-editorReadOnly | The editor is read only.
-editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
-isInDiffEditor | The active editor is a difference editor.
-**Operating system contexts** |
-isLinux | True when the OS is Linux
-isMac | True when the OS is macOS
-isWindows | True when the OS is Windows
-**Mode contexts** |
-inDebugMode | A debug session is running.
-debugType | True when debug type matches. Example: `"debugType == 'node'"`.
-inSnippetMode | The editor is in snippet mode.
-inQuickOpen | The Quick Open drop-down has focus.
-**Resource contexts** |
-resourceScheme | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
-resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
-resourceExtname | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
-resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-**Explorer contexts** |
-explorerViewletVisible | True if Explorer view is visible.
-explorerViewletFocus | True if Explorer view has keyboard focus.
-filesExplorerFocus | True if File Explorer section has keyboard focus.
-openEditorsFocus | True if OPEN EDITORS section has keyboard focus.
-explorerResourceIsFolder | True if a folder is selected in the Explorer.
-**Editor widget contexts** |
-findWidgetVisible | Editor Find widget is visible.
-suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
-suggestWidgetMultipleSuggestions | Multiple suggestions are displayed.
-renameInputVisible | Rename input text box is visible.
-referenceSearchVisible | Peek References peek window is open.
-inReferenceSearchEditor | The Peek References peek window editor has focus.
-config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
-quickFixWidgetVisible | Quick Fix widget is visible.
-parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
-parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
-**Integrated terminal contexts** |
-terminalFocus | An integrated terminal has focus.
-**Global UI contexts** |
-notificationFocus | Notification has keyboard focus.
-notificationCenterVisible | Notification Center is visible at the bottom right of VS Code.
-notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
-searchViewletVisible | Search view is open.
-sideBarVisible | Side Bar is displayed.
-sideBarFocus | Side Bar has focus.
-panelFocus | Panel has focus.
-editorIsOpen | True if one editor is open.
-inZenMode | Window is in Zen Mode.
-inDebugRepl | Focus is in the Debug Console REPL.
-textCompareEditorVisible | At least one diff (compare) view is visible.
-workspaceFolderCount | Count of workspace folders.
-replaceActive | Search view Replace text box is open.
-view | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
-viewItem | True when viewItem context matches. Example:  `"viewItem == someContextValue"`.
-**Configuration settings contexts** |
-config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
+![Start Debugging when clause in the Keyboard Shorts editor](images/keybinding/start-debugging-when-clause.png)
 
->**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
-
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
-
-### Active/Focused view or panel 'when' clause context
-
-You can have a keybinding that is enabled only when a specific view or panel is visible.
-
-Context name | True when
------------- | ------------
-activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-
-View Identifiers:
-
-* workbench.view.explorer - File Explorer
-* workbench.view.search - Search
-* workbench.view.scm - Source Control
-* workbench.view.debug - Debug
-* workbench.view.extensions - Extensions
-
-Panel Identifiers:
-
-* workbench.panel.markers - Problems
-* workbench.panel.output - Output
-* workbench.panel.repl - Debug Console
-* workbench.panel.terminal - Integrated Terminal
-* workbench.panel.comments - Comments
-* workbench.view.search - Search when `search.location` is set to `panel`
-
-If you want a keybinding that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
-
-For example, the when clause below is true only when the File Explorer has focus:
+You can also view a keybinding's when clause directly in the Default Keybindings JSON (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
 
 ```json
-"sideBarFocus && activeViewlet == 'workbench.view.explorer'"
+{ "key": "f5",  "command": "workbench.action.debug.start",
+                   "when": "debuggersAvailable && !inDebugMode" },
 ```
 
-### key-value when clause operator
+### Conditional operators
 
-There is a key-value pair operator for `when` clauses. The expression `key =~ value` treats the right hand side as a regular expression to match against the left hand side. For example, to contribute context menu items for all Docker files, one could use:
+For when clause conditional expressions, the following conditional operators are useful for keybindings:
 
-```json
-   "when": "resourceFilename =~ /docker/"
-```
+Operator | Symbol | Example
+-------- | ------ | -----
+Equality | `==` | `"editorLangId == typescript"`
+Inequality | `!=` | `"resourceExtname != .js"`
+Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
+And | `&&` | `"textInputFocus && !editorReadonly"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
+
+You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
+
+### Available contexts
+
+You can find some of the available `when` clause contexts in the [when clause context reference](/api/references/when-clause-contexts.md).
+
+The list there isn't exhaustive and you can find other `when` clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts** ) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**).
 
 ## Custom keybindings for refactorings
 
@@ -348,11 +381,11 @@ This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybin
 
 ## Default Keyboard Shortcuts
 
-You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor
+You can view all default keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor with the **Show Default Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:default` filter to the **Keyboard Shortcuts** editor (**Source** is 'Default').
 
 ![Default Keyboard Shortcuts](images/keybinding/default-keyboard-shortcuts.png)
 
-or as a JSON file using the command **Preferences: Open Default Keyboard Shortcuts (JSON)**.
+You can view the default keyboard shortcuts as a JSON file using the command **Preferences: Open Default Keyboard Shortcuts (JSON)**.
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
@@ -360,226 +393,235 @@ Some commands included below do not have default keyboard shortcuts and so are d
 
 ### Basic Editing
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.action.clipboardCutAction)`|Cut line (empty selection)|`editor.action.clipboardCutAction`
-`kb(editor.action.clipboardCopyAction)`|Copy line (empty selection)|`editor.action.clipboardCopyAction`
-`kb(editor.action.deleteLines)`|Delete Line|`editor.action.deleteLines`
-`kb(editor.action.insertLineAfter)`|Insert Line Below|`editor.action.insertLineAfter`
-`kb(editor.action.insertLineBefore)`|Insert Line Above|`editor.action.insertLineBefore`
-`kb(editor.action.moveLinesDownAction)`|Move Line Down|`editor.action.moveLinesDownAction`
-`kb(editor.action.moveLinesUpAction)`|Move Line Up|`editor.action.moveLinesUpAction`
-`kb(editor.action.copyLinesDownAction)`|Copy Line Down|`editor.action.copyLinesDownAction`
-`kb(editor.action.copyLinesUpAction)`|Copy Line Up|`editor.action.copyLinesUpAction`
-`kb(editor.action.addSelectionToNextFindMatch)`|Add Selection To Next Find Match|`editor.action.addSelectionToNextFindMatch`
-`kb(editor.action.moveSelectionToNextFindMatch)`|Move Last Selection To Next Find Match|`editor.action.moveSelectionToNextFindMatch`
-`kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
-`kb(editor.action.insertCursorAtEndOfEachLineSelected)`|Insert cursor at end of each line selected|`editor.action.insertCursorAtEndOfEachLineSelected`
-`kb(editor.action.selectHighlights)`|Select all occurrences of current selection|`editor.action.selectHighlights`
-`kb(editor.action.changeAll)`|Select all occurrences of current word|`editor.action.changeAll`
-`kb(expandLineSelection)`|Select current line|`expandLineSelection`
-`kb(editor.action.insertCursorBelow)`|Insert Cursor Below|`editor.action.insertCursorBelow`
-`kb(editor.action.insertCursorAbove)`|Insert Cursor Above|`editor.action.insertCursorAbove`
-`kb(editor.action.jumpToBracket)`|Jump to matching bracket|`editor.action.jumpToBracket`
-`kb(editor.action.indentLines)`|Indent Line|`editor.action.indentLines`
-`kb(editor.action.outdentLines)`|Outdent Line|`editor.action.outdentLines`
-`kb(cursorHome)`|Go to Beginning of Line|`cursorHome`
-`kb(cursorEnd)`|Go to End of Line|`cursorEnd`
-`kb(cursorBottom)`|Go to End of File|`cursorBottom`
-`kb(cursorTop)`|Go to Beginning of File|`cursorTop`
-`kb(scrollLineDown)`|Scroll Line Down|`scrollLineDown`
-`kb(scrollLineUp)`|Scroll Line Up|`scrollLineUp`
-`kb(scrollPageDown)`|Scroll Page Down|`scrollPageDown`
-`kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
-`kb(editor.fold)`|Fold (collapse) region|`editor.fold`
-`kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
-`kb(editor.foldRecursively)`|Fold (collapse) all subregions|`editor.foldRecursively`
-`kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unfoldRecursively`
-`kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
-`kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
-`kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
-`kb(editor.action.removeCommentLine)`|Remove Line Comment|`editor.action.removeCommentLine`
-`kb(editor.action.commentLine)`|Toggle Line Comment|`editor.action.commentLine`
-`kb(editor.action.blockComment)`|Toggle Block Comment|`editor.action.blockComment`
-`kb(actions.find)`|Find|`actions.find`
-`kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
-`kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
-`kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
-`kb(editor.action.selectAllMatches)`|Select All Occurrences of Find Match|`editor.action.selectAllMatches`
-`kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
-`kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
-`kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
-`kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
-`kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
-`kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
+Command|Key|Command id
+-------|---|----------
+Cut line (empty selection)|`kb(editor.action.clipboardCutAction)`|`editor.action.clipboardCutAction`
+Copy line (empty selection)|`kb(editor.action.clipboardCopyAction)`|`editor.action.clipboardCopyAction`
+Paste|`kb(editor.action.clipboardPasteAction)`|`editor.action.clipboardPasteAction`
+Delete Line|`kb(editor.action.deleteLines)`|`editor.action.deleteLines`
+Insert Line Below|`kb(editor.action.insertLineAfter)`|`editor.action.insertLineAfter`
+Insert Line Above|`kb(editor.action.insertLineBefore)`|`editor.action.insertLineBefore`
+Move Line Down|`kb(editor.action.moveLinesDownAction)`|`editor.action.moveLinesDownAction`
+Move Line Up|`kb(editor.action.moveLinesUpAction)`|`editor.action.moveLinesUpAction`
+Copy Line Down|`kb(editor.action.copyLinesDownAction)`|`editor.action.copyLinesDownAction`
+Copy Line Up|`kb(editor.action.copyLinesUpAction)`|`editor.action.copyLinesUpAction`
+Undo|`kb(undo)`|`undo`
+Redo|`kb(redo)`|`redo`
+Add Selection To Next Find Match|`kb(editor.action.addSelectionToNextFindMatch)`|`editor.action.addSelectionToNextFindMatch`
+Move Last Selection To Next Find Match|`kb(editor.action.moveSelectionToNextFindMatch)`|`editor.action.moveSelectionToNextFindMatch`
+Undo last cursor operation|`kb(cursorUndo)`|`cursorUndo`
+Insert cursor at end of each line selected|`kb(editor.action.insertCursorAtEndOfEachLineSelected)`|`editor.action.insertCursorAtEndOfEachLineSelected`
+Select all occurrences of current selection|`kb(editor.action.selectHighlights)`|`editor.action.selectHighlights`
+Select all occurrences of current word|`kb(editor.action.changeAll)`|`editor.action.changeAll`
+Select current line|`kb(expandLineSelection)`|`expandLineSelection`
+Insert Cursor Below|`kb(editor.action.insertCursorBelow)`|`editor.action.insertCursorBelow`
+Insert Cursor Above|`kb(editor.action.insertCursorAbove)`|`editor.action.insertCursorAbove`
+Jump to matching bracket|`kb(editor.action.jumpToBracket)`|`editor.action.jumpToBracket`
+Indent Line|`kb(editor.action.indentLines)`|`editor.action.indentLines`
+Outdent Line|`kb(editor.action.outdentLines)`|`editor.action.outdentLines`
+Go to Beginning of Line|`kb(cursorHome)`|`cursorHome`
+Go to End of Line|`kb(cursorEnd)`|`cursorEnd`
+Go to End of File|`kb(cursorBottom)`|`cursorBottom`
+Go to Beginning of File|`kb(cursorTop)`|`cursorTop`
+Scroll Line Down|`kb(scrollLineDown)`|`scrollLineDown`
+Scroll Line Up|`kb(scrollLineUp)`|`scrollLineUp`
+Scroll Page Down|`kb(scrollPageDown)`|`scrollPageDown`
+Scroll Page Up|`kb(scrollPageUp)`|`scrollPageUp`
+Fold (collapse) region|`kb(editor.fold)`|`editor.fold`
+Unfold (uncollapse) region|`kb(editor.unfold)`|`editor.unfold`
+Toggle Fold region|`kb(editor.toggleFold)`|`editor.toggleFold`
+Fold (collapse) all subregions|`kb(editor.foldRecursively)`|`editor.foldRecursively`
+Unfold (uncollapse) all subregions|`kb(editor.unfoldRecursively)`|`editor.unfoldRecursively`
+Fold (collapse) all regions|`kb(editor.foldAll)`|`editor.foldAll`
+Unfold (uncollapse) all regions|`kb(editor.unfoldAll)`|`editor.unfoldAll`
+Add Line Comment|`kb(editor.action.addCommentLine)`|`editor.action.addCommentLine`
+Remove Line Comment|`kb(editor.action.removeCommentLine)`|`editor.action.removeCommentLine`
+Toggle Line Comment|`kb(editor.action.commentLine)`|`editor.action.commentLine`
+Toggle Block Comment|`kb(editor.action.blockComment)`|`editor.action.blockComment`
+Find|`kb(actions.find)`|`actions.find`
+Replace|`kb(editor.action.startFindReplaceAction)`|`editor.action.startFindReplaceAction`
+Find Next|`kb(editor.action.nextMatchFindAction)`|`editor.action.nextMatchFindAction`
+Find Previous|`kb(editor.action.previousMatchFindAction)`|`editor.action.previousMatchFindAction`
+Select All Occurrences of Find Match|`kb(editor.action.selectAllMatches)`|`editor.action.selectAllMatches`
+Toggle Find Case Sensitive|`kb(toggleFindCaseSensitive)`|`toggleFindCaseSensitive`
+Toggle Find Regex|`kb(toggleFindRegex)`|`toggleFindRegex`
+Toggle Find Whole Word|`kb(toggleFindWholeWord)`|`toggleFindWholeWord`
+Toggle Use of Tab Key for Setting Focus|`kb(editor.action.toggleTabFocusMode)`|`editor.action.toggleTabFocusMode`
+Toggle Render Whitespace|`kb(toggleRenderWhitespace)`|`toggleRenderWhitespace`
+Toggle Word Wrap|`kb(editor.action.toggleWordWrap)`|`editor.action.toggleWordWrap`
 
 ### Rich Languages Editing
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.action.triggerSuggest)`|Trigger Suggest|`editor.action.triggerSuggest`
-`kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints|`editor.action.triggerParameterHints`
-`kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
-`kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
-`kb(editor.action.revealDefinition)`|Go to Definition|`editor.action.revealDefinition`
-`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
-`kb(editor.action.peekDefinition)`|Peek Definition|`editor.action.peekDefinition`
-`kb(editor.action.revealDefinitionAside)`|Open Definition to the Side|`editor.action.revealDefinitionAside`
-`kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
-`kb(editor.action.referenceSearch.trigger)`|Peek References|`editor.action.referenceSearch.trigger`
-`kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
-`kb(editor.action.inPlaceReplace.down)`|Replace with Next Value|`editor.action.inPlaceReplace.down`
-`kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`
-`kb(editor.action.smartSelect.expand)`|Expand AST Selection|`editor.action.smartSelect.expand`
-`kb(editor.action.smartSelect.shrink)`|Shrink AST Selection|`editor.action.smartSelect.shrink`
-`kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
-`kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
+Command|Key|Command id
+-------|---|----------
+Trigger Suggest|`kb(editor.action.triggerSuggest)`|`editor.action.triggerSuggest`
+Trigger Parameter Hints|`kb(editor.action.triggerParameterHints)`|`editor.action.triggerParameterHints`
+Format Document|`kb(editor.action.formatDocument)`|`editor.action.formatDocument`
+Format Selection|`kb(editor.action.formatSelection)`|`editor.action.formatSelection`
+Go to Definition|`kb(editor.action.revealDefinition)`|`editor.action.revealDefinition`
+Show Hover|`kb(editor.action.showHover)`|`editor.action.showHover`
+Peek Definition|`kb(editor.action.peekDefinition)`|`editor.action.peekDefinition`
+Open Definition to the Side|`kb(editor.action.revealDefinitionAside)`|`editor.action.revealDefinitionAside`
+Quick Fix|`kb(editor.action.quickFix)`|`editor.action.quickFix`
+Go to References|`kb(editor.action.goToReferences)`|`editor.action.goToReferences`
+Rename Symbol|`kb(editor.action.rename)`|`editor.action.rename`
+Replace with Next Value|`kb(editor.action.inPlaceReplace.down)`|`editor.action.inPlaceReplace.down`
+Replace with Previous Value|`kb(editor.action.inPlaceReplace.up)`|`editor.action.inPlaceReplace.up`
+Expand AST Selection|`kb(editor.action.smartSelect.expand)`|`editor.action.smartSelect.expand`
+Shrink AST Selection|`kb(editor.action.smartSelect.shrink)`|`editor.action.smartSelect.shrink`
+Trim Trailing Whitespace|`kb(editor.action.trimTrailingWhitespace)`|`editor.action.trimTrailingWhitespace`
+Change Language Mode|`kb(workbench.action.editor.changeLanguageMode)`|`workbench.action.editor.changeLanguageMode`
 
 ### Navigation
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.showAllSymbols)`|Show All Symbols|`workbench.action.showAllSymbols`
-`kb(workbench.action.gotoLine)`|Go to Line...|`workbench.action.gotoLine`
-`kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
-`kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
-`kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
-`kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
-`kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
-`kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
-`kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
-`kb(workbench.action.quickInputBack)`|Go back in Quick Input|`workbench.action.quickInputBack`
-`kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
+Command|Key|Command id
+-------|---|----------
+Show All Symbols|`kb(workbench.action.showAllSymbols)`|`workbench.action.showAllSymbols`
+Go to Line...|`kb(workbench.action.gotoLine)`|`workbench.action.gotoLine`
+Go to File..., Quick Open|`kb(workbench.action.quickOpen)`|`workbench.action.quickOpen`
+Go to Symbol...|`kb(workbench.action.gotoSymbol)`|`workbench.action.gotoSymbol`
+Show Problems|`kb(workbench.actions.view.problems)`|`workbench.actions.view.problems`
+Go to Next Error or Warning|`kb(editor.action.marker.nextInFiles)`|`editor.action.marker.nextInFiles`
+Go to Previous Error or Warning|`kb(editor.action.marker.prevInFiles)`|`editor.action.marker.prevInFiles`
+Show All Commands|`kb(workbench.action.showCommands)` or `kbstyle(F1)`|`workbench.action.showCommands`
+Navigate Editor Group History|`kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`|`workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup`
+Go Back|`kb(workbench.action.navigateBack)`|`workbench.action.navigateBack`
+Go back in Quick Input|`kb(workbench.action.quickInputBack)`|`workbench.action.quickInputBack`
+Go Forward|`kb(workbench.action.navigateForward)`|`workbench.action.navigateForward`
+Focus Breadcrumbs|`kb(breadcrumbs.focus)`|`breadcrumbs.focus`
+Focus and Select Breadcrumbs|`kb(breadcrumbs.focusAndSelect)`|`breadcrumbs.focusAndSelect`
 
 ### Editor/Window Management
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.newWindow)`|New Window|`workbench.action.newWindow`
-`kb(workbench.action.closeWindow)`|Close Window|`workbench.action.closeWindow`
-`kb(workbench.action.closeActiveEditor)`|Close Editor|`workbench.action.closeActiveEditor`
-`kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
-`kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
-`kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
-`kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
-`kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
-`kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
-`kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
-`kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
-`kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
-`kb(workbench.action.moveEditorToNextGroup)`|Move Editor into Next Group|`workbench.action.moveEditorToNextGroup`
-`kb(workbench.action.moveEditorToPreviousGroup)`|Move Editor into Previous Group|`workbench.action.moveEditorToPreviousGroup`
+Command|Key|Command id
+-------|---|----------
+New Window|`kb(workbench.action.newWindow)`|`workbench.action.newWindow`
+Close Window|`kb(workbench.action.closeWindow)`|`workbench.action.closeWindow`
+Close Editor|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
+Close Folder|`kb(workbench.action.closeFolder)`|`workbench.action.closeFolder`
+Cycle Between Editor Groups|`kb(workbench.action.navigateEditorGroups)`|`workbench.action.navigateEditorGroups`
+Split Editor|`kb(workbench.action.splitEditor)`|`workbench.action.splitEditor`
+Focus into First Editor Group|`kb(workbench.action.focusFirstEditorGroup)`|`workbench.action.focusFirstEditorGroup`
+Focus into Second Editor Group|`kb(workbench.action.focusSecondEditorGroup)`|`workbench.action.focusSecondEditorGroup`
+Focus into Third Editor Group|`kb(workbench.action.focusThirdEditorGroup)`|`workbench.action.focusThirdEditorGroup`
+Focus into Editor Group on the Left|`kb(workbench.action.focusPreviousGroup)`|`workbench.action.focusPreviousGroup`
+Focus into Editor Group on the Right|`kb(workbench.action.focusNextGroup)`|`workbench.action.focusNextGroup`
+ Move Editor Left |`kb(workbench.action.moveEditorLeftInGroup)`|`workbench.action.moveEditorLeftInGroup`
+ Move Editor Right |`kb(workbench.action.moveEditorRightInGroup)`|`workbench.action.moveEditorRightInGroup`
+Move Active Editor Group Left|`kb(workbench.action.moveActiveEditorGroupLeft)`|`workbench.action.moveActiveEditorGroupLeft`
+Move Active Editor Group Right|`kb(workbench.action.moveActiveEditorGroupRight)`|`workbench.action.moveActiveEditorGroupRight`
+Move Editor into Next Group|`kb(workbench.action.moveEditorToNextGroup)`|`workbench.action.moveEditorToNextGroup`
+Move Editor into Previous Group|`kb(workbench.action.moveEditorToPreviousGroup)`|`workbench.action.moveEditorToPreviousGroup`
 
 ### File Management
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.files.newUntitledFile)`|New File|`workbench.action.files.newUntitledFile`
-`kb(workbench.action.files.openFile)`|Open File...|`workbench.action.files.openFile`
-`kb(workbench.action.files.save)`|Save|`workbench.action.files.save`
-`kb(workbench.action.files.saveAll)`|Save All|`workbench.action.files.saveAll`
-`kb(workbench.action.files.saveAs)`|Save As...|`workbench.action.files.saveAs`
-`kb(workbench.action.closeActiveEditor)`|Close|`workbench.action.closeActiveEditor`
-`kb(workbench.action.closeOtherEditors)`|Close Others|`workbench.action.closeOtherEditors`
-`kb(workbench.action.closeEditorsInGroup)`|Close Group|`workbench.action.closeEditorsInGroup`
-`kb(workbench.action.closeEditorsInOtherGroups)`|Close Other Groups|`workbench.action.closeEditorsInOtherGroups`
-`kb(workbench.action.closeEditorsToTheLeft)`|Close Group to Left|`workbench.action.closeEditorsToTheLeft`
-`kb(workbench.action.closeEditorsToTheRight)`|Close Group to Right|`workbench.action.closeEditorsToTheRight`
-`kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
-`kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor|`workbench.action.reopenClosedEditor`
-`kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
-`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next|`workbench.action.openNextRecentlyUsedEditorInGroup`
-`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previous|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
-`kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
-`kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
-`kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
-`kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
+Command|Key|Command id
+-------|---|----------
+New File|`kb(workbench.action.files.newUntitledFile)`|`workbench.action.files.newUntitledFile`
+Open File...|`kb(workbench.action.files.openFile)`|`workbench.action.files.openFile`
+Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
+Save All|`kb(saveAll)`|`saveAll`
+Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
+Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
+Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`
+Close Group|`kb(workbench.action.closeEditorsInGroup)`|`workbench.action.closeEditorsInGroup`
+Close Other Groups|`kb(workbench.action.closeEditorsInOtherGroups)`|`workbench.action.closeEditorsInOtherGroups`
+Close Group to Left|`kb(workbench.action.closeEditorsToTheLeft)`|`workbench.action.closeEditorsToTheLeft`
+Close Group to Right|`kb(workbench.action.closeEditorsToTheRight)`|`workbench.action.closeEditorsToTheRight`
+Close All|`kb(workbench.action.closeAllEditors)`|`workbench.action.closeAllEditors`
+Reopen Closed Editor|`kb(workbench.action.reopenClosedEditor)`|`workbench.action.reopenClosedEditor`
+Keep Open|`kb(workbench.action.keepEditor)`|`workbench.action.keepEditor`
+Copy Path of Active File|`kb(workbench.action.files.copyPathOfActiveFile)`|`workbench.action.files.copyPathOfActiveFile`
+Reveal Active File in Windows|`kb(workbench.action.files.revealActiveFileInWindows)`|`workbench.action.files.revealActiveFileInWindows`
+Show Opened File in New Window|`kb(workbench.action.files.showOpenedFileInNewWindow)`|`workbench.action.files.showOpenedFileInNewWindow`
+Compare Opened File With|`kb(workbench.files.action.compareFileWith)`|`workbench.files.action.compareFileWith`
 
 ### Display
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.toggleFullScreen)`|Toggle Full Screen|`workbench.action.toggleFullScreen`
-`kb(workbench.action.toggleZenMode)`|Toggle Zen Mode|`workbench.action.toggleZenMode`
-`kb(workbench.action.exitZenMode)`|Leave Zen Mode|`workbench.action.exitZenMode`
-`kb(workbench.action.zoomIn)`|Zoom in|`workbench.action.zoomIn`
-`kb(workbench.action.zoomOut)`|Zoom out|`workbench.action.zoomOut`
-`kb(workbench.action.zoomReset)`|Reset Zoom|`workbench.action.zoomReset`
-`kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
-`kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
-`kb(workbench.view.search)`|Show Search|`workbench.view.search`
-`kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
-`kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
-`kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
-`kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`
-`kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
-`kb(markdown.showPreview)`|Toggle Markdown Preview|`markdown.showPreview`
-`kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
-`kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
+Command|Key|Command id
+-------|---|----------
+Toggle Full Screen|`kb(workbench.action.toggleFullScreen)`|`workbench.action.toggleFullScreen`
+Toggle Zen Mode|`kb(workbench.action.toggleZenMode)`|`workbench.action.toggleZenMode`
+Leave Zen Mode|`kb(workbench.action.exitZenMode)`|`workbench.action.exitZenMode`
+Zoom in|`kb(workbench.action.zoomIn)`|`workbench.action.zoomIn`
+Zoom out|`kb(workbench.action.zoomOut)`|`workbench.action.zoomOut`
+Reset Zoom|`kb(workbench.action.zoomReset)`|`workbench.action.zoomReset`
+Toggle Sidebar Visibility|`kb(workbench.action.toggleSidebarVisibility)`|`workbench.action.toggleSidebarVisibility`
+Show Explorer / Toggle Focus|`kb(workbench.view.explorer)`|`workbench.view.explorer`
+Show Search|`kb(workbench.view.search)`|`workbench.view.search`
+Show Source Control|`kb(workbench.view.scm)`|`workbench.view.scm`
+Show Run|`kb(workbench.view.debug)`|`workbench.view.debug`
+Show Extensions|`kb(workbench.view.extensions)`|`workbench.view.extensions`
+Show Output|`kb(workbench.action.output.toggleOutput)`|`workbench.action.output.toggleOutput`
+Quick Open View|`kb(workbench.action.quickOpenView)`|`workbench.action.quickOpenView`
+Open New Command Prompt|`kb(workbench.action.terminal.openNativeConsole)`|`workbench.action.terminal.openNativeConsole`
+Toggle Markdown Preview|`kb(markdown.showPreview)`|`markdown.showPreview`
+Open Preview to the Side|`kb(markdown.showPreviewToSide)`|`markdown.showPreviewToSide`
+Toggle Integrated Terminal|`kb(workbench.action.terminal.toggleTerminal)`|`workbench.action.terminal.toggleTerminal`
 
 ### Search
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.view.search)`|Show Search|`workbench.view.search`
-`kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
-`kb(toggleSearchCaseSensitive)`|Toggle Match Case|`toggleSearchCaseSensitive`
-`kb(toggleSearchWholeWord)`|Toggle Match Whole Word|`toggleSearchWholeWord`
-`kb(toggleSearchRegex)`|Toggle Use Regular Expression|`toggleSearchRegex`
-`kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
-`kb(search.action.focusNextSearchResult)`|Focus Next Search Result|`search.action.focusNextSearchResult`
-`kb(search.action.focusPreviousSearchResult)`|Focus Previous Search Result|`search.action.focusPreviousSearchResult`
-`kb(history.showNext)`|Show Next Search Term|`history.showNext`
-`kb(history.showPrevious)`|Show Previous Search Term|`history.showPrevious`
+Command|Key|Command id
+-------|---|----------
+Show Search|`kb(workbench.view.search)`|`workbench.view.search`
+Replace in Files|`kb(workbench.action.replaceInFiles)`|`workbench.action.replaceInFiles`
+Toggle Match Case|`kb(toggleSearchCaseSensitive)`|`toggleSearchCaseSensitive`
+Toggle Match Whole Word|`kb(toggleSearchWholeWord)`|`toggleSearchWholeWord`
+Toggle Use Regular Expression|`kb(toggleSearchRegex)`|`toggleSearchRegex`
+Toggle Search Details|`kb(workbench.action.search.toggleQueryDetails)`|`workbench.action.search.toggleQueryDetails`
+Focus Next Search Result|`kb(search.action.focusNextSearchResult)`|`search.action.focusNextSearchResult`
+Focus Previous Search Result|`kb(search.action.focusPreviousSearchResult)`|`search.action.focusPreviousSearchResult`
+Show Next Search Term|`kb(history.showNext)`|`history.showNext`
+Show Previous Search Term|`kb(history.showPrevious)`|`history.showPrevious`
+
+### Search Editor
+
+Command|Key|Command id
+-------|---|----------
+Open Results In Editor|`kb(search.action.openInEditor)`|`search.action.openInEditor`
+Focus Search Editor Input|`kb(search.action.focusQueryEditorWidget)`|`search.action.focusQueryEditorWidget`
+Search Again|`kb(rerunSearchEditorSearch)`|`rerunSearchEditorSearch`
+Delete File Results|`kb(search.searchEditor.action.deleteFileResults)`|`search.searchEditor.action.deleteFileResults`
 
 ### Preferences
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.openSettings)`|Open Settings|`workbench.action.openSettings`
-`kb(workbench.action.openWorkspaceSettings)`|Open Workspace Settings|`workbench.action.openWorkspaceSettings`
-`kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
-`kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`
-`kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
-`kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
+Command|Key|Command id
+-------|---|----------
+Open Settings|`kb(workbench.action.openSettings)`|`workbench.action.openSettings`
+Open Workspace Settings|`kb(workbench.action.openWorkspaceSettings)`|`workbench.action.openWorkspaceSettings`
+Open Keyboard Shortcuts|`kb(workbench.action.openGlobalKeybindings)`|`workbench.action.openGlobalKeybindings`
+Open User Snippets|`kb(workbench.action.openSnippets)`|`workbench.action.openSnippets`
+Select Color Theme|`kb(workbench.action.selectTheme)`|`workbench.action.selectTheme`
+Configure Display Language|`kb(workbench.action.configureLocale)`|`workbench.action.configureLocale`
 
 ### Debug
 
-Key|Command|Command id
----|-------|----------
-`kb(editor.debug.action.toggleBreakpoint)`|Toggle Breakpoint|`editor.debug.action.toggleBreakpoint`
-`kb(workbench.action.debug.start)`|Start|`workbench.action.debug.start`
-`kb(workbench.action.debug.continue)`|Continue|`workbench.action.debug.continue`
-`kb(workbench.action.debug.run)`|Start (without debugging)|`workbench.action.debug.run`
-`kb(workbench.action.debug.pause)`|Pause|`workbench.action.debug.pause`
-`kb(workbench.action.debug.stepInto)`|Step Into|`workbench.action.debug.stepInto`
-`kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
-`kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
-`kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover`
+Command|Key|Command id
+-------|---|----------
+Toggle Breakpoint|`kb(editor.debug.action.toggleBreakpoint)`|`editor.debug.action.toggleBreakpoint`
+Start|`kb(workbench.action.debug.start)`|`workbench.action.debug.start`
+Continue|`kb(workbench.action.debug.continue)`|`workbench.action.debug.continue`
+Start (without debugging)|`kb(workbench.action.debug.run)`|`workbench.action.debug.run`
+Pause|`kb(workbench.action.debug.pause)`|`workbench.action.debug.pause`
+Step Into|`kb(workbench.action.debug.stepInto)`|`workbench.action.debug.stepInto`
 
 ### Tasks
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
-`kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
+Command|Key|Command id
+-------|---|----------
+Run Build Task|`kb(workbench.action.tasks.build)`|`workbench.action.tasks.build`
+Run Test Task|`kb(workbench.action.tasks.test)`|`workbench.action.tasks.test`
 
 ### Extensions
 
-Key|Command|Command id
----|-------|----------
-`kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
-`kb(workbench.extensions.action.showInstalledExtensions)`|Show Installed Extensions|`workbench.extensions.action.showInstalledExtensions`
-`kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
-`kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
-`kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
-`kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
+Command|Key|Command id
+-------|---|----------
+Install Extension|`kb(workbench.extensions.action.installExtension)`|`workbench.extensions.action.installExtension`
+Show Installed Extensions|`kb(workbench.extensions.action.showInstalledExtensions)`|`workbench.extensions.action.showInstalledExtensions`
+Show Outdated Extensions|`kb(workbench.extensions.action.listOutdatedExtensions)`|`workbench.extensions.action.listOutdatedExtensions`
+Show Recommended Extensions|`kb(workbench.extensions.action.showRecommendedExtensions)`|`workbench.extensions.action.showRecommendedExtensions`
+Show Popular Extensions|`kb(workbench.extensions.action.showPopularExtensions)`|`workbench.extensions.action.showPopularExtensions`
+Update All Extensions|`kb(workbench.extensions.action.updateAllExtensions)`|`workbench.extensions.action.updateAllExtensions`
 
 ## Next steps
 
@@ -593,11 +635,11 @@ Now that you know about our Key binding support, what's next...
 
 ### How can I find out what command is bound to a specific key?
 
-In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+In the **Keyboard Shortcut** editor, you can filter on specific keystrokes to see which commands are bound to which keys. Below you can see that `kbstyle(Ctrl+Shift+P)` is bound to **Show All Commands** to bring up the Command Palette.
 
-![Key bindings quick outline](images/keybinding/outline.png)
+![Key bindings quick outline](images/keybinding/filter-on-keys.png)
 
-### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
+### How to add a key binding to an action, for example, add Ctrl+D to Delete Lines
 
 Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
@@ -619,6 +661,6 @@ Use the `editorLangId` context key in your `when` clause:
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-### I have modified my key bindings in `keybindings.json`, why don't they work?
+### I have modified my key bindings in `keybindings.json`; why don't they work?
 
 The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.

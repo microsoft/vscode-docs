@@ -1,12 +1,11 @@
 ---
-Order: 10
+Order: 12
 Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
-MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
 # JavaScript extensions for VS Code
 
@@ -14,13 +13,13 @@ Visual Studio Code supports many features for JavaScript and Node.js development
 
 In addition, to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
 
-> **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-gallery.md).
+> **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-marketplace.md).
 
 ## Finding extensions
 
 You can find JavaScript extensions by typing `JavaScript` in the Extension view search bar. Alternatively, you can find JavaScript extensions using tags: "tag:javascript". Search for more extensions in VS Code or in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-<div class="marketplace-extensions-javascript"></div>
+<div class="marketplace-extensions-javascript-curated"></div>
 
 In addition you can search for `Node.js` extensions.
 
@@ -36,13 +35,25 @@ If you are just getting started, here are the extensions we recommend trying out
 
 Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-Publisher - [Dirk Baeumer](https://marketplace.visualstudio.com/search?term=publisher%3A%22Dirk%20Baeumer%22&target=VSCode)
+Publisher - [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft)
 
 Easily integrate [ESLint](https://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
-![eslint animation](images/extensions/eslint.gif)
+![ESLint animation](images/extensions/eslint.gif)
+
+### SonarLint
+
+Marketplace - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+
+Publisher - [SonarSource](https://marketplace.visualstudio.com/publishers/SonarSource)
+
+SonarLint helps you find and fix bugs and security issues as you code. The extension runs in the background and, just like a spell checker, highlights coding issues. SonarLint not only tells you what the issue is but also provides in-context guidance on why an issue is harmful and how to fix it, with related examples. The extension supports [200+ JS/TS rules](https://rules.sonarsource.com/javascript) and includes several [Quick Fixes](https://rules.sonarsource.com/javascript/quickfix) to automatically handle your coding issues.
+
+Search for 'SonarLint' in the VS Code Marketplace and install. No configuration is required. You can start with a default profile that fits most users and customize it based on your specific needs.
+
+![SonarLint animation](images/extensions/sonarlint.gif)
 
 ### JavaScript (ES6) code snippets
 
@@ -54,7 +65,7 @@ VS Code comes with many built-in code snippets. The **JavaScript (ES6) code snip
 
 ![javascript snippets](images/extensions/javascript_snippets.png)
 
-You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Downloads).
+You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Installs).
 
 ### npm IntelliSense
 
@@ -62,28 +73,6 @@ Marketplace - [npm IntelliSense](https://marketplace.visualstudio.com/items?item
 
 Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=publisher%3A%22Christian%20Kohler%22&target=VSCode)
 
-This extension provides IntelliSense for npm modules when using `require` or `import`.
+This extension provides IntelliSense for npm modules when using `import` or `require`.
 
 ![npm intellisense](images/extensions/npm_intellisense.gif)
-
-### Debugger for Chrome
-
-Marketplace - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-
-Publisher - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
-
-When you develop for the front end, you might not see the value of an integrated debugger in your editor. You use the browser's debugger right? This is where the Debugger for Chrome extension comes in. This extension lets you debug your JavaScript code in the Google Chrome browser, or any other targets that support the [Chrome Debugging Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/) while staying in VS Code. No more context switching to debug!
-
-Prefer to debug using a different browser? You can find extensions for [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
-
-![debugger for chrome image](images/extensions/chrome_debugger.png)
-
-### Document This
-
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-This extension will automatically generate detailed JSDoc comments for your code.
-
-![document this](images/extensions/document_this.gif)
