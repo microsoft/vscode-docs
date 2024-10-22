@@ -75,7 +75,7 @@ The following sections describe how to use each NuGet command, using both of the
 
 3. Next, choose which package you want to remove from the list of packages that are currently installed in your project.
 
-4. The C# Dev Kit then performs the necessary changes and updates your project file and references.
+4. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
 ## Dependency management
 
