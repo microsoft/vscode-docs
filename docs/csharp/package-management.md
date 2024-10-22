@@ -59,7 +59,7 @@ The following sections describe how to use each NuGet command, using both of the
 
 2. If you have more than one project in your solution, you are asked to select which project contains the package that you would like to update.
 
-3. Next, choose which package to update from the list of packages that are currently installed in your project and that have an update available. If no packages in your solution have an update available, you will see a message notifying you of this.
+3. Next, choose which package to update from the list of packages that are currently installed in your project and that have an update available. If no packages in your solution have an update available, you see a message notifying you of this.
 
 4. Finally, you can select which version you would like to update the package to from a dropdown list of available versions.
 
