@@ -5,14 +5,14 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 5/2/2019
+DateApproved: 10/03/2024
 ---
 # VS Code Remote Development
 
-Visual Studio Code Remote Development allows you to use a container, remote machine, or the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full-featured development environment. You can:
+**Visual Studio Code Remote Development** allows you to use a container, remote machine, or the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL) as a full-featured development environment. You can:
 
 - Develop on the **same operating system** you deploy to or use **larger or more specialized** hardware.
-- **Sandbox** your development environment to avoid impacting your local **machine configuration**.
+- **Separate** your development environment to avoid impacting your local **machine configuration**.
 - Make it easy for new contributors to **get started** and keep everyone on a **consistent environment**.
 - Use tools or runtimes **not available** on your local OS or manage **multiple versions** of them.
 - Develop your Linux-deployed applications using the **Windows Subsystem for Linux**.
@@ -27,16 +27,32 @@ Visual Studio Code Remote Development allows you to use a container, remote mach
 
 ### Remote Development extension pack
 
-The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes three extensions. See the following articles to get started with each of them:
+The [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) includes four extensions. See the following articles to get started with each of them:
 
 - [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
-- [Remote - Containers](/docs/remote/containers.md) - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
-- [Remote - WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+- [Dev Containers](/docs/devcontainers/containers.md) - Work with a separate toolchain or container-based application inside (or mounted into) a container.
+- [WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+- [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
+
+## Remote tutorials
+
+The tutorials below will walk you through running Visual Studio Code with the Remote Development extensions.
+
+Tutorial | Description
+--- | ---
+[Remote via SSH](/docs/remote/ssh-tutorial.md) | Connect to remote and virtual machines with Visual Studio Code via SSH.
+[Work in WSL](/docs/remote/wsl-tutorial.md) | Run Visual Studio Code in Windows Subsystem for Linux.
+[Develop in Containers](/docs/devcontainers/tutorial.md) | Run Visual Studio Code in a Docker Container.
+[GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) | Connect to a codespace with Visual Studio Code.
+
+## GitHub Codespaces
+
+[GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
 ## Questions or feedback
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md) or the [FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode).
+- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

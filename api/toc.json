@@ -9,17 +9,6 @@
     ]
   },
   {
-    "name": "Working With Extensions",
-    "area": "working-with-extensions",
-    "topics": [
-      ["Testing Extension", "/api/working-with-extensions/testing-extension"],
-      ["Publishing Extension", "/api/working-with-extensions/publishing-extension"],
-      ["Bundling Extension", "/api/working-with-extensions/bundling-extension"],
-      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
-      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
-    ]
-  },
-  {
     "name": "Extension Capabilities",
     "area": "extension-capabilities",
     "topics": [
@@ -36,14 +25,47 @@
       ["Overview", "/api/extension-guides/overview"],
       ["Command", "/api/extension-guides/command"],
       ["Color Theme", "/api/extension-guides/color-theme"],
-      ["Icon Theme", "/api/extension-guides/icon-theme"],
+      ["File Icon Theme", "/api/extension-guides/file-icon-theme"],
+      ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
+      ["Chat", "/api/extension-guides/chat"],
+      ["Chat Tutorial", "/api/extension-guides/chat-tutorial"],
+      ["Language Model", "/api/extension-guides/language-model"],
+      ["Language Model Tutorial", "/api/extension-guides/language-model-tutorial"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
+      ["Notebook", "/api/extension-guides/notebook"],
+      ["Custom Editors", "/api/extension-guides/custom-editors"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
+      ["Virtual Workspaces", "/api/extension-guides/virtual-workspaces"],
+      ["Web Extensions", "/api/extension-guides/web-extensions"],
+      ["Workspace Trust", "/api/extension-guides/workspace-trust"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
-      ["Markdown Extension", "/api/extension-guides/markdown-extension"]
+      ["Markdown Extension", "/api/extension-guides/markdown-extension"],
+      ["Test Extension", "/api/extension-guides/testing"],
+      ["Custom Data Extension", "/api/extension-guides/custom-data-extension"],
+      ["Telemetry", "/api/extension-guides/telemetry"]
+    ]
+  },
+  {
+    "name": "UX Guidelines",
+    "area": "ux-guidelines",
+    "topics": [
+      ["Overview", "/api/ux-guidelines/overview"],
+      ["Activity Bar", "/api/ux-guidelines/activity-bar"],
+      ["Sidebars", "/api/ux-guidelines/sidebars"],
+      ["Panel", "/api/ux-guidelines/panel"],
+      ["Status Bar", "/api/ux-guidelines/status-bar"],
+      ["Views", "/api/ux-guidelines/views"],
+      ["Editor Actions", "/api/ux-guidelines/editor-actions"],
+      ["Quick Picks", "/api/ux-guidelines/quick-picks"],
+      ["Command Palette", "/api/ux-guidelines/command-palette"],
+      ["Notifications", "/api/ux-guidelines/notifications"],
+      ["Webviews", "/api/ux-guidelines/webviews"],
+      ["Context Menus", "/api/ux-guidelines/context-menus"],
+      ["Walkthroughs", "/api/ux-guidelines/walkthroughs"],
+      ["Settings", "/api/ux-guidelines/settings"]
     ]
   },
   {
@@ -52,11 +74,24 @@
     "topics": [
       ["Overview", "/api/language-extensions/overview"],
       ["Syntax Highlight Guide", "/api/language-extensions/syntax-highlight-guide"],
+      ["Semantic Highlight Guide", "/api/language-extensions/semantic-highlight-guide"],
       ["Snippet Guide", "/api/language-extensions/snippet-guide"],
       ["Language Configuration Guide", "/api/language-extensions/language-configuration-guide"],
       ["Programmatic Language Features", "/api/language-extensions/programmatic-language-features"],
       // ["Smart Editing Guide", "/api/language-extensions/smart-editing-guide"],
-      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"]
+      ["Language Server Extension Guide", "/api/language-extensions/language-server-extension-guide"],
+      ["Embedded Languages", "/api/language-extensions/embedded-languages"]
+    ]
+  },
+  {
+    "name": "Testing and Publishing",
+    "area": "working-with-extensions",
+    "topics": [
+      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
+      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
+      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
+      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
+      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
     ]
   },
   {
@@ -64,9 +99,11 @@
     "area": "advanced-topics",
     "topics": [
       ["Extension Host", "/api/advanced-topics/extension-host"],
-      ["Remote Development", "/api/advanced-topics/remote-extensions"],
+      ["Remote Development and Codespaces", "/api/advanced-topics/remote-extensions"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
+      ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"],
+      ["Python Extension Template", "/api/advanced-topics/python-extension-template"]
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
       // ["Native Modules", "/api/advanced-topics/native-modules"],
       // ["Web Assembly", "/api/advanced-topics/web-assembly"],
@@ -81,9 +118,10 @@
       ["Contribution Points", "/api/references/contribution-points"],
       ["Activation Events", "/api/references/activation-events"],
       ["Extension Manifest", "/api/references/extension-manifest"],
-      ["Commands", "/api/references/commands"],
+      ["Built-in Commands", "/api/references/commands"],
+      ["When clause contexts", "/api/references/when-clause-contexts"],
       ["Theme Color", "/api/references/theme-color"],
-      ["Icons In Labels", "/api/references/icons-in-labels"],
+      ["Product Icon Reference", "/api/references/icons-in-labels"],
       ["Document Selector", "/api/references/document-selector"]
     ]
   }

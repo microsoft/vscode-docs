@@ -4,44 +4,54 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 5/2/2017
-MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
+DateApproved: 8/4/2023
+MetaDescription: Visual Studio Code as the editor for Unity
 ---
 # Unity Development with VS Code
 
-Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
+Visual Studio Code makes it easy to write and debug your C# scripts for Unity.
 
-![Unity Example](images/unity/wow.gif)
+[![Unity Overview](images/unity/unity-overview.png)](/assets/docs/other/unity/unity-overview.png)
+
+This guide will help you make Unity and Visual Studio Code work together. If you're looking for resources to learn C#, check out our C# curriculum.
+
+<a class="install-extension-btn" href="https://aka.ms/selfguidedcsharp">Learn C# Curriculum</a>
+
+If you're looking for resources to learn Unity, check out the learning section of the Unity website.
+
+<a class="install-extension-btn" href="https://unity.com/learn">Learn Unity</a>
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
-## Prerequisites
+## Install
 
-From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
+1. You will need at least [Unity](https://www.unity.com) 2021 installed.
 
-1. Install [.NET Core](https://dotnet.microsoft.com/download), which includes the `dotnet` command.
+1. If you haven't already done so, [install Visual Studio Code](https://code.visualstudio.com).
 
-1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
+1. Next, install the [Unity for Visual Studio Code](https://aka.ms/vscode-unity) extension from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The Unity extension is published by Microsoft.
 
-1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](http://www.mono-project.com/download/) release.
+Installing the Unity extension installs all its dependencies required to write [C#](/docs/languages/csharp.md) with Visual Studio Code, including the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit).
 
-   **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+## Set up Unity
 
-1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+### Update the Visual Studio Package
 
-## Setup VS Code as Unity Script Editor
+The Unity extension for Visual Studio Code depends on the `Visual Studio Editor` Unity Package. In Unity, open up **Windows**, **Packages**. Make sure the `Visual Studio Editor` package is upgraded to `2.0.20` or above.
 
-Open up **Unity Preferences**, **External Tools**, then browse for the Visual Studio Code executable as **External Script Editor**.
+![Unity Package Manager](images/unity/unity-packagemanager.png)
 
-![Unity Preferences](images/unity/Unity_Preferences_External_Script_Editor.gif)
+> **Note**: The `Visual Studio Code Editor` package published by Unity is a legacy package from Unity that is not maintained anymore.
 
-> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on macOS, `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code\Code.exe` on Windows by default.
+## Set VS Code as Unity's external editor
 
-**Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and macOS. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
+Open up **Unity Preferences**, **External Tools**, then select Visual Studio Code as **External Script Editor**.
+
+![Unity Preferences](images/unity/unity-externaltools.png)
 
 ## Editing Evolved
 
-With the solution file selected, you are now ready to start editing with VS Code. Here is a list of some of the things you can expect:
+You are now ready to start editing with Visual Studio Code. Double-clicking on a C# script in Unity will open Visual Studio Code. Here is a list of some of the things you can expect:
 
 * Syntax Highlighting
 * Bracket matching
@@ -54,88 +64,31 @@ With the solution file selected, you are now ready to start editing with VS Code
 * Go to symbol
 * Hover
 
-Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references and more.
+Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references, and more.
 
 ![editing evolved example](images/unity/peekreferences.png)
 
-## Unity Extensions
+## Debugging
 
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
+By default, your Unity project is setup with a debugger configuration to attach the Unity debugger to the Unity Editor instance opened on the project. Press `kb(workbench.action.debug.start)` to start a debugging session.
 
-<div class="marketplace-extensions-unity"></div>
+If you want to debug a Unity standalone player, the easiest way is to use the **Attach Unity Debugger** command.
 
-The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+Alternatively, you can modify the `.vscode/launch.json` file in your project and add a new debugger configuration for an IP endpoint you control:
 
-## Enabling code completion (For recent versions of Unity)
-
-If you are installing VS Code for the first time, you might be missing targeting packs required for Unity's code-completion (IntelliSense) in VS Code.
-
-Targeting pack download links:
-
-* [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/en-us/download/details.aspx?id=48136)
-* [macOS: Download .NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial#macos)
-
-Steps:
-
-1. Stop VS Code or Unity running.
-2. Download and install the targeting pack for your targeted framework version / preferred version from one of the above links.
-3. Start Unity.
-4. Create and/or open an existing script in VS Code, through Unity, and you should now see code completions.
+```json
+    {
+        "name": "Attach to Xbox",
+        "type": "vstuc",
+        "request": "attach",
+        "endPoint": "127.0.0.1:56321"
+    }
+```
 
 ## Next steps
 
 Read on to learn more about:
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - how to use the debugger with your project
-* [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
-
-## Common questions
-
-### I don't have IntelliSense
-
-You need to ensure that your solution is open in VS Code (not just a single file).  Open the folder with your solution and you usually will not need to do anything else.  If for some reason VS Code has not selected the right solution context, you can change the selected project by clicking on the OmniSharp flame icon on the status bar.
-
-![OmniSharp Flame on the Status Bar](images/unity/omnisharp.png)
-
-Choose the `-CSharp` version of the solution file and VS Code will light up.
-
-![Choose Solution](images/unity/selectsln.png)
-
-### How can I change the file exclusions?
-
-Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
-
-To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
-
-```json
-    // Configure glob patterns for excluding files and folders.
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/*.meta": true,
-        "**/*.*.meta": true,
-        "**/*.unity": true,
-        "**/*.unityproj": true,
-        "**/*.mat": true,
-        "**/*.fbx": true,
-        "**/*.FBX": true,
-        "**/*.tga": true,
-        "**/*.cubemap": true,
-        "**/*.prefab": true,
-        "**/Library": true,
-        "**/ProjectSettings": true,
-        "**/Temp": true
-    }
-```
-
-As you can see below this will clean things up a lot...
-
-Before|After
-------|-----
-![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
-
-### How can I debug Unity?
-
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.
+* [C#](/docs/languages/csharp.md) - Learn about the C# support in Visual Studio Code.

@@ -2,14 +2,14 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
 
 Our docs contain a **Common questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues on GitHub](https://github.com/microsoft/vscode/issues) and our [release notes](/updates).
 
 ## What is the difference between Visual Studio Code and Visual Studio IDE?
 
@@ -17,17 +17,119 @@ Visual Studio Code is a streamlined code editor with support for development ope
 
 ## Which OSs are supported?
 
-VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements) for the supported versions. You can find more platform specific details under [SETUP](/docs/setup/setup-overview.md).
+VS Code runs on macOS, Linux, and Windows. See the [Requirements documentation](requirements) for the supported versions. You can find more platform specific details in the [Setup overview](/docs/setup/setup-overview.md).
 
 ## Is VS Code free?
 
-Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license).
+Yes, VS Code is free for private or commercial use. See the [product license](https://code.visualstudio.com/license) for details.
 
-## Report an issue with a VS Code extension
+## How to disable telemetry reporting
 
-For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-## How do I find the VS Code version?
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+
+From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
+
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+
+### How to disable experiments
+
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/getstarted/settings.md) to `false`.
+
+From **File** > **Preferences** > **Settings**, search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
+
+## How to disable crash reporting
+
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+
+If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+
+From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events including crash reporting from VS Code. You will need to restart VS Code for the setting change to take effect.
+
+## GDPR and VS Code
+
+Now that the General Data Protection Regulation (GDPR) is in effect, we want to take this opportunity to reiterate that we take privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
+
+To support GDPR:
+
+* The VS Code product notifies all users that they can opt out of telemetry collection.
+* The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
+* There are valid data retention policies in place for any data collected, for example crash dumps.
+
+You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
+
+## What online services does VS Code use?
+
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
+
+You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
+
+## How do I opt out of VS Code auto-updates?
+
+By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the **Update: Mode** setting from `default` to `none`.
+
+To modify the update mode, go to **File** > **Preferences** > **Settings**, search for `update mode` and change the setting to `none`.
+
+If you use the JSON editor for your settings, add the following line:
+
+```json
+    "update.mode": "none"
+```
+
+You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific [release notes](/updates) page.
+
+>**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
+
+### Opt out of extension updates
+
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+
+If you use the JSON editor to modify your settings, add the following line:
+
+```json
+    "extensions.autoUpdate": false
+```
+
+## Licensing
+
+### Location
+
+You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by language ID are under `resources\app\licenses`.
+
+### Why does Visual Studio Code have a different license than the vscode GitHub repository?
+
+To learn why Visual Studio Code, the product, has a different license than the open-source [vscode GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+
+### What is the difference between the `vscode` repository and the Microsoft Visual Studio Code distribution?
+
+The [github.com/microsoft/vscode](https://github.com/microsoft/vscode) repository (`Code - OSS`) is where we develop the Visual Studio Code product. Not only do we write code and work on issues there, we also publish our roadmap and monthly iteration and endgame plans. The source code is available to everyone under a standard [MIT license](https://github.com/microsoft/vscode/blob/main/LICENSE.txt).
+
+Visual Studio Code is a distribution of the `Code - OSS` repository with Microsoft specific customizations (including source code), released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
+
+See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article for more details.
+
+### What does "Built on Open Source" mean?
+
+[Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
+
+### How do I find the license for an extension?
+
+Most extensions link to their license on their Marketplace page or in the overview section, when you select an extension in the Extensions view.
+
+For example:
+
+![Extensions view details license link](images/faq/extensions-view-license-link.png)
+
+If you don't find a link to the license, you may find a license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
+
+## Are all VS Code extensions open source?
+
+Extension authors are free to choose a license that fits their business needs. While many extension authors have opted to release their source code under an open-source license, some extensions like [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode), [Google Cloud Code](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode), and the [VS Code Remote Development extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) use proprietary licenses.
+
+At Microsoft, we open source our extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
+
+## How do I find the version?
 
 You can find the VS Code version information in the About dialog box.
 
@@ -37,45 +139,145 @@ On Windows and Linux, go to **Help** > **About**.
 
 The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.27.0'.
 
-## How do I opt out of VS Code auto-updates?
+## Previous release versions
 
-By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the **Update: Mode** setting from `default` to `none`.
+You can find links to some release downloads at the top of a version's release notes:
 
-To modify the update mode, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `update mode` and change the setting to `none`.
+![Download links in release notes](images/faq/links-release-notes.png)
 
-If you use the JSON editor for your settings, add the following line:
+If you need a type of installation not listed there, you can manually download via the following URLs:
 
-```json
-    "update.mode": "none"
+Download type | URL
+--- | ---
+Windows x64 System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
+Windows x64 User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
+Windows x64 zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
+Windows x64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-x64/stable
+Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
+Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
+Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
+Windows Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-win32-arm64/stable
+macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
+macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
+macOS Intel chip CLI | https://update.code.visualstudio.com/{version}/cli-darwin-x64/stable
+macOS Apple silicon | https://update.code.visualstudio.com/{version}/darwin-arm64/stable
+macOS Apple silicon CLI | https://update.code.visualstudio.com/{version}/cli-darwin-arm64/stable
+Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
+Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
+Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
+Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux x64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-x64/stable
+Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
+Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
+Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux Arm32 CLI | https://update.code.visualstudio.com/{version}/cli-linux-armhf/stable
+Linux Arm64  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
+Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
+Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
+Linux Arm64 CLI | https://update.code.visualstudio.com/{version}/cli-linux-arm64/stable
+
+Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm64 debian version for 1.83.1, you would use
+
+```bash
+https://update.code.visualstudio.com/1.83.1/linux-deb-arm64/stable
 ```
 
-You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
+You can use the version string `latest`, if you'd like to always download the latest VS Code stable version.
 
->**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
+### Windows 32-bit versions
+
+Windows x86 32-bit versions are no longer actively supported after release 1.83 and could pose a security risk.
+
+Download type | URL
+--- | ---
+Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
+Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
+Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+Windows x86 CLI | https://update.code.visualstudio.com/{version}/cli-win32-ia32/stable
+
+## Prerelease versions
+
+Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations, and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
+
+To install the Insiders build, go to the [Insiders download page](/insiders).
+
+## Where can I find the Visual Studio Code icons?
+
+**Are there guidelines for using the icons and names?**
+
+You can download the official Visual Studio Code icons and read the usage guidelines at [Icons and names usage guidelines](/brand).
+
+## What is a VS Code "workspace"?
+
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
+
+You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
 
 ## Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
-## Licensing
+## Report an issue with a VS Code extension
 
-### Location
+For bugs, feature requests or to contact an extension author, you should use the links available in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have [an email alias to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
-You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by Language ID are under `resources\app\licenses`.
+## Installation appears to be corrupt [Unsupported]
 
-### Why does Visual Studio Code have a different license than the vscode GitHub repository?
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
 
-To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
-## Can I run prerelease versions of VS Code?
+## Resolving shell environment fails
 
-Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
+*This section applies to macOS and Linux environments only.*
 
-To install the Insiders build, go to the Insiders [download page](/insiders).
+When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
+
+However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
+
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+
+![Shell environment startup error](images/faq/shell-env-error.png)
+
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness. You can also increase the timeout by configuring the `application.shellEnvironmentResolutionTimeout` setting. But keep in mind that increasing this value means you will have to wait longer to use some of the features in VS Code, such as extensions.
+
+If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
+
+### Investigate slow shell initialization
+
+The process outlined below may help you identify which parts of your shell initialization are taking the most time:
+
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open (`kb(workbench.action.quickOpen)`)).
+* Selectively comment out potentially long running operations (such as `nvm` if you find that).
+* Save and fully restart VS Code.
+* Continue commenting out operations until the error disappears.
+
+>**Note**: While `nvm` is a powerful and useful Node.js package manager, it can cause slow shell startup times, if being run during shell initialization. You might consider package manager alternatives such as [asdf](https://asdf-vm.com) or search on the internet for `nvm` performance suggestions.
+
+### Launch VS Code from a terminal
+
+If modifying your shell environment isn't practical, you can avoid VS Code's resolving shell environment phase by launching VS Code directly from a fully initialized terminal.
+
+* Typing `code` from an open terminal will launch VS Code with your last workspace.
+* Typing `code .` will launch VS Code open to the current folder.
+
+## VS Code is blank?
+
+The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command-line switch.
+
+```bash
+code --disable-gpu
+```
+
+If this happened after an update, deleting the `GPUCache` directory can resolve the issue.
+
+```bash
+rm -r ~/.config/Code/GPUCache
+```
 
 ## VS Code gets unresponsive right after opening a folder
 
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
 
 ```json
     "files.exclude": {
@@ -83,124 +285,28 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
-## VS Code is blank?
+## Can I run VS Code on older Windows versions?
 
-The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command line switch.
+Microsoft ended support and is no longer providing security updates for [Windows 7](https://learn.microsoft.com/lifecycle/products/windows-7), [Windows 8, and Windows 8.1](https://learn.microsoft.com/en-us/lifecycle/announcements/windows-8-1-end-support-january-2023). VS Code desktop versions starting with 1.71 (August 2022) no longer run on Windows 7 and starting with 1.80 (June 2023) will no longer run on Windows 8 and 8.1. You will need to upgrade to a newer Windows version to use later versions of VS Code.
 
-```bash
-code --disable-gpu
-```
+VS Code will no longer provide product updates or security fixes on old Windows versions. VS Code [version 1.70.3](https://code.visualstudio.com/updates/v1_70) is the last available release for Windows 7 users and version 1.79 will be the last available release for Windows 8 and 8.1 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
 
-## Blurriness on macOS Mojave
+Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004. The last stable VS Code version to support Windows 32-bit is 1.83 (September 2023). You will need to update to the 64-bit release.
 
-If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
+## Can I run VS Code on old macOS versions?
 
-A workaround for this is to run:
+VS Code desktop version starting with 1.83 (September 2023) is deprecating support for macOS Mojave (version 10.14 and older). Starting with VS Code 1.86 (January 2024), we will stop updating VS Code on macOS Mojave (version 10.14 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
 
-```bash
-defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled -bool NO
-```
+VS Code will no longer provide product updates or security fixes on macOS Mojave (versions 10.14 and older) and VS Code version 1.85 will be the last available release for macOS Mojave (10.14 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
-from a terminal followed by restarting your computer.
+## Can I run VS Code on older Linux distributions?
 
-Note that this change is global for every application and not specific to VS Code. See [issue 51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
+Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 
-## Installation appears to be corrupt [Unsupported]
-
-VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
-
-## GDPR and VS Code
-
-As the General Data Protection Regulation comes into effect, we want to take this opportunity to reiterate that we take privacy very seriously.  That's both for Microsoft as a company and specifically within the VS Code team.
-
-VS Code does collect telemetry data which we use to help understand how to improve the product.  For example, it helps debug issues such as slow start-up times and prioritize features.  While we appreciate this insight, we also know that not everyone wants to send this data, so we continue to offer the ability to disable telemetry as outlined [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
-
-In preparation for GDPR, we have made several updates to VS Code, these include:
-
-* Making it easier to opt out of telemetry collection by placing a notification in product for all existing and new users.
-* Reviewing and classifying the telemetry that we send (which is documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
-* Ensuring that we have valid data retention policies in place for any data we do collect, for example crash dumps.
-
-In short, we have worked hard to do the right thing, for all users, as these practices apply to all geographies, not just Europe.
-
-One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have is a 'sign-in' experience that would uniquely identify a user.  We do send information which helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC) but this is not guaranteed to be unique. For example, VM's often rotate NIC ID's or allocate from a pool.  This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
-
-In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do send to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
-
-You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
-
-## How to disable telemetry reporting
-
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
-
-If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
-
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableTelemetry` and uncheck the setting. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
-
-If you use the JSON editor for your settings, add the following line:
-
-```json
-    "telemetry.enableTelemetry": false
-```
-
-You can inspect telemetry events in the Output panel by setting the log level to **Trace** using **Developer: Set Log Level** from the Command Palette.
-
-> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
-
-## How to disable crash reporting
-
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
-
-If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` setting to `false`.
-
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry.enableCrashReporter` and uncheck the setting.
-
-If you use the JSON editor for your settings, add the following line:
-
-```json
-    "telemetry.enableCrashReporter": false
-```
-
-> **Important Notice**: This option requires a restart of VS Code to take effect.
-
-## Managing online services
-
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within Settings. You can choose to turn on/off features that use these services.
-
-Please note, that turning off these features does not put VS Code into offline mode. If, for example, you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
-
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and search for `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
-
-> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
-
-## What non-Microsoft online services does VS Code talk to
-
-The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
-
-The built-in **TypeScript and JavaScript Language Features** extension queries the `@types` domain at `https://registry.npmjs.org`.
-
-When you use **Developer: Toggle Developer Tools** or **Developer: Open Webview Developer Tools**, VS Code may talk to Google servers to fetch data needed to launch Developer Tools.
-
-## Do you send all my information to a recommendation service?
-
-VS Code provides extension recommendations based on your file types, your workspace, and your environment. File type recommendations are either precomputed or dynamic. Workspace and environment recommendations are always precomputed.
-
-If you want to know why an extension is being recommended, open the extension's detail page. You can find the recommendation reason in the page header.
-
-### Dynamic recommendations
-
-When you open a file type for which VS Code does not have any precomputed recommendation, it asks the extension Marketplace for extensions that declare that they support this file type. If the query returns extensions you don't have installed, VS Code tells you about it.
-
-### Precomputed recommendations
-
-VS Code collects telemetry about which extensions are being activated for what file types and what workspaces/folders. We identify folders by computing a hash of each of the folder's Git remotes.
-
-We use this information to precompute anonymous recommendations. Precomputed recommendations are instructions that spell out under which conditions an extension should be recommended. For example, when we see an interesting co-relation between two extensions A and B, one instruction might be: Recommend extension B if the user has installed extension A but not B.
-
-Some precomputed recommendations are shipped as part of the product while additional precomputed recommendations are fetched at runtime from an online Microsoft service. VS Code independently evaluates and executes precomputed recommendations without sending any user information to any online service.
+If you are unable to upgrade your Linux distribution, the recommended alternative is to use our [web client](/docs/editor/vscode-web.md). If you would like to use the desktop version, then you can download the VS Code release 1.85 from [here](https://code.visualstudio.com/updates/v1_85). Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with [Portable Mode](/docs/editor/portable.md).
 
 ## Technical Support
 
-You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/Microsoft/vscode/blob/master/CONTRIBUTING.md).
+You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/issues).
 
-If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/assistedsupportproducts).
+If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/oas/default.aspx?prid=16064).

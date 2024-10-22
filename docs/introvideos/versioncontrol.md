@@ -1,31 +1,64 @@
 ---
 Order:
 Area: introvideos
-TOCTitle: Git Version Control
+TOCTitle: Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-PageTitle: Git Version Control in Visual Studio Code
-DateApproved: 8/5/2016
+PageTitle: Version control in Visual Studio Code
+DateApproved: 5/31/2022
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
-MetaSocialImage: images/opengraph/introvideos.png
+MetaSocialImage: images/opengraph/introvideos-social.png
 ---
-# Git Version Control in VS Code
+# Version control in VS Code
 
-In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code.
+In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
-<iframe src="https://www.youtube.com/embed/AKNYgP0yEOY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with Visual Studio Code"></iframe>
 
-## Outline
+Here's the next video we recommend: [Customize](/docs/introvideos/customize.md)
 
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+
+## Video outline
+
+* Install Git
+  * [https://git-scm.com](https://git-scm.com)
+* Open Folder
+  * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* Source Control
+  * **View** > **Source Control (SCM)** (`kb(workbench.view.scm)`)
+* Initialize repository
+  * `main` is the default branch
+* Open the Command Palette.
+  * **View** > **Command Palette** (`kb(workbench.action.showCommands)`)
+* Rename a branch
+  * **Git: Rename Branch**
+* File version control status
+  * **U** - Untracked file
+  * **A** - Added file
+  * **M** - Modified file
+* Commit file
+  * **Commit** ☑️(check mark) button
 * Create a branch
-* Change branches
-* View diffs between two files
-* Stage and clean changes
-* Undo a commit
-* Publish to a remote branch
-* Push commits
-* View git commands in Git output
+  * **Git: Create Branch**
+* Diff editor
+  * **Inline View** button
+* Stage changes
+  * **Stage Changes** ➕ button
+* Switch branches
+  * Status bar branch item (lower left)
+* Merge branch
+  * **Views and More Actions** (**...**) > **Branch** > **Merge Branch**
+* Publish branch to GitHub
+* Clone repository
+  * **Git: Clone** > **Clone from URL**
 
-## Learn More
+## Next video
 
-* [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support.
+* [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
+
+## Related resources
+
+* [Source Control](/docs/sourcecontrol/overview.md) - Read more about integrated Git support.
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Create and manage GitHub issues and pull requests.
 * [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

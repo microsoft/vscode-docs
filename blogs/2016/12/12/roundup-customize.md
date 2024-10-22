@@ -1,5 +1,5 @@
 ---
-Order: 22
+Order:
 TOCTitle: Customize VS Code Extension Roundup
 PageTitle: Customize Visual Studio Code Extension Roundup
 MetaDescription: Extensions to customize Visual Studio Code.
@@ -43,7 +43,7 @@ Some of my favorite themes are:
 
 Want to create your own theme? See the [documentation](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesthemes) to get started.
 
-VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_select-an-icon-theme) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
+VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_file-icon-themes) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
 
 Here are two File Icon themes I really like:
 
@@ -54,13 +54,7 @@ Here are two File Icon themes I really like:
 
 ## Snippets Aplenty
 
-Do you use snippets while writing code? Many snippets come built into VS Code and are shown in the IntelliSense suggest window while you type.
-
-<video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
-</video>
-
-When you start using a new library or framework, check the Marketplace to see if there is a snippet pack for it. There are snippet packs for many popular JavaScript frameworks.
+Do you use snippets while writing code? Many snippets come built into VS Code and are shown in the IntelliSense suggest window while you type. When you start using a new library or framework, check the Marketplace to see if there is a snippet pack for it. There are snippet packs for many popular JavaScript frameworks.
 
 - [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets) from [William Whitehead](https://marketplace.visualstudio.com/search?term=publisher%3A%22William%20Whitehead%22&target=VSCode&sortBy=Relevance)
 - [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2) from [John Papa](https://marketplace.visualstudio.com/search?term=publisher%3A%22johnpapa%22&target=VSCode&sortBy=Relevance)
@@ -71,19 +65,12 @@ Many language extensions come with snippets included.
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Power Shell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) from [Peng Lv](https://marketplace.visualstudio.com/search?term=publisher%3A%22Peng%20Lv%22&target=VSCode&sortBy=Relevance)
-- [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Elm](https://marketplace.visualstudio.com/items?itemName=sbrink.elm) from [Sascha Brink](https://marketplace.visualstudio.com/search?term=publisher%3A%22Sascha%20Brink%22&target=VSCode&sortBy=Relevance)
 
 Want to make your own snippet pack? See the documentation for [how to create a snippet pack extension](https://code.visualstudio.com/docs/extensionAPI/language-support#_source-code-snippets).
 
 > **Tip:** You can search for extensions by category or tag in the Extensions view search box, using "category:{category name}" or "tag:{tag name}".
 
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter!](https://twitter.com/waderyan_).
-
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)
-
-
-

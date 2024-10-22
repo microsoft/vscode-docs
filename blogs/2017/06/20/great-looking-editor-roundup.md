@@ -1,5 +1,5 @@
 ---
-Order: 29
+Order:
 TOCTitle: Fresh Paint
 PageTitle: Fresh Paint - Give Visual Studio Code a New Look
 MetaDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more.
@@ -13,7 +13,7 @@ June 20, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 Having a great looking editor is a necessity for any full-time developer. We spend a lot of time in our editor and we like to keep things fresh and interesting!
 
-Visual Studio Code supports a lot of customizations, in particular the look of your environment. In this blog, we're going to look at [Color Themes](/docs/getstarted/themes.md), [File Icon Themes](/docs/getstarted/themes.md#icon-themes), and other [settings](/docs/getstarted/settings.md) to change the look and feel of the code editor.
+Visual Studio Code supports a lot of customizations, in particular the look of your environment. In this blog, we're going to look at [Color Themes](/docs/getstarted/themes.md), [File Icon Themes](/docs/getstarted/themes.md#file-icon-themes), and other [settings](/docs/getstarted/settings.md) to change the look and feel of the code editor.
 
 ## Color Themes
 
@@ -62,10 +62,6 @@ Just as with Color Themes, there are many popular File Icon Themes in the [Marke
 There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures, where two characters are combined into a single expressive character. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You must have a font installed that supports font ligatures, such as [Fira Code](https://github.com/tonsky/FiraCode).
 
 ![font ligatures](font-ligatures-annotated.png)
-
-## How do you make your editor look good?
-
-What do you do to make your editor look good? Ping me on [Twitter](https://twitter.com/waderyan_) and I'd love to share your tips in a future blog post.
 
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)

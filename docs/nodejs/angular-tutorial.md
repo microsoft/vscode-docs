@@ -3,20 +3,22 @@ Order: 6
 Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
-PageTitle: Angular JavaScript Tutorial in Visual Studio Code
-DateApproved: 4/4/2019
-MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+PageTitle: Angular TypeScript Tutorial in Visual Studio Code
+DateApproved: 10/03/2024
+MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
+[Angular](https://angular.io/) is a popular web development platform developed and maintained by Google. Angular uses [TypeScript](/docs/languages/typescript.md) as its main programming language. The Visual Studio Code editor supports TypeScript IntelliSense and code navigation out of the box, so you can do Angular development without installing any other extension.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
+>**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
+
 ## Welcome to Angular
 
-We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
+We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [Node.js downloads](https://nodejs.org/en/download/).
 
 >**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
@@ -32,7 +34,7 @@ This may take a few minutes to install. You can now create a new Angular applica
 ng new my-app
 ```
 
-`my-app` is the name of the folder for your application. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
+`my-app` is the name of the folder for your application. The `ng new` command prompts you with options for the generated application. Accept the defaults by pressing the `kbstyle(Enter)` key. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
 
 Let's quickly run our Angular application by navigating to the new folder and typing `ng serve` to start the web server and open the application in a browser:
 
@@ -52,7 +54,7 @@ code .
 
 ### Syntax highlighting and bracket matching
 
-Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parenthesis, the matching bracket is also selected.
 
 ![angular bracket matching](images/angular/bracket-matching.png)
 
@@ -70,7 +72,7 @@ You can click the information button (`i`) to see a flyout with more documentati
 
 ![angular intellisense](images/angular/intellisense.png)
 
-VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 ### Go to Definition, Peek definition
 
@@ -80,7 +82,7 @@ Through the TypeScript language service, VS Code can also provide type definitio
 
 Press `kbstyle(Escape)` to close the Peek window.
 
-## Hello World!
+## Hello World
 
 Let's update the sample application to "Hello World". Go back to the `app.component.ts` file and change the `title` string in `AppComponent` to "Hello World".
 
@@ -105,15 +107,9 @@ Once you save the `app.component.ts` file, the running instance of the server wi
 
 ## Debugging Angular
 
-To debug the client side Angular code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+To debug the client side Angular code, we'll use the built-in JavaScript debugger.
 
->Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
-
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome' in the search box. You'll see several extensions which reference Chrome.
-
-![debugger for chrome](images/reactjs/debugger-for-chrome.png)
-
-Press the **Install** button for **Debugger for Chrome**.
+>Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
 
 ### Set a breakpoint
 
@@ -121,9 +117,9 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ![set a breakpoint](images/angular/breakpoint.png)
 
-### Configure the Chrome debugger
+### Configure the debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
@@ -132,9 +128,9 @@ We need to make one change for our example: change the port of the `url` from `8
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "msedge",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Edge against localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
         }
@@ -150,9 +146,17 @@ You can step through your source code (`kb(workbench.action.debug.stepOver)`), i
 
 ![debug variable](images/angular/debug-variable.png)
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
+For more information about the debugger and its available options, check out our documentation on [browser debugging](/docs/nodejs/browser-debugging.md).
 
-![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+## Angular profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/angular/profile-template-dropdown.png)
+
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Popular Starter Kits
 
@@ -160,19 +164,19 @@ In this tutorial, we used the Angular CLI to create a simple Angular application
 
 ### Recipes
 
-The VS Code team has created [recipes](https://github.com/Microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+The VS Code team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
-If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.IO](http://mean.io/). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.JS](https://meanjs.org). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
 
 ### React
 
-[React](https://facebook.github.io/react/) is another popular web framework. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+[React](https://reactjs.org) is a library for building user interfaces and it is more minimal than angular. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the JavaScript debugger.
 
 ## Angular Extensions
 
-In addition to the functionality VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+In addition to the features VS Code provides out of the box, you can install VS Code extensions for greater functionality.
 
 <div class="marketplace-extensions-angular-curated"></div>
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -19,9 +19,9 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 - Word pattern
 - Indentation Rules
 
-Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
+Here is a [Language Configuration sample](https://github.com/microsoft/vscode-extension-samples/tree/main/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
 
-**Note: If your language configuration file name is or ends with `language-configuration.json`, you will get auto-completion and validation in VS Code.**
+**Note: If your language configuration file name is or ends with `language-configuration.json`, you will get autocompletion and validation in VS Code.**
 
 ```json
 {
@@ -57,7 +57,7 @@ Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-ex
   "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)",
   "indentationRules": {
     "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
-    "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\}\\]].*$"
+    "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\)\\}\\]].*$"
   }
 }
 ```
@@ -91,6 +91,7 @@ Moreover, when you run **Go to Bracket** or **Select to Bracket**, VS Code will 
 
 When you type `'`, VS Code creates a pair of single quotes and puts your cursor in the middle: `'|'`. This section defines such pairs.
 
+
 ```json
 {
   "autoClosingPairs": [
@@ -113,6 +114,14 @@ The `notIn` key disables this feature in certain code ranges. For example, when 
 ```
 
 The single quote will not be autoclosed.
+
+Pairs that do not require a `notIn` property can also use a simpler syntax:
+```json
+{
+  "autoClosingPairs": [ ["{", "}"], ["[", "]"] ]
+}
+```
+
 
 Users can tweak the autoclosing behavior with the `editor.autoClosingQuotes` and `editor.autoClosingBrackets` settings.
 
@@ -158,10 +167,12 @@ Users can tweak the autosurrounding behavior with the `editor.autoSurround` sett
 
 ## Folding
 
-In VS Code, there are three kinds of folding:
+In VS Code, folding is defined either indentation-based, or defined by contributed folding range providers:
 
-- Indentation based folding: This is VS Code's default folding behavior. When it sees two lines of the same indentation level, it creates a folding marker that allows you to collapse that region.
-- Language configuration folding: When VS Code finds both the `start` and `end` regex defined in `folding.markers`, it creates a folding marker enclosing the content inside the pair. The following JSON creates folding markers for `//#region` and `//#endregion`.
+- Indentation-based folding with markers: If no folding range provider is available for the given language or if the user has set `editor.foldingStrategy` to `indentation`, indentation-based folding is used. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent. Empty lines are ignored.
+Additionally, the language configuration can define start and end markers. These are defined as `start` and `end` regexes in `folding.markers`. When matching lines are found, a folding range inside the pair is created. Folding markers must be non-empty and typically look like `//#region` and `//#endregion`.
+
+The following JSON creates folding markers for `//#region` and `//#endregion`.
 
 ```json
 {
@@ -178,7 +189,7 @@ In VS Code, there are three kinds of folding:
 
 ## Word Pattern
 
-`wordPattern` defines what's considered as a word in the programming language. So when you use word related commands, like **Move cursor to word start** (`kb(cursorWordStartLeft)`) or **Move cursor to word end** (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
+`wordPattern` defines what's considered as a word in the programming language. Code suggestion features will use this setting to determine word boundaries if `wordPattern` is set. Note this setting won't affect word-related editor commands, which are controlled by the editor setting `editor.wordSeparators`.
 
 ```json
 {
@@ -199,13 +210,47 @@ In VS Code, there are three kinds of folding:
 }
 ```
 
-For example, `if (true) {` matches `increasedIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
+For example, `if (true) {` matches `increaseIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {
-	console.log();
+  console.log();
 ```
 
-If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type an closing bracket. The _bracket_ here is defined by `brackets`.
+In addition to `increaseIndentPattern` and `decreaseIndentPatter`, there are two other indentation rules:
+
+- `indentNextLinePattern` - If a line matches this pattern, then **only the next line** after it should be indented once.
+- `unIndentedLinePattern` - If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.
+
+If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The bracket here is defined by `brackets`.
 
 Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeFormattingEditProvider`](/api/references/vscode-api#DocumentRangeFormattingEditProvider) and not affected by auto indentation.
+
+## On Enter Rules
+
+`onEnterRules` defines a list of rules that will be evaluated when `kbstyle(Enter)` is pressed in the editor.
+
+```json
+{
+  "onEnterRules": [{
+    "beforeText": "^\\s*(?:def|class|for|if|elif|else|while|try|with|finally|except|async).*?:\\s*$",
+    "action": { "indent": "indent" }
+  }]
+}
+```
+
+When pressing `kbstyle(Enter)`, the text before, after, or one line above the cursor is checked against the following properties:
+
+- `beforeText` (mandatory). A regular expression that matches the text before the cursor (limited to the current line).
+- `afterText`. A regular expression that matches the text after the cursor (limited to the current line).
+- `previousLineText`. A regular expression that matches the text one line above the cursor.
+
+If all the specified properties match, the rule is considered to match and no further `onEnterRules` will be evaluated. An `onEnterRule` can specify the following actions:
+
+- `indent` (mandatory). One of `none, indent, outdent, indentOutdent`.
+  - `none` means that the new line will inherit the indentation of the current line.
+  - `indent` means that the new line will be indented relative to the current line.
+  - `outdent` means that the new line will be unindented relative to the current line.
+  - `indentOutdent` means that two new lines will be inserted, one indented and the second one outdented.
+- `appendText`. A string that will be appended after the new line and after the indentation.
+- `removeText`. The number of characters to remove from the new line's indentation.

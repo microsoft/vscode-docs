@@ -25,7 +25,7 @@ VS Code was initially built for developers creating web apps using JavaScript an
 
 And we have strived to make VS Code 1.0 a great editor for every developer. VS Code is now fully localizable, and ships in 9 different languages, including French, German, Japanese, and Chinese. And, we have worked to make VS Code the most accessible of modern editors, with full keyboard navigation and support for screen reading and accessible navigation for visually impaired developers.
 
-We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/Microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
+We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
 
 ![installs graphic](installs.png)
 
@@ -43,19 +43,19 @@ Of course, to build the editor we needed a development tool. Developers know tha
 
 But we strived to go further. We wanted to build a native development tool that developers could install and use anywhere, for any source code. And, from our experience, we believed that it was important to not just have an editor, but one that could help developers accomplish their most common tasks: navigating code, debugging, and working with Git.  And, so, Visual Studio Code was born.
 
-Being built on web technologies made it easy to host the tool in a native cross-platform shell. We decided early on to use, and contribute to, a number of open source technologies – including GitHub’s great Electron shell, which combines web and native UI with a Node.js API. In just a few short months, we were able to release the [first preview](https://blogs.msdn.microsoft.com/somasegar/2015/04/29/introducing-visual-studio-code-visual-studio-2015-rc-application-insights-public-preview-and-net-core-preview-for-linux-and-ma) of Visual Studio Code at //build/ 2015.
+Being built on web technologies made it easy to host the tool in a native cross-platform shell. We decided early on to use, and contribute to, a number of open-source technologies – including GitHub’s great Electron shell, which combines web and native UI with a Node.js API. In just a few short months, we were able to release the [first preview](https://blogs.msdn.microsoft.com/somasegar/2015/04/29/introducing-visual-studio-code-visual-studio-2015-rc-application-insights-public-preview-and-net-core-preview-for-linux-and-ma) of Visual Studio Code at //build/ 2015.
 
 The initial response to a code editor running on OS X, Windows, and Linux was overwhelmingly positive, even with two fundamental gaps in the offering – extensibility and open development.
 
 Keeping our principle of using VS Code the way our customers do, we decided that the best way to deliver a rich and stable API was to build VS Code using the same API we would expose to extension developers. In fact, the core language services for JavaScript and TypeScript are actually extensions that just happen to be bundled with the distribution. Today, we use VS Code to build and debug VS Code, its extensions, and Node-based services. The same rich TypeScript editing, navigation, and debugging experiences we enjoy when building VS Code are available to everyone developing an extension for VS Code. Six months after our initial preview release, we declared VS Code to be Beta quality at Connect(); 2015, with a full extensibility model, and support in the new Visual Studio Marketplace.
 
-And at the same time, we open-sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
+And at the same time, we open sourced the VS Code [repository](https://github.com/microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
 
 ![timeline graphic](timeline.png)
 
 ## Being "1.0"
 
-Today, Visual Studio Code delivers on many of the aspects that we imagined during incubation. VS Code has great editing and navigation [experiences](/docs/editor/editingevolved), streamlined [debugging](/docs/editor/debugging), and built-in [Git support](/docs/editor/versioncontrol).
+Today, Visual Studio Code delivers on many of the aspects that we imagined during incubation. VS Code has great editing and navigation [experiences](/docs/editor/editingevolved), streamlined [debugging](/docs/editor/debugging), and built-in [Git support](/docs/sourcecontrol/overview).
 
 Developers today love VS Code for its powerful set of built-in features, intuitive editing and debugging experiences, performance and responsiveness, and great language and platform support. The VS Code download is under 40MB including support for 9 additional [languages](/docs/getstarted/locales) (Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish) and it installs in seconds.  With the help of developers like [@zersiax](https://twitter.com/zersiax), VS Code is now [accessible](/docs/editor/accessibility) to visually impaired developers on Windows and soon on OS X and Linux.
 

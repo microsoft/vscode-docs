@@ -6,25 +6,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-docs.git"
+    "url": "https://github.com/microsoft/vscode-docs.git"
   },
   "scripts": {
-    "check-lfs": "node ./build/check-lfs.js"
+    "check-lfs": "node ./build/check-lfs.js",
+    "lint": "eslint **/*.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
-    "shelljs": "^0.7.8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "eslint-plugin-security": "^1.7.1",
+    "gulp": "~5.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.3",
+    "shelljs": "^0.8.5"
   },
   "lint-staged": {
-    "*.{gif,mp4,jpg,png}": [
-      "yarn check-lfs"
+    "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
+      "npm run check-lfs"
     ]
   }
 }

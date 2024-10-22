@@ -1,5 +1,5 @@
 ---
-Order: 38
+Order:
 TOCTitle: Settings Search
 PageTitle: Bing-powered settings search in VS Code
 MetaDescription: Improving settings search in VS Code with Bing
@@ -51,7 +51,7 @@ During each build, VS Code starts up in a mode where it writes all of its config
 
 `123000832` is a unique build number, computed from the product version plus the number of Git commits since the previous release. `c1cd4378...` is the Git commit id that the build was built off of. And `ticino`, some of you diehard fans might remember, was our original short-lived code name.
 
-Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
+Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code Extension Marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
 
 This entire process is fully automated and constantly updates the indexed settings in real-time for each of our stable release builds and our daily Insiders builds. Within minutes of the completion of a build, Bing's index has been updated to include any newly added settings.
 
@@ -61,7 +61,7 @@ Users sometimes search with words that are different but equivalent to the words
 
 **2. Stemmer and Speller Pipeline**
 
-We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service, extracted from the full-fledged services that are used on Bing.com, which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting".
+We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service, extracted from the full-fledged services that are used on [Bing.com](https://www.bing.com), which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting".
 
 **3. Natural Language Processing (NLP) Pipeline**
 
@@ -82,7 +82,7 @@ Failure in the gating module will prevent an index ingestion and notifies the te
 
 ### Search Service
 
-Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a lookup in the index, applies manual ranking overrides in some cases, and returns them to the VS Code client.
+Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a lookup in the index, applies manual ranking overrides in some cases, and returns them to the VS Code client.
 
 ## Putting it all together
 

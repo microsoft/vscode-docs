@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 4/4/2019
+DateApproved: 10/03/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -13,9 +13,19 @@ The webview API allows extensions to create fully customizable views within Visu
 
 Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicates with extensions using message passing. This freedom makes webviews incredibly powerful, and opens up a whole new range of extension possibilities.
 
+Webviews are used in several VS Code APIs:
+
+- With Webview Panels created using `createWebviewPanel`. In this case, Webview panels are shown in VS Code as distinct editors. This makes them useful for displaying custom UI and custom visualizations.
+- As the view for a [custom editor](/api/extension-guides/custom-editors). Custom editors allow extensions to provide a custom UI for editing any file in the workspace. The custom editor API also lets your extension hook into editor events such as undo and redo, as well as file events such as save.
+- In [Webview views](/api/references/vscode-api#WebviewView) that are rendered in the sidebar or panel areas. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample) for more details.
+
+This page focuses on the basic webview panel API, although almost everything covered here applies to the webviews used in custom editors and webview views as well. Even if you are more interested in those APIs, we recommend reading through this page first to familiarize yourself with the webview basics.
+
 ## Links
 
-- [Webview Sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+- [Webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
+- [Custom Editors documentation](/api/extension-guides/custom-editors)
+- [Webview View sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 
 ### VS Code API Usage
 
@@ -40,7 +50,7 @@ Remember: Just because you can do something with webviews, doesn't mean you shou
 
 To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
 
 ```json
 {
@@ -49,10 +59,10 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
   "version": "0.0.1",
   "publisher": "bierner",
   "engines": {
-    "vscode": "^1.23.0"
+    "vscode": "^1.74.0"
   },
-  "activationEvents": ["onCommand:catCoding.start"],
-  "main": "./out/src/extension",
+  "activationEvents": [],
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -76,6 +86,8 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
   }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onCommand:catCoding.start` in `activationEvents`.
 
 Now let's implement the `catCoding.start` command. In our extension's main file, we register the `catCoding.start` command and use it to show a basic webview:
 
@@ -267,9 +279,9 @@ export function activate(context: vscode.ExtensionContext) {
         {}
       );
 
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
-      // After 5sec, pragmatically close the webview panel
+      // After 5sec, programmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
 
       panel.onDidDispose(
@@ -301,7 +313,7 @@ Let's update our extension to only allow a single webview to exist at a time. If
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
-  // Track currently webview panel
+  // Track the current panel with a webview
   let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
   context.subscriptions.push(
@@ -318,10 +330,10 @@ export function activate(context: vscode.ExtensionContext) {
         currentPanel = vscode.window.createWebviewPanel(
           'catCoding',
           'Cat Coding',
-          columnToShowIn,
+          columnToShowIn || vscode.ViewColumn.One,
           {}
         );
-        currentPanel.webview.html = getWebviewContent(cats['Coding Cat']);
+        currentPanel.webview.html = getWebviewContent('Coding Cat');
 
         // Reset when the current panel is closed
         currentPanel.onDidDispose(
@@ -359,7 +371,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {}
       );
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // Update contents based on view state changes
       panel.onDidChangeViewState(
@@ -388,7 +400,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof cats) {
   panel.title = catName;
-  panel.webview.html = getWebviewContent(cats[catName]);
+  panel.webview.html = getWebviewContent(catName);
 }
 ```
 
@@ -396,15 +408,23 @@ function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof c
 
 ### Inspecting and debugging webviews
 
-The **Developer: Open Webview Developer Tools** VS Code command lets you debug webviews. Running the command launches an instance of Developer Tools for any currently visible webviews:
+The **Developer: Toggle Developer Tools** command opens a [Developer Tools](https://developer.chrome.com/docs/devtools/) window that you can use debug and inspect your webviews.
 
-![Webview Developer Tools](images/webview/basics-developer_tools.png)
+![The developer tools](images/webview/developer-overview.png)
 
-The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
+Note that if you are using a version of VS Code older than 1.56, or if you are trying to debug a webview that sets `enableFindWidget`, you must instead use the **Developer: Open Webview Developer Tools** command. This command opens a dedicated Developer Tools page for each webview instead of using a Developer Tools page that is shared by all webviews and the editor itself.
 
-If you use the webview Developer Tools console, make sure to select the **active frame** environment from the drop-down in the top left corner of the Console panel:
+From the Developer Tools, you can start inspecting the contents of your webview using the inspect tool located in the top left corner of the Developer Tools window:
 
-![Selecting the active frame](images/webview/debug-active-frame.png)
+![Inspecting a webview using the developer tools](images/webview/developer-inspect.png)
+
+You can also view all of the errors and logs from your webview in the developer tools console:
+
+![The developer tools console](images/webview/developer-console.png)
+
+To evaluate an expression in the context of your webview, make sure to select the **active frame** environment from the dropdown in the top left corner of the Developer tools console panel:
+
+![Selecting the active frame](images/webview/developer-active-frame.png)
 
 The **active frame** environment is where the webview scripts themselves are executed.
 
@@ -412,15 +432,12 @@ In addition, the **Developer: Reload Webview** command reloads all active webvie
 
 ## Loading local content
 
-Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `vscode-resource:` scheme inside the webview.
+Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `Webview.asWebviewUri` function to convert a local `file:` URI into a special URI that VS Code can use to load a subset of local resources.
 
-The `vscode-resource:` scheme is similar to the `file:` scheme, but it only allows access to select local files. Like with `file:`, `vscode-resource:` loads a resource at a given absolute path from the disk.
-
-Imagine that we want to start bundling the cat gifs into our extension rather pulling them from Giphy. To do this, we first create a URI to the file on disk and then update this URI to use the `vscode-resource` scheme:
+Imagine that we want to start bundling the cat gifs into our extension rather than pulling them from Giphy. To do this, we first create a URI to the file on disk and then pass these URIs through the `asWebviewUri` function:
 
 ```ts
 import * as vscode from 'vscode';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -433,41 +450,56 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       // Get path to resource on disk
-      const onDiskPath = vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')
-      );
+      const onDiskPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif');
 
       // And get the special URI to use with the webview
-      const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+      const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 
       panel.webview.html = getWebviewContent(catGifSrc);
     })
   );
 }
+
+function getWebviewContent(catGifSrc: vscode.Uri) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Coding</title>
+</head>
+<body>
+    <img src="${catGifSrc}" width="300" />
+</body>
+</html>`;
+}
 ```
 
-The value for `catGifSrc` will be something like:
+If we debug this code, we'd see that the actual value for `catGifSrc` is something like:
 
-```bash
+```
 vscode-resource:/Users/toonces/projects/vscode-cat-coding/media/cat.gif
 ```
 
-By default, `vscode-resource:` can only access resources in the following locations:
+VS Code understands this special URI and will use it to load our gif from the disk!
+
+By default, webviews can only access resources in the following locations:
 
 - Within your extension's install directory.
 - Within the user's currently active workspace.
+
+Use the `WebviewOptions.localResourceRoots` to allow access to additional local resources.
 
 You can also always use data URIs to embed resources directly within the webview.
 
 ### Controlling access to local resources
 
-Webviews can control which resources `vscode-resource:` can load using the `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
+Webviews can control which resources can be loaded from the user's machine with `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
 
 We can use `localResourceRoots` to restrict **Cat Coding** webviews to only load resources from a `media` directory in our extension:
 
 ```ts
 import * as vscode from 'vscode';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -478,14 +510,12 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Only allow the webview to access resources in our extension's media directory
-          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+          localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')]
         }
       );
 
-      const onDiskPath = vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')
-      );
-      const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+      const onDiskPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif');
+      const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 
       panel.webview.html = getWebviewContent(catGifSrc);
     })
@@ -495,7 +525,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 To disallow all local resources, just set `localResourceRoots` to `[]`.
 
-In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `vscode-resource` and `localResourceRoots` do not offer complete security protection on their own. Make sure your webview also follows [security best practices](#security), and strongly consider adding a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
+In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `localResourceRoots` does not offer complete security protection on its own. Make sure your webview also follows [security best practices](#security), and add a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
 
 ### Theming webview content
 
@@ -531,13 +561,110 @@ code {
 }
 ```
 
-Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables.
+Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables. [An extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense suggestions for the variables.
 
 The following font related variables are also defined:
 
 - `--vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
-- `--vscode-editor-font-size` - Editor font size (from the `editor.fontWeight` setting).
+- `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
+
+Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a data attribute called `vscode-theme-id` that stores the ID of the currently active theme. This lets you write theme-specific CSS for webviews:
+
+```css
+body[data-vscode-theme-id="One Dark Pro"] {
+    background: hotpink;
+}
+```
+
+### Supported media formats
+
+Webviews support audio and video, however not every media codec or media file container type is supported.
+
+The following audio formats can be used in Webviews:
+
+- Wav
+- Mp3
+- Ogg
+- Flac
+
+The following video formats can be used in webviews:
+
+- H.264
+- VP8
+
+For video files, make sure that both the video and audio track's media formats are supported. Many `.mp4` files for example use `H.264` for video and `AAC` audio. VS Code will be able to play the video part of the `mp4`, but since `AAC` audio is not supported there won't be any sound. Instead you need to use `mp3` for the audio track.
+
+### Context menus
+
+Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
+
+To add a new context menu item to your webview, first add a new entry in `menus` under the new `webview/context` section. Each contribution takes a `command` (which is also where the item's title comes from) and a `when` clause. The [when clause](/api/references/when-clause-contexts) should include `webviewId == 'YOUR_WEBVIEW_VIEW_TYPE'` to make sure the context menus only apply to your extension's webviews:
+
+```json
+"contributes": {
+  "menus": {
+    "webview/context": [
+      {
+        "command": "catCoding.yarn",
+        "when": "webviewId == 'catCoding'"
+      },
+      {
+        "command": "catCoding.insertLion",
+        "when": "webviewId == 'catCoding' && webviewSection == 'editor'"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "command": "catCoding.yarn",
+      "title": "Yarn 🧶",
+      "category": "Cat Coding"
+    },
+    {
+      "command": "catCoding.insertLion",
+      "title": "Insert 🦁",
+      "category": "Cat Coding"
+    },
+    ...
+  ]
+}
+```
+
+Inside of the webview, you can also set the contexts for specific areas of the HTML using the `data-vscode-context` [data attribute](https://developer.mozilla.org/docs/Learn/HTML/Howto/Use_data_attributes) (or in JavaScript with `dataset.vscodeContext`). The `data-vscode-context` value is a JSON object that specifies the contexts to set when the user right-clicks on the element. The final context is determined by going from the document root to the element that was clicked.
+
+Consider this HTML for example:
+
+```html
+<div class="main" data-vscode-context='{"webviewSection": "main", "mouseCount": 4}'>
+  <h1>Cat Coding</h1>
+
+  <textarea data-vscode-context='{"webviewSection": "editor", "preventDefaultContextMenuItems": true}'></textarea>
+</div>
+```
+
+If the user right-clicks on the `textarea`, the following contexts will be set:
+
+* `webviewSection == 'editor'` - This overrides `webviewSection` from the parent element.
+* `mouseCount == 4` - This is inherited from the parent element.
+* `preventDefaultContextMenuItems == true` - This is a special context that hides the copy and paste entries that VS Code normally adds to webview context menus.
+
+If the user right-clicks inside of the `<textarea>`, they will see:
+
+![Custom context menus showing in a webview](images/webview/webview-context-menus.png)
+
+Sometimes it can be useful to show a menu on left/primary click. For example, to show a menu on a split button. You can do this by dispatching the `contextmenu` event in an `onClick` event:
+
+```html
+<button data-vscode-context='{"preventDefaultContextMenuItems": true }' onClick='((e) => {
+        e.preventDefault();
+        e.target.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, clientX: e.clientX, clientY: e.clientY }));
+        e.stopPropagation();
+    })(event)'>Create</button>
+```
+
+![Split button with a menu](images/webview/webview-split-button-menu.png)
+
 
 ## Scripts and message passing
 
@@ -690,7 +817,7 @@ function getWebviewContent() {
 
 ### Passing messages from a webview to an extension
 
-Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that wish to use it.
+Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that need to use it.
 
 We can use the VS Code API and `postMessage` in our **Cat Coding** webview to alert the extension when our cat introduces a bug in their code:
 
@@ -763,11 +890,53 @@ function getWebviewContent() {
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
 
-For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global state.
+For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
+
+### Using Web Workers
+
+[Web Workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers) are supported inside of webviews but there are a few important restrictions to be aware of.
+
+First off, workers can only be loaded using either a `data:` or `blob:` URI. You cannot directly load a worker from your extension's folder.
+
+If you do need to load worker code from a JavaScript file in your extension, try using `fetch`:
+
+```js
+const workerSource = 'absolute/path/to/worker.js';
+
+fetch(workerSource)
+  .then(result => result.blob())
+  .then(blob => {
+    const blobUrl = URL.createObjectURL(blob)
+    new Worker(blobUrl);
+  });
+```
+
+Worker scripts also do not support importing source code using `importScripts` or `import(...)`. If your worker loads code dynamically, try using a bundler such as [webpack](https://webpack.js.org) to package the worker script into a single file.
+
+With `webpack`, you can use `LimitChunkCountPlugin` to force the compiled worker JavaScript to be a single file:
+
+```js
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  target: 'webworker',
+  entry: './worker/src/index.js',
+  output: {
+    filename: 'worker.js',
+    path: path.resolve(__dirname, 'media'),
+  },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
+  ],
+};
+```
 
 ## Security
 
-As with any webpage, when creating a webview you must follow some basic security best practices.
+As with any webpage, when creating a webview, you must follow some basic security best practices.
 
 ### Limit capabilities
 
@@ -775,7 +944,7 @@ A webview should have the minimum set of capabilities that it needs. For example
 
 ### Content security policy
 
-[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. For example, a content security policy can make sure that only a whitelist of scripts can be run in the webview, or even tell the webview to only load images over `https`.
+[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. For example, a content security policy can make sure that only a list of allowed scripts can be run in the webview, or even tell the webview to only load images over `https`.
 
 To add a content security policy, put a `<meta http-equiv="Content-Security-Policy">` directive at the top of the webview's `<head>`
 
@@ -804,9 +973,11 @@ The policy `default-src 'none';` disallows all content. We can then turn back on
 ```html
 <meta
   http-equiv="Content-Security-Policy"
-  content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;"
+  content="default-src 'none'; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
 />
 ```
+
+The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample) for a complete example of how to use this value.
 
 This content security policy also implicitly disables inline scripts and styles. It is a best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 
@@ -836,7 +1007,7 @@ The best way to solve this is to make your webview stateless. Use [message passi
 
 ### getState and setState
 
-Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
+Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even after the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
 
 ```js
 // Inside a webview script
@@ -950,11 +1121,15 @@ function getWebviewContent() {
 }
 ```
 
-![persistence retrain](images/webview/persistence-retrain.gif)
+![retainContextWhenHidden demo](images/webview/retainContextWhenHidden.gif)
 
-Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content are suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to a hidden webview, even when `retainContextWhenHidden` is enabled.
+Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content keep running even when the tab is not active or visible. You can also send messages to a hidden webview when `retainContextWhenHidden` is enabled.
 
 Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
+
+## Accessibility
+
+The class `vscode-using-screen-reader` will be added to your webview's main body in contexts where the user is operating VS Code with a screen reader. Additionally, the class `vscode-reduce-motion` will be added to the document's main body element in cases where the user has expressed a preference to reduce the amount of motion in the window. By observing these classes and adjusting your rendering accordingly, your webview content can better reflect the user's preferences.
 
 ## Next steps
 

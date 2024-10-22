@@ -1,90 +1,105 @@
 ---
-Order: 11
+Order: 12
 Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 03/07/2019
-MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
+DateApproved: 10/03/2024
+MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
 
-Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent IDE, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
+Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent Python editor, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Tutorial</a>
 
 ## Install Python and the Python extension
 
-The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.6 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
+>**Note**: To help get you started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
 
-You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
+
+You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
+
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Run Python code
 
-To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
+To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code:
 
 ```python
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python code in the currently selected interpreter (**Python: Select Interpreter** in the Command Palette):
+The Python extension then provides shortcuts to run Python code using the currently selected interpreter (**Python: Select Interpreter** in the Command Palette). To run the active Python file, click the **Run Python File** play button in the top-right side of the editor.
 
-- In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
-- In Explorer: right-click a Python file and select **Run Python File in Terminal**.
+![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also use the **Terminal: Create New Integrated Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, Smart Send will send the smallest runnable block of code around the line where your cursor is placed to the Python Terminal on (`kbstyle(Shift+Enter)`). An identical **Run Python > Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed. The same terminal is also used for **Run Python File in Terminal**. If that terminal is still running the REPL, you should exit the REPL (`exit()`) or switch to a different terminal before running a Python file.
 
-For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
+The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left as needed.
+
+The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start Terminal REPL** command that activates a terminal with the currently selected interpreter and then runs the Python REPL.
+
+For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md).
 
 ## Autocomplete and IntelliSense
 
 The Python extension supports code completion and IntelliSense using the currently selected interpreter. [IntelliSense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
-IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`. You can also hover over identifiers for more information about them.
+IntelliSense quickly shows methods, class members, and documentation as you type. You can also trigger completions at any time with `kb(editor.action.triggerSuggest)`. Hovering over identifiers will show more information about them.
 
 ![IntelliSense and autocomplete for Python code](images/python/python-editing.gif)
 
-> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+[![GitHub Copilot extension in the VS Code Marketplace](images/python/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+
+GitHub Copilot provides suggestions for languages beyond Python and a wide variety of frameworks, including JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
 ## Linting
 
 Linting analyzes your Python code for potential errors, making it easy to navigate to and correct different problems.
 
-The Python extension can apply a number of different linters including Pylint, Pep8, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
+The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
-<video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python linting video">
+  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4">
+</video>
 
 ## Debugging
 
-No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console as you run your program step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
+No more `print` statement debugging! VS Code comes with great debugging support for Python via the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), allowing you to set breakpoints, inspect variables, and use the debug console for an in-depth look at how your program is executing step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
 
-For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
+For more specific information on debugging in Python, such as configuring your `launch.json` settings and implementing remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md).
 
-<video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials provide examples of how to implement debugging in the context of web applications, including debugging Django templates.
 
-## Snippets
-
-Snippets take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`. For specific examples with Python, see the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
-
-<video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python debugging video">
+  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4">
+</video>
 
 ## Environments
 
-The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md). You can also use the `python.pythonPath` setting to point to an interpreter anywhere on your computer.
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
-The current environment is shown on the left side of the VS Code Status Bar:
+The current environment is shown on the right side of the VS Code Status Bar:
 
-![Selected Python interpreter in the Status Bar](images/python/selected-interpreter-status-bar.png)
+![Status Bar showing a selected interpreter](../python/images/shared/environment-in-status-bar.png)
 
 The Status Bar also indicates if no interpreter is selected:
 
 ![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
 
-The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
+The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature. It is also activated when you run or debug Python in a terminal, or when you create a new terminal with the **Terminal: Create New Terminal** command.
 
 To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 
@@ -92,37 +107,43 @@ To change the current interpreter, which includes switching to conda or virtual 
 
 VS Code prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Configuring Python environments](/docs/python/environments.md)).
 
-### Installing packages
-
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies. Examples are given in the [Python tutorial](/docs/python/python-tutorial.md#install-and-use-packages) as well as the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
-
 ## Jupyter notebooks
 
-If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
+
+![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
+
+You can also convert and open the notebook as a Python code file through the **Jupyter: Export to Python Script** command. The notebook's cells are delimited in the Python file with `#%%` comments, and the Jupyter extension shows **Run Cell** or **Run Below** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-You can also connect to a remote Jupyter server for running the code.
+You can also connect to a remote Jupyter server to run your notebooks. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
 
-Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## Testing
 
-For more information, see [Jupyter support](/docs/python/jupyter-support.md).
+The Python extension supports [testing](/docs/python/testing.md) with Python's built-in unittest framework and pytest.
 
-## Unit testing
+In order to run tests, you must enable one of the supported testing frameworks in the settings of your project. Each framework has its own specific settings, such as arguments for identifying the paths and patterns for test discovery.
 
-The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, pytest, and nose test frameworks.
-
-To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
-
-Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
+Once the tests have been discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests. These commands also allow you to run individual test files and methods
 
 ## Configuration
 
-The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
+The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Testing](/docs/python/testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
+
+## Python profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/python/profile-template-dropdown.png)
+
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Other popular Python extensions
 
-The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
+The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 1. Filter the extension list by typing 'python'.

@@ -1,0 +1,16 @@
+{
+  "tool": "Credential Scanner",
+  "suppressions": [
+    {
+      "file": [
+        "dist/server/views/raw/v1_51.md",
+        "dist/server/views/raw/v1_8.md",
+        "release-notes/v1_51.md",
+        "release-notes/v1_8.md",
+        "docs/nodejs/nodejs-debugging.md",
+        "docs/python/environments.md"
+      ],
+      "_justification": "These are not real passwords. For documentation purposes only."
+    }
+  ]
+}

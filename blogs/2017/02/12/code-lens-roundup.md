@@ -1,5 +1,5 @@
 ---
-Order: 25
+Order:
 TOCTitle: Extensions using CodeLens
 PageTitle: Visual Studio Code Extensions using CodeLens
 MetaDescription: Visual Studio Code Extensions using CodeLens
@@ -100,10 +100,6 @@ Author - [Microsoft DevLabs](https://marketplace.visualstudio.com/search?term=pu
 Sometimes when I'm making an extension, I think it would be great to see how the extension will look in the Marketplace before publishing. The Extension Manifest Editor allows you to preview your extension's Marketplace presentation within VS Code.
 
 ![manifest preview](manifest_preview.gif)
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on Twitter!
 
 Wade Anderson, VS Code Team Member 
 [@waderyan_](https://twitter.com/waderyan_)
