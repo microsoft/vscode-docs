@@ -91,6 +91,6 @@ For projects that use `<PackageReference>`, you can see the package references i
 
 Packages that don't install properly when a restore happens or when you run a build, will show error icons in **Solution Explorer**.
 
-**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code. 
+**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code.
 
 For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).
