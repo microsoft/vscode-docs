@@ -33,7 +33,6 @@ Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App 
 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [ChatParticipant API](/api/references/vscode-api#chat)
-- [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
 
 ## Parts of the chat user experience
 
@@ -64,7 +63,6 @@ You can further expand the functionality of the chat extension with the followin
 
 - Register chat commands to provide users with a shorthand notation for common questions
 - Define suggested follow-up questions to help the user continue a conversation
-- Define chat variables to capture and share domain-specific context in chat conversations
 
 As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
 
@@ -412,46 +410,6 @@ The following list provides the output types for a chat response in the Chat vie
 
 > **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved.md#outgoing-link-protection).
 
-## Variables
-
-> **Note:** The Variables API is still in a proposed state and we are actively working on it.
-
-Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp` that would get resolved based on the state of the language service - what C++ version is used and what C++ programming approach is preferred.
-
-Users can refer to a chat variable in a prompt by using the `#` symbol. A variable is resolved by either the chat extension that contributed that variable, or by VS Code when it's a built-in variable (for example, `#file` or `#selection`). VS Code offers the list of registered variables upon typing the `#` symbol in the chat input.
-
-![List of variables in chat](images/chat/variables.png)
-
-Variables are resolved independently of the active chat participant. This means that you can use them as a mechanism to share context between different participants. For example, `@workspace` already maintains an index of the current workspace and contributes a variable `#codebase`. Users can include this variable in a prompt to pass the codebase context to another chat participant.
-
-Variables and their values are passed as an object bag to the handler in `request.variables`. The prompt contains variable references as entered by the user and it is up to the participant to further modify the prompt, for instance by inlining variable values or creating links to headings which contain the resolved values. Variables are sorted in reverse order by their appearance in the prompt. That means that the last variable in the prompt is the first in this list. This simplifies string-manipulation of the prompt.
-
-Variable resolvers can offer multiple length levels for the variable value. VS Code selects one based on how many tokens are left in a language model prompt.
-
-```typescript
-vscode.chat.registerVariable('cat_context', 'Describes the state of mind and version of the cat', {
-    resolve: (name, context, token) => {
-        if (name == 'cat_context') {
-            const mood = Math.random() > 0.5 ? 'happy' : 'grumpy';
-            return [
-                {
-                    level: vscode.ChatVariableLevel.Short,
-                    value: 'version 1.3 ' + mood
-                },
-                {
-                    level: vscode.ChatVariableLevel.Medium,
-                    value: 'I am a playful cat, version 1.3, and I am ' + mood
-                },
-                {
-                    level: vscode.ChatVariableLevel.Full,
-                    value: 'I am a playful cat, version 1.3, this version prefer to explain everything using mouse and tail metaphors. I am ' + mood
-                }
-            ]
-        }
-    }
-});
-```
-
 ## Measuring success
 
 We recommend that you measure the success of your participant by adding telemetry logging for `Unhelpful` user feedback events, and for the total number of requests that your participant handled. An initial participant success metric can then be defined as: `unhelpful_feedback_count / total_requests`.
@@ -495,11 +453,11 @@ When referring to your chat participant in any of the user-facing elements, such
 
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
 
-It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including instructions to the language model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
+It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including instructions to the language model. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
 
 For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
-- Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
+- Contribute tools that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` tool to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
 - Contribute smart actions that use the language model, optionally in combination with traditional language service knowledge, to deliver a great user experience. For example, C++ might already offer an "extract to method" smart action that uses the language model to generate a fitting default name for the new method.
 
 Chat extensions should explicitly ask for user consent if they are about to do a costly operation or are about to edit or delete something that can't be undone. To have a great user experience, we discourage extensions from contributing multiple chat participants. Up to one chat participant per extension is a simple model that scales well in the UI.
