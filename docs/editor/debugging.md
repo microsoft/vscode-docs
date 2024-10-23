@@ -144,7 +144,7 @@ In addition, the **debug status** appears in the Status Bar showing the active d
 
 ## Debug actions
 
-Once a debug session starts, the **Debug toolbar** will appear on the top of the editor.
+Once a debug session starts, the **Debug toolbar** will appear on the top of the window.
 
 ![Debug Actions](images/debugging/toolbar.png)
 
@@ -157,7 +157,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 | Restart <br> `kb(workbench.action.debug.restart)`           | Terminate the current program execution and start debugging again using the current run configuration.                                                             |
 | Stop <br> `kb(workbench.action.debug.stop)`                 | Terminate the current program execution.                                                                                                                            |
 
->**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
+>**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area with a limited maximum distance to top edge.
 
 ### Run mode
 
