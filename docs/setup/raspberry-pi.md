@@ -50,10 +50,11 @@ VS Code is supported on these Raspberry Pi models running a 32-bit or 64-bit ver
 * Raspberry Pi 3 Model B/B+
 * Raspberry Pi 4 Model B
 * Raspberry Pi 400
+* Raspberry Pi Zero 2W
 
 While 1 GB of memory (RAM) meets the minimum system requirements, users will benefit from installing VS Code on a Raspberry Pi 4 with more memory.
 
-First-generation Raspberry Pi modules and Raspberry Pi Zero are not supported as they only include an ARMv6 CPU.
+First-generation Raspberry Pi modules and the first Raspberry Pi Zero are not supported as they only include an ARMv6 CPU.
 
 ### Workaround for poor performance
 
