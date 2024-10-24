@@ -39,17 +39,13 @@ The following image shows the Explorer view in the Primary Side Bar and the Copi
 
 ![Explorer view in the Primary Side Bar and Copilot Chat view in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
 
-You have different options to display the Secondary Side Bar:
+To show the Secondary Side Bar, you can use the layout controls in the VS Code title bar. If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
 
-* Use the layout controls in the VS Code title bar
+![Title bar buttons to toggle main UI elements, with hover on Toggle Secondary Side Bar.](images/custom-layout/toggle-secondary-side-bar.png)
 
-    ![Title bar buttons to toggle main UI elements, with hover on Toggle Secondary Side Bar.](images/custom-layout/toggle-secondary-side-bar.png)
-
-    > [!TIP]
-    > If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
+Alternatively, you can also open the Secondary Side Bar as follows:
 
 * Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
-
 * Use the **View** > **Appearance** > **Secondary Side Bar** menu item
 
 At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
