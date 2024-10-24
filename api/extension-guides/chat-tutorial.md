@@ -388,12 +388,12 @@ Now you can type `/exercise`, which will bring up your chat participant, and you
 
 ## Next steps
 
-Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
+Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
 You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-tutorial).
 
 ## Related content
 
-- [Chat API extension guide](/api/extension-guides/chat.md)
-- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial.md)
-- [Language Model API extension guide](/api/extension-guides/language-model.md)
+- [Chat API extension guide](/api/extension-guides/chat)
+- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial)
+- [Language Model API extension guide](/api/extension-guides/language-model)

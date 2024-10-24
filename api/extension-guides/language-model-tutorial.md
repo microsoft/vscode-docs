@@ -9,7 +9,7 @@ MetaDescription: Tutorial that walks you through creating a VS Code extension th
 
 # Tutorial: Generate AI-powered code annotations by using the Language Model API
 
-In this tutorial, You'll learn how to create a VS extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
+In this tutorial, You'll learn how to create a VS Code extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
 
 ![VS Code displaying custom annotations from GitHub Copilot as annotations](./images/lm-api/code-tutor-annotations-gif.gif)
 
@@ -327,12 +327,12 @@ Restart your extension with the green arrow or press `kbstyle(F5)` if the extens
 
 In this tutorial, you learned how to create a VS Code extension that integrates AI into the editor with the language model API. You used the VS Code extension API to get the code from the current tab, sent it to the model with a custom prompt, and then parsed and displayed the model result right in the editor using decorators.
 
-Next, you can extend your Code Tutor extension to [include a chat participant](/api/extension-guides/chat-tutorial.md) as well which will allow users to interact directly with your extension via the GitHub Copilot chat interface. You can also [explore the full range of API's in VS Code](/api/references/vscode-api.md) to explore new ways of building custom AI experiences your editor.
+Next, you can extend your Code Tutor extension to [include a chat participant](/api/extension-guides/chat-tutorial) as well which will allow users to interact directly with your extension via the GitHub Copilot chat interface. You can also [explore the full range of API's in VS Code](/api/references/vscode-api) to explore new ways of building custom AI experiences your editor.
 
 You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/lm-api-tutorial).
 
 ## Related content
 
-- [Language Model API extension guide](/api/extension-guides/language-model.md)
-- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial.md)
-- [VS Code Chat API reference](/api/extension-guides/chat.md)
+- [Language Model API extension guide](/api/extension-guides/language-model)
+- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial)
+- [VS Code Chat API reference](/api/extension-guides/chat)
