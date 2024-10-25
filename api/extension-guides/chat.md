@@ -140,7 +140,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
 #### Determine the request intent
 
-To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), chat location, and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you will get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), chat location, and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
