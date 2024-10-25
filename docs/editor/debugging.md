@@ -209,9 +209,7 @@ Variables and expressions can also be evaluated and watched in the **Run and Deb
 
 ![Debug Watch](images/debugging/watch.png)
 
-Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section.
-
-![Filtering in the Variables section](images/debugging/filtering-variables.png)
+Variable names can be hitted, located by typing a character sequence, a colored border on the located item, while the focus is on the **VARIABLES** section.
 
 ## Launch.json attributes
 
