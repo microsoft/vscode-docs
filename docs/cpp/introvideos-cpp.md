@@ -36,6 +36,12 @@ This video shows you how to customize debug configurations for your C++ project 
 
 <iframe src="https://channel9.msdn.com/Shows/Docs-Dev-Tools/Debug-a-C-project-in-VS-Code/player" width="960" height="540" allowFullScreen frameBorder="0" title="Debug a C++ project in VS Code - Microsoft Channel 9 Video"></iframe>
 
+## Getting started using Copilot Chat for C++ in VS Code
+
+This video covers some use cases for using Copilot Chat in VS Code with C++ Code.
+
+<iframe src="https://www.youtube-nocookie.com/embed/ZfT2CXY5-Dc?si=0F2qRniRhN-sg3cR" width="960" height="540" allowFullScreen frameBorder="0" title="Getting Started using Copilot Chat for C++ in VS Code"></iframe>
+
 ## Next steps
 
 - Learn about all the [C++ editing features](/docs/cpp/cpp-ide.md) available in VS Code.
