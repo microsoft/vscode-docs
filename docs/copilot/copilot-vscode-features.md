@@ -75,8 +75,9 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 > **Tips**
 >
+> - Quickly add multiple files as context by using the right arrow key in the Quick Pick
 > - Explicitly include relevant context by selecting code or mentioning chat variables
-> - Review the used references in the chat response to ensure that the context is relevant.
+> - Review the used references in the chat response to ensure that the context is relevant
 
 ## Copilot in the editor
 
