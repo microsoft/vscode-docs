@@ -87,7 +87,7 @@ In any file, press `kb(inlinechat.start)` on your keyboard to bring up Copilot I
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center](images/copilot-chat/copilot-command-center-editor-inline-chat.png)
 
-Depending on your question, Copilot suggests code modifications or refactorings for the file you're currently in. Copilot gives a preview of the updates, which you can then accept (`kb(inlineChat.acceptChanges)`) or discard (`kb(inlineChat.discard)`). Optionally, you can generate a new code suggestion.
+Depending on your question, Copilot suggests code modifications or refactorings for the file you're currently in. Copilot gives a preview of the updates, which you can then accept (`kb(inlineChat.acceptChanges)`) or discard (`kb(inlineChat.close)`). Optionally, you can generate a new code suggestion.
 
 ![Copilot Inline Chat asking to convert a sort algorithm to use bubble sort](images/copilot-chat/inline-chat-css-variables.png)
 
