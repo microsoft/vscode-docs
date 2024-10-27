@@ -94,7 +94,8 @@ The `isSticky` property controls whether the chat participant is persistent, whi
 
 We suggest using a lowercase `name` and using title case for the `fullName` to align with existing chat participants. Get more info about the [naming conventions for chat participants](#chat-participant-naming-conventions).
 
-> **Note**: Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
+> [!NOTE]
+> Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
 
 Up-front registration of participants and [commands](#register-commands) in `package.json` is required, so that VS Code can activate your extension at the right time, and not before it is needed.
 
@@ -267,7 +268,59 @@ cat.followupProvider = {
 };
 ```
 
-> **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
+> [!TIP]
+> Follow-ups should be written as questions or directions, not just concise commands.
+
+### Implement participant detection
+
+To make it easier to use chat participants with natural language, you can implement participant detection. Participant detection is a way to automatically route the user's question to a suitable participant, without having to explicitly mention the participant in the prompt. For example, if the user asks "How do I add a login page to my project?", the question would be automatically routed to the `@workspace` participant because it can answer questions about the user's project.
+
+VS Code uses the chat participant description and examples to determine which participant to route a chat prompt to. You can specify this information in the `disambiguation` property in the extension `package.json` file. The `disambiguation` property contains a list of detection categories, each with a description and examples.
+
+| Property | Description | Examples |
+|----------|-------------|----------|
+| `category` | The detection category. If the participant serves different purposes, you can have a category for each.  | <ul><li>`cat`</li><li>`workspace_questions`</li><li>`web_questions`</li></ul> |
+| `description` | A detailed description of the kinds of questions that are suitable for this participant. | <ul><li>`The user wants to learn a specific computer science topic in an informal way.`</li><li>`The user just wants to relax and see the cat play.`</li></ul> |
+| `examples` | A list of representative example questions. | <ul><li>`Teach me C++ pointers using metaphors`</li><li>`Explain to me what is a linked list in a simple way`</li><li>`Can you show me a cat playing with a laser pointer?`</li></ul> |
+
+You can define participant detection for the overall chat participant, for specific commands, or a combination of both.
+
+The following code snippet shows how to implement participant detection at the participant level.
+
+```json
+"contributes": {
+    "chatParticipants": [
+        "id": "chat-sample.cat",
+        "fullName": "Cat",
+        "name": "cat",
+        "description": "Meow! What can I teach you?",
+
+        "disambiguation": [
+            {
+                "category": "cat",
+                "description": "The user wants to learn a specific computer science topic in an informal way.",
+                "examples": [
+                    "Teach me C++ pointers using metaphors",
+                    "Explain to me what is a linked list in a simple way",
+                    "Can you explain to me what is a function in programming?"
+                ]
+            }
+        ]
+    ]
+}
+```
+
+Similarly, you can also configure participant detection at the command level by adding a `disambiguation` property for one or more items in the `commands` property.
+
+Apply the following guidelines to improve the accuracy of participant detection for your extension:
+
+- **Be specific**: The description and examples should be as specific as possible to avoid conflicts with other participants. Avoid using generic terminology in the participant and command information.
+- **Use examples**: The examples should be representative of the kinds of questions that are suitable for the participant. Use synonyms and variations to cover a wide range of user queries.
+- **Use natural language**: The description and examples should be written in natural language, as if you were explaining the participant to a user.
+- **Test the detection**: Test the participant detection with a variation of example questions and verify there's no conflict with built-in chat participants.
+
+> [!NOTE]
+> Built-in chat participants take precedence for participant detection. For example, a chat participant that operates on workspace files might conflict with the built-in `@workspace` participant.
 
 ## Supported chat response output types
 
@@ -414,7 +467,8 @@ The following list provides the output types for a chat response in the Chat vie
 
 ## Variables
 
-> **Note:** The Variables API is still in a proposed state and we are actively working on it.
+> [!NOTE]
+> The Variables API is still in a proposed state and we are actively working on it.
 
 Chat extensions can also contribute chat *variables*, which provide context about the extension's domain. For example, a C++ extension might contribute a variable `#cpp` that would get resolved based on the state of the language service - what C++ version is used and what C++ programming approach is preferred.
 
