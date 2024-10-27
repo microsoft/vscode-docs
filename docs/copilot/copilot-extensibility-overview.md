@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 13
 Area: copilot
 TOCTitle: Copilot Extensibility
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272

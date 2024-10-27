@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 14
 Area: copilot
 TOCTitle: Settings Reference
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
@@ -51,10 +51,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Customize Copilot prompts
 
-* `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` <i class="codicon codicon-beaker"></i>: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
-
+c
 ## Debugging settings
 
 * `setting(github.copilot.chat.startDebugging.enabled)` _(Preview)_: Enables the experimental `/startDebugging` intent in the Chat view to generate debugging configuration.
