@@ -22,7 +22,9 @@
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
-      "npm run check-lfs"
+      "npm run chec
+      k-lfs"
     ]
   }
 }
+
