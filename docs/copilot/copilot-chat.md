@@ -145,7 +145,7 @@ The following example (_"@workspace /new Express with TypeScript and pug"_) show
 
 ![Copilot response containing rich results, such as a file tree with a proposed workspace structure, and a button to create a new workspace](images/copilot-chat/copilot-chat-view-workspace-file-tree.png)
 
-As you keep the conversation going, Copilot maintains the [history of your chat messages and responses](#chat-history), and provides related follow-up questions or commands in its response too.
+As you keep the conversation going, Copilot maintains the [history of your chat messages and responses](#conversation-history), and provides related follow-up questions or commands in its response too.
 
 ### Code blocks
 
@@ -171,7 +171,15 @@ You can control the font for code blocks in chat with the following settings:
 * `setting(chat.editor.fontWeight)`
 * `setting(chat.editor.lineHeight)`
 
-## Quick chat
+### Chat history
+
+Copilot Chat maintains a history of your previous chat conversations, which you can access by using the **Show Chats...** button in the Chat view or by using the **Chat: Show Chats...** command in the Command Palette.
+
+A Quick Pick shows the list of previous chats, order by most recent. You can select a chat to open it in the Chat view.
+
+![Screenshot of the Chat view with the Show Chats... button highlighted](images/copilot-chat/copilot-chat-view-show-chats.png)
+
+## Quick Chat
 
 If you want to ask Copilot a quick question and don't want to start a full Chat view session or open Inline Chat in your editor, you can use the Quick Chat dropdown.
 
@@ -231,7 +239,7 @@ Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`,
 
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
 
-Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat participants:
+Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, these are the following built-in chat participants:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
@@ -242,9 +250,9 @@ Extensions can also contribute chat participants to provide specialized help for
 
 ### @workspace
 
-The `@workspace` chat participant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more. Imagine you are in the VS Code repository and you want to find out more about the service in charge of the current `ICodeEditor`; you can use the chat participant like this:
+The `@workspace` chat participant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more.
 
-![Asking the @workspace chat partipipant about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
+![Asking the @workspace chat participant about where a URL is specified in an Express app](images/copilot-chat/workspace-agent-example.png)
 
 Because it has all of the necessary context, `@workspace` can answer the kinds of questions that developers are much more likely to ask. For example, questions that pertain to how different parts of the code interact:
 
@@ -265,9 +273,9 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 
 ![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
-With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand enable developer mode` to open the VS Code Developer Tools.
+With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
 
-![Toggle Developer Tools with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand-developer-mode.png)
+![Toggle the minimap in the editor with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand.png)
 
 ### @terminal
 
@@ -340,19 +348,19 @@ By using a chat variable in your chat prompt, you can be more specific about the
 
 Chat participants, such as `@workspace`, might have context associated within them. For example, `@vscode` is aware of VS Code settings and its APIs. When you include a chat participant in the chat prompt, you inherently add context to the prompt. Similarly, by using slash commands, you can further focus the intent of the chat request.
 
-### Chat history
+### Conversation history
 
 Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
 
-For example, when you first ask "what is the number data type in TypeScript?" and then ask "Can you use this type for decimal numbers?", Copilot knows that you're still referring to the `number` data type. Notice that the suggested prompt is also relevant within our conversation.
+For example, when you first ask "what is the number data type in TypeScript?" and then ask "Can you use it for decimal numbers too?", Copilot knows that you're still referring to the `number` data type.
 
-![Chat view with multiple prompts, where Copilot understands that 'this' refers to the first prompt.](images/copilot-chat/chat-view-history.png)
+![Chat view with multiple prompts, where Copilot understands that 'it' refers to the first prompt.](images/copilot-chat/chat-view-history.png)
 
-You can delete a prompt and the corresponding response from the chat history by hovering over the prompt and selecting the **x** control. It might be useful to delete one or more prompts to get more relevant responses.
+You can delete a prompt and the corresponding response from the conversation history by hovering over the prompt and selecting the **x** control. It might be useful to delete one or more prompts to get more relevant responses.
 
 ![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
 
-You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Session...** command (`workbench.action.chat.export`) in the Command Palette.
+You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
 
 ### Context in Inline Chat
 
@@ -402,7 +410,7 @@ The following table provides a comparison of the capabilities of each interface.
 | Attach context                      | ✅ | ✅  | ✅ |
 | Use chat participants               | ✅ |     | ✅ |
 | Use commands                        | ✅ | ✅* | ✅ |
-| Conversation history                | ✅ |     |    |
+| Chat history                        | ✅ |     |    |
 
 \* _only a limited set of commands is available in Inline Chat_
 
