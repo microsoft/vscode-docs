@@ -253,7 +253,7 @@ The following table lists the currently predefined mappings.
 | `function`|`entity.name.function`|
 | `function.defaultLibrary`|`support.function`|
 | `method`|`entity.name.function.member`|
-| `macro`|`entity.name.function.macro`|
+| `macro`|`entity.name.function.preprocessor`|
 | `variable`|`variable.other.readwrite` , `entity.name.variable`|
 | `variable.readonly`|`variable.other.constant`|
 | `variable.readonly.defaultLibrary`|`support.constant`|
