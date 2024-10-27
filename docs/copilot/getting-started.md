@@ -118,21 +118,18 @@ With Copilot Chat you can use a chat conversation and natural language to direct
 
 As you're working in a new codebase, or exploring a new programming language, you might have more general coding questions come up. Copilot Chat lets you open a chat conversation on the side, and which keeps track of the history of your questions.
 
-1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
+1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity Bar.](./images/getting-started/copilot-chat-view.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started-chat/command-center-open-chat.png)
+
+    > [!TIP]
+    > You can access different Copilot features from the Command Center menu at any time.
 
 1. Type "what is recursion?" in the chat input field and press `kb(workbench.action.chat.submit)` to send the request to Copilot.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
     Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
-
-1. Select the title of the Chat view and drag it to the right side of the editor to dock it to the Secondary side bar.
-
-    ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
-
-    Putting the Chat view in the Secondary side bar can be useful if you want to open another view in the Primary side bar, for example the Explorer view to navigate your workspace. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 
 ## Fix coding errors with Copilot
 
