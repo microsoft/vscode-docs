@@ -283,17 +283,18 @@ Zen Mode can be further tuned with the following settings:
 
 ### Reduce Notifications with Do Not Disturb Mode
 
-If you are overwhelemed by notifications popping up, there is ways to reduce notifications, either for all notifications, or for notifications from a specific extension.
+If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
 
-Click on the bell icon in the status bar to open the notifications center. This is a place where you can always get to all notifications, even if you have enabled Do Not Disturb Mode:
+Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
 
 ![Notifications center](images/userinterface/notifications-center.png)
 
-Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications:
+Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications.
 
 ![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
 
-**Note:** the global Do Not Disturb Mode will also hide error notifications, while the extension specific filter will still allow error notifications to pass.
+> [!NOTE]
+> The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
 
 ### Centered editor layout
 
