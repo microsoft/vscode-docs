@@ -79,6 +79,14 @@ You can also reference context by using chat variables. Type the `#` character a
 > [!NOTE]
 > If possible, the full contents of the file will be included when you attach a file. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
 
+## Changing your AI model
+
+The model picker in the chat input field enables you to change the language model that is used to generate responses. Select the model picker and choose one of the available language models.
+
+You can use the model picker in the different chat experiences.
+
+![Screenshot of the model picker in the Chat view](images/copilot-chat/copilot-chat-view-model-picker.png)
+
 ## Inline Chat
 
 Inline Chat enables you to have a chat conversation with Copilot directly from the editor without leaving the context of your work. With Inline Chat, you can preview code suggestions in-place within your code, which can be useful for quickly iterating on code changes.
