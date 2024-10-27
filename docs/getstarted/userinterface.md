@@ -281,6 +281,20 @@ Zen Mode can be further tuned with the following settings:
 * `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
 * `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
 
+### Reduce Notifications with Do Not Disturb Mode
+
+If you are overwhelemed by notifications popping up, there is ways to reduce notifications, either for all notifications, or for notifications from a specific extension.
+
+Click on the bell icon in the status bar to open the notifications center. This is a place where you can always get to all notifications, even if you have enabled Do Not Disturb Mode:
+
+![Notifications center](images/userinterface/notifications-center.png)
+
+Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications:
+
+![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
+
+**Note:** the global Do Not Disturb Mode will also hide error notifications, while the extension specific filter will still allow error notifications to pass.
+
 ### Centered editor layout
 
 Centered editor layout allows you to center align the editor area. This is useful when working with a single editor on a large monitor. You can use the side borders to resize the view (hold down the `Alt` key to independently move the sides).
