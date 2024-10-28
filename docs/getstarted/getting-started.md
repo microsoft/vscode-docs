@@ -113,7 +113,7 @@ Many of the commands in VS Code are available through the Command Palette. For e
 
 1. Press `kb(workbench.action.quickOpen)` to use the Command Palette to navigate to a file in your workspace. Start typing to filter the list.
 
-    The **Quick Open** feature enables you to quickly open a file in your workspace, or search for symbols in files. Get more info the [Command Palette](/docs/getstarted/userinterface.md#command-palette) in the VS Code documentation.
+    The **Quick Open** feature enables you to quickly open a file in your workspace, or search for symbols in files. Get more info about the [Command Palette](/docs/getstarted/userinterface.md#command-palette) in the VS Code documentation.
 
     ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
 
