@@ -364,7 +364,7 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Ratings & Review** - Read what others think about the extension.
 * **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
-* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
 
 ![Verified publisher](images/extension-marketplace/bluecheck.png)
 
