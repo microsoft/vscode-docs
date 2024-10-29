@@ -23,6 +23,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 | Action | Description |
 |--------|-------------|
 | `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
+| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | <i class="codicon codicon-mention"></i> | Type `@` in chat or select <i class="codicon codicon-mention"></i> to view the list of *chat participants*, which are domain experts that can help you in a specific area. Extensions can also contribute additional participants.<br/>Example: `@workspace how is auth implemented?`  |
@@ -37,6 +38,27 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 > - Use `/` commands and `@` participants to get more precise and relevant answers.
 > - Be specific, keep it simple, and ask follow-up questions to get the best results.
 > - Provide context by attaching files, symbols, or selections to your chat prompt.
+
+## Code editing session
+
+Use Copilot Edits to start a code editing session where you can iterate quickly on AI-generated code edits that are applied directly across multiple files in your workspace.
+
+| Action | Description |
+|--------|-------------|
+| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
+| <i class="codicon codicon-plus"></i> | Start a new edit session. |
+| `Accept` | Accept all current edits. |
+| `Discard` | Discard all current edits. |
+| <i class="codicon codicon-diff-multiple"></i> | View all edits in a multi-file diff editor. |
+| <i class="codicon codicon-discard"></i> | Undo the last edit. |
+| <i class="codicon codicon-redo"></i> | Redo the last edit. |
+| `Add Files...` | Attach files to working set. |
+
+> **Tips**
+>
+> - Add all files for which you want to get edits to the working set.
+> - Be specific and precise about the changes you want Copilot Edits to make.
+> - If you have a larger task, decompose it in smaller tasks and iterate often.
 
 ## Generate code from chat
 
