@@ -44,6 +44,7 @@ Use the following keyboard shortcuts to start a chat conversation with Copilot:
 | Shortcut | Description |
 |----------|-------------|
 | `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
+| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 
@@ -54,6 +55,7 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 GitHub Copilot can provide assistance in a variety of scenarios:
 
 * [Code completions in the editor](#code-completions-in-the-editor)
+* [Iterate on large changes across multiple files](#iterate-on-large-changes-across-multiple-files)
 * [Answer coding questions](#answer-coding-questions)
 * [Code refactoring and improvements](#code-refactoring-and-improvements)
 * [Fix coding issues](#fix-issues)
@@ -67,6 +69,12 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 * **Copilot suggests code as you type**. Copilot analyzes the context in the file you're editing and related files, and offers suggestions from within the editor. For example, begin typing the name of a method and Copilot suggests the implementation, following your coding style.
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
+
+### Iterate on large changes across multiple files
+
+* **Start a AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
+
+    ![Screenshot showing the Copilot Edits response for "Add a feedback field in the contact page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-view-edits-in-file.png)
 
 ### Answer coding questions
 
@@ -161,6 +169,7 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 ## Next steps
 
 * [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
+* [Get started with editing across multiple files with Copilot Edits](/docs/copilot/copilot-edits.md)
 * [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
 
 ## Additional resources
