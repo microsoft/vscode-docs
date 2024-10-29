@@ -39,6 +39,13 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.editor.lineHeight)`: Line height in pixels in chat codeblocks.
 * `setting(chat.editor.wordWrap)`: Toggle line wrapping in chat codeblocks.
 
+## Edits settings
+
+* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
+* `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
+* `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
+* `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
+
 ## Inline Chat settings
 
 * `setting(inlineChat.acceptedOrDiscardBeforeSave)`: Controls whether pending Inline Chat sessions in an editor prevent saving the file.
@@ -54,6 +61,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
 * `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 * `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
 
 ## Debugging settings
 
