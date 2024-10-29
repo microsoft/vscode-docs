@@ -33,7 +33,8 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 
 <div class="marketplace-extensions-testing-tools-curated"></div>
 
-> **Tip**: The extensions shown above are dynamically queried. Select an extension tile to read the description and reviews to decide which extension is best for you.
+> [!TIP]
+> The extensions shown above are dynamically queried. Select an extension tile to read the description and reviews to decide which extension is best for you.
 
 ## Automatic test discovery in Test Explorer
 
@@ -49,7 +50,8 @@ The tree view shows the test result status for each test by using a visual indic
 
 ![Test Explorer view with test results](images/testing/test-explorer-view-test-results.png)
 
-> **Tip**: You can navigate to the test code by double-clicking on the test in the Test Explorer view. If you select a test that failed, the editor opens the test file, highlights the failed test, and shows the error message.
+> [!TIP]
+> You can navigate to the test code by double-clicking on the test in the Test Explorer view. If you select a test that failed, the editor opens the test file, highlights the failed test, and shows the error message.
 
 If you have many tests, you can use the filtering options to quickly find the tests you're interested in. You can use the **Filter** button to filter tests by status or only show tests for the current file. You can also use the search box to search for specific tests by name or use the `@` symbol to search by status.
 
@@ -59,7 +61,8 @@ In the **More Actions** menu, you can access additional functionality, such as s
 
 If you add new tests or make changes to your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-> **Note**: Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. Consult the documentation of the testing extension for more information.
+> [!NOTE]
+> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. Consult the documentation of the testing extension for more information.
 
 ## Run and debug tests
 
@@ -77,7 +80,8 @@ While you're viewing your test code in the editor, you can use the play control 
 
 ![Run and debug tests in editor gutter](images/testing/run-debug-tests-editor-gutter.png)
 
-> **Tip**: you can configure the default testing action for the gutter control by using the `setting(testing.defaultGutterClickAction)` setting.
+> [!TIP]
+> You can configure the default testing action for the gutter control by using the `setting(testing.defaultGutterClickAction)` setting.
 
 After running a test, the editor gutter displays the test status.
 
@@ -152,7 +156,8 @@ To run the test task, use the command **Tasks: Run Test Task** or [create a keyb
 
 Learn more about [using and configuring Tasks](/docs/editor/tasks.md).
 
-> **Note**: Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
+> [!NOTE]
+> Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
 
 ## Test configuration settings
 
