@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 10/03/2024
+DateApproved: 10/29/2024
 MetaDescription: Enhance your coding with AI-powered suggestions and chat conversations with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -112,9 +112,9 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 
     ![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/overview/copilot-chat-view-file-tree-preview.png)
 
-* **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook read titanic dataset with pandas, display key values with seaborn".
+* **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
 
-    ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with Seaborn](images/overview/copilot-new-notebook.png)
+    ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with MatPlotLib](images/overview/copilot-new-notebook.png)
 
 ### Generate unit test cases
 

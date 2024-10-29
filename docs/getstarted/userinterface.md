@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 10/03/2024
+DateApproved: 10/29/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -280,6 +280,21 @@ Zen Mode can be further tuned with the following settings:
 * `setting(zenMode.restore)` - Restore Zen Mode on restart. Default `true`.
 * `setting(zenMode.centerLayout)` - Use [Centered editor layout](#centered-editor-layout). Default `true`.
 * `setting(zenMode.silentNotifications)` - Do not display notifications. Default `true`.
+
+### Reduce Notifications with Do Not Disturb Mode
+
+If you are overwhelmed by notifications popping up, there is a way to reduce notifications, either for all notifications, or for notifications from a specific extension.
+
+Select the bell icon in the Status Bar to open the Notifications area. This is a place where you can access all notifications at any time, even if you have enabled Do Not Disturb Mode.
+
+![Notifications center](images/userinterface/notifications-center.png)
+
+Find the crossed out bell icon to get access to a menu where you can selectively disable notifications from extensions or enable the global Do Not Disturb Mode to disable all notifications.
+
+![Notifications do not disturb menu](images/userinterface/notifications-dnd.png)
+
+> [!NOTE]
+> The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
 
 ### Centered editor layout
 

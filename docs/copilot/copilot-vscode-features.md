@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Cheat Sheet
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 PageTitle: GitHub Copilot in VS Code cheat sheet
-DateApproved: 10/03/2024
+DateApproved: 10/29/2024
 MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -62,6 +62,7 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 | Action | Description |
 |--------|-------------|
 | <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
+| <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
 | `#codebase` | Context variable: add relevant workspace content as context to your prompt. |
 | `#editor` | Context variable: add the visible contents of the active editor as context for your prompt. |
 | `#selection` | Context variable: add the current editor selection as context to your prompt. |
@@ -75,8 +76,9 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 > **Tips**
 >
+> - Quickly add multiple files as context by using the right arrow key in the Quick Pick
 > - Explicitly include relevant context by selecting code or mentioning chat variables
-> - Review the used references in the chat response to ensure that the context is relevant.
+> - Review the used references in the chat response to ensure that the context is relevant
 
 ## Copilot in the editor
 
