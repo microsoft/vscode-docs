@@ -145,7 +145,7 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 
 1. Select the sparkle to view the Copilot code actions, and then select **Fix using Copilot**.
 
-    ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
+    ![Screenshot of VS Code editor, showing the Copilot code actions, highlighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
 
 1. Notice that the Copilot Inline Chat comes up, prepopulated with the error message, and a solution to fix the problem.
 

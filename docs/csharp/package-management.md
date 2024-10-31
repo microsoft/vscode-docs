@@ -10,23 +10,23 @@ MetaDescription: C# package management with NuGet in Visual Studio Code
 
 # NuGet in Visual Studio Code
 
-NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. 
+NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project.
 
-In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette. 
+In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
 
-To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).  
+To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
 
 ## NuGet commands in C# Dev Kit
 
-In C# Dev Kit, you can perform NuGet package operations in one of two ways: 
+In C# Dev Kit, you can perform NuGet package operations in one of two ways:
 
 * Using the Command Palette (`kb(workbench.action.showCommands)`)
 
 * Right-clicking in the C# Dev Kit Solution explorer
-  
+
 The following sections describe how to use each NuGet command, using both of these two methods.
 
 ### Add a package
@@ -81,7 +81,7 @@ The following sections describe how to use each NuGet command, using both of the
 
 ### Automatic NuGet restore
 
-For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Ouput panel.
+For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Output panel.
 
 ![Automatic NuGet package restore](images/package-management/automatic-nuget-package-restore.png)
 
