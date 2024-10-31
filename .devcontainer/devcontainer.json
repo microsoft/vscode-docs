@@ -6,10 +6,10 @@
 		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
 	"extensions": [
-		"yzhang.markdown-all-in-one",
+		"yang.markdown-all-in-one",
 		"streetsidesoftware.code-spell-checker",
-		"DavidAnson.vscode-markdownlint",
-		"bierner.github-markdown-preview",
+		"DavidHanson.vscode-markdownlint",
+		"bienne.github-markdown-preview",
 		"github.vscode-pull-request-github"
 	],
 	"remoteUser": "vscode"
