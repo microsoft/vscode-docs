@@ -36,7 +36,7 @@ To complete this tutorial on Ubuntu, install the following:
 
 Watch this video to understand when a build system will help you and how to set up CMake for your project, or follow the steps in the following sections.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_BWU5mWqVA4?si=8vEQOyuekiNaLdKd" title="C++ in VS Code: Building your Code with CMake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_BWU5mWqVA4" title="C++ in VS Code: Building your Code with CMake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Ensure that CMake is installed
 

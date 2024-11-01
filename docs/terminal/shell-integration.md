@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 10/29/2024
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -21,7 +21,7 @@ Supported shells:
 
 ### Automatic script injection
 
-By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `terminal.integrated.shellIntegration.enabled` to `false`.
+By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `setting(terminal.integrated.shellIntegration.enabled)` to `false`.
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
@@ -29,7 +29,7 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 ### Manual installation
 
-To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `terminal.integrated.shellIntegration.enabled` to `false`, though not mandatory.
+To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `setting(terminal.integrated.shellIntegration.enabled)` to `false`, though not mandatory.
 
 > **Tip:** When using the [Insiders build](https://code.visualstudio.com/insiders), replace `code` with `code-insiders` below.
 
@@ -96,11 +96,19 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 ![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/shell-integration/decoration-menu.png)
 
-The command and overview ruler decorations can be configured with the `terminal.integrated.shellIntegration.decorationsEnabled` setting.
+The command and overview ruler decorations can be configured with the `setting(terminal.integrated.shellIntegration.decorationsEnabled)` setting.
 
 ## Command navigation
 
 The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. To select from the current position to the command, you can also hold down `kbStyle(Shift)`, pressing `kbStyle(Shift+Ctrl/Cmd+Up)` and `kbStyle(Shift+Ctrl/Cmd+Down)`.
+
+## Command guide
+
+The command guide is a bar that shows up beside a command and its output when hovered. This helps more quickly identify the command and also is a way to verify that shell integration is working properly.
+
+![Screenshot of the terminal, highlighting the command guide vertical bar on the left-hand side to indicate the boundary of a command.](images/shell-integration/terminal-command-guide.png)
+
+You can customize the color of the command guide by using Color Themes. To toggle the command guide, configure the `setting(terminal.integrated.shellIntegration.showCommandGuide)` setting.
 
 ## Sticky scroll
 
@@ -108,7 +116,7 @@ The sticky scroll feature will "stick" the command that is partially showing at 
 
 ![Sticky scroll will show the command at the top of the terminal viewport](images/shell-integration/sticky-scroll.png)
 
-This can be enabled with the `terminal.integrated.stickyScroll.enabled` setting.
+This can be enabled with the `setting(terminal.integrated.stickyScroll.enabled)` setting.
 
 ## Quick fixes
 
@@ -138,7 +146,7 @@ Some other functionality of the command:
 - In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
 - The pin action in the right of the Quick Pick can pin the command to the top of the list.
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
-- The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
+- The amount of history stored in the previous session section is determined by the `setting(terminal.integrated.shellIntegration.history)` setting.
 
 The default keybinding for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
 
@@ -190,7 +198,7 @@ Experimental IntelliSense for PowerShell shows a completion list when typing in 
 
 ![PowerShell IntelliSense shows completions like Get-Alias, Get-ChildItem, for example when typing Get-](images/shell-integration/pwsh-IntelliSense.png)
 
-You can enable the experimental IntelliSense for PowerShell with the `terminal.integrated.suggest.enabled` setting.
+You can enable the experimental IntelliSense for PowerShell with the `setting(terminal.integrated.suggest.enabled)` setting.
 
 ```json
 "terminal.integrated.suggest.enabled": true
@@ -200,7 +208,7 @@ You can enable the experimental IntelliSense for PowerShell with the `terminal.i
 
 ### Git and VS Code completions
 
-When experimental IntelliSense is enabled, completions for CLIs `git`, `code`, and `code-insiders` are turned on by default. If your PowerShell profile already has completions, you may want to turn these off by using the `terminal.integrated.suggest.builtinCompletions` setting.
+When experimental IntelliSense is enabled, completions for CLIs `git`, `code`, and `code-insiders` are turned on by default. If your PowerShell profile already has completions, you may want to turn these off by using the `setting(terminal.integrated.suggest.builtinCompletions)` setting.
 
 ## Enhanced accessibility
 

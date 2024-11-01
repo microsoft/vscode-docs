@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 08/01/2024
+DateApproved: 10/29/2024
 ---
 # Source Control FAQ
 
@@ -79,7 +79,7 @@ VS Code uses `git rev-parse --show-toplevel` to determine the root of a Git repo
 
 To avoid confusion, and to reduce the risk of data loss, VS Code will display a notification and a new welcome view in the Source Control view, and will not automatically open Git repositories from the parent folders of workspaces and open files.
 
-You can control how Git repositories from parent folders are handled using the `git.openRepositoryInParentFolders` setting. If you would like to restore the old behavior, set the `git.openRepositoryInParentFolders` setting to `always`.
+You can control how Git repositories from parent folders are handled using the `setting(git.openRepositoryInParentFolders)` setting. If you would like to restore the old behavior, set the `setting(git.openRepositoryInParentFolders)` setting to `always`.
 
 ### Can I use SSH Git authentication with VS Code?
 

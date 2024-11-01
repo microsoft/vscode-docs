@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 08/01/2024
+DateApproved: 10/29/2024
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -39,15 +39,15 @@ If the current file type has language support for symbols, you will see the curr
 
 ![breadcrumb symbol dropdown](images/editingevolved/breadcrumb-symbol-dropdown.png)
 
-You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `breadcrumbs.enabled` [setting](/docs/getstarted/settings.md).
+You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/getstarted/settings.md).
 
 ### Breadcrumb customization
 
-The appearance of breadcrumbs can be customized. If you have very long paths or are only interested in either file paths or symbols paths, you can use the `breadcrumbs.filePath` and `breadcrumbs.symbolPath` settings. Both support `on`, `off`, and `last` and they define if or what part of the path you see. By default, breadcrumbs show file and symbol icons to the left of the breadcrumb but you can remove the icons by setting `breadcrumbs.icons` to false.
+The appearance of breadcrumbs can be customized. If you have very long paths or are only interested in either file paths or symbols paths, you can use the `setting(breadcrumbs.filePath)` and `setting(breadcrumbs.symbolPath)` settings. Both support `on`, `off`, and `last` and they define if or what part of the path you see. By default, breadcrumbs show file and symbol icons to the left of the breadcrumb but you can remove the icons by setting `setting(breadcrumbs.icons)` to false.
 
 ### Symbol order in Breadcrumbs
 
-You can control how symbols are ordered in the Breadcrumbs dropdown with the `breadcrumbs.symbolSortOrder` settings.
+You can control how symbols are ordered in the Breadcrumbs dropdown with the `setting(breadcrumbs.symbolSortOrder)` settings.
 
 Allowed values are:
 
@@ -99,7 +99,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/getstarted/settings.md).
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/getstarted/settings.md).
 
 ## Bracket matching
 
@@ -111,13 +111,13 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 ### Bracket Pair Colorization
 
-Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
+Matching bracket pairs can also be colorized by setting `setting(editor.bracketPairColorization.enabled)` to `true`.
 
 ![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
 
 All colors are themeable and up to six colors can be configured.
 
-You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+You can use `setting(workbench.colorCustomizations)` to override these theme-contributed colors in your settings:
 
 ```json
 "workbench.colorCustomizations": {
@@ -135,7 +135,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` [setting](/docs/getstarted/settings.md).
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/getstarted/settings.md).
 
 ## Rename symbol
 
@@ -167,7 +167,7 @@ Some languages provide inlay hints: that is additional information about source 
 
 ![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
 
-Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
+Inlay hints can be enabled/disabled with the `setting(editor.inlayHints.enabled)` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
 
 ## Outgoing link protection
 

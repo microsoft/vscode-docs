@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
-DateApproved: 08/01/2024
+DateApproved: 10/29/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
@@ -625,7 +625,7 @@ The build script does the following:
 esbuild can work directly with TypeScript files. However, esbuild simply strips off all type declarations without doing any type checks.
 Only syntax error are reported and can cause esbuild to fail.
 
-For that reason, we separatly run the TypeScript compiler (`tsc`) to check the types, but without emmiting any code (flag `--noEmit`).
+For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
 
 The `scripts` section in `package.json` now looks like that
 ```json

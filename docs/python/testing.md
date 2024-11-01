@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 1/20/2023
+DateApproved: 10/29/2024
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -234,6 +234,20 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 3. Run your tests, which will now be run in parallel.
 
+## Run tests with coverage
+
+Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/testing#_test-coverage.md).
+> **Tip**: Running Python tests with coverage is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
+
+To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the “Run with coverage” option from any menu you normally trigger test runs from. The Python extension will run coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
+> **Note**: Before running tests with coverage, make sure to install the correct testing coverage package for your project.
+
+Once the coverage run is complete, lines will be highlighted in the editor for line level coverage. Test coverage results will appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`F1)`). On this panel you can view line coverage metrics for each file and folder in your workspace.
+
+![Gif showing running Python tests with coverage.](images/testing/python-coverage.gif)
+
+For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
+
 ## Debug tests
 
 You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugging.md) articles.
@@ -312,6 +326,32 @@ Below are all the supported commands for testing with the Python extension in VS
 |  **Test: Show Output** | Open the output with details of all the test runs. Similar to **Python: Show Test Output** on versions prior to 2021.9. |
 |  **Testing: Focus on Test Explorer View** | Open the Test Explorer view. Similar to **Testing: Focus on Python View** on versions prior to 2021.9.
 |  **Test: Stop Refreshing Tests** | Cancel test discovery. |
+
+## Django unit tests
+
+The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
+> **Tip**: Django test support is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
+
+1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/getstarted/settings.md#settingsjson).
+2. Add `MANAGE_PY_PATH` as an environment variable:
+    1. Create a `.env` file at the root of your project.
+    2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
+        > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
+3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/getstarted/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
+
+> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/editor/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/getstarted/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
+
+Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
+
+### Troubleshooting
+If your Django unit tests are not showing in the Testing view, try the following troubleshooting steps:
+
+- Search for error messages in the **Python** Output panel. They might provide a hint as to why your tests are not being discovered.
+- Try to [run the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into VS Code settings.
+    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code settings.
+
+    Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
+- Use the absolute path to the `manage.py` file when setting the `MANAGE_PY_PATH` environment variable, if you initially used the relative path.
 
 ## IntelliSense for pytest
 

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
 PageTitle: AI-powered code completions with GitHub Copilot
-DateApproved: 08/01/2024
+DateApproved: 10/29/2024
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -79,16 +79,22 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ### Settings
 
-You can configure the font for the inline suggestions with the `editor.inlineSuggest.fontFamily` setting.
+* `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
+
+* `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
+
+* `setting(editor.inlineSuggest.showToolbar)` - enable or disable the toolbar that appears for inline completions.
+
+* `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
 ## Next steps
 
 * Get started with the introductory [Copilot tutorial](/docs/copilot/getting-started-chat.md) to get set up with Copilot in VS Code and experience Copilot hands-on.
 
-* Learn how you can use AI chat conversations with [GitHub Copilot Chat](/docs/copilot/copilot-chat.md).
+* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
 
 ## Additional resources
 
 You can read more about [Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.

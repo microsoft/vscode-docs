@@ -35,7 +35,7 @@ While you're using Java within VS Code, you may also see a **Release Notes** sec
 
 ## How can I use Visual Studio Code with new Java versions?
 
-Thanks to the upstream update from JDT, you can now build your project up to Java 14 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
+Thanks to the upstream update from JDT, you can now build your project up to Java 22 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
 
 Maven - modify `pom.xml`:
 
@@ -46,7 +46,7 @@ Maven - modify `pom.xml`:
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <release>14</release>
+            <release>22</release>
             <compilerArgs>--enable-preview</compilerArgs>
           </configuration>
         </plugin>
@@ -58,7 +58,7 @@ Maven - modify `pom.xml`:
 Gradle:
 
 ```groovy
-sourceCompatibility = 14
+sourceCompatibility = 22
 tasks.withType(JavaCompile) {
     options.compilerArgs += '--enable-preview'
 }
