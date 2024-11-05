@@ -38,7 +38,7 @@ You can use Copilot's capabilities to enhance the development experience in VS C
 
 These are some examples of extensions in the Visual Studio Marketplace that contribute a chat participant to the Chat view in VS Code.
 
-<div class="marketplace-extensions-curated-chat"></div>
+<div class="marketplace-extensions-chat"></div>
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
 
