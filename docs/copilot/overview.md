@@ -177,3 +177,5 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 Read more about Copilot in the [GitHub Copilot documentation](https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot).
 
 If you prefer learning through videos, check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+
+Check our [Advanced Features](https://www.youtube.com/watch?v=SLMfhuptCo8) video on YouTube for in-depth coverage of using Copilot for refactoring, context-based suggestions, unit tests, and more.
