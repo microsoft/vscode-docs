@@ -25,7 +25,7 @@ There are different options for optimizing your Copilot experience for inline su
 
 ## Getting the most out of Copilot inline suggestions
 
-The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#inline-suggestions) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
+The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#Code-completions-in-the-editor) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
 
 ### Provide context to Copilot
 
@@ -99,7 +99,7 @@ Tools, which you may already be using, can help.
 
 ## Getting the most out of Copilot Chat
 
-You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#chat-features) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#Answer-coding-questions) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
 When you're using chat to interact with GitHub Copilot, there are several things you can do to optimize your experience.
 
