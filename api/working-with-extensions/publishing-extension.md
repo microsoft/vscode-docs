@@ -190,7 +190,7 @@ You can remove an extension in two ways:
 
 In both cases, you will be prompted to confirm the removal by typing the extension name. Note that the removal action is **irreversible**.
 
-> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics. You may want to update your extension rather than unpublish it.
+> **Note:** When you remove an extension, the Marketplace will remove any extension statistics. You may want to unpublish your extension rather than remove it.
 
 ## Deprecating extensions
 
