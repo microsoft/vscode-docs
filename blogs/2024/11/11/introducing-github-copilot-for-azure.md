@@ -1,7 +1,7 @@
 
 I'm thrilled to introduce the public preview of **GitHub Copilot for Azure** - a new tool that integrates effortlessly with GitHub Copilot Chat in VS Code. Imagine it as your personal guide for navigating the Azure cloud. No more toggling between your IDE and the Azure portal to manage infrastructure or look up commands and arguments. Now, you can concentrate on your core task - coding. Whether you're setting up services or deploying applications, simply ask in GitHub Copilot Chat and manage everything directly within your editor.
 
-You can get started right now by installing [GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure) from the VS Code Marketplace!
+You can get started right now by installing [GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure) from the Visual Studio Marketplace!
 
 GitHub Copilot for Azure can help with...
 
