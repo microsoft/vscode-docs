@@ -58,7 +58,7 @@ This immediate access to resource data helps you optimize your setup by identify
 - `@azure How do I list all the pods in my AKS cluster?`
 - `@azure Breakdown the cost of my [VeryImportantResourceGroup] resource group for October?`
 
-### Slash Commands give you more control
+### Slash commands give you more control
 
 GitHub Copilot for Azure tries to identify the intent of your natural language prompt. By using slash commands, you can express your intent more explicitly. And these slash commands are also a useful shorthand notation for common commands.
 
