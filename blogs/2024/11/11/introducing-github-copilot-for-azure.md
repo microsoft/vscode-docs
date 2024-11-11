@@ -70,7 +70,7 @@ GitHub Copilot for Azure tries to identify the intent of your natural language p
 
 ### Get started now!
 
-GitHub Copilot for Azure is currently in public preview, and can be installed from the VS Code Marketplace: [Get GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure)
+GitHub Copilot for Azure is currently in public preview, and can be installed from the Visual Studio Marketplace: [Get GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure)
 
 ### Share your thoughts
 
