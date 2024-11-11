@@ -60,7 +60,7 @@ This immediate access to resource data helps you optimize your setup by identify
 
 ### Slash Commands give you more control
 
-GitHub Copilot for Azure is new, and sometimes it may not understand what you want, but it has slash commands that you can use to specify your intent:
+GitHub Copilot for Azure tries to identify the intent of your natural language prompt. By using slash commands, you can express your intent more explicitly. And these slash commands are also a useful shorthand notation for common commands.
 
 - `/help` to see what kinds of things it can do
 - `/learn` to learn about Azure
