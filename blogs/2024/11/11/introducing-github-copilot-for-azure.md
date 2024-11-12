@@ -43,7 +43,7 @@ Moreover, it doesn't just help identify problems - it actively assists in resolv
 
 ### Operating
 
-[!GIF demonstrating searching for Azure resources](view-resources_10-11-2024.gif)
+![GIF demonstrating searching for Azure resources](view-resources_10-11-2024.gif)
 
 ![GIF demonstrating how to get cost information](cost-breakdown_10-30-2024.gif)
 
