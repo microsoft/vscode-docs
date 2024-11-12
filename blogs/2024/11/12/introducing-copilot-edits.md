@@ -7,7 +7,7 @@ Date: 2024-11-12
 Author: Isidor Nikolic
 ---
 
-# Introducing Copilot Edits
+# Introducing Copilot Edits (preview)
 
 November 7th, 2024 by [Isidor Nikolic](https://x.com/isidorn)
 
