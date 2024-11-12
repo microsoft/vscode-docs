@@ -25,7 +25,7 @@ Copilot Edits works because it puts you in control, from setting the right conte
 
 ## Stay in control
 
-User control and overall speed are what makes the iterative experience smooth. There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing # to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
+There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing # to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
 
 <img src="working-set.png" alt="Screenshot of the Working Set, showing the user adding index.js" style="width:600px;">
 
