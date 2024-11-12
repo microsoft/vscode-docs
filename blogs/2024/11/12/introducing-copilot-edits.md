@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 November 7th, 2024 by [Isidor Nikolic](https://x.com/isidorn)
 
-Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot ask questions about your code in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
+Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to ask questions about your code in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
 
 <video src="blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
