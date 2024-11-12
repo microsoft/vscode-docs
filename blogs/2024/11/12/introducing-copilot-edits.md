@@ -41,7 +41,7 @@ Copilot Edits makes code editing with AI accessible to users with varying skills
 
 ## Under the covers
 
-Copilot Edits leverages a dual-model architecture to enhance editing efficiency and accuracy. First, a foundation language model considers a full context of the Edits session to generate initial edit suggestions. You can choose the foundation language model that you prefer between: GPT-4o, o1-preview, o1-mini, Claude 3.5 Sonnet, and Gemini 1.5 Pro. For a performant experience, the team developed a speculative decoding endpoint, optimized for fast application of changes in files. The proposed edits from the foundation model are sent to the speculative decoding one, resulting in a smooth user experience.  The speculative decoding endpoint is faster than a regular model, but the team knows it can be even faster and is working on improving this, so stay tuned.
+Copilot Edits leverages a dual-model architecture to enhance editing efficiency and accuracy. First, a foundation language model considers a full context of the Edits session to generate initial edit suggestions. You can choose the foundation language model that you prefer between: GPT-4o, o1-preview, o1-mini, Claude 3.5 Sonnet, and Gemini 1.5 Pro. For a performant experience, the team developed a speculative decoding endpoint, optimized for fast application of changes in files. The proposed edits from the foundation model are sent to the speculative decoding endpoint that will then propose those changes inline in the editor. The speculative decoding endpoint is faster than a regular model, but the team knows it can be even faster and is working on improving this, so stay tuned.
 
 ## Available today
 
