@@ -46,7 +46,7 @@ Moreover, it doesn't just help identify problems - it actively assists in resolv
 
 [!GIF demonstrating searching for Azure resources](view-resources_10-11-2024.gif)
 
-[!GIF demonstrating how to get cost information](cost-breakdown_10-30-2024.gif)
+![GIF demonstrating how to get cost information](cost-breakdown_10-30-2024.gif)
 
 After troubleshooting, GitHub Copilot for Azure also helps you manage resource operations effectively. Ensuring your resources are utilized properly is essential, and this tool simplifies the process. For instance, you can easily inquire about the number of Azure OpenAI deployments you have or request a list of your storage accounts in a specific data center region and have them sorted by size. Additionally, you can ask for the cost of a specific set of resources.
 
