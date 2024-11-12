@@ -1,4 +1,3 @@
-
 ---
 Order: 89
 TOCTitle: GitHub Copilot for Azure
