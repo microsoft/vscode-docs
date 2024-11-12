@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 November 7th, 2024 by [Isidor Nikolic](https://x.com/isidorn)
 
-Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to respond to your queries in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
+Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to respond to queries in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
 
 <video src="blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -25,7 +25,7 @@ Copilot Edits works because it puts you in control, from setting the right conte
 
 ## Stay in control
 
-There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing # to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
+There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing `#` to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
 
 <img src="working-set.png" alt="Screenshot of the Working Set, showing the user adding index.js" style="width:600px;">
 
