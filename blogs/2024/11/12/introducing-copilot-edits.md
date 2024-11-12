@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 November 7th, 2024 by [Isidor Nikolic](https://x.com/isidorn)
 
-Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to respond to your queries in the Chat view. Copilot Edits, a Preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
+Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to respond to your queries in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
 
 <video src="blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -45,7 +45,7 @@ Copilot Edits leverages a dual-model architecture to enhance editing efficiency 
 
 ## Available today
 
-Copilot Edits is in Preview and available to all [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) users today! The feedback that you provided in the past [#1](https://github.com/microsoft/vscode-copilot-release/issues/95) and [#2](https://github.com/microsoft/vscode-copilot-release/issues/1098), was instrumental in shipping this feature, so a big thank you!
+Copilot Edits is in preview and available to all [GitHub Copilot]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) users today! The feedback that you provided in the past [#1](https://github.com/microsoft/vscode-copilot-release/issues/95) and [#2](https://github.com/microsoft/vscode-copilot-release/issues/1098), was instrumental in shipping this feature, so a big thank you!
 
 For a detailed overview of Copilot Edits please read the [official docs](https://code.visualstudio.com/docs/copilot/copilot-edits).
 
