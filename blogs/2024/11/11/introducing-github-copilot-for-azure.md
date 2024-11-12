@@ -29,7 +29,7 @@ GitHub Copilot for Azure streamlines the process of deploying your applications 
 
 ### Troubleshooting
 
-[!GIF demonstrating how to diagnose an app issue](diagnose-logs_10-11-2024.gif)
+![GIF demonstrating how to diagnose an app issue](diagnose-logs_10-11-2024.gif)
 
 When issues arise, GitHub Copilot for Azure makes diagnosing and troubleshooting easier by providing quick insights into your application's performance and resource problems. Whether you're trying to understand why your Kubernetes cluster is slow or identifying the cause of those frustrating 500 errors on your website, `@azure` is there to help. It performs diagnostics, searches logs, and highlights potential issues.
 
