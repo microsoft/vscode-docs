@@ -21,7 +21,7 @@ Copilot Edits allows you to get to the changes you need in your workspace, acros
 
 ![Screenshot of the Copilot edits, and the proposed inline changes](copilot-edits.png)
 
-Copilot Edits succeeds because it puts you in control, from setting the right context to accepting changes, and not because it relies on an advanced model that never makes a mistake. And the experience is iterative: when the model gets it wrong, you can review changes across multiple files, accept good ones and iterate until, together with Copilot, you arrive at the right solution. When accepting changes, you can run the code to verify the changes and, when needed, Undo in Copilot Edits to get back to a previous working state.
+Copilot Edits works because it puts you in control, from setting the right context to accepting changes, and not because it relies on an advanced model that never makes a mistake. And the experience is iterative: when the model gets it wrong, you can review changes across multiple files, accept good ones and iterate until, together with Copilot, you arrive at the right solution. When accepting changes, you can run the code to verify the changes and, when needed, Undo in Copilot Edits to get back to a previous working state.
 
 ## Stay in control
 
