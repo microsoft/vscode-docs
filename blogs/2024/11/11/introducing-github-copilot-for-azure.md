@@ -7,7 +7,7 @@ GitHub Copilot for Azure can help with...
 
 ### Learning about Azure
 
-[!GIF demonstrating learning about Azure](learn_10-11-2024.gif)
+![GIF demonstrating learning about Azure](learn_10-11-2024.gif)
 
 GitHub Copilot for Azure brings in relevant, up-to-date documentation without leaving your editor, instead of searching through multiple sources. Ask questions about Azure OpenAI models, Azure AI Search, or even pricing details for services like Azure SQL. This feature is incredibly useful for developers new to Azure, helping them quickly grasp complex concepts, and it also saves time for seasoned developers who need quick reminders or details on the latest services and features.
 
