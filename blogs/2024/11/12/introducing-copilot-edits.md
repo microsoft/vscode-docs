@@ -27,11 +27,11 @@ Copilot Edits works because it puts you in control, from setting the right conte
 
 User control and overall speed are what makes the iterative experience smooth. There is a new UI concept – the Working Set - that puts you in control and allows you to define on what files the edits need to be applied. You can also add files to the working set by dragging and dropping files or editor tabs, or by pressing # to explicitly add them. Copilot Edits automatically adds your active editors across editor groups to the Working Set.
 
-![Screenshot of the Working Set, showing the user adding index.js](working-set.png)
+<img src="working-set.png" alt="Screenshot of the Working Set, showing the user adding index.js" style="width:600px;">
 
 Working Sets, together with the Undo and Redo functionality, gives you precise control over changes and allows you to decide exactly where and how to apply them. Copilot Edits shows the generated edits in-place right in your code and provides you with a code review flow, where you can accept or discard each of the AI-generated edits. Copilot Edits will not make changes outside of the Working Set – the only exception being when it proposes to create a new file.
 
-![Screenshot of the inline changes, showing the Accept / Discard widget](changes.png)
+<img src="changes.png" alt="Screenshot of the inline changes, showing the Accept / Discard widget" style="width:600px;">
 
 Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/editor/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
 
