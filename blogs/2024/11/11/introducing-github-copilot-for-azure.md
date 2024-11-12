@@ -18,7 +18,7 @@ GitHub Copilot for Azure brings in relevant, up-to-date documentation without le
 
 ### Deploying
 
-[!GIF showing how to search for and deploy an azd template](deploy-init_10-11-2024.gif)
+![GIF showing how to search for and deploy an azd template](deploy-init_10-11-2024.gif)
 
 GitHub Copilot for Azure streamlines the process of deploying your applications by guiding you through tasks such as resource setup and automated deployments. Whether you're developing a RAG (Retrieval-Augmented Generation) app with Python, setting up a CI/CD pipeline, or using the Azure Developer CLI (azd) to deploy your project, it can recommend app templates, appropriate commands, and configurations. There's no need to search for sample applications, look up CLI commands, or figure out YAML syntax. This is particularly useful when you need to quickly launch or dismantle services, saving you time and allowing you to focus on writing excellent code instead of managing infrastructure.
 
