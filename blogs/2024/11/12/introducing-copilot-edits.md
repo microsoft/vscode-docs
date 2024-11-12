@@ -11,13 +11,13 @@ Author: Isidor Nikolic
 
 November 7th, 2024 by [Isidor Nikolic](https://x.com/isidorn)
 
-Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to respond to queries in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
+Until recently, you could use GitHub Copilot in VS Code in two separate ways. You could modify code inside the editor using completions or Inline Chat. Or you could use Copilot to ask questions about your code in the Chat view. Copilot Edits, a preview feature, is a brand new way of using Copilot in VS Code. It combines the best of Chat and Inline Chat: the conversational flow and the ability to make inline changes across of set of files that you manage. And it just works.
 
 <video src="blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
 ## Designed for iteration across multiple files
 
-Copilot Edits allows you to get to the changes you need in your workspace, across multiple files, using a UI designed for fast iteration. You can specify a set of files to be edited, and then use natural language to simply ask Copilot what you need. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
+In Copilot Edits you specify a set of files to be edited, and then use natural language to ask Copilot what you need. Copilot Edits makes inline changes in your workspace, across multiple files, using an UI designed for fast iteration. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
 
 ![Screenshot of the Copilot edits, and the proposed inline changes](copilot-edits.png)
 
