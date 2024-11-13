@@ -46,7 +46,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 ## contributes.authentication
 
-Contributes an authentication provider. This will set up an activation event for your provider and display it on in your extension's features.
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
 
 ```json
 {
