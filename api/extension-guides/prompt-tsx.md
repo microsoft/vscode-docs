@@ -28,13 +28,13 @@ Including conversation history in your prompt is important as it allows the user
 4. Any supporting data
 5. As much of the remaining history as you can fit
 
-For this reason, we split the history into two parts in the prompt, where recent prompt turns are prioritized above general contextual information.
+For this reason, you'll split the history into two parts in the prompt, where recent prompt turns are prioritized above general contextual information.
 
 ### Step 1: Define the HistoryMessages Component
 
-We know that we'll need to list history messages, so let's define a `HistoryMessages` component that displays those. You may need to expand this if you deal with more complex data types, but this will get us where we need to be.
+You'll need to list history messages, so let's define a `HistoryMessages` component that displays those. You may need to expand this if you deal with more complex data types, but this provides a good starting point.
 
-We'll use the `PrioritizedList` helper component which automatically assigns ascending or descending priorities to each of its children.
+This example uses the `PrioritizedList` helper component which automatically assigns ascending or descending priorities to each of its children.
 
 ```tsx
 import {
@@ -73,10 +73,9 @@ export class HistoryMessages extends PromptElement<IHistoryMessagesProps> {
 }
 ```
 
-
 ### Step 2: Define the Prompt Component
 
-Now, we'll define a `MyPrompt` component that includes the base instructions, user query, and history messages with appropriate priorities. Priority values are local among, but remember that we want to trim older messages in the history before touching anything else in the prompt, so we need to split up two `<HistoryMessages>` elements:
+Now, define a `MyPrompt` component that includes the base instructions, user query, and history messages with appropriate priorities. Priority values are local among siblings, but remember that we want to trim older messages in the history before touching anything else in the prompt, so you need to split up two `<HistoryMessages>` elements:
 
 ```tsx
 import {
@@ -101,7 +100,7 @@ export class MyPrompt extends PromptElement<IMyPromptProps> {
 				</SystemMessage>
 				{/* Older messages in the history have the lowest priority since they're less relevant */}
 				<HistoryMessages history={this.props.history.slice(0, -2)} priority={0} />
-				{/* The last 2 history messages are preferred over any workspace context we have below */}
+				{/* The last 2 history messages are preferred over any workspace context you have below */}
 				<HistoryMessages history={this.props.history.slice(-2)} priority={80} />
 				{/* The user query is right behind the system message in priority */}
 				<UserMessage priority={90}>{this.props.userQuery}</UserMessage>
@@ -115,11 +114,11 @@ export class MyPrompt extends PromptElement<IMyPromptProps> {
 }
 ```
 
-Now, all older history messages will be pruned before we try to prune other elements of the prompt.
+Now, all older history messages will be pruned before the library will try to prune other elements of the prompt.
 
 ### Step 3: Define the History Component
 
-To make consumption a little easier, we can define a `History` component that wraps the history messages and uses the `passPriority` attribute to act as a pass-through container. With `passPriority`, its children are treated as if they were direct children of the containing element for prioritization purposes.
+To make consumption a little easier, define a `History` component that wraps the history messages and uses the `passPriority` attribute to act as a pass-through container. With `passPriority`, its children are treated as if they were direct children of the containing element for prioritization purposes.
 
 ```tsx
 import { PromptElement, BasePromptElementProps } from '@vscode/prompt-tsx';
@@ -143,7 +142,7 @@ export class History extends PromptElement<IHistoryProps> {
 }
 ```
 
-Now a consumer can use this single element to include their history:
+Now, you can use and reuse this single element to include chat history:
 
 ```tsx
 <History history={this.props.history} passPriority older={0} newer={80}/>
@@ -151,17 +150,17 @@ Now a consumer can use this single element to include their history:
 
 ## File Contents: Growing to Fit
 
-In this example, we want to include the contents of all files the user is currently looking at in their prompt. But, these files could be big, to the point where including all of them would lead to their text being pruned! This example shows you how to use the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
+In this example, you want to include the contents of all files the user is currently looking at in their prompt. But, these files could be big, to the point where including all of them would lead to their text being pruned! This example shows you how to use the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
 
 ### Step 2: Define the Base Instructions and User Query
 
-First, we define a `SystemMessage` component that includes the base instructions. This component has the highest priority to ensure it is always included.
+First, you define a `SystemMessage` component that includes the base instructions. This component has the highest priority to ensure it is always included.
 
 ```tsx
 <SystemMessage priority={100}>Here are your base instructions.</SystemMessage>
 ```
 
-We then include the user query using the `UserMessage` component. This component has a high priority to ensure it is included right after the base instructions.
+You then include the user query using the `UserMessage` component. This component has a high priority to ensure it is included right after the base instructions.
 
 ```tsx
 <UserMessage priority={90}>{this.props.userQuery}</UserMessage>
@@ -169,19 +168,19 @@ We then include the user query using the `UserMessage` component. This component
 
 ### Step 4: Include the File Contents
 
-Finally, we include the file contents using the `FileContext` component. We assign it a `flexGrow` value of `1` to ensure it is rendered after the base instructions, user query, and history.
+Finally, you include the file contents using the `FileContext` component. You assign it a [`flexGrow`](https://github.com/microsoft/vscode-prompt-tsx?tab=readme-ov-file#flex-behavior) value of `1` to ensure it is rendered after the base instructions, user query, and history.
 
 ```tsx
 <FileContext priority={70} flexGrow={1} files={this.props.files} />
 ```
 
-With a `flexGrow` value, the element will get any _unused_ token budget in its `PromptSizing` object that's passed into its `render()` and `prepare()` calls.
+With a `flexGrow` value, the element will get any _unused_ token budget in its `PromptSizing` object that's passed into its `render()` and `prepare()` calls. You can read more about the behavior of flex elements in [prompt-tsx's readme](https://github.com/microsoft/vscode-prompt-tsx?tab=readme-ov-file#flex-behavior).
 
 ### Step 5: Include the History
 
-Next, we include the history messages using the `History` component that we created in the last example. This is a little trickier, since we do want some history to be shown, but also want the file contents to take up the majority of the prompt.
+Next, include the history messages using the `History` component that you created in the last example. This is a little trickier, since you do want some history to be shown, but also want the file contents to take up the majority of the prompt.
 
-Therefore, we'll assign it a `flexGrow` value of `2` to ensure it is rendered after all other elements, but also a `flexReserve` value of `"/5"` to reserve 1/5th of the total budget for history.
+Therefore, assign it a `flexGrow` value of `2` to ensure it is rendered after all other elements, including `<FileContext />`. But, also set a `flexReserve` value of `"/5"` to reserve 1/5th of the total budget for history.
 
 ```tsx
 <History
@@ -196,7 +195,7 @@ Therefore, we'll assign it a `flexGrow` value of `2` to ensure it is rendered af
 
 ### Step 5: Combine the Elements
 
-Now, we combine all the elements into the `MyPrompt` component.
+Now, combine all the elements into the `MyPrompt` component.
 
 ```tsx
 import {
@@ -241,9 +240,9 @@ export class MyPrompt extends PromptElement<IMyPromptProps> {
 
 ### Step 6: Define the FileContext Component
 
-Next, we define a `FileContext` component that includes the contents of the files the user is currently looking at. Because we used `flexGrow`, we can implement logic that will get as many of the lines around the 'interesting' line for each file.
+Finally, define a `FileContext` component that includes the contents of the files the user is currently looking at. Because you used `flexGrow`, you can implement logic that will get as many of the lines around the 'interesting' line for each file using the information in `PromptSizing`.
 
-We'll omit the logic behind `getExpandedFiles` for brevity here, but you can check it out in the [example repo](https://github.com/microsoft/vscode-prompt-tsx/blob/5501d54a5b9a7608582e8419cd968a82ca317cc9/examples/file-contents.tsx#L103).
+We've omitted the logic behind `getExpandedFiles` for brevity here, but you can check it out in the [example repo](https://github.com/microsoft/vscode-prompt-tsx/blob/5501d54a5b9a7608582e8419cd968a82ca317cc9/examples/file-contents.tsx#L103).
 
 ```tsx
 import { PromptElement, BasePromptElementProps, PromptSizing, PromptPiece } from '@vscode/prompt-tsx';
@@ -263,6 +262,6 @@ class FileContext extends PromptElement<{ files: IFilesToInclude[] } & BasePromp
 
 ### Summary
 
-In this example, we created a `MyPrompt` component that includes base instructions, user query, history messages, and file contents with different priorities and `flexGrow` values. We also created a `FileContext` component that includes the contents of the files the user is currently looking at and uses the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
+In this example, you created a `MyPrompt` component that includes base instructions, user query, history messages, and file contents with different priorities and `flexGrow` values. You also created a `FileContext` component that includes the contents of the files the user is currently looking at and uses the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
 
 By following this pattern, you can ensure that the most important parts of your prompt are always included, while less important parts are pruned as needed to fit within the model's context window. For the complete implementation details of the `getExpandedFiles` method and the `FileContextTracker` class, please refer to the [prompt-tsx repo](https://github.com/microsoft/vscode-prompt-tsx/tree/main/examples).
