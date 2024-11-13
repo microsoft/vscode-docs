@@ -123,7 +123,7 @@ For more details about what you can do with Live Share, visit the [how-to-guide]
 
 To get started with using Live Share in VS Code, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the VS Code Marketplace.
 
-    > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
+> <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 
 Once you log into your GitHub account, you can see the Live Share icon in the Activity Bar.
 
