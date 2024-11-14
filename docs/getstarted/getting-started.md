@@ -132,7 +132,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
         ![Screenshot that shows the Command Palette, listing the entries for moving the terminal.](images/getting-started/command-palette-move-terminal.png)
 
-    1. Remove `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
+    1. Remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
 
         ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
 
