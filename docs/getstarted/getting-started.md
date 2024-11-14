@@ -87,8 +87,6 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
     As you type, you should see suggestions popping up that help you complete your code (*IntelliSense*). You can use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the suggestions, and `kbstyle(Tab)` to insert the selected suggestion.
 
-    ![Screen capture that shows IntelliSense in action for an HTML file.](images/getting-started/html-intellisense.gif)
-
 1. Add more files to your workspace and notice that each file opens a new Editor tab.
 
     You can open as many editors as you like and view them side by side vertically or horizontally. Learn more about [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing).
