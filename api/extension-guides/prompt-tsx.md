@@ -9,7 +9,7 @@ MetaDescription: A guide for how to build language model prompts using the promp
 
 # Craft language model prompts
 
-You can build language model prompts by using string concatenation, but it's hard to compose features and make sure your prompts stay within the context window of language models. To solve this, you can use the [`@vscode/prompt-tsx`](https://github.com/microsoft/vscode-prompt-tsx) library.
+You can build language model prompts by using string concatenation, but it's hard to compose features and make sure your prompts stay within the context window of language models. To overcome these limitations, you can use the [`@vscode/prompt-tsx`](https://github.com/microsoft/vscode-prompt-tsx) library.
 
 The `@vscode/prompt-tsx` library provides the following features:
 
@@ -18,13 +18,13 @@ The `@vscode/prompt-tsx` library provides the following features:
 - **Flexible token management**: Use properties like `flexGrow`, `flexReserve`, and `flexBasis` to cooperatively use token budgets
 - **Tool integration**: Integrate with VS Code's language model tools API
 
-For a complete overview of all features and detailed usage instructions, please refer to the [full README](https://github.com/microsoft/vscode-prompt-tsx/blob/main/README.md).
+For a complete overview of all features and detailed usage instructions, refer to the [full README](https://github.com/microsoft/vscode-prompt-tsx/blob/main/README.md).
 
-This articles describes practical examples of prompt design with the library. The complete code for these examples can be found in the [prompt-tsx repository](https://github.com/microsoft/vscode-prompt-tsx/tree/main/examples).
+This article describes practical examples of prompt design with the library. The complete code for these examples can be found in the [prompt-tsx repository](https://github.com/microsoft/vscode-prompt-tsx/tree/main/examples).
 
 ## Manage priorities in the conversation history
 
-Including conversation history in your prompt is important as it enables the user to ask follow-up questions to previous messages. However, you want to make sure its priority is treated appropriately because history can grow very large over time. We've found that the pattern which makes the most sense is usually to prioritize, in order:
+Including conversation history in your prompt is important as it enables the user to ask follow-up questions to previous messages. However, you want to make sure its priority is treated appropriately because history can grow large over time. We've found that the pattern which makes the most sense is usually to prioritize, in order:
 
 1. The base prompt instructions
 2. The current user query
@@ -124,7 +124,7 @@ Now, all older history messages are pruned before the library tries to prune oth
 
 ### Step 3: Define the History component
 
-To make consumption a little easier, define a `History` component that wraps the history messages and uses the `passPriority` attribute to act as a pass-through container. With `passPriority`, its children are treated as if they were direct children of the containing element for prioritization purposes.
+To make consumption a little easier, define a `History` component that wraps the history messages and uses the `passPriority` attribute to act as a pass-through container. With `passPriority`, its children are treated as if they are direct children of the containing element for prioritization purposes.
 
 ```tsx
 import { PromptElement, BasePromptElementProps } from '@vscode/prompt-tsx';
@@ -156,7 +156,7 @@ Now, you can use and reuse this single element to include chat history:
 
 ## Grow file contents to fit
 
-In this example, you want to include the contents of all files the user is currently looking at in their prompt. These files could be big, to the point where including all of them would lead to their text being pruned! This example shows how to use the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
+In this example, you want to include the contents of all files the user is currently looking at in their prompt. These files could be large, to the point where including all of them would lead to their text being pruned! This example shows how to use the `flexGrow` property to cooperatively size the file contents to fit within the token budget.
 
 ### Step 1: Define base instructions and user query
 
@@ -184,7 +184,7 @@ With a `flexGrow` value, the element gets any _unused_ token budget in its `Prom
 
 ### Step 3: Include the history
 
-Next, include the history messages using the `History` component that you created previously. This is a little trickier, since you do want some history to be shown, but also want the file contents to take up the majority of the prompt.
+Next, include the history messages using the `History` component that you created previously. This is a little trickier, since you do want some history to be shown, but also want the file contents to take up most the prompt.
 
 Therefore, assign the `History` component a `flexGrow` value of `2` to ensure it is rendered after all other elements, including `<FileContext />`. But, also set a `flexReserve` value of `"/5"` to reserve 1/5th of the total budget for history.
 
@@ -270,4 +270,4 @@ class FileContext extends PromptElement<{ files: IFilesToInclude[] } & BasePromp
 
 In these examples, you created a `MyPrompt` component that includes base instructions, user query, history messages, and file contents with different priorities. You used `flexGrow` to cooperatively size the file contents to fit within the token budget.
 
-By following this pattern, you can ensure that the most important parts of your prompt are always included, while less important parts are pruned as needed to fit within the model's context window. For the complete implementation details of the `getExpandedFiles` method and the `FileContextTracker` class, please refer to the [prompt-tsx repo](https://github.com/microsoft/vscode-prompt-tsx/tree/main/examples).
+By following this pattern, you can ensure that the most important parts of your prompt are always included, while less important parts are pruned as needed to fit within the model's context window. For the complete implementation details of the `getExpandedFiles` method and the `FileContextTracker` class, refer to the [prompt-tsx repo](https://github.com/microsoft/vscode-prompt-tsx/tree/main/examples).
