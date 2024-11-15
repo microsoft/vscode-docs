@@ -13,7 +13,7 @@ I'm thrilled to introduce the public preview of **GitHub Copilot for Azure** - a
 
 You can get started right now by installing [GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure) from the Visual Studio Marketplace!
 
-GitHub Copilot for Azure can help with...
+GitHub Copilot for Azure can help with different tasks throughout the lifecycle of building and running your application.
 
 ### Learning about Azure
 
