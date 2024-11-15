@@ -198,6 +198,7 @@ Certain keybindings may also work differently in the web.
 | `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web. | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
 | `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
 | `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead. |
+| `kb(workbench.action.closeActiveEditor)` will not work as expected, to close the currently activated editor, if it has. | `kb(workbench.action.closeActiveEditor)` invokes a prompt dialog with two options to confirm closing the current tab instead. |
 
 ## Additional browser setup
 
