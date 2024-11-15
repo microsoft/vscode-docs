@@ -7,15 +7,17 @@ Date: 2024-11-15
 Author: Chris Harris
 ---
 
+# Introducing GitHub Copilot for Azure (preview)
+
 November 15, 2024 by Chris Harris, Product Manager
 
-I'm thrilled to introduce the public preview of **GitHub Copilot for Azure** - a new tool that integrates effortlessly with GitHub Copilot Chat in VS Code. Imagine it as your personal guide for navigating the Azure cloud. No more toggling between your IDE and the Azure portal to manage infrastructure or look up commands and arguments. Now, you can concentrate on your core task - coding. Whether you're setting up services or deploying applications, simply prompt `@azure` in the Chat view and manage everything directly within your editor.
+I'm thrilled to introduce the preview of **GitHub Copilot for Azure** - a new tool that integrates effortlessly with GitHub Copilot Chat in VS Code. Imagine it as your personal guide for navigating the Azure cloud. No more toggling between your IDE and the Azure portal to manage infrastructure or look up commands and arguments. Now, you can concentrate on your core task - coding. Whether you're setting up services or deploying applications, simply prompt `@azure` in the Chat view and manage everything directly within your editor.
 
 You can get started right now by installing [GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure) from the Visual Studio Marketplace!
 
 GitHub Copilot for Azure can help with different tasks throughout the lifecycle of building and running your application.
 
-### Learning about Azure
+## Learning about Azure
 
 ![GIF demonstrating learning about Azure](learn_10-11-2024.gif)
 
@@ -26,7 +28,7 @@ GitHub Copilot for Azure brings in relevant, up-to-date documentation without le
 - `@azure Give me a detailed description of Azure AI Search`
 - `@azure Which azure services can run my container?`
 
-### Deploying
+## Deploying
 
 ![GIF showing how to search for and deploy an azd template](deploy-init_10-11-2024.gif)
 
@@ -38,7 +40,7 @@ GitHub Copilot for Azure streamlines the process of deploying your applications 
 - `@azure Can you help me build an RAG chat app with GPT-4o?`
 - `@azure List the regions where GPT-4o is available`
 
-### Troubleshooting
+## Troubleshooting
 
 ![GIF demonstrating how to diagnose an app issue](diagnose-logs_10-11-2024.gif)
 
@@ -52,7 +54,7 @@ Moreover, it doesn't just help identify problems - it actively assists in resolv
 - `@azure Why is my [ReallyImportantWebsite] webapp running slow?`
 - `@azure Are there any errors in the logs of my [SuperCoolDemo] Container App?`
 
-### Operating
+## Operating
 
 ![GIF demonstrating searching for Azure resources](view-resources_10-11-2024.gif)
 
@@ -68,7 +70,7 @@ This immediate access to resource data helps you optimize your setup by identify
 - `@azure How do I list all the pods in my AKS cluster?`
 - `@azure Breakdown the cost of my [VeryImportantResourceGroup] resource group for October?`
 
-### Slash commands give you more control
+## Slash commands give you more control
 
 GitHub Copilot for Azure tries to identify the intent of your natural language prompt. By using slash commands, you can express your intent more explicitly. And these slash commands are also a useful shorthand notation for common commands.
 
@@ -78,11 +80,11 @@ GitHub Copilot for Azure tries to identify the intent of your natural language p
 - `/diagnose` to figure out what's wrong with your applications
 - `/changeTenant` to choose the Azure tenant you want to use
 
-### Get started now!
+## Get started now!
 
 GitHub Copilot for Azure is currently in preview, and can be installed from the Visual Studio Marketplace: [Get GitHub Copilot for Azure](https://aka.ms/GetGitHubCopilotForAzure)
 
-### Share your thoughts
+## Share your thoughts
 
 We'd love to hear your feedback, whether it's positive or negative! Use the "Thumbs Up" and "Thumbs Down" buttons to share your thoughts, and feel free to open issues in our [GitHub repo](https://aka.ms/GitHubCopilotForAzureRepo). Your input is invaluable to us as we strive to improve and support you on your Azure journey.
 
