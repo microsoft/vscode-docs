@@ -258,7 +258,7 @@ First, we use the **breakpoints** contribution point to list the languages for w
 Next is the **debuggers** section. Here, one debugger is introduced under a debug **type** `mock`. The user can reference this type in launch configurations. The optional attribute **label** can be used to give the debug type a nice name when showing it in the UI.
 
 Since the debug extension uses a debug adapter, a relative path to its code is given as the **program** attribute.
-In order to make the extension self-contained the application must live inside the extension folder. By convention, we keep this applications inside a folder named `out` or `bin`, but you are free to use a different name.
+In order to make the extension self-contained the application must live inside the extension folder. By convention, we keep this application inside a folder named `out` or `bin`, but you are free to use a different name.
 
 Since VS Code runs on different platforms, we have to make sure that the DA program supports the different platforms as well. For this we have the following options:
 
