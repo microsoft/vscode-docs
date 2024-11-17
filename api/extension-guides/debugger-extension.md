@@ -165,7 +165,7 @@ about this can be found [here](https://microsoft.github.io/debug-adapter-protoco
 
 ## Anatomy of the package.json of a Debugger Extension
 
-Besides providing a debugger-specific implementation of the debug adapter a debugger extension needs a `package.json` that contributes to the various debug-related contributions points.
+Besides providing a debugger-specific implementation of the debug adapter a debugger extension needs a `package.json` that contributes to the various debug-related contribution points.
 
 So let's have a closer look at the `package.json` of Mock Debug.
 
