@@ -242,9 +242,7 @@ View the full source code for implementing a [language model tool](https://githu
 
 ## Related content
 
-- Language Model API guide
-- Chat API
-- Prompt-tsx guide
-
-
-https://github.com/microsoft/vscode-chat-extension-utils
+- [Get started with the Language Model API](/api/extension-guides/language-model)
+- [Build a chat extension](/api/extension-guides/chat)
+- [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
+- [@vscode/vscode-chat-extension-utils library](https://github.com/microsoft/vscode-chat-extension-utils)
