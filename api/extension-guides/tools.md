@@ -15,7 +15,7 @@ In this extension guide, you'll learn how to create a language model tool and ho
 
 Tool calling enables you to extend the functionality of a large language model (LLM) by connecting it to external tools and systems to perform tasks that go beyond text processing.
 
-A language model tool is a function that can be invoked as part of language model request. For example, you might have a function that retrieves information from a database, finds files,or performs some calculation. You can implement a language model tool in your extension, or use publicly available tools from other extensions.
+A language model tool is a function that can be invoked as part of language model request. For example, you might have a function that retrieves information from a database, finds files, or performs some calculation. You can implement a language model tool in your extension, or use publicly available tools from other extensions.
 
 The LLM never actually executes the tool itself, instead the LLM generates the parameters that can be used to call your tool, which your code can then choose how to handle by calling the indicated function. Your extension is always in full control of the tool calling process.
 
