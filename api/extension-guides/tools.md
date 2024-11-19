@@ -38,7 +38,7 @@ There are multiple scenarios where you might want to use tool calling in a chat 
 1. Provide the tool responses to the LLM
 1. The LLM generates the final user response, which may incorporate tool responses
 
-### Implement tool calling in a chat extension
+### Implement tool calling with the chat extension library
 
 You can use the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
 
@@ -87,6 +87,12 @@ Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat
     ```
 
 The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
+
+### Implement tool calling with prompt-tsx
+
+For more advanced scenarios, you can also implement tool calling by using the `@vscode/prompt-tsx` library directly. This allows you to have more control over the tool-calling process.
+
+View the full source code for implementing [tool calling by using prompt-tsx](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/toolParticipant.ts) in the VS Code Extension Samples repository.
 
 ## Create a language model tool
 
