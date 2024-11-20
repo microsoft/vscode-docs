@@ -237,16 +237,18 @@ Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`,
 
 ## Chat participants
 
-To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
-
-Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, these are the following built-in chat participants:
+*Chat participants* are like experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants:
 
 * `@workspace` has context about the code in your workspace and can help you navigate it, finding relevant files or classes.
 * `@vscode` knows about commands and features in the VS Code editor itself, and can help you use them.
 * `@terminal` has context about the integrated terminal shell and its contents.
 * `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics, and can also perform web searches using the Bing API.
 
-Extensions can also contribute chat participants to provide specialized help for their domain.
+Extensions can also contribute chat participants to provide specialized help for their domain. To find the list of available chat participants, type `@` in the chat input field.
+
+These are some examples of extensions in the Visual Studio Marketplace that contribute a chat participant to the Chat view in VS Code. Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
+
+<div class="marketplace-extensions-chat"></div>
 
 ### @workspace
 
@@ -311,28 +313,20 @@ Chat participants contributed via a GitHub App do not run on your local machine 
 
 ## Slash commands
 
-One of the tasks when answering questions is to determine the intent, understanding what you want to do. You can use natural language to describe your intent, but it can be ambiguous. To help with this, you can use *slash commands*. Chat participants can contribute slash commands, which are shortcuts to specific, commonly used functionality provided by that chat participant.
+Chat participants can provide shortcuts to specific functionality by using *slash commands*. These commands provide a concise and structured way to interact with chat participants and to give them instructions. You can reference slash commands in your chat prompt by typing the participant, followed by `/` and the command name.
 
-For example, we can infer that "Create a new workspace with Node.js Express Pug TypeScript" means that you want a new project. Instead, you can also use "@workspace /new Node.js Express Pug TypeScript" is explicit, concise, and saves you time typing. In this case, the `/new` slash command is a shortcut to create a new workspace.
+For example, the `@workspace` participant has a slash command `/new` to scaffold a new workspace or a new file. Typing `@workspace /new Node.js Express Pug TypeScript` in the chat input field creates a new workspace with a Node.js Express Pug TypeScript project.
 
-Once the intent is clear, `@workspace` has a better chance of addressing your needs, despite the inherent ambiguity of natural language. The @workspace chat participant can propose a directory structure and users can select the proposed files to preview them. There is a **Create Workspace** button that generates these files in a new folder.
-
-Examples of built-in commands - type `@` or select the <i class="codicon codicon-mention"></i> icon.
+Some examples of built-in slash commands are:
 
 * `/clear`: start a new chat session
 * `/help`: get help about using GitHub Copilot
-* `/doc`: generate code documentation (Inline Chat)
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
-* `@workspace /fixTestFailure` (preview): propose a fix for failing tests
-* `@workspace /setupTests`: configure a testing framework for your workspace
-* `@workspace /tests` (or `/tests`): generate unit tests for the selected code
 * `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
-* `@workspace /newNotebook` (or `/newNotebook`): create a new Jupyter Notebook
 * `@vscode /runCommand`: search or run a VS Code command
-* `@vscode /search` (or `/search`): generate query parameters for the Search view
-* `@vscode /startDebugging` (experimental): generate `launch.json` file to set up debugging configuration and start debugging
-* `@terminal /explain`: explain terminal functionality or shell commands
+
+To view the list of build-in participants and their commands, type `@` in the chat input field or select the <i class="codicon codicon-mention"></i> icon.
 
 ## Improve the performance of Copilot Chat
 
