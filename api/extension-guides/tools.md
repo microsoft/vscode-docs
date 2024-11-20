@@ -31,12 +31,16 @@ There are multiple scenarios where you might want to use tool calling in a chat 
 
 ## Tool-calling flow
 
+The tool-calling flow in a chat extension is as follows:
+
 1. Retrieve the list of relevant tools
 1. Send the request to the LLM, providing the list of tool definitions to consider
 1. The LLM generates a response, which may include one or more requests to invoke a tool
 1. Invoke the tool by using the parameter values provided in the LLM response
-1. Provide the tool responses to the LLM
+1. Send another request to the LLM, including the tool results
 1. The LLM generates the final user response, which may incorporate tool responses
+
+    If the LLM response includes more requests for tool invocations, repeat steps 4-6 until there are no more tool requests.
 
 ### Implement tool calling with the chat extension library
 
@@ -88,9 +92,9 @@ Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat
 
 The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
 
-### Implement tool calling with prompt-tsx
+### Implement tool calling yourself
 
-For more advanced scenarios, you can also implement tool calling by using the `@vscode/prompt-tsx` library directly. This allows you to have more control over the tool-calling process.
+For more advanced scenarios, you can also implement tool calling yourself. Optionally, you can use the `@vscode/prompt-tsx` library for crafting the LLM prompts. By implementing tool calling yourself, you have more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
 
 View the full source code for implementing [tool calling by using prompt-tsx](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/toolParticipant.ts) in the VS Code Extension Samples repository.
 
