@@ -26,7 +26,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
-In this tutorial, you'll be creating a simple Node.js web application. So, let's get started and ask Copilot to tell us more about web frameworks for Node.js.
+In this tutorial, you'll be creating a simple Node.js web application.
 
 1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
 
@@ -34,40 +34,6 @@ In this tutorial, you'll be creating a simple Node.js web application. So, let's
 
     > [!TIP]
     > You can access different Copilot features from the Command Center menu at any time.
-
-1. In the chat input field, enter *give a list of nodejs web server frameworks*, and then press `kb(workbench.action.chat.submit)` to send the request to Copilot.
-
-    Copilot returns a list of web frameworks and with some additional information. So, you can search for coding information while you stay in VS Code.
-
-    Note that your results might be different from what is shown in the screenshots. AI models are non-deterministic, which means that they can return different responses when asked the same question. This might be due to additional learning and adaption over time, language variation, changes in context, such as your chat history, and more.
-
-    ![Screenshot of VS Code, showing the Copilot Chat view, showing the chat response and a suggested follow-up question.](./images/getting-started-chat/copilot-chat-view-node-frameworks.png)
-
-    Notice that Copilot also suggests relevant follow-up questions, which you can select to directly submit directly to Copilot.
-
-    > [!TIP]
-    > To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input field.
-
-1. Let's get more information about Express.js. Enter *how to get started with express* in the chat input field.
-
-    The response contains step-by-step instructions for setting up an Express.js app and might also include code blocks with shell commands or implementation code. Code blocks in the chat response support IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
-
-    ![Screenshot of VS Code Copilot Chat view, showing the chat response with code blocks in the response.](./images/getting-started-chat/copilot-chat-view-express-app.png)
-
-    When Copilot returns a code block, you can select the **Apply in Editor** button to let Copilot insert the code in the active editor for you at the appropriate location. Alternatively, you can also insert the code at the cursor position, or copy the code to the clipboard.
-
-    ![Screenshot of VS Code Copilot Chat view, showing the context menu for code blocks.](./images/getting-started-chat/copilot-chat-view-code-block-actions.png)
-
-    When the chat response contains links to a file, you can drag and drop that file from the Chat view to the editor to open it.
-
-    > [!TIP]
-    > Experiment with different questions and see how Copilot responds. For example, you can ask for only code samples ("give me 3 code samples to create an express app"), or ask how to add basic authentication to an Express app ("how to create an express app with basic auth"), and much more!
-
-## Generate a new workspace
-
-Even to create a simple Express.js application involves creating multiple files: a JavaScript file to set up the server, a `package.json`, HTML (template) files, and more. Rather than asking Copilot to generate each individual file, you can instruct it to create an entire workspace for you.
-
-Let's ask Copilot to generate a workspace for an Express.js and Pug application.
 
 1. Enter *@workspace /new express with typescript and pug* in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
 
@@ -93,7 +59,7 @@ Congratulations! You've just created a workspace with Copilot Chat by using natu
 
 ## Use chat participants
 
-Previously, you already used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
+Previously, you used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
 
 Let's iterate on our generated Express app and add a new page to it.
 
