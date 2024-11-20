@@ -14,15 +14,44 @@ The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.
 
 GitHub Copilot can provide assistance in a variety of scenarios.
 
-* [Get code suggestions as you type](#code-completions-in-the-editor)
-* [Make large changes across multiple files](#iterate-on-large-changes-across-multiple-files)
-* [Ask questions about your code](#answer-coding-questions)
-* [Refactor and improve your code](#code-refactoring-and-improvements)
-* [Fix code issues and debugging](#fix-issues)
-* [Scaffold a new project or files](#jumpstart-your-project)
-* [Configure and generate tests](#generate-unit-test-cases)
-* [Generate code documentation](#generate-code-documentation)
-* [Improve your productivity in VS Code](#productivity-improvements)
+<div class="card-grid">
+<a href="#_code-completions-in-the-editor" class="card">
+    <i class="codicon codicon-keyboard"></i>
+    <p class="card-title">Get code suggestions as you type</p>
+</a>
+<a href="#_iterate-on-large-changes-across-multiple-files" class="card">
+    <i class="codicon codicon-edit-session"></i>
+    <p class="card-title">Make large changes across multiple files</p>
+</a>
+<a href="#_answer-coding-questions" class="card">
+    <i class="codicon codicon-comment-discussion"></i>
+    <p class="card-title">Ask questions about your code</p>
+</a>
+<a href="#_code-refactoring-and-improvements" class="card">
+    <i class="codicon codicon-lightbulb"></i>
+    <p class="card-title">Refactor and improve your code</p>
+</a>
+<a href="#_fix-issues" class="card">
+    <i class="codicon codicon-debug"></i>
+    <p class="card-title">Fix code issues and debugging</p>
+</a>
+<a href="#_jumpstart-your-project" class="card">
+    <i class="codicon codicon-new-file"></i>
+    <p class="card-title">Scaffold a new project or files</p>
+</a>
+<a href="#_generate-unit-test-cases" class="card">
+    <i class="codicon codicon-beaker"></i>
+    <p class="card-title">Configure and generate tests</p>
+</a>
+<a href="#_generate-code-documentation" class="card">
+    <i class="codicon codicon-book"></i>
+    <p class="card-title">Generate code documentation</p>
+</a>
+<a href="#_productivity-improvements" class="card">
+    <i class="codicon codicon-sparkle"></i>
+    <p class="card-title">Improve your productivity in VS Code</p>
+</a>
+</div>
 
 ## Copilot in VS Code
 
