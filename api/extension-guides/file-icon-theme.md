@@ -203,7 +203,7 @@ Language contributors can define an icon for the language.
 The icon is used if a file icon theme only has a generic file icon for the language.
 
 Language default icons are only shown if:
-- the file icon theme has specific file icons. E.g. `Minimal` does not have specific file icons and therefore does not use the language default icons
+- the file icon theme has specific file icons. E.g. `Minimal` does have specific file icons and therefore does not use the language default icons
 - the file icon theme does not contain an icon for the given language, file extension or file name.
 - the file icon theme does not define `"showLanguageModeIcons":false`
 
