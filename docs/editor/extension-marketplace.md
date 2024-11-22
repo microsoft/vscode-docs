@@ -336,14 +336,7 @@ You may see this error if your machine is going through a proxy server to access
 
 Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, use the following command option:
-```
-code --download-extension <UniqueExtensionID> --location <Path>
-
-Example:
-code --download-extension ms-python.python --location ~/vscode/testing
-```
-You can copy the extension ID from the extension details page ![Copy Extension ID](./images/extension-marketplace/copy-extension-id.png).
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**. Note that the download option is only available for extensions that are not already installed.
 
 Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
 
