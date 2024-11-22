@@ -270,6 +270,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _title_ - Human readable title for the diff editor
 * _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
 
+`vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
+
+* _title_ - Human readable title for the changes editor
+* _resourceList_ - List of resources to compare
+
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
 * _uri_ - Uri of a text document

@@ -48,9 +48,9 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want to use for our Python project file. If you want to debug a single Python script, select **Python File** in the **Select a debug configuration** menu that appears.
 
-![List of Python debugger configuration options](images/shared/debug-configurations.png)
+    ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
-   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+    > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
 
 1. The Python Debugger extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
