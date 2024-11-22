@@ -25,7 +25,7 @@ resources:
       trigger: true
 
 extends:
-  template: v1/1ES.Unofficial.PipelineTemplate.yml@1esPipelines
+  template: v1/1ES.Official.PipelineTemplate.yml@1esPipelines
   parameters:
     sdl:
       credscan:
@@ -36,11 +36,9 @@ extends:
         retryCount: 3
       policheck:
         break: true
-      sbom:
-        enabled: true
       sourceAnalysisPool: 1es-windows-2022-x64
       tsa:
         enabled: true
 
     stages:
-    - template: templates/stages/build-buddy.yml@self
+    - template: templates/stages/build-vnext.yml@self
