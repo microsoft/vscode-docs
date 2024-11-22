@@ -36,6 +36,8 @@ extends:
         retryCount: 3
       policheck:
         break: true
+      sbom:
+        enabled: true
       sourceAnalysisPool: 1es-windows-2022-x64
       tsa:
         enabled: true
