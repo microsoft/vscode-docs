@@ -47,4 +47,4 @@ extends:
         enabled: true
 
     stages:
-    - template: templates/stages/build-official.yml@self
+    - template: templates/stages/build-main.yml@self
