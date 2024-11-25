@@ -26,6 +26,9 @@ Custom instructions consist of natural language instructions and should be short
 
 Copilot can help you generate code, for example as part of a refactoring, generating unit tests, or implementing a feature. You might have specific libraries you want to use in your project, or a particular coding style you want to follow for the code that Copilot generates.
 
+> [!NOTE]
+> Copilot does not apply code-generation instructions for [code completions](/docs/copilot/ai-powered-suggestions.md).
+
 ### Use settings
 
 You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/getstarted/settings.md#language-specific-editor-settings).
@@ -58,8 +61,10 @@ Always add comments.
 
 You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically picks up this file.
 
+If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
+
 > [!NOTE]
-> GitHub Copilot in Visual Studio also detect the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
+> GitHub Copilot in Visual Studio also detects the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
 
 1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct Copilot in VS Code to use the custom instructions file.
 
