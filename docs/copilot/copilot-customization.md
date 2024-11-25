@@ -106,7 +106,7 @@ Always use React functional components.
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
-* Don't refer to external resources in the instructions, such as specific coding standards,
+* Don't refer to external resources in the instructions, such as specific coding standards.
 
 * Define language-specific instructions to get more accurate generated code for each language.
 
