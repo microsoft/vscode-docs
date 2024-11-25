@@ -76,7 +76,7 @@ You can also store custom instructions in your workspace or repository in a `.gi
 
 You can use Copilot to generate tests for your code, for example by using the `@workspace /tests` prompt in the Chat view. You can define custom instructions to help Copilot generate tests that are specific to your project and development workflow.
 
-To configure custom test-generation instructions, use the `setting(github.copilot.chat.testGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/getstarted/settings.md#language-specific-editor-settings). For example, you might specify a different testing framework to use for each language.
+To configure custom test-generation instructions, use the `setting(github.copilot.chat.testGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
 
 The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
 
@@ -107,8 +107,6 @@ Always use React functional components.
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
 * Don't refer to external resources in the instructions, such as specific coding standards,
-
-* Define language-specific instructions to get more accurate generated code for each language.
 
 * Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
 
