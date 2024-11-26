@@ -219,8 +219,8 @@ Get help about shell commands and how to resolve errors when running commands in
 | `kb(inlinechat.start)` | Start Inline Chat within the terminal to use natural language to quickly get and run a shell command.<br/>Example: `how many cores on this machine?` |
 | <i class="codicon codicon-sparkle"></i> <br/>Fix using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get suggestions on how to resolve the error. |
 | <i class="codicon codicon-sparkle"></i> <br/>Explain using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get an explanation about why the command failed. |
-| `@terminal` | Use the `@terminal` participant in the Chat View to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
-| `@terminal /explain` | Use the `/explain` command in the Chat View to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
+| `@terminal` | Use the `@terminal` participant in the Chat view to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
+| `@terminal /explain` | Use the `/explain` command in the Chat view to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
 
 ## Python and Notebook support
 
