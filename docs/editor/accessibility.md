@@ -29,7 +29,7 @@ When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / 
 
 ## Accessibility help
 
-The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, chat view, and inline chat features.
+The command **Open Accessibility Help** `kb(editor.action.accessibilityHelp)` opens a help menu based on the current context. It currently applies to the editor, terminal, notebook, Chat view, and Inline Chat features.
 
 You can dismiss the accessibility help menu or open additional documentation from within the help menu.
 

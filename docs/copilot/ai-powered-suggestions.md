@@ -14,13 +14,20 @@ GitHub Copilot acts as an AI-powered pair programmer, automatically offering sug
 
 ## Getting started
 
-> **Note**: After reviewing this topic, you can get started with the introductory [Copilot getting started tutorial](/docs/copilot/getting-started.md) to get set up and take a hands-on tour of Copilot in VS Code.
+1. Install the GitHub Copilot extension. This also installs the GitHub Copilot Chat extension.
 
-* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
-* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+1. Follow the steps in the [Copilot setup guide](/docs/copilot/setup.md) to configure GitHub Copilot in VS Code.
 
-Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
+    > [!TIP]
+    > If you don't yet have a GitHub Copilot subscription, sign up for a [GitHub Copilot free trial](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) in your personal account.
+
+1. Get going with these hands-on tutorials to learn how to use GitHub Copilot in VS Code.
+
+    * [GitHub Copilot Quickstart](/docs/copilot/getting-started.md) - discover the key features of GitHub Copilot in VS Code.
+
+    * [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md) - get started with AI chat conversations.
 
 ## Inline suggestions
 

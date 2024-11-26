@@ -5,7 +5,7 @@ TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
 DateApproved: 10/29/2024
-MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
+MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Getting started with Copilot Chat in VS Code
@@ -78,7 +78,8 @@ Let's iterate on our generated Express app and add a new page to it.
 
     ![Screenshot of VS Code Copilot Chat view, showing the list of chat participants.](./images/getting-started-chat/copilot-chat-view-participants.png)
 
-    > **Note**: Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
+    > [!NOTE]
+    > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
 
 1. Let's use `@vscode` to ask about VS Code. Enter `@vscode how to debug node.js app` in the chat input field.
 

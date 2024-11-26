@@ -12,7 +12,8 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article covers best practices for using GitHub Copilot in Visual Studio Code by using prompt crafting and providing the right context to GitHub Copilot.
 
->**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
+> [!NOTE]
+> "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -111,7 +112,7 @@ Chat participants are designed to collect extra context either about a code base
 
 Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
-![Inline chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
+![Inline Chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
 
 You could write out your project scope or current task with a natural language query but using chat participants and slash commands is more concise and explicit.
 
@@ -139,7 +140,7 @@ When you ask Copilot to do a specific task, be specific about the inputs, output
 
 When asking Copilot Chat for help, you aren't stuck with the first response. You can iterate and prompt Copilot to improve the solution. Copilot has both the context of the generated code and also your current conversation.
 
-Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+Here's an example using Inline Chat to create a function to calculate Fibonacci numbers:
 
 ![First response from Copilot for a function to calculate Fibonacci numbers](images/prompt-crafting/fibonacci-first.png)
 

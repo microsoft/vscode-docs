@@ -12,7 +12,8 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This tutorial walks you through the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to get AI-powered code suggestions in the editor, use chat conversations to refactor your code, and fix code errors with smart actions.
 
-> **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
+> [!NOTE]
+> While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
 
 For an overview of what you can do with GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md).
 
