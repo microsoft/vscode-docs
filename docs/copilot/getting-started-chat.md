@@ -78,7 +78,8 @@ Let's iterate on our generated Express app and add a new page to it.
 
     ![Screenshot of VS Code Copilot Chat view, showing the list of chat participants.](./images/getting-started-chat/copilot-chat-view-participants.png)
 
-    > **Note**: Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
+    > [!NOTE]
+    > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
 
 1. Let's use `@vscode` to ask about VS Code. Enter `@vscode how to debug node.js app` in the chat input field.
 
