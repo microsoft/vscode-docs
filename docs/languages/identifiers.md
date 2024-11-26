@@ -73,6 +73,7 @@ Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
 D | `d`
+Dart | `dart`
 Delphi | `pascal`
 Diff | `diff`
 Dockerfile | `dockerfile`
