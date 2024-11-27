@@ -197,7 +197,9 @@ Language contributors can define an icon for the language.
           "dark": "./icons/latex-dark.png"
         }
       }
-  ]
+    ]
+  }
+}
 ```
 
 The icon is used if a file icon theme only has a generic file icon for the language.

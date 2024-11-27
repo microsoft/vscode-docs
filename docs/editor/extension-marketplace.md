@@ -334,11 +334,13 @@ You may see this error if your machine is going through a proxy server to access
 
 ### Can I download an extension directly from the Marketplace?
 
-Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section, which is located on the right-hand side of the page.
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
 
-Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
+> [!NOTE]
+> The download option is only available for extensions that are not already installed. This experience is currently available in VS Code Insiders and will be available in VS Code Stable in the November release (1.96).
+
 
 ### Can I stop VS Code from providing extension recommendations?
 

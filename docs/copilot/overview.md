@@ -129,17 +129,17 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
 * **Provide suggestions for implementing code refactorings**. Copilot suggests refactorings using the context of your codebase. For example, ask Copilot to refactor a function to not use recursion, or to suggest an algorithm that can improve performance.
 
-    ![Inline chat refactoring to use different sorting algorithm](images/overview/inline-chat-convert-sort.png)
+    ![Inline Chat refactoring to use different sorting algorithm](images/overview/inline-chat-convert-sort.png)
 
 * **Suggest potential improvements to selected code**, such as improved handling of errors and edge cases, or changes to the logical flow to make the code more readable.
 
-    ![Copilot inline chat suggesting improvements to error handling](images/overview/copilot-inline-chat-error-handling.png)
+    ![Copilot Inline Chat suggesting improvements to error handling](images/overview/copilot-inline-chat-error-handling.png)
 
 ### Fix issues
 
 * **Propose a fix for bugs in your code** with the `/fix` command by suggesting code snippets and solutions based on the context of the error or issue. For example, if your code produces an error message or warning, Copilot Chat can suggest possible fixes based on the error message, the code's syntax, and the surrounding code. The changes might consist of changes to variables, control structures, or function calls that could resolve the issue.
 
-    ![Inline chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
+    ![Inline Chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
 
 * **Propose a fix for failing tests** (preview). When you run automated tests for your code, Copilot can suggest code fixes for tests that fail with the `/fixTestFailure` command.
 
@@ -197,7 +197,7 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Search view showing semantic search results that are not an exact match for the search criteria.](images/overview/semantic-search-results.png)
 
-* **Use terminal inline chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+* **Use terminal Inline Chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
 
     ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
 

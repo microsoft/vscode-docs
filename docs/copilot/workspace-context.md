@@ -35,7 +35,8 @@ To answer your question, `@workspace` searches through the same sources a develo
 - Symbols and definitions in the workspace
 - Currently selected text or visible text in the active editor
 
-**Note**: `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
+> [!NOTE]
+> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
 ## How does `@workspace` find the most relevant context
 

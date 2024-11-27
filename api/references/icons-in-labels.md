@@ -402,6 +402,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-compass"></i>|compass|
 |<i class="codicon codicon-console"></i>|console|
 |<i class="codicon codicon-copilot"></i>|copilot|
+|<i class="codicon codicon-copy"></i>|copy|
 |<i class="codicon codicon-credit-card"></i>|credit-card|
 |<i class="codicon codicon-dash"></i>|dash|
 |<i class="codicon codicon-dashboard"></i>|dashboard|

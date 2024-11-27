@@ -20,7 +20,7 @@ This guide will cover the different ways in which you can create themes.
 
 The easiest way to create a new workbench color theme is to start with an existing color theme and customize it. First switch to the color theme that you want to modify, then open your [settings](/docs/getstarted/settings) and make changes to the `workbench.colorCustomizations` setting. Changes are applied live to your VS Code instance.
 
-The following, for example, would change the color of the title bar:
+The following, for example, would change the background color of the title bar:
 
 ```json
 {
