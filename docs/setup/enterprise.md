@@ -5,10 +5,10 @@ TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
 PageTitle: Visual Studio Code enterprise support
 DateApproved: 10/29/2024
-MetaDescription: Learn about Visual Studio Code's enterprise support features.
+MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
-# Enterprise Support
+# Enterprise support
 
 Visual Studio Code can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure VS Code to achieve consistency and compatibility across your organization.
 
@@ -38,7 +38,7 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
 
 ```json
 "extensions.allowed": {
-    // Allow all extensions from the 'microsoft' publisher. If the key does not have a '.', it means it is a publisher display name
+    // Allow all extensions from the 'microsoft' publisher. If the key does not have a '.', it means it is a publisher ID.
     "microsoft": true,
 
     // Allow all extensions from the 'github' publisher
@@ -67,7 +67,7 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
 }
 ```
 
-Specify publishers by their publisher display name. If a key does not have a period (`.`), it is considered a publisher display name. If a key has a period, it is considered an extension ID.
+Specify publishers by their publisher ID. If a key does not have a period (`.`), it is considered a publisher ID. If a key has a period, it is considered an extension ID.
 
 Version ranges are not supported. If you want to allow multiple versions, you must specify each version individually. To further restrict versions by platform, use the `@` symbol to specify the platform. For example, `"rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]`.
 
@@ -77,7 +77,29 @@ You can control the `extensions.allowed` setting by using [group policies on Win
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
 
-## Group Policy on Windows
+## Configure automatic updates
+
+The `update.mode` setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
+
+The setting has the following options:
+
+* `none` - updates are disabled
+* `manual` - automatic checking for updates is disabled, but users can manually check for updates
+* `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
+* `default` - automatic checking for updates is enabled and runs in the background periodically
+
+You can control the `update.mode` setting by using [group policies on Windows](#group-policy-on-windows). Use the `UpdateMode` VS Code policy, which overrides the `update.mode` setting. The value of this policy is a string that contains the update mode.
+
+## Device management
+
+You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
+
+### Admin-controlled features
+
+* Automatic updates (`update.mode`)
+* Allowed extensions (`extensions.allowed`)
+
+### Group Policy on Windows
 
 System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
 
@@ -90,3 +112,11 @@ Policies can be set both at the Computer level and the User level. If both are s
 ## Additional Policies
 
 The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
+
+## Frequently asked questions
+
+### Does VS Code support configuration profiles on macOS or Linux?
+
+Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon.
+
+Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
