@@ -387,3 +387,9 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 [Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
+### Can I allow or block specific extensions in my organization?
+
+You can control which extensions can be installed in your organization by configuring the `extensions.allowed` application setting. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing.
+
+Get more details about [configuring allowed extensions](/docs/setup/enterprise.md#configure-allowed-extensions).

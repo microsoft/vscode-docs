@@ -18,6 +18,65 @@ A handful of features within VS Code require network communication to work, such
 
 Refer to the [network common hostnames list](/docs/setup/network.md#common-hostnames) for the required domains.
 
+## Configure allowed extensions
+
+The `extensions.allowed` application setting enables you to control which extensions can be installed in your organization. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled and cannot be installed.
+
+> [!NOTE]
+> Support for allowed extensions is available starting from VS Code version 1.96.
+
+The `extensions.allowed` setting contains a list of extension selectors that determine which extensions are allowed or blocked. You can specify the following types of extension selectors:
+
+* Allow or block all extensions from a publisher
+* Allow or block specific extensions
+* Allow specific extension versions
+* Allow specific extension versions and platforms
+* Allow only stable versions of an extension
+* Allow only stable extension versions from a publisher
+
+The following JSON snippet shows examples of the different `extensions.allowed` setting values:
+
+```json
+"extensions.allowed": {
+    // Allow all extensions from the 'microsoft' publisher. If the key does not have a '.', it means it is a publisher display name
+    "microsoft": true,
+
+    // Allow all extensions from the 'github' publisher
+    "github": true,
+
+    // Allow prettier extension
+    "esbenp.prettier-vscode": true,
+
+    // Do not allow docker extension
+    "ms-azuretools.vscode-docker": false,
+
+    // Allow only version 3.0.0 of the eslint extension
+    "dbaeumer.vscode-eslint": ["3.0.0"],
+
+    // Allow multiple versions of the figma extension
+    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"]
+
+    // Allow version 5.0.0 of the rust extension on Windows and macOS
+    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]
+
+    // Allow only stable versions of the GitHub Pull Requests extension
+    "github.vscode-pull-request-github": "stable",
+
+    // Allow only stable versions from redhat publisher
+    "redhat": "stable",
+}
+```
+
+Specify publishers by their publisher display name. If a key does not have a period (`.`), it is considered a publisher display name. If a key has a period, it is considered an extension ID.
+
+Version ranges are not supported. If you want to allow multiple versions, you must specify each version individually. To further restrict versions by platform, use the `@` symbol to specify the platform. For example, `"rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]`.
+
+The more specific the selector, the higher the precedence. For example, `"microsoft": true` and `"microsoft.cplusplus": false` allows all Microsoft extensions, except for the C++ extension.
+
+You can control the `extensions.allowed` setting by using [group policies on Windows](#group-policy-on-windows). Use the `AllowedExtensions` VS Code policy, which overrides the `extensions.allowed` setting. The value of this policy is a JSON string that contains the allowed extensions.
+
+If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
+
 ## Group Policy on Windows
 
 System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
