@@ -69,6 +69,9 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
 
 Specify publishers by their publisher ID. If a key does not have a period (`.`), it is considered a publisher ID. If a key has a period, it is considered an extension ID.
 
+> [!TIP]
+> You can use `microsoft` as the publisher ID to refer to all extensions published by Microsoft, even though they might have different publisher IDs.
+
 Version ranges are not supported. If you want to allow multiple versions, you must specify each version individually. To further restrict versions by platform, use the `@` symbol to specify the platform. For example, `"rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]`.
 
 The more specific the selector, the higher the precedence. For example, `"microsoft": true` and `"microsoft.cplusplus": false` allows all Microsoft extensions, except for the C++ extension.
