@@ -73,7 +73,7 @@ Version ranges are not supported. If you want to allow multiple versions, you mu
 
 The more specific the selector, the higher the precedence. For example, `"microsoft": true` and `"microsoft.cplusplus": false` allows all Microsoft extensions, except for the C++ extension.
 
-You can control the `extensions.allowed` setting by using [group policies on Windows](#group-policy-on-windows). Use the `AllowedExtensions` VS Code policy, which overrides the `extensions.allowed` setting. The value of this policy is a JSON string that contains the allowed extensions.
+You can control the `extensions.allowed` setting by using [device management](#device-management). Use the `AllowedExtensions` VS Code policy, which overrides the `extensions.allowed` setting. The value of this policy is a JSON string that contains the allowed extensions.
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
 
@@ -88,7 +88,7 @@ The setting has the following options:
 * `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
 * `default` - automatic checking for updates is enabled and runs in the background periodically
 
-You can control the `update.mode` setting by using [group policies on Windows](#group-policy-on-windows). Use the `UpdateMode` VS Code policy, which overrides the `update.mode` setting. The value of this policy is a string that contains the update mode.
+You can control the `update.mode` setting by using [device management](#device-management). Use the `UpdateMode` VS Code policy, which overrides the `update.mode` setting. The value of this policy is a string that contains the update mode.
 
 ## Device management
 
@@ -109,9 +109,9 @@ Once the policy definitions are installed, admins can use the [Local Group Polic
 
 Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/getstarted/settings.md) value configured at any level (default, user, workspace, etc.).
 
-## Additional Policies
+### Additional policies
 
-The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
+The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
 
 ## Frequently asked questions
 
