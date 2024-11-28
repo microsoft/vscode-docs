@@ -1,7 +1,39 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -253,7 +285,39 @@ The following table lists the currently predefined mappings.
 | `function`|`entity.name.function`|
 | `function.defaultLibrary`|`support.function`|
 | `method`|`entity.name.function.member`|
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 | `macro`|`entity.name.function.macro`|
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 | `variable`|`variable.other.readwrite` , `entity.name.variable`|
 | `variable.readonly`|`variable.other.constant`|
 | `variable.readonly.defaultLibrary`|`support.constant`|

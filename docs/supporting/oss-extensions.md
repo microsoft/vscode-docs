@@ -3,7 +3,39 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -66,7 +98,39 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |
 | [Mono Debug](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug/license) |
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 | [Nodepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 | [OpenPAI VS Code Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
 | [PostgreSQL](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql/license) |
 | [PowerShell](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/license) |
