@@ -4,7 +4,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Order: 11
+=======
+Order: 13
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Order: 13
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -29,7 +33,11 @@ PageTitle: GitHub Copilot extensibility overview
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -83,7 +91,11 @@ These are some examples of extensions in the Visual Studio Marketplace that cont
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="marketplace-extensions-curated-chat"></div>
+=======
+<div class="marketplace-extensions-chat"></div>
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 <div class="marketplace-extensions-chat"></div>
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

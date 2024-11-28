@@ -6,7 +6,11 @@ ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -121,7 +125,11 @@ esbuild can work directly with TypeScript files. However, esbuild simply strips 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Only syntax error are reported and can cause esbuild to fail.
+=======
+Only syntax errors are reported and can cause esbuild to fail.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Only syntax errors are reported and can cause esbuild to fail.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

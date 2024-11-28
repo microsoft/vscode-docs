@@ -9,7 +9,11 @@ PageTitle: Visual Studio Code for Educators and Students
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -148,7 +152,11 @@ To get started with using Live Share in VS Code, download the [Live Share](https
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
+=======
+> <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

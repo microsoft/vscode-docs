@@ -6,7 +6,11 @@ ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -36,6 +40,10 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- [`authentication`](/api/references/contribution-points#contributes.authentication)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 - [`authentication`](/api/references/contribution-points#contributes.authentication)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -88,9 +96,15 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## contributes.breakpoints
 
 Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+=======
+## contributes.authentication
+
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## contributes.authentication
 
@@ -125,6 +139,7 @@ Contributes an authentication provider. This will set up an activation event for
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "breakpoints": [
       {
         "language": "javascript"
@@ -132,6 +147,8 @@ Contributes an authentication provider. This will set up an activation event for
       {
         "language": "javascriptreact"
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -148,6 +165,9 @@ Contributes an authentication provider. This will set up an activation event for
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -168,9 +188,15 @@ Contributes an authentication provider. This will set up an activation event for
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## contributes.colors
 
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
+=======
+## contributes.breakpoints
+
+Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## contributes.breakpoints
 
@@ -205,6 +231,7 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "colors": [
       {
         "id": "superstatus.error",
@@ -216,6 +243,8 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
           "highContrastLight": "#feedc3",
         }
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -234,6 +263,9 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -254,7 +286,10 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -290,6 +325,9 @@ Contributes new themable colors. These colors can be used by the extension in ed
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
