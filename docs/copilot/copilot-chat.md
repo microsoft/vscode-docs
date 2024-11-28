@@ -10,7 +10,11 @@ PageTitle: AI-powered chat conversations with GitHub Copilot
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -34,6 +38,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Using Copilot Chat in VS Code
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -72,6 +77,8 @@ You can use Copilot Chat in various scenarios, such as:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 With the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code, you can have AI-powered chat conversations to generate code, increase your code understanding, and even configure your editor. Instead of searching for answers in documentation or online forums, you can ask Copilot Chat directly in VS Code, and get code suggestions while you're in the flow of coding.
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
@@ -97,6 +104,9 @@ You can use Copilot Chat in various developer scenarios, such as:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -121,6 +131,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Inline Chat
 
 A key functionality of Copilot is answering questions inline, while you're coding in the editor or entering commands in the terminal. With Copilot Inline Chat, you can ask questions about code, get explanations, and even generate code snippets without leaving the context of your work. In any file, press `kb(inlinechat.start)` on your keyboard to bring up Copilot Inline Chat.
@@ -137,6 +148,8 @@ Depending on your question, Copilot can also suggest code modifications or refac
 
 With the `setting(inlineChat.mode)` setting, you can configure how Inline Chat shows updates in the editor. The default setting value is `live`, which means that the updates are applied directly in the editor, and you can compare the changes by using the inline diff viewer. If you prefer to preview the changes side-by-side, you configure the setting to `preview`.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -221,6 +234,9 @@ With the `setting(inlineChat.mode)` setting, you can configure how Inline Chat s
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -237,6 +253,7 @@ The following example shows the `preview` mode for Inline Chat.
 
 ![Copilot Inline Chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -287,6 +304,8 @@ As you keep the conversation going, Copilot maintains the history of your chat m
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Chat view
 
 ### Open the Chat view
@@ -327,6 +346,9 @@ As you keep the conversation going, Copilot maintains the [history of your chat 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -355,11 +377,14 @@ The **More Actions** (`...`) button gives options to **Insert Into New File** an
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/copilot-chat/run-in-terminal.png)
 
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -382,6 +407,9 @@ If Copilot Chat detects that a code block contains a shell command, you can run 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -406,6 +434,7 @@ You can control the font for code blocks in chat with the following settings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Tip**: Navigate between code blocks with **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`).
 
 ## Quick chat
@@ -415,6 +444,8 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 ![Quick Chat dropdown](images/copilot-chat/quick-chat-dropdown.png)
 
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -448,6 +479,9 @@ Press `kb(workbench.action.quickchat.toggle)` on your keyboard to bring up Quick
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -483,7 +517,10 @@ Learn more about how to [iterate over a Copilot chat conversation](/docs/copilot
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -511,6 +548,9 @@ Optionally, you can edit the command directly in the Copilot response before run
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -546,9 +586,13 @@ Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`,
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
 
 Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat participants:
+=======
+*Chat participants* are like experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 *Chat participants* are like experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -579,6 +623,7 @@ Chat participants are like experts who have a specialty that they can help you w
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Extensions can also contribute chat participants to provide specialized help for their domain.
 
 ### @workspace
@@ -587,6 +632,8 @@ The `@workspace` chat participant knows how to gather context about the code in 
 
 ![Asking the @workspace chat partipipant about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -613,6 +660,9 @@ The `@workspace` chat participant knows how to gather context about the code in 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -650,9 +700,15 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand enable developer mode` to open the VS Code Developer Tools.
 
 ![Toggle Developer Tools with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand-developer-mode.png)
+=======
+With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
+
+![Toggle the minimap in the editor with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
 
@@ -698,7 +754,12 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note**: the terminal doesn't pull in the workspace context, which could take some time.
+=======
+> [!NOTE]
+> The terminal doesn't pull in the workspace context automatically, so questions about your workspace could take some time.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > The terminal doesn't pull in the workspace context automatically, so questions about your workspace could take some time.
@@ -742,6 +803,7 @@ Chat participants contributed via a VS Code extension are *client-side* extensio
 
 Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App that contributes a chat participant, the first time you `@-mention` the participant in VS Code, you are asked to authorize its access to your local editor context.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -807,6 +869,8 @@ To add files as context for your chat prompt, you can drag and drop files from t
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 > [!NOTE]
 > To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
 
@@ -831,6 +895,9 @@ To view the list of build-in participants and their commands, type `@` in the ch
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -857,7 +924,11 @@ You can help Copilot provide better answers by upvoting or downvoting responses 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt "which sorting algo is used #selection" focuses the chat request on the selected code snippet.
+=======
+By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt _"which sorting algo is used #selection"_ focuses the chat request on the selected code snippet.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt _"which sorting algo is used #selection"_ focuses the chat request on the selected code snippet.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -881,6 +952,7 @@ By using a chat variable in your chat prompt, you can be more specific about the
 
 Chat participants, such as `@workspace`, might have context associated within them. For example, `@vscode` is aware of VS Code settings and its APIs. When you include a chat participant in the chat prompt, you inherently add context to the prompt. Similarly, by using slash commands, you can further focus the intent of the chat request.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -911,6 +983,8 @@ You can export all prompts and responses for a chat session in a JSON file with 
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Conversation history
 
 Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
@@ -929,6 +1003,9 @@ You can export all prompts and responses for a chat session in a JSON file with 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -979,7 +1056,10 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1015,6 +1095,9 @@ The following table provides a comparison of the capabilities of each interface.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -1036,7 +1119,11 @@ You can read more about [GitHub Copilot](https://github.com/features/copilot) an
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+=======
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

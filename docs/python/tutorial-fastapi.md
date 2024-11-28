@@ -10,7 +10,11 @@ PageTitle: Python and FastAPI tutorial in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -215,9 +219,15 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for the different functionality within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
 
 Let's proceed with defining routes to add and retrieve individual items, as well as return all items in the grocery list.
+=======
+    We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for the different functionality within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
+
+    Let's proceed with defining routes to add and retrieve individual items, as well as return all items in the grocery list.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     We'll now define routes in our FastAPI application. In the context of web applications, routes are like pathways that map specific URLs to the code that handles them. These routes serve as the entry points for the different functionality within our application. When a client, such as a web browser or another program, sends a request to our application with a particular URL, FastAPI routes that request to the appropriate function (also known as route handler or view function) based on the URL, and that function processes the request and generates a response.
 
@@ -285,7 +295,11 @@ Let's proceed with defining routes to add and retrieve individual items, as well
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now let's check if this route is working as expected. The fastest way to do so is to use both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
+=======
+    Now let's check if this route is working as expected. The fastest way to do so is to use both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Now let's check if this route is working as expected. The fastest way to do so is to use both VS Code's debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -339,7 +353,11 @@ Now let's check if this route is working as expected. The fastest way to do so i
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now let's use VS Code's Debug Console to do some exploration.
+=======
+    Now let's use VS Code's Debug Console to do some exploration.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Now let's use VS Code's Debug Console to do some exploration.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -371,12 +389,15 @@ Now let's use VS Code's Debug Console to do some exploration.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The Debug Console can be a powerful tool to quickly test expressions and better understand the state of your code at the time of a breakpoint. You can also use it to run arbitrary code, such as calling functions or printing variables. You can learn more about Python debugging in VS Code in the [Python tutorial](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
 You can now continue the execution of the code by selecting **Continue** in the Debug view tool bar, or by pressing `kb(workbench.action.debug.continue)`.
 
 Finally, let's add the remaining routes for the application so we can list all items or specific items, as well as remove them from our grocery list. You can leave the debugger running as it will automatically reload the application when you save the changes you make in the next step.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -397,6 +418,9 @@ Finally, let's add the remaining routes for the application so we can list all i
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -531,6 +555,7 @@ For the steps below, make sure you have the following requirements installed on 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 We can optionally install [Features](https://github.com/devcontainers/features) to be included in the container. For this tutorial, we will install [Redis Server](https://github.com/itsmechlark/features/tree/main/src/redis-server), a community contributed Feature that installs and adds the proper dev container setup for Redis.
 
 4. Select **Redis Server** as an additional feature to be installed, press **OK**, and then select **Keep Defaults**.
@@ -539,6 +564,8 @@ We can optionally install [Features](https://github.com/devcontainers/features) 
 
 This creates a `.devcontainer` folder in your workspace, with a `devcontainer.json` file. Let's make some edits to this file so the container setup includes steps such as installing the VS Code extensions we need as well as the project dependencies.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -561,6 +588,9 @@ This creates a `.devcontainer` folder in your workspace, with a `devcontainer.js
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -583,7 +613,11 @@ This creates a `.devcontainer` folder in your workspace, with a `devcontainer.js
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Next, we will add the necessary dependency installation commands to the `postCreateCommand` property in the `devcontainer.json` file, so our application is ready to run once the container is set up.
+=======
+    Next, we will add the necessary dependency installation commands to the `postCreateCommand` property in the `devcontainer.json` file, so our application is ready to run once the container is set up.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Next, we will add the necessary dependency installation commands to the `postCreateCommand` property in the `devcontainer.json` file, so our application is ready to run once the container is set up.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -674,7 +708,11 @@ First, let's start by replacing the dictionary with a Redis client object that c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Pylance will display an error message because Redis hasn't been imported yet.
+=======
+    Pylance will display an error message because Redis hasn't been imported yet.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Pylance will display an error message because Redis hasn't been imported yet.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -706,12 +744,15 @@ Pylance will display an error message because Redis hasn't been imported yet.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 We now have a Redis client object that connects to a Redis server running on the local host (`host="0.0.0.0"`) and listening on port 6379 (`port=6379`). The `db` parameter specifies the Redis database to use. Redis supports multiple databases, and in this code we're going to use database 0, which is the default database. We're also passing `decode_responses=True` for the responses to be decoded as strings (instead of bytes).
 
 Let's do some more replacements in the first route `add_item`. Instead of looking at all the keys from the dictionary to find the item name that has been provided, we can fetch that information directly from a Redis hash.
 
 We'll assume that the `item_name_to_id` hash already exists, mapping item names to their IDs (don't worry, we'll add this code shortly!). We can then get the ID of the item name we're receiving in the request by invoking the `hget` method from Redis, which will return the item ID if the requested name already exists in the hash, or `None` if it doesn't.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -732,6 +773,9 @@ We'll assume that the `item_name_to_id` hash already exists, mapping item names 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -762,7 +806,11 @@ We'll assume that the `item_name_to_id` hash already exists, mapping item names 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Notice that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn't exist). However, the lines below the code that we haven't replaced yet expect `item_id` to be of type `int`. Let's address this warning by renaming the `item_id` symbol.
+=======
+    Notice that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn't exist). However, the lines below the code that we haven't replaced yet expect `item_id` to be of type `int`. Let's address this warning by renaming the `item_id` symbol.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Notice that Pylance raises a problem with this change. This is because the `hget` method returns either `str`, or `None` (if the item doesn't exist). However, the lines below the code that we haven't replaced yet expect `item_id` to be of type `int`. Let's address this warning by renaming the `item_id` symbol.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -806,7 +854,11 @@ Notice that Pylance raises a problem with this change. This is because the `hget
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now that we have the item ID as a string, we need to convert it to an `int` and update the quantity for the item. Currently, our Redis hash only maps item names to their IDs. To also map item IDs to their names and quantities, we will create a separate Redis hash for each item, using `"item_id:{item_id}"` as our hash name to make retrieval by ID easier. We'll also add  `item_name` and `quantity` fields for each of these hashes.
+=======
+    Now that we have the item ID as a string, we need to convert it to an `int` and update the quantity for the item. Currently, our Redis hash only maps item names to their IDs. To also map item IDs to their names and quantities, we will create a separate Redis hash for each item, using `"item_id:{item_id}"` as our hash name to make retrieval by ID easier. We'll also add  `item_name` and `quantity` fields for each of these hashes.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Now that we have the item ID as a string, we need to convert it to an `int` and update the quantity for the item. Currently, our Redis hash only maps item names to their IDs. To also map item IDs to their names and quantities, we will create a separate Redis hash for each item, using `"item_id:{item_id}"` as our hash name to make retrieval by ID easier. We'll also add  `item_name` and `quantity` fields for each of these hashes.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -846,9 +898,15 @@ Now that we have the item ID as a string, we need to convert it to an `int` and 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 We now only need to replace the code for when the item does not exist, when `item_id_str` is `None`. In this case, we generate a new `item_id`, create a new Redis hash for the item, and then add the provided item name and quantity.
 
 To generate a new `item_id`, let's use the `incr` method from Redis, passing a new hash called `"item_ids"`. This hash is used to store the last generated ID, so we can increment it each time we create a new item, ensuring that they all have a unique ID.
+=======
+    We now only need to replace the code for when the item does not exist, when `item_id_str` is `None`. In this case, we generate a new `item_id`, create a new Redis hash for the item, and then add the provided item name and quantity.
+
+    To generate a new `item_id`, let's use the `incr` method from Redis, passing a new hash called `"item_ids"`. This hash is used to store the last generated ID, so we can increment it each time we create a new item, ensuring that they all have a unique ID.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     We now only need to replace the code for when the item does not exist, when `item_id_str` is `None`. In this case, we generate a new `item_id`, create a new Redis hash for the item, and then add the provided item name and quantity.
 
@@ -900,7 +958,11 @@ To generate a new `item_id`, let's use the `incr` method from Redis, passing a n
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now we will add the item to the Redis hash, using the `hset` method and by providing a mapping for the fields (`item_id`, `item_name`, and `quantity`), and the values (the item's newly created ID, and its provided name and quantity).
+=======
+    Now we will add the item to the Redis hash, using the `hset` method and by providing a mapping for the fields (`item_id`, `item_name`, and `quantity`), and the values (the item's newly created ID, and its provided name and quantity).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Now we will add the item to the Redis hash, using the `hset` method and by providing a mapping for the fields (`item_id`, `item_name`, and `quantity`), and the values (the item's newly created ID, and its provided name and quantity).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -946,7 +1008,11 @@ Now we will add the item to the Redis hash, using the `hset` method and by provi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now we only need to map the newly created ID to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
+=======
+    Now we only need to map the newly created ID to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     Now we only need to map the newly created ID to the item name by setting the hash we referenced in the beginning, `item_name_to_id`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

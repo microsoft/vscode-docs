@@ -10,7 +10,11 @@ PageTitle: GitHub Copilot overview
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -42,6 +46,7 @@ The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 With GitHub Copilot in VS Code you can:
 
 * Get inline code suggestions while you're writing and iterating on code.
@@ -67,6 +72,8 @@ Follow these steps to [Set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 * [GitHub Copilot Quickstart](/docs/copilot/getting-started.md) - discover the key features of GitHub Copilot in VS Code.
 * [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md) - get started with AI chat conversations.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -153,6 +160,9 @@ Choose the GitHub Copilot interface in VS Code that best matches your use case:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -186,6 +196,7 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 GitHub Copilot can provide assistance in a variety of scenarios:
 
 * [Code completions in the editor](#code-completions-in-the-editor)
@@ -198,6 +209,8 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 * [Generate code documentation](#generate-code-documentation)
 * [Improve your productivity in VS Code](#productivity-improvements)
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -246,12 +259,15 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ![Inline chat refactoring to use different sorting algorithm](images/overview/inline-chat-convert-sort.png)
 
 * **Suggest potential improvements to selected code**, such as improved handling of errors and edge cases, or changes to the logical flow to make the code more readable.
 
     ![Copilot inline chat suggesting improvements to error handling](images/overview/copilot-inline-chat-error-handling.png)
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -272,6 +288,9 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -294,7 +313,11 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ![Inline chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
+=======
+    ![Inline Chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     ![Inline Chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -334,9 +357,15 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook read titanic dataset with pandas, display key values with seaborn".
 
     ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with Seaborn](images/overview/copilot-new-notebook.png)
+=======
+* **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
+
+    ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with MatPlotLib](images/overview/copilot-new-notebook.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
 
@@ -412,7 +441,11 @@ GitHub Copilot can provide assistance in a variety of scenarios:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * **Use terminal inline chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+=======
+* **Use terminal Inline Chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * **Use terminal Inline Chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -450,7 +483,11 @@ You can read more about Copilot and how to use it in VS Code in the [GitHub Copi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+=======
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

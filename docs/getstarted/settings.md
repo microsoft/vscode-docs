@@ -10,7 +10,11 @@ PageTitle: Visual Studio Code User and Workspace Settings
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -684,7 +688,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+=======
+    // Format a file on save. A formatter must be available and the editor must not be shutting down. When `files.autoSave` is set to `afterDelay`, the file will only be formatted when saved explicitly.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Format a file on save. A formatter must be available and the editor must not be shutting down. When `files.autoSave` is set to `afterDelay`, the file will only be formatted when saved explicitly.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -966,6 +974,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    // Controls the delay in milliseconds after which occurrences are highlighted.
+    "editor.occurrencesHighlightDelay": 250,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Controls the delay in milliseconds after which occurrences are highlighted.
     "editor.occurrencesHighlightDelay": 250,
@@ -1409,9 +1423,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Whether pending inline chat sessions prevent saving.
     "inlineChat.acceptedOrDiscardBeforeSave": true,
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1447,6 +1464,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Controls whether the command center shows a menu for chat actions.
     "chat.commandCenter.enabled": false,
 
@@ -1464,6 +1482,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether lines should wrap in chat codeblocks.
     "chat.editor.wordWrap": "off",
+=======
+    // Run a series of Code Actions for a notebook on save.
+    "notebook.codeActionsOnSave": {},
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Run a series of Code Actions for a notebook on save.
     "notebook.codeActionsOnSave": {},
@@ -1716,8 +1738,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "workbench.editors.gettingStartedInput": false,
         "repl": false,
+=======
+        "repl": false,
+        "workbench.editors.gettingStartedInput": false,
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
         "repl": false,
         "workbench.editors.gettingStartedInput": false,
@@ -2056,6 +2083,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    // Controls whether activity items in the panel title are shown as label or icon.
+    "workbench.panel.showLabels": true,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Controls whether activity items in the panel title are shown as label or icon.
     "workbench.panel.showLabels": true,
@@ -2204,9 +2237,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
     "window.clickThroughInactive": true,
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -2243,7 +2279,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Adjust when the custom title bar should be shown. The custom title bar can be hidden when in full screen mode with `windowed`. The custom title bar can only be hidden in none full screen mode with `never` when `window.titleBarStyle` is set to `native`.
+=======
+    // Adjust when the custom title bar should be shown. The custom title bar can be hidden when in full screen mode with `windowed`. The custom title bar can only be hidden in non full screen mode with `never` when `window.titleBarStyle` is set to `native`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Adjust when the custom title bar should be shown. The custom title bar can be hidden when in full screen mode with `windowed`. The custom title bar can only be hidden in non full screen mode with `never` when `window.titleBarStyle` is set to `native`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -2304,7 +2344,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the default profile if no active window exists.
+=======
+    // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the Default profile if no active window exists.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the Default profile if no active window exists.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -2480,7 +2524,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "**/node_modules/*/**": true,
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -2937,6 +2984,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    // Hide the warning shown when a `preLaunchTask` has been running for a while.
+    "debug.hideSlowPreLaunchWarning": false,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Hide the warning shown when a `preLaunchTask` has been running for a while.
     "debug.hideSlowPreLaunchWarning": false,
@@ -3511,7 +3564,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "js/ts.implicitProjectConfig.target": "ES2020",
+=======
+    "js/ts.implicitProjectConfig.target": "ES2022",
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     "js/ts.implicitProjectConfig.target": "ES2022",
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -3780,7 +3837,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "typescript.tsserver.watchOptions": {},
+=======
+    "typescript.tsserver.watchOptions": "vscode",
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     "typescript.tsserver.watchOptions": "vscode",
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -4282,9 +4343,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Run a series of Code Actions for a notebook on save.
     "notebook.codeActionsOnSave": {},
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -5375,7 +5439,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -5423,6 +5490,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5516,7 +5586,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a chat request is made.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5546,7 +5620,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the response has been received.
+=======
+    // Plays a sound / audio cue when the response has been received.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a sound / audio cue when the response has been received.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5575,7 +5653,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5605,7 +5687,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a sound / audio cue when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5634,7 +5720,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a sound / audio cue when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5663,7 +5753,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a sound / audio cue when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5692,7 +5786,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a file or notebook is formatted.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file or notebook is formatted.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file or notebook is formatted.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5722,7 +5820,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has a breakpoint.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a breakpoint.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a breakpoint.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5752,7 +5854,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has an error.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has an error.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has an error.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5782,7 +5888,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has a folded area that can be unfolded.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - the active line has a folded area that can be unfolded.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - the active line has a folded area that can be unfolded.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5812,7 +5922,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has an inline suggestion.
+=======
+    // Plays a sound / audio cue when the active line has an inline suggestion.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a sound / audio cue when the active line has an inline suggestion.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5841,7 +5955,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5871,7 +5989,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when trying to read a line with inlay hints that has no inlay hints.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when trying to read a line with inlay hints that has no inlay hints.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when trying to read a line with inlay hints that has no inlay hints.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5901,7 +6023,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a notebook cell execution is successfully completed.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution is successfully completed.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution is successfully completed.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5931,7 +6057,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a notebook cell execution fails.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution fails.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution fails.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5961,7 +6091,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the debugger stopped on a breakpoint.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the debugger stopped on a breakpoint.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the debugger stopped on a breakpoint.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -5991,7 +6125,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6021,7 +6159,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6051,7 +6193,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates on loop while progress is occurring.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - on loop while progress is occurring.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - on loop while progress is occurring.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6081,7 +6227,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a file is saved.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file is saved.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file is saved.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6111,7 +6261,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a task is completed.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task is completed.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task is completed.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6141,7 +6295,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a task fails (non-zero exit code).
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task fails (non-zero exit code).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task fails (non-zero exit code).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6171,7 +6329,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when the terminal bell is ringing.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the terminal bell is ringing.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the terminal bell is ringing.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6201,7 +6363,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6231,7 +6397,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6261,7 +6431,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Indicates when terminal Quick Fixes are available.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when terminal Quick Fixes are available.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when terminal Quick Fixes are available.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -6349,7 +6523,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -6372,6 +6549,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

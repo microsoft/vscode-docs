@@ -10,7 +10,11 @@ PageTitle: Debugging configurations for Python apps in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -78,9 +82,15 @@ To generate a `launch.json` file with Python configurations, do the following st
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
    > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+=======
+    ![List of Python debugger configuration options](images/shared/debug-configurations.png)
+
+    > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)`, or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a `launch.json` file.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     ![List of Python debugger configuration options](images/shared/debug-configurations.png)
 
