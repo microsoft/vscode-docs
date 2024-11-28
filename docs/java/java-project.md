@@ -126,7 +126,7 @@ For Maven project, you can add a dependency by clicking the **+** icon next to *
 If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
 node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
 
-![manage referenced librares](images/java-project/manage-referenced-libraries.png)
+![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
 
 > You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
 

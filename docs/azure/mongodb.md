@@ -31,7 +31,7 @@ To connect to a MongoDB database:
 
     * Select **Connect with Connection String**, and then enter the connection string in the connection string Quick Pick.
 
-        The default connetion string for a local MongoDB is `mongodb://127.0.0.1:27017`.
+        The default connection string for a local MongoDB is `mongodb://127.0.0.1:27017`.
 
         ![Database Connection setup](images/mongodb/attach-database-account-connection-string.png)
 

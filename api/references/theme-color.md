@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/03/2024
+DateApproved: 10/29/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -356,6 +356,7 @@ All other editor colors are listed here:
 - `editorMultiCursor.secondary.foreground`: Color of secondary editor cursors when multiple cursors are present.
 - `editorMultiCursor.secondary.background`: The background color of secondary editor cursors when multiple cursors are present. Allows customizing the color of a character overlapped by a block cursor.
 - `editor.placeholder.foreground`: Foreground color of the placeholder text in the editor.
+- `editor.compositionBorder`: The border color for an IME composition.
 
 Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
 
@@ -628,6 +629,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.slashCommandForeground`: The foreground color of a chat slash command.
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
+- `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
 
 ## Inline Chat colors
 
