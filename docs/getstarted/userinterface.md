@@ -7,7 +7,11 @@ PageTitle: Visual Studio Code User Interface
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -40,7 +44,12 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip:** A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
+=======
+> [!TIP]
+> A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
@@ -61,7 +70,12 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip:** You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+=======
+> [!TIP]
+> You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
@@ -119,6 +133,7 @@ You can split the current editor without creating a new editor group with the **
 You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) article.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ### Editor groups
 
@@ -143,6 +158,8 @@ You can move editors into their own floating windows with the **Move into New Wi
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Minimap
 
@@ -155,7 +172,12 @@ If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor,
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+=======
+> [!TIP]
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
@@ -178,7 +200,12 @@ Sticky Scroll shows the starting lines of currently visible nested scopes at the
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip:** You can enable/disable Sticky Scroll with the `"editor.stickyScroll.enabled"` setting.
+=======
+> [!TIP]
+> You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > You can enable/disable Sticky Scroll with the `setting(editor.stickyScroll.enabled)` setting.
@@ -199,7 +226,11 @@ Sticky Scroll uses several different content models to create its headings. It i
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.guides.indentation": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+=======
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -231,7 +262,12 @@ After you open a folder in VS Code, the contents of the folder are shown in the 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip:** You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
+=======
+> [!TIP]
+> You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > You can drag and drop files into the Explorer view from outside VS Code to copy them. If the explorer is empty, VS Code opens the files instead. You can also copy-paste files from outside VS Code into the Explorer view. With the `setting(explorer.autoOpenDroppedFile)` setting, you to configure whether to automatically open the file or not.
@@ -248,6 +284,7 @@ After you open a folder in VS Code, the contents of the folder are shown in the 
 VS Code works well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Integrated Terminal**.
 
 You can also navigate to the location of a file or folder in the native operating system file explorer by right-clicking on a file or folder and selecting **Reveal in File Explorer** on Windows, **Reveal in Finder** on macOS, or **Open Containing Folder** on Linux.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -287,6 +324,16 @@ By default, VS Code excludes some folders from showing in the Explorer view, suc
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+
+> [!TIP]
+> Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
+
+By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view.
+
+> [!TIP]
+> You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Multi-selection
 
@@ -295,7 +342,12 @@ You can select multiple files in the Explorer view and Open Editors section to r
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Note:** In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
+=======
+> [!NOTE]
+> In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > In earlier VS Code releases, clicking with the `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) key pressed, would open a file in a new editor group to the side. If you still want this behavior, you can use the `setting(workbench.list.multiSelectModifier)` setting to change multi-selection to use the `kbstyle(Alt)` key.
@@ -360,7 +412,12 @@ From an entry you can:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Tip**: if you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
+=======
+> [!TIP]
+> If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
@@ -458,7 +515,12 @@ Alternately, you can modify the user settings directly in the `settings.json` fi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Note**: Workspace settings override user settings and are useful for sharing project-specific settings across a team.
+=======
+> [!NOTE]
+> Workspace settings override user settings and are useful for sharing project-specific settings across a team.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > Workspace settings override user settings and are useful for sharing project-specific settings across a team.
@@ -489,7 +551,10 @@ Zen Mode can be further tuned with the following settings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -511,6 +576,9 @@ Find the crossed out bell icon to get access to a menu where you can selectively
 > The global Do Not Disturb Mode also hides error notifications, while the extension-specific filter still allows error notifications to show.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -536,7 +604,11 @@ There is also a scroll bar between the tab and editor regions to drag editors in
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` [setting](/docs/getstarted/settings.md) to `single`:
+=======
+If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` setting to `single`:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 If you don't want to use tabs, you can disable the feature by setting the `setting(workbench.editor.showTabs)` setting to `single`:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -556,7 +628,12 @@ See the section below to optimize VS Code for [working without Tabs](/docs/getst
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Tip**: Double-click in the editor title area to quickly create a new tab.
+=======
+> [!TIP]
+> Double-click in the editor title area to quickly create a new tab.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > Double-click in the editor title area to quickly create a new tab.
@@ -581,6 +658,7 @@ For example, you might like new tabbed items to appear on the left:
 ```
 
 You can reorder tabs by dragging and dropping them.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -647,12 +725,20 @@ If you'd like an editor tab to always be visible, you can pin it to the editor t
 If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
 
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Preview mode
 
 When you single-click or select a file in the Explorer view, it is shown in a preview mode and reuses an existing tab (preview tab). This is useful if you are quickly browsing files and don't want every visited file to have its own tab. When you start editing the file or use double-click to open the file from the Explorer, a new tab is dedicated to that file.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -669,7 +755,10 @@ If you prefer not to use preview mode and always create a new tab, you can contr
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -719,6 +808,9 @@ The following examples use the `${extname}` variable for the file `tests/editor.
 > The custom tab labels also apply in the Open Editors view and in [Quick Open](/docs/getstarted/tips-and-tricks.md#quick-open) (`kb(workbench.action.quickOpen)`).
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -742,7 +834,11 @@ There are a predefined set of editor layouts in the **View** > **Editor Layout**
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, configure the new setting `workbench.editor.openSideBySideDirection: down`.
+=======
+By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, set `setting(workbench.editor.openSideBySideDirection)` to `down`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 By default, editors that open to the side (for example, by selecting the editor toolbar **Split Editor** action) open to the right-hand side of the active editor. If you prefer to open editors below the active one, set `setting(workbench.editor.openSideBySideDirection)` to `down`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -760,7 +856,12 @@ There are many keyboard commands for adjusting the editor layout by using the ke
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Pro Tip**: If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+=======
+> [!TIP]
+> If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
@@ -838,7 +939,12 @@ If configured to be `default`, VS Code decides about reusing or opening a new wi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note**: There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
+=======
+> [!NOTE]
+> There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > There are cases where this setting is ignored, such as when you use the `-new-window` or `-reuse-window` command-line option.
@@ -868,7 +974,11 @@ Now that you know the overall layout of VS Code, start to customize the editor t
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+=======
+The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 The indent guide colors are customizable, as are most VS Code user interface elements. To [customize](/api/references/theme-color.md) the indent guides color for your active Color Theme, use the `setting(workbench.colorCustomizations)` setting and modify the `editorIndentGuide.background` value.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

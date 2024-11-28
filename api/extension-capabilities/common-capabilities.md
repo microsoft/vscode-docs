@@ -4,7 +4,11 @@ ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -51,7 +55,11 @@ An extension can register custom Context Menu items that will be displayed in di
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 There are four options for storing data:
+=======
+There are five options for storing data:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 There are five options for storing data:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -69,6 +77,10 @@ There are five options for storing data:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- [`ExtensionContext.secrets`](/api/references/vscode-api#ExtensionContext.secrets): A global storage for secrets (or any information that is sensitive) that will be encrypted. These are not synced across machines. For VS Code desktop, this leverages Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage). For VS Code for the Web, this uses a Double Key Encryption (DKE) implementation.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 - [`ExtensionContext.secrets`](/api/references/vscode-api#ExtensionContext.secrets): A global storage for secrets (or any information that is sensitive) that will be encrypted. These are not synced across machines. For VS Code desktop, this leverages Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage). For VS Code for the Web, this uses a Double Key Encryption (DKE) implementation.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

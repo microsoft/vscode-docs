@@ -7,7 +7,11 @@ PageTitle: Best practices for GitHub Copilot in VS Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -27,7 +31,12 @@ This article covers best practices for using GitHub Copilot in Visual Studio Cod
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
+=======
+> [!NOTE]
+> "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
@@ -55,7 +64,11 @@ There are different options for optimizing your Copilot experience for inline su
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#inline-suggestions) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
+=======
+The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#Code-completions-in-the-editor) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#Code-completions-in-the-editor) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -141,7 +154,11 @@ Tools, which you may already be using, can help.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#chat-features) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+=======
+You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#Answer-coding-questions) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#Answer-coding-questions) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -165,7 +182,11 @@ Slash commands help Copilot Chat understand your **intent** when you ask a quest
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![Inline chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
+=======
+![Inline Chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ![Inline Chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -205,7 +226,11 @@ When asking Copilot Chat for help, you aren't stuck with the first response. You
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+=======
+Here's an example using Inline Chat to create a function to calculate Fibonacci numbers:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Here's an example using Inline Chat to create a function to calculate Fibonacci numbers:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

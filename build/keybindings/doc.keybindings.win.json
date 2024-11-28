@@ -150,8 +150,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "escape",                "command": "inlineChat.discard",
                                         "when": "inlineChatHasProvider && inlineChatVisible && !inlineChatUserDidEdit" },
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -169,7 +172,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -180,6 +186,9 @@
                                         "when": "chat.hasEditorModifications && editorFocus" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -274,8 +283,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "escape",                "command": "editor.action.inlineEdit.reject",
                                         "when": "inlineEditVisible && !editorReadonly" },
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -495,6 +507,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+{ "key": "escape",                "command": "inlineChat.discardHunkChange",
+                                        "when": "inlineChatHasProvider && inlineChatVisible && inlineChatResponseType == 'messagesAndEdits'" },
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 { "key": "escape",                "command": "inlineChat.discardHunkChange",
                                         "when": "inlineChatHasProvider && inlineChatVisible && inlineChatResponseType == 'messagesAndEdits'" },
@@ -574,6 +591,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "ctrl+k ctrl+alt+c",     "command": "workbench.action.addComment" },
 { "key": "ctrl+/",                "command": "workbench.action.chat.attachContext",
                                         "when": "inChatInput && chatLocation == 'panel' || config.chat.experimental.variables.editor && inChatInput && chatLocation == 'editor' || config.chat.experimental.variables.notebook && inChatInput && chatLocation == 'notebook' || config.chat.experimental.variables.terminal && inChatInput && chatLocation == 'terminal'" },
@@ -584,6 +602,8 @@
 { "key": "ctrl+enter",            "command": "workbench.action.chat.submitSecondaryAgent",
                                         "when": "chatInputHasText && inChatInput && !chatInputHasAgent && !chatSessionRequestInProgress" },
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -602,6 +622,9 @@
                                         "when": "chatInputHasText && inChatInput && !chatSessionRequestInProgress && chatLocation == 'panel'" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -618,6 +641,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "tab",                   "command": "editor.action.inlineEdit.accept",
                                         "when": "cursorAtInlineEdit && inlineEditVisible && !editorReadonly" },
 { "key": "ctrl+alt+=",            "command": "editor.action.inlineEdit.jumpTo",
@@ -631,12 +655,17 @@
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 { "key": "ctrl+right",            "command": "editor.action.inlineSuggest.acceptNextWord",
                                         "when": "inlineSuggestionVisible && !editorReadonly" },
 { "key": "escape",                "command": "inlineChat.close",
                                         "when": "inlineChatHasProvider && inlineChatVisible" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -671,8 +700,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "ctrl+alt+=",            "command": "editor.action.inlineEdit.jumpBack",
                                         "when": "cursorAtInlineEdit && !editorReadonly" },
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -804,7 +836,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -819,6 +854,9 @@
                                         "when": "hasUndecidedChatEditingResource && inChatInput && !chatSessionRequestInProgress && chatLocation == 'editing-session'" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -881,6 +919,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         "when": "accessibleViewContainsCodeBlocks && accessibleViewCurrentProviderId == 'panelChat'" },
 { "key": "alt+[",                 "command": "editor.action.accessibleViewPrevious",
                                         "when": "accessibleViewIsShown && accessibleViewSupportsNavigation" },
@@ -890,6 +929,8 @@
 { "key": "tab",                   "command": "editor.action.inlineSuggest.commit",
                                         "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || cursorAtInlineEdit && inlineEditIsVisible && !editor.hasSelection && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || inlineEditIsVisible && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || cursorAtInlineEdit && inlineEditIsVisible && inlineSuggestionVisible && !editor.hasSelection && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -906,6 +947,9 @@
                                         "when": "editorTextFocus && inlineEditIsVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || editorTextFocus && inlineEditIsVisible && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -956,10 +1000,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "escape",                "command": "inlineChat.close",
                                         "when": "inlineChatHasProvider && inlineChatVisible" },
 { "key": "escape",                "command": "inlineChat.discardHunkChange",
                                         "when": "inlineChatHasProvider && inlineChatVisible && inlineChatResponseType == 'messagesAndEdits'" },
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1389,8 +1436,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "ctrl+alt+i",            "command": "workbench.action.chat.open" },
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1401,6 +1451,9 @@
                                         "when": "chatEditingParticipantRegistered && chatIsEnabled && view != 'workbench.panel.chat.view.edits'" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -1414,7 +1467,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         "when": "inChat && !inChatInput" },
+=======
+                                        "when": "inChat && !inChatInput && chatLocation != 'editing-session'" },
+{ "key": "ctrl+alt+enter",        "command": "workbench.action.chat.sendToChatEditing",
+                                        "when": "chatEditingParticipantRegistered && chatInputHasText && chatIsEnabled && !chatInputHasAgent && !chatSessionRequestInProgress && chatLocation != 'editing-session'" },
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
                                         "when": "inChat && !inChatInput && chatLocation != 'editing-session'" },
 { "key": "ctrl+alt+enter",        "command": "workbench.action.chat.sendToChatEditing",
@@ -1439,6 +1498,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+{ "key": "delete",                "command": "workbench.action.chat.undoEdits",
+                                        "when": "inChat && !inChatInput && chatLocation == 'editing-session'" },
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 { "key": "delete",                "command": "workbench.action.chat.undoEdits",
                                         "when": "inChat && !inChatInput && chatLocation == 'editing-session'" },
@@ -1598,7 +1662,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "ctrl+shift+i",          "command": "workbench.action.quickchat.toggle",
+=======
+{ "key": "ctrl+shift+alt+l",      "command": "workbench.action.quickchat.toggle",
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 { "key": "ctrl+shift+alt+l",      "command": "workbench.action.quickchat.toggle",
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -1636,12 +1704,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "key": "ctrl+i",                "command": "workbench.action.terminal.chat.focusInput",
                                         "when": "terminalChatFocus && !inlineChatFocused" },
 { "key": "ctrl+up",               "command": "workbench.action.terminal.chat.focusInput",
                                         "when": "terminalChatFocus && !inlineChatFocused" },
 { "key": "ctrl+down",             "command": "workbench.action.terminal.chat.focusResponse",
                                         "when": "terminalChatFocus" },
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1660,12 +1731,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         "when": "terminalChatFocus && terminalHasBeenCreated && !inlineChatEmpty && !terminalChatActiveRequest || terminalChatFocus && terminalProcessSupported && !inlineChatEmpty && !terminalChatActiveRequest" },
 { "key": "down",                  "command": "workbench.action.terminal.chat.nextFromHistory",
                                         "when": "terminalChatFocus" },
 { "key": "up",                    "command": "workbench.action.terminal.chat.previousFromHistory",
                                         "when": "terminalChatFocus" },
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -1677,6 +1751,9 @@
                                         "when": "terminalChatFocus && !suggestWidgetVisible" },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -1830,6 +1907,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+{ "key": "ctrl+alt+i",            "command": "workbench.panel.chat",
+                                        "when": "workbench.panel.chat.view.copilot.active" },
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 { "key": "ctrl+alt+i",            "command": "workbench.panel.chat",
                                         "when": "workbench.panel.chat.view.copilot.active" },
@@ -2076,6 +2158,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+{ "key": "ctrl+enter",            "command": "chat.inlineResourceAnchor.openToSide",
+                                        "when": "chatAnchorResource" },
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 { "key": "ctrl+enter",            "command": "chat.inlineResourceAnchor.openToSide",
                                         "when": "chatAnchorResource" },

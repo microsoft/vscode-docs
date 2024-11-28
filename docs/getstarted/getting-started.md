@@ -7,7 +7,11 @@ PageTitle: Getting started with Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -26,7 +30,12 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <iframe src="https://www.youtube-nocookie.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+=======
+> [!TIP]
+> If you prefer to follow along with a video, you can watch the [Getting Started video](https://www.youtube.com/watch?v=B-s71n0dHUk), which covers the same steps as this tutorial.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!TIP]
 > If you prefer to follow along with a video, you can watch the [Getting Started video](https://www.youtube.com/watch?v=B-s71n0dHUk), which covers the same steps as this tutorial.
@@ -47,6 +56,7 @@ In this tutorial, you learn about the key features of Visual Studio Code to help
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Step 1: Open a folder in VS Code
 
 In VS Code, you can work with individual files seamlessly, for example for quick edits or to view a file. Alternatively, by opening a folder, also known as a *workspace*, you unlock more features, such as folder-specific configuration settings, restoring the UI state for that folder, debug configurations, and more. Get more info about [workspaces](/docs/editor/workspaces.md).
@@ -60,6 +70,8 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Open a folder in VS Code
 
 You can use VS Code to work on individual files to make quick edits, or you can open a folder, also known as a *workspace*.
@@ -68,6 +80,9 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -77,6 +92,7 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
     When you first open VS Code, you should see the **Welcome** page with different actions to get started.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -92,6 +108,8 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 
 ## Step 2: Explore the user interface
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -123,6 +141,9 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 ## Explore the user interface
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -133,6 +154,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Switch between views with the Activity Bar
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -162,6 +184,8 @@ The **Editor** is located in the main area of the window and is where you view a
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. Use the Activity Bar to switch between different views.
 
     ![Screenshot that highlights the Activity Bar.](images/getting-started/activity-bar.png)
@@ -180,6 +204,9 @@ The **Editor** is located in the main area of the window and is where you view a
 1. Select the Explorer view in the Activity Bar, and select the **New File...** button to create a new file in your workspace.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -193,12 +220,15 @@ The **Editor** is located in the main area of the window and is where you view a
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     A file is added to your workspace and an Editor opens in the main area of the window, where you can start typing and editing the file.
 
     ![Screenshot that shows the Editor in the main area of the window.](images/getting-started/new-file-editor.png)
 
 1. Add more files to your workspace and notice that each file opens in a new Editor tab.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -214,6 +244,9 @@ The **Editor** is located in the main area of the window and is where you view a
 1. Add more files to your workspace and notice that each file opens a new Editor tab.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -226,6 +259,7 @@ The **Editor** is located in the main area of the window and is where you view a
 
 ### Access the terminal from the Panel area
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -327,6 +361,8 @@ VS Code supports many programming languages and in a next step, you'll install a
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`.
 
     You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
@@ -406,6 +442,9 @@ VS Code has built-in support for JavaScript, TypeScript, HTML, CSS, and more. In
 VS Code supports many programming languages and in a next step, you'll [install a language extension](#step-6-install-a-language-extension) to add support for a different language, namely Python.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -428,6 +467,7 @@ VS Code supports many programming languages and in a next step, you'll [install 
 
     ![Screen capture that shows IntelliSense in action for a JavaScript file.](images/getting-started/javascript-intellisense.gif)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -471,6 +511,8 @@ Let's use the built-in Git support to commit the changes you've made previously.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. When you put the cursor on the string `Hello,`, you should see a lightbulb icon appear to indicate there's a Code Action.
 
     You can also use the `kb(editor.action.triggerSuggest)` keyboard shortcut to open the lightbulb menu.
@@ -509,6 +551,9 @@ Let's use the built-in Git support to commit the changes you've made previously.
     > To stage all changes, hover over **Changes** and select the **Stage All Changes** button.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -519,6 +564,7 @@ Let's use the built-in Git support to commit the changes you've made previously.
 
     ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -536,6 +582,8 @@ The features that VS Code includes out-of-the-box are just the start. VS Code ha
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     > [!TIP]
     > You can use the **Source Control Graph** to show a visual representation of the commit history of your Git repository.
 
@@ -546,6 +594,9 @@ There's a lot more to discover about source control in VS Code. Get more info ab
 VS Code has a rich ecosystem of extensions that let you add languages, debuggers, and tools to your installation to support your specific development workflow. There are thousands of extensions available in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -580,11 +631,17 @@ Let's install a language extension to add support for Python, or any other progr
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
 
 ## Step 7: Run and debug your code
 
 One of the key features in VS Code is its great support for running and debugging code. VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
+=======
+## Run and debug your code
+
+VS Code has built-in support for running and debugging Node.js applications. In this tutorial, you use the Python extension you installed in the previous step to debug a Python program.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Run and debug your code
 
@@ -608,7 +665,11 @@ Let's debug the `hello.py` program that you created in the previous step.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     To run and debug programs in VS Code, you need to have the necessary runtime installed on your computer. For example, to run and debug a Node.js program, you need to have the Node.js runtime installed.
+=======
+    If there's no Python interpreter installed on your computer, you'll see a notification in the lower right corner of the window. Select **Select Interpreter** to open the **Command Palette** and select the Python interpreter you want to use or install one.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     If there's no Python interpreter installed on your computer, you'll see a notification in the lower right corner of the window. Select **Select Interpreter** to open the **Command Palette** and select the Python interpreter you want to use or install one.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -625,6 +686,7 @@ Let's debug the `hello.py` program that you created in the previous step.
 
     ![Screenshot that shows a breakpoint in the editor.](images/getting-started/python-set-breakpoint.png)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -650,6 +712,8 @@ Let's debug the `hello.py` program that you created in the previous step.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. Press `kbstyle(F5)` to start a debugging session.
 
     1. Select the Python debugger:
@@ -668,6 +732,9 @@ Let's debug the `hello.py` program that you created in the previous step.
     > Inspect the value of the `name` variable by hovering over it in the editor while the execution is paused. You can view the value of variables at any time in the **Variables** view in the **Run and Debug** view.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

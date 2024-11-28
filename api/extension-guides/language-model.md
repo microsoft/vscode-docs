@@ -4,7 +4,11 @@ ContentId: 9bdc3d4e-e6ba-43d3-bd09-2e127cb63ce7
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -84,12 +88,15 @@ const craftedPrompt = [
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Once you've built the prompt for the language model, you first select the language model you want to use with the [`selectChatModels`](/api/references/vscode-api#lm.selectChatModels) method. This method returns an array of language models that match the specified criteria. Then, you send the request to the language model by using the [`sendRequest`](/api/references/vscode-api#LanguageModelChat) method.
 
 To select the language model, you can specify the following properties: `vendor`, `id`, `family`, or `version`. Use these properties to either broadly match all models of a given vendor or family, or select one specific model by its ID. Learn more about these properties in the [API reference](/api/references/vscode-api#LanguageModelChat).
 
 > **Note**: Currently, `gpt-4o` is supported for the language model family. We expect that the list of supported models grows over time. `gpt-3.5` and `gpt-4` are deprecated.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -101,6 +108,9 @@ To select the language model, you can specify the following properties: `vendor`
 > **Note**: Currently, `gpt-4o`, `gpt-4o-mini`, `o1-preview`, `o1-mini`, `claude-3.5-sonnet`, `gemini-1.5-pro` are supported for the language model family. If you are unsure what model to use, we recommend `gpt-4o` for it's performance and quality. For interactions directly in the editor, we recommend `gpt-4o-mini` for it's performance.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -249,7 +259,10 @@ Once you have created your AI extension, you can publish your extension to the V
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" to the `categories` field in your `package.json`. If your extension contributes a Chat Participant, add "Chat" as well.
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======

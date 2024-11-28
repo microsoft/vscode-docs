@@ -7,7 +7,11 @@ PageTitle: GitHub Copilot quickstart
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -27,7 +31,12 @@ This tutorial walks you through the key features of GitHub Copilot in Visual Stu
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note:** While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
+=======
+> [!NOTE]
+> While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > While we're using TypeScript for this tutorial, please note that Copilot is also trained on numerous other languages and a wide variety of frameworks.
@@ -58,6 +67,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Now that you've signed up for Copilot and activated the extension, let's see its assistance in action!
 
 To get started with GitHub Copilot in VS Code, you don't have to do anything special. As you're typing code in the editor, Copilot automatically presents you code suggestions in the editor to help you code more efficiently.
@@ -76,6 +86,8 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 To get started with GitHub Copilot in VS Code, you don't have to do anything special. As you're typing code in the editor, Copilot automatically presents you code suggestions in the editor to help you code more efficiently.
 
 1. Open Visual Studio Code and create a new JavaScript file `calculator.js`.
@@ -89,6 +101,9 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
     Copilot automatically suggests a method for our `Calculator` class in gray dimmed text (ghost text). In our example, the `add` and `subtract` methods are suggested. The exact suggestions you receive might vary.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -104,11 +119,14 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. For any given input, there might be multiple suggestions. Type the following inside the class to add a `fibonacci` method:
 
     ```typescript
     fibonacci(n: number): number {
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -119,6 +137,9 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
     factorial(n) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -131,7 +152,11 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ![Screenshot of VS Code editor, showing Copilot giving multiple suggestions for `fibonacci` when hovering over it.](./images/getting-started/copilot-code-completion-multiple.png)
+=======
+    ![Screenshot of VS Code editor, showing Copilot giving multiple suggestions for `factorial` when hovering over it.](./images/getting-started/copilot-code-completion-multiple.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     ![Screenshot of VS Code editor, showing Copilot giving multiple suggestions for `factorial` when hovering over it.](./images/getting-started/copilot-code-completion-multiple.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -146,6 +171,7 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 
 AI-powered code completions can help you with generating boilerplate or repetitive code, letting you stay in the developer flow and focus on more complex coding tasks.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -173,6 +199,8 @@ Let's use Copilot Chat to help us generate a simple Express web server.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Use Inline Chat to generate a basic web server
 
 With Copilot Chat, you can start a chat conversation with Copilot in VS Code to ask specific tasks about your code by using natural language.
@@ -192,6 +220,9 @@ Let's use **Inline Chat** to help generate a basic Express web server.
     Notice that Copilot returns a streaming response in the editor. The response is an implementation for a simple Node.js Express web server.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -204,6 +235,7 @@ Let's use **Inline Chat** to help generate a basic Express web server.
 
     Congratulations! You've used Copilot Chat for generating code using chat and natural language.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -237,6 +269,8 @@ With Copilot Chat you can use a chat conversation and natural language to direct
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Refactor your code through AI chat
 
 You can also use Inline Chat to refactor or improve existing code in the editor.
@@ -258,6 +292,9 @@ Notice that our web server is currently using a static port number `3000`. Let's
     For example, you can ask Copilot to use a different environment variable name for the port number.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -271,10 +308,13 @@ As you're working in a new codebase, or exploring a new programming language, yo
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat control in the Activity Bar.](./images/getting-started/copilot-chat-view.png)
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -287,6 +327,9 @@ As you're working in a new codebase, or exploring a new programming language, yo
     > You can access different Copilot features from the Command Center menu at any time.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -302,12 +345,15 @@ As you're working in a new codebase, or exploring a new programming language, yo
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Select the title of the Chat view and drag it to the right side of the editor to dock it to the Secondary side bar.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view in the Secondary side bar on the right.](./images/getting-started/copilot-chat-view-secondary-side-bar.png)
 
     Putting the Chat view in the Secondary side bar can be useful if you want to open another view in the Primary side bar, for example the Explorer view to navigate your workspace. Learn about [custom layouts and the Secondary side bar](/docs/editor/custom-layout.md#_secondary-side-bar).
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -341,6 +387,9 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
     ![Screenshot of the Copilot Edits view, highlighting the Accept button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -364,7 +413,11 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ![Screenshot of VS Code editor, showing the Copilot code actions, hihglighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
+=======
+    ![Screenshot of VS Code editor, showing the Copilot code actions, highlighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     ![Screenshot of VS Code editor, showing the Copilot code actions, highlighting `Fix using Copilot`.](./images/getting-started/copilot-code-action-fix.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -384,12 +437,15 @@ One such place is the Copilot coding actions in the editor, whenever there you h
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Congratulations
 
 Congratulations, you've now used artificial intelligence to enhance your coding! In this tutorial, you successfully set up Copilot in VS Code, and used Copilot code completions, Copilot Chat, and code actions to help you code more efficiently.
 
 You've started experimenting with Copilot and there's a lot more you can do with it! To learn more about Copilot Chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
@@ -407,6 +463,9 @@ Congratulations, you've now used artificial intelligence to enhance your coding!
 Check our [Advanced Features](https://www.youtube.com/watch?v=SLMfhuptCo8) video on YouTube for in-depth coverage of using Copilot for refactoring, context-based suggestions, unit tests, and more.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

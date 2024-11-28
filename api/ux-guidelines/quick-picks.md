@@ -4,7 +4,11 @@ ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -31,6 +35,10 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+* Use thoughtful icons that add clarity and help differentiate items
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * Use thoughtful icons that add clarity and help differentiate items
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -55,8 +63,11 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Use the same icon for multiple items
 * Use more than six icons in a list
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======

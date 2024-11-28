@@ -4,7 +4,11 @@ ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -42,7 +46,11 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 | [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
+=======
+| [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -89,7 +97,11 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
+=======
+| [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

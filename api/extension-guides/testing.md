@@ -4,7 +4,11 @@ ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -276,7 +280,11 @@ The `FileCoverage` contains the overall covered and uncovered count of statement
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for assocating data. For example, you can create a map of `FileCoverage` objects to your own data:
+=======
+Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for associating data. For example, you can create a map of `FileCoverage` objects to your own data:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for associating data. For example, you can create a map of `FileCoverage` objects to your own data:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
