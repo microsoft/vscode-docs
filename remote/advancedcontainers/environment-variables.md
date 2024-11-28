@@ -6,7 +6,11 @@ PageTitle: Container environment variables
 ContentId: 031424a7-ab0e-42e0-ab7d-30a5371b9a50
 MetaDescription: Use environment variables in containers
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

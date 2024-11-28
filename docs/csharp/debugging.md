@@ -72,7 +72,10 @@ In the dropdown, it lists all your existing debug configurations. If you hover o
 ![Remove dynamic configuration](images/debugging/delete-dynamic-config.gif)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Debug with editor debug/run buttons
 
 When a `.cs` file is open in the editor, run and debug options are accessible via the buttons located in the upper-right corner of the editor window. These actions will use the current file to query the project system and determine the associated project to launch.
@@ -83,6 +86,9 @@ The two options are:
 
 ![Editor Run or Debug](images/debugging/editor-run-debug.png)
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Debug with launch.json
 
@@ -187,7 +193,11 @@ The following tokens are also supported in the log message:
 ### Breakpoint - Triggered breakpoints
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+=======
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

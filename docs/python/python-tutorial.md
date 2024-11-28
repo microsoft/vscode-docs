@@ -5,7 +5,11 @@ TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -163,9 +167,15 @@ There are three other ways you can run Python code within VS Code:
 2. Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Python > Run Selection/Line in Python Terminal**. Alternatively, you can activate Smart Send using `kbstyle(Shift+Enter)` without a selection and the Python extension will send the smallest runnable block of code near where your cursor is placed to the terminal. This command is convenient for testing just a part of a file.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note**: If you prefer to send code at the particular line your cursor is placed, you can turn off Smart Send by setting `python.REPL.enableREPLSmartSend : "false"` in your **User** settings.
 
 1. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start Terminal REPL** command to open a REPL terminal (notated by `>>>`) for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+=======
+   > **Note**: If you prefer to send code at the particular line your cursor is placed, you can turn off Smart Send by setting `python.REPL.enableREPLSmartSend : "false"` in your **User** settings.
+
+3. From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start Terminal REPL** command to open a REPL terminal (notated by `>>>`) for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
    > **Note**: If you prefer to send code at the particular line your cursor is placed, you can turn off Smart Send by setting `python.REPL.enableREPLSmartSend : "false"` in your **User** settings.
 

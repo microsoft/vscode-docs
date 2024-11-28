@@ -2,7 +2,11 @@
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -22,7 +26,11 @@ Chat participants are domain experts that can answer user queries within a speci
 - Use procedural logic and local resources
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like [autonomous agents](https://learn.microsoft.com/semantic-kernel/agents/) that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+=======
+Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -42,7 +50,10 @@ Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App 
 - [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
 - [ChatParticipant API](/api/references/vscode-api#chat)
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [ChatVariableResolver API](https://github.com/microsoft/vscode/blob/main/src/vscode-dts/vscode.proposed.chatVariableResolver.d.ts)
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
@@ -76,7 +87,10 @@ You can further expand the functionality of the chat extension with the followin
 - Register chat commands to provide users with a shorthand notation for common questions
 - Define suggested follow-up questions to help the user continue a conversation
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Define chat variables to capture and share domain-specific context in chat conversations
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
@@ -109,7 +123,12 @@ The `isSticky` property controls whether the chat participant is persistent, whi
 We suggest using a lowercase `name` and using title case for the `fullName` to align with existing chat participants. Get more info about the [naming conventions for chat participants](#chat-participant-naming-conventions).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note**: Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
+=======
+> [!NOTE]
+> Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > Some participant names are reserved, and in case you use a reserved name VS Code will display the fully qualified name of your participant (including the extension ID).
@@ -162,7 +181,11 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 #### Determine the request intent
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the prompt, [commands](#register-commands), chat location, and [chat variables](#variables) that the user entered in the Chat view. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+=======
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the user's prompt, [commands](#register-commands), and chat location. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the user's prompt, [commands](#register-commands), and chat location. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -182,7 +205,11 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
         // Determine the user's intent
 <<<<<<< HEAD
+<<<<<<< HEAD
         const intent = determineUserIntent(request.prompt, request.variables);
+=======
+        const intent = determineUserIntent(request.prompt, request.variables, request.model);
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
         const intent = determineUserIntent(request.prompt, request.variables, request.model);
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -195,7 +222,11 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 #### Process the request
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Next, you need to implement the actual logic for processing the user request. Often, chat extensions use the [Language Model API](/api/extension-guides/language-model) to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
+=======
+Next, you need to implement the actual logic for processing the user request. Often, chat extensions use the `request.model` language model instance to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Next, you need to implement the actual logic for processing the user request. Often, chat extensions use the `request.model` language model instance to process the request. In this case, you might adjust the language model prompt to match the user's intent. Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -299,8 +330,11 @@ cat.followupProvider = {
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Tip:** Follow-ups should be written as questions or directions, not just concise commands.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 > [!TIP]
 > Follow-ups should be written as questions or directions, not just concise commands.
 
@@ -354,6 +388,9 @@ Apply the following guidelines to improve the accuracy of participant detection 
 
 > [!NOTE]
 > Built-in chat participants take precedence for participant detection. For example, a chat participant that operates on workspace files might conflict with the built-in `@workspace` participant.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Supported chat response output types
@@ -500,6 +537,7 @@ The following list provides the output types for a chat response in the Chat vie
 > **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved#outgoing-link-protection).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Variables
 
 > **Note:** The Variables API is still in a proposed state and we are actively working on it.
@@ -540,6 +578,8 @@ vscode.chat.registerVariable('cat_context', 'Describes the state of mind and ver
 });
 ```
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Measuring success
@@ -586,17 +626,23 @@ When referring to your chat participant in any of the user-facing elements, such
 Chat participants should not be purely question-answering bots. When building a chat participant, be creative and use the existing VS Code API to create rich integrations in VS Code. Users also love rich and convenient interactions, such as buttons in your responses, menu items that bring users to your participant in chat. Think about real life scenarios where AI can help your users.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including instructions to the language model. Use chat variables when you only want to provide extra context to a prompt when requested by the user. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
 
 For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
 - Contribute variables that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` variable to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 It doesn't make sense for every extension to contribute a chat participant. Having too many participants in chat might lead to a bad user experience. Chat participants are best when you want to control the full prompt, including instructions to the language model. You can reuse the carefully crafted Copilot system message and you can contribute context to other participants.
 
 For example, language extensions (such as the C++ extension) can contribute in various other ways:
 
 - Contribute tools that bring language service smarts to the user query. For example, the C++ extension could resolve the `#cpp` tool to the C++ state of the workspace. This gives the Copilot language model the right C++ context to improve the quality of Copilot answers for C++.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 - Contribute smart actions that use the language model, optionally in combination with traditional language service knowledge, to deliver a great user experience. For example, C++ might already offer an "extract to method" smart action that uses the language model to generate a fitting default name for the new method.
 
@@ -609,7 +655,10 @@ Once you have created your AI extension, you can publish your extension to the V
 - Before publishing to the VS Marketplace we recommend that you read the [Microsoft AI tools and practices guidelines](https://www.microsoft.com/en-us/ai/tools-practices). These guidelines provide best practices for the responsible development and use of AI technologies.
 - By publishing to the VS Marketplace, your extension is adhering to the [GitHub Copilot extensibility acceptable development and use policy](https://docs.github.com/en/early-access/copilot/github-copilot-extensibility-platform-partnership-plugin-acceptable-development-and-use-policy).
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Update the attributes in the `package.json` to make it easy for users to find your extension. Add "AI" and "Chat" to the `categories` field in your `package.json`.
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 - Upload to the Marketplace as described in [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).

@@ -5,7 +5,11 @@ TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -20,11 +24,17 @@ VS Code for the Web has many of the features of VS Code Desktop that you love, i
 VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#limitations).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 The following video gives a quick overview of Visual Studio Code for the Web.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2sdXMJZKLJE" title="Introduction to Visual Studio Code for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Relationship to VS Code Desktop
 
@@ -127,7 +137,11 @@ You can also continue working in other environments via [Continue Working On](#c
 The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Cloud Changes**, which uses a VS Code service to store your pending changes. This is described further in the [GitHub Repositories](/docs/sourcecontrol/github.md#continue-working-on) doc.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Use your own compute with Remote Tunnels
+=======
+## Use your own compute instance with Remote Tunnels
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Use your own compute instance with Remote Tunnels
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

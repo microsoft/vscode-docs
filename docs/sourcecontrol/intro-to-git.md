@@ -5,7 +5,11 @@ TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
 PageTitle: Introduction to Git in Visual Studio Code
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

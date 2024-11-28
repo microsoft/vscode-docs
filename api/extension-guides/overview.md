@@ -2,7 +2,11 @@
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -32,7 +36,11 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
+=======
+| [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | [Command](https://code.visualstudio.com/api/extension-guides/command) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -71,7 +79,11 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Source Control Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/source-control-sample) | [workspace.workspaceFolders](https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders)<br>[SourceControl](https://code.visualstudio.com/api/references/vscode-api#SourceControl)<br>[SourceControlResourceGroup](https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup)<br>[scm.createSourceControl](https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl)<br>[TextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider)<br>[contributes.menus](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) |
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
+=======
+| [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands)<br>[contributes.commands](https://code.visualstudio.com/api/references/contribution-points#contributes.commands) |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

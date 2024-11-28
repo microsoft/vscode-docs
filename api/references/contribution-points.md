@@ -2,7 +2,11 @@
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -16,6 +20,10 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+- [`authentication`](/api/references/contribution-points#contributes.authentication)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 - [`authentication`](/api/references/contribution-points#contributes.authentication)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -52,9 +60,15 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`walkthroughs`](/api/references/contribution-points#contributes.walkthroughs)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## contributes.breakpoints
 
 Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+=======
+## contributes.authentication
+
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## contributes.authentication
 
@@ -65,6 +79,7 @@ Contributes an authentication provider. This will set up an activation event for
 {
   "contributes": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "breakpoints": [
       {
         "language": "javascript"
@@ -72,10 +87,15 @@ Contributes an authentication provider. This will set up an activation event for
       {
         "language": "javascriptreact"
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "authentication": [
       {
         "label": "Azure Dev Ops",
         "id": "azuredevops"
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
       }
     ]
@@ -84,9 +104,15 @@ Contributes an authentication provider. This will set up an activation event for
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## contributes.colors
 
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
+=======
+## contributes.breakpoints
+
+Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## contributes.breakpoints
 
@@ -97,6 +123,7 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 {
   "contributes": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "colors": [
       {
         "id": "superstatus.error",
@@ -108,12 +135,17 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
           "highContrastLight": "#feedc3",
         }
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "breakpoints": [
       {
         "language": "javascript"
       },
       {
         "language": "javascriptreact"
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
       }
     ]
@@ -122,7 +154,10 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## contributes.colors
 
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
@@ -146,6 +181,9 @@ Contributes new themable colors. These colors can be used by the extension in ed
 }
 ```
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
 

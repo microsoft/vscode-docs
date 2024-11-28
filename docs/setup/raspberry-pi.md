@@ -5,7 +5,11 @@ TOCTitle: Raspberry Pi
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
 PageTitle: Running Visual Studio Code on Raspberry Pi OS
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -14,7 +18,11 @@ MetaDescription: Get Visual Studio Code up and running on Raspberry Pi OS.
 # Visual Studio Code on Raspberry Pi
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 You can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
+=======
+Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -54,6 +62,7 @@ You can always check when a new release is available in our [Updates](/updates) 
 ## System requirements
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 VS Code is supported on these Raspberry Pi models running a 32-bit or 64-bit version of Raspberry Pi OS:
 
 * Raspberry Pi 3 Model B/B+
@@ -73,6 +82,9 @@ VS Code on Raspberry Pi 4 may be slow with the default setup. A workaround is to
 3. Restart VS Code.
 
 The `"disable-hardware-acceleration": true` runtime argument switch has the effect of passing the `--disable-gpu` command-line argument on VS Code startup.
+=======
+VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

@@ -6,7 +6,11 @@ PageTitle: Add non-root user to a container
 ContentId: 59f77c6b-0800-41e6-b7c8-a2d8e749ea17
 MetaDescription: Add non-root user to a container
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

@@ -2,7 +2,11 @@
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -266,7 +270,11 @@ async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, 
 The `FileCoverage` contains the overall covered and uncovered count of statements, branches, and declarations in each file. Depending on your runtime and coverage format, you might see statement coverage referred to as line coverage, or declaration coverage referred to as function or method coverage. You can add file coverage for a single URI multiple times, in which case the new information will replace the old.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for assocating data. For example, you can create a map of `FileCoverage` objects to your own data:
+=======
+Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for associating data. For example, you can create a map of `FileCoverage` objects to your own data:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Once a user opens a file with coverage or expands a file in the **Test Coverage** view, VS Code requests more information for that file. It does so by calling an extension-defined `loadDetailedCoverage` method on the `TestRunProfile` with the `TestRun`, `FileCoverage`, and a `CancellationToken`. Note that the test run and file coverage instances are the same as the ones used in `run.addCoverage`, which is useful for associating data. For example, you can create a map of `FileCoverage` objects to your own data:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

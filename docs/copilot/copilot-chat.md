@@ -5,7 +5,11 @@ TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -14,6 +18,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Using Copilot Chat in VS Code
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 The [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension gives you a chat interface that lets you interact with [GitHub Copilot](https://github.com/features/copilot) and receive answers to coding-related questions directly within VS Code, without requiring you to navigate documentation or search online forums.
 
@@ -37,6 +42,8 @@ You can use Copilot Chat in various scenarios, such as:
 
 > **Note**: After reviewing this topic, you can get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 With the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension in Visual Studio Code, you can have AI-powered chat conversations to generate code, increase your code understanding, and even configure your editor. Instead of searching for answers in documentation or online forums, you can ask Copilot Chat directly in VS Code, and get code suggestions while you're in the flow of coding.
 
 Copilot Chat integrates in your developer flow and gives you assistance where you need it:
@@ -57,6 +64,9 @@ You can use Copilot Chat in various developer scenarios, such as:
 * Generating code documentation (_"/doc"_)
 
 ## Prerequisites
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 * To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
@@ -65,6 +75,7 @@ You can use Copilot Chat in various developer scenarios, such as:
 
 Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Inline Chat
 
@@ -82,6 +93,8 @@ Depending on your question, Copilot can also suggest code modifications or refac
 
 With the `setting(inlineChat.mode)` setting, you can configure how Inline Chat shows updates in the editor. The default setting value is `live`, which means that the updates are applied directly in the editor, and you can compare the changes by using the inline diff viewer. If you prefer to preview the changes side-by-side, you configure the setting to `preview`.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Getting started
 
 ### Open chat
@@ -151,12 +164,16 @@ You can also ask Copilot more exploratory questions that emerge as you write and
 ![Copilot Inline Chat asking information about the used sorting algorithm](images/copilot-chat/inline-chat-question-example.png)
 
 With the `setting(inlineChat.mode)` setting, you can configure how Inline Chat shows updates in the editor. The default setting value is `live`, which means that the updates are applied directly in the editor. If you prefer to preview the changes side-by-side instead, you configure the setting to `preview`.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 The following example shows the `preview` mode for Inline Chat.
 
 ![Copilot Inline Chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Terminal Inline Chat
 
@@ -192,6 +209,8 @@ As you keep the conversation going, Copilot maintains the history of your chat m
 
 > **Tip**: To get help about GitHub Copilot and how to interact with Copilot Chat, you can type `/help` in the chat input box.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Chat view
 
 ### Open the Chat view
@@ -227,6 +246,9 @@ The following example (_"@workspace /new Express with TypeScript and pug"_) show
 ![Copilot response containing rich results, such as a file tree with a proposed workspace structure, and a button to create a new workspace](images/copilot-chat/copilot-chat-view-workspace-file-tree.png)
 
 As you keep the conversation going, Copilot maintains the [history of your chat messages and responses](#conversation-history), and provides related follow-up questions or commands in its response too.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Code blocks
@@ -240,11 +262,14 @@ Hovering over the code block presents options to **Apply in Editor**, **Insert a
 The **More Actions** (`...`) button gives options to **Insert Into New File** and **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 If Copilot Chat detects that a code block contains a command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/copilot-chat/run-in-terminal.png)
 
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 If Copilot Chat detects that a code block contains a shell command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/copilot-chat/run-in-terminal.png)
@@ -252,6 +277,9 @@ If Copilot Chat detects that a code block contains a shell command, you can run 
 > [!TIP]
 > Navigate between code blocks with **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`).
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 You can control the font for code blocks in chat with the following settings:
 
@@ -260,6 +288,7 @@ You can control the font for code blocks in chat with the following settings:
 * `setting(chat.editor.fontWeight)`
 * `setting(chat.editor.lineHeight)`
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 > **Tip**: Navigate between code blocks with **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`).
 
@@ -270,6 +299,8 @@ If you want to ask Copilot a quick question and don't want to start a full Chat 
 ![Quick Chat dropdown](images/copilot-chat/quick-chat-dropdown.png)
 
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Chat history
 
 Copilot Chat maintains a history of your previous chat conversations, which you can access by using the **Show Chats...** button in the Chat view or by using the **Chat: Show Chats...** command in the Command Palette.
@@ -288,6 +319,9 @@ Press `kb(workbench.action.quickchat.toggle)` on your keyboard to bring up Quick
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center](images/copilot-chat/copilot-command-center-quick-chat.png)
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 You can type questions, scope your questions with [chat participants](#chat-participants) and [slash commands](#slash-commands), and promote the discussion to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
 
@@ -308,7 +342,10 @@ If you prefer a solution that doesn't use recursion, update the chat prompt and 
 Learn more about how to [iterate over a Copilot chat conversation](/docs/copilot/prompt-crafting.md#iterate-on-your-solution).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Terminal Inline Chat
 
 Similar to Inline Chat in the editor, you can bring up Copilot Inline Chat in the terminal to help you answer questions related to the terminal and shell commands. The terminal Inline Chat uses the `@terminal` chat participant, which has context about the integrated terminal's shell and its contents. For example, you can ask questions such as "how to install npm packages", or "list the top 5 largest files in the src directory".
@@ -321,6 +358,9 @@ Once a command is suggested, use **Run** (`kb(workbench.action.terminal.chat.run
 
 Optionally, you can edit the command directly in the Copilot response before running it by placing the cursor in the response or by pressing `kbstyle(Ctrl+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on Windows & Linux, or `kbstyle(Cmd+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on macOS.
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Chat smart actions
 
@@ -341,9 +381,13 @@ Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`,
 ## Chat participants
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 To further help Copilot give you more relevant answers, you can indicate the scope and intent of your question through chat *participants*.
 
 Chat participants are like experts who have a specialty that they can help you with, and you can talk to them in the chat by mentioning them with the `@` symbol. Currently, there are the following built-in chat participants:
+=======
+*Chat participants* are like experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants:
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 *Chat participants* are like experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants:
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -354,6 +398,7 @@ Chat participants are like experts who have a specialty that they can help you w
 * `@github` has knowledge about your GitHub repositories, issues, pull requests, and topics, and can also perform web searches using the Bing API.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Extensions can also contribute chat participants to provide specialized help for their domain.
 
 ### @workspace
@@ -362,6 +407,8 @@ The `@workspace` chat participant knows how to gather context about the code in 
 
 ![Asking the @workspace chat partipipant about ICodeEditor](images/copilot-chat/workspace-agent-example.png)
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Extensions can also contribute chat participants to provide specialized help for their domain. To find the list of available chat participants, type `@` in the chat input field.
 
 These are some examples of extensions in the Visual Studio Marketplace that contribute a chat participant to the Chat view in VS Code. Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
@@ -373,6 +420,9 @@ These are some examples of extensions in the Visual Studio Marketplace that cont
 The `@workspace` chat participant knows how to gather context about the code in your workspace, can help you navigate it, find relevant classes, files, and more.
 
 ![Asking the @workspace chat participant about where a URL is specified in an Express app](images/copilot-chat/workspace-agent-example.png)
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 Because it has all of the necessary context, `@workspace` can answer the kinds of questions that developers are much more likely to ask. For example, questions that pertain to how different parts of the code interact:
@@ -395,9 +445,15 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 ![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand enable developer mode` to open the VS Code Developer Tools.
 
 ![Toggle Developer Tools with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand-developer-mode.png)
+=======
+With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
+
+![Toggle the minimap in the editor with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
 
@@ -413,7 +469,12 @@ Notice how the prompt in the Chat view is populated with `@terminal #terminalLas
 ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/copilot-chat/terminal-command-explanation.png)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > **Note**: the terminal doesn't pull in the workspace context, which could take some time.
+=======
+> [!NOTE]
+> The terminal doesn't pull in the workspace context automatically, so questions about your workspace could take some time.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > The terminal doesn't pull in the workspace context automatically, so questions about your workspace could take some time.
@@ -437,6 +498,7 @@ Chat participants contributed via a VS Code extension are *client-side* extensio
 
 Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App that contributes a chat participant, the first time you `@-mention` the participant in VS Code, you are asked to authorize its access to your local editor context.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 >**Note**: To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
 
@@ -487,6 +549,8 @@ Instead of using the `#` symbol, you can also add context to your chat message b
 
 To add files as context for your chat prompt, you can drag and drop files from the Explorer view onto the chat input field to add them as context. You can also drag and drop an editor tab onto the chat input field to add the file as context.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 > [!NOTE]
 > To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
 
@@ -506,6 +570,9 @@ Some examples of built-in slash commands are:
 * `@vscode /runCommand`: search or run a VS Code command
 
 To view the list of build-in participants and their commands, type `@` in the chat input field or select the <i class="codicon codicon-mention"></i> icon.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Improve the performance of Copilot Chat
@@ -517,7 +584,11 @@ You can help Copilot provide better answers by upvoting or downvoting responses 
 ### Use chat variables
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt "which sorting algo is used #selection" focuses the chat request on the selected code snippet.
+=======
+By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt _"which sorting algo is used #selection"_ focuses the chat request on the selected code snippet.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt _"which sorting algo is used #selection"_ focuses the chat request on the selected code snippet.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -526,6 +597,7 @@ By using a chat variable in your chat prompt, you can be more specific about the
 
 Chat participants, such as `@workspace`, might have context associated within them. For example, `@vscode` is aware of VS Code settings and its APIs. When you include a chat participant in the chat prompt, you inherently add context to the prompt. Similarly, by using slash commands, you can further focus the intent of the chat request.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ### Chat history
 
@@ -541,6 +613,8 @@ You can delete a prompt and the corresponding response from the chat history by 
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Session...** command (`workbench.action.chat.export`) in the Command Palette.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Conversation history
 
 Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
@@ -554,6 +628,9 @@ You can delete a prompt and the corresponding response from the conversation his
 ![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Context in Inline Chat
@@ -589,7 +666,10 @@ To enable more workspace search features for private repositories, we require ad
 Learn more about security, privacy, and transparency in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Frequently asked questions
 
 ### How do I choose between Inline Chat, Chat view, and Quick Chat?
@@ -610,13 +690,20 @@ The following table provides a comparison of the capabilities of each interface.
 
 \* _only a limited set of commands is available in Inline Chat_
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Additional resources
 
 You can read more about [GitHub Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+=======
+Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

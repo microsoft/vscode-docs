@@ -5,7 +5,11 @@ TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
 PageTitle: Why Visual Studio Code?
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

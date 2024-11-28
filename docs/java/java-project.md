@@ -127,7 +127,11 @@ If your project is an unmanaged folder without any build tools. You can manage t
 node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![manage referenced librares](images/java-project/manage-referenced-libraries.png)
+=======
+![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

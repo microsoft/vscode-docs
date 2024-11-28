@@ -6,7 +6,11 @@ PageTitle: Set Docker Compose project name
 ContentId: 3071cf6e-1a93-498a-91e9-48f439c589b3
 MetaDescription: Set Docker Compose project name
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

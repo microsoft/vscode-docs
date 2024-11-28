@@ -5,7 +5,11 @@ TOCTitle: Copilot Cheat Sheet
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 PageTitle: GitHub Copilot in VS Code cheat sheet
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -44,7 +48,11 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 > - Provide context by attaching files, symbols, or selections to your chat prompt.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Code editing session
+=======
+## Code editing session (Preview)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Code editing session (Preview)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -93,6 +101,10 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 |--------|-------------|
 | <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+| <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -110,8 +122,14 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 > **Tips**
 >
 <<<<<<< HEAD
+<<<<<<< HEAD
 > - Explicitly include relevant context by selecting code or mentioning chat variables
 > - Review the used references in the chat response to ensure that the context is relevant.
+=======
+> - Quickly add multiple files as context by using the right arrow key in the Quick Pick
+> - Explicitly include relevant context by selecting code or mentioning chat variables
+> - Review the used references in the chat response to ensure that the context is relevant
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > - Quickly add multiple files as context by using the right arrow key in the Quick Pick
 > - Explicitly include relevant context by selecting code or mentioning chat variables
@@ -139,6 +157,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 ## Customize AI code generation
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Copilot can generate code based on your chat prompt. You can customize the generated code by providing instructions to Copilot. For example, you can ask that generated code always uses a specific coding style, such as private variables should always be prefixed with an underscore.
 
 | Action | Description |
@@ -147,6 +166,8 @@ Copilot can generate code based on your chat prompt. You can customize the gener
 | Shared instructions <i class="codicon codicon-beaker"></i> | Define shared instructions for code generation in a `.gitHub/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code generation instructions.  |
 | Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. [Get more information](https://code.visualstudio.com/updates/v1_94#_custom-instructions-experimental). |
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Copilot can generate responses that match the coding style, tools, and developer workflow of your team or project, provided it has the right context. You can provide custom instructions to help Copilot adjust to your preferences, so that you don't have to provide these details every time you make a Copilot request. These custom instructions are automatically added to your requests. Get more information about [customizing Copilot in VS Code](/docs/copilot/copilot-customization.md).
 
 | Action | Description |
@@ -155,6 +176,9 @@ Copilot can generate responses that match the coding style, tools, and developer
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
 | Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 > **Tips**
@@ -163,7 +187,10 @@ Copilot can generate responses that match the coding style, tools, and developer
 > - Store your instructions in a file to easily share them with your team and across projects.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Review code (Preview)
 
 Copilot can do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
@@ -173,6 +200,9 @@ Copilot can do a quick review pass of a code block or perform a review of uncomm
 | **Review and Comment** _(Preview)_ | Select a block of code, and select **Copilot** > **Review and Comment** from the editor context menu for quick review pass.  |
 | **Copilot Code Review** | Select the **Copilot Code Review** button in the Source Control view for a deeper review of all uncommitted changes. Join the [waitlist](https://gh.io/copilot-code-review-waitlist). |
 
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Generate tests
 
@@ -183,6 +213,10 @@ Copilot can generate tests for functions and methods in your codebase. Get more 
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+| `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -252,8 +286,13 @@ Get help about shell commands and how to resolve errors when running commands in
 | <i class="codicon codicon-sparkle"></i> <br/>Fix using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get suggestions on how to resolve the error. |
 | <i class="codicon codicon-sparkle"></i> <br/>Explain using Copilot | Select the <i class="codicon codicon-sparkle"></i> icon on a failed shell command and get an explanation about why the command failed. |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `@terminal` | Use the `@terminal` participant in the Chat View to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
 | `@terminal /explain` | Use the `/explain` command in the Chat View to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
+=======
+| `@terminal` | Use the `@terminal` participant in the Chat view to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
+| `@terminal /explain` | Use the `/explain` command in the Chat view to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | `@terminal` | Use the `@terminal` participant in the Chat view to ask questions about the integrated terminal or shell commands.<br/>Example: `@terminal list the 5 largest files in this workspace` |
 | `@terminal /explain` | Use the `/explain` command in the Chat view to explain something from the terminal.<br/>Example: `@terminal /explain top shell command` |

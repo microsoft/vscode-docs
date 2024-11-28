@@ -5,7 +5,11 @@ TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 PageTitle: Debug Browser Apps using Visual Studio Code
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

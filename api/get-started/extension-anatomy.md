@@ -2,7 +2,11 @@
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -19,6 +23,10 @@ The `Hello World` extension does 3 things:
 
 - Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:helloworld.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  > **Note:** Starting with [VS Code 1.74.0](https://code.visualstudio.com/updates/v1_74#_implicit-activation-events-for-declared-extension-contributions), commands declared in the `commands` section of `package.json` automatically activate the extension when invoked, without requiring an explicit `onCommand` entry in `activationEvents`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
   > **Note:** Starting with [VS Code 1.74.0](https://code.visualstudio.com/updates/v1_74#_implicit-activation-events-for-declared-extension-contributions), commands declared in the `commands` section of `package.json` automatically activate the extension when invoked, without requiring an explicit `onCommand` entry in `activationEvents`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
