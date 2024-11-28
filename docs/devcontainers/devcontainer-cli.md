@@ -7,7 +7,11 @@ ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the development container (dev container) command-line interface
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

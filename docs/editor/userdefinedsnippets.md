@@ -6,7 +6,11 @@ ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

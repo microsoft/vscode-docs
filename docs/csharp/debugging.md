@@ -73,7 +73,10 @@ In the dropdown, it lists all your existing debug configurations. If you hover o
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ### Debug with editor debug/run buttons
@@ -87,6 +90,9 @@ The two options are:
 ![Editor Run or Debug](images/debugging/editor-run-debug.png)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -194,7 +200,11 @@ The following tokens are also supported in the log message:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+=======
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

@@ -6,7 +6,11 @@ ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

@@ -6,7 +6,11 @@ ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: JavaScript Debugging Recipes for Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

@@ -6,7 +6,11 @@ ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -21,11 +25,14 @@ Visual Studio Code comes with a simple user interface and convenient default lay
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Note**: If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
@@ -34,6 +41,9 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 > If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -41,6 +51,7 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 
 ### Primary side bar
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 The default (Primary) side bar shows views such as the File Explorer, Search, and Source Control on the left of the workbench. If you'd prefer it on the right, you can:
@@ -66,6 +77,8 @@ The Secondary side bar is initially empty but you can drag and drop views and pa
 
 >**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 By default, the Primary Side Bar is located on the left of the workbench and shows views such as the Explorer, Search, and Source Control views. You can quickly switch between views by selecting the icons in the Activity Bar.
@@ -103,6 +116,9 @@ At any time, you can drag and drop views and panels into the Primary or Secondar
 > [!NOTE]
 > You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

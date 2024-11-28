@@ -7,7 +7,11 @@ ContentId: d324a29d-3f64-4331-9c34-a283719e9d7b
 MetaDescription: Use Docker or Kubernetes from a container
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

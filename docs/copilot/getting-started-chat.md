@@ -6,8 +6,13 @@ ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate chat view.
+=======
+DateApproved: 10/29/2024
+MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
@@ -36,6 +41,7 @@ Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md)
 
 Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 In this tutorial, you'll be creating a simple Node.js web application. So, let's get started and ask Copilot to tell us more about web frameworks for Node.js.
@@ -80,6 +86,8 @@ Let's ask Copilot to generate a workspace for an Express.js and Pug application.
 =======
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 In this tutorial, you'll be creating a simple Node.js web application.
 
 1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
@@ -89,6 +97,9 @@ In this tutorial, you'll be creating a simple Node.js web application.
     > [!TIP]
     > You can access different Copilot features from the Command Center menu at any time.
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -119,7 +130,11 @@ Congratulations! You've just created a workspace with Copilot Chat by using natu
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Previously, you already used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
+=======
+Previously, you used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Previously, you used the `@workspace` chat participant to generate a new workspace, but you can also use it to ask questions about the actual code in the workspace.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -139,7 +154,12 @@ Let's iterate on our generated Express app and add a new page to it.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     > **Tip**: You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
+=======
+    > [!TIP]
+    > You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     > [!TIP]
     > You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
@@ -155,7 +175,12 @@ Let's iterate on our generated Express app and add a new page to it.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     > **Note**: Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
+=======
+    > [!NOTE]
+    > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     > [!NOTE]
     > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
@@ -173,7 +198,11 @@ Let's iterate on our generated Express app and add a new page to it.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Stay in the flow with inline chat
+=======
+## Stay in the flow with Inline Chat
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Stay in the flow with Inline Chat
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -191,6 +220,7 @@ Let's look at how to use chat for code refactoring.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Press `kb(inlinechat.start)` on your keyboard to bring up Copilot inline chat, or right-click and select **Copilot** > **Start in Editor**.
 
     Copilot inline chat enables you to ask questions to Copilot directly from the editor.
@@ -199,12 +229,17 @@ Let's look at how to use chat for code refactoring.
 =======
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. Press `kb(inlinechat.start)` on your keyboard to bring up Copilot Inline Chat, or right-click and select **Copilot** > **Start in Editor**.
 
     Copilot Inline Chat enables you to ask questions to Copilot directly from the editor.
 
     ![Screenshot of VS Code editor, highlighting the Inline Chat popup control.](./images/getting-started-chat/copilot-inline-chat-popup.png)
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -221,7 +256,11 @@ Let's look at how to use chat for code refactoring.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ![Screenshot of VS Code inline chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
+=======
+    ![Screenshot of VS Code Inline Chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     ![Screenshot of VS Code Inline Chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -235,10 +274,13 @@ Let's look at how to use chat for code refactoring.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     > **Tip**: Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
 
 Congratulations on using Copilot inline chat in the editor to help you with code refactoring!
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     > [!TIP]
@@ -246,6 +288,9 @@ Congratulations on using Copilot inline chat in the editor to help you with code
 
 Congratulations on using Copilot Inline Chat in the editor to help you with code refactoring!
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -264,9 +309,15 @@ Let's see how to use smart actions to fix a coding error.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Copilot inline chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
 
     ![Screenshot of VS Code inline chat, showing the result of the fix smart action.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
+=======
+1. Copilot Inline Chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
+
+    ![Screenshot of VS Code Inline Chat, showing the result of the fix smart action.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 1. Copilot Inline Chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
 
@@ -294,7 +345,11 @@ Let's ask Copilot about what the purpose of a specific file in the workspace is.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Open the Chat view from the Activity Bar or press `kb(workbench.action.chat.open)`.
+=======
+1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -324,10 +379,13 @@ Let's ask Copilot about what the purpose of a specific file in the workspace is.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     To quickly attach a file as context for your chat prompt, you can drag and drop a file from the Explorer view onto the Chat view. If the file is open in the editor, you can also drag and drop the editor tab onto the Chat view to attach the file.
 
     ![Screenshot of VS Code Copilot Chat view, showing it as a drag and drop target for attaching a file as context.](./images/getting-started-chat/copilot-chat-view-attach-with-drop.png)
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     > [!TIP]
@@ -337,6 +395,9 @@ Let's ask Copilot about what the purpose of a specific file in the workspace is.
 
     <video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

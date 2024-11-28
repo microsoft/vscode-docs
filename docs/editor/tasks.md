@@ -6,7 +6,11 @@ ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -386,6 +390,10 @@ You can specify a task's run behaviors using the `runOptions` property:
   * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+* **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

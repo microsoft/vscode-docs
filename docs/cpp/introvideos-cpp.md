@@ -38,7 +38,10 @@ This video shows you how to customize debug configurations for your C++ project 
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Getting started using Copilot Chat for C++ in VS Code
@@ -48,6 +51,9 @@ This video covers some use cases for using Copilot Chat in VS Code with C++ Code
 <iframe src="https://www.youtube-nocookie.com/embed/ZfT2CXY5-Dc?si=0F2qRniRhN-sg3cR" width="960" height="540" allowFullScreen frameBorder="0" title="Getting Started using Copilot Chat for C++ in VS Code"></iframe>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

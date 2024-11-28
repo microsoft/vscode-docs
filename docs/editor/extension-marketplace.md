@@ -6,7 +6,11 @@ ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -344,12 +348,15 @@ You may see this error if your machine is going through a proxy server to access
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
 To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section, which is located on the right-hand side of the page.
 
 Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
 =======
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
@@ -360,6 +367,9 @@ To download an extension, search for it in the Extensions view, right-click on a
 > The download option is only available for extensions that are not already installed. This experience is currently available in VS Code Insiders and will be available in VS Code Stable in the November release (1.96).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -376,10 +386,16 @@ The **Show Recommended Extensions** command is always available if you want to s
 ### Can I trust extensions from the Marketplace?
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 The Marketplace runs a virus scan on each extension package that's published to ensure its safety. The virus scan is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
 The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat.
+=======
+The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
+
+The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat as well as popular extension names such as GitHub Copilot.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
@@ -403,6 +419,12 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+
+![Verified publisher](images/extension-marketplace/bluecheck.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
 
