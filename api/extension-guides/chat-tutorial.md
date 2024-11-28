@@ -5,7 +5,11 @@ ContentId: bea1d4c5-71e5-4b27-ac1e-fa9b59886dab
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -98,9 +102,15 @@ Finally, setting `isSticky: true` will automatically prepend the participant nam
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Step 3: Craft the prompt and select the model
 
 Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt and select the model for the requests.
+=======
+## Step 3: Craft the prompt
+
+Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt for the requests.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Step 3: Craft the prompt
 
@@ -141,6 +151,7 @@ const BASE_PROMPT = 'You are a helpful code tutor. Your job is to teach the user
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 You also need to select the model for the requests. gpt-4o is recommended since it is fast and high quality.
 
 ```ts
@@ -150,6 +161,11 @@ const MODEL_SELECTOR: vscode.LanguageModelChatSelector = { vendor: 'copilot', fa
 ## Step 4: Implement the request handler
 
 Now that the prompt and model are selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
+=======
+## Step 4: Implement the request handler
+
+Now that the prompt is selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 ## Step 4: Implement the request handler
 
@@ -185,7 +201,13 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Within the body of this handler, initialize the prompt and model. Check that the model returned successfully.
+=======
+Within the body of this handler, initialize the prompt and a `messages` array with the prompt. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
+
+Send the request using `request.model.sendRequest`, which will send the request using the currently selected model. Finally, stream the response to the user.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Within the body of this handler, initialize the prompt and a `messages` array with the prompt. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
 
@@ -211,6 +233,7 @@ Send the request using `request.model.sendRequest`, which will send the request 
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -266,6 +289,8 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // initialize the prompt
     let prompt = BASE_PROMPT;
 
@@ -286,6 +311,9 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -309,6 +337,7 @@ You should further customize your participant by adding an icon for it. This wil
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -342,6 +371,8 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // initialize the prompt
     let prompt = BASE_PROMPT;
 
@@ -362,6 +393,9 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -412,6 +446,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // initialize the prompt and model
     let prompt = BASE_PROMPT;
 
@@ -456,6 +491,8 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // initialize the prompt
     let prompt = BASE_PROMPT;
 
@@ -491,6 +528,9 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -554,7 +594,11 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // initialize the prompt and model
+=======
+    // initialize the prompt
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
     // initialize the prompt
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -573,6 +617,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
         prompt = EXERCISES_PROMPT;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -618,6 +663,8 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // initialize the messages array with the prompt
     const messages = [
         vscode.LanguageModelChatMessage.User(prompt),
@@ -650,6 +697,9 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

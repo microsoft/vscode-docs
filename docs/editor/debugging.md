@@ -8,7 +8,11 @@ PageTitle: Debugging in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -177,7 +181,11 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
+=======
+>**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -385,7 +393,11 @@ If a debugger does not support conditional breakpoints, the **Add Conditional Br
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+=======
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

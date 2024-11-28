@@ -5,7 +5,11 @@ ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -290,11 +294,16 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
 =======
 `vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
 
+=======
+`vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 `vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
 
@@ -315,6 +324,9 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

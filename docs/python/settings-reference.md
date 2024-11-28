@@ -71,6 +71,10 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+| includeAliasesFromUserFiles | false | Whether to include alias symbols from user files in auto-import suggestions and in the add import Quick Fix. When disabled, Pylance will offer the import suggestion from where the symbol is defined. When enabled, it'll also offer import suggestions from files where the symbol is imported (i.e. aliased). Available values are `true` and `false`. |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | includeAliasesFromUserFiles | false | Whether to include alias symbols from user files in auto-import suggestions and in the add import Quick Fix. When disabled, Pylance will offer the import suggestion from where the symbol is defined. When enabled, it'll also offer import suggestions from files where the symbol is imported (i.e. aliased). Available values are `true` and `false`. |
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

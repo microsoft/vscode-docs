@@ -5,7 +5,11 @@ ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -480,7 +484,11 @@ To make sure as much source code as possible can be reused, here are a few techn
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
+=======
+* Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [@vscode/l10n](https://github.com/microsoft/vscode-l10n).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [@vscode/l10n](https://github.com/microsoft/vscode-l10n).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -661,7 +669,11 @@ Only syntax error are reported and can cause esbuild to fail.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 For that reason, we separatly run the TypeScript compiler (`tsc`) to check the types, but without emmiting any code (flag `--noEmit`).
+=======
+For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

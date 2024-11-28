@@ -3,7 +3,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Order: 12
+=======
+Order: 14
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Order: 14
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -24,7 +28,11 @@ PageTitle: GitHub Copilot in VS Code settings reference
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -77,7 +85,11 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * `setting(github.copilot.chat.edits.enabled)` - enable or disable Copilot Edits
+=======
+* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

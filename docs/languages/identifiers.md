@@ -7,7 +7,11 @@ PageTitle: Visual Studio Code language identifiers
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -93,6 +97,10 @@ D | `d`
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+Dart | `dart`
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 Dart | `dart`
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

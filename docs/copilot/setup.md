@@ -8,7 +8,11 @@ PageTitle: Set up GitHub Copilot
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -36,6 +40,7 @@ For an overview of what you can do with GitHub Copilot in VS Code, see the [GitH
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
 
 | Account type | Instructions |
@@ -51,6 +56,8 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise. Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 | Account type | Instructions |
@@ -60,6 +67,9 @@ If you want to use GitHub Copilot, you either need an active subscription for Gi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -82,7 +92,11 @@ When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https:/
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub account that has access to GitHub Copilot.
+=======
+To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub account that has access to GitHub Copilot.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub account that has access to GitHub Copilot.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -116,6 +130,7 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Notice the GitHub Copilot icon in the status bar, which indicates that GitHub Copilot is active.
 
     ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/setup/vscode-status-bar-copilot-active.png)
@@ -136,6 +151,8 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 1. Notice the GitHub Copilot icon next to the Command Center that gives you quick access to Copilot functionality in VS Code.
 
     ![Screenshot showing the GitHub Copilot icon in the Command Center in VS Code.](./images/setup/copilot-chat-menu-command-center.png)
@@ -148,6 +165,9 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+=======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

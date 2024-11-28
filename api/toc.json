@@ -35,6 +35,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      ["Language Model Tools", "/api/extension-guides/tools"],
+      ["Prompt TSX", "/api/extension-guides/prompt-tsx"],
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
       ["Language Model Tools", "/api/extension-guides/tools"],
       ["Prompt TSX", "/api/extension-guides/prompt-tsx"],

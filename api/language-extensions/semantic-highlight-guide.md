@@ -5,7 +5,11 @@ ContentId: 8308017a-75de-430a-b420-d9d2064162b9
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -273,7 +277,11 @@ The following table lists the currently predefined mappings.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `macro`|`entity.name.function.macro`|
+=======
+| `macro`|`entity.name.function.preprocessor`|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 | `macro`|`entity.name.function.preprocessor`|
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

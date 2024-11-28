@@ -8,7 +8,11 @@ PageTitle: Integrated Terminal in Visual Studio Code
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -336,7 +340,11 @@ The basics of the terminal have been covered in this document. Read on to find o
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * [Terminal inline chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+=======
+* [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 * [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
