@@ -4,7 +4,11 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -144,7 +148,7 @@ In addition, the **debug status** appears in the Status Bar showing the active d
 
 ## Debug actions
 
-Once a debug session starts, the **Debug toolbar** will appear on the top of the editor.
+Once a debug session starts, the **Debug toolbar** will appear on the top of the window.
 
 ![Debug Actions](images/debugging/toolbar.png)
 
@@ -157,7 +161,11 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 | Restart <br> `kb(workbench.action.debug.restart)`           | Terminate the current program execution and start debugging again using the current run configuration.                                                             |
 | Stop <br> `kb(workbench.action.debug.stop)`                 | Terminate the current program execution.                                                                                                                            |
 
+<<<<<<< HEAD
 >**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
+=======
+>**Tip**: Use the setting `setting(debug.toolBarLocation)` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area (up to a certain distance from the top edge).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Run mode
 
@@ -349,7 +357,11 @@ If a debugger does not support conditional breakpoints, the **Add Conditional Br
 
 ### Triggered breakpoints
 
+<<<<<<< HEAD
 A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+=======
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 

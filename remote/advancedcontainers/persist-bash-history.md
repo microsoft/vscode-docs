@@ -5,7 +5,11 @@ TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
 ContentId: 68111a8d-530c-4909-916d-3e68758e5e33
 MetaDescription: Persist bash history in containers
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ---
 # Persist bash history
 

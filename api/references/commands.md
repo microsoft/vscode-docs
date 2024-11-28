@@ -1,7 +1,11 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -270,8 +274,18 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _title_ - Human readable title for the diff editor
 * _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
 
+<<<<<<< HEAD
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
+=======
+`vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
+
+* _title_ - Human readable title for the changes editor
+* _resourceList_ - List of resources to compare
+
+`vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
 * _(returns)_ - A promise that resolves to an array of TypeHierarchyItem-instances

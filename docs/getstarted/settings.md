@@ -4,7 +4,11 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -654,7 +658,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
     "editor.formatOnPaste": false,
 
+<<<<<<< HEAD
     // Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+=======
+    // Format a file on save. A formatter must be available and the editor must not be shutting down. When `files.autoSave` is set to `afterDelay`, the file will only be formatted when saved explicitly.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "editor.formatOnSave": false,
 
     // Controls if format on save formats the whole file or only modifications. Only applies when `editor.formatOnSave` is enabled.
@@ -912,6 +920,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - multiFile: Experimental: Highlights occurrences across all valid open files.
     "editor.occurrencesHighlight": "singleFile",
 
+<<<<<<< HEAD
+=======
+    // Controls the delay in milliseconds after which occurrences are highlighted.
+    "editor.occurrencesHighlightDelay": 250,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Controls whether a border should be drawn around the overview ruler.
     "editor.overviewRulerBorder": true,
 
@@ -1319,9 +1333,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Chat
 
+<<<<<<< HEAD
     // Whether pending inline chat sessions prevent saving.
     "inlineChat.acceptedOrDiscardBeforeSave": true,
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Whether the inline chat also renders an accessible diff viewer for its changes.
     //  - auto: The accessible diff viewer is based on screen reader mode being enabled.
     //  - on: The accessible diff viewer is always enabled.
@@ -1339,6 +1356,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preview: Changes are previewed only and need to be accepted via the apply button. Ending a session will discard the changes.
     "inlineChat.mode": "live",
 
+<<<<<<< HEAD
     // Controls whether the command center shows a menu for chat actions.
     "chat.commandCenter.enabled": false,
 
@@ -1356,6 +1374,10 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether lines should wrap in chat codeblocks.
     "chat.editor.wordWrap": "off",
+=======
+    // Run a series of Code Actions for a notebook on save.
+    "notebook.codeActionsOnSave": {},
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 // SCM
 
@@ -1578,8 +1600,13 @@ Below are the Visual Studio Code default settings and their values. You can also
         "default": false,
         "workbench.editor.chatSession": false,
         "workbench.editorinputs.searchEditorInput": false,
+<<<<<<< HEAD
         "workbench.editors.gettingStartedInput": false,
         "repl": false,
+=======
+        "repl": false,
+        "workbench.editors.gettingStartedInput": false,
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         "terminalEditor": true,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
@@ -1888,6 +1915,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preserve: Open the panel to the state that it was in, before it was closed.
     "workbench.panel.opensMaximized": "preserve",
 
+<<<<<<< HEAD
+=======
+    // Controls whether activity items in the panel title are shown as label or icon.
+    "workbench.panel.showLabels": true,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Specifies the preferred color theme for dark OS appearance when `window.autoDetectColorScheme` is enabled.
     "workbench.preferredDarkColorTheme": "Default Dark Modern",
 
@@ -2000,9 +2033,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme. The high contrast theme to use is specified by `workbench.preferredHighContrastColorTheme` and `workbench.preferredHighContrastLightColorTheme`.
     "window.autoDetectHighContrast": true,
 
+<<<<<<< HEAD
     // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
     "window.clickThroughInactive": true,
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
     "window.closeWhenEmpty": false,
 
@@ -2021,7 +2057,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
     "window.customMenuBarAltFocus": true,
 
+<<<<<<< HEAD
     // Adjust when the custom title bar should be shown. The custom title bar can be hidden when in full screen mode with `windowed`. The custom title bar can only be hidden in none full screen mode with `never` when `window.titleBarStyle` is set to `native`.
+=======
+    // Adjust when the custom title bar should be shown. The custom title bar can be hidden when in full screen mode with `windowed`. The custom title bar can only be hidden in non full screen mode with `never` when `window.titleBarStyle` is set to `native`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     //  - auto: Automatically changes custom title bar visibility.
     //  - windowed: Hide custom titlebar in full screen. When not in full screen, automatically change custom title bar visibility.
     //  - never: Hide custom titlebar when `window.titleBarStyle` is set to `native`.
@@ -2058,7 +2098,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - fullscreen: Open new windows in full screen mode.
     "window.newWindowDimensions": "default",
 
+<<<<<<< HEAD
     // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the default profile if no active window exists.
+=======
+    // Specifies the profile to use when opening a new window. If a profile name is provided, the new window will use that profile. If no profile name is provided, the new window will use the profile of the active window or the Default profile if no active window exists.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "window.newWindowProfile": null,
 
     // Controls whether files should open in a new window when using a command line or file dialog.
@@ -2210,7 +2254,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
+<<<<<<< HEAD
         "**/node_modules/*/**": true,
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         "**/.hg/store/**": true
     },
 
@@ -2649,6 +2696,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Hide 'Start Debugging' control in title bar of 'Run and Debug' view while debugging is active. Only relevant when `debug.toolBarLocation` is not `docked`.
     "debug.hideLauncherWhileDebugging": false,
 
+<<<<<<< HEAD
+=======
+    // Hide the warning shown when a `preLaunchTask` has been running for a while.
+    "debug.hideSlowPreLaunchWarning": false,
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Show variable values inline in editor while debugging.
     //  - on: Always show variable values inline in editor while debugging.
     //  - off: Never show variable values inline in editor while debugging.
@@ -3187,7 +3240,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     "js/ts.implicitProjectConfig.strictNullChecks": true,
 
     // Set target JavaScript language version for emitted JavaScript and include library declarations.
+<<<<<<< HEAD
     "js/ts.implicitProjectConfig.target": "ES2020",
+=======
+    "js/ts.implicitProjectConfig.target": "ES2022",
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
     // Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
@@ -3432,7 +3489,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     "typescript.tsserver.useSyntaxServer": "auto",
 
     // Configure which watching strategies should be used to keep track of files and directories.
+<<<<<<< HEAD
     "typescript.tsserver.watchOptions": {},
+=======
+    "typescript.tsserver.watchOptions": "vscode",
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
     // Enable/disable project-wide IntelliSense on web.
     "typescript.tsserver.web.projectWideIntellisense.enabled": true,
@@ -3910,9 +3971,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether the cell toolbar should appear on hover or click.
     "notebook.cellToolbarVisibility": "click",
 
+<<<<<<< HEAD
     // Run a series of Code Actions for a notebook on save.
     "notebook.codeActionsOnSave": {},
 
+=======
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     // Control whether the notebook editor should be rendered in a compact form. For example, when turned on, it will decrease the left margin width.
     "notebook.compactView": true,
 
@@ -4985,6 +5049,41 @@ Below are the Visual Studio Code default settings and their values. You can also
         "diffEditor.ignoreTrimWhitespace": false
     },
 
+<<<<<<< HEAD
+=======
+// Chat
+
+    // Controls whether the command center shows a menu for chat actions (requires `window.commandCenter`).
+    "chat.commandCenter.enabled": true,
+
+    // Whether to always ask before saving files with changes made by chat.
+    "chat.editing.alwaysSaveWithGeneratedChanges": false,
+
+    // Whether to show a confirmation before removing a request and its associated edits.
+    "chat.editing.confirmEditRequestRemoval": true,
+
+    // Whether to show a confirmation before retrying a request and its associated edits.
+    "chat.editing.confirmEditRequestRetry": true,
+
+    // Whether to show a toggle to restore an earlier version of a file that was edited in a chat editing session request.
+    "chat.editing.experimental.enableRestoreFile": false,
+
+    // Controls the font family in chat codeblocks.
+    "chat.editor.fontFamily": "default",
+
+    // Controls the font size in pixels in chat codeblocks.
+    "chat.editor.fontSize": 14,
+
+    // Controls the font weight in chat codeblocks.
+    "chat.editor.fontWeight": "default",
+
+    // Controls the line height in pixels in chat codeblocks. Use 0 to compute the line height from the font size.
+    "chat.editor.lineHeight": 0,
+
+    // Controls whether lines should wrap in chat codeblocks.
+    "chat.editor.wordWrap": "off",
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 // Diff editor
 
     // Merge editor diff algorithm.
@@ -5061,152 +5160,256 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The volume of the sounds in percent (0-100).
     "accessibility.signalOptions.volume": 70,
 
+<<<<<<< HEAD
     // Indicates when a chat request is made.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.chatRequestSent": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the response has been received.
+=======
+    // Plays a sound / audio cue when the response has been received.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.chatResponseReceived": {
         "sound": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a feature is cleared (for example, the terminal, Debug Console, or Output channel).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.clear": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.diffLineDeleted": {
         "sound": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an inserted line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.diffLineInserted": {
         "sound": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
+=======
+    // Plays a sound / audio cue when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.diffLineModified": {
         "sound": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a file or notebook is formatted.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file or notebook is formatted.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.format": {
         "sound": "never",
         "announcement": "never"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has a breakpoint.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a breakpoint.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.lineHasBreakpoint": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has an error.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has an error.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.lineHasError": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has a folded area that can be unfolded.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - the active line has a folded area that can be unfolded.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.lineHasFoldedArea": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has an inline suggestion.
+=======
+    // Plays a sound / audio cue when the active line has an inline suggestion.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.lineHasInlineSuggestion": {
         "sound": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.lineHasWarning": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when trying to read a line with inlay hints that has no inlay hints.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when trying to read a line with inlay hints that has no inlay hints.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.noInlayHints": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a notebook cell execution is successfully completed.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution is successfully completed.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.notebookCellCompleted": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a notebook cell execution fails.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a notebook cell execution fails.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.notebookCellFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the debugger stopped on a breakpoint.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the debugger stopped on a breakpoint.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.onDebugBreak": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.positionHasError": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the active line has a warning.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.positionHasWarning": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates on loop while progress is occurring.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - on loop while progress is occurring.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.progress": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a file is saved.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file is saved.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.save": {
         "sound": "never",
         "announcement": "never"
     },
 
+<<<<<<< HEAD
     // Indicates when a task is completed.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task is completed.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.taskCompleted": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a task fails (non-zero exit code).
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a task fails (non-zero exit code).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.taskFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when the terminal bell is ringing.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when the terminal bell is ringing.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.terminalBell": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command fails (non-zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.terminalCommandFailed": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when a terminal command succeeds (zero exit code) or when a command with such an exit code is navigated to in the accessible view.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.terminalCommandSucceeded": {
         "sound": "auto",
         "announcement": "auto"
     },
 
+<<<<<<< HEAD
     // Indicates when terminal Quick Fixes are available.
+=======
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when terminal Quick Fixes are available.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
     "accessibility.signals.terminalQuickFix": {
         "sound": "auto",
         "announcement": "auto"
@@ -5270,6 +5473,16 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Provide information about how to open the walkthrough in an Accessible View.
     "accessibility.verbosity.walkthrough": true,
 
+<<<<<<< HEAD
+=======
+    // Set the color mode for native UI elements such as native dialogs, menus and title bar.
+    //  - default: Native widget colors match the system colors.
+    //  - auto: Use light native widget colors for light color themes and dark for dark color themes.
+    //  - light: Use light native widget colors.
+    //  - dark: Use dark native widget colors.
+    "window.systemColorTheme": "default",
+
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 // Emmet
 
     // An array of languages where Emmet abbreviations should not be expanded.

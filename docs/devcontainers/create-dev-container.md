@@ -5,7 +5,11 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ---
 # Create a Dev Container
 
@@ -446,7 +450,11 @@ You may also add a badge or link in your repository so that users can easily ope
 As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-java](https://github.com/microsoft/vscode-remote-try-java) would look like:
 
 ```markdown
+<<<<<<< HEAD
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+=======
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ```
 
 You can also include an `open in dev container` link directly:

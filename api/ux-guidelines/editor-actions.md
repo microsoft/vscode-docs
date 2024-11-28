@@ -1,7 +1,11 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ce5c9fff-df86-454a-b4e8-4ae05c8158e2
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for editor actions in a Visual Studio Code extension.

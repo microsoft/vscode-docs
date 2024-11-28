@@ -1,7 +1,11 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -11,6 +15,10 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
+<<<<<<< HEAD
+=======
+- [`authentication`](/api/references/contribution-points#contributes.authentication)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
@@ -43,25 +51,78 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`walkthroughs`](/api/references/contribution-points#contributes.walkthroughs)
 
+<<<<<<< HEAD
 ## contributes.breakpoints
 
 Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+=======
+## contributes.authentication
+
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ```json
 {
   "contributes": {
+<<<<<<< HEAD
     "breakpoints": [
       {
         "language": "javascript"
       },
       {
         "language": "javascriptreact"
+=======
+    "authentication": [
+      {
+        "label": "Azure Dev Ops",
+        "id": "azuredevops"
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
       }
     ]
   }
 }
 ```
 
+<<<<<<< HEAD
+## contributes.colors
+
+Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
+=======
+## contributes.breakpoints
+
+Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+
+```json
+{
+  "contributes": {
+<<<<<<< HEAD
+    "colors": [
+      {
+        "id": "superstatus.error",
+        "description": "Color for error message in the status bar.",
+        "defaults": {
+          "dark": "errorForeground",
+          "light": "errorForeground",
+          "highContrast": "#010203",
+          "highContrastLight": "#feedc3",
+        }
+=======
+    "breakpoints": [
+      {
+        "language": "javascript"
+      },
+      {
+        "language": "javascriptreact"
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
+      }
+    ]
+  }
+}
+```
+
+<<<<<<< HEAD
+=======
 ## contributes.colors
 
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
@@ -85,6 +146,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
 }
 ```
 
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/api/references/theme-color#color-formats).
 
 Extensions can consume new and existing theme colors with the `ThemeColor` API:

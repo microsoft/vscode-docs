@@ -4,7 +4,11 @@ Area: nodejs
 TOCTitle: Vue Tutorial
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 PageTitle: Vue JavaScript Tutorial in Visual Studio Code
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using Vue in Visual Studio Code

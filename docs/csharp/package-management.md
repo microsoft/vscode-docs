@@ -10,14 +10,34 @@ MetaDescription: C# package management with NuGet in Visual Studio Code
 
 # NuGet in Visual Studio Code
 
+<<<<<<< HEAD
 NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette. To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+=======
+NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project.
+
+In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
 
+<<<<<<< HEAD
 ## NuGet commands in C# Dev Kit
 
 In C# Dev Kit, you can perform NuGet package operations in either of two ways: by using the Command Palette (`kb(workbench.action.showCommands)`) or by right-clicking in the C# Dev Kit Solution explorer. The following sections describe how to use each NuGet command through both of the two methods.
+=======
+To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+
+## NuGet commands in C# Dev Kit
+
+In C# Dev Kit, you can perform NuGet package operations in one of two ways:
+
+* Using the Command Palette (`kb(workbench.action.showCommands)`)
+
+* Right-clicking in the C# Dev Kit Solution explorer
+
+The following sections describe how to use each NuGet command, using both of these two methods.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Add a package
 
@@ -71,7 +91,11 @@ In C# Dev Kit, you can perform NuGet package operations in either of two ways: b
 
 ### Automatic NuGet restore
 
+<<<<<<< HEAD
 For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Ouput panel.
+=======
+For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Output panel.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ![Automatic NuGet package restore](images/package-management/automatic-nuget-package-restore.png)
 
@@ -79,6 +103,14 @@ For projects that use `<PackageReference>`, you can see the package references i
 
 ![Package references in the Solution Explorer](images/package-management/package-references-solution-explorer.png)
 
+<<<<<<< HEAD
 Packages that don't install properly when a restore happens or you run a build will show error icons in **Solution Explorer**.
 
 **Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code. For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).
+=======
+Packages that don't install properly when a restore happens or when you run a build, will show error icons in **Solution Explorer**.
+
+**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code.
+
+For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

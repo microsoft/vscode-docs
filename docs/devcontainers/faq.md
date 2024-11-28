@@ -5,7 +5,11 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Dev Containers Frequently Asked Questions
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ---
 # Dev Containers FAQ
 

@@ -4,7 +4,11 @@ Area: copilot
 TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: Set up GitHub Copilot
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -16,6 +20,7 @@ For an overview of what you can do with GitHub Copilot in VS Code, see the [GitH
 
 ## Step 1: Set up your GitHub Copilot subscription
 
+<<<<<<< HEAD
 If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
 
 | Account type | Instructions |
@@ -24,6 +29,14 @@ If you want to use GitHub Copilot, you either need an active subscription for Gi
 | Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account.<br/>![Screenshot of Copilot settings, showing how to request access from an organization.](images/setup/request-cfb-access-settings.png) |
 
 Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+=======
+If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise. Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+
+| Account type | Instructions |
+| ------------ | ------------ |
+| Personal account | Set up a subscription to **GitHub Copilot Individual** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup).<br/><br/>If you didn't yet activate your free trial for Copilot, the GitHub Copilot extension notifies you in VS Code.<br/><br/>![Copilot sign up notification in VS Code](images/setup/copilot-access-toast.png) |
+| Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account.<br/><br/>![Screenshot of Copilot settings, showing how to request access from an organization.](images/setup/request-cfb-access-settings.png) |
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Step 2: Install the GitHub Copilot extension
 
@@ -35,7 +48,11 @@ When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https:/
 
 ## Step 3: Sign in to GitHub
 
+<<<<<<< HEAD
 To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with the same GitHub account that has access to GitHub Copilot.
+=======
+To use GitHub Copilot in Visual Studio Code, you must be signed into Visual Studio Code with a GitHub account that has access to GitHub Copilot.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 If you didn't previously authorize VS Code in your GitHub account, you're prompted to sign in to GitHub in VS Code:
 
@@ -53,6 +70,7 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 
 1. Open Visual Studio Code.
 
+<<<<<<< HEAD
 1. Notice the GitHub Copilot icon in the status bar, which indicates that GitHub Copilot is active.
 
     ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/setup/vscode-status-bar-copilot-active.png)
@@ -66,6 +84,17 @@ Now that you've signed up for GitHub Copilot and activated the extension, let's 
 1. You should also see the Chat view in the Activity Bar, which you can use to chat with Copilot.
 
     ![Screenshot showing the Chat view in the Activity Bar in VS Code.](./images/setup/vscode-chat-view.png)
+=======
+1. Notice the GitHub Copilot icon next to the Command Center that gives you quick access to Copilot functionality in VS Code.
+
+    ![Screenshot showing the GitHub Copilot icon in the Command Center in VS Code.](./images/setup/copilot-chat-menu-command-center.png)
+
+1. Select the Copilot icon and select **Open Chat** to open the Chat view.
+
+    The Copilot Chat view should open in the Secondary Side Bar, where you can chat with Copilot.
+
+    ![Screenshot showing the Chat view in the Activity Bar in VS Code.](./images/setup/command-center-open-chat.png)
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Sign out of GitHub Copilot
 

@@ -3,7 +3,11 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -73,6 +77,10 @@ Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
 D | `d`
+<<<<<<< HEAD
+=======
+Dart | `dart`
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Delphi | `pascal`
 Diff | `diff`
 Dockerfile | `dockerfile`

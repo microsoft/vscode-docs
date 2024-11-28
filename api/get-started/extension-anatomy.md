@@ -1,7 +1,11 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -14,6 +18,10 @@ In the last topic, you were able to get a basic extension running. How does it w
 The `Hello World` extension does 3 things:
 
 - Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:helloworld.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
+<<<<<<< HEAD
+=======
+  > **Note:** Starting with [VS Code 1.74.0](https://code.visualstudio.com/updates/v1_74#_implicit-activation-events-for-declared-extension-contributions), commands declared in the `commands` section of `package.json` automatically activate the extension when invoked, without requiring an explicit `onCommand` entry in `activationEvents`.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 - Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello World` available in the Command Palette, and bind it to a command ID `helloworld.helloWorld`.
 - Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `helloworld.helloWorld`.
 
