@@ -8,7 +8,11 @@ ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -437,6 +441,10 @@ VS Code extensions can use these icons in labels, views, and trees.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+|<i class="codicon codicon-copy"></i>|copy|
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 |<i class="codicon codicon-copy"></i>|copy|
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65

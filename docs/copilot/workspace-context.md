@@ -11,7 +11,11 @@ PageTitle: Chat using @workspace Context References
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -70,7 +74,12 @@ To answer your question, `@workspace` searches through the same sources a develo
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 **Note**: `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
+=======
+> [!NOTE]
+> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 > [!NOTE]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.

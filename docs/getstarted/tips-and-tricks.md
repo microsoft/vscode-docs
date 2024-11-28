@@ -11,7 +11,11 @@ PageTitle: Visual Studio Code Tips and Tricks
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DateApproved: 10/03/2024
+=======
+DateApproved: 10/29/2024
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 DateApproved: 10/29/2024
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
@@ -1003,7 +1007,11 @@ Add a logpoint with the **Add Logpoint** command in the left editor gutter and i
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+=======
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+>>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 =======
 A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 >>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
