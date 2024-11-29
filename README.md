@@ -19,7 +19,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 - [Documentation Issues](#documentation-issues)
 - [Contributing](#contributing)
   - [Workflow](#workflow)
-  - [Cloning](#cloning)
+  - [Cloni young](#cloning)
     - [Cloning without binary files](#cloning-without-binary-files)
 - [Publishing](#publishing)
 
