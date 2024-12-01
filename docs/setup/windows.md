@@ -19,6 +19,8 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
+>**Note:** The VS Code installer is an [Inno Setup tool][Inno Setup], meaning that additional options (such as specifying an install log location) are available when running the tool from the command line. For a full list of these options, see the [link above][Inno Setup] or append `/HELP` to the executable.
+
 ## User setup versus system setup
 
 VS Code provides both Windows **user** and **system** level setups.
@@ -122,3 +124,5 @@ If you rely on using UNC paths in VS Code, you can either
 *Note:* if you are using any of the remote extensions to connect to a workspace remotely (such as SSH), the `setting(security.allowedUNCHosts)` has to be configured on the remote machine and not the local machine.
 
 This change was done to improve the security when using VS Code with UNC paths. Please refer to the associated [security advisory](https://github.com/microsoft/vscode/security/advisories/GHSA-mmfh-4pv3-39hr) for more information.
+
+[Inno Setup]: https://jrsoftware.org/ishelp/index.php?topic=setupcmdline "Inno Setup Command Line Parameters"
