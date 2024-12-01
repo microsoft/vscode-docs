@@ -473,7 +473,7 @@ const logger = vscode.env.createTelemetryLogger({
 });
 
 cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
-    // Log chat result feedback to be able to compute the success matric of the participant
+    // Log chat result feedback to be able to compute the success metric of the participant
     logger.logUsage('chatResultFeedback', {
         kind: feedback.kind
     });
