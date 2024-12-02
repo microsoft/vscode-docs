@@ -5,39 +5,7 @@ TOCTitle: Add local file mount
 PageTitle: Add local file mount to a container
 ContentId: 1a14ff36-13ea-40ec-acc9-16bd0d6725f6
 MetaDescription: Add local file mount to a container
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ---
 # Add another local file mount
 

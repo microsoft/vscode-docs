@@ -126,39 +126,7 @@ For Maven project, you can add a dependency by clicking the **+** icon next to *
 If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
 node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-![manage referenced librares](images/java-project/manage-referenced-libraries.png)
-=======
 ![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 > You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
 

@@ -4,39 +4,7 @@ Area: copilot
 TOCTitle: Workspace Context
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: Chat using @workspace Context References
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: How to use Copilot's @workspace chat to ask questions against your entire codebase.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -67,47 +35,8 @@ To answer your question, `@workspace` searches through the same sources a develo
 - Symbols and definitions in the workspace
 - Currently selected text or visible text in the active editor
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-**Note**: `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
-=======
 > [!NOTE]
 > `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-> [!NOTE]
-> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## How does `@workspace` find the most relevant context
 

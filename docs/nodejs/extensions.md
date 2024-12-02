@@ -4,39 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 ---
 # JavaScript extensions for VS Code

@@ -4,39 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code

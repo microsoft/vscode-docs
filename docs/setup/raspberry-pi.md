@@ -4,76 +4,12 @@ Area: setup
 TOCTitle: Raspberry Pi
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
 PageTitle: Running Visual Studio Code on Raspberry Pi OS
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Get Visual Studio Code up and running on Raspberry Pi OS.
 ---
 # Visual Studio Code on Raspberry Pi
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-You can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
-=======
 Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Although it's not officially supported, you can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 [![Raspberry Pi Logo](images/raspberry-pi-os/RPi-Logo-Landscape-Reg-SCREEN.png)](https://www.raspberrypi.org)
 
@@ -109,57 +45,7 @@ You can always check when a new release is available in our [Updates](/updates) 
 
 ## System requirements
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-VS Code is supported on these Raspberry Pi models running a 32-bit or 64-bit version of Raspberry Pi OS:
-
-* Raspberry Pi 3 Model B/B+
-* Raspberry Pi 4 Model B
-* Raspberry Pi 400
-
-While 1 GB of memory (RAM) meets the minimum system requirements, users will benefit from installing VS Code on a Raspberry Pi 4 with more memory.
-
-First-generation Raspberry Pi modules and Raspberry Pi Zero are not supported as they only include an ARMv6 CPU.
-
-### Workaround for poor performance
-
-VS Code on Raspberry Pi 4 may be slow with the default setup. A workaround is to disable hardware (GPU) acceleration in VS Code:
-
-1. Open the VS Code `argv.json` file using the **Preferences: Configure Runtime Arguments** command.
-2. Set `"disable-hardware-acceleration": true`.
-3. Restart VS Code.
-
-The `"disable-hardware-acceleration": true` runtime argument switch has the effect of passing the `--disable-gpu` command-line argument on VS Code startup.
-=======
 VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-VS Code is not officially supported on Raspberry Pi. Check our [community discussions](https://github.com/microsoft/vscode-discussions/discussions/2379) for information on platforms that are known to work.
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ## Next steps
 

@@ -361,56 +361,11 @@
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/docs/copilot/copilot-edits</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -421,56 +376,11 @@
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/docs/copilot/copilot-customization</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/docs/copilot/copilot-settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1505,56 +1415,11 @@
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/api/extension-guides/prompt-tsx</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
         <loc>https://code.visualstudio.com/api/extension-guides/tree-view</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

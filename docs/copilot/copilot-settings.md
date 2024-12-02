@@ -1,74 +1,10 @@
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-Order: 12
-=======
 Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 14
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Area: copilot
 TOCTitle: Settings Reference
 ContentId: 7b232695-cbbe-4f3f-a625-abc7a5e6496c
 PageTitle: GitHub Copilot in VS Code settings reference
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Overview of the configuration settings for GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -105,39 +41,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Edits settings
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-* `setting(github.copilot.chat.edits.enabled)` - enable or disable Copilot Edits
-=======
 * `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)

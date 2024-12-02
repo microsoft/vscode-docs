@@ -4,148 +4,22 @@ Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
 
 Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suit your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->**Note**: If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
-
-This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
-
-=======
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
 
 > [!NOTE]
 > If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 ## Workbench
 
 ### Primary side bar
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-The default (Primary) side bar shows views such as the File Explorer, Search, and Source Control on the left of the workbench. If you'd prefer it on the right, you can:
-
-* Right-click the Activity Bar and select **Move Primary Side Bar Right**.
-* Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
-* Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) [setting](/docs/getstarted/settings.md) to `right`.
-
-### Secondary side bar
-
-By default, VS Code shows all views in the **Primary Side Bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary Side Bar** to the right and drag and drop views into that side bar.
-
-This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right:
-
-![Source Control view in the Secondary Side bar to the right](images/custom-layout/secondary-side-bar.png)
-
-To display the Secondary side bar, you can:
-
-* Run **View: Toggle Secondary Side Bar Visibility** (`kb(workbench.action.toggleAuxiliaryBar)`).
-* Check the **View** > **Appearance** > **Secondary Side Bar** menu item.
-
-The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
-
->**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
-=======
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 By default, the Primary Side Bar is located on the left of the workbench and shows views such as the Explorer, Search, and Source Control views. You can quickly switch between views by selecting the icons in the Activity Bar.
 
 ![Explorer view opened in the Primary Side Bar, located on the left of the screen.](images/custom-layout/primary-side-bar.png)
@@ -180,28 +54,6 @@ At any time, you can drag and drop views and panels into the Primary or Secondar
 
 > [!NOTE]
 > You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 ### Activity Bar position
 

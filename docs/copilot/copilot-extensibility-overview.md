@@ -1,74 +1,10 @@
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-Order: 11
-=======
 Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-Order: 13
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 Area: copilot
 TOCTitle: Copilot Extensibility
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
 PageTitle: GitHub Copilot extensibility overview
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-DateApproved: 10/03/2024
-=======
 DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-DateApproved: 10/29/2024
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 MetaDescription: Overview of how to extend GitHub Copilot in your Visual Studio Code extension by using the Chat API or Language Model API.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -102,39 +38,7 @@ You can use Copilot's capabilities to enhance the development experience in VS C
 
 These are some examples of extensions in the Visual Studio Marketplace that contribute a chat participant to the Chat view in VS Code.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div class="marketplace-extensions-curated-chat"></div>
-=======
 <div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
-=======
-<div class="marketplace-extensions-chat"></div>
->>>>>>> 27e6951b86c69326ee8ff76ba46694a60b72ec65
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
 
