@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -307,6 +307,9 @@ See more information in [Marketplace Presentation Tips](/api/references/extensio
 
 You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Once your publisher is verified, the Marketplace will add a verified badge to your extension details.
 
+#### Prerequisites
+To become verified, a publisher must have one or more extensions on the VS Marketplace for a minimum of 6 months, and the registration of the domain must also be at least 6 months old. Please wait until these criteria are met before applying for verification.
+
 ![Verified publisher indicators in VS Code](images/publishing-extension/verified-publisher.png)
 
 To verify a publisher:
@@ -336,7 +339,7 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions content eligibility, legitimacy, trust and positive reputation. New publishers will need a consistent track record demonstrating these for at least 6 months.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
 
 If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
@@ -436,7 +439,7 @@ vsce package --pre-release
 vsce publish --pre-release
 ```
 
-We only support `major.minor.patch` for extension versions, `semver` pre-release tags are **not supported**. So, if you publish a `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch`, and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if `1.2.3` is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as `1.2.4`. Full `semver` support will be available in the future.
+We only support `major.minor.patch` for extension versions, `semver` pre-release tags are **not supported**. Versions must be different between pre-release and regular releases. That is, if `1.2.3` is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as `1.2.4`. Full `semver` support will be available in the future.
 
 VS Code will automatically update extensions to the highest version available, so even if a user opted-into a pre-release version and there is an extension release with a higher version, the user will be updated to the released version. So, we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
 

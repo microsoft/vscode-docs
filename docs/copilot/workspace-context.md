@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 10
 Area: copilot
 TOCTitle: Workspace Context
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: Chat using @workspace Context References
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 MetaDescription: How to use Copilot's @workspace chat to ask questions against your entire codebase.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -35,7 +35,8 @@ To answer your question, `@workspace` searches through the same sources a develo
 - Symbols and definitions in the workspace
 - Currently selected text or visible text in the active editor
 
-**Note**: `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
+> [!NOTE]
+> `.gitignore` is bypassed if you have a file open or have text selected within an ignored file.
 
 ## How does `@workspace` find the most relevant context
 
@@ -74,5 +75,5 @@ The way you phrase your question can significantly influence the quality of the 
 
 ## Related resources
 
-- Get started with the [GitHub Copilot Chat tutorial](/docs/copilot/getting-started-chat.md)
+- Get started with the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md)
 - [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md)

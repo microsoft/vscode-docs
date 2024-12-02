@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
 PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 1/17/2024
+DateApproved: 10/29/2024
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -16,7 +16,7 @@ The Python extension makes Visual Studio Code an excellent Python editor, works 
 Get started by installing:
 
 - [VS Code](https://code.visualstudio.com/)
-- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/#status-of-python-branches))
+- [A Python Interpreter](/docs/python/python-tutorial.md#_install-a-python-interpreter) (any [actively supported Python version](https://devguide.python.org/versions/))
 - [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the VS Code Marketplace
 
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)

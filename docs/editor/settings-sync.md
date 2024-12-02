@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
@@ -53,13 +53,13 @@ If you already synced from a machine and turning on sync from another machine, y
 
 ## Configuring synced data
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `settingsSync.ignoredSettings`.
+Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
 
-Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `settingsSync.keybindingsPerPlatform`.
+Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `setting(settingsSync.keybindingsPerPlatform)`.
 
-All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `settingsSync.ignoredExtensions`.
+All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `setting(settingsSync.ignoredExtensions)`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-extensions.png)
 
@@ -194,6 +194,11 @@ If the error you're seeing is "Cannot create an item in a locked collection", ch
 It's possible that your wallet (aka keyring) is closed. If you open [KWalletManager](https://apps.kde.org/kwalletmanager5), you can see if the default `kdewallet` is closed and if it is, make sure you open it.
 
 If you are using KDE5 or higher and are having trouble connecting to `kwallet5` (like users of the unofficial VS Code Flatpak in [issue #189672](https://github.com/microsoft/vscode/issues/189672)), you can try [configuring the keyring](#other-linux-desktop-environments) to `gnome-libsecret` as this will use the [Secret Service API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) to communicate with any valid keyring. `kwallet5` implements the Secret Service API and can be accessed using this method.
+
+If you're still experiencing trouble connecting to `kwallet5`, some users have reported that granting the specific D-Bus service permissions proved a viable fix:
+```sh
+flatpak override --user --talk-name=org.kde.kwalletd5 --talk-name=org.freedesktop.secrets com.visualstudio.code
+```
 
 #### Other Linux desktop environments
 

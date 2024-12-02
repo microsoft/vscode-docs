@@ -4,12 +4,10 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
-
-**Increase the power of Visual Studio Code through Extensions**
 
 The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This article explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -146,9 +144,15 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 ### Extension auto-update
 
-VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to restart the extension host (**Restart Extensions**). If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command that sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md) to `false`.
+VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/getstarted/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+
+![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
+
+You can also configure auto update for individual extensions by right-clicking on an extension and toggling the **Auto Update** item.
+
+If you don't want VS Code to even check for updates, you can set the `setting(extensions.autoCheckUpdates)` setting to false.
 
 ### Update an extension manually
 
@@ -271,6 +275,8 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
+> **Note**: When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
+
 If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
 ## Workspace recommended extensions
@@ -328,26 +334,27 @@ You may see this error if your machine is going through a proxy server to access
 
 ### Can I download an extension directly from the Marketplace?
 
-Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section, which is located on the right-hand side of the page.
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
 
-Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
+> [!NOTE]
+> The download option is only available for extensions that are not already installed. This experience is currently available in VS Code Insiders and will be available in VS Code Stable in the November release (1.96).
+
 
 ### Can I stop VS Code from providing extension recommendations?
 
 Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
-* `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
-* `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
+* `setting(extensions.showRecommendationsOnlyOnDemand)` - Set to true to remove the **RECOMMENDED** section.
+* `setting(extensions.ignoreRecommendations)` - Set to true to silence extension recommendation notifications.
 
 The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
+The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
-The Marketplace runs a virus scan on each extension package that's published to ensure its safety. The virus scan is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
-
-The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat.
+The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat as well as popular extension names such as GitHub Copilot.
 
 If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
 
@@ -359,8 +366,21 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Ratings & Review** - Read what others think about the extension.
 * **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
+* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+
+![Verified publisher](images/extension-marketplace/bluecheck.png)
 
 If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
+
+### The extension signature cannot be verified by VS Code
+
+The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
+
+When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
+
+This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
+
+It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. If you want to disable extension signature verification, you can use the `setting(extensions.verifySignature)` setting.
 
 ### My extensions don't synchronize when connected to a remote window
 

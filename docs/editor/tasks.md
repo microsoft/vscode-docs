@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -169,6 +169,7 @@ The task's properties have the following semantic:
 * **presentation**: Defines how the task output is handled in the user interface. In this example, the Integrated Terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
 * **options**: Override the defaults for `cwd` (current working directory), `env` (environment variables), or `shell` (default shell). Options can be set per task but also globally or per platform. Environment variables configured here can only be referenced from within your task script or process and will not be resolved if they are part of your args, command, or other task attributes.
 * **runOptions**: Defines when and how a task is run.
+* **hide**: Hides the task from the Run Task Quick Pick, which can be useful for elements of a compound task that are not independently runnable.
 
 You can see the full set of task properties and values with IntelliSense in your `tasks.json` file. Bring up suggestions with **Trigger Suggest** (`kb(editor.action.triggerSuggest)`) and read the descriptions on hover or with the **Read More...** ('i') flyout.
 
@@ -375,6 +376,7 @@ You can specify a task's run behaviors using the `runOptions` property:
 * **runOn**: Specifies when a task is run.
   * `default` - The task will only be run when executed through the **Run Task** command.
   * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
+* **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
 
 ## Customizing auto-detected tasks
 
@@ -639,6 +641,8 @@ A matcher that captures the above warning (and errors) looks like this:
     "owner": "cpp",
     // The file name for reported problems is relative to the opened folder.
     "fileLocation": ["relative", "${workspaceFolder}"],
+    // The name that will be shown as the source of the problem.
+    "source": "gcc",
     // The actual pattern to match problems in the output.
     "pattern": {
         // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
@@ -659,6 +663,8 @@ A matcher that captures the above warning (and errors) looks like this:
 
 Note that the file, line, and message properties are mandatory. The `fileLocation` specifies whether the file paths that are produced by the task output and matched in the problem are `absolute` or `relative`. If the task produces both absolute and relative paths, you can use the `autoDetect` file location. With `autoDetect`, paths are first tested as absolute paths, and if the file doesn't exist then the path is assumed to be relative.
 
+The `severity` specifies which problem severity to use if the pattern doesn't include one. The possible values for `severity` are `error`, `warning`, or `info`.
+
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
 ```json
@@ -672,6 +678,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": ["relative", "${workspaceFolder}"],
+                "source": "gcc",
                 "pattern": {
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                     "file": 1,

@@ -17,7 +17,7 @@ const URL = `https://${GITHUB_TOKEN}@github.com/microsoft/vscode-website`
  * - Clones vscode-website-dist
  * - Uses vscode-docs:[current-branch] + vscode-website:release/prod to build to vscode-website-dist:[current-branch]
  */
-gulp.task('build-dist', done => {
+gulp.task('build-dist', (done) => {
   if (!$.which('git')) {
     $.echo('This command requires git')
     $.exit(1)

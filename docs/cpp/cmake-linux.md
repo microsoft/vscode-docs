@@ -36,7 +36,7 @@ To complete this tutorial on Ubuntu, install the following:
 
 Watch this video to understand when a build system will help you and how to set up CMake for your project, or follow the steps in the following sections.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_BWU5mWqVA4?si=8vEQOyuekiNaLdKd" title="C++ in VS Code: Building your Code with CMake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_BWU5mWqVA4" title="C++ in VS Code: Building your Code with CMake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Ensure that CMake is installed
 
@@ -78,13 +78,13 @@ sudo apt-get install build-essential gdb
 
 ## Create a CMake project
 
-If you do not have an existing CMake project, follow the steps in [Create a CMake project](cmake-quickstart.md).
+If you do not have an existing CMake project, follow the steps in [Create a CMake project](cmake-quickstart).
 
 If you already have an existing CMake project that has a `CMakeLists.txt` file in the root directory, continue to [Configure Hello World](#configure-hello-world) to configure your project.
 
 ### Configure Hello World
 
-Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code: 
+Before you can use the CMake Tools extension to build a project, you need to configure it to know about the compilers on your system. There are two ways to configure CMake in VS Code:
 
 - Use CMake Presets (recommended)
 - Use CMake Kits/Variants

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 07/03/2024
+DateApproved: 10/29/2024
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -31,7 +31,7 @@ Once a root folder is added, the Explorer will show the new folder as a root in 
 
 The File Explorer should work and behave as before. You can move files between root folders and use any of the typical file operation actions provided in the context menu and the Explorer view.
 
-Settings like `files.exclude` are supported for each root folder if configured, and across all folders if configured as global user setting.
+Settings like `setting(files.exclude)` are supported for each root folder if configured, and across all folders if configured as global user setting.
 
 ### Drag and drop
 
@@ -128,7 +128,7 @@ There are only a few changes to the VS Code UI when you are using multi-root wor
 
 ![tabbed headers](images/multi-root-workspaces/tabbed-headers.png)
 
-If you'd always like to see the folder displayed in the tabbed header, you can use the `workbench.editor.labelFormat` [setting](/docs/getstarted/settings.md) "medium" or "long" values to show the folder or full paths.
+If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/getstarted/settings.md) "medium" or "long" values to show the folder or full paths.
 
 ```json
 "workbench.editor.labelFormat": "medium"
@@ -204,7 +204,7 @@ With multi-root workspaces, VS Code searches across all folders for `launch.json
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
-The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `launch` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
+The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `setting(launch)` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
 
 You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/microsoft/vscode-tslint/blob/main/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template dropdown.
 
@@ -253,7 +253,7 @@ If the individual launch configuration names are not unique, the qualifying fold
   }]
 ```
 
-In addition to `compounds`, the `launch` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
+In addition to `compounds`, the `setting(launch)` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 

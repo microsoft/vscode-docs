@@ -71,6 +71,16 @@ In the dropdown, it lists all your existing debug configurations. If you hover o
 
 ![Remove dynamic configuration](images/debugging/delete-dynamic-config.gif)
 
+### Debug with editor debug/run buttons
+
+When a `.cs` file is open in the editor, run and debug options are accessible via the buttons located in the upper-right corner of the editor window. These actions will use the current file to query the project system and determine the associated project to launch.
+
+The two options are:
+- <span class="codicon codicon-debug-start"></span> `Run project associated with this file`: This will launch your program with `noDebug: true` with the debug adapter.
+- <span class="codicon codicon-debug-alt"></span> `Debug project associated with this file`: This will launch your program under the debugger.
+
+![Editor Run or Debug](images/debugging/editor-run-debug.png)
+
 ### Debug with launch.json
 
 If you are using the C# Dev Kit, we recommend not using this option. However, if you have the need to modify the debug configuration directly, see [Configuring launch.json for C# debugging](/docs/csharp/debugger-settings.md).
@@ -173,7 +183,7 @@ The following tokens are also supported in the log message:
 
 ### Breakpoint - Triggered breakpoints
 
-A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
