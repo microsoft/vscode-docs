@@ -29,6 +29,8 @@ If you use HTTPS to clone your repositories and **have a [credential helper conf
 
 There are some cases when you may be cloning your repository using SSH keys instead of a credential helper. To enable this scenario, the extension will automatically forward your **local [SSH agent](https://www.ssh.com/ssh/agent) if one is running**.
 
+First of all, you should ensure that [SSH agent forwarding](https://www.ssh.com/academy/ssh/agent#ssh-agent-forwarding) is enabled. To use agent forwarding, the `ForwardAgent` option must be set to `yes` on the client (see ssh_config at `~/.ssh/config`, `/etc/ssh/ssh_config` or `%programdata%\ssh\ssh_config`) and the `AllowAgentForwarding` option must be set to `yes` on the server (see sshd_config at `/etc/ssh/sshd_config` or `%programdata%\ssh\sshd_config`).
+
 You can add your local SSH keys to the agent if it is running by using the `ssh-add` command. For example, run this from a terminal or PowerShell:
 
 ```bash
