@@ -13,7 +13,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type or use Inline Chat in the editor to write code faster. Add new functionality or resolve bugs across your project with Copilot Edits, or use natural language in chat to explore your codebase.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can get started for free with the [Copilot Free plan](https://github.com/copilot).
+> You can get started for free with the [Copilot Free plan](https://github.com/copilot) if you don't yet have a Copilot subscription.
 
 GitHub Copilot can provide assistance in a variety of scenarios.
 
@@ -65,7 +65,7 @@ GitHub Copilot can provide assistance in a variety of scenarios.
 1. Sign in with your GitHub account to use Copilot.
 
     > [!TIP]
-    > If you don't yet have a Copilot subscription, you can get started for free with the [Copilot Free plan](https://github.com/copilot). Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
+    > You can get started for free with the [Copilot Free plan](https://github.com/copilot) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
 
 1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
 
