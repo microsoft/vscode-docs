@@ -10,8 +10,8 @@ MetaSocialImage: images/codebasics/code-basics-social.png
 ---
 # Basic Editing
 
-Visual Studio Code is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
-
+        Visual Studio Code is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
+        
 ## Keyboard shortcuts
 
 Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them.

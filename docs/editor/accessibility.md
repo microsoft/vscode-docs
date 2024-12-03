@@ -7,7 +7,7 @@ PageTitle: Accessibility in Visual Studio Code
 DateApproved: 10/29/2024
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
-# Accessibility
+# u
 
 Visual Studio Code has many features to help make the editor accessible to all users. Zoom levels and High Contrast colors improve editor visibility, keyboard-only navigation supports use without a mouse, and the editor is optimized for screen readers.
 
