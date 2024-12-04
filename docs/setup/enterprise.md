@@ -20,7 +20,7 @@ Refer to the [network common hostnames list](/docs/setup/network.md#common-hostn
 
 ## Configure allowed extensions
 
-The `extensions.allowed` application setting enables you to control which extensions can be installed in your organization. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled and cannot be installed.
+The `extensions.allowed` application setting enables you to control which extensions can be installed in your organization. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
 
 > [!NOTE]
 > Support for allowed extensions is available starting from VS Code version 1.96.
