@@ -76,9 +76,16 @@ Version ranges are not supported. If you want to allow multiple versions, you mu
 
 The more specific the selector, the higher the precedence. For example, `"microsoft": true` and `"microsoft.cplusplus": false` allows all Microsoft extensions, except for the C++ extension.
 
+If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
+
+### Control allowed extensions via device management
+
 You can control the `extensions.allowed` setting by using [device management](#device-management). Use the `AllowedExtensions` VS Code policy, which overrides the `extensions.allowed` setting. The value of this policy is a JSON string that contains the allowed extensions.
 
-If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
+> [!IMPORTANT]
+> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**). In the Settings editor (`kb(workbench.action.openSettings)`), you can see a warning message for the `Extensions: Allowed` setting that the setting value was not applied.
+
+![Settings editor showing a warning message for the 'Extensions: Allowed' setting.](images/enterprise/allowed-extensions-not-applied.png)
 
 ## Configure automatic updates
 
@@ -90,6 +97,8 @@ The setting has the following options:
 * `manual` - automatic checking for updates is disabled, but users can manually check for updates
 * `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
 * `default` - automatic checking for updates is enabled and runs in the background periodically
+
+### Control update mode via device management
 
 You can control the `update.mode` setting by using [device management](#device-management). Use the `UpdateMode` VS Code policy, which overrides the `update.mode` setting. The value of this policy is a string that contains the update mode.
 
@@ -106,7 +115,7 @@ You can control specific features of VS Code through device management solutions
 
 System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
 
-VS Code now has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release will ship with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`.
+VS Code now has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release will ship with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
