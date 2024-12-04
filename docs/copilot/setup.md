@@ -69,7 +69,7 @@ To use Copilot, you need to have access to Copilot with your GitHub account. You
 | Personal account | <li>Sign up for the [Copilot Free plan](https://github.com/github-copilot/signup) with your personal GitHub account to try out Copilot for free, without the need for a credit card. Get more info about the [Free plan details and limitations](TODO).</li><li>Set up a subscription to **GitHub Copilot Pro** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup/copilot_individual).</li> |
 | Member of an organization | <li>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account. You need to be assigned a seat by an organization owner.</li><br/>![Screenshot of Copilot settings, showing how to request access from an organization.](images/setup/request-cfb-access-settings.png) |
 
- Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 ## Sign out of GitHub Copilot
 

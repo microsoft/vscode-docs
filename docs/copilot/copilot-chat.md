@@ -18,6 +18,9 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * [**Chat view**](#chat-view): have an AI assistant on the side to help with your questions and to provide code suggestions
 * [**Quick Chat**](#quick-chat): ask a quick question and get back into what you're doing
 
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can try out Copilot for free by signing up for the [Copilot Free plan](TODO)
+
 ## Copilot Chat use cases
 
 You can use Copilot Chat in various developer scenarios, such as:
@@ -31,11 +34,14 @@ You can use Copilot Chat in various developer scenarios, such as:
 
 ## Prerequisites
 
-* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+1. Install the GitHub Copilot extensions.
 
-* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
 
-Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
+1. Sign in with your GitHub account to use Copilot.
+
+    > [!TIP]
+    > You can get started for free with the [Copilot Free plan](TODO) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
 
 ## Getting started
 

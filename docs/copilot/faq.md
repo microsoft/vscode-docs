@@ -20,8 +20,8 @@ If you want to use GitHub Copilot, you either need an active subscription for Gi
 
 | Account type | Instructions |
 | ------------ | ------------ |
-| Personal account | Set up a subscription to **GitHub Copilot Individual** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup). |
-| Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account. |
+| Personal account | <li>Sign up for the [Copilot Free plan](https://github.com/github-copilot/signup) with your personal GitHub account to try out Copilot for free, without the need for a credit card. Get more info about the [Free plan details and limitations](TODO).</li><li>Set up a subscription to **GitHub Copilot Pro** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup/copilot_individual).</li> |
+| Member of an organization | <li>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account. You need to be assigned a seat by an organization owner.</li> |
 
 Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
