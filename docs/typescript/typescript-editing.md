@@ -129,6 +129,8 @@ When you copy and paste code between editors, VS Code can automatically add impo
 
 This feature is enabled by default, but you can disable it by toggling the `setting(typescript.updateImportsOnPaste.enabled)` setting.
 
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+
 ## JSX and auto closing tags
 
 VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:

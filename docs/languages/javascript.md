@@ -125,6 +125,8 @@ When you copy and paste code between editors, VS Code can automatically add impo
 
 This feature is enabled by default, but you can disable it by toggling the `setting(javascript.updateImportsOnPaste.enabled)` setting.
 
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
+
 ## Organize Imports
 
 The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
