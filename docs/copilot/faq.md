@@ -16,7 +16,11 @@ This article answers frequently asked questions about using GitHub Copilot in Vi
 
 ### How can I get a Copilot subscription?
 
-If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
+You can get started with GitHub Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You have a limited number of completions and chat interactions per month with the free plan, which reset each month.
+
+Alternatively, you can sign up for a subscription in your personal account, or have a seat assigned in a subscription managed by an organization or enterprise.
+
+The following table summarizes the account types and instructions for getting a Copilot subscription.
 
 | Account type | Instructions |
 | ------------ | ------------ |
@@ -97,6 +101,7 @@ You can temporarily deactivate Copilot completions from the Status Bar. You're p
 - Verify that [GitHub Copilot is not disabled](#how-do-i-enabledisable-copilot) globally or for this language
 - Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
 - Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
+- Verify that you have not reached the limit of completions for the month with the [Copilot Free plan](TODO).
 
 ## Copilot Chat
 
@@ -107,6 +112,7 @@ Check each requirement if Copilot Chat doesn't work:
 - Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 - Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 - Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
+- Verify that you have not reached your limit of chat interactions for the month with the [Copilot Free plan](TODO).
 
 ### Why is my Copilot Chat extension blocked?
 
