@@ -400,6 +400,16 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
+## Overtype mode
+
+VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
+
+To switch between insert and overtype mode, run the **Toggle Overtype/Insert Mode** command in the Command Palette or press (`kb(editor.action.toggleOvertypeInsertMode)`). When you're in overtype mode, a Status Bar indicator shows `OVR`.
+
+You can change the cursor style for overtype mode by configuring the `setting(editor.overtypeCursorStyle)` setting.
+
+The `setting(editor.overtypeOnPaste)` setting enables you to use overtype for pasting text. You need to be in overtype mode for this setting to take effect.
+
 ## Compare files
 
 VS Code supports several ways to compare the content of the current file or of any two files.
