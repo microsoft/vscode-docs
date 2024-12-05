@@ -127,14 +127,14 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
 
-## Install extensions on first launch
+## Set up VS Code with preinstalled extensions
 
-You can automatically preinstall (bootstrap) extensions for users when they launch VS Code for the first time. This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
+You can automatically preinstall (bootstrap) extensions for users when they launch VS Code. This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
 
 > [!NOTE]
-> Support for installing extensions on first launch is currently only available on Windows.
+> Support for preinstalling extensions is currently only available on Windows.
 
-Follow these steps to bootstrap extensions on first launch:
+Follow these steps to bootstrap extensions:
 
 1. Create a folder `bootstrap\extensions` in the VS Code installation directory.
 
@@ -142,9 +142,7 @@ Follow these steps to bootstrap extensions on first launch:
 
 1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
-Users can still uninstall extensions that were preinstalled on first launch. Restarting VS Code after uninstalling an extension will not reinstall the extension.
-
-When VS Code updates to a new release, the `bootstrap\extensions` folder is not removed. If you want to update the list of extensions, you must manually remove the old VSIX files and add the new ones.
+Users can still uninstall extensions that were preinstalled. Restarting VS Code after uninstalling an extension will not reinstall the extension.
 
 ## Frequently asked questions
 
