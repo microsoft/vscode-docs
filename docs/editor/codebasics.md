@@ -117,6 +117,8 @@ VS Code allows you to quickly find text and replace in the currently opened file
 
 If there are more than one matched result in the current opened file, you can press `kb(editor.action.nextMatchFindAction)` and `kb(editor.action.previousMatchFindAction)` to navigate to next or previous result when the find input box is focused.
 
+By default, VS Code saves the history of your find queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` setting. Set the value to `never` to disable saving the find history.
+
 ### Seed Search String From Selection
 
 When the Find Widget is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
