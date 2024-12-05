@@ -339,8 +339,7 @@ Some users prefer to download an extension once from the Marketplace and then in
 To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
 
 > [!NOTE]
-> The download option is only available for extensions that are not already installed. This experience is currently available in VS Code Insiders and will be available in VS Code Stable in the November release (1.96).
-
+> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
 
 ### Can I stop VS Code from providing extension recommendations?
 
