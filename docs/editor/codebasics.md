@@ -24,7 +24,8 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
+> [!NOTE]
+> Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
 ![Multi-cursor](images/codebasics/multicursor.gif)
 
@@ -32,7 +33,8 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 ![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 
-> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
+> [!TIP]
+> You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
 ### Multi-cursor modifier
 
@@ -61,7 +63,8 @@ Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging
 
 ![Column text selection](images/codebasics/column-select.gif)
 
-Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
+> [!NOTE]
+> This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
 There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
@@ -161,11 +164,13 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 ![A simple text search across files](images/codebasics/search.png)
 
->**Tip:** We support regular expression searching in the search box, too.
+> [!TIP]
+> We support regular expression searching in the search box, too.
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
->**Tip:** You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
+> [!TIP]
+> You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
 
 ### Advanced search options
 
@@ -186,7 +191,8 @@ Note that glob patterns in the Search view work differently than in settings suc
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
 
->**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+> [!TIP]
+> From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
 ### Search and replace
 
@@ -198,7 +204,8 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
->**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
+> [!TIP]
+> You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
 ### Case changing in regex replace
 
@@ -261,9 +268,11 @@ The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (defaul
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
-> **Tip:** The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> [!TIP]
+>  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
+> [!TIP]
+> IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
 
 JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
@@ -290,7 +299,8 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 * `setting(editor.formatOnSave)` - Format a file on save.
 * `setting(editor.formatOnPaste)` - Format the pasted content.
 
->Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
+> [!NOTE]
+> Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
 In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
@@ -375,7 +385,8 @@ You can click on the Status Bar indentation display to bring up a dropdown with 
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
->**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
+> [!NOTE]
+> VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
 
 ```json
     "editor.detectIndentation": false,
@@ -425,7 +436,8 @@ To compare any two files:
 * Right-click on a file in the Explorer view and select **Select for Compare**. Then, right-click on a second file and select **Compare with Selected**.
 * To start a comparison between two empty editor windows, select **File: Compare New Untitled Text Files** from the Command Palette.
 
-> **Tip:** You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
+> [!TIP]
+> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
 
 ## Next steps
 
