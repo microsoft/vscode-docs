@@ -127,10 +127,29 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
 
+## Install extensions on first launch
+
+You can automatically preinstall (bootstrap) extensions for users when they launch VS Code for the first time. This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
+
+> [!NOTE]
+> Support for installing extensions on first launch is currently only available on Windows.
+
+Follow these steps to bootstrap extensions on first launch:
+
+1. Create a folder `bootstrap\extensions` in the VS Code installation directory.
+
+1. Download the [VSIX files](/docs/editor/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace) for the extensions that you want to preinstall and place them in the `bootstrap\extensions` folder.
+
+1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
+
+Users can still uninstall extensions that were preinstalled on first launch. Restarting VS Code after uninstalling an extension will not reinstall the extension.
+
+When VS Code updates to a new release, the `bootstrap\extensions` folder is not removed. If you want to update the list of extensions, you must manually remove the old VSIX files and add the new ones.
+
 ## Frequently asked questions
 
 ### Does VS Code support configuration profiles on macOS or Linux?
 
 Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon.
 
-Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
