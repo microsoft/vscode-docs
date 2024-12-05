@@ -142,7 +142,7 @@ You can select multiple files in the Explorer view and Open Editors section to r
 
 You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in VS Code.
 
-Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements.
+Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements. In highlighting mode, a badge is shown on folders to indicate that they contain matched files.
 
 Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, where you can type a sequence of characters to match any part of the file or folder name.
 
