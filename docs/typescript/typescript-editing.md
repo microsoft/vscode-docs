@@ -121,6 +121,14 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
 
+### Add imports on paste
+
+When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+
+<video src="images/editing/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+
+This feature is enabled by default, but you can disable it by toggling the `setting(typescript.updateImportsOnPaste.enabled)` setting.
+
 ## JSX and auto closing tags
 
 VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:

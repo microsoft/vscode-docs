@@ -117,6 +117,47 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 > **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
 
+### Add imports on paste
+
+When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+
+<video src="images/javascript/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+
+This feature is enabled by default, but you can disable it by toggling the `setting(javascript.updateImportsOnPaste.enabled)` setting.
+
+## Organize Imports
+
+The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
+
+<!-- TODO: replace with js specific example -->
+<video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
+
+Organize imports can also be done automatically when you save a JavaScript file by setting:
+
+```json
+"editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+}
+```
+
+## Update imports on file move
+
+When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
+
+<video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
+    Sorry, your browser doesn't support HTML 5 video.
+</video>
+
+The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
+
+* `"prompt"` - The default. Asks if paths should be updated for each file move.
+* `"always"` - Always automatically update paths.
+* `"never"` - Do not update paths automatically and do not prompt.
+
 ## Formatting
 
 VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
@@ -197,25 +238,6 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 "[javascriptreact]": {
     "editor.showUnused":  false
 },
-```
-
-## Organize Imports
-
-The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
-
-<!-- TODO: replace with js specific example -->
-<video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
-
-Organize imports can also be done automatically when you save a JavaScript file by setting:
-
-```json
-"editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-}
 ```
 
 ## Code Actions on Save
@@ -331,20 +353,6 @@ To enable the references CodeLens, set `"javascript.referencesCodeLens.enabled"`
 Click on the reference count to quickly browse a list of references:
 
 ![JavaScript references CodeLens peek](images/javascript/references-codelens-peek.png)
-
-## Update imports on file move
-
-When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
-
-<video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this behavior. Valid settings values are:
-
-* `"prompt"` - The default. Asks if paths should be updated for each file move.
-* `"always"` - Always automatically update paths.
-* `"never"` - Do not update paths automatically and do not prompt.
 
 ## Linters
 
