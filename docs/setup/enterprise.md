@@ -129,7 +129,7 @@ The goal is to promote current VS Code settings as Policies and closely follow e
 
 ## Set up VS Code with preinstalled extensions
 
-You can automatically preinstall (bootstrap) extensions for users when they launch VS Code. This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
+You can set up VS Code with a set of preinstalled extensions (*bootstrap*). This functionality is useful in cases where you prepare a machine image, virtual machine, or cloud workstation where VS Code is preinstalled and specific extensions are immediately available for users.
 
 > [!NOTE]
 > Support for preinstalling extensions is currently only available on Windows.
