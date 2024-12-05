@@ -23,7 +23,8 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can select the extension item to display the extension's details page where you can learn more.
 
-> **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
+> [!NOTE]
+> If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
 ## Install an extension
 
@@ -275,7 +276,8 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-> **Note**: When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
+> [!NOTE]
+> When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
 
 If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
