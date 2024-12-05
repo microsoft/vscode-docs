@@ -53,7 +53,8 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
+> [!TIP]
+> To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
@@ -65,7 +66,8 @@ VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md
 
 There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/userdefinedsnippets.md).
 
-> **Tip**: To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> [!TIP]
+> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/getstarted/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
@@ -115,7 +117,8 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
+> [!TIP]
+> VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `setting(javascript.preferences.quoteStyle)` and `setting(javascript.preferences.importModuleSpecifier)` settings.
 
 ### Add imports on paste
 
@@ -362,7 +365,8 @@ Click on the reference count to quickly browse a list of references:
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
-> **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
+> [!TIP]
+> This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
 
 ## Type checking
 
@@ -394,7 +398,8 @@ VS Code ships with excellent support for JavaScript but you can additionally ins
 
 <div class="marketplace-extensions-javascript-curated"></div>
 
-> **Tip:** The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> [!TIP]
+> The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
