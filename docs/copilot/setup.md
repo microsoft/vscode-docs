@@ -38,7 +38,7 @@ To access Copilot, you need to sign in with your GitHub account. You can sign in
 
         ![Screenshot of the Chat view, highlighting the button to sign up for Copilot Free plan.](images/setup/copilot-chat-view-start-free.png)
 
-        The Copilot Free plan enables you to try Copilot for free, without the need for a credit card to sign up. Get more info about the [Copilot Free plan](https://github.com/copilot) in the GitHub documentation.
+        The Copilot Free plan enables you to try Copilot for free, without the need for a credit card to sign up. You have a limited number of completions and chat interactions per month with the free plan, which reset each month. Get more info about the [Copilot Free plan](https://github.com/copilot) in the GitHub documentation.
 
         Alternatively, follow these steps to [sign up for a Copilot subscription](#set-up-a-github-copilot-subscription).
 
