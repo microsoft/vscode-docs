@@ -51,7 +51,7 @@ Depending on what you reference in `devcontainer.json`:
 
     As this example illustrates, `remoteEnv` can reference both local and existing container variables.
 
-    To update variables that apply to the entire container, update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+    To update variables that apply to the entire container, update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `compose.yaml` with the following for the appropriate service:
 
     ```yaml
     version: '3'
@@ -84,7 +84,7 @@ Next, depending on what you reference in `devcontainer.json`:
     "runArgs": ["--env-file",".devcontainer/devcontainer.env"]
     ```
 
-* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `devcontainer.env` file relative to the Docker Compose file:
+* **Docker Compose:** Edit `compose.yaml` and add a path to the `devcontainer.env` file relative to the Docker Compose file:
 
     ```yaml
     version: '3'
@@ -94,7 +94,7 @@ Next, depending on what you reference in `devcontainer.json`:
         # ...
   ```
 
-`docker compose` will automatically pick up a file called `.env` in the folder containing the `docker-compose.yml`, but you can also create one in another location.
+`docker compose` will automatically pick up a file called `.env` in the folder containing the `compose.yaml`, but you can also create one in another location.
 
 If you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
