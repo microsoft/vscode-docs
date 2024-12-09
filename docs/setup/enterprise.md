@@ -148,6 +148,6 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 
 ### Does VS Code support configuration profiles on macOS or Linux?
 
-Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon.
+Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
