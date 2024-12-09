@@ -197,7 +197,7 @@ Build your solution by right-clicking on the solution in the Solution Explorer a
 
 If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
 1. Increase Test Explorer verbosity:
-Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from minimal to diagnostic. This will generate more detailed logs.
+    Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
 2. Check the Output Window:
 Open the Output window in Visual Studio Code, and select C# Dev Kit - Test Explorer from the dropdown. Diagnostic messages will appear with a [dev] prefix.
 3. Collect the Following Information:
