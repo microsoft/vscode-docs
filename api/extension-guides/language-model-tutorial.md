@@ -80,6 +80,8 @@ Open the `src/extension.ts` file and change the `registerCommand` method so that
 
 ```ts
 const disposable = vscode.commands.registerCommand('code-tutor.annotate', () => {
+  vscode.window.showInformationMessage('Hello World from Code Tutor');
+});
 ```
 
 Run the extension by pressing `kbstyle(F5)`. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing `kb(workbench.action.showCommands)`, and search for "tutor". You should see the "Tutor Annotations" command.
