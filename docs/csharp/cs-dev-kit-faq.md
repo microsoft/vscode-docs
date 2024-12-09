@@ -203,7 +203,7 @@ If you are encountering issues with Test Explorer, you can enable diagnostic log
 3. Collect the Following Information:
    When reporting an issue, ensure you include:
    - The diagnostic logs from the Output window.
-   - Your operating system (e.g., Windows 10, macOS 13).
+   - Your operating system and version (for example, Windows 10, macOS 13).
    - The version of the C# Dev Kit extension you are using.
 
 This information will help in diagnosing and resolving the issue more efficiently.
