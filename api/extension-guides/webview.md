@@ -721,7 +721,7 @@ function getWebviewContent() {
 
 ![A script running in a webview](images/webview/scripts-basic.gif)
 
-Wow! that's one productive cat.
+Wow! That's one productive cat.
 
 Webview scripts can do just about anything that a script on a normal webpage can. Keep in mind though that webviews exist in their own context, so scripts in a webview do not have access to the VS Code API. That's where message passing comes in!
 
