@@ -196,6 +196,7 @@ Build your solution by right-clicking on the solution in the Solution Explorer a
 ### How do I collect logs for troubleshooting issues with Test Explorer?
 
 If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
+
 1. Increase Test Explorer verbosity:
     Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
 2. Check the Output Window:
