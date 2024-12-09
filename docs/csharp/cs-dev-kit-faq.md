@@ -201,7 +201,7 @@ If you are encountering issues with Test Explorer, you can enable diagnostic log
     Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
 2. Check the Output Window:
     Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
-3. Collect the Following Information:
+3. Collect the following information:
    When reporting an issue, ensure you include:
    - The diagnostic logs from the Output window.
    - Your operating system and version (for example, Windows 10, macOS 13).
