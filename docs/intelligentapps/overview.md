@@ -26,12 +26,12 @@ Any developer who wants to explore, test, evaluate, and finetune generative AI m
 Search the Visual Studio Code extension marketplace for "AI Toolkit" and <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">install the AI Toolkit for VS Code</a>
 
 You can switch the installation between the formal released version for stable features and pre-released version for early access of new features. Check What's New during the installation for detailed feature list of each version.
-![alt text](./images/overview/install.png)
+![AI Toolkit in the marketplace](./images/overview/install.png)
 
 ## Getting started
 
 After you install the AI Toolkit, follow the get started guide from AI Toolkit:
-![alt text](./images/overview/get_started.png)
+![Getting started](./images/overview/get_started.png)
 
 You will be in playground to test chat with an AI model quickly.
 
