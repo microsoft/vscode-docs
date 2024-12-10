@@ -77,7 +77,7 @@ The following is a list of distributions and any base requirements that may be m
 | ❌ RedHat Enterprise Linux 7 (64-bit) |  | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
 | ✅ Ubuntu Server 20.04 (64-bit) | `ubuntu:20.04` | &lt;none&gt;  | &lt;none&gt; |
-| ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
+| ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | `glibc` >= 2.28  | &lt;none&gt; |
 
 ## Questions or feedback
 
