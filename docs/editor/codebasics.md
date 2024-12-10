@@ -95,7 +95,10 @@ For more control over `Auto Save`, open User or Workspace [settings](/docs/getst
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `setting(files.autoSaveDelay)`: Configures the delay in milliseconds when `setting(files.autoSave)` is configured to `afterDelay`. The default is 1000 ms.
 
-If you want to customize `Auto Save` features for specific languages or file types, you can do so from your `setting.json` by adding language specific rules. For example, you could disable `Auto Save` for LaTeX files like this:
+If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules. 
+
+For example, to disable `Auto Save` for LaTeX files:
+
 ```json
     "[latex]": {
         "files.autoSave": "off",
