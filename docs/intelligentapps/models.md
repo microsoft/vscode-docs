@@ -81,15 +81,15 @@ Ollama enables many popular genAI models to run locally with CPU via GGUF quanti
 
 1. Select **Add an Ollama model**
 
-    ![](./images/models/select-type.png)
+    ![Select type](./images/models/select-type.png)
 
 1. Select **Select models from Ollama library**. Or if you start Ollama runtime at a different address, you can choose "Provide custom Ollama endpoint" to specify an Ollama endpoint.
 
-    ![](./images/models/select-ollama.png)
+    ![Select Ollama](./images/models/select-ollama.png)
 
 1. Select the models you want to add to AI Toolkit.
 
-    ![](./images/models/select-models.png)
+    ![Select models](./images/models/select-models.png)
 
     > Note that AI Toolkit will only show models that are already downloaded in Ollama and not already added to AI Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. You can see the list of models supported by Ollama in [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
 
