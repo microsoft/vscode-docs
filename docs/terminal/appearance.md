@@ -115,6 +115,12 @@ One downside of this is that colored text may sometimes lose some of its saturat
 "terminal.integrated.minimumContrastRatio": 1
 ```
 
+## Ligatures
+
+Terminal ligatures which allow rendering multiple character as one can be turned on with the `setting(terminal.integrated.fontLigatures)` setting. This feature requires the configured `setting(terminal.integrated.fontFamily)` to also support ligatures.
+
+![Enabling ligatures will combine certain sets of characters into one, for example >= into the greater than or equals sign](images/appearance/ligatures.png)
+
 ## GPU acceleration
 
 The terminal features two different renderers, each of which have different trade offs:
