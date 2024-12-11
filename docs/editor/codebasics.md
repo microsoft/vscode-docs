@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic editing in Visual Studio Code
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -98,7 +98,7 @@ For more control over `Auto Save`, open User or Workspace [settings](/docs/getst
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `setting(files.autoSaveDelay)`: Configures the delay in milliseconds when `setting(files.autoSave)` is configured to `afterDelay`. The default is 1000 ms.
 
-If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules. 
+If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules.
 
 For example, to disable `Auto Save` for LaTeX files:
 
