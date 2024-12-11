@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -23,7 +23,8 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can select the extension item to display the extension's details page where you can learn more.
 
-> **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
+> [!NOTE]
+> If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
 ## Install an extension
 
@@ -275,7 +276,8 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-> **Note**: When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
+> [!NOTE]
+> When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
 
 If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
@@ -339,8 +341,7 @@ Some users prefer to download an extension once from the Marketplace and then in
 To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
 
 > [!NOTE]
-> The download option is only available for extensions that are not already installed. This experience is currently available in VS Code Insiders and will be available in VS Code Stable in the November release (1.96).
-
+> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
 
 ### Can I stop VS Code from providing extension recommendations?
 
@@ -387,3 +388,9 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 [Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
+### Can I allow or block specific extensions in my organization?
+
+You can control which extensions can be installed in your organization by configuring the `extensions.allowed` application setting. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing.
+
+Get more details about [configuring allowed extensions](/docs/setup/enterprise.md#configure-allowed-extensions).

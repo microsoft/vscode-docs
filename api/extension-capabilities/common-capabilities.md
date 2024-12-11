@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of

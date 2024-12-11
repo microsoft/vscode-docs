@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in Visual Studio Code
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
 MetaSocialImage: images/tutorial/python-social.png
 ---

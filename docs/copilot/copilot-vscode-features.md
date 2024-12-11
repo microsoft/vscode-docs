@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Cheat Sheet
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 PageTitle: GitHub Copilot in VS Code cheat sheet
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -93,6 +93,8 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 | `#VSCodeAPI` | Context variable: add the VS Code API as context to your prompt to ask questions related to VS Code extension development.  |
 | `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
 | `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
+| `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
+| `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
 | Drag & drop file | Drag & drop a file or editor onto the chat to attach the file as context. |
 | Recent files <i class="codicon codicon-beaker"></i> | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
 
@@ -130,6 +132,7 @@ Copilot can generate responses that match the coding style, tools, and developer
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
 | Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Commit-message generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 
 > **Tips**
 >
@@ -177,6 +180,7 @@ Use Copilot to help fix coding problems and to get help with configuring and sta
 | `/fix` | Ask Copilot for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
 | `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
 | `/startDebugging` <i class="codicon codicon-beaker"></i> | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. [Get more information](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental). |
+| `copilot-debug` command | Terminal command to help you debug your programs. Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). [Get more information](https://code.visualstudio.com/updates/v1_96#_debugging-with-copilot). |
 
 > **Tips**
 >

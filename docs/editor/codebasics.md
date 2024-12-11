@@ -3,12 +3,12 @@ Order: 2
 Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 10/29/2024
+PageTitle: Basic editing in Visual Studio Code
+DateApproved: 12/11/2024
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
-# Basic Editing
+# Basic editing
 
 Visual Studio Code is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
 
@@ -24,7 +24,8 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
+> [!NOTE]
+> Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
 ![Multi-cursor](images/codebasics/multicursor.gif)
 
@@ -32,7 +33,8 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 ![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 
-> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
+> [!TIP]
+> You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
 ### Multi-cursor modifier
 
@@ -61,7 +63,8 @@ Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging
 
 ![Column text selection](images/codebasics/column-select.gif)
 
-Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
+> [!NOTE]
+> This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
 There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
@@ -95,7 +98,7 @@ For more control over `Auto Save`, open User or Workspace [settings](/docs/getst
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `setting(files.autoSaveDelay)`: Configures the delay in milliseconds when `setting(files.autoSave)` is configured to `afterDelay`. The default is 1000 ms.
 
-If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules. 
+If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules.
 
 For example, to disable `Auto Save` for LaTeX files:
 
@@ -126,6 +129,8 @@ If something goes wrong with hot exit, all backups are stored in the following f
 VS Code allows you to quickly find text and replace in the currently opened file. Press `kb(actions.find)` to open the Find Widget in the editor, search results will be highlighted in the editor, overview ruler and minimap.
 
 If there are more than one matched result in the current opened file, you can press `kb(editor.action.nextMatchFindAction)` and `kb(editor.action.previousMatchFindAction)` to navigate to next or previous result when the find input box is focused.
+
+By default, VS Code saves the history of your find queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` setting. Set the value to `never` to disable saving the find history.
 
 ### Seed Search String From Selection
 
@@ -169,11 +174,13 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 ![A simple text search across files](images/codebasics/search.png)
 
->**Tip:** We support regular expression searching in the search box, too.
+> [!TIP]
+> We support regular expression searching in the search box, too.
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
->**Tip:** You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
+> [!TIP]
+> You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
 
 ### Advanced search options
 
@@ -194,7 +201,8 @@ Note that glob patterns in the Search view work differently than in settings suc
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
 
->**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+> [!TIP]
+> From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
 ### Search and replace
 
@@ -206,7 +214,8 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
->**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
+> [!TIP]
+> You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
 ### Case changing in regex replace
 
@@ -269,9 +278,11 @@ The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (defaul
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
-> **Tip:** The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> [!TIP]
+>  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
+> [!TIP]
+> IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
 
 JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
@@ -298,7 +309,8 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 * `setting(editor.formatOnSave)` - Format a file on save.
 * `setting(editor.formatOnPaste)` - Format the pasted content.
 
->Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
+> [!NOTE]
+> Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
 In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
@@ -383,7 +395,8 @@ You can click on the Status Bar indentation display to bring up a dropdown with 
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
->**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
+> [!NOTE]
+> VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
 
 ```json
     "editor.detectIndentation": false,
@@ -408,6 +421,16 @@ Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
 
+## Overtype mode
+
+VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
+
+To switch between insert and overtype mode, run the **Toggle Overtype/Insert Mode** command in the Command Palette or press (`kb(editor.action.toggleOvertypeInsertMode)`). When you're in overtype mode, a Status Bar indicator shows `OVR`.
+
+You can change the cursor style for overtype mode by configuring the `setting(editor.overtypeCursorStyle)` setting.
+
+The `setting(editor.overtypeOnPaste)` setting enables you to use overtype for pasting text. You need to be in overtype mode for this setting to take effect.
+
 ## Compare files
 
 VS Code supports several ways to compare the content of the current file or of any two files.
@@ -423,7 +446,8 @@ To compare any two files:
 * Right-click on a file in the Explorer view and select **Select for Compare**. Then, right-click on a second file and select **Compare with Selected**.
 * To start a comparison between two empty editor windows, select **File: Compare New Untitled Text Files** from the Command Palette.
 
-> **Tip:** You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
+> [!TIP]
+> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
 
 ## Next steps
 
