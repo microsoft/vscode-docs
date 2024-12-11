@@ -17,7 +17,7 @@ You can get started right now by installing [GitHub Copilot for Azure](https://a
 
 GitHub Copilot for Azure can help with different tasks throughout the lifecycle of building and running your application.
 
-**Update**. If you preview learning by video, check out this great overview from Reynald Adolphe!
+**Update**. If you prefer learning by video, check out this great overview of GitHub Copilot for Azure!
 
 [![Video about GitHub Copilot for Azure](https://img.youtube.com/vi/sj9E7WUHbmU/maxresdefault.jpg)](https://youtu.be/sj9E7WUHbmU)
 
