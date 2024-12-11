@@ -193,6 +193,22 @@ C# Dev Kit requires that it has built your project successfully before tests wil
 
 Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
+### How do I collect logs for troubleshooting issues with Test Explorer?
+
+If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
+
+1. Increase Test Explorer verbosity:
+    Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
+2. Check the Output Window:
+    Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
+3. Collect the following information:
+   When reporting an issue, ensure you include:
+   - The diagnostic logs from the Output window.
+   - Your operating system and version (for example, Windows 10, macOS 13).
+   - The version of the C# Dev Kit extension you are using. Go to the Extensions view, and hover over the extension to view the version information.
+
+This information will help in diagnosing and resolving the issue more efficiently.
+
 ## Debugger
 
 ### When I F5, nothing happens

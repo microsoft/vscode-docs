@@ -247,9 +247,9 @@ You can use VS Code's diff and merge capabilities even when using Git from comma
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-  tool = code
+    tool = code
 [mergetool "code"]
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 ```
 
 This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
