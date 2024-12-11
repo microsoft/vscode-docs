@@ -405,7 +405,9 @@ Specifies arguments to pass to the Python program. Each element of the argument 
 "args": ["--quiet", "--norepeat", "--port", "1593"],
 ```
 
-If you want to provide different arguments per debug run, you can set `args` to `${command:pickArgs}`. This will prompt you to enter arguments each time you start a debug session.
+If you want to provide different arguments per debug run, you can set `args` to `"${command:pickArgs}"`. This will prompt you to enter arguments each time you start a debug session.
+
+> **Note**: There is a difference in how `"${command:pickArgs}"` and `["${command:pickArgs}"]` are parsed, with specific notice to the usage of `[]`. As an array, all arguments are passed as a single string, without brackets each argument is passed as its own string.
 
 ### `stopOnEntry`
 
