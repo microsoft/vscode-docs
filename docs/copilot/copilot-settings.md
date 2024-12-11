@@ -51,9 +51,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(inlineChat.acceptedOrDiscardBeforeSave)`: Controls whether pending Inline Chat sessions in an editor prevent saving the file.
 * `setting(inlineChat.finishOnType)`: Whether to finish an Inline Chat session when typing outside of changed regions.
 * `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keybinding will automatically enable speech recognition.
+* `setting(inlineChat.inlineChat.lineEmptyHint)` <i class="codicon codicon-beaker"></i>: Controls whether to show a hint for Inline Chat on an empty line.
 * `setting(inlineChat.mode)`: Configure if changes crafted with Inline Chat are applied directly to the document or are previewed first.
-* `setting(github.copilot.chat.inlineChatCompletionTrigger.enabled)` <i class="codicon codicon-beaker"></i>: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.
-* `setting(github.copilot.chat.inlineChatHint.enabled)` <i class="codicon codicon-beaker"></i>: Hint for Inline Chat that shows once a line mostly consists of words.
+* `setting(inlineChat.lineNaturalLanguageHint)` <i class="codicon codicon-beaker"></i>: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.
 * `setting(github.copilot.chat.temporalContext.enabled)` <i class="codicon codicon-beaker"></i>: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
 
 ## Customize Copilot prompts
@@ -62,6 +62,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 * `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
 
 ## Debugging settings
 
