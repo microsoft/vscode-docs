@@ -6,7 +6,7 @@ DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 
 GitHub Copilot is changing the way developers like you write code and build applications. We want everyone to experience the joy - that magical moment when AI writes the code that was on the tips of your fingers without you even having to ask.
 
-So we're excited to announce a **free tier for GitHub Copilot**. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
+So today, we're excited to announce a **free tier for GitHub Copilot**. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
 
 ![HERO VIDEO]()
 [CTA]()
@@ -19,7 +19,7 @@ You also get **50 chat requests/month** and a **64k context window** with **128k
 
 If you hit these limits, ideally it's because Copilot is doing it's job well, which is to help you do yours! If you find you need more Copilot, the individual plan is unlimited, provides access to additional models like o1 and Gemini, and is still only **10$ per month**.
 
-The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience for 37 million VS Code users just like you. Here's just a few examples that might make you say, "GitHub Copilot Can Do That?"
+The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience for 37 million VS Code users just like you. Here's just a few examples that might make you say, "GitHub Copilot can do that?"
 
 ### GitHub Copilot Edits
 
@@ -27,31 +27,119 @@ GitHub Copilot Edits is an AI-powered code editing session where you can quickly
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
-I was able to [build a clone of my favorite word game as a native Android app](https://youtu.be/Vj13SdN6OxU?si=sUvbBw0KSQ5q6iWh) on a Sunday afternoon. I never wrote a single line of code. The future is here, and it's amazing.
+**Try this:** build a native mobile app using Flutter. I [built a game last weekend](https://youtu.be/Vj13SdN6OxU?si=sUvbBw0KSQ5q6iWh) and I've never used Flutter in my life.
+
+### Multiple models, your choice
+
+Whether you're using Chat, Inline Chat or Copilot Edits, you get to decide who your pair programmer is - now with Claude 3.5 Sonnet.
+
+![alt text](model-picker.png)
+
+**Try this:** use o1 to generate an implementation plan for a new feature and then feed that prompt to Claude in Copilot Edits.
 
 ### Custom Instructions
 
+Tell GitHub Copilot exactly how you want things done with Custom Instructions. These instructions are passed to the model with every request, allowing you to specify your specific preferences and the details that the model needs to know to write code the way you want it. For example...
 
+```markdown
+## SvelteKit 4
+* Use SSR for dynamic content rendering
+* Use static site generation (SSG) for pre-rendered static pages.
+
+## Tailwind 3
+* Support dark and light mode
+* Modern look with rounded corners and subtle shadows
+
+## Strict Typescript 5
+* Prefer interfaces over types
+```
+
+You can specify these at the editor or project level. We'll even pick them up automatically if you include a `.github/copilot-instructions.md` file in your project.
+
+**Try this:** Ask Copilot to generate the command to dump your database schema to a file and then pass that as one of your custom instructions.
 
 ### Full Project Awareness
 
 GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The `@workspace` participant is a domain expert in the area of your entire codebase.
 
-We will also do intent detection for you and include the `@workspace` automatically if we see you asking a question that requires full project context.
+<video src="workspace-v2.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
-This works thanks to Blackbird, GitHub's code search engine. It even works for files you haven't committed yet because we keep the index in sync. If your code isn't in GitHub, we don't upload it there. We do the index right on your local machine.
+We will also do intent detection (as seen in the video) for you and include the `@workspace` automatically if we see you asking a question that requires full project context.
 
-### Choose your Model
+**Try this:** The `@workspace` participant can setup testing for your project. From scratch. Just look for the `@workspace /setupTests` command.
 
-The model you use matters a lot, so we give you the ability to choose. Whether you're using Chat, Inline Chat or Copilot Edits, you get to decide who your pair programmer is.
+### Naming things and other hard problems
 
-![alt text](model-picker.png)
+GitHub Copilot can suggest names for your variables, functions and classes. Just press `F2` to rename something and then wait just a moment for GitHub Copilot to give you some suggestions.
 
+<video src="copilot-rename.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
+**Try this:** If you don't know what to call something, don't overthink it. Just call it `foo` and implement it. Then hit `F2` and let GitHub Copilot suggest a name for you.
 
+### Speak your mind
 
+Click the microphone icon to use your voice in chat. No extra software required. We'll even read the chat response back to you - which is often critical for accessibility.
 
+![VS Code with file list and voice input active.](vscode-speech.png)
 
+**Try this:** Use Speech with GitHub Copilot Edits to prototype your next app. You can literally talk your way to a working demo.
 
+### Be a terminal expert
+
+With terminal chat, you can do just about anything in your terminal. Press <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> and just tell GitHub Copilot what you want to do.
+
+For instance, I know that I can use the ffmpeg library to extract frames from videos, but I don't know the syntax and flags. No problem!
+
+![Terminal displaying a script to extract video frames.](terminal-inline-chat.png)
+
+**Try this:** You are now officially a git expert. No need to remember the exact syntax for `git rebase -i --onto` or `git cherry-pick -n` or whatever. Just ask GitHub Copilot.
+
+### No fear of commitment
+
+No more commits that say "changes". GitHub Copilot will suggest a commit message for you based on the changes you've made and your several commit messages.
+
+<video src="ccdt-commit-msgs.mp4" title="Copilot Edits video" autoplay muted controls></video>
+
+**Try this:** Install the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and you can generate pull request descriptions, get summaries of pull requests and even get suggested fixes for issues. All without leaving VS Code.
+
+### Extensions are all you need
+
+Every VS Code extension can tie directly into the GitHub Copilot API's and offer a customized AI experience. Check out MongoDB with their extension that can write impressively complex queries, use fuzzy search and a lot more...
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MLWlWrRAb4w?si=FzYwY_lOLUlfOmQ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Try this:** In the extensions marketplace view in VS Code, use "@tag:chat-participant" to see all of the extensions that offer an AI experience with GitHub Copilot.
+
+### A vision for the future
+
+This last one is a preview of something we're adding to GitHub Copilot soon, but it's way too cool not to show you right now.
+
+Install the Vision Preview for GitHub Copilot extension and ask GitHub Copilot to generate an interface based on a screenshot or markup.
+
+<video src="copilot-vision-generate-ui.mp4" title="Copilot Edits video" autoplay muted controls></video>
+
+Or use it to generate alt text for an image.
+
+<video src="copilot-vision-markdown.mp4" title="Copilot Edits video" autoplay muted controls></video>
+
+**Try This:** Mock up a UI using Figma or Sketch (or PowerPoint - it's ok if you do that. I do it too.). Then use `@vision` to generate the UI. You can even tell it which CSS framework to use.
+
+_Note:_ Vision is in preview today and requires you to have your own OpenAI, Anthropic or Gemini API key. The key will not be required when we release it as part of GitHub Copilot. Coming Soon!
+
+## What about Visual Studio?
+
+While we work with GitHub to build the Visual Studio Code experience, Copilot itself is not exclusive to VS Code. You may be wondering about editors like Visual Studio. Will those users get a free Copilot offering as well?
+
+Yes. Absolutely. Check out this blog post from the VS team on what works today and what’s coming shortly.
+
+## The AI code editor for everyone
+
+There's so much more GitHub Copilot we want to show you, but nothing can replace the experience of trying it for yourself.
+
+[CTA]
+
+Follow us on [X](https://twitter.com/code), [Bluesky](https://bskyp.app/@vscode.dev) and LinkedIn to stay up to date on the lastest VS Code and GitHub Copilot and features as they drop.
+
+2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join as on the journey to redefine the code editor. Again.
 
 
