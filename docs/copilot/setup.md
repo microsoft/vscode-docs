@@ -43,7 +43,7 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 1. If you don't yet have a Copilot subscription, follow the steps in the browser to sign up for the Copilot Free plan
 
     > [!IMPORTANT]
-    > When you sign up for Copilot Free in VS Code, we capture some telemetry data to improve the product. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off` or by configuring this in your Copilot settings (<https://github.com/settings/copilot>).
+    > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and <github.com> experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
 
 ## Get started with Copilot in VS Code
 
