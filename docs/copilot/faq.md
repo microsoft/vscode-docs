@@ -16,18 +16,23 @@ This article answers frequently asked questions about using GitHub Copilot in Vi
 
 ### How can I get a Copilot subscription?
 
-You can get started with GitHub Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You have a limited number of completions and chat interactions per month with the free plan, which reset each month.
+There are different ways to get access to GitHub Copilot:
 
-Alternatively, you can sign up for a subscription in your personal account, or have a seat assigned in a subscription managed by an organization or enterprise.
+* As an individual, you can sign up to use [Copilot for free](https://github.com/github-copilot/signup), without the need for a credit card. You are entitled to a limited number of completions and chat interactions per month with the free plan, which reset each month. Learn more about the [Copilot Free plan details and conditions](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
-The following table summarizes the account types and instructions for getting a Copilot subscription.
+* As an individual, sign up for a [paid subscription](https://github.com/github-copilot/signup/copilot_individual). You can try GitHub Copilot for free with a one-time 30-day trial.
 
-| Account type | Instructions |
-| ------------ | ------------ |
-| Personal account | <li>Sign up for the [Copilot Free plan](https://github.com/github-copilot/signup) with your personal GitHub account to try out Copilot for free, without the need for a credit card. Get more info about the [Free plan details and limitations](TODO).</li><li>Set up a subscription to **GitHub Copilot Pro** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup/copilot_individual).</li> |
-| Member of an organization | <li>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account. You need to be assigned a seat by an organization owner.</li> |
+* If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."
 
 Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+
+### My limit of completions or chat interactions is reached
+
+Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription) or wait until the next month to continue using Copilot.
+
+If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
+
+If only the code completions are reaching the limit, you can still use Copilot for chat interactions and Copilot Edits.
 
 ### My Copilot subscription is not detected in VS Code
 

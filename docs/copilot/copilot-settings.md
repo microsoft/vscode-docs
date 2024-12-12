@@ -13,7 +13,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can try out Copilot for free by signing up for the [Copilot Free plan](TODO)
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 The team is continuously working on improving Copilot in VS Code and adding new features. Items marked with <i class="codicon codicon-beaker"></i> are experimental features. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues). Get more info about the [feature lifecycle in VS Code](/docs/getstarted/settings.md#feature-lifecycle).
 

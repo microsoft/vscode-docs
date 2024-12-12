@@ -19,7 +19,7 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * [**Quick Chat**](#quick-chat): ask a quick question and get back into what you're doing
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can try out Copilot for free by signing up for the [Copilot Free plan](TODO)
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions. and get a monthly limit of completions and chat interactions.
 
 ## Copilot Chat use cases
 
@@ -36,12 +36,12 @@ You can use Copilot Chat in various developer scenarios, such as:
 
 1. Install the GitHub Copilot extensions.
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extensions</a>
 
 1. Sign in with your GitHub account to use Copilot.
 
     > [!TIP]
-    > You can get started for free with the [Copilot Free plan](TODO) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Getting started
 

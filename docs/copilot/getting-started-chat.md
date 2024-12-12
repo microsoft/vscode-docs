@@ -15,7 +15,7 @@ This tutorial walks you through using the [GitHub Copilot Chat](https://marketpl
 If you're new to using GitHub Copilot in VS Code, see the [GitHub Copilot Overview](/docs/copilot/overview.md) or get set up and discover the key capabilities in the [GitHub Copilot Getting Started Tutorial](/docs/copilot/getting-started.md).
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can try out Copilot for free by signing up for the [Copilot Free plan](TODO)
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Prerequisites
 
