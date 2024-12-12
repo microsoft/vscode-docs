@@ -119,17 +119,19 @@ Let's create the application!
 
     ![Dropdown with debugger configuration options, with FastAPI being highlighted](images/fastapi-tutorial/fastapi_debug_config_option.png)
 
-    This invokes uvicorn to start the application server through the debugger and allow you to step through the source code to inspect its behavior. You should see something like the following in the terminal:
+    This automatically creates a debug configuration that invokes uvicorn to start the application server through the debugger and allows you to step through the source code to inspect its behavior. You should see something like the following in the terminal:
 
     ![Uvicorn server running message displayed in the terminal, with an URL to access the app](images/fastapi-tutorial/fastapi_debug_terminal.png)
 
-6. `kbstyle(Ctrl+Click)` the `http://127.0.0.1:8000/` URL in the terminal to open your default browser to that address:
+   >**Tip**: In the case where your default port is already in use, stop the debugger and open the Command Palette (`kb(workbench.action.showCommands)`), search for **Debug: Add Configuration**, select Python Debugger, and then FastAPI. This will create a custom config file in `.vscode/launch.json` that you can edit. Add the following to `"args":[]` to set a custom port: `"--port=5000"`. Save the file, and restart the debugger using (`kb(workbench.action.debug.start)`).
+
+7. `kbstyle(Ctrl+Click)` the `http://127.0.0.1:8000/` URL in the terminal to open your default browser to that address:
 
     ![Hello World message displayed in the browser](images/fastapi-tutorial/helloworld_browser.png)
 
     Congratulations! Your FastAPI app is up and running!
 
-7. Stop the debugger by using the **Stop** button in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
+8. Stop the debugger by using the **Stop** button in the debug toolbar, or through `kb(workbench.action.debug.stop)`.
 
 ## Create a model for grocery list items
 
