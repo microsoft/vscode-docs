@@ -11,7 +11,7 @@ DateApproved: 12/11/2024
 
 The **Visual Studio Code WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux-specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
-The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
+The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.  The extension will install VS Code Server inside WSL; the server is independent of any existing VS Code installation in WSL.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 

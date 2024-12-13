@@ -19,7 +19,7 @@ DateApproved: 12/11/2024
 - Access an **existing** development environment from **multiple machines or locations**.
 - Debug an **application running somewhere else** such as a customer site or in the cloud.
 
-**No source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, in WSL, or on a remote machine so that everything feels as it does when you run locally.
+**No source code** needs to be on your local machine to get these benefits. Each extension in the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension) can run commands and other extensions directly inside a container, in WSL, or on a remote machine so that everything feels as it does when you run locally. The extensions install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
 
 ![Architecture](images/remote-overview/architecture.png)
 
