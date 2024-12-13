@@ -102,6 +102,8 @@ If you enable pytest, VS Code prompts you to install the framework package if it
 
 ![VS Code prompt to install a test framework when enabled](images/testing/install-framework.png)
 
+> **Note**: The minimum supported version of pytest for the python extension is 7.0.0.
+
 ## Create tests
 
 Each test framework has its own conventions for naming test files and structuring the tests within, as described in the following sections. Each case includes two test methods, one of which is intentionally set to fail for the purposes of demonstration.
