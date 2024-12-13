@@ -4,12 +4,12 @@ DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 
 # Announcing a free GitHub Copilot for VS Code
 
-Today, we're excited to announce a **free tier for GitHub Copilot**. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
-
-We want everyone to experience the joy - that magical moment when Copilot writes the code that was on the tips of your fingers without you even having to ask. This is your code editor, redefined with AI.
+Today, we're excited to announce a **free tier for GitHub Copilot** available to everyone in VS Code. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
 
 ![HERO VIDEO]()
 [CTA]()
+
+We want all 37 million VS Code users just like you to experience the joy - that magical moment when Copilot writes the code that was on the tips of your fingers without you even having to ask. The thrill of generating interfaces from mockups and speaking prototypes into existence.
 
 With the GitHub Copilot free tier, you get **access to both GPT-4o and Claude Sonnet models**.
 
@@ -19,7 +19,7 @@ You also get **50 chat requests/month** and a **64k context window**, with **128
 
 If you hit these limits, ideally it's because Copilot is doing its job well, which is to help you do yours! If you find you need more Copilot, the individual plan is unlimited, provides access to additional models like o1 and Gemini (coming end of January), and is still only **10$ per month**.
 
-The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience for 37 million VS Code users just like you. Here's just a few examples that might make you say, "GitHub Copilot can do that?"
+The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience with brand new features and capabilities. This is your editor. Redefined with AI.
 
 ### Work with multiple files using GitHub Copilot Edits
 
