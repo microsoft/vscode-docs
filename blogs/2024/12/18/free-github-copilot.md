@@ -2,11 +2,11 @@
 DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 ---
 
-# GitHub Copilot is now available for free in VS Code
+# Announcing a free GitHub Copilot for VS Code
 
-GitHub Copilot is changing the way developers like you write code and build applications. We want everyone to experience the joy - that magical moment when AI writes the code that was on the tips of your fingers without you even having to ask.
+Today, we're excited to announce a **free tier for GitHub Copilot**. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
 
-So today, we're excited to announce a **free tier for GitHub Copilot**. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
+We want everyone to experience the joy - that magical moment when Copilot writes the code that was on the tips of your fingers without you even having to ask. This is your code editor, redefined with AI.
 
 ![HERO VIDEO]()
 [CTA]()
