@@ -17,6 +17,26 @@ For tips and questions about [GitHub Codespaces](https://github.com/features/cod
 
 SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
 
+### Configuring the $EDITOR variable
+
+For macOS / linux remote hosts, add this snippet to your shell configuration file (like `.bashrc` or `.zshrc`)
+
+```bash
+if [ "$VSCODE_INJECTION" = "1" ]; then
+    export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
+fi
+```
+
+For Windows hosts, here is the equivalent Powershell:
+
+```pwsh
+if ($env:VSCODE_INJECTION -eq "1") {
+    $env:EDITOR = "code --wait"  # or 'code-insiders' for VS Code Insiders
+}
+```
+
+Now running a terminal command that uses the $EDITOR variable, like `git commit`, will open the file in VS Code instead of the default terminal-based editor (like `vim` or `nano`).
+
 ### Configuring key based authentication
 
 [SSH public key authentication](https://www.ssh.com/ssh/public-key-authentication) is a convenient, high security authentication method that combines a local "private" key with a "public" key that you associate with your user account on an SSH host. This section will walk you through how to generate these keys and add them to a host.
