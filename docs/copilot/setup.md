@@ -61,7 +61,7 @@ After you've signed in to your GitHub account and have access to Copilot, start 
 
 To manually install the GitHub Copilot extensions:
 
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extensions</a>
+> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-setup">Install the GitHub Copilot extensions</a>
 
 You can also open the Extensions view and search for *GitHub Copilot* to install the extension.
 

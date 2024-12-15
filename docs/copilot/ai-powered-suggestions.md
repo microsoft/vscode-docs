@@ -16,7 +16,7 @@ GitHub Copilot acts as an AI-powered pair programmer, automatically offering sug
 
 1. Install the GitHub Copilot extensions.
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extensions</a>
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-ai-powered-suggestions">Install the GitHub Copilot extensions</a>
 
 1. Sign in with your GitHub account to use Copilot.
 

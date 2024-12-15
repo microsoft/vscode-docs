@@ -60,12 +60,12 @@ GitHub Copilot can provide assistance in a variety of scenarios.
 
 1. Install the GitHub Copilot extensions.
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extensions</a>
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-overview">Install the GitHub Copilot extensions</a>
 
 1. Sign in with your GitHub account to use Copilot.
 
     > [!TIP]
-    > You can get started for free with the [Copilot Free plan](TODO) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
+    > You can get started for free with the [Copilot Free plan](https://github.com/github-copilot/signup) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
 
 1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
 
