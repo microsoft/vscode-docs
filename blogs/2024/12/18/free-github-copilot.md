@@ -6,10 +6,10 @@ DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 
 Today, we're excited to announce a **free tier for GitHub Copilot** available to everyone in VS Code. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
 
-![HERO VIDEO]()
-[CTA]()
+[Enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog
+ )
 
-We want all 37 million VS Code users just like you to experience the joy - that magical moment when Copilot writes the code that was on the tips of your fingers without you even having to ask. The thrill of generating interfaces from mockups and speaking prototypes into existence.
+<video src="github-copilot-free-blog-video.mp4" title="Copilot Edits video"></video>
 
 With the GitHub Copilot free tier, you get **access to both GPT-4o and Claude Sonnet models**.
 
@@ -58,12 +58,7 @@ For example...
 ## Tailwind 3
 * Support dark and light mode
 * Modern look with rounded corners and subtle shadows
-
-## Strict Typescript 5
-GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these "participants." For example, the `@workspace` participant is a domain expert in the area of your entire codebase.
 ```
-
-You can provide custom instructions specifically for [test generation](https://code.visualstudio.com/docs/copilot/copilot-customization#_define-testgeneration-custom-instructions), [code reviews](https://code.visualstudio.com/docs/copilot/copilot-customization#_define-code-review-custom-instructions) (yes, GitHub Copilot can do a code review for you) and [commit message generation](https://code.visualstudio.com/docs/copilot/copilot-customization#_define-commit-message-generation-custom-instructions).
 
 **Try this:** Ask Copilot to generate the command to dump your database schema to a file and then set that file as one of your custom instructions.
 
@@ -139,7 +134,8 @@ _Note:_ Vision is in preview today and requires you to have your own OpenAI, Ant
 
 There's so much more GitHub Copilot we want to show you, but nothing can replace the experience of trying it for yourself.
 
-[CTA]
+[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog
+ )
 
 We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bskyp.app/@vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/) and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
@@ -155,6 +151,7 @@ Yes. Absolutely. Check out this blog post from the VS team on what works today a
 
 2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join as on the journey to redefine the code editor. Again.
 
-[CTA]()
+[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog
+ )
 
 
