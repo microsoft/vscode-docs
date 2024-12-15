@@ -26,7 +26,7 @@ There are different ways to get access to GitHub Copilot:
 
 Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
-### My limit of completions or chat interactions is reached
+### I reached my completions or chat interactions limit
 
 Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription) or wait until the next month to continue using Copilot.
 
