@@ -19,7 +19,7 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * [**Quick Chat**](#quick-chat): ask a quick question and get back into what you're doing
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions. and get a monthly limit of completions and chat interactions.
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Copilot Chat use cases
 
