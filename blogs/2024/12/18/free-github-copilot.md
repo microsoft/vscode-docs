@@ -4,7 +4,7 @@ DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 
 # Announcing a free GitHub Copilot for VS Code
 
-Today, we're excited to announce a **free tier for GitHub Copilot** available to everyone in VS Code. All you need is a GitHub login. No trial. No gimmicks. No credit card required.
+We're excited to announce an all new **free tier for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
 [Enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog
  )
