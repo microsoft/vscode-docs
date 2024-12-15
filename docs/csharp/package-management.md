@@ -77,9 +77,9 @@ The following sections describe how to use each NuGet command, using both of the
 
 4. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
-### Including Prerelease Package Versions
+### Include prerelease package versions
 
-If you are looking to update or add a prerelease version of a NuGet package, you will first need to set the **Include Prerelease Package Versions** to **true**.
+If you are looking to update or add a prerelease version of a NuGet package, you first need to set the **Include Prerelease Package Versions** to **true**.
 
 You can find this option under **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`) and searching for `nuget.includePrereleasePackageVersions` to `true`.
 
