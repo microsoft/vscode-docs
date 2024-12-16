@@ -1,29 +1,36 @@
 ---
+Order: 91
+TOCTitle: Announcing Copilot Free in VS Code
+PageTitle: Announcing a free GitHub Copilot for VS Code
+MetaDescription: Announcing a free tier for GitHub Copilot in Visual Studio Code.
+Date: 2024-12-18
+Author: Burke Holland
+---
 DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
 ---
 
 # Announcing a free GitHub Copilot for VS Code
 
-We're excited to announce an all new **free tier for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
+We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
 [Enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog
  )
 
-<video src="github-copilot-free-blog-video.mp4" title="Copilot Edits video"></video>
+<video src="blog-video-v2.mp4" title="Copilot Edits video"></video>
 
-With the GitHub Copilot free tier, you get **access to both GPT-4o and Claude Sonnet models**.
+With GitHub Copilot Free, you get **access to both GPT-4o and Claude 3.5 Sonnet models**.
 
-You get **2000 code completions/month**. That's about 80 per day - which a lot.
+You get **2000 code completions/month**. That's about 80 per working day - which is a lot.
 
 You also get **50 chat requests/month** and a **64k context window**, with **128k coming soon**.
 
-If you hit these limits, ideally it's because Copilot is doing its job well, which is to help you do yours! If you find you need more Copilot, the individual plan is unlimited, provides access to additional models like o1 and Gemini (coming end of January), and is still only **10$ per month**.
+If you hit these limits, ideally it's because Copilot is doing its job well, which is to help you do yours! If you find you need more Copilot, the Pro plan is unlimited and provides access to additional models like o1 and Gemini (coming end of January).
 
 The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience with brand new features and capabilities. This is your editor. Redefined with AI.
 
-### Work with multiple files using GitHub Copilot Edits
+## Work with multiple files using GitHub Copilot Edits
 
-[GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can toggle into from the top of the chat sidebar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
+[GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat sidebar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -31,11 +38,11 @@ The VS Code and GitHub teams have been hard at work, as always, improving the Gi
 
 ### Multiple models, your choice
 
-Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/getting-started-chat#_stay-in-the-flow-with-inline-chat) or [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits), you get to decide who your pair programmer is - now with Claude 3.5 Sonnet.
-
+Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/getting-started-chat#_stay-in-the-flow-with-inline-chat) or [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits), you get to decide who your pair programmer is.
+Tell GitHub Copilot exactly how you want things done with [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your specific preferences and the details that the model needs to know to write code the way you want it.
 ![alt text](model-picker.png)
 
-**Try this:** use 4o or o1 to generate an implementation plan for a new feature and then feed that prompt to Claude in GitHub Copilot Edits to build it.
+**Try this:** use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in GitHub Copilot Edits to build it.
 
 ### Custom Instructions
 
@@ -55,16 +62,16 @@ For example...
 * Use SSR for dynamic content rendering
 * Use static site generation (SSG) for pre-rendered static pages.
 
-## Tailwind 3
-* Support dark and light mode
-* Modern look with rounded corners and subtle shadows
+## TypeScript
+* Prefer classes to interfaces
+* Avoid implicit any
 ```
 
 **Try this:** Ask Copilot to generate the command to dump your database schema to a file and then set that file as one of your custom instructions.
 
-### Full Project Awareness
+## Full Project Awareness
 
-GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The `@workspace` participant is a domain expert in the area of your entire codebase. GitHub Copilot will also do intent detection (as seen in the video) for you and include the `@workspace` automatically if it sees you asking a question that requires full project context.
+GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The `@workspace` participant is a domain expert in the area of your entire codebase.
 
 <video src="workspace-v2.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -72,17 +79,17 @@ GitHub Copilot will also do intent detection (as seen in the video) for you and 
 
 **Try this:** The `@workspace` participant can set up testing for your project. From scratch. Just look for the `@workspace /setupTests` command.
 
-### Naming things and other hard problems
+## Naming things and other hard problems
 
 GitHub Copilot can suggest names for your variables, functions and classes. Just press `F2` to rename something and then wait just a moment for GitHub Copilot to give you some suggestions.
 
-<video src="copilot-rename.mp4" title="Copilot Edits video" autoplay muted controls></video>
+<video src="copilot-rename-v2.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
 **Try this:** If you don't know what to call something, don't overthink it. Just call it `foo` and implement it. Then hit `F2` and let GitHub Copilot suggest a name for you.
 
-### Speak your mind
+## Speak your mind
 
-Click the microphone icon to start a voice chat. This is powered by the free, cross-platform [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) that runs on local models. GitHUb Copilot will even read the chat response back to you - which is often critical for accessibility.
+Click the microphone icon to start a voice chat. This is powered by the free, cross-platform [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) that runs on local models. No 3rd party app required.
 
 ![VS Code with file list and voice input active.](vscode-speech.png)
 
