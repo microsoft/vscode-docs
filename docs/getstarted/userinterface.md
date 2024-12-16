@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -150,11 +150,11 @@ You can select multiple files in the Explorer view and Open Editors section to r
 
 ### Advanced tree navigation
 
-You can filter the currently visible files in the Explorer view. With the focus on the Explorer view, press `kbstyle(Ctrl+Alt+F)` (`kbstyle(Cmd+Alt+F)` on macOS) to open the Find control and type part of the file name you want to match.
+You can filter the files and folders in the Explorer view. With the focus on the Explorer view, press `kb(list.find)` to open the Find control and type part of the file or folder name you want to match. This navigation feature is available for all tree views in VS Code.
 
-Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(DownArrow)` lets you focus on the first matched element and navigate to subsequent matching elements.
+Pressing the **Filter** button toggles between the two modes: highlighting and filtering. Pressing `kbstyle(Down)` lets you focus on the first matched element and navigate to subsequent matching elements. In highlighting mode, a badge is shown on folders to indicate that they contain matched files.
 
-This navigation feature is available for all tree views in VS Code.
+Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, where you can type a sequence of characters to match any part of the file or folder name.
 
 ![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
 

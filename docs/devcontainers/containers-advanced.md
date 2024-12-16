@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Dev Containers extension
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 ---
 # Advanced Container Configuration
 

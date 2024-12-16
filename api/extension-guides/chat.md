@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -288,22 +288,24 @@ The following code snippet shows how to implement participant detection at the p
 ```json
 "contributes": {
     "chatParticipants": [
-        "id": "chat-sample.cat",
-        "fullName": "Cat",
-        "name": "cat",
-        "description": "Meow! What can I teach you?",
+        {
+            "id": "chat-sample.cat",
+            "fullName": "Cat",
+            "name": "cat",
+            "description": "Meow! What can I teach you?",
 
-        "disambiguation": [
-            {
-                "category": "cat",
-                "description": "The user wants to learn a specific computer science topic in an informal way.",
-                "examples": [
-                    "Teach me C++ pointers using metaphors",
-                    "Explain to me what is a linked list in a simple way",
-                    "Can you explain to me what is a function in programming?"
-                ]
-            }
-        ]
+            "disambiguation": [
+                {
+                    "category": "cat",
+                    "description": "The user wants to learn a specific computer science topic in an informal way.",
+                    "examples": [
+                        "Teach me C++ pointers using metaphors",
+                        "Explain to me what is a linked list in a simple way",
+                        "Can you explain to me what is a function in programming?"
+                    ]
+                }
+            ]
+        }
     ]
 }
 ```
@@ -473,7 +475,7 @@ const logger = vscode.env.createTelemetryLogger({
 });
 
 cat.onDidReceiveFeedback((feedback: vscode.ChatResultFeedback) => {
-    // Log chat result feedback to be able to compute the success matric of the participant
+    // Log chat result feedback to be able to compute the success metric of the participant
     logger.logUsage('chatResultFeedback', {
         kind: feedback.kind
     });

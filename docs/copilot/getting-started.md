@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Quickstart
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot quickstart
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -126,7 +126,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
 ## Make edits across multiple files with Copilot Edits (preview)
 
-Larger code changes might involve making edits to multiple files. With Copilot Edits, you can get AI-powered suggestions inline in the editor, across multiple files in your workspace.
+Larger code changes might involve making edits to multiple files. With Copilot Edits, you can get AI-powered suggestions inline in the editor, across multiple files in your workspace. Instead of applying individual code blocks, Copilot Edits makes edits across your workspace.
 
 Let's use Copilot Edits to return the contents of an HTML file in a web server response.
 
@@ -134,21 +134,25 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
 
     ![Screenshot showing the Copilot menu in the Command Center, highlighting the Open Edit Session item](images/copilot-edits/copilot-command-center-open-edit-session.png)
 
-1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the *Working Set*.
+1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the *working set*.
 
-    The Working Set contains the files that can be modified by Copilot Edits. If the file is not added, use **Add Files...* to add the file to the Working Set.
+    The working set contains the files that can be modified by Copilot Edits. If the file is not added, use **Add Files...* to add the file to the working set.
 
-    ![Screenshot of the Copilot Edits view, showing the Working Set with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
+    ![Screenshot of the Copilot Edits view, showing the working set with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
 
 1. Enter *Return a static html page as the home page and implement it.* in the chat input field and press `kbstyle(Enter)` to start a new edit session.
 
-    Notice that Copilot Edits updates the `server.ts` file to return a static HTML page in the web server response. It also adds a new file `index.html` to the workspace.
+    Notice that Copilot Edits makes multiple edits: it updates the `server.ts` file to return a static HTML page, and it also adds a new file `index.html`.
 
     ![Screenshot of VS Code editor, showing the Copilot Edits response for returning a static HTML page in the web server response.](./images/getting-started/copilot-edits-html-response.png)
 
 1. If you're happy with the results, select **Accept** to apply all suggested changes.
 
     ![Screenshot of the Copilot Edits view, highlighting the Accept button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
+
+    You can also navigate between the different edited files and accept/discard them by using the editor overlay controls.
+
+    ![Screenshot of the Copilot Edits view, highlighting editor overlay controls to navigate between edits and accept or discard them.](./images/getting-started/copilot-edits-overlay-controls.png)
 
 ## Fix coding errors with Copilot
 

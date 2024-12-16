@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -17,6 +17,8 @@ Copilot Chat integrates in your developer flow and gives you assistance where yo
 * [**Inline Chat**](#inline-chat): start a chat conversation directly from the editor and get inline suggestions while you're coding
 * [**Chat view**](#chat-view): have an AI assistant on the side to help with your questions and to provide code suggestions
 * [**Quick Chat**](#quick-chat): ask a quick question and get back into what you're doing
+
+If you intend to make edits across multiple files in your project, you might consider using [Copilot Edits](/docs/copilot/copilot-edits.md). You can easily [move an existing chat conversation to Copilot Edits](/docs/copilot/copilot-edits.md#send-a-chat-request-to-copilot-edits).
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -43,7 +45,7 @@ You can use Copilot Chat in various developer scenarios, such as:
     > [!TIP]
     > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-## Getting started
+## Getting started with Copilot Chat
 
 ### Open chat
 
@@ -63,24 +65,35 @@ Or use one of the keyboard shortcuts to start a chat conversation with Copilot.
 
 Copilot tries to determine the intent and scope of your question based on your natural language chat prompt. To help Copilot give you the best and most relevant answers, add context to your chat prompt. For example, attach specific files or even the full contents of your workspace, the current editor selection, and more.
 
-You can add context to your chat message by using the <i class="codicon codicon-attach"></i> button (`kb(workbench.action.chat.attachContext)`) in any of the chat experiences. You can then select the specific type of context from a Quick Pick, such as the current selection, one or more files from the workspace, or one or more symbols from your source code.
-
-![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
-
-> [!TIP]
-> To quickly add multiple items from the attachment Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.
-
-Another quick way to add specific files to your chat prompt is to drag and drop files from the Explorer or Search view onto the chat input field. You can also drag and drop an editor tab onto the chat input field to add the file as context.
-
-<video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
-
 VS Code automatically adds the currently active editor as context to your chat prompt in the Chat view. If you have a block of code selected in the editor, only that selection is added as context. You can disable adding the active editor by selecting the disable icon on the context item.
 
 ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
 
-You can also reference context by using chat variables. Type the `#` character and you'll see a list of available chat variables. For example, you can use `#selection` to add the current editor selection to your chat prompt, or `#file` to add a specific file from the workspace.
+There are several ways to add context to your chat prompt:
 
-![Screenshot of VS Code Copilot Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
+* Use the <i class="codicon codicon-attach"></i> button (`kb(workbench.action.chat.attachContext)`) in any of the chat experiences.
+
+    You can then select the specific type of context from a Quick Pick, such as the current selection, one or more files from the workspace, or one or more symbols from your source code.
+
+    ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
+
+    > [!TIP]
+    > To quickly add multiple items from the attachment Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.
+
+* Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Chat view.
+
+    <video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
+
+* Use chat variables by typing the `#` character and you'll see a list of available chat variables.
+
+    For example, you can use `#selection` to add the current editor selection to your chat prompt, `#file` to add a specific file from the workspace, or `#sym` to add a symbol from the workspace.
+
+    ![Screenshot of VS Code Copilot Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
+
+    > [!TIP]
+    > Type `#` and use it as an IntelliSense trigger for file or symbol suggestions.
+
+* Use the context menu **Copilot** > **Add File to Chat** (or **Add Selection to Chat** for a text selection) on a file in the Explorer or Search view.
 
 > [!NOTE]
 > If possible, the full contents of the file will be included when you attach a file. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
@@ -225,21 +238,25 @@ Once a command is suggested, use **Run** (`kb(workbench.action.terminal.chat.run
 
 Optionally, you can edit the command directly in the Copilot response before running it by placing the cursor in the response or by pressing `kbstyle(Ctrl+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on Windows & Linux, or `kbstyle(Cmd+down)`, `kbstyle(Tab)`, `kbstyle(Tab)` on macOS.
 
-## Chat smart actions
+## Smart actions
 
-To make it easier to use Copilot Chat features, smart actions are integrated in your VS Code flow and they do not require you to write any prompt at all. For example, you can access Copilot smart actions from the editor context menu or through Quick Fix actions.
+Copilot Chat lets you use natural language to get help from Copilot. For several common scenarios, you can use *smart actions* to get help from Copilot without having to write a prompt. Examples of these smart actions are for tasks, such as generating commit messages, generating documentation, fixing code, explaining code, or reviewing code changes.
 
-Access the smart actions by selecting a block of code, right-clicking, and choosing **Copilot**. The smart actions are context-aware and can help you with common tasks, such as generating documentation, fixing code, or explaining code.
+These smart actions are available throughout the VS Code UI. For example, you can access Copilot smart actions from the editor context menu or through Quick Fix actions.
+
+In the editor, you can access smart actions by selecting a block of code, right-clicking, and then choosing **Copilot**.
 
 ![Editor context menu with the Copilot menu group expanded](images/copilot-chat/copilot-smart-action-menu.png)
 
-The most powerful smart action is `/fix`. Here is a relatively simple TypeScript calculator with an error noting that "Argument of type 'string' is not assignable to parameter of type 'number'". Select the *sparkle* icon, and then choose **Fix using Copilot**.
+The most powerful smart action is the **Fix** action. Here is a relatively simple TypeScript calculator with an error noting that "Argument of type 'string' is not assignable to parameter of type 'number'". Select the *sparkle* icon, and then choose **Fix**.
 
 ![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/smart-action-fix-with-copilot.png)
 
-Similar to `/fix`, the `/doc` smart action is popular with users. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code.
+Similar to `/fix`, the `/doc` smart action is a popular action. To use `/doc`, select a block of code, right-click, and choose **Copilot** > **Generate Docs**. Copilot will generate a documentation comment for your code.
 
 ![Inline Chat /doc results adding JSDoc comment for a TypeScript function](images/copilot-chat/generate-docs-example.png)
+
+You can also invoke some of these smart actions by using their equivalent [slash command](#slash-commands) in chat. For example, you can use `/fix` to fix the problems in the selected code, or `/doc` to generate documentation for the selected code.
 
 ## Chat participants
 
@@ -334,21 +351,7 @@ Some examples of built-in slash commands are:
 
 To view the list of build-in participants and their commands, type `@` in the chat input field or select the <i class="codicon codicon-mention"></i> icon.
 
-## Improve the performance of Copilot Chat
-
-Copilot works best when it has sufficient context to know what you're doing and what you want help with. Just as you would provide a colleague with the context when asking for help with a specific programming task, you can do the same with Copilot.
-
-You can help Copilot provide better answers by upvoting or downvoting responses with the thumbs up and down icons in the upper right of its response. This provides Copilot feedback on how much it helped with your scenario so that it can help you even better in the future.
-
-### Use chat variables
-
-By using a chat variable in your chat prompt, you can be more specific about the context that you provide to Copilot. For example, the prompt _"which sorting algo is used #selection"_ focuses the chat request on the selected code snippet.
-
-### Use chat participants and commands
-
-Chat participants, such as `@workspace`, might have context associated within them. For example, `@vscode` is aware of VS Code settings and its APIs. When you include a chat participant in the chat prompt, you inherently add context to the prompt. Similarly, by using slash commands, you can further focus the intent of the chat request.
-
-### Conversation history
+## Conversation history
 
 Copilot keeps track of the history of your conversation in the Chat view. Copilot can use this information as context in subsequent prompts, for example when you have a [multi-turn conversation](#multi-turn-conversations).
 
@@ -361,14 +364,6 @@ You can delete a prompt and the corresponding response from the conversation his
 ![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
-
-### Context in Inline Chat
-
-If you're using Inline Chat, and you have code selected in the editor, Copilot scopes your question to the selection.
-
-### Ignore files
-
-When you're using `@workspace` to ask questions related to your VS Code workspace, you can explicitly ignore specific files from the workspace by using a `.gitignore` file. `@workspace` respects `.gitignore` when deciding which files from the workspace to index.
 
 ## Use voice interactions
 
@@ -396,23 +391,23 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 ## Frequently asked questions
 
-### How do I choose between Inline Chat, Chat view, and Quick Chat?
+### How do I choose between Copilot Edits, Inline Chat, Chat view, and Quick Chat?
 
 The following table provides a comparison of the capabilities of each interface.
 
-| Capability                          | Chat view | Inline Chat | Quick Chat |
-|-------------------------------------|:---------:|:-----------:|:----------:|
-| Ask general technology questions    | ✅ | ✅  | ✅ |
-| Receive code suggestions            | ✅ | ✅  | ✅ |
-| View code suggestions in the editor |    | ✅  |    |
-| Code suggestions for multiple files | ✅ |     | ✅ |
-| Generate a new project              | ✅ |     | ✅ |
-| Attach context                      | ✅ | ✅  | ✅ |
-| Use chat participants               | ✅ |     | ✅ |
-| Use commands                        | ✅ | ✅* | ✅ |
-| Chat history                        | ✅ |     |    |
+| Capability                   | Copilot Edits | Chat view | Inline Chat | Quick Chat |
+|------------------------------|:-------------:|:---------:|:-----------:|:----------:|
+| Receive code suggestions     | ✅ | ✅ | ✅ | ✅  |
+| Multi-file edits             | ✅ | ✅* |    | ✅* |
+| Preview code edits in editor | ✅ |     | ✅ |     |
+| Code review flow             | ✅ |     |    |      |
+| Roll back changes            | ✅ |     |    |      |
+| Attach context               | ✅ | ✅ | ✅ | ✅  |
+| Use participants & commands  |    | ✅  |    | ✅  |
+| Generate shell commands      |    | ✅  |    | ✅  |
+| General-purpose chat         |    | ✅  | ✅ | ✅  |
 
-\* _only a limited set of commands is available in Inline Chat_
+\* _code blocks are included in the chat conversation and need to be applied to the right file manually_
 
 ## Additional resources
 
@@ -420,6 +415,8 @@ You can read more about [GitHub Copilot](https://github.com/features/copilot) an
 
 Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
 
-## Next step
+## Next steps
 
-Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
+* Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
+
+* Make edits across multiple files with [Copilot Edits](/docs/copilot/copilot-edits.md).
