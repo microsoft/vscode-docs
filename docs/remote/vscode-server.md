@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 6Andrews54757/FastStream/CODE_OF_CONDUCT.md
 Area: remote
 TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
