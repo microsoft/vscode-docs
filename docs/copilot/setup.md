@@ -29,12 +29,12 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 
 ## Set up Copilot in VS Code
 
-1. Open the Copilot menu in the VS Code title bar and select **Use AI Features with Copilot for free...** to open the Chat view
+1. Open the Copilot menu in the VS Code title bar and select **Use AI Features with Copilot for Free...** to open the Chat view
 
     ![The Copilot menu in the VS Code title bar, showing the option to use AI features with Copilot for free.](images/setup/copilot-menu-use-ai-features.png)
 
     > [!TIP]
-    > You can also open the Chat view directly by using the keyboard shortcut `kb(workbench.action.chat.open)` or by with the **Chat: Focus on Chat View** command.
+    > You can also open the Chat view directly by using the keyboard shortcut `kb(workbench.action.chat.open)` or with the **Chat: Focus on Chat View** command.
 
 1. Select **Sign in to Use Copilot** to sign in to your GitHub account and get started. This also installs the GitHub Copilot extensions in VS Code.
 

@@ -28,7 +28,9 @@ Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/ma
 
 ### I reached my completions or chat interactions limit
 
-Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription) or wait until the next month to continue using Copilot.
+Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription), and get an unlimited number of completions and chat messages. Alternatively, you can wait until the next month to continue using Copilot for free.
+
+![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
 
 If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
 
