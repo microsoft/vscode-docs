@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Editing
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
 PageTitle: TypeScript editing with Visual Studio Code
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
@@ -43,7 +43,8 @@ VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md
 
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
-> **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> [!TIP]
+> You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## Inlay hints
 
@@ -120,6 +121,16 @@ If you choose one of the suggestions from another file or module, VS Code will a
 ![After selecting a symbol from a different file, an import is added for it automatically](images/editing/auto-import-post.png)
 
 You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
+
+### Add imports on paste
+
+When you copy and paste code between editors, VS Code can automatically add imports when the code is pasted. When you paste code that contains an undefined symbol, a paste control is shown that lets you choose between pasting as plain text or to add imports.
+
+<video src="images/editing/jsts-update-imports-paste.mp4" title="Copy code from one editor to another shows the paste widget and results in adding imports when pasting. " autoplay loop controls muted></video>
+
+This feature is enabled by default, but you can disable it by toggling the `setting(typescript.updateImportsOnPaste.enabled)` setting.
+
+You can make paste with imports the default behavior, without showing the paste control, by configuring the `setting(editor.pasteAs.preferences)` setting. Include `text.updateImports.jsts` or `text.updateImports` to always add imports when pasting.
 
 ## JSX and auto closing tags
 
