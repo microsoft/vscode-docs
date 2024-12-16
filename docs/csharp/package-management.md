@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: Package Management
 ContentId: 6e7d5ecf-d7aa-44b5-abc0-2257a2075906
 PageTitle: C# package management with NuGet in Visual Studio Code
-DateApproved: 6/6/2023
+DateApproved: 12/13/2024
 MetaDescription: C# package management with NuGet in Visual Studio Code
 ---
 
@@ -76,6 +76,12 @@ The following sections describe how to use each NuGet command, using both of the
 3. Next, choose which package you want to remove from the list of packages that are currently installed in your project.
 
 4. C# Dev Kit then performs the necessary changes and updates your project file and references.
+
+### Include prerelease package versions
+
+If you are looking to update or add a prerelease version of a NuGet package, you first need to set the **Include Prerelease Package Versions** to **true**.
+
+You can find this option under **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`) and searching for `nuget.includePrereleasePackageVersions` to `true`.
 
 ## Dependency management
 
