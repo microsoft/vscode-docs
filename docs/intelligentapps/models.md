@@ -13,7 +13,13 @@ MetaSocialImage:
 
 AI Toolkit supports a broad range of generative AI models. Both Small Language Models (SLM) and Large Language Models (LLM) are supported.
 
-To use an AI model in AI Toolkit, from model catalog you can find GitHub hosted models (Llama3, Phi-3, Mistral models), publisher hosted models (OpenAI ChatGPT models, Anthropic Claude, Google Gemini), models you can download from HuggingFace, Ollama models running locally, or Bring-Your-Own-Models that you can connect to from AI Toolkit.
+In the model catalog, you can access models from various sources:
+
+- GitHub-hosted models (Llama3, Phi-3, Mistral models)
+- Publisher-hosted models (OpenAI ChatGPT models, Anthropic Claude, Google Gemini)
+- Locally downloaded models, for example from HuggingFace
+- Locally running Ollama models
+- Connect to Bring-Your-Own-Models
 
 ## Find a model
 
