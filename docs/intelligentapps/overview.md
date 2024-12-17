@@ -11,7 +11,6 @@ MetaSocialImage:
 
 # AI Toolkit for Visual Studio Code
 
-## What's AI Toolkit for Visual Studio Code?
 
 AI Toolkit for Visual Studio Code is an extension to help developers and AI engineers to easily build AI apps through developing and testing with generative AI models locally or in the cloud. AI Toolkit supports most genAI models on the market.
 
