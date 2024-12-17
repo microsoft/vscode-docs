@@ -27,6 +27,33 @@ If you prefer to only see refactorings without Quick Fixes, then you can use the
 
 >**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
+### Code Actions on save
+
+With the `setting(editor.codeActionsOnSave)` setting, you can configure a set of Code Actions that are automatically applied when you save a file, for example to organize imports. Based on your workspace files and active extensions, IntelliSense provides a list of available Code Actions.
+
+![Screenshot of settings.json, showing IntelliSense suggestions for the editor.codeActionsOnSave setting.](images/refactoring/code-actions-on-save.png)
+
+You can configure one or more Code Actions for `setting(editor.codeActionsOnSave)`. The Code Actions are then run in the order they're listed.
+
+The following example shows how to configure multiple Code Actions on save:
+
+```json
+// On explicit save, run sortImports source action. On auto save (window or focus change), run organizeImports source action.
+"editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.sortImports": "explicit",
+},
+```
+
+The following values are supported for each Code Action:
+
+* `explicit` (default): Triggers Code Actions when explicitly saved
+* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes
+* `never`: Never triggers Code Actions on save
+
+> [!NOTE]
+> Although `true` and `false` are still valid configuration values at the moment, they will be deprecated in favor of `explicit`, `always`, and `never`.
+
 ## Refactoring actions
 
 ### Extract Method
