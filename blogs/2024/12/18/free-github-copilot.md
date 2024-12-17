@@ -138,19 +138,20 @@ There's so much more GitHub Copilot we want to show you, but nothing can replace
 
 We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bskyp.app/@vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/) and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
+And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode-copilot-release).
+
 ## GitHub Copilot in other places
 
 As part of the free tier, you will also be able to use GitHub Copilot on GitHub.com.
 
 While we work with GitHub to build the Visual Studio Code experience, Copilot itself is not exclusive to VS Code. You may be wondering about editors like Visual Studio. Will those users get a free Copilot offering as well?
 
-Yes. Absolutely. Check out this blog post from the VS team on what works today and what’s coming shortly.
+Yes. Absolutely. Check out [this blog post](https://aka.ms/copilot-free-v) from the VS team on what works today and what’s coming shortly.
 
 ## The AI code editor for everyone
 
 2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join as on the journey to redefine the code editor. Again.
 
-[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog
- )
+[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog)
 
 
