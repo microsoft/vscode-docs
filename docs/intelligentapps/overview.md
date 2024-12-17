@@ -16,7 +16,7 @@ AI Toolkit for Visual Studio Code is an extension to help developers and AI engi
 
 AI engineers can use AI Toolkit to discover and try popular AI models easily with playground that has attachment support, run multiple prompts in batch mode, evaluate the prompts in a dataset to AI models for the popular evaluators, and finetune/deploy AI models.
 
-## Who shall use AI Toolkit?
+## Who should use AI Toolkit?
 
 Any developer who wants to explore, test, evaluate, and finetune generative AI models when building AI apps.
 
