@@ -29,7 +29,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 **Try this:** build a native mobile app using Flutter. I [built a game last weekend](https://youtu.be/Vj13SdN6OxU?si=sUvbBw0KSQ5q6iWh) and I've never used Flutter in my life.
 
-### Multiple models, your choice
+## Multiple models, your choice
 
 Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/getting-started-chat#_stay-in-the-flow-with-inline-chat) or [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits), you get to decide who your pair programmer is.
 Tell GitHub Copilot exactly how you want things done with [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your specific preferences and the details that the model needs to know to write code the way you want it.
@@ -37,7 +37,7 @@ Tell GitHub Copilot exactly how you want things done with [custom instructions](
 
 **Try this:** use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in GitHub Copilot Edits to build it.
 
-### Custom Instructions
+## Custom Instructions
 
 Tell GitHub Copilot exactly how you want things done with [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your specific preferences and the details that the model needs to know to write code the way you want it.
 
@@ -88,7 +88,7 @@ Click the microphone icon to start a voice chat. This is powered by the free, cr
 
 **Try this:** Use Speech with GitHub Copilot Edits to prototype your next app. You can literally talk your way to a working demo.
 
-### Be a terminal expert
+## Be a terminal expert
 
 With terminal chat, you can do just about anything in your terminal. Press <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> and tell GitHub Copilot what you want to do.
 
@@ -98,7 +98,7 @@ For instance, I know that I can use the [ffmpeg library](https://ffmpeg.org/) to
 
 **Try this:** You are now officially a git expert. No need to remember the exact syntax for `git rebase` or `git cherry-pick`. Just tell GitHub Copilot what you are trying to do using terminal chat.
 
-### No fear of commitment
+## No fear of commitment
 
 No more commits that say "changes". GitHub Copilot will suggest a commit message for you based on the changes you've made and your last several commit messages. You can [use custom instructions for commit generation](https://code.visualstudio.com/docs/copilot/copilot-customization#_define-commit-message-generation-custom-instructions) to format the messages _exactly_ the way you want.
 
@@ -106,7 +106,7 @@ No more commits that say "changes". GitHub Copilot will suggest a commit message
 
 **Try this:** Go beyond commits. Install the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and you can generate pull request descriptions, get summaries of pull requests and even get suggested fixes for issues. All without leaving VS Code.
 
-### Extensions are all you need
+## Extensions are all you need
 
 Every VS Code extension can tie directly into the GitHub Copilot APIs and offer a customized AI experience. Check out MongoDB with [their extension](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) that can write impressively complex queries, use fuzzy search and a lot more...
 
@@ -114,7 +114,7 @@ Every VS Code extension can tie directly into the GitHub Copilot APIs and offer 
 
 **Try this:** Build your own extension for GitHub Copilot using GitHub Copilot! We've created some new tutorials that show you how to [build a code tutor chat paricipant](https://code.visualstudio.com/api/extension-guides/chat-tutorial) or [generate AI-powered code annotations](https://code.visualstudio.com/api/extension-guides/language-model-tutorial).
 
-### A vision for the future
+## A vision for the future
 
 This last one is a preview of something we're adding to GitHub Copilot soon, but it's way too cool not to show you right now.
 
@@ -130,7 +130,7 @@ Or use it to generate alt text for an image.
 
 _Note:_ Vision is in preview today and requires you to have your own OpenAI, Anthropic or Gemini API key. The key will not be required when we release it as part of GitHub Copilot. Coming Soon!
 
-### Keeping up with GitHub Copilot
+## Keeping up with GitHub Copilot
 
 There's so much more GitHub Copilot we want to show you, but nothing can replace the experience of trying it for yourself.
 
