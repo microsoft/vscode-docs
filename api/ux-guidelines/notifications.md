@@ -69,6 +69,24 @@ When needing to display progress for an indeterminate timeframe (for example, se
 
 *This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs (**details**).*
 
+## Modal dialog
+
+When you need immediate user input for an action, you can opt to show a modal dialog. This UI element should be used with caution because a modal dialog blocks user interactions outside the dialog, until it's dismissed.
+
+![Modal dialog](images/examples/javascript-update-imports-dialog.png)
+
+*This dialog appears after moving a JavaScript/TypeScript file, asking to update import statements in other files.*
+
+**✔️ Do**
+
+* Only use modal dialogs if you need immediate user interaction
+* Where appropriate, provide an action to avoid repeated user confirmation (*Always*/*Never* action)
+
+**❌ Don't**
+
+* Use modal dialogs to confirm multiple steps
+* Use modal dialogs for showing messages that don't require an action from the user
+
 ## Links
 
 * [Hello World extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)
