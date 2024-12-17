@@ -31,7 +31,12 @@ You can switch the installation between the formal released version for stable f
 
 ## Getting started
 
-After you install the AI Toolkit, follow the get started guide from AI Toolkit:
+After you install the AI Toolkit, follow the steps in the AI Toolkit getting started walkthrough. The walkthrough takes you through the playground, where you can use chat to interact with AI models.
+
+1. Select the AI Toolkit view in the Activity Bar
+
+1. In the **Help and Feedback** section, select **Get Started** to open the walkthrough
+
 ![Getting started](./images/overview/get_started.png)
 
 You will be in playground to test chat with an AI model quickly.
