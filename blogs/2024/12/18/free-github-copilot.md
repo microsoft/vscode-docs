@@ -6,27 +6,20 @@ MetaDescription: Announcing a free tier for GitHub Copilot in Visual Studio Code
 Date: 2024-12-18
 Author: Burke Holland
 ---
-DONT FORGET TO UPDATE THE AKA BEFORE GO LIVE - AKA.MS/COPILOT-FREE
----
 
 # Announcing a free GitHub Copilot for VS Code
 
 We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
-[Enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog
- )
+[Enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog)
 
 <video src="blog-video-v2.mp4" title="Copilot Edits video"></video>
 
-With GitHub Copilot Free, you get **access to both GPT-4o and Claude 3.5 Sonnet models**.
+With GitHub Copilot Free you get **2000 code completions/month**. That's about 80 per working day - which is a lot. You also get **50 chat requests/month**, as well as **access to both GPT-4o and Claude 3.5 Sonnet models**.
 
-You get **2000 code completions/month**. That's about 80 per working day - which is a lot.
+If you hit these limits, ideally it's because Copilot is doing its job well, which is to help you do yours! If you find you need more Copilot, the [paid Pro plan](https://github.com/features/copilot#pricing-2) is unlimited and provides access to additional models like **o1 and Gemini** (coming end of January).
 
-You also get **50 chat requests/month** and a **64k context window**, with **128k coming soon**.
-
-If you hit these limits, ideally it's because Copilot is doing its job well, which is to help you do yours! If you find you need more Copilot, the Pro plan is unlimited and provides access to additional models like o1 and Gemini (coming end of January).
-
-The VS Code and GitHub teams have been hard at work, as always, improving the GitHub Copilot experience with brand new features and capabilities. This is your editor. Redefined with AI.
+With this announcement, GitHub Copilot becomes a core part of the VS Code experience. The team has been hard at work, as always, improving that experience with brand new AI features and capabilities.  Let’s take a look at some of the newer additions to GitHub Copilot that dropped in just the past few months. This is your editor, redefined with AI.
 
 ## Work with multiple files using GitHub Copilot Edits
 
@@ -63,7 +56,7 @@ For example...
 * Use static site generation (SSG) for pre-rendered static pages.
 
 ## TypeScript
-* Prefer classes to interfaces
+* Use consistent object property shorthand: const obj = { name, age }
 * Avoid implicit any
 ```
 
@@ -71,17 +64,17 @@ For example...
 
 ## Full Project Awareness
 
-GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The `@workspace` participant is a domain expert in the area of your entire codebase.
+GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The [`@workspace` participant](https://code.visualstudio.com/docs/copilot/workspace-context) is a domain expert in the area of your entire codebase.
 
 <video src="workspace-v2.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
-GitHub Copilot will also do intent detection (as seen in the video) for you and include the `@workspace` automatically if it see's you are asking a question that requires full project context.
+GitHub Copilot will also do intent detection (as seen in the video) and include the `@workspace` automatically if it see's you are asking a question that requires full project context.
 
 **Try this:** The `@workspace` participant can set up testing for your project. From scratch. Just look for the `@workspace /setupTests` command.
 
 ## Naming things and other hard problems
 
-GitHub Copilot can suggest names for your variables, functions and classes. Just press `F2` to rename something and then wait just a moment for GitHub Copilot to give you some suggestions.
+They say naming things is one of the hardest problems in computer science. Press `F2` to rename something, and GitHub Copilot will give you some suggestions based on how that symbol is used and the rest of your code.
 
 <video src="copilot-rename-v2.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -103,11 +96,11 @@ For instance, I know that I can use the [ffmpeg library](https://ffmpeg.org/) to
 
 ![Terminal displaying a script to extract video frames.](terminal-inline-chat.png)
 
-**Try this:** You are now officially a git expert. No need to remember the exact syntax for `git rebase` or `git cherry-pick` or whatever. Just ask GitHub Copilot.
+**Try this:** You are now officially a git expert. No need to remember the exact syntax for `git rebase` or `git cherry-pick`. Just tell GitHub Copilot what you are trying to do using terminal chat.
 
 ### No fear of commitment
 
-No more commits that say "changes". GitHub Copilot will suggest a commit message for you based on the changes you've made and your last several commit messages. You can use custom instructionsf for commit generation to format the messages _exactly_ the way you want.
+No more commits that say "changes". GitHub Copilot will suggest a commit message for you based on the changes you've made and your last several commit messages. You can [use custom instructions for commit generation](https://code.visualstudio.com/docs/copilot/copilot-customization#_define-commit-message-generation-custom-instructions) to format the messages _exactly_ the way you want.
 
 <video src="ccdt-commit-msgs.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -115,11 +108,11 @@ No more commits that say "changes". GitHub Copilot will suggest a commit message
 
 ### Extensions are all you need
 
-Every VS Code extension can tie directly into the GitHub Copilot API's and offer a customized AI experience. Check out MongoDB with [their extension](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) that can write impressively complex queries, use fuzzy search and a lot more...
+Every VS Code extension can tie directly into the GitHub Copilot APIs and offer a customized AI experience. Check out MongoDB with [their extension](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) that can write impressively complex queries, use fuzzy search and a lot more...
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MLWlWrRAb4w?si=FzYwY_lOLUlfOmQ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**Try this:** In the extensions marketplace view in VS Code, use "@tag:chat-participant" to see all of the extensions that offer an AI experience with GitHub Copilot.
+**Try this:** Build your own extension for GitHub Copilot using GitHub Copilot! We've created some new tutorials that show you how to [build a code tutor chat paricipant](https://code.visualstudio.com/api/extension-guides/chat-tutorial) or [generate AI-powered code annotations](https://code.visualstudio.com/api/extension-guides/language-model-tutorial).
 
 ### A vision for the future
 
@@ -141,8 +134,7 @@ _Note:_ Vision is in preview today and requires you to have your own OpenAI, Ant
 
 There's so much more GitHub Copilot we want to show you, but nothing can replace the experience of trying it for yourself.
 
-[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog
- )
+[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog)
 
 We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bskyp.app/@vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/) and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
