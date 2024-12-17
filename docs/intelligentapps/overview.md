@@ -22,7 +22,9 @@ Any developer who wants to explore, test, evaluate, and finetune generative AI m
 
 ## Install and setup
 
-Search the Visual Studio Code extension marketplace for "AI Toolkit" and <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">install the AI Toolkit for VS Code</a>
+You can install the AI Toolkit from the Extensions view in VS Code:
+
+> <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the AI Toolkit for VS Code</a>
 
 You can switch the installation between the formal released version for stable features and pre-released version for early access of new features. Check What's New during the installation for detailed feature list of each version.
 ![AI Toolkit in the marketplace](./images/overview/install.png)
