@@ -86,9 +86,11 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
     pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
     ```
 
-1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
+1. A list of available packages will be displayed
 
     ![MYSS2 Installer](images/cpp/cpp-install-msys2-toolchain.png)
+
+1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
 
 1. Enter `Y` when prompted whether to proceed with the installation.
 
