@@ -150,7 +150,7 @@ Yes. Absolutely. Check out [this blog post](https://aka.ms/copilot-free-vs) from
 
 ## The AI code editor for everyone
 
-2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join as on the journey to redefine the code editor. Again.
+2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join us on the journey to redefine the code editor. Again.
 
 [Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
 
