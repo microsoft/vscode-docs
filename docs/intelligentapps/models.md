@@ -23,7 +23,9 @@ In the model catalog, you can access models from various sources:
 
 ## Find a model
 
-On AI Toolkit, select **Models** in the treeview to open the model catalog, as shown in step 1.
+To find a model in the model catalog:
+
+1. In the AI Toolkit view, select **CATALOG** > **Models* to open the model catalog
 ![Select model in model catalog](./images/models/model_catalog.png)
 
 You can filter the models in the model catalog by using the following criteria:
