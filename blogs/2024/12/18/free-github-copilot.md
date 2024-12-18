@@ -128,7 +128,7 @@ Or use it to generate alt text for an image.
 
 <video src="copilot-vision-markdown.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
-**Try This:** Mock up a UI using Figma or Sketch (or PowerPoint - it's ok if you do that. I do it too.). Then use `@vision` to generate the UI. You can even tell it which CSS framework to use.
+**Try this:** Mock up a UI using Figma or Sketch (or PowerPoint - it's ok if you do that. I do it too). Then use `@vision` to generate the UI. You can even tell it which CSS framework to use.
 
 _Note:_ Vision is in preview today and requires you to have your own OpenAI, Anthropic or Gemini API key. The key will not be required when we release it as part of GitHub Copilot. Coming Soon!
 
