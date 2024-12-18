@@ -293,9 +293,6 @@ This chat participant knows all about VS Code and can help you bridge the gap be
 
 ![Asking @vscode how to change the VS Code colors](images/copilot-chat/agent-example.png)
 
-With the `/runCommand` [slash command](#slash-commands), you can ask `@vscode` to run a command in the editor. For example, you can ask `@vscode /runCommand show minimap` to show the minimap in the editor.
-
-![Toggle the minimap in the editor with the /runCommand slash command in Copilot Chat.](images/copilot-chat/copilot-runcommand.png)
 
 ### @terminal
 
