@@ -59,7 +59,7 @@ Some models require a publisher or hosting-service license and account to sign-i
 
 ## Select a model for testing
 
-Once you find the model of interest, you can test run this model for chat completeions in the playground.
+You can test run each of the models in the playground for chat completions.
 
 On each model card, there are several options:
 - **Try in Playground** link that can load selected model in playground for test without model downloading.
