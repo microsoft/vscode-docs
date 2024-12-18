@@ -27,7 +27,9 @@ On AI Toolkit, select **Models** in the treeview to open the model catalog, as s
 ![Select model in model catalog](./images/models/model_catalog.png)
 
 You can filter the models in the model catalog by using the following criteria:
-- Hosted by:
+    You can use the following criteria to filter the list:
+    
+    - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 
     AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 - Publisher:
