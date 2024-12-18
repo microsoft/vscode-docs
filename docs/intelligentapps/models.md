@@ -62,7 +62,7 @@ Some models require a publisher or hosting-service license and account to sign-i
 You can test run each of the models in the playground for chat completions.
 
 On each model card, there are several options:
-- **Try in Playground** link that can load selected model in playground for test without model downloading.
+- **Try in Playground**: load the selected model for testing in the playground without downloading it
 - **Download** link that will download the model to local first from source like Hugging Face.
 - **Load in Playground** will load the downloaded model into playground for chat.
 
