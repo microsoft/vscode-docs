@@ -41,7 +41,7 @@ Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-c
 
 ## Custom instructions
 
-Tell GitHub Copilot exactly how you want things done with [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your preferences and the details that the model needs to know to write code the way you want it.
+Tell GitHub Copilot exactly how you want things done with [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your preferences and the details that the model needs to know to write code the way you want it.
 
 You can specify these at the editor or project level. We'll even pick them up automatically if you include a `.github/copilot-instructions.md` file in your project. These instructions can easily be shared with your team, so everyone can be on the same page - including GitHub Copilot.
 
