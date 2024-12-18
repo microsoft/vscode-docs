@@ -96,7 +96,7 @@ Ollama enables many popular genAI models to run locally with CPU via GGUF quanti
 
     ![Select type](./images/models/select-type.png)
 
-1. Select **Select models from Ollama library**. Or if you start Ollama runtime at a different address, you can choose "Provide custom Ollama endpoint" to specify an Ollama endpoint.
+1. Select **Select models from Ollama library**. Or if you start Ollama runtime at a different address, you can choose **Provide custom Ollama endpoint** to specify an Ollama endpoint.
 
     ![Select Ollama](./images/models/select-ollama.png)
 
