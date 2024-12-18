@@ -2,7 +2,7 @@
 Order: 91
 TOCTitle: Announcing Copilot Free in VS Code
 PageTitle: Announcing a free GitHub Copilot for VS Code
-MetaDescription: Announcing a free tier for GitHub Copilot in Visual Studio Code.
+MetaDescription: Announcing a free plan for GitHub Copilot in Visual Studio Code.
 Date: 2024-12-18
 Author: Burke Holland
 ---
@@ -11,7 +11,9 @@ Author: Burke Holland
 
 We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
-[enable GitHub Copilot Free (opens VS Code)](vscode://GitHub.copilot-chat?referrer=blog). Alternative, you can enable GitHub Copilot right from within VS Code like so...
+[Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
+
+You can click on the link above or just enable GitHub Copilot right from within VS Code like so...
 
 <video src="blog-video-v2.mp4" title="Copilot Edits video"></video>
 
@@ -150,6 +152,6 @@ Yes. Absolutely. Check out [this blog post](https://aka.ms/copilot-free-vs) from
 
 2025 is going to be a huge year for GitHub Copilot, now a core part of the overall VS Code experience. We hope that you’ll join as on the journey to redefine the code editor. Again.
 
-[Enable GitHub Copilot Free](vscode://GitHub.copilot-chat?referrer=blog)
+[Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
 
 
