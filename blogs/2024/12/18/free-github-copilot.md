@@ -84,7 +84,7 @@ They say naming things is one of the hardest problems in computer science. Press
 
 ## Speak your mind
 
-Click the microphone icon to start a voice chat. This is powered by the free, cross-platform [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) that runs on local models. No 3rd party app required.
+Select the microphone icon to start a voice chat. This is powered by the free, cross-platform [VS Code Speech extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-speech) that runs on local models. No 3rd party app required.
 
 ![VS Code with file list and voice input active.](vscode-speech.png)
 
