@@ -64,7 +64,7 @@ For example...
 
 **Try this:** Ask Copilot to generate the command to dump your database schema to a file and then set that file as one of your custom instructions.
 
-## Full Project Awareness
+## Full project awareness
 
 GitHub Copilot has AI powered domain experts that you can mention with the `@` syntax. We call these, "participants". The [`@workspace` participant](https://code.visualstudio.com/docs/copilot/workspace-context) is a domain expert in the area of your entire codebase.
 
