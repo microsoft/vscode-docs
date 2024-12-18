@@ -13,6 +13,8 @@ MetaSocialImage:
 
 The AI Toolkit playground is where you can interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
 
+## Test a model in the playground
+
 
 There are multiple options to open the model playground:
 
