@@ -342,7 +342,6 @@ Some examples of built-in slash commands are:
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
 * `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
-* `@vscode /runCommand`: search or run a VS Code command
 
 To view the list of build-in participants and their commands, type `@` in the chat input field or select the <i class="codicon codicon-mention"></i> icon.
 
