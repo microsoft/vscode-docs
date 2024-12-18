@@ -34,7 +34,7 @@ From the chat input box, you can also clear chat history or add attachments for 
 
 ## Add attachments for multi-modal models
 
-Multi-modal models allow you to include attachment files in different format, such as image, voice, video, or document, send together with prompts to AI models. You can ask questions about the contents in the attachements.
+Multi-modal models allow you to include attachment files in different format, such as image, voice, video, or document, send together with prompts to AI models. You can ask questions about the contents in the attachments.
 
 For the models that support attachments, the attachment icon (paperclip) will show. Select the icon, and follow the instructions to attach one or more local files and use them with your prompt.
 
