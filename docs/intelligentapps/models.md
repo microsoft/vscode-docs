@@ -66,7 +66,7 @@ You can test run each of the models in the playground for chat completions.
 On each model card, there are several options:
 - **Try in Playground**: load the selected model for testing in the playground without downloading it
 - **Download**: download the model from a source like Hugging Face
-- **Load in Playground** will load the downloaded model into playground for chat.
+- **Load in Playground**: load a downloaded model into the playground for chat
 
 ## Bring your own models
 
