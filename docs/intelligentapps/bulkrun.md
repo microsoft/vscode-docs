@@ -9,34 +9,34 @@ MetaDescription: Run a set of prompts in an imported dataset, individually or in
 MetaSocialImage:
 ---
 
-# Bulk Run Overview
+# Run multiple prompts in bulk
 
-Bulk run feature in AI Toolkit allows you to run many prompts in batch mode. Compared to playground you can only run each prompt manually in order.
+The bulk run feature in AI Toolkit allows you to run multiple prompts in batch. When you use the playground, you can only run one prompt manually at a time, in the order they're listed. Bulk run takes a dataset as input, where each row in the dataset has a prompt as the minimal requirement. Typically teh dataset has multiple rows. Once imported, you can select any prompt to run or run all prompts on the selected model. The responses will be displayed in the same dataset view. Executed dataset can be exported.
 
-## Start a bulk run
+To start a bulk run:
 
-Navigate to `Bulk Run` in the `TOOLS` section in the tree view of AI Toolkit. You can select either a sample dataset to get familiar about the feature, or import a local JSONL file that has at least a field `query` to use as prompts.
+1. Open Bulk Run view
 
+    In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
-## Run any prompt
+1. Select dataset
 
-Once dataset is loaded in the bulk run view, you can find the table format of the imported dataset, with column of query and column of response.
+    You can select either a sample dataset to get familiar about the feature, or import a local JSONL file that has at least a field `query` to use as prompts.
+    ![Select dataset](./images/bulkrun/dataset.png)
 
-Like in the playground, you can select the AI model, context for your prompt, and inference parameters.
+1. Run a single prompt
 
-Initially the response cell of each row is empty with a `Run` icon. You can select this icon to execute prompt just for that row.
+    Once dataset is loaded in the bulk run view, you can **Run** or **Rerun** any prompt.
 
-## Bulk run prompts
+    Like in the playground, you can select AI model, add context for your prompt, and change inference parameters.
 
-Select `Run all` on the top of bulk run view to automatically run through all queries and display responses in the response column.
-There is an option to only run the remaining queries that have not been executed.
+    ![Bulk run prompts](./images/bulkrun/bulkrun_one.png)
 
-## Rerun
+1. Bulk run prompts
 
-For any previously response, there is `Rerun` icon displayed for that row. You can switch to different model with different parameter to quickly see the results.
+    Select **Run all** on the top of bulk run view to automatically run through all queries and display responses in the response column. There is an option to only run the remaining queries that have not been executed.
 
-## Export results
+1. Export results
 
-You can export the bulk run result to a JSONL format for future reference.
-
-You can also import another dataset in JSONL format for the bulk run.
+    You can export the bulk run result to a JSONL format for future reference.
+    You can also import another dataset in JSONL format for the bulk run.

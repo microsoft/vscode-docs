@@ -35,7 +35,6 @@ You can install the AI Toolkit from the Extensions view in VS Code:
 > <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the AI Toolkit for VS Code</a>
 
 You can switch the installation between the formal released version for stable features and pre-released version for early access of new features. Check What's New during the installation for detailed feature list of each version.
-![AI Toolkit in the marketplace](./images/overview/install.png)
 
 ## Getting started
 
@@ -47,15 +46,5 @@ After you install the AI Toolkit, follow the steps in the AI Toolkit getting sta
 
     ![Getting started](./images/overview/get_started.png)
 
-
-## Key features
-
-- Model catalog with rich generative AI models sources (GitHub, ONNX, OpenAI, Anthropic, Google, ...)
-- Bring Your Own Models from remotely hosted model, or Ollama models that are runing locally
-- Playground for model inference or chat test
-- Attachment support for Multi-modal Language Models
-- Batch run prompts for selected AI models
-- Evaluate AI Model with dataset for supported popular evaluators like F1 score, relevance, similarity, coherence, etc.
-- Many new features coming soon: managing dataset, finetuning models, prompt builders...
 
 Find more on [models](./models.md) and [playground](./playground.md)

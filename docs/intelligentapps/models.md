@@ -25,23 +25,17 @@ In the model catalog, you can access models from various sources:
 
 To find a model in the model catalog:
 
-1. In the AI Toolkit view, select **CATALOG** > **Models* to open the model catalog
-![Select model in model catalog](./images/models/model_catalog.png)
+1. In the AI Toolkit view, select **CATALOG** > **Models** to open the model catalog
 
-You can filter the models in the model catalog by using the following criteria:
-    You can use the following criteria to filter the list:
-    
+1. use the filters to reuce the list of available models
+    ![Select model in model catalog](./images/models/model_catalog.png)
     - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
 
-
     - **Tasks**: Currently, only `Text Generation` is supported.
 
-
     - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
-
-    Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
     - **Fine-tuning Support**: switch filters models that can be used to run fine-tuning.
 
@@ -94,15 +88,15 @@ Ollama enables many popular genAI models to run locally with CPU via GGUF quanti
 
 1. Select **Add an Ollama model**
 
-    ![Select type](./images/models/select-type.png)
+    ![Select model type to add](./images/models/select-type.png)
 
 1. Select **Select models from Ollama library**. Or if you start Ollama runtime at a different address, you can choose **Provide custom Ollama endpoint** to specify an Ollama endpoint.
 
-    ![Select Ollama](./images/models/select-ollama.png)
+    ![Select Ollama models](./images/models/select-ollama.png)
 
 1. Select the models you want to add to AI Toolkit.
 
-    ![Select models](./images/models/select-models.png)
+    ![Select available models to add](./images/models/select-models.png)
 
     > Note that AI Toolkit will only show models that are already downloaded in Ollama and not already added to AI Toolkit. To download a model from Ollama, you can run `ollama pull <model-name>`. You can see the list of models supported by Ollama in [Ollama library](https://ollama.com/library) or refer to the [Ollama documentation](https://github.com/ollama/ollama).
 

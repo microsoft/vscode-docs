@@ -11,26 +11,38 @@ MetaSocialImage:
 
 # Evaluation Overview
 
-AI engineers often need to evaluate models with different parameters, different prompts in a dataset for comparing to ground truth and generate values from the comparisons. AI Toolkit allows you to perform evaluations with minimal effort.
+AI engineers often need to evaluate models with different parameters or prompts in a dataset for comparing to ground truth and compute evaluator values from the comparisons. AI Toolkit allows you to perform evaluations with minimal effort.
 
-## Prepare an evaluation job
-
-Navigate to the tree view's `Batch Run` entry in `TOOLS` section. You will see an evaluation job history view. Select the button `Start Evaluation`, then answer the questions:
-1. Evaluation job name: default or a name you can specify
-1. Evaluator: currently the built-in evaluators can be selected.
-1. Judging model: a model from the list that is selected as judging model to evaluate for some evaluators.
-1. Dataset: you can start with a sample dataset for learning purpose, or import a JSONL file with fields `query`,`response`,`ground truth`.
+![Start evaluation](./images/evaluation/evaluation.png)
 
 ## Start an evaluation job
 
-You will be promoted to confirm you want to start the evaluation. Or select any individual evaluation job to re-run it.
+1. In AI Toolkit view, select **TOOLS** > **Evaluation** to open the evluation view.
+1. Select the button **Create Evaluation**, then answer the questions:
+
+    - **Evaluation job name:** default or a name you can specify
+    - **Evaluator:** currently the built-in evaluators can be selected.
+    ![Evaluators](./images/evaluation/evaluators.png)
+    - **Judging model:** a model from the list that can be selected as judging model to evaluate for some evaluators.
+    - **Dataset:** you can start with a sample dataset for learning purpose, or import a JSONL file with fields `query`,`response`,`ground truth`.
+1. Once you provide all necessary information for evaluation, a new evaluation job is created. You will be promoted to open your new evaluation job details.
+![Open evaluation](./images/evaluation/openevaluation.png)
+
+1. Verify your dataset and select **Run Evaluation** to start the evaluation.
+![Run Evaluation](./images/evaluation/runevaluation.png)
 
 ## Monitor the evaluation job
 
-Once an evaluation job is started, you can find its status from the evaluation job overview. Each evaluation job has link to the dataset used, logs from evaluation process, timestamp and details of the evaluation.
+Once an evaluation job is started, you can find its status from the evaluation job view.
+![Running evaluation](./images/evaluation/running.png)
+Each evaluation job has link to the dataset used, logs from evaluation process, timestamp and link to the details of the evaluation.
 
 ## Find results of evaluation
 
 Select the evaluation job detail, the view has columns of selected evaluators with the numerical values. Some may have aggregate values.
 
-You can also open the data in `Data Wrangler` extension from the button `Open in Data Wrangler`
+You can also select **Open In Data Wrangler** to open the data in `Data Wrangler` extension.
+
+> <a class="install-extension-btn" href="vscode:extension/ms-toolsai.datawrangler">Install Data Wrangler</a>
+
+![Data Wrangler](./images/evaluation/datawrangler.png)

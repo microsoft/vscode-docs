@@ -13,6 +13,8 @@ MetaSocialImage:
 
 The AI Toolkit playground is where you can interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
 
+![Playground view](./images/playground/playground.png)
+
 ## Test a model in the playground
 
 
@@ -22,8 +24,6 @@ There are multiple options to open the model playground:
 
 - Select **Load in Playground** or **Try in Playground** from a model card in the model catalog
 
-![Playground view](./images/playground/playground.png)
-
 To test a model in the playground:
 
 1. Select a model
@@ -31,6 +31,8 @@ To test a model in the playground:
 1. Change model parameters (Optional)
 1. Type prompts or questions from the chat box at the bottom of playground
 1. Send questions and wait for responses.
+
+![Setting model parameters](./images/playground/parameters.png)
 
 From the chat input box, you can also clear chat history or add attachments for the prompt.
 
