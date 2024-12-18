@@ -36,7 +36,6 @@ You can filter the models in the model catalog by using the following criteria:
 
     - **Tasks**: Currently, only `Text Generation` is supported.
 
-    Currently, only `Text Generation` is supported.
 
 - Model type:
 
