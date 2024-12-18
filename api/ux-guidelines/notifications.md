@@ -86,6 +86,7 @@ When you need immediate user input for an action, you can opt to show a modal di
 
 * Use modal dialogs to confirm multiple steps
 * Use modal dialogs for showing messages that don't require an action from the user
+* Show a modal dialog for actions that are not explicitly initiated by the user
 
 ## Links
 
