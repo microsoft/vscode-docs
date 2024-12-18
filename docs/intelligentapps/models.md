@@ -72,7 +72,7 @@ On each model card, there are several options:
 
 AI Toolkit's playground also supports remote models.
 
-If you have a self hosted or deployed model that is accessible from internet, you can add it to AI Toolkit and use it in the playground.
+If you have a self-hosted or deployed model that is accessible from the internet, you can add it to AI Toolkit and use it in the playground.
 
 1. Hover over **MY MODELS** in the treeview, and select the `+` icon to add a remote model into AI Toolkit.
 1. Fill in the requested information, such as model name, display name, model hosting URL, and optional auth string.
