@@ -39,7 +39,6 @@ After you install the AI Toolkit, follow the steps in the AI Toolkit getting sta
 
     ![Getting started](./images/overview/get_started.png)
 
-You will be in playground to test chat with an AI model quickly.
 
 ## Key features
 
