@@ -34,7 +34,7 @@ You can filter the models in the model catalog by using the following criteria:
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
 
 
-- Tasks:
+    - **Tasks**: Currently, only `Text Generation` is supported.
 
     Currently, only `Text Generation` is supported.
 
