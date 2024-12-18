@@ -98,7 +98,7 @@ For instance, I know that I can use the [ffmpeg library](https://ffmpeg.org/) to
 
 ![Terminal displaying a script to extract video frames.](terminal-inline-chat.png)
 
-**Try this:** The next time you get an error in your terminal, look for the sparkle icon next to your prompt. Click on it to have GitHub Copilot fix, explain or even auto-correct the shell command for you.
+**Try this:** The next time you get an error in your terminal, look for the sparkle icon next to your prompt. Select it to have GitHub Copilot fix, explain, or even auto-correct the shell command for you.
 
 ## No fear of commitment
 
