@@ -29,7 +29,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
-**Try this:** build a native mobile app using Flutter. I [built a game last weekend](https://youtu.be/Vj13SdN6OxU?si=sUvbBw0KSQ5q6iWh) and I've never used Flutter in my life.
+**Try this:** Build a native mobile app using Flutter. I [built a game last weekend](https://youtu.be/Vj13SdN6OxU?si=sUvbBw0KSQ5q6iWh) and I've never used Flutter in my life.
 
 ## Multiple models, your choice
 
