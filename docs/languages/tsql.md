@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: T-SQL
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
 PageTitle: Transact-SQL with Visual Studio Code
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
 ---
 # Transact-SQL in Visual Studio Code
@@ -73,13 +73,13 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server on Linux documentation]
 * [SQL Server Blog]
 
-[Transact-SQL]: https://learn.microsoft.com/sql/t-sql/language-reference
-[mssql]: https://aka.ms/mssql-marketplace
-[Download VS Code]: https://code.visualstudio.com/download
-[SQL Server 2017 Developer Edition]: https://www.microsoft.com/sql-server/sql-server-downloads
 [Build an app]: https://aka.ms/sqldev
-[SQL Server documentation]: https://learn.microsoft.com/sql/sql-server
-[SQL Server on Linux documentation]: https://learn.microsoft.com/sql/linux/sql-server-linux-overview/
-[SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
+[Download VS Code]: https://code.visualstudio.com/download
 [GitHub]: https://github.com/microsoft/vscode-mssql
 [GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues
+[mssql]: https://aka.ms/mssql-marketplace
+[SQL Server 2017 Developer Edition]: https://www.microsoft.com/sql-server/sql-server-downloads
+[SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
+[SQL Server documentation]: https://learn.microsoft.com/sql/sql-server
+[SQL Server on Linux documentation]: https://learn.microsoft.com/sql/linux/sql-server-linux-overview/
+[Transact-SQL]: https://learn.microsoft.com/sql/t-sql/language-reference

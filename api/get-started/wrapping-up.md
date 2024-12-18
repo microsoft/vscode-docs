@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: a15875fa-19b5-4c11-8903-864af133ce57
-DateApproved: 10/29/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Next steps to take after studying the Getting Started section
