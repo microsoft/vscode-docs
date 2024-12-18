@@ -39,7 +39,7 @@ Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-c
 
 **Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) to build it.
 
-## Custom Instructions
+## Custom instructions
 
 Tell GitHub Copilot exactly how you want things done with [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization). These instructions are passed to the model with every request, allowing you to specify your preferences and the details that the model needs to know to write code the way you want it.
 
