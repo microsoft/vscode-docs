@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code language extensions contribute programming l
 
 # Programmatic Language Features
 
-Programmatic Language Features is a set of smart-editing features powered by the [`vscode.languages.*`](/api/references/vscode-api#languages) API. There are two common ways to provide a dynamic language feature in Visual Studio Code. Let's take [Hover](#hover) as an example:
+Programmatic Language Features is a set of smart-editing features powered by the [`vscode.languages.*`](/api/references/vscode-api#languages) API. There are two common ways to provide a dynamic language feature in Visual Studio Code. Let's take [Hover](#show-hovers) as an example:
 
 ```ts
 vscode.languages.registerHoverProvider('javascript', {
