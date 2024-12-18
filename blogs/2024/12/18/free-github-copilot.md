@@ -37,7 +37,7 @@ Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-c
 
 ![AI model selection menu in VS Code.](model-picker.png)
 
-**Try this:** use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) to build it.
+**Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) to build it.
 
 ## Custom Instructions
 
