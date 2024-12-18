@@ -37,7 +37,7 @@ You can filter the models in the model catalog by using the following criteria:
     - **Tasks**: Currently, only `Text Generation` is supported.
 
 
-- Model type:
+    - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
     Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
