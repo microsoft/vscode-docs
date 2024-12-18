@@ -45,7 +45,7 @@ You can filter the models in the model catalog by using the following criteria:
 
 If your model is self hosted or runs as Ollama local model, you can add them from the "+ Add model" as ollama model or custom model.
 
-Select on each model card in model catalog to find more details on the model.
+Select a model card in model catalog to view more details of the selected model.
 
 ## License and sign-in
 
