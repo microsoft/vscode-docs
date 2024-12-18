@@ -9,6 +9,8 @@ Author: Burke Holland
 
 # Announcing a free GitHub Copilot for VS Code
 
+December 18, 2024 by Burke Holland, @burkeholland
+
 We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
 [Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
@@ -154,4 +156,6 @@ Yes. Absolutely. Check out [this blog post](https://aka.ms/copilot-free-vs) from
 
 [Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
 
+Happy Coding!
 
+Burke Holland @burkeholland
