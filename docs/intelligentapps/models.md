@@ -55,7 +55,7 @@ Select a model card in model catalog to view more details of the selected model.
 
 ## License and sign-in
 
-Some of the models require publisher or hosting service license and account to sign-in. You will be prompted when you select a model from model catalog that requires license, to run it in playground.
+Some models require a publisher or hosting-service license and account to sign-in. In that case, you are prompted when you select a model from the model catalog to run it in the playground.
 
 ## Select a model for testing
 
