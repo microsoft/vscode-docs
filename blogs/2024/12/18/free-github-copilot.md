@@ -23,7 +23,7 @@ If you hit these limits, ideally it's because Copilot is doing its job well, whi
 
 With this announcement, GitHub Copilot becomes a core part of the VS Code experience. The team has been hard at work, as always, improving that experience with brand new AI features and capabilities.  Let’s take a look at some of the newer additions to GitHub Copilot that dropped in just the past few months. This is your editor, redefined with AI.
 
-## Work with multiple files using GitHub Copilot Edits
+## Work with multiple files using Copilot Edits
 
 [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat sidebar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
 
