@@ -25,7 +25,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 ## Work with multiple files using Copilot Edits
 
-[GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat sidebar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
+[Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat side bar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
