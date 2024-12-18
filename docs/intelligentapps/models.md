@@ -33,7 +33,6 @@ You can filter the models in the model catalog by using the following criteria:
 
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
 
-    The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
 
 - Tasks:
 
