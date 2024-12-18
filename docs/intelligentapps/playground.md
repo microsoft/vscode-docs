@@ -13,7 +13,12 @@ MetaSocialImage:
 
 The AI Toolkit playground is where you can interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
 
-In AI Toolkit, select the `Playground` in the treeview, or select `Load in Playground`/`Try in Playground` from a model card in the model catalog, you will enter playground view as screenshot:
+
+There are multiple options to open the model playground:
+
+- In AI Toolkit, select the **Playground** in the treeview
+
+- Select **Load in Playground** or **Try in Playground** from a model card in the model catalog
 
 ![Playground view](./images/playground/playground.png)
 
