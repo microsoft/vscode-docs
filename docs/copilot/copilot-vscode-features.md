@@ -14,6 +14,9 @@ GitHub Copilot in Visual Studio Code provides AI-powered features to help you wr
 
 You can access GitHub Copilot in VS Code through the Chat view, directly in the editor, from the integrated terminal, and via AI-powered enhancements in the VS Code user interface.
 
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
 The team is continuously working on improving Copilot in VS Code and adding new features. Items in the cheat sheet marked with <i class="codicon codicon-beaker"></i> are experimental features. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
 
 ## Chat with GitHub Copilot
