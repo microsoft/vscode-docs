@@ -16,6 +16,14 @@ AI Toolkit for Visual Studio Code is an extension to help developers and AI engi
 
 AI engineers can use AI Toolkit to discover and try popular AI models easily with playground that has attachment support, run multiple prompts in batch mode, evaluate the prompts in a dataset to AI models for the popular evaluators, and finetune/deploy AI models.
 
+## Key features
+
+- [Model catalog](/docs/intelligentapps/models.md) with rich generative AI models sources (GitHub, ONNX, OpenAI, Anthropic, Google, ...)
+- [Bring Your Own Models](/docs/intelligentapps/models.md#bring-your-own-models) from remotely hosted model, or Ollama models that are running locally
+- [Playground](/docs/intelligentapps/playground.md) for model inference or testing via chat
+- Attachment support for multi-modal language models
+- [Batch run prompts](/docs/intelligentapps/bulkrun.md) for selected AI models
+- [Evaluate an AI model with a dataset](/docs/intelligentapps/evaluation.md) for supported popular evaluators like F1 score, relevance, similarity, coherence, and more
 ## Who should use AI Toolkit?
 
 Any developer who wants to explore, test, evaluate, and finetune generative AI models when building AI apps.
