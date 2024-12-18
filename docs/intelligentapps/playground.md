@@ -30,7 +30,7 @@ To get started, perform the steps:
 1. Type prompts or questions from the chat box at the bottom of playground
 1. Send questions and wait for responses.
 
-From the chat box, you can also clear chat history, or add attachement for the prompt.
+From the chat input box, you can also clear chat history or add attachments for the prompt.
 
 ## Add attachments for multi-modal models
 
