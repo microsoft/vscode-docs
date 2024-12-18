@@ -43,7 +43,13 @@ You can filter the models in the model catalog by using the following criteria:
 
     - **Fine-tuning Support**: switch filters models that can be used to run fine-tuning.
 
-If your model is self hosted or runs as Ollama local model, you can add them from the "+ Add model" as ollama model or custom model.
+To reference a self-hosted model or locally running Ollama model:
+
+1. Select **+ Add model** in the model catalog
+
+1. Choose between Ollama or a custom model in the model Quick Pick
+
+1. Provide details to add the model
 
 Select a model card in model catalog to view more details of the selected model.
 
