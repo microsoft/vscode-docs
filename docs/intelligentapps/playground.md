@@ -22,7 +22,7 @@ There are multiple options to open the model playground:
 
 ![Playground view](./images/playground/playground.png)
 
-To get started, perform the steps:
+To test a model in the playground:
 
 1. Select a model
 1. Insert context instructions (Optional)
