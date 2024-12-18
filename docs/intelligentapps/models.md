@@ -41,7 +41,7 @@ You can filter the models in the model catalog by using the following criteria:
 
     Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
-`Fine-tuning Support` switch filters models that can be used to run finetuning.
+    - **Fine-tuning Support**: switch filters models that can be used to run fine-tuning.
 
 If your model is self hosted or runs as Ollama local model, you can add them from the "+ Add model" as ollama model or custom model.
 
