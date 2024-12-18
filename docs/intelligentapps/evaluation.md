@@ -11,7 +11,7 @@ MetaSocialImage:
 
 # Evaluation Overview
 
-AI engineers often need to evaluate models with different parameters, different prompts in a dataset for comparing to ground truth and generate values from the comparisons. AI Toolkit allows you do perform evaluations with minimal efforts.
+AI engineers often need to evaluate models with different parameters, different prompts in a dataset for comparing to ground truth and generate values from the comparisons. AI Toolkit allows you to perform evaluations with minimal effort.
 
 ## Prepare an evaluation job
 
