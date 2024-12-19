@@ -44,7 +44,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Edits settings
 
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
