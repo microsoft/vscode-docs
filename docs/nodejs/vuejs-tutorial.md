@@ -67,7 +67,7 @@ VS Code will launch and display your Vue application in the File Explorer.
 
 ## Vue - Official extension
 
-Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
+Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
 
 The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, and formatting) to VS Code.
 
