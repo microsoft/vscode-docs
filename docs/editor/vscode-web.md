@@ -179,7 +179,7 @@ Edge and Chrome today support the [File System API](https://developer.mozilla.or
 
 ### Browser support
 
-You can use VS Code for the Web in the latest versions of Chrome, Edge, Firefox, and Safari. Note that on Firefox, for some functionality (such as opening a git repo), you need to exempt `vscode.dev` from the "strict" Enhanced Tracking Protection, if you have enabled that. Older versions of each browser may not work - we only guarantee support for the latest version.
+You can use VS Code for the Web in the latest versions of Chrome, Edge, Firefox, and Safari. Note that on Firefox, if you have enabled the "strict" Enhanced Tracking Protection, you need to to exempt `vscode.dev` for some functionality to work (such as opening a git repo). Older versions of each browser may not work - we only guarantee support for the latest version.
 
 > **Tip:** One way to check the compatible browser version is to look at the version of [Playright](https://playwright.dev/) currently used for testing VS Code and review its supported browser versions. You can find the currently used Playwright version in the VS Code repo's [package.json](https://github.com/microsoft/vscode/blob/main/package.json) file at `devDependencies/@playwright/test`. Once you know the Playwright version, for example `1.37`, you can then review the **Browser Versions** section in their [Release notes](https://playwright.dev/docs/release-notes).
 
