@@ -27,7 +27,7 @@ You can press and hold the keybinding for the voice start command (`kb(workbench
 
 ## Voice in Copilot Chat
 
-You can use your voice to talk to [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) easily. The command **Voice: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, inline chat is started, otherwise the Chat view is opened.
+You can use your voice to talk to [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) easily. The command **Voice: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, Inline Chat is started, otherwise the Chat view is opened.
 
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 

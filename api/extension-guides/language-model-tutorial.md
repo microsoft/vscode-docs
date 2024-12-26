@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d9038699-4ffe-485b-b40a-b1260a9973ad
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Tutorial that walks you through creating a VS Code extension that uses the Language Model API to generate AI-powered code annotations.
@@ -9,7 +9,7 @@ MetaDescription: Tutorial that walks you through creating a VS Code extension th
 
 # Tutorial: Generate AI-powered code annotations by using the Language Model API
 
-In this tutorial, You'll learn how to create a VS extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotatations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
+In this tutorial, You'll learn how to create a VS Code extension to build an AI-powered Code Tutor. You use the Language Model (LM) API to generate suggestions to improve your code and take advantage of the VS Code extension APIs to integrate it seamlessly in the editor as inline annotations that the user can hover over for more information. After you complete this tutorial, you will know how to implement custom AI features in VS Code.
 
 ![VS Code displaying custom annotations from GitHub Copilot as annotations](./images/lm-api/code-tutor-annotations-gif.gif)
 
@@ -82,7 +82,7 @@ Open the `src/extension.ts` file and change the `registerCommand` method so that
 const disposable = vscode.commands.registerCommand('code-tutor.annotate', () => {
 ```
 
-Run the extension by pressing <kbd>F5</kbd>. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing <kbd>F1</kbd>, and search for "tutor". You should see the "Tutor Annotations" command.
+Run the extension by pressing `kbstyle(F5)`. This will open a new VS Code instance with the extension installed. Open the Command Palette by pressing `kb(workbench.action.showCommands)`, and search for "tutor". You should see the "Tutor Annotations" command.
 
 ![The "Toggle Tutor Annotations" command in the VS Code Command Palette](./images/lm-api/tutor-command-command-palette.png)
 
@@ -165,7 +165,7 @@ const disposable = vscode.commands.registerTextEditorCommand('code-tutor.annotat
 We need instructions - or a "prompt" - that will tell the model to create the annotations and what format we want the response to be. Add the following code to the top of the file directly under the imports.
 
 ```ts
-const ANNOTATION_PROMPT = `You are a code tutor who helps students learn how to write better code. Your job is to evaluate a block of code that the user gives you and then annotate any lines that could be improved with a brief suggestion and the reason why you are making that suggestion. Only make suggestions when you feel the severity is enough that it will impact the readibility and maintainability of the code. Be friendly with your suggestions and remember that these are students so they need gentle guidance. Format each suggestion as a single JSON object. It is not necessary to wrap your response in triple backticks. Here is an example of what your response should look like:
+const ANNOTATION_PROMPT = `You are a code tutor who helps students learn how to write better code. Your job is to evaluate a block of code that the user gives you and then annotate any lines that could be improved with a brief suggestion and the reason why you are making that suggestion. Only make suggestions when you feel the severity is enough that it will impact the readability and maintainability of the code. Be friendly with your suggestions and remember that these are students so they need gentle guidance. Format each suggestion as a single JSON object. It is not necessary to wrap your response in triple backticks. Here is an example of what your response should look like:
 
 { "line": 1, "suggestion": "I think you should use a for loop instead of a while loop. A for loop is more concise and easier to read." }{ "line": 12, "suggestion": "I think you should use a for loop instead of a while loop. A for loop is more concise and easier to read." }
 `;
@@ -287,7 +287,7 @@ We are then setting where the decoration should appear. We need it to be on the 
 
 Finally, we set the decoration on the active text editor which is what causes the annotation to appear in the editor.
 
-If your extension is still running, restart it by selecting the green arrow from the debug bar. If you closed the debug session, press <kbd>F5</kbd> to run the extension. Open a code file in the new VS Code window instance that opens. When you select "Toggle Tutor Annotations" from the Command Palette, you should see the code annotations appear in the editor.
+If your extension is still running, restart it by selecting the green arrow from the debug bar. If you closed the debug session, press `kbstyle(F5)` to run the extension. Open a code file in the new VS Code window instance that opens. When you select "Toggle Tutor Annotations" from the Command Palette, you should see the code annotations appear in the editor.
 
 ![A code file with annotations from GitHub Copilot](./images/lm-api/code-with-annotations.png)
 
@@ -319,7 +319,7 @@ To do this, modify the "contributes" portion of the `package.json` as follows:
 
 This causes a button to appear in the navigation area (right-side) of the editor title bar. The "icon" comes from the [Product Icon Reference](https://code.visualstudio.com/api/references/icons-in-labels).
 
-Restart your extension with the green arrow or press <kbd>F5</kbd> if the extension is not already running. You should now see a comment icon that will trigger the "Toggle Tutor Annotations" command.
+Restart your extension with the green arrow or press `kbstyle(F5)` if the extension is not already running. You should now see a comment icon that will trigger the "Toggle Tutor Annotations" command.
 
 ![A comment icon appears in the title bar of the active tab in VS Code](./images/lm-api/code-tutor-annotations-gif.gif)
 
@@ -327,10 +327,12 @@ Restart your extension with the green arrow or press <kbd>F5</kbd> if the extens
 
 In this tutorial, you learned how to create a VS Code extension that integrates AI into the editor with the language model API. You used the VS Code extension API to get the code from the current tab, sent it to the model with a custom prompt, and then parsed and displayed the model result right in the editor using decorators.
 
-Next, you can extend your Code Tutor extension to [include a chat participant](/api/extension-guides/chat-tutorial.md) as well which will allow users to interact directly with your extension via the GitHub Copilot chat interface. You can also [explore the full range of API's in VS Code](/api/references/vscode-api.md) to explore new ways of building custom AI experiences your editor.
+Next, you can extend your Code Tutor extension to [include a chat participant](/api/extension-guides/chat-tutorial) as well which will allow users to interact directly with your extension via the GitHub Copilot chat interface. You can also [explore the full range of API's in VS Code](/api/references/vscode-api) to explore new ways of building custom AI experiences your editor.
+
+You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/lm-api-tutorial).
 
 ## Related content
 
-- [Language Model API extension guide](/api/extension-guides/language-model.md)
-- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial.md)
-- [VS Code Chat API reference](/api/extension-guides/chat.md)
+- [Language Model API extension guide](/api/extension-guides/language-model)
+- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial)
+- [VS Code Chat API reference](/api/extension-guides/chat)
