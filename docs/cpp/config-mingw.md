@@ -408,21 +408,17 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
 }
 ```
 
-You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path.
+You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path. It is strongly recommended not to add the system include path to the `includePath` setting for compilers that we support.
 
 ### Compiler path
 
 The extension uses the `compilerPath` setting to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide features like smart completions and **Go to Definition** navigation.
 
-The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The extension looks in several common compiler locations.
+The C/C++ extension attempts to populate `compilerPath` with a default compiler based on what it finds on your system. The extension looks in several common compiler locations but will only automatically select one that is in either one of the "Program Files" folders or whose path is listed in the PATH environment variable.
 
-The `compilerPath` search order is:
+If the Microsoft Visual C++ compiler can be found it will be selected, otherwise it will select a version of gcc, g++, or clang.
 
-- First check for the Microsoft Visual C++ compiler
-- Then look for g++ on Windows Subsystem for Linux (WSL)
-- Then g++ for MinGW-w64.
-
-If you have Visual Studio or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed MinGW-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0\mingw64\bin\g++.exe`.
+If you have more than one compiler installed, you might need to change `compilerPath` to match the preferred compiler for your project. You may also use the **C/C++: Select InteliSense Configuration...** command in the Command Palette to select one of the compilers that the extension detected.
 
 ## Troubleshooting
 
