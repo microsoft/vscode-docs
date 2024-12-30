@@ -414,9 +414,7 @@ You only need to add to the **Include path** array setting if your program inclu
 
 The extension uses the `compilerPath` setting to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide features like smart completions and **Go to Definition** navigation.
 
-The C/C++ extension attempts to populate `compilerPath` with a default compiler based on what it finds on your system. The extension looks in several common compiler locations but will only automatically select one that is in either one of the "Program Files" folders or whose path is listed in the PATH environment variable.
-
-If the Microsoft Visual C++ compiler can be found it will be selected, otherwise it will select a version of gcc, g++, or clang.
+The C/C++ extension attempts to populate `compilerPath` with a default compiler based on what it finds on your system. The extension looks in several common compiler locations but will only automatically select one that is in either one of the "Program Files" folders or whose path is listed in the PATH environment variable. If the Microsoft Visual C++ compiler can be found it will be selected, otherwise it will select a version of gcc, g++, or clang.
 
 If you have more than one compiler installed, you might need to change `compilerPath` to match the preferred compiler for your project. You may also use the **C/C++: Select InteliSense Configuration...** command in the Command Palette to select one of the compilers that the extension detected.
 
