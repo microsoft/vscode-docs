@@ -74,7 +74,7 @@ If you don't have a compiler installed, you can follow one of our installation t
 
 To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2.org/). Mingw-w64 is a popular, free toolset on Windows. It provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.
 
-1. Download using [**this direct link to the MinGW installer**](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe).
+1. Download using [**this direct link to the MinGW installer**](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe).
 
 1. Run the installer and follow the steps of the installation wizard. Note, MSYS2 requires 64 bit Windows 8.1 or newer.
 
