@@ -531,7 +531,7 @@ async function main() {
 		platform: 'browser',
 		outdir: 'dist/web',
 		external: ['vscode'],
-		logLevel: 'silent',
+		logLevel: 'warning',
 		// Node.js global to browser globalThis
 		define: {
 			global: 'globalThis',
@@ -597,6 +597,7 @@ const esbuildProblemMatcherPlugin = {
 		build.onEnd((result) => {
 			result.errors.forEach(({ text, location }) => {
 				console.error(`✘ [ERROR] ${text}`);
+        if (location == null) return;
 				console.error(`    ${location.file}:${location.line}:${location.column}:`);
 			});
 			console.log('[watch] build finished');
