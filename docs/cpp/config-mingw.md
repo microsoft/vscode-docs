@@ -237,7 +237,9 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+Starting November 3, 2024, MSYS2 has disabled wildcard support for `mingw-w64` by default. This change impacts how wildcards like `"*.cpp"` are processed in build commands. To build multiple C++ files in your `tasks.json`, you must explicitly list the files, use a build system like `make` or `cmake` or implement the following workarounds: https://www.msys2.org/docs/c/#expanding-wildcard-arguments.  
+
+If you previously used `"${workspaceFolder}/*.cpp"` to compile all `.cpp` files in the current folder, this will no longer work directly. Instead, you can manually list the files or define a build script.
 
 ## Debug helloworld.cpp
 
