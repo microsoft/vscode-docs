@@ -353,25 +353,8 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
-The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
-The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat as well as popular extension names such as GitHub Copilot.
-
-If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
-
-1. The extension is removed from the Marketplace.
-2. The extension is added to a kill list so that if it has been installed, it will be automatically uninstalled by VS Code.
-
-The Marketplace also provides you with resources to make an informed decision about the extensions you install:
-
-* **Ratings & Review** - Read what others think about the extension.
-* **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
-* **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
-* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
-
-![Verified publisher](images/extension-marketplace/bluecheck.png)
-
-If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
+The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
 
 ### The extension signature cannot be verified by VS Code
 
