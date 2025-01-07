@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -23,7 +23,8 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can select the extension item to display the extension's details page where you can learn more.
 
-> **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
+> [!NOTE]
+> If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
 ## Install an extension
 
@@ -275,7 +276,8 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-> **Note**: When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
+> [!NOTE]
+> When you install an extension via VSIX, [auto update](#extension-auto-update) for that extension is disabled by default.
 
 If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
@@ -334,11 +336,12 @@ You may see this error if your machine is going through a proxy server to access
 
 ### Can I download an extension directly from the Marketplace?
 
-Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section, which is located on the right-hand side of the page.
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
 
-Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
+> [!NOTE]
+> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
 
 ### Can I stop VS Code from providing extension recommendations?
 
@@ -350,10 +353,9 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
+The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
-The Marketplace runs a virus scan on each extension package that's published to ensure its safety. The virus scan is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
-
-The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat.
+The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat as well as popular extension names such as GitHub Copilot.
 
 If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
 
@@ -365,6 +367,9 @@ The Marketplace also provides you with resources to make an informed decision ab
 * **Ratings & Review** - Read what others think about the extension.
 * **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
 * **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
+* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+
+![Verified publisher](images/extension-marketplace/bluecheck.png)
 
 If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
 
@@ -383,3 +388,9 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 [Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+
+### Can I allow or block specific extensions in my organization?
+
+You can control which extensions can be installed in your organization by configuring the `extensions.allowed` application setting. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing.
+
+Get more details about [configuring allowed extensions](/docs/setup/enterprise.md#configure-allowed-extensions).

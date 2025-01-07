@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
@@ -16,6 +16,7 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 **✔️ Do**
 
 * Use icons for clear metaphors
+* Use thoughtful icons that add clarity and help differentiate items
 * Use the description for displaying the current items (if applicable)
 * Use the detail for providing (brief) additional context
 * Use the multi-step pattern for a series of basic inputs
@@ -28,8 +29,6 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 ❌ Don't
 
 * Repeat existing functionality
-* Use the same icon for multiple items
-* Use more than six icons in a list
 * Use a title when the placeholder can describe the purpose on its own
 * Use inputs without a placeholder
 

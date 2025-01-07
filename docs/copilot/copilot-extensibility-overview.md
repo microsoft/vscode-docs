@@ -1,43 +1,60 @@
 ---
-Order:
+Order: 13
 Area: copilot
 TOCTitle: Copilot Extensibility
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
 PageTitle: GitHub Copilot extensibility overview
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Overview of how to extend GitHub Copilot in your Visual Studio Code extension by using the Chat API or Language Model API.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot extensibility in VS Code
 
-GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort. You can get code suggestions as you type in the editor, chat with Copilot to ask for help with your code, or get help with writing tests, fixing bugs, or refactoring code.
+Use GitHub Copilot extensibility to expand the functionality of Copilot Chat in Visual Studio Code or add AI-powered features to your VS Code extension. To extend Copilot in VS Code, you build a VS Code extension and use the extension APIs to interact with GitHub Copilot.
 
-Visual Studio Code is built with extensibility in mind. Almost every part of VS Code can be customized and enhanced through the Extension API. You can extend GitHub Copilot in your own Visual Studio Code extensions to enhance the experience for your users by adding AI-powered features to your extension. For example, let users ask domain-specific questions to your extension by using natural language, or combine large language models with your own business logic to provide intelligent code editing features, and much more.
+Depending on your use case, you have the following options to use Copilot in your VS Code extension:
 
-You have different options to extend GitHub Copilot in your VS Code extension:
+- **VS Code Chat extension**: use the Chat API to create a chat participant that gives users a natural-language interface and provides domain-specific help via the Chat view in VS Code. Optionally, you can use the Copilot Large Language Model (LLM) to interpret user prompts and generate responses.
 
-- Use the [Chat API](/api/extension-guides/chat.md) to create a **chat participant** to give users a natural-language interface and provide domain-specific help via the Chat view in VS Code.
+- **Use Copilot's LLM**: use the Language Model API and the VS Code extension APIs to build AI-powered features into your extension and enhance editor-specific interactions.
 
-- Use the [**Language Model API**](/api/extension-guides/language-model.md) and the VS Code extension API to build AI-powered features into VS Code.
+Alternatively, you can also build a **Copilot Extension**, implemented as a GitHub App with additional capabilities. Copilot Extensions work across all supported IDEs and GitHub, but don't have access to functionalities specific to VS Code. Get more info about [Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions) in the GitHub documentation.
 
-With GitHub Copilot, you can expand the capabilities of your extension by using the power of AI and give developers a richer and more productive experience.
+## Use cases
 
-## Get started
+You can use Copilot's capabilities to enhance the development experience in VS Code by integrating AI-powered features into your extension. Here are some examples of how you can use Copilot in your VS Code extension:
 
-Get started with GitHub Copilot extensibility by taking the following tutorials:
+- **Docs querying**: A chat participant could allow Copilot Chat to use Retrieval-Augmented Generation (RAG) to query a third-party documentation service and generate responses based on the retrieved information.
 
-- [Tutorial: Create a code tutor chat participant with the Chat API](/api/extension-guides/chat-tutorial.md)
-- [Tutorial: Generate code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial.md)
+- **AI-assisted coding**: Use the Copilot LLM to provide editor annotations to provide coding suggestions.
+
+- **AI-powered reviews**: Use the Copilot LLM to review your code for security vulnerabilities or performance improvements.
+
+- **Data retrieval**: A chat participant could allow Copilot Chat to query a database or third-party data service to retrieve information about a specific topic.
+
+- **Enterprise coding assistant**: a chat participant that is grounded in the data of your enterprise and that is aware of the specific coding guidelines your company follows.
+
+- **Enhance extensions**: Use the Language Model API to add AI-powered features to your existing VS Code extensions.
+
+These are some examples of extensions in the Visual Studio Marketplace that contribute a chat participant to the Chat view in VS Code.
+
+<div class="marketplace-extensions-chat"></div>
+
+Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
+
+## Get started with Copilot extensibility in VS Code
+
+To get started with extending Copilot in your VS Code extension, explore the following resources:
+
+- [**Tutorial: AI-powered code annotations**](/api/extension-guides/language-model-tutorial.md): step-by-step guide to implement a VS Code extension that uses the Language Model API to generate code annotations in the editor to help improve your code.
+
+- [**Tutorial: Code tutor chat participant**](/api/extension-guides/chat-tutorial.md): step-by-step guide to implement a code tutor chat participant that enables users to ask for explaining a technical topic by using natural language in the Chat view in VS Code.
+
+- [**Chat participant sample**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): sample code for getting started with building a VS Code Chat extension that uses the Chat API and Language Model API.
+
+- **Extension guides**: Learn how to use the [Chat API](/api/extension-guides/chat.md) and [Language Model API](/api/extension-guides/language-model.md) to extend Copilot in your VS Code extension.
 
 ## Related content
 
-- [VS Code Chat API reference](/api/extension-guides/chat.md)
-- [VS Code Language Model API reference](/api/extension-guides/language-model.md)
-
-- [Copilot Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- Make sure to watch our Build session about [Enhancing VS Code extensions with GitHub Copilot](https://www.youtube.com/watch?v=YI7kjWzIiTM) to learn all about these APIs.
-
-- [GitHub Copilot extensions are all you need](https://code.visualstudio.com/blogs/2024/06/24/extensions-are-all-you-need) blog post
-
-- Join the [Copilot Partner Program](https://github.com/features/preview/copilot-partner-program) to extend GitHub Copilot with a GitHub App
-- Watch our [Build session](https://www.youtube.com/watch?v=RXaLlCeaBIA) about extending GitHub Copilot to see it in action.
+- [Get started with Copilot Extensions](https://github.com/features/copilot/extensions)
+- [Enhancing VS Code extensions with GitHub Copilot](https://www.youtube.com/watch?v=YI7kjWzIiTM) Microsoft Build session

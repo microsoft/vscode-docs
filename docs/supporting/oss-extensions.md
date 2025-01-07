@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -66,7 +66,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |
 | [Mono Debug](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug/license) |
-| [Nodepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
 | [OpenPAI VS Code Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
 | [PostgreSQL](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql/license) |
 | [PowerShell](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/license) |

@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 ---
 # Remote Development FAQ
 
@@ -62,7 +62,7 @@ Installation of VS Code Server requires that your local machine have outbound HT
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net` (Azure CDN)
 
-By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
+By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
 
 The Dev Containers extension always downloads locally and transfers into the container.
 

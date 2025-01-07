@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: copilot
 TOCTitle: Best Practices
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -12,7 +12,8 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article covers best practices for using GitHub Copilot in Visual Studio Code by using prompt crafting and providing the right context to GitHub Copilot.
 
->**Note**: "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
+> [!NOTE]
+> "Prompt engineering" or "Prompt crafting" is a common phrase you'll hear when discussing AI and refers to how and what information is packaged and sent to an AI API endpoint. The Copilot extension does this process for you but you can help by providing hints to guide the extension.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hh1nOX14TyY" title="Core principles of prompt engineering with GitHub Copilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -25,7 +26,7 @@ There are different options for optimizing your Copilot experience for inline su
 
 ## Getting the most out of Copilot inline suggestions
 
-The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#inline-suggestions) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
+The [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension presents [suggestions](/docs/copilot/overview.md#Code-completions-in-the-editor) automatically to help you code more efficiently. There are things you can do to help ("prompt") Copilot to give you the best possible suggestions. And the good news is that you are probably already doing these right now, since they help you and your colleagues understand your code.
 
 ### Provide context to Copilot
 
@@ -99,7 +100,7 @@ Tools, which you may already be using, can help.
 
 ## Getting the most out of Copilot Chat
 
-You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#chat-features) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
+You can also get assistance from Copilot via a [chat interface](/docs/copilot/overview.md#Answer-coding-questions) by installing the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension.
 
 When you're using chat to interact with GitHub Copilot, there are several things you can do to optimize your experience.
 
@@ -111,7 +112,7 @@ Chat participants are designed to collect extra context either about a code base
 
 Slash commands help Copilot Chat understand your **intent** when you ask a question. Are you learning about a code base (`/explain`), do you want help with fixing an issue (`/fix`), or are you creating test cases (`/tests`)? By letting Copilot Chat know what you're trying to do, it can tune its reply to your task and provide helpful commands, settings, and code snippets.
 
-![Inline chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
+![Inline Chat slash command list](images/prompt-crafting/inline-chat-slash-commands.png)
 
 You could write out your project scope or current task with a natural language query but using chat participants and slash commands is more concise and explicit.
 
@@ -139,7 +140,7 @@ When you ask Copilot to do a specific task, be specific about the inputs, output
 
 When asking Copilot Chat for help, you aren't stuck with the first response. You can iterate and prompt Copilot to improve the solution. Copilot has both the context of the generated code and also your current conversation.
 
-Here's an example using inline chat to create a function to calculate Fibonacci numbers:
+Here's an example using Inline Chat to create a function to calculate Fibonacci numbers:
 
 ![First response from Copilot for a function to calculate Fibonacci numbers](images/prompt-crafting/fibonacci-first.png)
 

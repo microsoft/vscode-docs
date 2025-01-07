@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49744351-83ef-4ef6-99e7-2485e6e9c79f
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to contribute tasks to Visual Studio Code through an extension (plug-in).
