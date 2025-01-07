@@ -10,7 +10,7 @@ MetaDescription: Learn about the security measures in place for Visual Studio Co
 
 # Extension runtime security
 
-[Extensions](/docs/editor/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The Visual Studio Marketplace has many ways to protect you from bad extensions. You can check if an extension is safe before you install it.
+[Extensions](/docs/editor/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. You can check if an extension is safe before you install it.
 
 This document outlines the runtime permissions of extensions in VS Code and the measures in place to protect you from malicious extensions. You'll learn how to make an informed decision about the reliability of an extension before installing it.
 
