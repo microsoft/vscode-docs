@@ -117,7 +117,7 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## Ligatures
 
-Terminal ligatures which allow rendering multiple character as one can be turned on with the `setting(terminal.integrated.fontLigatures.enabled)` setting. This feature requires the configured `setting(terminal.integrated.fontFamily)` to also support ligatures.
+Terminal [ligatures](https://en.wikipedia.org/wiki/Ligature_(writing)) allow rendering multiple characters as one. You can enable ligatures in the terminal by configuring the `setting(terminal.integrated.fontLigatures.enabled)`  setting, provided that the terminal font family (`setting(terminal.integrated.fontFamily)`) supports them.
 
 ![Enabling ligatures will combine certain sets of characters into one, for example >= into the greater than or equals sign](images/appearance/ligatures.png)
 
