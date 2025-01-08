@@ -123,7 +123,7 @@ Terminal [ligatures](https://en.wikipedia.org/wiki/Ligature_(writing)) allow ren
 
 ### Font feature settings
 
-When ligatures are enabled, it's also possible to set a detailed list of font feature settings in the format of the `font-feature-settings` CSS property. This allows for more fine-grained control over how ligatures are rendered. For example, disabling the standard `calt` ligatues and enabling a particular font variant looks something like `"calt" off, "ss03"`. For a list of variants supported by the font, consult the font's documentation.
+When ligatures are enabled, it's also possible to set a detailed list of font feature settings in the format of the [`font-feature-settings`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property. This gives you more fine-grained control over how ligatures are rendered. For example, disabling the standard `calt` ligatures and enabling a particular font variant looks something like `"calt" off, "ss03"`. For a list of variants supported by the font, consult the font's documentation.
 
 ### Fallback ligatures
 
