@@ -20,7 +20,9 @@ Refer to the [network common hostnames list](/docs/setup/network.md#common-hostn
 
 ## Configure allowed extensions
 
-The `extensions.allowed` application setting enables you to control which extensions can be installed in your organization. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
+Configure the `extensions.allowed` application-wide setting in VS Code to control which extensions can be installed. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
+
+To centrally manage allowed extensions for your organization, use [device management](#centrally-manage-allowed-extensions) like Windows group policies, to create a policy that overrides the VS Code setting on individual devices.
 
 > [!NOTE]
 > Support for allowed extensions is available starting from VS Code version 1.96.
@@ -80,9 +82,9 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
 
-### Control allowed extensions via device management
+### Centrally manage allowed extensions
 
-You can control the `extensions.allowed` setting by using [device management](#device-management). Use the `AllowedExtensions` VS Code policy, which overrides the `extensions.allowed` setting. The value of this policy is a JSON string that contains the allowed extensions.
+Use [device management](#device-management) to centrally control which extensions are allowed to be installed in your organization. Configure the `AllowedExtensions` VS Code policy to override the corresponding `extensions.allowed` VS Code setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
 
 > [!IMPORTANT]
 > If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**). In the Settings editor (`kb(workbench.action.openSettings)`), you can see a warning message for the `Extensions: Allowed` setting that the setting value was not applied.
@@ -91,7 +93,7 @@ You can control the `extensions.allowed` setting by using [device management](#d
 
 ## Configure automatic updates
 
-The `update.mode` setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
+The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
 
 The setting has the following options:
 
@@ -100,24 +102,29 @@ The setting has the following options:
 * `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
 * `default` - automatic checking for updates is enabled and runs in the background periodically
 
-### Control update mode via device management
+### Centrally manage automatic updates
 
-You can control the `update.mode` setting by using [device management](#device-management). Use the `UpdateMode` VS Code policy, which overrides the `update.mode` setting. The value of this policy is a string that contains the update mode.
+Use [device management](#device-management) to centrally control how VS Code manages updates across devices in your organization. Configure the `UpdateMode` VS Code policy, which overrides the corresponding `update.mode` VS Code setting on users's devices. The value of this policy is a string that contains the update mode.
 
 ## Device management
 
 You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
 
-### Admin-controlled features
+VS Code currently supports the following admin-controlled features:
 
-* Automatic updates (`update.mode`)
-* Allowed extensions (`extensions.allowed`)
+| Policy | Description | VS Code setting |
+| ------ | ----------- | --------------- |
+| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
+| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
+
+> [!NOTE]
+> Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
 
 ### Group Policy on Windows
 
 System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
 
-VS Code now has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release will ship with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
+VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
@@ -125,7 +132,7 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 ### Additional policies
 
-The goal is to promote current VS Code settings as Policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
+The goal is to promote current VS Code settings as policies and closely follow existing settings, so that the naming and behavior are consistent. If there are requests to enact more policies, please open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues). The team will determine if there is already a corresponding setting for the behavior or if a new setting should be created to control the desired behavior.
 
 ## Set up VS Code with preinstalled extensions
 
