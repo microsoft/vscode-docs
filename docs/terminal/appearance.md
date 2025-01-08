@@ -127,7 +127,9 @@ When ligatures are enabled, it's also possible to set a detailed list of font fe
 
 ### Fallback ligatures
 
-When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or set a list of character sequences to manually join to make ligatures. This defaults to a list of common ligatures uses in coding but can be fine tuned if desired:
+When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures. 
+
+By default, the fallback ligatures are a list of common ligatures used in coding. Fine-tune the list by configuring the `setting(terminal.integrated.fontLigatures.fallbackLigatures)` setting. For example:
 
 ```json
 // Only use ligatures for `ff`, `fi` and `fl`
