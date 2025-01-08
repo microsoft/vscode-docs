@@ -117,9 +117,26 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## Ligatures
 
-Terminal ligatures which allow rendering multiple character as one can be turned on with the `setting(terminal.integrated.fontLigatures)` setting. This feature requires the configured `setting(terminal.integrated.fontFamily)` to also support ligatures.
+Terminal ligatures which allow rendering multiple character as one can be turned on with the `setting(terminal.integrated.fontLigatures.enabled)` setting. This feature requires the configured `setting(terminal.integrated.fontFamily)` to also support ligatures.
 
 ![Enabling ligatures will combine certain sets of characters into one, for example >= into the greater than or equals sign](images/appearance/ligatures.png)
+
+### Font feature settings
+
+When ligatures are enabled, it's also possible to set a detailed list of font feature settings in the format of the `font-feature-settings` CSS property. This allows for more fine-grained control over how ligatures are rendered. For example, disabling the standard `calt` ligatues and enabling a particular font variant looks something like `"calt" off, "ss03"`. For a list of variants supported by the font, consult the font's documentation.
+
+### Fallback ligatures
+
+When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or set a list of character sequences to manually join to make ligatures. This defaults to a list of common ligatures uses in coding but can be fine tuned if desired:
+
+```json
+// Only use ligatures for `ff`, `fi` and `fl`
+"terminal.integrated.fontLigatures.fallbackLigatures": [
+    "ff",
+    "fi",
+    "fl"
+]
+```
 
 ## GPU acceleration
 
