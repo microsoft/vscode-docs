@@ -470,7 +470,7 @@ You can run the app at this point, but because you haven't made use of the base 
 
 Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
 
-1. In VS Code, select **File** > **Preferences** > **Configure User Snippets**.
+1. In VS Code, select **File** > **Preferences** > **Configure Snippets**.
 
 1. In the list that appears, select **html**. The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.
 
