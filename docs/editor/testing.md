@@ -9,23 +9,43 @@ MetaDescription: One of the great things in Visual Studio Code is testing suppor
 ---
 # Testing
 
-Software testing is a crucial aspect of the software development process. It helps ensure that your code works as expected and catches bugs early in the development cycle. Visual Studio Code provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results.
+Software testing is a crucial aspect of the software development process. It helps ensure that your code works as expected and that you catch bugs early in the development cycle. Visual Studio Code provides a rich set of features for testing your code. You can automatically discover tests in your project, run and debug your tests, and get test coverage results. GitHub Copilot in VS Code can assist with setting up the testing framework for your project, and help you generate test code and fix failing tests.
 
-In this article, you'll learn how to get started with testing in VS Code, discover popular testing extensions, and explore the testing capabilities.
+In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
 
 ![Testing in Visual Studio Code](images/testing/testing-hero.png)
 
-## Getting started with testing in VS Code
+## About testing in VS Code
 
-Testing support in VS Code is language-specific and depends on the [extensions](#testing-extensions) you have installed. Language extensions or standalone extension can implement the testing features for a particular language or testing framework. To get started with testing in VS Code, first install the appropriate extension for your project.
+Testing support in VS Code is language-specific and depends on the [extensions](#testing-extensions) you have installed. Language extensions or standalone extensions can implement the testing features for a particular language or testing framework. To get started with testing in VS Code, first install the appropriate extension for your project. In the Extensions view, you can filter the extensions by the **Testing** category (_@category:"testing"_).
 
-After you have installed the extension, you can start discovering and running tests in your project. The [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run your tests.
+VS Code has extensive support for testing, including the following features:
 
-After you run your tests, you can view the test results in the Test Explorer view, editor gutter, and Test Results panel. To diagnose issues with your tests, you can also [run and debug tests](#run-and-debug-tests) and set breakpoints in your test and application code.
+* **Multiple testing frameworks**: Language [extensions](#testing-extensions) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
 
-You can also [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests. Test coverage helps you identify areas of your code that are not being tested and ensures that your tests are comprehensive. You can view the test coverage results in different views in the editor and Test Coverage panel.
+* **Centralized test management**: The [Testing view](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run the tests in your project. Depending on the testing extension, the Testing view automatically discovers the tests in your project and displays them in a tree view.
 
-To optimize your testing workflow, you can [create tasks to run your tests](#task-integration), and optionally run your tests in the background with every code change.
+* **Test run status**: View test run status for all tests in the Testing view or alongside the test code in the editor gutter.
+
+* **Detailed test results**: View detailed test run results in the Test Results panel.
+
+* **Debug tests**: [Debug](#run-and-debug-tests) your tests to diagnose failing test. Take advantage of the rich [debugging support](/docs/editor/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
+
+* **Test coverage**: [Run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
+
+* **Task integration**: Optimize your testing workflow by [creating tasks to run your tests](#task-integration), and optionally run your tests in the background with every code change.
+
+* **AI-assisted testing**: Use GitHub Copilot in VS Code to assist you with setting up your testing framework, generating test code, and fixing failing tests.
+
+## Get started with testing in VS Code
+
+To get started with testing in VS Code, follow these steps:
+
+1. Open the **Extensions** view to install the appropriate testing extension for your project. Filter the extensions by the **Testing** category (_@category:"testing"_).
+
+1. Open the **Testing** view to discover the tests in your project.
+
+1. Run and debug your tests from the **Testing** view or directly from the editor.
 
 ## Testing extensions
 
