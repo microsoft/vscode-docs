@@ -252,9 +252,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - An InlineValueContext
 * _(returns)_ - A promise that resolves to an array of InlineValue objects
 
-`vscode.open` - Opens the provided resource in the editor.
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use `vscode.window.showTextDocument` instead.
 
-* _Uri_ -
+* _uri_ - Uri of a text or binary file, or an http(s) URL
+* _columnOrOptions_ - (optional) Either the column in which to open, or editor options, see `vscode.TextDocumentShowOptions`
+* _label_ - Editor label (optional)
+* _(returns)_ - no result
 
 `vscode.openWith` - Opens the provided resource with a specific editor.
 

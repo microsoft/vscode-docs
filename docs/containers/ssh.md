@@ -37,6 +37,8 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
 1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Contexts: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
 
+    If you don't have this command, make sure to install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
+
 1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
 
 ## Tips

@@ -106,7 +106,17 @@ Using the Registry Editor (regedit):
 
 ### Unable to run as admin when AppLocker is enabled
 
-With the introduction of process sandboxing (discussed in this [blog post](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured due to a limitation of the runtime sandbox. If your work requires that you run VS Code from an elevated terminal, you can launch `code` with `--no-sandbox --disable-gpu-sandbox` as a workaround.
+With the introduction of process sandboxing (discussed in this [blog post](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured due to a limitation of the runtime sandbox.
+
+If your work requires that you run VS Code from an elevated terminal:
+
+1. In VS Code, run the **Preferences: Configure Runtime Arguments** command in the Command Palette (`kb(workbench.action.showCommands)`)
+
+    This command opens an `argv.json` file to configure runtime arguments for VS Code. You might see some default arguments there already.
+
+1. Add `"disable-chromium-sandbox": true` to the `argv.json` file.
+
+1. Restart VS Code. You should now be able to run VS Code in an elevated terminal.
 
 Subscribe to [issue #122951](https://github.com/microsoft/vscode/issues/122951) to receive updates.
 
