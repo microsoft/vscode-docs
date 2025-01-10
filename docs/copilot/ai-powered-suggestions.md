@@ -57,7 +57,74 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Enable or disable inline suggestions
+## Next Edit Suggestions
+
+Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both near the cursor and further away.
+
+Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make, and what that edit should be.
+
+> **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
+<!-- TODO: Signup aka.ms link -->
+
+<!-- TODO: Add gif (could be image, but think gif is more interesting and then remaining examples can be static images) -->
+
+### Navigating edit suggestions
+
+When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again.
+
+An arrow in the gutter indicates if there is an edit suggestion available:
+<!-- TODO: Add image -->
+
+If an edit suggestion is below the current editor view, the arrow will point down:
+<!-- TODO: Add image -->
+
+You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+<!-- TODO: Add image -->
+
+### Next Edit Suggestions in action
+
+<!-- TODO: Polish entire section, add an image per example -->
+
+The following are examples of how NES can help in a variety of scenarios.
+
+**Renames**
+
+* rename variable once in file, suggest to update everywhere else
+* changing variables with a particular pattern: like two variables index1, index2 and renaming one to indexArr1 then the suggestion for the second should come to be made indexArr2
+
+**Adding new variables or arguments**
+
+* Add an argument to a function
+* Add a new variable in a class, use it in an upcoming if or switch statement
+
+**Correcting typos**
+
+* making a mistake where letters are missing like "cont x = 5" or swapped like "conts x = 5". This should be "const x = 5"
+* there are many expressions that are clearfly false "const fitsInArray = x <= arr.length" this is a bug because arrays often need the < check instead of the <=
+* OR statement that should have been an AND statement
+
+**Refactorings**
+
+* having two conditional branches that are rewritten to use ternaries or rewrittern to have early returns or rewritten to modify common shared variables
+
+**Changing intent**
+
+* Point to Point3d
+* function like “moveCursorUp” and then changing it from “Up” to “Down” should adjust all the code logically
+
+**Matching coding patterns**
+
+* Match after copy-pasting
+     * copy-pasting an object declaration like a workbench action and adjusting one name, often ends up needing to adjust the function name, the natural language string, the keybinding, etc. there are these “things that come in groups” where the same concept is repeated but as a string, as an enum, etc.
+     * copy-pasting some code like 2 for loops and then adjusting them to match the current code where the paste happened
+
+## Tips & tricks
+
+### Context
+
+To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
+
+### Enable or disable code completions
 
 You can temporarily enable or disable code completions either for all languages, or for specific languages only.
 
@@ -74,12 +141,6 @@ You can temporarily enable or disable code completions either for all languages,
 
     ![Screenshot showing the VS Code command menu for Copilot, highlighting the options to disable completions.](./images/inline-suggestions/copilot-disable-completions.png)
 
-## Tips & tricks
-
-### Context
-
-To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
-
 ### Settings
 
 * `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
@@ -89,6 +150,8 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 * `setting(editor.inlineSuggest.showToolbar)` - enable or disable the toolbar that appears for inline completions.
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
+
+* <!-- TODO: Update to NES setting, and/or just point to code completions setting if we just base NES permissions off that -->
 
 ## Next steps
 
