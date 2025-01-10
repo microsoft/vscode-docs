@@ -14,7 +14,7 @@ Visual Studio Code provides a rich set of features for testing your code. You ca
 In this article, you'll learn how to start with testing in VS Code, find popular testing extensions, and explore the testing features. You'll also learn how Copilot in VS Code can help you write tests faster and can assist you in fixing failing tests.
 
 > [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
 
 <!-- ![Testing in Visual Studio Code](images/testing/testing-hero.png) -->
 
@@ -24,19 +24,19 @@ Testing support in VS Code is language-specific and depends on the [testing exte
 
 VS Code has the following features for testing your code:
 
-* **Support multiple testing frameworks**: Language [extensions](#extensions-for-testing) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
+* **Support multiple testing frameworks**: language [extensions](#extensions-for-testing) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
 
-* **Centralized test management**: The [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run the tests in your project. The Test Explorer might automatically discover the tests in your project, depending on the testing extension.
+* **Centralized test management**: the [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run the tests in your project. The Test Explorer might automatically discover the tests in your project, depending on the testing extension.
 
-* **Integrated test results**: View the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
+* **Integrated test results**: view the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
 
-* **Debugging**: [Debug](#run-and-debug-tests) your tests to diagnose failing test. Take advantage of the rich [debugging support](/docs/editor/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
+* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/editor/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
 
-* **Test coverage**: [Run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
+* **Test coverage**: [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
 
-* **AI-assisted testing**: Use GitHub Copilot in VS Code to assist you with setting up your testing framework, generating test code, and fixing failing tests.
+* **AI-assisted testing**: use GitHub Copilot in VS Code to assist you with setting up your testing framework, generating test code, and fixing failing tests.
 
-* **Task integration**: Optimize your testing workflow by [creating tasks to run your tests](#task-integration), and optionally run your tests in the background with every code change.
+* **Task integration**: make your testing work easier by [creating tasks to run your tests](#task-integration). You can also run your tests in the background when you change your code.
 
 ## Get started with testing in VS Code
 
@@ -59,17 +59,13 @@ You can find extensions that support testing by looking in the [Visual Studio Ma
 
 ## Automatic test discovery in Testing view
 
-The Testing view provides a centralized place to manage and run your tests. You can access the Testing view by selecting the beaker icon (<i class="codicon codicon-beaker"></i>) in the Activity Bar or by using the **Testing: Focus on Test Explorer View** command in the Command Palette (`kb(workbench.action.showCommands)`).
+The Testing view provides a centralized place to manage and run your tests. You can get to the Testing view by selecting the beaker icon (<i class="codicon codicon-beaker"></i>) in the Activity Bar. You can also use the **Testing: Focus on Test Explorer View** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 If you have a project with tests, the Test Explorer view discovers and lists the tests in your workspace. By default, the discovered tests are displayed in a tree view in the Test Explorer. The tree view matches the hierarchical structure of your tests, making it easy to navigate and run your tests.
 
-![Test Explorer view](images/testing/test-explorer-view.png)
+![Screenshot that shows VS Code with the Test Explorer showing the tests, matching the test code that is shown in the editor.](images/testing/test-explorer-view.png)
 
 You can run tests from the Test Explorer by selecting the play button. Learn more about running and debugging tests in the [Run and debug tests](#run-and-debug-tests) section.
-
-The tree view shows the test result status for each test by using a visual indicator, and enables you to run and debug tests, and navigate to the test code.
-
-![Test Explorer view with test results](images/testing/test-explorer-view-test-results.png)
 
 > [!TIP]
 > Navigate to the test code by double-clicking on the test in the Test Explorer view. If you select a test that failed, the editor opens the test file, highlights the failed test, and shows the error message.
@@ -78,16 +74,16 @@ If you have many tests, you can use the filtering options to quickly find the te
 
 ![Test Explorer view with filtering options](images/testing/test-explorer-view-filtering.png)
 
-In the **More Actions** menu, you can access additional functionality, such as sort and display options.
+In the **More Actions** menu, you can access more functionality, such as sort and display options.
 
-If you add new tests or make changes to your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
+If you add new tests or change your tests, use the **Refresh Tests** button to refresh the list of tests in the Test Explorer. You can also use the **Test Explorer: Reload tests** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 > [!NOTE]
-> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. Consult the documentation of the testing extension for more information. You can use the `setupTests` command in Copilot Chat view to get help with setting up a testing framework for you project.
+> Depending on the testing extension, you might first have to configure the test framework or test runner to discover the tests in your project. For more information, consult the documentation of the testing extension. You can use the `setupTests` command in Copilot Chat view to get help with setting up a testing framework for your project.
 
 ## Write tests with AI
 
-Writing tests can be time-consuming and they are often neglected. Copilot can accelerate the process of writing tests by generating test code for your application code. Whether you need unit tests, integration tests, or end-to-end tests.
+Writing tests can be time-consuming and they're often neglected. Copilot can speed up the process of writing tests by creating test code for your application. You can use it to write unit tests, integration tests, end-to-end tests, and more.
 
 To write tests with Copilot in VS Code, you can use either of these methods:
 
@@ -101,7 +97,7 @@ To write tests with Copilot in VS Code, you can use either of these methods:
 
 	1. Open the application code file for which you want to generate tests
 
-	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the Chat view (`kb(workbench.action.chat.open)`) or the editor Inline Chat (`kb(inlineChat.start)`)
+	1. Open the Copilot Edits (`kb(workbench.action.chat.openEditSession)`), the Chat view (`kb(workbench.action.chat.open)`), or the editor Inline Chat (`kb(inlineChat.start)`)
 
 	1. Enter a prompt to generate tests, such as _Generate tests for this code. Also include tests for edge cases._
 
@@ -110,10 +106,10 @@ To write tests with Copilot in VS Code, you can use either of these methods:
 		> [!TIP]
 		> Get more example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests), [mock objects](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers), or [end-to-end tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage) in the GitHub Copilot documentation.
 
-Copilot will generate test cases code for your application code. If you already have a tests files, Copilot will add the tests there, or create a new file, if needed. You can further customize the generated tests by providing additional prompts to Copilot. For example, you can ask Copilot to use another testing framework.
+Copilot will generate test cases code for your application code. If you already have a tests file, Copilot will add the tests there, or create a new file, if needed. You can further customize the generated tests by providing more prompts to Copilot. For example, you can ask Copilot to use another testing framework.
 
 > [!TIP]
-> You can specify your own [custom code-generation instructions to Copilot](/docs/copilot/copilot-customization.md), for example to use a specific testing framework, naming convention, or code structure.
+> You can give Copilot your own [special instructions for generating code](/docs/copilot/copilot-customization.md). For example, you can tell Copilot to use a certain testing framework, naming convention, or code structure.
 
 Learn more about [using Copilot in VS Code](/docs/copilot/overview.md).
 
@@ -121,7 +117,7 @@ Learn more about [using Copilot in VS Code](/docs/copilot/overview.md).
 
 After the discovery of the tests in your project, you can run and debug your tests, and view test results directly from within VS Code.
 
-In the Test Explorer, use the controls in the section heading to run or debug all tests. You can also run or debug specific tests in the tree view. Select the run or debug icon on a specific node to run/debug all tests under that node.
+In the Test Explorer, use the controls in the section heading to run or debug all tests. You can also run or debug specific tests in the tree view by selecting the run/debug icon on a specific node.
 
 ![Run and debug tests in Test Explorer](images/testing/run-debug-tests-test-explorer.png)
 
@@ -134,7 +130,7 @@ Right-click on the gutter control to view other actions, such as debugging the t
 > [!TIP]
 > Configure the default testing action for the gutter control by using the `setting(testing.defaultGutterClickAction)` setting.
 
-After running one or more tests, the editor gutter and tree view in the Test Explorer display the corresponding test status (passed/failed). When a test fails, notice that the test error message is shown as an overlay in the editor.
+After you run one or more tests, the editor gutter and tree view in the Test Explorer display the corresponding test status (passed/failed). When a test fails, notice that the test error message is shown as an overlay in the editor.
 
 ![Screenshot that shows a test error message overlay in the editor.](images/testing/editor-failed-test-message.png)
 
@@ -151,7 +147,7 @@ Use the **Show Output** button in the Test Explorer to view the test output in t
 
 Test coverage is a measure of how much of your code is covered by your tests. It helps you identify areas of your code that are not being tested. VS Code supports running tests with coverage and viewing the coverage results if the corresponding testing extension support test coverage.
 
-Similar to running and debugging tests, you can run tests with coverage by using the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
+You can run tests with coverage, just like you can run and debug tests. Use corresponding the actions in the Test Explorer view, editor gutter, or commands in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![Run tests with coverage](images/testing/run-tests-with-coverage.png)
 
