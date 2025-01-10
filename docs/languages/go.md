@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Go in Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://go.dev/) development.
 
 ![Go extension banner](images/go/go-extension.png)
 
@@ -23,7 +23,7 @@ This article describes only a subset of the features the Go extension provides. 
 
 ![IntelliSense](images/go/completion-signature-help.gif)
 
-IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
+IntelliSense features are provided by the Go language server, [gopls](https://go.dev/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
 
 ### Semantic syntax highlighting
 

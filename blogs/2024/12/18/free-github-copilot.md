@@ -9,13 +9,15 @@ Author: Burke Holland
 
 # Announcing a free GitHub Copilot for VS Code
 
+December 18, 2024 by Burke Holland, @burkeholland
+
 We're excited to announce an all new **free plan for GitHub Copilot**, available for everyone today in VS Code. All you need is a GitHub account. No trial. No subscription. No credit card required.
 
 [Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
 
 You can click on the link above or just enable GitHub Copilot right from within VS Code like so...
 
-<video src="blog-video-v2.mp4" title="Copilot Edits video"></video>
+<video src="blog-video-v2.mp4" title="Copilot Edits video" controls poster="/assets/blogs/2024/12/18/copilot-free.jpg"></video>
 
 With GitHub Copilot Free you get **2000 code completions/month**. That's about 80 per working day - which is a lot. You also get **50 chat requests/month**, as well as **access to both GPT-4o and Claude 3.5 Sonnet models**.
 
@@ -136,7 +138,7 @@ _Note:_ Vision is in preview today and requires you to have your own OpenAI, Ant
 
 There's so much more GitHub Copilot we want to show you, but nothing can replace the experience of trying it for yourself. If you're just getting started, we recommend you check out [these 3 short videos](https://github.com/features/copilot/getting-started) to bring you up to speed quickly on the Copilot UI, as well as learning some prompt engineering best practices.
 
-We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bskyp.app/@vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/), and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
+We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bsky.app/profile/vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/), and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
 And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode-copilot-release).
 
@@ -154,4 +156,6 @@ Yes. Absolutely. Check out [this blog post](https://aka.ms/copilot-free-vs) from
 
 [Enable GitHub Copilot Free](https://aka.ms/vscode-activatecopilotfree)
 
+Happy Coding!
 
+Burke Holland @burkeholland

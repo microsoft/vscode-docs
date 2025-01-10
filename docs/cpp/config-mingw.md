@@ -33,7 +33,7 @@ To install the MinGW-w64 toolchain, check out this video or follow the steps bel
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oC69vlWofJQ" title="Installing MinGW to build C++ code on Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2024-01-13/msys2-x86_64-20240113.exe).
+1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe).
 
 1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer.
 
@@ -237,7 +237,9 @@ with this:
 
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `"${file}"`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+Starting November 3, 2024, MSYS2 has disabled wildcard support for `mingw-w64` by default. This change impacts how wildcards like `"*.cpp"` are processed in build commands. To build multiple C++ files in your `tasks.json`, you must explicitly list the files, use a build system like `make` or `cmake` or implement the following workarounds: https://www.msys2.org/docs/c/#expanding-wildcard-arguments.  
+
+If you previously used `"${workspaceFolder}/*.cpp"` to compile all `.cpp` files in the current folder, this will no longer work directly. Instead, you can manually list the files or define a build script.
 
 ## Debug helloworld.cpp
 
@@ -408,21 +410,15 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
 }
 ```
 
-You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path.
+You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path. It is strongly recommended not to add the system include path to the `includePath` setting for compilers that we support.
 
 ### Compiler path
 
 The extension uses the `compilerPath` setting to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide features like smart completions and **Go to Definition** navigation.
 
-The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The extension looks in several common compiler locations.
+The C/C++ extension attempts to populate `compilerPath` with a default compiler based on what it finds on your system. The extension looks in several common compiler locations but will only automatically select one that is in either one of the "Program Files" folders or whose path is listed in the PATH environment variable. If the Microsoft Visual C++ compiler can be found it will be selected, otherwise it will select a version of gcc, g++, or clang.
 
-The `compilerPath` search order is:
-
-- First check for the Microsoft Visual C++ compiler
-- Then look for g++ on Windows Subsystem for Linux (WSL)
-- Then g++ for MinGW-w64.
-
-If you have Visual Studio or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed MinGW-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0\mingw64\bin\g++.exe`.
+If you have more than one compiler installed, you might need to change `compilerPath` to match the preferred compiler for your project. You may also use the **C/C++: Select InteliSense Configuration...** command in the Command Palette to select one of the compilers that the extension detected.
 
 ## Troubleshooting
 
