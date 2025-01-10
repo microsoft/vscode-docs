@@ -34,23 +34,32 @@ Before you install an extension, you can take various steps to determine if it's
 
     ![Verified publisher](images/extension-marketplace/bluecheck.png)
 
+> [!TIP]
+> If you want to enforce which extensions are allowed to be used in your organization, check out how to [configure allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions).
+
 ## Marketplace protections
 
 The Visual Studio Code Marketplace employs several mechanisms to protect you from malicious extensions:
 
 * **Malware scanning**: The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several antivirus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
+* **Dynamic detection**: The Marketplace does dynamic detection by verifying the extension's runtime behavior by running it in a sandboxed environment (_clean room VM_).
+
 * **Verified publishers**: Publishers can verify (blue check mark) their identity by proving domain ownership. It shows that the publisher has proven domain-name ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
+
+* **Unusual usage monitoring**: The Marketplace monitors the downloads and usage patterns of extensions to detect unusual behavior.
 
 * **Name squatting**: The Marketplace stops extension authors from stealing the names of official publishers, such as Microsoft or RedHat, and popular extensions, like GitHub Copilot.
 
-* **Kill List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *kill list*. If the extension has been installed, it's automatically uninstalled by VS Code.
+* **Block List**: If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace and added to a *block list*. If the extension has been installed, it's automatically uninstalled by VS Code.
 
 * **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
 
 ## Report suspicious extensions
 
-If you do see an extension that looks suspicious, report the extension to the Marketplace team:
+If you do see an extension that looks suspicious, report the extension to the Marketplace team. The Marketplace team provides an initial response within one business day.
+
+To report an extension:
 
 1. Open the extension's page in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -61,3 +70,5 @@ If you do see an extension that looks suspicious, report the extension to the Ma
 * Learn how to install and manage extensions in [Visual Studio Code](/docs/editor/extension-marketplace.md).
 
 * Use [Workspace Trust](/docs/editor/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
+
+* Configure [allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.
