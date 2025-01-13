@@ -61,7 +61,7 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both at the cursor and further away.
 
-Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be.
+Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
 <!-- TODO: Signup aka.ms link -->
