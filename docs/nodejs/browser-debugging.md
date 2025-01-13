@@ -96,7 +96,7 @@ Next, add a new section to the `vscode/launch.json` file as below:
 }
 ```
 
-Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add a `host` property to debug a browser running on a different machine.
+Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add a `address` property to debug a browser running on a different machine.
 
 ### Launch configuration attributes
 
