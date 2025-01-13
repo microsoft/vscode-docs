@@ -114,6 +114,8 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Action | Description |
 |--------|-------------|
 | Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
+| Next Edit Suggestions (NES) | As you make changes to your code, Copilot both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES is currently in public preview, and you can sign up via [the watilist](). |
+<!-- TODO: Signup aka.ms link -->
 | Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | Prompt from the editor <i class="codicon codicon-beaker"></i> | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |

@@ -90,6 +90,13 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
+* **Copilot Next Edit Suggestions** (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be. You can learn more in the [Copilot Next Edit Suggestions doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
+
+> **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
+<!-- TODO: Signup aka.ms link -->
+
+<!-- TODO: Add image or gif -->
+
 ### Iterate on large changes across multiple files
 
 * **Start a AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
