@@ -59,14 +59,14 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ## Next Edit Suggestions
 
-Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both near the cursor and further away.
+Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both at the cursor and further away.
 
-Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make, and what that edit should be.
+Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be.
 
 > **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
 <!-- TODO: Signup aka.ms link -->
 
-<!-- TODO: Add gif (could be image, but think gif is more interesting and then remaining examples can be static images) -->
+<!-- TODO: Add gif or video advocacy will create for blog post (could be image, but think gif is more interesting and then remaining examples can be static images) -->
 
 ### Navigating edit suggestions
 
@@ -75,48 +75,33 @@ When you're presented with an edit suggestion, you can navigate to it with the `
 An arrow in the gutter indicates if there is an edit suggestion available:
 <!-- TODO: Add image -->
 
-If an edit suggestion is below the current editor view, the arrow will point down:
+If an edit suggestion is below the current editor view, the arrow will point down instead of right:
 <!-- TODO: Add image -->
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 <!-- TODO: Add image -->
 
-### Next Edit Suggestions in action
+### Use cases for Next Edit Suggestions
 
-<!-- TODO: Polish entire section, add an image per example -->
+<!-- TODO: Polish entire section, add maybe an image per example -->
 
-The following are examples of how NES can help in a variety of scenarios.
+**Refactoring**
 
-**Renames**
-
-* rename variable once in file, suggest to update everywhere else
-* changing variables with a particular pattern: like two variables index1, index2 and renaming one to indexArr1 then the suggestion for the second should come to be made indexArr2
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new naming pattern (i.e. renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (i.e. update `index2` to `indexArr2`).
+* **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
 **Adding new variables or arguments**
 
-* Add an argument to a function
-* Add a new variable in a class, use it in an upcoming if or switch statement
+* **Add an argument to a function or a new variable to a class**. Copilot suggests to use those additions as appropriate, i.e. calling the varaible in the function, or in an upcoming `if` or `switch` statement.
 
-**Correcting typos**
+**Correcting mistakes**
 
-* making a mistake where letters are missing like "cont x = 5" or swapped like "conts x = 5". This should be "const x = 5"
-* there are many expressions that are clearfly false "const fitsInArray = x <= arr.length" this is a bug because arrays often need the < check instead of the <=
-* OR statement that should have been an AND statement
-
-**Refactorings**
-
-* having two conditional branches that are rewritten to use ternaries or rewrittern to have early returns or rewritten to modify common shared variables
+* **Copilot helps with mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
+* **Copilot can also help with mistakes in logic**, i.e. where a statement should've had `<` instead of `<=` or an `OR` statement that should've been an `AND`.
 
 **Changing intent**
 
-* Point to Point3d
-* function like “moveCursorUp” and then changing it from “Up” to “Down” should adjust all the code logically
-
-**Matching coding patterns**
-
-* Match after copy-pasting
-     * copy-pasting an object declaration like a workbench action and adjusting one name, often ends up needing to adjust the function name, the natural language string, the keybinding, etc. there are these “things that come in groups” where the same concept is repeated but as a string, as an enum, etc.
-     * copy-pasting some code like 2 for loops and then adjusting them to match the current code where the paste happened
+* **Copilot suggests changes to the rest of your code that match a new change in intent.** For instance, changing a function `moveCursorUp` to `moveCursorDown` should adjust all the code logically.
 
 ## Tips & tricks
 
