@@ -115,12 +115,12 @@ These attributes are only available for launch configurations of request type `l
 * `url` - The URL to automatically open when the browser is launched.
 * `runtimeExecutable` - Either an absolute path to the browser executable to use, or the version of the browser to use. Valid versions include `stable` (default), `canary`, `beta`, and `dev`.
 * `runtimeArgs` - Optional arguments passed when launching the browser.
-* `address` - When debugging webviews, the IP address or hostname the webview is listening on. If not set, VS Code will try to discover it (Edge).
 
 These attributes are only available for launch configurations of request type `attach`:
 
 * `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
 * `port` - Port to use for remote debugging the browser, matching the `--remote-debugging-port` used when starting the browser. See the section on [Attaching to Browsers](#attaching-to-browsers).
+* `address` - IP address or hostname the debugged browser is listening on. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
 ## WebAssembly Debugging
 
