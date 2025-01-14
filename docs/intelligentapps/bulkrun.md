@@ -32,7 +32,7 @@ To start a bulk run:
 
 1. Bulk run prompts
 
-    Select **Run all** on the top of bulk run view to automatically run through all queries and display responses in the response column. There is an option to only run the remaining queries that have not been executed.
+    There is an option to only run the remaining queries that have not yet been run.
 
 1. Export results
 
