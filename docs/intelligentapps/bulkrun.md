@@ -22,7 +22,7 @@ To start a bulk run:
 
     ![Select dataset](./images/bulkrun/dataset.png)
 
-1. Run a single prompt
+1. Once the dataset is loaded, select **Run** or **Rerun** on any prompt to run a single prompt.
 
     Once dataset is loaded in the bulk run view, you can **Run** or **Rerun** any prompt.
 
