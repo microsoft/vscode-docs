@@ -22,7 +22,7 @@ AI engineers often need to evaluate models with different parameters or prompts 
 
     - **Evaluation job name:** default or a name you can specify
     - **Evaluator:** currently the built-in evaluators can be selected.
-    ![Evaluators](./images/evaluation/evaluators.png)
+        ![Evaluators](./images/evaluation/evaluators.png)
     - **Judging model:** a model from the list that can be selected as judging model to evaluate for some evaluators.
     - **Dataset:** you can start with a sample dataset for learning purpose, or import a JSONL file with fields `query`,`response`,`ground truth`.
 1. Once you provide all necessary information for evaluation, a new evaluation job is created. You will be promoted to open your new evaluation job details.
