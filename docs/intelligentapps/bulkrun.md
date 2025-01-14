@@ -17,7 +17,6 @@ To start a bulk run:
 
 1. In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
-    In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
 1. Select dataset
 
