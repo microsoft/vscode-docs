@@ -12,9 +12,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this Visual Studio Code tutorial, we describe Visual Studio Code features that help increase your coding productivity. Learning just a few tips can speed up your workflow and help you discover the full power of the VS Code editor.
 
->**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
-
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RWGSHk" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Productivity tips for Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/HIqONcVBEm0" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Productivity tips for Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
 
@@ -22,32 +20,28 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Video outline
 
-* Find features and keyboard shortcuts in the Command Palette
-  * **View** > **Command Palette...** (`kb(workbench.action.showCommands)`)
-* Quick Open recent files or search by filename
-  * `kb(workbench.action.quickOpen)` to show the Quick Open dropdown
-* Go to Line in a file
-  * type `filename:line number`
-* Go to Symbol in a file
-  * type `filename@symbol name`
-* View Quick Open options
-  * type `kbstyle(?)`
-* Quick Open multiple files
-  * press `kbstyle(Right Arrow)` to open the selected file but leave the dropdown available
-* Multi-cursor selection
-  * `kbstyle(Alt+Click)` on Windows and Linux, `kbstyle(Option+Click)` on macOS to add a new cursor
-  * `kb(editor.action.insertCursorAbove)` `kb(editor.action.insertCursorBelow)` to add a new cursor above or below the current position
-  * `kb(editor.action.selectHighlights)` to add cursors to all matches of the current selection
-* Auto Save changes
-  * **File** > **Auto Save**
-* Open the Settings editor
-  * **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`)
-* Set Format On Type
-  * check **Editor: Format on Type**
-* Set Format On Paste
-  * check **Editor: Format on Paste**
-* IntelliSense smart code completions
-  * trigger IntelliSense with `kb(editor.action.triggerSuggest)`
+* Double Shift
+
+  * Assign the double `kbstyle(Shift)` keyboard shortcut for often-used commands in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts** command)
+
+* Side Bar focus with keyboard shortcuts
+
+  * Press `kb(workbench.action.focusSideBar)` to put the focus in the Primary Side Bar
+  * Press `kb(workbench.action.focusFirstEditorGroup)` to put the focus back in the editor
+
+* Copy Paste
+
+  * Press `kb(editor.action.clipboardCopyAction)` to copy the entire line
+  * Press `kb(editor.action.clipboardPasteAction)` to paste the entire line
+
+* Multiple cursors
+
+  * Press `kb(editor.action.insertCursorAtEndOfEachLineSelected)` to add a cursor to the end of each selected line
+
+* Multiple terminal windows
+
+  * Drag terminal windows in the editor
+  * Switch between open terminals in the editor with `kb(workbench.action.quickOpen)`
 
 ## Next video
 
