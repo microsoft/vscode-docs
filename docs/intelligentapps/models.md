@@ -27,7 +27,7 @@ To find a model in the model catalog:
 
 1. In the AI Toolkit view, select **CATALOG** > **Models** to open the model catalog
 
-1. use the filters to reuce the list of available models
+1. Use the filters to reduce the list of available models
     ![Select model in model catalog](./images/models/model_catalog.png)
     - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 
