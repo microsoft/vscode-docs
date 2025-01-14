@@ -18,7 +18,7 @@ To start a bulk run:
 1. In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
 
-1. Select dataset
+1. Select either a sample dataset or import a local JSONL file that has a `query` field to use as prompts.
 
     You can select either a sample dataset to get familiar about the feature, or import a local JSONL file that has at least a field `query` to use as prompts.
     ![Select dataset](./images/bulkrun/dataset.png)
