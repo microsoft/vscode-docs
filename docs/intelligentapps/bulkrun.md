@@ -35,5 +35,4 @@ To start a bulk run:
 
 1. Select the **Export** button to export the results to a JSONL format.
 
-    You can export the bulk run result to a JSONL format for future reference.
     You can also import another dataset in JSONL format for the bulk run.
