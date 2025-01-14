@@ -24,7 +24,6 @@ To start a bulk run:
 
 1. Once the dataset is loaded, select **Run** or **Rerun** on any prompt to run a single prompt.
 
-    Once dataset is loaded in the bulk run view, you can **Run** or **Rerun** any prompt.
 
     Like in the playground, you can select AI model, add context for your prompt, and change inference parameters.
 
