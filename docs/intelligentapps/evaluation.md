@@ -18,7 +18,7 @@ AI engineers often need to evaluate models with different parameters or prompts 
 ## Start an evaluation job
 
 1. In AI Toolkit view, select **TOOLS** > **Evaluation** to open the Evaluation view.
-1. Select the button **Create Evaluation**, then answer the questions:
+1. Select the **Create Evaluation** button and provide the following information:
 
     - **Evaluation job name:** default or a name you can specify
     - **Evaluator:** currently the built-in evaluators can be selected.
