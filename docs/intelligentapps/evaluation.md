@@ -34,7 +34,9 @@ AI engineers often need to evaluate models with different parameters or prompts 
 ## Monitor the evaluation job
 
 Once an evaluation job is started, you can find its status from the evaluation job view.
+
 ![Running evaluation](./images/evaluation/running.png)
+
 Each evaluation job has a link to the dataset that was used, logs from the evaluation process, timestamp, and a link to the details of the evaluation.
 
 ## Find results of evaluation
