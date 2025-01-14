@@ -11,7 +11,7 @@ MetaSocialImage:
 
 # Run multiple prompts in bulk
 
-The bulk run feature in AI Toolkit allows you to run multiple prompts in batch. When you use the playground, you can only run one prompt manually at a time, in the order they're listed. Bulk run takes a dataset as input, where each row in the dataset has a prompt as the minimal requirement. Typically teh dataset has multiple rows. Once imported, you can select any prompt to run or run all prompts on the selected model. The responses will be displayed in the same dataset view. Executed dataset can be exported.
+The bulk run feature in AI Toolkit allows you to run multiple prompts in batch. When you use the playground, you can only run one prompt manually at a time, in the order they're listed. Bulk run takes a dataset as input, where each row in the dataset has a prompt as the minimal requirement. Typically, the dataset has multiple rows. Once imported, you can select any prompt to run or run all prompts on the selected model. The responses will be displayed in the same dataset view. The results from running the dataset can be exported.
 
 To start a bulk run:
 
