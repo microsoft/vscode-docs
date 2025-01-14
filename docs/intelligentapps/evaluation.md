@@ -41,7 +41,7 @@ Each evaluation job has a link to the dataset that was used, logs from the evalu
 
 Select the evaluation job detail, the view has columns of selected evaluators with the numerical values. Some may have aggregate values.
 
-You can also select **Open In Data Wrangler** to open the data in `Data Wrangler` extension.
+You can also select **Open In Data Wrangler** to open the data with the Data Wrangler extension.
 
 > <a class="install-extension-btn" href="vscode:extension/ms-toolsai.datawrangler">Install Data Wrangler</a>
 
