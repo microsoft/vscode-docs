@@ -29,7 +29,7 @@ To start a bulk run:
 
     ![Bulk run prompts](./images/bulkrun/bulkrun_one.png)
 
-1. Bulk run prompts
+1. Select **Run all** on the top of the Bulk Run view to automatically run through queries. The responses are shown in the **response** column.
 
     There is an option to only run the remaining queries that have not yet been run.
 
