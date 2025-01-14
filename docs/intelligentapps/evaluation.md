@@ -30,7 +30,8 @@ AI engineers often need to evaluate models with different parameters or prompts 
     ![Open evaluation](./images/evaluation/openevaluation.png)
 
 1. Verify your dataset and select **Run Evaluation** to start the evaluation.
-![Run Evaluation](./images/evaluation/runevaluation.png)
+
+    ![Run Evaluation](./images/evaluation/runevaluation.png)
 
 ## Monitor the evaluation job
 
