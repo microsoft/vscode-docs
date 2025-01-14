@@ -15,7 +15,7 @@ The bulk run feature in AI Toolkit allows you to run multiple prompts in batch. 
 
 To start a bulk run:
 
-1. Open Bulk Run view
+1. In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
     In the AI Toolkit view, select **TOOLS** > **Bulk Run** to open the Bulk Run view.
 
