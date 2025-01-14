@@ -33,6 +33,8 @@ To start a bulk run:
 
     There is an option to only run the remaining queries that have not yet been run.
 
+    ![Run all](./images/bulkrun/runall.png)
+
 1. Select the **Export** button to export the results to a JSONL format.
 
 1. Select **Import** to import another dataset in JSONL format for the bulk run.

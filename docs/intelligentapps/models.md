@@ -28,7 +28,7 @@ To find a model in the model catalog:
 1. In the AI Toolkit view, select **CATALOG** > **Models** to open the model catalog
 
 1. Use the filters to reduce the list of available models
-    ![Select model in model catalog](./images/models/model_catalog.png)
+
     - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
@@ -38,6 +38,8 @@ To find a model in the model catalog:
     - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
     - **Fine-tuning Support**: switch filters models that can be used to run fine-tuning.
+
+    ![Select model in model catalog](./images/models/model_catalog.png)
 
 To reference a self-hosted model or locally running Ollama model:
 
