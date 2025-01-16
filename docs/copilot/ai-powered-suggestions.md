@@ -13,8 +13,8 @@ MetaSocialImage: images/shared/github-copilot-social.png
 GitHub Copilot acts as an AI-powered pair programmer, automatically offering suggestions to complete your code, comments, tests, and more. It provides these suggestions directly in the editor while you write your code, and it can work with a broad range of programming languages and frameworks.
 
 Copilot provides two kinds of suggestions:
-* **Code completions** - Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account.
-* **Next Edit Suggestions (preview)** Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Code completions** - Start typing in the editor, and Copilot provides code suggestions that match your coding style and take your existing code into account.
+* **Next Edit Suggestions (preview)** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 ## Getting started
 
@@ -68,7 +68,9 @@ Inline suggestions are great at autocompleting a section of code currently being
 Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
-> Copilot NES is currently in preview. You can sign up for NES via [the watilist](). <!-- TODO: Signup aka.ms link -->
+> Copilot NES is currently in preview. You can sign up for NES by enabling the VS Code setting `setting(editor.inlineSuggest.edits.experimental.enabled)`, which will sign you up for the NES waitlist. You'll be notified in VS Code and via the email tied to your GitHub account when you have been granted access to NES.
+>
+> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 
 <!-- TODO: Add gif or video advocacy will create for blog post (could be image, but think gif is more interesting and then remaining examples can be static images) -->
 

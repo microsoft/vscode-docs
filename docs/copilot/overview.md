@@ -92,14 +92,14 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
 * **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
-NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. For example, if you remove a function input parameter, you're likely going to want to update the function invocations next.
+NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. For example, if you remove a function input parameter, you're likely going to want to update the function invocations next. You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
 
 <!-- TODO: Add image or gif -->
 
 > [!NOTE]
-> Copilot NES is currently in preview. You can sign up for NES via [the watilist](). <!-- TODO: Signup aka.ms link -->
-
-You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
+> Copilot NES is currently in preview. You can sign up for NES by enabling the VS Code setting `setting(editor.inlineSuggest.edits.experimental.enabled)`, which will sign you up for the NES waitlist. You'll be notified in VS Code and via the email tied to your GitHub account when you have been granted access to NES.
+>
+> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 
 ### Iterate on large changes across multiple files
 
