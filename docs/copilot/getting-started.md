@@ -61,13 +61,6 @@ To get started with GitHub Copilot in VS Code, you don't have to do anything spe
 
 AI-powered code completions can help you with generating boilerplate or repetitive code, letting you stay in the developer flow and focus on more complex coding tasks.
 
-Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both at the cursor and further away. Copilot Next Edit Suggestions both predicts the location of the next edit you'll want to make and what that edit should be. You can learn more in the [Copilot Next Edit Suggestions doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
-
-> **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
-<!-- TODO: Signup aka.ms link -->
-
-<!-- TODO: Add image of NES -->
-
 ## Use Inline Chat to generate a basic web server
 
 With Copilot Chat, you can start a chat conversation with Copilot in VS Code to ask specific tasks about your code by using natural language.

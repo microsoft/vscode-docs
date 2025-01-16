@@ -90,12 +90,16 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
-* **Copilot Next Edit Suggestions** (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be. You can learn more in the [Copilot Next Edit Suggestions doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
+* **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
-> **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
-<!-- TODO: Signup aka.ms link -->
+Based on the edits you're making, Copilot NES tries to predict your next edit. Just `kbstyle(Tab)` to navigate and accept Copilot's suggestions. For example, if you remove a function input parameter, you're likely going to want to update the function invocations next.
 
 <!-- TODO: Add image or gif -->
+
+> [!NOTE]
+> Copilot NES is currently in preview. You can sign up for NES via [the watilist](). <!-- TODO: Signup aka.ms link -->
+
+You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
 
 ### Iterate on large changes across multiple files
 

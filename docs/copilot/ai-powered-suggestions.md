@@ -57,20 +57,20 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Next Edit Suggestions
+## Next Edit Suggestions (preview)
 
-Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both at the cursor and further away.
+Inline suggestions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (aka "Copilot NES") is this evolution.
 
-Copilot Next Edit Suggestions (aka "Copilot NES") both predicts the location of the next edit you'll want to make and what that edit should be. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work - you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-> **Note:** Copilot NES is currently in public preview. You can sign up for NES via [the watilist]().
-<!-- TODO: Signup aka.ms link -->
+> [!NOTE]
+> Copilot NES is currently in preview. You can sign up for NES via [the watilist](). <!-- TODO: Signup aka.ms link -->
 
 <!-- TODO: Add gif or video advocacy will create for blog post (could be image, but think gif is more interesting and then remaining examples can be static images) -->
 
-### Navigating edit suggestions
+### Navigate and accept edit suggestions
 
-When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again.
+You can quickly navigate suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
 An arrow in the gutter indicates if there is an edit suggestion available:
 <!-- TODO: Add image -->
@@ -107,7 +107,7 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 
 ### Context
 
-To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
+To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
 
 ### Enable or disable code completions
 
