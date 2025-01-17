@@ -154,18 +154,14 @@ Another popular tool for debugging Vue.js is the [vue-devtools](https://devtools
 
 ## Other extensions
 
-[Vue - Official extention](https://vueschool.io/lessons/volar-the-official-language-feature-extension-for-vs-code) is only one of many Vue.js extensions available for VS Code.
+- Search in the Extensions view (`kb(workbench.view.extensions)`) by typing _vue_ to find other Vue extensions.
 
-![Vue recommended extensions](images/vuejs/vue-recommended-extensions.png)
+  ![Vue.js extensions](images/vuejs/vue-extensions.png)
 
-You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'vue'.
+- Extensions like [Vue VS Code Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
 
-![Vue.js extensions](images/vuejs/vue-extensions.png)
+  ![Vue VS Code Snippets](images/vuejs/vue-vscode-snippets.png)
 
-Extension like [Vue VS Code Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
+- There are also Extension Packs, which bundle extensions that other people have found useful for Vue.js development.
 
-![Vue VS Code Snippets](images/vuejs/vue-vscode-snippets.png)
-
-There are also Extension Packs, which bundle extensions that other people have found useful for Vue.js development.
-
-![Vue.js Extension Pack](images/vuejs/vue-extension-pack.png)
+  ![Vue.js Extension Pack](images/vuejs/vue-extension-pack.png)
