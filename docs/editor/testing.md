@@ -26,7 +26,7 @@ VS Code has the following features for testing your code:
 
 * **Support multiple testing frameworks**: language [extensions](#extensions-for-testing) and standalone testing extensions provide support for various languages and test runners, such as Jest, Mocha, Pytest, JUnit, and more.
 
-* **Centralized test management**: the [Test Explorer](#automatic-test-discovery-in-test-explorer) provides a centralized place to manage and run the tests in your project. The Test Explorer might automatically discover the tests in your project, depending on the testing extension.
+* **Centralized test management**: the [Test Explorer](#automatic-test-discovery-in-testing-view) provides a centralized place to manage and run the tests in your project. The Test Explorer might automatically discover the tests in your project, depending on the testing extension.
 
 * **Integrated test results**: view the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
 
