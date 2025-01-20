@@ -113,12 +113,12 @@ Starting with VS Code release 1.99 (March 2025), the prebuilt servers distribute
 
 VS Code will still allow users to connect to an OS that is not supported by VS Code (OSes that don't have glibc >= 2.28 and libstdc++ >= 3.4.25) via the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension, if a sysroot with these required library versions is provided. This approach gives you and your organization more time to migrate to newer Linux distributions.
 
-> [!IMPORTANT]
-> This approach is a technical workaround and is not an officially supported usage scenario.
-
 | VS Code version | Base Requirements | Notes |
 |--------------|-------------------|-------|
 | 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+
+> [!IMPORTANT]
+> This approach is a technical workaround and is not an officially supported usage scenario.
 
 Follow these steps to configure your environment for this workaround:
 
