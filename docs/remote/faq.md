@@ -109,7 +109,25 @@ See [Remote Development with Linux](/docs/remote/linux.md) for additional detail
 
 ### Can I run VS Code Server on older Linux distributions?
 
-Starting with VS Code release 1.86.1 (January 2024), the minimum requirements for the build toolchain of the remote server were raised. The prebuilt servers distributed by VS Code are compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04. VS Code will still allow users to connect to an OS that is not supported by VS Code (OS that does not provide glibc >= 2.28 and libstdc++ >= 3.4.25) until February 2025. This allows time for you and your companies to migrate to newer Linux distributions. VS Code will show a dialog and banner message when you connect to an OS version that is not supported by VS Code.
+Starting with VS Code release 1.99 (March 2025), the prebuilt servers distributed by VS Code are only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04. VS Code will still allow users to connect to an OS that is not supported by VS Code via [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension (OS that does not provide glibc >= 2.28 and libstdc++ >= 3.4.25) if a sysroot with required library versions can be porvided. This allows time for you and your companies to migrate to newer Linux distributions.
+
+| VS Code version | Base Requirements | Notes |
+|--------------|-------------------|-------|
+| 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+
+We recommend using [Crosstool-ng](https://crosstool-ng.github.io/docs/) to build the sysroot. Here are some example configs that you can start with,
+
+* [x86_64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/x86_64-gcc-8.5.0-glibc-2.28.config)
+* [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
+* [armhf-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/armhf-gcc-8.5.0-glibc-2.28.config)
+
+VS Code server will use [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot. Once you have the patchelf binary and the sysroot installed on the remote host, the following 3 environment variables needs to be created
+
+* **VSCODE_SERVER_CUSTOM_GLIBC_LINKER** path to the dynamic linker in the sysroot (used for `--set-interpreter` option with [patchelf](https://github.com/NixOS/patchelf))
+* **VSCODE_SERVER_CUSTOM_GLIBC_PATH** path to the library locations in the sysroot (used as `--set-rpath` option with [patchelf](https://github.com/NixOS/patchelf))
+* **VSCODE_SERVER_PATHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
+
+You can now connect to the remote using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
 
 ### Can I install individual extensions instead of the extension pack?
 
