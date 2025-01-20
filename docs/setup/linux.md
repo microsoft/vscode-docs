@@ -197,12 +197,6 @@ Once you have installed VS Code, these topics will help you learn more about it:
 
 ## Common questions
 
-### Azure VM Issues
-
-I'm getting a "Running without the SUID sandbox" error?
-
-You can safely ignore this error.
-
 ### Debian and moving files to trash
 
 If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
