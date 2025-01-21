@@ -47,7 +47,7 @@ Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
 ### Default keyboard shortcuts
 
-Many of the commands in the Command Palette have default key bindings associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+Many of the commands in the Command Palette have default keyboard shortcuts associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![keyboard references](images/tips-and-tricks/keyboard-references.png)
 
@@ -204,7 +204,7 @@ Select the pencil icon or use `kbstyle(Enter)` on a specific entry to edit the k
 
 ![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
 
-You can also search for shortcuts and add your own keybindings to the `keybindings.json` file.
+You can also search for shortcuts and add your own keyboard shortcuts to the `keybindings.json` file.
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
@@ -416,7 +416,7 @@ Are you interested in creating your own extension? You can learn how to do this 
 
 * configuration
 * commands
-* keybindings
+* keyboard shortcuts
 * languages
 * debuggers
 * grammars
@@ -596,13 +596,13 @@ You can synchronize scrolling across all visible editors by using the **View: To
 
 ![Locked scrolling in the editor](images/tips-and-tricks/locked-scrolling.gif)
 
-You can choose to only activate the scrolling sync when you're holding down a specific keybinding. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
+You can choose to only activate the scrolling sync when you're holding down a specific keyboard shortcut. Set up a keyboard shortcut for the `workbench.action.holdLockedScrolling` command to temporarily lock scrolling across editors.
 
 ### Copy line up / down
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
+> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keyboard shortcuts would conflict with Ubuntu keyboard shortcuts, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
 
