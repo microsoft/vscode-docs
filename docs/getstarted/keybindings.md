@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E

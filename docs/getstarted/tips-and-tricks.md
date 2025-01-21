@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 5
 Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
