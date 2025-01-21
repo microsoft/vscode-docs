@@ -17,12 +17,6 @@ Instead of using chat to get suggestions, Copilot can also directly make edits a
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-## Prerequisites
-
-* Access to GitHub Copilot in VS Code. See [Setup Copilot in VS Code](/docs/copilot/setup.md).
-
-* Latest version of Visual Studio Code. See the [VS Code download page](https://code.visualstudio.com/Download).
-
 ## Access Copilot Chat in VS Code
 
 You can submit prompts to Copilot in VS Code in several ways, depending on your workflow.
