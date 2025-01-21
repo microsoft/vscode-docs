@@ -268,7 +268,7 @@ You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu
 
 ### Settings
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settingsjson).
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settings-json-file).
 
 You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 
@@ -457,9 +457,9 @@ Without tabs, the **Open Editors** section of the Explorer view is a quick way t
 
 ### Use keyboard shortcuts to navigate the editor history
 
-You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
+You can change vs for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
 
-Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
+Edit your [keyboard shortcuts](/docs/getstarted/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },

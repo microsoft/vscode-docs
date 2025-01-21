@@ -92,9 +92,9 @@ Optionally, you can partially apply the refactoring changes by deselecting some 
 
 ![Screenshot of the Refactor Preview panel that shows how to partially apply changes by deselecting specific changes.](images/refactoring/refactor-preview-partial.png)
 
-## Keybindings for Code Actions
+## Keyboard shortcuts for Code Actions
 
-The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding, for example, triggers the **Extract function** refactoring Code Actions:
+The `editor.action.codeAction` command lets you configure keyboard shortcuts for specific Code Actions. This keyboard shortcut, for example, triggers the **Extract function** refactoring Code Actions:
 
 ```json
 {
@@ -108,7 +108,7 @@ The `editor.action.codeAction` command lets you configure keybindings for specif
 
 Code Action kinds are specified by extensions using the enhanced `CodeActionProvider` API. Kinds are hierarchical, so `"kind": "refactor"` shows all refactoring Code Actions, whereas `"kind": "refactor.extract.function"` only shows **Extract function** refactorings.
 
-Using the above keybinding, if only a single `"refactor.extract.function"` Code Action is available, it is automatically applied. If multiple **Extract function** Code Actions are available, VS Code brings up a context menu to select them:
+Using the above keyboard shortcut, if only a single `"refactor.extract.function"` Code Action is available, it is automatically applied. If multiple **Extract function** Code Actions are available, VS Code brings up a context menu to select them:
 
 ![Select Code Action context menu](images/refactoring/code-action-context-menu.png)
 
@@ -131,9 +131,9 @@ Valid values for `apply`:
 * `ifSingle` - (Default) Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
 * `never` - Always show the Code Action context menu, even if only a single Code Action is available.
 
-When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+When a Code Action keyboard shortcut is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
-This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
+This keyboard shortcut uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
 
 ```json
 {

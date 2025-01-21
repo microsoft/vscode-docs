@@ -52,7 +52,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 * `setting(inlineChat.acceptedOrDiscardBeforeSave)`: Controls whether pending Inline Chat sessions in an editor prevent saving the file.
 * `setting(inlineChat.finishOnType)`: Whether to finish an Inline Chat session when typing outside of changed regions.
-* `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keybinding will automatically enable speech recognition.
+* `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keyboard shortcut will automatically enable speech recognition.
 * `setting(inlineChat.inlineChat.lineEmptyHint)` <i class="codicon codicon-beaker"></i>: Controls whether to show a hint for Inline Chat on an empty line.
 * `setting(inlineChat.mode)`: Configure if changes crafted with Inline Chat are applied directly to the document or are previewed first.
 * `setting(inlineChat.lineNaturalLanguageHint)` <i class="codicon codicon-beaker"></i>: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.

@@ -64,14 +64,14 @@ Limitation: You may not be able to use the web-based editor if you are running y
 
 While working with Codespaces and specifically VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent development experience.
 
-For several issues (especially keybindings or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://learn.microsoft.com/microsoft-edge/progressive-web-apps-chromium) (PWA).
+For several issues (especially keyboard shortcuts or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://learn.microsoft.com/microsoft-edge/progressive-web-apps-chromium) (PWA).
 
 ![Installing Codespaces as PWA in Microsoft Edge](images/codespaces/PWA-edge-install.png)
 
 | Issue | Reason | Workaround |
 |-|-|-|
 | `kbstyle(Ctrl+Shift+P)` won't launch the Command Palette in Firefox. | `kbstyle(Ctrl+Shift+P)` is reserved in Firefox. | Use `kbstyle(F1)` to launch the Command Palette. |
-| Certain default keybindings (for debugging) are different in the web. | Since the browser may already have an action registered for those keybindings, we adjust the default for VS Code in the web. | Use the adjusted defaults. They appear on tooltip hovers over the debug actions. <ul><li> Step over is `kbstyle(Alt+F10)` (instead of `kbstyle(F10)`) on all browsers.</li><li> Step into in the web is `kbstyle(Alt+F11)` (instead of `kbstyle(F11)`) on Windows browsers.</li></ul> |
+| Certain default keyboard shortcuts (for debugging) are different in the web. | Since the browser may already have an action registered for those keyboard shortcuts, we adjust the default for VS Code in the web. | Use the adjusted defaults. They appear on tooltip hovers over the debug actions. <ul><li> Step over is `kbstyle(Alt+F10)` (instead of `kbstyle(F10)`) on all browsers.</li><li> Step into in the web is `kbstyle(Alt+F11)` (instead of `kbstyle(F11)`) on Windows browsers.</li></ul> |
 | `kbstyle(F11)` for debugging does not work on macOS in web or desktop.  | This is a known, non-browser specific limitation. More information can be found in [issue #5102](https://github.com/microsoft/vscode/issues/5102). | Disable `kbstyle(F11)` to show desktop on macOS.<ul><li> Go to: **System Preferences** > **Keyboard** > **Shortcuts** </li><li> Uncheck the **Show Desktop F11** option </li></ul> |
 | `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. | `kbstyle(Ctrl+N)` for new file works in the desktop. |
 | `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. | `kbstyle(Ctrl+W)` works in the desktop. |

@@ -385,7 +385,7 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
