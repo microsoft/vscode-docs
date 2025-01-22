@@ -10,36 +10,36 @@ MetaDescription: Chat with selected generative AI model in playground. Change sy
 
 # AI Toolkit playground
 
-The AI Toolkit playground is where you can interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
+The AI Toolkit playground enables you to interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.
 
 ![Playground view](./images/playground/playground.png)
 
 ## Test a model in the playground
 
-There are multiple options to open the model playground:
+To access the playground:
 
-- In AI Toolkit, select the **Playground** in the treeview
+- In AI Toolkit view, select **Playground**
 
 - Select **Load in Playground** or **Try in Playground** from a model card in the model catalog
 
-To test a model in the playground:
+To test a model in the playground, follow these steps:
 
-1. Select a model
-1. Insert context instructions (Optional)
-1. Change model parameters (Optional)
-1. Type prompts or questions from the chat box at the bottom of playground
-1. Send questions and wait for responses.
+1. In **Model Preferences**, select a model from the dropdown list
 
-![Setting model parameters](./images/playground/parameters.png)
+    ![Select a model and configure context instructions in the playground.](./images/playground/parameters.png)
 
-From the chat input box, you can also clear chat history or add attachments for the prompt.
+1. Optionally, add context instructions to guide the model response
+
+1. Optionally, configure the model parameters
+
+1. Enter a chat prompt in the chat input box
+
+    From the chat input box, you can also clear chat history or add attachments for the prompt.
 
 ## Add attachments for multi-modal models
 
-Multi-modal models allow you to include attachment files in different format, such as image, voice, video, or document, send together with prompts to AI models. You can ask questions about the contents in the attachments.
+Multi-modal models are models that can process multiple types of input, such as text, images, audio, or video. By attaching files to your chat prompt, you can ask questions about the contents of these files.
 
-For the models that support attachments, the attachment icon (paperclip) will show. Select the icon, and follow the instructions to attach one or more local files and use them with your prompt.
+For the models that support attachments, the attachment icon (paperclip) will show in the chat input box. Select the icon, and follow the instructions to attach one or more local files and use them with your prompt.
 
 ![Adding attachments](./images/playground/attachment.png)
-
-
