@@ -2,11 +2,10 @@
 Order: 2
 Area: intelligentapps
 TOCTitle: Models
-ContentId:
+ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
 PageTitle: AI Models in AI Toolkit
-DateApproved:
+DateApproved: 12/11/2024
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
-MetaSocialImage:
 ---
 
 # Models in AI Toolkit

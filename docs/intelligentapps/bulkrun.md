@@ -2,11 +2,10 @@
 Order: 4
 Area: intelligentapps
 TOCTitle: Bulk Run
-ContentId:
+ContentId: 1124d141-e893-4780-aba7-b6ca13628bc5
 PageTitle: Bulk Run Prompts
-DateApproved:
+DateApproved: 12/11/2024
 MetaDescription: Run a set of prompts in an imported dataset, individually or in a full batch towards the selected genAI models and parameters.
-MetaSocialImage:
 ---
 
 # Run multiple prompts in bulk

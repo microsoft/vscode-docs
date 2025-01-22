@@ -2,11 +2,10 @@
 Order: 3
 Area: intelligentapps
 TOCTitle: Playground
-ContentId:
+ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
 PageTitle: AI Model Playground
-DateApproved:
+DateApproved: 12/11/2024
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
-MetaSocialImage:
 ---
 
 # AI Toolkit playground
@@ -16,7 +15,6 @@ The AI Toolkit playground is where you can interact with your AI models and try 
 ![Playground view](./images/playground/playground.png)
 
 ## Test a model in the playground
-
 
 There are multiple options to open the model playground:
 
