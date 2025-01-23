@@ -130,15 +130,41 @@ Follow these steps to configure your environment for this workaround:
     * [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
     * [armhf-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/armhf-gcc-8.5.0-glibc-2.28.config)
 
-    VS Code server uses [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot.
+    The following example container can also be used to have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) installed,
 
-1. Install the patchelf binary and the sysroot on the remote host
+    ```docker
+    FROM ubuntu:latest
 
-1. Create the following 3 environment variables:
+    RUN apt-get update
+    RUN apt-get install -y gcc g++ gperf bison flex texinfo help2man make libncurses5-dev \
+    python3-dev autoconf automake libtool libtool-bin gawk wget bzip2 xz-utils unzip \
+    patch rsync meson ninja-build
+
+    # Install crosstool-ng
+    RUN wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.bz2
+    RUN tar -xjf crosstool-ng-1.26.0.tar.bz2
+    RUN cd crosstool-ng-1.26.0 && ./configure --prefix=/crosstool-ng-1.26.0/out && make && make install
+    ENV PATH=$PATH:/crosstool-ng-1.26.0/out/bin
+    ```
+
+    Once you have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) and the relevant configs prepared, run the following commands to generate the sysroot
+
+    ```sh
+    mkdir toolchain-dir
+    cd toolchain-dir
+    cp <path-to-config-file> > .config
+    ct-ng build
+    ```
+
+2. VS Code server uses [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot.
+
+3. Install the patchelf binary and the sysroot on the remote host
+
+4. Create the following 3 environment variables:
 
     * **VSCODE_SERVER_CUSTOM_GLIBC_LINKER** path to the dynamic linker in the sysroot (used for `--set-interpreter` option with [patchelf](https://github.com/NixOS/patchelf))
     * **VSCODE_SERVER_CUSTOM_GLIBC_PATH** path to the library locations in the sysroot (used as `--set-rpath` option with [patchelf](https://github.com/NixOS/patchelf))
-    * **VSCODE_SERVER_PATHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
+    * **VSCODE_SERVER_PATCHELF_PATH** path to the [patchelf](https://github.com/NixOS/patchelf) binary on the remote host
 
 You can now connect to the remote by using the [Remote - SSH](https://aka.ms/vscode-remote/download/ssh) extension. On successful connection, VS Code will show a dialog and banner message about the connection not being supported.
 
