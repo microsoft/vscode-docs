@@ -124,7 +124,7 @@ Follow these steps to configure your environment for this workaround:
 
 1. Build the sysroot
 
-    We recommend using [Crosstool-ng](https://crosstool-ng.github.io/docs/) to build the sysroot. Here are some example configs that you can start with,
+    We recommend using [Crosstool-ng](https://crosstool-ng.github.io/docs/) to build the sysroot. Here are some example configs that you can start with:
 
     * [x86_64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/x86_64-gcc-8.5.0-glibc-2.28.config)
     * [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
