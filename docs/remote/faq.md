@@ -130,7 +130,7 @@ Follow these steps to configure your environment for this workaround:
     * [aarch64-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/aarch64-gcc-8.5.0-glibc-2.28.config)
     * [armhf-gcc-8.5.0-glibc-2.28](https://github.com/microsoft/vscode-linux-build-agent/blob/main/armhf-gcc-8.5.0-glibc-2.28.config)
 
-    The following example container can also be used to have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) installed,
+    The following example container can also be used to have an environment with [Crosstool-ng](https://crosstool-ng.github.io/docs/) installed:
 
     ```docker
     FROM ubuntu:latest
