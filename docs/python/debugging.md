@@ -28,7 +28,7 @@ You can refer to the extension's [README](https://github.com/microsoft/vscode-py
 
 ## Initialize configurations
 
-A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
+A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace. See [Command Line Debugging](#command-line-debugging) for no-config debugging explanation and instructions.
 
 > **Note**: To change debugging configuration, your code must be stored in a folder.
 
@@ -99,7 +99,10 @@ For information about creating and using debugging configurations, see the [Init
 
 ## Command line debugging
 
-The debugger can also be run from the command line, if `debugpy` is installed in your Python environment.
+The debugger can also be run from the command line in two ways. First is using no-config debugging, a vscode-specific feature allowing you to quickly spin up a debug session. Second is if `debugpy` is installed in your Python environment, then you can call the package directly from the command line.
+
+## No-Config Debugging
+The purpose of no-config debugging is to provide a simple and easy-to-setup path to debugging in VS Code. To use, open a terminal and ensure this terminal instance has an active environment where you can run python by only providing `python`. You can check this by running `python` in your terminal and making sure it starts a repl (use `exit()` to leave). The launched debug session will have the same lifetime as your script run from the terminal.
 
 ### Install debugpy
 You can install [debugpy](https://pypi.org/project/debugpy/) using `python -m pip install --upgrade debugpy` into your Python environment.
