@@ -10,7 +10,7 @@ MetaDescription: Learn about the security measures in place for Visual Studio Co
 
 # Extension runtime security
 
-[Extensions](/docs/editor/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. You can check if an extension is safe before you install it.
+[Extensions](/docs/editor/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. In addition, VS Code gives you several indicators of an extension's reliability.
 
 This document outlines the runtime permissions of extensions in VS Code and the measures in place to protect you from malicious extensions. You'll learn how to make an informed decision about the reliability of an extension before installing it.
 
@@ -19,6 +19,14 @@ This document outlines the runtime permissions of extensions in VS Code and the 
 The [extension host](/api/advanced-topics/extension-host.md) is responsible for running extensions in VS Code. The extension host has the same permissions as VS Code itself. This means that any action that VS Code can perform, an extension can also perform through the extension host.
 
 For example, an extension can read and write files on your machine, make network requests, run external processes, and modify workspace settings.
+
+## Extension publisher trust
+
+As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the publisher of that extension.
+
+The list of trusted publishers is maintained in the `setting(extensions.trustedPublishers)` user setting.
+
+Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers. You can also manually edit the list of trusted publishers.
 
 ## Determine extension reliability
 

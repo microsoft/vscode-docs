@@ -30,6 +30,9 @@ Each extension in the list includes a brief description, the publisher, the down
 
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
+> [!IMPORTANT]
+> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
 When [Settings Sync](/docs/editor/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
@@ -354,7 +357,11 @@ The **Show Recommended Extensions** command is always available if you want to s
 
 ### Can I trust extensions from the Marketplace?
 
-The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
+The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it.
+
+As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
+
+Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
 
 ### The extension signature cannot be verified by VS Code
 
