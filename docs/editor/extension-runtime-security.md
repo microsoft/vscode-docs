@@ -26,7 +26,7 @@ As of VS Code release 1.97, when you first install an extension from a third-par
 
 The list of trusted publishers is maintained in the `setting(extensions.trustedPublishers)` user setting.
 
-Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers. You can also manually edit the list of trusted publishers.
+Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers. You can also edit the list of trusted publishers by modifying the setting.
 
 ## Determine extension reliability
 
