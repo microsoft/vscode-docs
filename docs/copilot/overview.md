@@ -97,7 +97,7 @@ NES helps you stay in the flow, suggesting future changes relevant to your curre
 <!-- TODO: Add image or gif -->
 
 > [!NOTE]
-> Copilot NES is currently in preview. You can sign up for NES by enabling the VS Code setting `setting(editor.inlineSuggest.edits.experimental.enabled)`, which will sign you up for the NES waitlist. You'll be notified in VS Code and via the email tied to your GitHub account when you have been granted access to NES.
+> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
 >
 > For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 

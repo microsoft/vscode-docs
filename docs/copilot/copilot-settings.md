@@ -26,7 +26,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.commandCenter.enabled)` <i class="codicon codicon-beaker"></i>: Controls whether the command center shows a menu for chat actions.
 * `setting(workbench.commandPalette.experimental.askChatLocation)` <i class="codicon codicon-beaker"></i>: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` <i class="codicon codicon-beaker"></i>: Enables semantic search results in the Search view.
-* `setting(editor.inlineSuggest.edits.experimental.enabled)` <i class="codicon codicon-beaker"></i>: Enables Copilot Next Edit Suggestions (preview). As this feature is currently in preview, enabling the setting will sign you up for the waitlist.
+* `setting(github.copilot.chat.nextEdits.enabled)` <i class="codicon codicon-beaker"></i>: Enables Copilot Next Edit Suggestions (preview).
 
 ## Chat settings
 
