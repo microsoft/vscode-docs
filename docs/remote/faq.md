@@ -158,6 +158,9 @@ Follow these steps to configure your environment for this workaround:
 
 2. VS Code server uses [patchelf](https://github.com/NixOS/patchelf) during the installation process to consume the required libraries from the sysroot.
 
+> [!IMPORTANT]
+> patchelf `v0.17.x` is known to cause segfaults with the remote server, we recommend using patchelf `>=v0.18.x`
+
 3. Install the patchelf binary and the sysroot on the remote host
 
 4. Create the following 3 environment variables:
