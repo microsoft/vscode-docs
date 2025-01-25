@@ -34,7 +34,7 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 It is important to keep in mind that VS Code's TypeScript language service is separate from your installed TypeScript compiler. You can see the VS Code's TypeScript version in the Status Bar when you open a TypeScript file.
 
-![TypeScript version displayed in the Status Bar](images/compiling/version-status-bar.png)
+![TypeScript version displayed in the language Status Bar](../../release-notes/images/1_61/ts-intellisense-status.png)
 
 Later in the article, we'll discuss how you can [change](#using-newer-typescript-versions) the version of TypeScript language service that VS Code uses.
 
@@ -188,7 +188,7 @@ Reasons for doing this include:
 * Trying out the latest TypeScript features by switching to the TypeScript nightly build (`typescript@next`).
 * Making sure you are using the same version of TypeScript for IntelliSense that you use to compile your code.
 
-The active TypeScript version and its install location are displayed in the Status Bar when viewing a TypeScript file:
+The active TypeScript version and its install location can be displayed in the Status Bar when you pinned the version number from language Status Bar with viewing a TypeScript file:
 
 ![TypeScript status bar version](images/compiling/status-bar-version.png)
 
