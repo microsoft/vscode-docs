@@ -52,10 +52,15 @@ Copilot NES is an expert companion as you make changes that may cascade througho
 After accepting the change, NES next recommends adding `z` to the distance calculation:
 ![NES for updating Point to Point3D](point3d-distance.png)
 
-**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
+**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`:
+![Add command in package.json]()
+
+And then when you open `package.json`, NES may suggest registering that command as well:
+![Add command in package.json]()
 
 **Refactoring:** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
-
 
 **Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
 <!-- TODO: Add image -->

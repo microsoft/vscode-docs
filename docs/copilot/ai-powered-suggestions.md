@@ -102,7 +102,13 @@ After accepting the change, NES next recommends adding `z` to the distance calcu
 
 **Adding new variables or logic**
 
-* **Using newly added arguments, variables, or functions**. Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
+* **Using newly added arguments, variables, or functions**. Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`:
+![Add command in package.json](./images/inline-suggestions/add-disposable.png)
+
+And then when you open `package.json`, NES may suggest registering that command as well:
+![Add command in package.json](./images/inline-suggestions/call-disposable-full.png)
 
 **Refactoring**
 
