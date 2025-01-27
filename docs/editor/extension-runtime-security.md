@@ -24,9 +24,10 @@ For example, an extension can read and write files on your machine, make network
 
 As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the publisher of that extension.
 
-The list of trusted publishers is maintained in the `setting(extensions.trustedPublishers)` user setting.
+Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers.
 
-Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers. You can also edit the list of trusted publishers by modifying the setting.
+> [!IMPORTANT]
+> When you install extensions by using the [VS Code command line](/docs/editor/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
 
 ## Determine extension reliability
 
