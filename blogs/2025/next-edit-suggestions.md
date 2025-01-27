@@ -12,7 +12,7 @@ Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Hol
 
 GitHub Copilot code completions are great at autocomplete, providing the predictive ability to suggest the code that was in your head without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits. Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
 
-We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is the next evolution of Copilot completions.
+We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
 
 Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
@@ -47,10 +47,10 @@ Copilot NES is an expert companion as you make changes that may cascade througho
 **Refactoring:** Rename a variable once in a file, and Copilot NES will suggest to update it everywhere else.
 <!-- TODO: Add image -->
 
-**Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, i.e. if a statement should’ve used AND instead of OR.
+**Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
 <!-- TODO: Add image -->
 
-**Changing intent:** Copilot NES suggests changes that match a change in intent, i.e. changing a function `moveCursorUp` to `moveCursorDown` should adjust all the code logically.
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a function `moveCursorUp` to `moveCursorDown` should adjust all the code logically.
 <!-- TODO: Add image -->
 
 ## Share your feedback

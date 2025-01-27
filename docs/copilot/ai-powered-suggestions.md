@@ -96,17 +96,17 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 
 **Refactoring**
 
-* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new naming pattern (i.e. renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (i.e. update `index2` to `indexArr2`).
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
 **Adding new variables or arguments**
 
-* **Add an argument to a function or a new variable to a class**. Copilot suggests to use those additions as appropriate, i.e. calling the varaible in the function, or in an upcoming `if` or `switch` statement.
+* **Add an argument to a function or a new variable to a class**. Copilot suggests to use those additions as appropriate, such as calling the varaible in the function, or in an upcoming `if` or `switch` statement.
 
 **Correcting mistakes**
 
 * **Copilot helps with mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
-* **Copilot can also help with mistakes in logic**, i.e. where a statement should've had `<` instead of `<=` or an `OR` statement that should've been an `AND`.
+* **Copilot can also help with mistakes in logic**, like where a statement should've had `<` instead of `<=`, or an `OR` statement that should've been an `AND`.
 
 **Changing intent**
 
