@@ -100,6 +100,9 @@ NES helps you stay in the flow, suggesting future changes relevant to your curre
 > Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
 >
 > For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
+>
+> If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES.
+<!-- TODO: Any other details or actionable link? -->
 
 ### Iterate on large changes across multiple files
 
