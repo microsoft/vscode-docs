@@ -191,7 +191,7 @@ Reasons for doing this include:
 * Trying out the latest TypeScript features by switching to the TypeScript nightly build (`typescript@next`).
 * Making sure you are using the same version of TypeScript for IntelliSense that you use to compile your code.
 
-The active TypeScript version and its install location are displayed in the Status Bar when viewing a TypeScript file:
+The active TypeScript version and its install location can be displayed in the Status Bar when you pinned the version number from language Status Bar with viewing a TypeScript file:
 
 ![TypeScript status bar version](images/compiling/status-bar-version.png)
 
