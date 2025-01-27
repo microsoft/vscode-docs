@@ -68,7 +68,7 @@ Inline suggestions are great at autocompleting a section of code currently being
 Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
-> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
+> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEdits.enabled)`.
 >
 > For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 >
@@ -145,7 +145,7 @@ You can temporarily enable or disable code completions either for all languages,
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
-* `setting(github.copilot.chat.nextEdits.enabled)` - enable Copilot Next Edit Suggestions (preview)
+* `setting(github.copilot.nextEdits.enabled)` - enable Copilot Next Edit Suggestions (preview)
 
 ## Next steps
 

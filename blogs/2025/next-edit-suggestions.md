@@ -12,14 +12,16 @@ Feburary 5, 2025 by Brigit Murtaugh, @bamurtaugh
 
 GitHub Copilot code completions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios.
 
-We're excited to announce the preview of Copilot Next Edit Suggestions (aka "Copilot NES"), which is this evolution of Copilot completions. NES both predicts the location of the next edit you'll want to make and what that edit should be.
+We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
+
+Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions.
 
 <!-- TODO: Video about NES from Rob -->
 
 You may have seen [previous work from the GitHub Next Team on NES](https://githubnext.com/projects/copilot-next-edit-suggestions/) – this is the evolution of the Next Team's great work, now part of the existing GitHub Copilot extensions.
 
 ## Getting your first suggestions
-You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
+You can enable NES via the VS Code setting `setting(github.copilot.nextEdits.enabled)`.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES.
@@ -27,7 +29,9 @@ You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdit
 
 Like completions, all you need to do to start getting suggestions from NES is to start coding!
 
-When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again. An arrow in the gutter indicates if there is an edit suggestion available. If an edit suggestion is below the current editor view, the arrow will point down instead of right.
+When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again, saving you time to find the next relevant edit (no manual searching through files or references required).
+
+An arrow in the gutter indicates if there is an edit suggestion available. If an edit suggestion is below the current editor view, the arrow will point down instead of right.
 
 <!-- TODO: Add image or gif; gif with screencast mode (to show using tab) may be most effective -->
 
