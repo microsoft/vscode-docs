@@ -55,10 +55,10 @@ After accepting the change, NES next recommends adding `z` to the distance calcu
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
 It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`:
-![Add command in package.json]()
+![Add command in package.json](add-disposable.png)
 
 And then when you open `package.json`, NES may suggest registering that command as well:
-![Add command in package.json]()
+![Add command in package.json](call-disposable-full.png)
 
 **Refactoring:** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
 
