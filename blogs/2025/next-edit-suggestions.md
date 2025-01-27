@@ -44,13 +44,15 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 ## Example scenarios
 Copilot NES is an expert companion as you make changes that may cascade throughout your file or project. The following are a few examples where NES shines.
 
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `point` to `point3d` will add a `z` variable to the class definition and its distance calculation.
+<!-- TODO: Add image -->
+
+**Adding new variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
+
 **Refactoring:** Rename a variable once in a file, and Copilot NES will suggest to update it everywhere else.
 <!-- TODO: Add image -->
 
 **Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
-<!-- TODO: Add image -->
-
-**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a function `moveCursorUp` to `moveCursorDown` should adjust all the code logically.
 <!-- TODO: Add image -->
 
 ## Share your feedback
