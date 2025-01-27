@@ -75,7 +75,7 @@ Based on the edits you're making, NES both predicts the location of the next edi
 > If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
 <!-- TODO: Any other details or actionable link? -->
 
-<!-- TODO: Add gif or video advocacy will create for blog post (could be image, but think gif is more interesting and then remaining examples can be static images) -->
+<!-- TODO: Add video from blog -->
 
 ### Navigate and accept edit suggestions
 
@@ -92,15 +92,17 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 
 ### Use cases for Next Edit Suggestions
 
-<!-- TODO: Polish entire section, add maybe an image per example -->
-
 **Changing intent**
 
-* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, changing a class from `point` to `point3d` will add a `z` variable to the class definition and its distance calculation.
+* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition:
+![NES for updating Point to Point3D](./images/inline-suggestions/point3d.png)
+
+After accepting the change, NES next recommends adding `z` to the distance calculation:
+![NES for adding z to distance calculation of Point3D](./images/inline-suggestions/point3d-distance.png)
 
 **Adding new variables or logic**
 
-* **Add an argument, variable, or function**. Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
+* **Using newly added arguments, variables, or functions**. Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
 
 **Refactoring**
 

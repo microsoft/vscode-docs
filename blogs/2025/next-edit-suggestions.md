@@ -4,11 +4,11 @@ TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions (NES) feature for GitHub Copilot in Visual Studio Code.
 Date: 2025-02-05
-Author: Brigit Murtaugh, Burke Holland, Olivia Guzzardo
+Author: Brigit Murtaugh, Burke Holland
 ---
 
 # Copilot Next Edit Suggestions (preview)
-Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland), [Olivia Guzzardo](https://github.com/olguzzar)
+Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
 GitHub Copilot code completions are great at autocomplete, providing the predictive ability to suggest the code that was in your head without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits. Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
 
@@ -44,10 +44,13 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 ## Example scenarios
 Copilot NES is an expert companion as you make changes that may cascade throughout your file or project. The following are a few examples where NES shines.
 
-**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `point` to `point3d` will add a `z` variable to the class definition and its distance calculation.
-<!-- TODO: Add image -->
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition:
+![NES for updating Point to Point3D](point3d.png)
 
-**Adding new variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
+After accepting the change, NES next recommends adding `z` to the distance calculation:
+![NES for updating Point to Point3D](point3d-distance.png)
+
+**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
 
 **Refactoring:** Rename a variable once in a file, and Copilot NES will suggest to update it everywhere else.
 <!-- TODO: Add image -->
@@ -62,10 +65,8 @@ Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/
 
 You can read our [full NES docs](aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
-NES is a next step in an AI that anticipates what you'll need to do next - the best prompt is the one that you don't have to write.
-
-We can't wait to see what you build!
+We're excited about NES as a next step in an AI where the LLM anticipates what you'll need to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
 
 Happy coding!
 
-Brigit, Burke, and Olivia
+Brigit and Burke
