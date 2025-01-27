@@ -24,6 +24,8 @@ For example, an extension can read and write files on your machine, make network
 
 As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the publisher of that extension.
 
+When you trust the publisher of an extension pack or an extension with dependencies on other extensions, you are also trusting the publishers of the dependent extensions.
+
 Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers.
 
 > [!IMPORTANT]
