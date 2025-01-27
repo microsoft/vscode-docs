@@ -10,9 +10,9 @@ Author: Brigit Murtaugh
 # Copilot Next Edit Suggestions (preview)
 Feburary 5, 2025 by Brigit Murtaugh, @bamurtaugh
 
-GitHub Copilot inline suggestions are great at autocompleting a section of code currently being edited, offering suggestions to complete your code, comments, tests, and more. But since most coding activity is editing existing code, it's a natural evolution of Copilot Completions to also help with edits, both at your current cursor location and further away.
+GitHub Copilot code completions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios.
 
-We're excited to announce the preview of Copilot Next Edit Suggestions (aka "Copilot NES"), which both predicts the location of the next edit you'll want to make and what that edit should be.
+We're excited to announce the preview of Copilot Next Edit Suggestions (aka "Copilot NES"), which is this evolution of Copilot completions. NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 <!-- TODO: Video about NES from Rob -->
 
