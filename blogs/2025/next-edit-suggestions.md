@@ -4,17 +4,17 @@ TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions (NES) feature for GitHub Copilot in Visual Studio Code.
 Date: 2025-02-05
-Author: Brigit Murtaugh
+Author: Brigit Murtaugh, Burke Holland, Olivia Guzzardo
 ---
 
 # Copilot Next Edit Suggestions (preview)
-Feburary 5, 2025 by Brigit Murtaugh, @bamurtaugh
+Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland), [Olivia Guzzardo](https://github.com/olguzzar)
 
-GitHub Copilot code completions are great at autocompleting a section of code currently being edited. But since most coding activity is editing existing code, it's a natural evolution of Copilot completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios.
+GitHub Copilot code completions are great at autocomplete, providing the predictive ability to suggest the code that was in your head without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits. Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
 
-We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
+We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is the next evolution of Copilot completions.
 
-Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions.
+Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
 <!-- TODO: Video about NES from Rob -->
 
@@ -24,7 +24,7 @@ You may have seen [previous work from the GitHub Next Team on NES](https://githu
 You can enable NES via the VS Code setting `setting(github.copilot.nextEdits.enabled)`.
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES.
+> If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
 <!-- TODO: Any other details or actionable link? -->
 
 Like completions, all you need to do to start getting suggestions from NES is to start coding!
@@ -60,8 +60,10 @@ Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/
 
 You can read our [full NES docs](aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
+NES is a next step in an AI that anticipates what you'll need to do next - the best prompt is the one that you don't have to write.
+
 We can't wait to see what you build!
 
 Happy coding!
 
-Brigit Murtaugh
+Brigit, Burke, and Olivia
