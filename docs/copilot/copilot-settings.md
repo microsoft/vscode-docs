@@ -12,6 +12,9 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
 
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
 The team is continuously working on improving Copilot in VS Code and adding new features. Items marked with <i class="codicon codicon-beaker"></i> are experimental features. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues). Get more info about the [feature lifecycle in VS Code](/docs/getstarted/settings.md#feature-lifecycle).
 
 ## General settings
@@ -41,7 +44,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Edits settings
 
-* `setting(github.copilot.chat.edits.enabled)` _(Preview)_ - enable or disable Copilot Edits
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
@@ -50,7 +52,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 * `setting(inlineChat.acceptedOrDiscardBeforeSave)`: Controls whether pending Inline Chat sessions in an editor prevent saving the file.
 * `setting(inlineChat.finishOnType)`: Whether to finish an Inline Chat session when typing outside of changed regions.
-* `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keybinding will automatically enable speech recognition.
+* `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keyboard shortcut will automatically enable speech recognition.
 * `setting(inlineChat.inlineChat.lineEmptyHint)` <i class="codicon codicon-beaker"></i>: Controls whether to show a hint for Inline Chat on an empty line.
 * `setting(inlineChat.mode)`: Configure if changes crafted with Inline Chat are applied directly to the document or are previewed first.
 * `setting(inlineChat.lineNaturalLanguageHint)` <i class="codicon codicon-beaker"></i>: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.

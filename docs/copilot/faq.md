@@ -16,14 +16,22 @@ This article answers frequently asked questions about using GitHub Copilot in Vi
 
 ### How can I get a Copilot subscription?
 
-If you want to use GitHub Copilot, you either need an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.
+There are different ways to get access to GitHub Copilot:
 
-| Account type | Instructions |
-| ------------ | ------------ |
-| Personal account | Set up a subscription to **GitHub Copilot Individual** with your personal GitHub account. You can [activate a one-time 30-day trial to evaluate GitHub Copilot](https://github.com/github-copilot/signup). |
-| Member of an organization | You need to be assigned a seat by an organization owner.<br/><br/>You can request access to **GitHub Copilot Business** from the [GitHub Copilot settings](https://github.com/settings/copilot) for your personal account. |
+| Type of User                   | Description |
+|--------------------------------|-------------|
+| Individual                     | <ul><li>Set up [GitHub Copilot Free](https://github.com/github-copilot/signup) to get a limited experience of Copilot without a subscription. See [About GitHub Copilot Free](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid GitHub Copilot subscription to get unlimited completions and chat interactions. You can [try GitHub Copilot for free](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs) with a one-time 30-day trial.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
+| Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
 
-Learn more about [billing for GitHub Copilot](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+### I reached my completions or chat interactions limit
+
+Your limit of code completions and chat interactions is reset every month, starting from the day you first signed up for the Copilot Free plan. If you reach your limit, you can opt to sign up for a [paid subscription](#how-can-i-get-a-copilot-subscription), and get an unlimited number of completions and chat messages. Alternatively, you can wait until the next month to continue using Copilot for free.
+
+![Visual indicators in Chat view, Status Bar, and title bar that you reached a limit for Copilot chat messages.](images/faq/copilot-chat-limit-reached.png)
+
+If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
+
+If only the code completions are reaching the limit, you can still use Copilot for chat interactions and Copilot Edits.
 
 ### My Copilot subscription is not detected in VS Code
 
@@ -97,6 +105,7 @@ You can temporarily deactivate Copilot completions from the Status Bar. You're p
 - Verify that [GitHub Copilot is not disabled](#how-do-i-enabledisable-copilot) globally or for this language
 - Verify that your [GitHub Copilot subscription is active and detected](#my-copilot-subscription-is-not-detected-in-vs-code)
 - Verify that your [network settings](#network-and-firewall-configuration-for-copilot) are configured to allow connectivity to GitHub Copilot.
+- Verify that you have not reached the limit of completions for the month with the [Copilot Free plan](TODO).
 
 ## Copilot Chat
 
@@ -107,6 +116,7 @@ Check each requirement if Copilot Chat doesn't work:
 - Make sure you are on the latest version of Visual Studio Code (run **Code: Check for Updates**).
 - Make sure you have the latest version of both the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) and [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions.
 - Your GitHub account that is signed into VS Code must have an active Copilot subscription. Check your [Copilot subscription](https://github.com/settings/copilot).
+- Verify that you have not reached your limit of chat interactions for the month with the [Copilot Free plan](TODO).
 
 ### Why is my Copilot Chat extension blocked?
 

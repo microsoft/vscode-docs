@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry

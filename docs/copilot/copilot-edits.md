@@ -14,7 +14,8 @@ Use Copilot Edits to start an AI-powered code editing session where you can quic
 
 Copilot Edits is great for iterating on large changes across multiple files. It brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting from inline code suggestions.
 
-You can enable the Copilot Edits feature by setting the `setting(github.copilot.chat.edits.enabled)` setting to `true`.
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 The following video shows how you can use Copilot Edits to modify a basic Express app and add a new page, implement a navigation bar, and modify the design to include a theme switcher.
 
@@ -156,7 +157,6 @@ After moving a chat request to Copilot Edits, the chat request is removed from t
 
 The following list contains the settings related to Copilot Edits. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
 
-* `setting(github.copilot.chat.edits.enabled)` - enable or disable Copilot Edits
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)

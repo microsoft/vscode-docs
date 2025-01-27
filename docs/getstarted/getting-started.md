@@ -305,19 +305,41 @@ There are many more debugging features in VS Code, such as watch variables, cond
 
 ## Enhance your coding with AI and GitHub Copilot
 
-With [GitHub Copilot](/docs/copilot/overview.md), you can further enhance your coding experience in VS Code and even discover VS Code features and settings you didn't know about.
+GitHub Copilot is an AI-powered assistant that helps you write code faster, and can help you with a wide range of tasks, such as code completion, code refactoring, and fixing errors.
 
-GitHub Copilot in VS Code can help you with a wide range of tasks, such as:
+Let's get started by getting code suggestions from Copilot.
 
-- **Code completion**: Get suggestions for lines of code or entire functions.
-- **Explain code**: Get explanations for code snippets to help you understand what they do.
-- **Code refactoring & generation**: Refactor your code and generate code-related artifacts like tests or documentation.
-- **Fix errors**: Get help with common coding tasks like finding and fixing bugs, or errors with shell commands.
-- **Learn about VS Code**: Ask about VS Code features, settings, or commands.
+1. Make sure you have set up Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
 
-<video src="./images/getting-started/copilot-chat-intro.mp4" title="Video showing Copilot Chat used for asking about VS Code, explaining what a project does, and generating unit tests."  autoplay loop controls muted></video>
+    > [!TIP]
+    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
+1. In the `hello.py` file, place the cursor at the end of the file and type this function header.
+
+    ```python
+    def say_day_of_week(date)
+    ```
+
+    GitHub Copilot will automatically suggest the rest of the function. Accept the code suggestion by pressing `kbstyle(Tab)`.
+
+1. Next, let's invoke our new function.
+
+    ```python
+    say_day_of_week(date.today())
+    ```
+
+    Notice that there's a squiggle on the `date` keyword, indicating that there's an error.
+
+1. Put the cursor, on the `date` keyword, select the _lightbulb_ icon, and then select **Fix with Copilot**.
+
+    ![Screenshot that shows the lightbulb Code Action to fix an error with Copilot.](images/getting-started/code-action-fix-with-copilot.png)
+
+    GitHub Copilot will suggest a fix for the error. Select **Accept** if you're happy with the suggestion.
+
+    > [!TIP]
+    > You can also use the `kb(editor.action.quickFix)` keyboard shortcut to manually trigger a quick fix.
+
+There's a lot more you can do with Copilot in VS Code. Discover more about GitHub Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
 
 ## Next steps
 

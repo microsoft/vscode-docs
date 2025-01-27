@@ -12,23 +12,6 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 GitHub Copilot acts as an AI-powered pair programmer, automatically offering suggestions to complete your code, comments, tests, and more. It provides these suggestions directly in the editor while you write your code, and it can work with a broad range of programming languages and frameworks.
 
-## Getting started
-
-1. Install the GitHub Copilot extension. This also installs the GitHub Copilot Chat extension.
-
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the GitHub Copilot extension</a>
-
-1. Follow the steps in the [Copilot setup guide](/docs/copilot/setup.md) to configure GitHub Copilot in VS Code.
-
-    > [!TIP]
-    > If you don't yet have a GitHub Copilot subscription, sign up for a [GitHub Copilot free trial](https://github.com/login?return_to=%2fgithub-copilot%2fsignup) in your personal account.
-
-1. Get going with these hands-on tutorials to learn how to use GitHub Copilot in VS Code.
-
-    * [GitHub Copilot Quickstart](/docs/copilot/getting-started.md) - discover the key features of GitHub Copilot in VS Code.
-
-    * [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md) - get started with AI chat conversations.
-
 ## Inline suggestions
 
 Copilot offers code suggestions as you type: sometimes the completion of the current line, sometimes a whole new block of code. You can accept all, or part of a suggestion, or you can keep typing and ignore the suggestions.

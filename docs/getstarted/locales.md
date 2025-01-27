@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)

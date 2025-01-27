@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
@@ -87,16 +87,6 @@ If you prefer going through a step-by-step guide to discover the key features, c
 			</div>
 		</a>
 	</li>
-	<li class="video">
-		<a href="/docs/introvideos/customize">
-			<img src="/assets/docs/getstarted/introvideos/customize-settings.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Customize</h2>
-				<p class="description">Learn how to customize your settings and keyboard shortcuts in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-    </li>
 </ul>
 
 ## Troubleshooting
