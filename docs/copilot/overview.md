@@ -90,11 +90,9 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
-* **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow- you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions. You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
 
-NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. For example, if you remove a function input parameter, you're likely going to want to update the function invocations next. You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
-
-<!-- TODO: Add image or gif -->
+    ![NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
 
 > [!NOTE]
 > Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
