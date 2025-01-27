@@ -31,9 +31,11 @@ Like completions, all you need to do to start getting suggestions from NES is to
 
 When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again, saving you time to find the next relevant edit (no manual searching through files or references required).
 
-An arrow in the gutter indicates if there is an edit suggestion available. If an edit suggestion is below the current editor view, the arrow will point down instead of right.
+An arrow in the gutter indicates if there is an edit suggestion available:
+![NES with right arrow](scan-right-highlight.png)
 
-<!-- TODO: Add image or gif; gif with screencast mode (to show using tab) may be most effective -->
+If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+![NES with down arrow](scan-down-highlight.png)
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 
@@ -52,8 +54,8 @@ After accepting the change, NES next recommends adding `z` to the distance calcu
 
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method. It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, when you open `package.json`, NES may suggest adding that command as well.
 
-**Refactoring:** Rename a variable once in a file, and Copilot NES will suggest to update it everywhere else.
-<!-- TODO: Add image -->
+**Refactoring:** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
+
 
 **Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
 <!-- TODO: Add image -->

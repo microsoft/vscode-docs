@@ -82,10 +82,10 @@ Based on the edits you're making, NES both predicts the location of the next edi
 You can quickly navigate suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
 An arrow in the gutter indicates if there is an edit suggestion available:
-<!-- TODO: Add image -->
+![NES with right arrow](./images/inline-suggestions/scan-right-highlight.png)
 
 If an edit suggestion is below the current editor view, the arrow will point down instead of right:
-<!-- TODO: Add image -->
+![NES with down arrow](./images/inline-suggestions/scan-down-highlight.png)
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 <!-- TODO: Add image -->
