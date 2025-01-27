@@ -83,8 +83,7 @@ List<String> fruits = Arrays.asList("apple", "lemon", "banana");
 
 It can also be used to assign a parameter to a new field for unused parameter(s) in a constructor.
 
-<video autoplay loop muted playsinline controls title="Assign a parameter to a new field">
-  <source src="/docs/java/java-refactoring/assign-to-field.mp4" type="video/mp4">
+<video src="images/java-refactoring/assign-to-field.mp4" autoplay loop muted playsinline controls title="Assign a parameter to a new field">
 </video>
 
 ### Convert anonymous to nested class
@@ -192,8 +191,7 @@ public void order(String[] books) {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Convert to enhanced for loop">
-  <source src="/docs/java/java-refactoring/convert-for-loop.mp4" type="video/mp4">
+<video src="images/java-refactoring/convert-for-loop.mp4" autoplay loop muted playsinline controls title="Convert to enhanced for loop">
 </video>
 
 ### Convert to lambda expression
@@ -257,8 +255,7 @@ public void test() {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Convert to static import">
-  <source src="/docs/java/java-refactoring/convert-static-imports.mp4" type="video/mp4">
+<video src="images/java-refactoring/convert-static-imports.mp4" autoplay loop muted playsinline controls title="Convert to static import">
 </video>
 
 ### Extract to constant
@@ -323,14 +320,12 @@ class Square {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Extract to field">
-  <source src="/docs/java/java-refactoring/extract-field.mp4" type="video/mp4">
+<video src="images/java-refactoring/extract-field.mp4" autoplay loop muted playsinline controls title="Extract to field">
 </video>
 
 When selecting a variable declaration, convert the variable to field.
 
-<video autoplay loop muted playsinline controls title="Convert the variable to field">
-  <source src="/docs/java/java-refactoring/convert-field.mp4" type="video/mp4">
+<video src="images/java-refactoring/convert-field.mp4" autoplay loop muted playsinline controls title="Convert the variable to field">
 </video>
 
 ### Extract to method
@@ -365,8 +360,7 @@ private int getArea(int height, int width) {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Extract to method">
-  <source src="/docs/java/java-refactoring/refactor.mp4" type="video/mp4">
+<video src="images/java-refactoring/refactor.mp4" autoplay loop muted playsinline controls title="Extract to method">
 </video>
 
 > Also see: [Inline method](#inline-method)
@@ -400,14 +394,12 @@ public void method() {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Extract to local variable">
-  <source src="/docs/java/java-refactoring/extract-local-variable.mp4" type="video/mp4">
+<video src="images/java-refactoring/extract-local-variable.mp4" autoplay loop muted playsinline controls title="Extract to local variable">
 </video>
 
 After the extraction, you can also perform a rename in the same transaction.
 
-<video autoplay loop muted playsinline controls title="Rename local variable after extraction">
-  <source src="/docs/java/java-refactoring/extract-rename.mp4" type="video/mp4">
+<video src="images/java-refactoring/extract-rename.mp4" autoplay loop muted playsinline controls title="Rename local variable after extraction">
 </video>
 
 > Also see: [Inline local variable](#inline-local-variable)
@@ -505,8 +497,7 @@ public void method() {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Replace calls to the method with method's body">
-  <source src="/docs/java/java-refactoring/inline.mp4" type="video/mp4">
+<video src="images/java-refactoring/inline.mp4" autoplay loop muted playsinline controls title="Replace calls to the method with method's body">
 </video>
 
 > Also see: [Extract to method](#extract-to-method)
@@ -563,8 +554,7 @@ public void method(int value) {
 }
 ```
 
-<video autoplay loop muted playsinline controls title="Invert local variable">
-  <source src="/docs/java/java-refactoring/invert-variable.mp4" type="video/mp4">
+<video src="images/java-refactoring/invert-variable.mp4" autoplay loop muted playsinline controls title="Invert local variable">
 </video>
 
 ### Move
@@ -613,20 +603,17 @@ public class Office {
 
 Move refactoring on a static method if it is used more in another class than in its own class.
 
-<video autoplay loop muted playsinline controls title="Refactoring on a static method">
-  <source src="/docs/java/java-refactoring/move-static-method.mp4" type="video/mp4">
+<video src="images/java-refactoring/move-static-method.mp4" autoplay loop muted playsinline controls title="Refactoring on a static method">
 </video>
 
 Move a class to another package. Currently, move refactoring is not supported from the File Explorer.
 
-<video autoplay loop muted playsinline controls title="Move a class to another package">
-  <source src="/docs/java/java-refactoring/move-class.mp4" type="video/mp4">
+<video src="images/java-refactoring/move-class.mp4" autoplay loop muted playsinline controls title="Move a class to another package">
 </video>
 
-Move an inner class to new a new file.
+Move an inner class to a new file.
 
-<video autoplay loop muted playsinline controls title="Move an inner class to a new File">
-  <source src="/docs/java/java-refactoring/move-inner-type.mp4" type="video/mp4">
+<video src="images/java-refactoring/move-inner-type.mp4" autoplay loop muted playsinline controls title="Move an inner class to a new File">
 </video>
 
 ### Rename
@@ -665,8 +652,7 @@ public void myMethod() {
 
 The shortcut to invoke the Rename refactoring is `kb(editor.action.rename)`. When you invoke the shortcut on an identifier in the editor, a small box displays within the editor itself where you can change the identifier name. When you press `kbstyle(Enter)`, all references to that identifier are changed too.
 
-<video autoplay loop muted playsinline controls title="Shortcut to invoke the Rename refactoring">
-  <source src="/docs/java/java-refactoring/rename.mp4" type="video/mp4">
+<video src="images/java-refactoring/rename.mp4" autoplay loop muted playsinline controls title="Shortcut to invoke the Rename refactoring">
 </video>
 
 Rename refactoring is also supported from the File Explorer for folders and files. After requesting the change, a preview of impacted files will be provided and you can decide how to apply those changes.
@@ -723,40 +709,35 @@ Source Actions could be used to generate common code structures and recurring el
 
 Add a constructor for the class.
 
-<video autoplay loop muted playsinline controls title="Generate constructors">
-  <source src="/docs/java/java-refactoring/generate-constructor.mp4" type="video/mp4">
+<video src="images/java-refactoring/generate-constructor.mp4" autoplay loop muted playsinline controls title="Generate constructors">
 </video>
 
 ### Generate delegate methods
 
 Generate delegate methods
 
-<video autoplay loop muted playsinline controls title="Generate delegate methods">
-  <source src="/docs/java/java-refactoring/generate-delegate-methods.mp4" type="video/mp4">
+<video src="images/java-refactoring/generate-delegate-methods.mp4" autoplay loop muted playsinline controls title="Generate delegate methods">
 </video>
 
 ### Override/implement methods
 
 With this Source Action, all the candidates are presented to you with a checklist. You can then decide what to override or implement.
 
-<video autoplay loop muted playsinline controls title="Override/implement methods">
-  <source src="/docs/java/java-refactoring/override-implement-methods.mp4" type="video/mp4">
+<video src="images/java-refactoring/override-implement-methods.mp4" autoplay loop muted playsinline controls title="Override/implement methods">
 </video>
 
 ### Organize imports
 
 You can use this Source Action to clean up your imports. It can also deal with ambiguous imports, in that case, a dropdown list will be presented for you to pick the right one. The code line with the unresolved type is also presented to you to help you decide.
 
-<video autoplay loop muted playsinline controls title="Organize imports">
-  <source src="/docs/java/java-refactoring/resolve-ambiguous-imports.mp4" type="video/mp4">
+<video src="images/java-refactoring/resolve-ambiguous-imports.mp4" autoplay loop muted playsinline controls title="Organize imports">
 </video>
 
 ### Generate getters and setters
 
 You can bulk generate getters and setters for all new member variables. If the class has more than one field, the Source Action will prompt a Quick Pick for you to select the target fields to use to generate the accessor methods.
 
-<video autoplay loop muted playsinline controls title="Generate getters and setters">
-  <source src="/docs/java/java-refactoring/advancedgettersetter.mp4" type="video/mp4">
+<video src="images/java-refactoring/advancedgettersetter.mp4" autoplay loop muted playsinline controls title="Generate getters and setters">
 </video>
 
 ### Generate `hashCode()` and `equals()`
@@ -768,16 +749,15 @@ There are two options for you to customize the generated code:
 - If you use Java 7+, you can set `java.codeGeneration.hashCodeEquals.useJava7Objects` to `true` to generate shorter code that calls `Objects.hash` and `Objects.equals`.
 - You can also set `java.codeGeneration.hashCodeEquals.useInstanceof` to `true` to use `instanceOf` operator to check the object types instead of calling `Object.getClass()`.
 
-<video autoplay loop muted playsinline controls title="Generate hashCode() and equals()">
-  <source src="/docs/java/java-refactoring/generate-hashcode-equals.mp4" type="video/mp4">
+<video src="images/java-refactoring/generate-hashcode-equals.mp4" autoplay loop muted playsinline controls title="Generate hashCode() and equals()">
 </video>
 
 ### Generate `toString()`
 
 There is a new Source Action to generate the `toString()` method. Customization is possible with a check list of all the member variables.
 
-<video autoplay loop muted playsinline controls title="Generate toString()">
-  <source src="/docs/java/java-refactoring/generate-tostring.mp4" type="video/mp4">
+<video src="images/java-refactoring/generate-tostring.mp4" autoplay loop muted playsinline controls title="Generate toString()">
+  <source type="video/mp4">
 </video>
 
 ### Change modifiers to final where possible
@@ -816,21 +796,19 @@ public class Clazz {
 
 This Quick Fix helps you fix non-accessible reference.
 
-<video autoplay loop muted playsinline controls title="Fix non-accessible references">
-  <source src="/docs/java/java-refactoring/fix-non-access-reference.mp4" type="video/mp4">
+<video src="images/java-refactoring/fix-non-access-reference.mp4" autoplay loop muted playsinline controls title="Fix non-accessible references">
 </video>
 
 ### Create non-existing package
 
 When your package name doesn't match the folder name, you have the options to either change the package name in your source code, or move the folder in the file system (even when the destination folder doesn't exist yet).
 
-<video autoplay loop muted playsinline controls title="Create non-existing package">
-  <source src="/docs/java/java-refactoring/create-non-exist-package.mp4" type="video/mp4">
+<video src="images/java-refactoring/create-non-exist-package.mp4" autoplay loop muted playsinline controls title="Create non-existing package">
 </video>
 
 ### Other Code Actions supported
 
-The list of Code Actions supported by VS Code keeps growing and only listed the most popular ones above. Other notable supported actions include (but not limited to):
+The list of Code Actions supported by VS Code keeps growing and only lists the most popular ones above. Other notable supported actions include (but not limited to):
 
 - Create unresolved types
 - Remove the `final` modifier

@@ -222,8 +222,7 @@ Clicking the language status item switches to standard mode.
 
 When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
-<video autoplay loop muted playsinline controls title="Build status for the Java project">
-  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
+<video src="images/java-project/java.build.status.mp4" autoplay loop muted playsinline controls title="Build status for the Java project">
 </video>
 
 ### Additional resources
