@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0

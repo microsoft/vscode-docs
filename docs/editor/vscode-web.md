@@ -21,7 +21,7 @@ The following video gives a quick overview of Visual Studio Code for the Web.
 
 ## Relationship to VS Code Desktop
 
-VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, you want to use platform features such as a terminal, or you want to run extensions that aren't supported in the web, we recommend moving your work to the desktop application, [GitHub Codespaces](https://github.com/features/codespaces), or using [Remote - Tunnels](#use-your-own-compute-with-remote-tunnels) for the full capabilities of VS Code. In addition, VS Code Desktop lets you use a full set of keyboard shortcuts not limited by your browser.
+VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, you want to use platform features such as a terminal, or you want to run extensions that aren't supported in the web, we recommend moving your work to the desktop application, [GitHub Codespaces](https://github.com/features/codespaces), or using [Remote - Tunnels](#use-your-own-compute-instance-with-remote-tunnels) for the full capabilities of VS Code. In addition, VS Code Desktop lets you use a full set of keyboard shortcuts not limited by your browser.
 
 When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code experience with a few clicks.
 
@@ -111,7 +111,7 @@ The GitHub Repositories extension makes it easy for you to clone the repository 
 
 ## Saving and sharing work
 
-When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save-auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
+When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save--auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
 
 When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
 
@@ -191,9 +191,9 @@ There are additional steps you can take to improve your browser experience using
 
 You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.
 
-### Keybindings
+### Keyboard shortcuts
 
-Certain keybindings may also work differently in the web.
+Certain keyboard shortcuts may also work differently in the web.
 
 | Issue | Reason |
 |-|-|

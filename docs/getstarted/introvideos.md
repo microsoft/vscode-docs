@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972

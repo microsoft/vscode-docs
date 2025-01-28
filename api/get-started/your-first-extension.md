@@ -36,8 +36,8 @@ For a TypeScript project, fill out the following fields:
 
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
-# ? Initialize a git repository? Yes
-# ? Bundle the source code with webpack? No
+# ? Initialize a git repository? Y
+# ? Which bundler to use? unbundled
 # ? Which package manager to use? npm
 
 # ? Do you want to open the new folder with Visual Studio Code? Open with `code`

@@ -196,11 +196,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/educators-and-students</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/editor/codebasics</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -212,6 +207,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/editor/extension-marketplace</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editor/extension-runtime-security</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1658,98 +1658,6 @@
         <loc>https://code.visualstudio.com/api/references/document-selector</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
-
-    <!-- /learn -->
-    <url>
-        <loc>https://code.visualstudio.com/learn</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/get-started/basics</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/get-started/extensions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/get-started/personalize</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/installers</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/codetour</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/learn-modules</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/nodejs</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/python</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/educators/webinars</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/students/nasa-python</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/students/over-the-moon-python</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/students/wonder-woman-python</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/collaboration/live-share</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/containers</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/learn/develop-cloud/wsl</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
     </url>
 
 </urlset>

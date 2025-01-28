@@ -30,6 +30,9 @@ Each extension in the list includes a brief description, the publisher, the down
 
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
+> [!IMPORTANT]
+> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
 When [Settings Sync](/docs/editor/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
@@ -353,25 +356,12 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
-The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several anti-virus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
-The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat as well as popular extension names such as GitHub Copilot.
+The Visual Studio Marketplace employs several measures to protect you from malicious extensions and you can also perform various steps to determine if an extension is reliable before installing it.
 
-If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
+As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
 
-1. The extension is removed from the Marketplace.
-2. The extension is added to a kill list so that if it has been installed, it will be automatically uninstalled by VS Code.
-
-The Marketplace also provides you with resources to make an informed decision about the extensions you install:
-
-* **Ratings & Review** - Read what others think about the extension.
-* **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
-* **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
-* **Verified Publisher** - Use the blue check mark next to the publisher name and domain as an additional signal of trust. It indicates that the publisher has proven domain ownership to the Marketplace. It also shows that the Marketplace has verified both the existence of the domain and the good standing of the publisher on the Marketplace for at least six months.
-
-![Verified publisher](images/extension-marketplace/bluecheck.png)
-
-If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.
+Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
 
 ### The extension signature cannot be verified by VS Code
 
@@ -385,7 +375,7 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 

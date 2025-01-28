@@ -66,7 +66,7 @@ Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging
 > [!NOTE]
 > This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
-There are also default key bindings for column selection on macOS and Windows, but not on Linux.
+There are also default keyboard shortcuts for column selection on macOS and Windows, but not on Linux.
 
 Key|Command|Command ID
 ---|-------|----------
@@ -251,12 +251,12 @@ The Search Editor above was opened by selecting the **Open New Search Editor** b
 * `search.action.openInEditor` - Copy the current Search results into a new Search Editor.
 * `search.action.openNewEditorToSide` - Opens the Search Editor in a new window next to the window you currently have opened.
 
-There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keybindings to configure how a new Search Editor should behave:
+There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keyboard shortcuts to configure how a new Search Editor should behave:
 
 * `triggerSearch` - Whether a search be automatically run when a Search Editor is opened. Default is true.
 * `focusResults` - Whether to put focus in the results of a search or the query input. Default is true.
 
-For example, the following keybinding runs the search when the Search Editor is opened but leaves the focus in the search query control.
+For example, the following keyboard shortcut runs the search when the Search Editor is opened but leaves the focus in the search query control.
 
 ```json
 {
@@ -276,7 +276,7 @@ The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (defaul
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these keyboard shortcuts](/docs/getstarted/keybindings.md).
 
 > [!TIP]
 >  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
@@ -423,13 +423,15 @@ Then choose an encoding.
 
 ## Overtype mode
 
-VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
+Prior to release 1.96, VS Code only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/getstarted/keybindings.md#keymap-extensions).
+
+As of release 1.96, VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
 
 To switch between insert and overtype mode, run the **Toggle Overtype/Insert Mode** command in the Command Palette or press (`kb(editor.action.toggleOvertypeInsertMode)`). When you're in overtype mode, a Status Bar indicator shows `OVR`.
 
 You can change the cursor style for overtype mode by configuring the `setting(editor.overtypeCursorStyle)` setting.
 
-The `setting(editor.overtypeOnPaste)` setting enables you to use overtype for pasting text. You need to be in overtype mode for this setting to take effect.
+Use the `setting(editor.overtypeOnPaste)` setting to overwrite text when pasting. You need to be in overtype mode for this setting to take effect.
 
 ## Compare files
 
@@ -484,7 +486,7 @@ As in other editors, commands such as **Cut** and **Copy** apply to the whole wr
 
 ### How can I avoid placing extra cursors in word wrapped lines?
 
-If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keybinding like this:
+If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keyboard shortcut like this:
 
 ```json
 {
