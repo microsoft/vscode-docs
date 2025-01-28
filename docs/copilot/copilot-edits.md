@@ -10,17 +10,13 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Copilot Edits (preview)
 
-Use Copilot Edits to start an AI-powered code editing session where you can quickly iterate on code changes by using natural language. Based on your prompts, Copilot Edits proposes code changes across multiple files in your workspace. These edits are applied directly in the editor, so you can quickly review them in-place, with the full context of the surrounding code.
+Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code. Copilot Edits brings the conversational flow of Copilot Chat and immediate feedback from Inline Chat together in one experience.
 
-Copilot Edits is great for iterating on large changes across multiple files. It brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting from inline code suggestions.
-
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-The following video shows how you can use Copilot Edits to modify a basic Express app and add a new page, implement a navigation bar, and modify the design to include a theme switcher.
+The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
 
 <video src="images/copilot-edits/copilot-edits-hero.mp4" title="Use Copilot Edits to modify an Express app" loop controls muted></video>
 
