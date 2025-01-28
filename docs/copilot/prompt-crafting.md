@@ -128,7 +128,7 @@ You can also add context to your chat message by using the **Attach Context** bu
 
 ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/prompt-crafting/copilot-chat-view-attach-context.png)
 
-Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#chat-context).
+Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#add-context-to-your-chat-prompt).
 
 ### Be specific and keep it simple
 

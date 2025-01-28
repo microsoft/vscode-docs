@@ -409,7 +409,7 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-Profiles are stored under your User configurations similar to your user settings and keybindings.
+Profiles are stored under your User configurations similar to your user settings and keyboard shortcuts.
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`

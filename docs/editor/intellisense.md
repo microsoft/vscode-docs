@@ -77,7 +77,7 @@ VS Code IntelliSense offers different types of completions, including language s
 
 ## Customizing IntelliSense
 
-You can customize your IntelliSense experience in settings and key bindings.
+You can customize your IntelliSense experience in settings and keyboard shortcuts.
 
 ### Settings
 
@@ -161,11 +161,11 @@ When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item
 
 By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
-### Key bindings
+### Keyboard shortcuts
 
-The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
+The keyboard shortcuts shown below are the default keyboard shortcuts. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
-> **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
+> **Note:** There are many more keyboard shortcuts relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
 ```json
 [

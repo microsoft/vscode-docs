@@ -12,16 +12,13 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 Welcome to AI-powered development with Visual Studio Code! Follow the steps in this guide to get started in minutes.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](#related-resources) and get a monthly limit of completions and chat interactions.
-
 ## Enable Copilot Free in VS Code
 
-1. [Download Visual Studio Code](https://code.visualstudio.com/Download) for your platform
+1. [Download and install Visual Studio Code](https://code.visualstudio.com/Download) for your platform
 
 1. Start VS Code
 
-1. Press `kb(workbench.action.chat.open)` or select **Use AI Features with Copilot for Free...** from the Copilot menu in the title bar
+1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the title bar or from the Command Palette (`kb(workbench.action.showCommands)`)
 
     ![The Copilot menu in the VS Code title bar, showing the option to use AI features with Copilot for free.](images/setup/copilot-menu-use-ai-features.png)
 
