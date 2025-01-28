@@ -12,6 +12,10 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code. Copilot Edits brings the conversational flow of Copilot Chat and immediate feedback from Inline Chat together in one experience.
 
+Copilot Edits can function in two modes:
+
+- *Edit mode*: select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
+- *Agent mode* (preview): let Copilot determine which files to edit and commands to run by using different tools. Copilot will autonomously iterate and resolve issues to achieve the desired outcome.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
