@@ -88,7 +88,7 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 ![NES with down arrow](./images/inline-suggestions/scan-down-highlight.png)
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
-<!-- TODO: Add image -->
+![NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted.png)
 
 ### Use cases for Next Edit Suggestions
 
