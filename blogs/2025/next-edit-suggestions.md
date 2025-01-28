@@ -10,7 +10,7 @@ Author: Brigit Murtaugh, Burke Holland
 # Copilot Next Edit Suggestions (preview)
 Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
-GitHub Copilot code completions are great at autocomplete, providing the predictive ability to suggest the code that was in your head without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits. Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
+GitHub Copilot code completions are great at autocomplete - they can predict and suggest the code that was in your head, without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits. Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
 
 We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
 
@@ -24,8 +24,9 @@ You may have seen [previous work from the GitHub Next Team on NES](https://githu
 You can enable NES via the VS Code setting `setting(github.copilot.nextEdits.enabled)`.
 
 > [!NOTE]
-> If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
-<!-- TODO: Any other details or actionable link? -->
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
+>
+> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 Like completions, all you need to do to start getting suggestions from NES is to start coding!
 

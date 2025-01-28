@@ -72,8 +72,9 @@ Based on the edits you're making, NES both predicts the location of the next edi
 >
 > For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 >
-> If you are a Copilot Business or Enterprise user, your organization admin will need to enable NES, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
-<!-- TODO: Any other details or actionable link? -->
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
+>
+> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 <!-- TODO: Add video from blog -->
 
