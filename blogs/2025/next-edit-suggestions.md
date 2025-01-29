@@ -16,7 +16,8 @@ Edits are often not made in isolation - there's a logical flow of what edits nee
 
 We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
 
-<!-- TODO: Video about NES from Olivia -->
+<!-- TODO: Update to video with voiceover from Olivia -->
+![Video overview of Copilot NES in VS Code](nes-video-silent.mp4)
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
