@@ -50,10 +50,10 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 ## Example scenarios
 Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
-Our development team has been self-hosting on NES for a while, and one of our engineers remembers one of his first "aha!" moments with NES. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
+Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
 ![NES fixing an if statement mistake](nes-de-morgan.gif)
 
-The following are just a few more examples where NES shines.
+The following are some more examples where NES shines.
 
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
@@ -83,7 +83,7 @@ Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/
 
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
-We're excited about NES as a next step in an AI where the LLM anticipates what you'll need to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
+We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
 
 Happy coding!
 
