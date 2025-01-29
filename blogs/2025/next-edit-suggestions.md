@@ -44,7 +44,7 @@ You can hover over the arrow to explore the edit suggestion menu, which includes
 Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 ## Example scenarios
-Copilot NES is an expert companion as you make changes that may cascade throughout your file or project. The following are a few examples where NES shines.
+Copilot NES is your AI companion as you make changes that may cascade throughout your file or project. The following are a few examples where NES shines.
 
 **Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition:
 ![NES for updating Point to Point3D](point3d.png)
