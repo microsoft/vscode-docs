@@ -70,11 +70,11 @@ NES can also help with more challenging mistakes in logic, like a return stateme
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
 It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES may suggest registering that command as well:
-![Updating extension.ts and package.json](nes-extension-and-package.gif)
+![Updating extension.ts and package.json with a new command](nes-extension-and-package.gif)
 <!-- ![Add command in package.json](add-disposable.png) -->
 <!-- ![Add command in package.json](call-disposable-full.png) -->
 
-**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to rename subsequent variables similarly.
+**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to rename subsequent variables similarly. After copy-pasting some code, NES will suggest how to adjust it to match the current code where the paste happened.
 
 ## Share your feedback
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
