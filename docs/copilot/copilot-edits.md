@@ -80,6 +80,11 @@ Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) to accomplis
 
 To enable agent mode in Copilot Edits, set the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
 
+> [!NOTE]
+> Agent mode is currently in preview. The experience might change, and you might encounter issues. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
+
+To use agent mode in Copilot Edits:
+
 1. Open the Copilot Edits view
 
 1. Select **Agent** from the mode dropdown
