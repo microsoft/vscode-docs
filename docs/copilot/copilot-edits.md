@@ -15,7 +15,7 @@ Use Copilot Edits to start an AI-powered code editing session and iterate quickl
 Copilot Edits can function in two modes:
 
 * [*Edit mode*](#use-edit-mode): select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
-* [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot determine which files to edit and which commands to run. Copilot will autonomously use different [tools](#agent-mode-tools) to iterate and resolve issues to achieve the desired outcome.
+* [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot autonomously plan the tasks and relevant files that are needed to implement the request. Copilot will apply code edits and suggest terminal commands, and will continuously iterate to resolve any issues that arise.
 
 > [!NOTE]
 > Agent mode is currently in preview and we continue to improve the experience. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
@@ -211,7 +211,7 @@ After moving a chat request to Copilot Edits, the chat request is removed from t
 
 ## Agent mode tools
 
-To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. These tools can run in parallel to accomplish the requested task.
+To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. Consider these tools as specialized utilities that Copilot can use to perform a specific task, such as listing the files in a directory, or running a terminal command. These tools can run in parallel to accomplish the requested task.
 
 The following list gives an overview of the built-in tools:
 
