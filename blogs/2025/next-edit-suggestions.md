@@ -42,8 +42,8 @@ An arrow in the gutter indicates if there is an edit suggestion available. If an
 <!-- ![NES with down arrow](scan-down-highlight.png) -->
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
-![NES gutter menu gif](nes-gutter.gif)
-<!-- ![NES gutter menu expanded](gutter-menu-highlighted.png) -->
+<!-- ![NES gutter menu gif](nes-gutter.gif) -->
+![NES gutter menu expanded](gutter-menu-highlighted.png)
 
 Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
@@ -74,7 +74,8 @@ It could also be more complex: if you added a new command to your VS Code extens
 <!-- ![Add command in package.json](add-disposable.png) -->
 <!-- ![Add command in package.json](call-disposable-full.png) -->
 
-**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to rename subsequent variables similarly. After copy-pasting some code, NES will suggest how to adjust it to match the current code where the paste happened.
+**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly. After copy-pasting some code, NES will suggest how to adjust it to match the current code where the paste happened.
+![NES suggesting change after updating function name](nes-gutter.gif)
 
 ## Share your feedback
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.

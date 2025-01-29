@@ -120,7 +120,8 @@ It could also be more complex: if you added a new command to your VS Code extens
 
 **Refactoring**
 
-* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to rename subsequent variables similarly.
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
+![NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
 ## Tips & tricks
