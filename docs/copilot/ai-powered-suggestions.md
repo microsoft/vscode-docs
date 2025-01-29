@@ -95,11 +95,11 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 
 **Catching and correcting mistakes**
 
-* **NES helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
+* **Copilot helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
 ![NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.gif)
-* **NES can also help with more challenging mistakes in logic**, like where a statement should've had `<` instead of `<=`:
+* **Copilot can also help with more challenging mistakes in logic**, like where a statement should've had `<` instead of `<=`:
 ![NES fixing a fibonacci logic mistake](./images/inline-suggestions/nes-fib-logic.gif)
-or a comparison that should've used `&&` instead of `||`:
+Or a comparison that should've used `&&` instead of `||`:
 ![NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.gif)
 
 **Changing intent**
@@ -111,9 +111,9 @@ or a comparison that should've used `&&` instead of `||`:
 
 **Adding new variables or logic**
 
-* **Using newly added arguments, variables, or functions**. NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+* **Using newly added arguments, variables, or functions**. Copilot helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
-It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES may suggest registering that command as well:
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, Copilot will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, Copilot suggests registering that command as well:
 ![Updating extension.ts and package.json with a new command](./images/inline-suggestions/nes-extension-and-package.gif)
 <!-- ![Add command in package.json](./images/inline-suggestions/add-disposable.png)
 ![Add command in package.json](./images/inline-suggestions/call-disposable-full.png) -->
