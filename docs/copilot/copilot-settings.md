@@ -42,11 +42,13 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.editor.lineHeight)`: Line height in pixels in chat codeblocks.
 * `setting(chat.editor.wordWrap)`: Toggle line wrapping in chat codeblocks.
 
-## Edits settings
+## Copilot Edits settings
 
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
+* `setting(github.copilot.chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
+* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
 
 ## Inline Chat settings
 
