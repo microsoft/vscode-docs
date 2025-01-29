@@ -50,7 +50,7 @@
         ["Command Line Interface", "/docs/editor/command-line"],
         ["", "", {
           "name": "Workspaces",
-          "area": "workspaces",
+          "area": "editor/workspaces",
           "topics": [
             ["Workspaces", "/docs/editor/workspaces/workspaces"],
             ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"],
