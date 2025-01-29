@@ -10,12 +10,17 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Copilot Edits
 
-Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code. Copilot Edits brings the conversational flow of Copilot Chat and immediate feedback from Inline Chat together in one experience.
+Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code.
 
 Copilot Edits can function in two modes:
 
 * [*Edit mode*](#use-edit-mode): select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
 * [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot determine which files to edit and which commands to run. Copilot will autonomously use different [tools](#agent-mode-tools) to iterate and resolve issues to achieve the desired outcome.
+
+> [!NOTE]
+> Agent mode is currently in preview and we continue to improve the experience. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
+>
+> To enable agent mode, set the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
 
 The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
 
@@ -46,9 +51,11 @@ Because making code changes can be an iterative process, an *edit session* in Co
 
 In edit mode, you select which files to edit and provide the relevant context and prompt. Copilot will suggest code edits based on your prompt.
 
-1. Open the Copilot Edits view
+1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
 
 1. Select **Edit** from the mode dropdown
+
+    ![Screenshot showing the Copilot Edits view, highlighting edit mode selected.](images/copilot-edits/copilot-edits-edit-mode.png)
 
 1. Use **Add Files** to add files to the _working set_
 
@@ -56,7 +63,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
 1. Enter a prompt to request code edits. Be specific and precise about the changes you want, and decompose larger tasks into smaller tasks.
 
-    Copilot Edits streams the edits in the editor. In the working set, edited files are marked in bold.
+    Copilot Edits streams the edits in the editor. In the working set, files that were edited by Copilot are marked in bold.
 
     > [!TIP]
     > Add more specific context by using chat variables like `#file` or `#sym` to reference files or symbols. Use `#codebase` to let Copilot collect relevant context from your entire workspace.
@@ -69,37 +76,44 @@ In edit mode, you select which files to edit and provide the relevant context an
 
 ## Use agent mode (preview)
 
-In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome:
+In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. To process a request, Copilot loops over the following steps and iterates multiple times as needed:
 
 * Creates a plan of action and decomposes the request into smaller tasks.
 * Determines the relevant context and files to edit autonomously.
 * Offers both code changes and terminal commands to complete the task. For example, Copilot might compile code, install packages, run tests, and more.
-* Monitors correctness of code edits and terminal command output and iterates to remediate issues.
+* Monitors the correctness of code edits and terminal command output and iterates to remediate issues.
 
-Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) to accomplish these tasks. For example, to determine which files to edit, gather project context, run terminal commands, read terminal output, and more.
-
-To enable agent mode in Copilot Edits, set the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
-
-> [!NOTE]
-> Agent mode is currently in preview. The experience might change, and you might encounter issues. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
+Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) to accomplish these tasks. These tools can run in parallel to accomplish the requested task.
 
 To use agent mode in Copilot Edits:
 
-1. Open the Copilot Edits view
+1. Enable agent mode in by setting the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
+
+1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
 
 1. Select **Agent** from the mode dropdown
 
+    ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
+
 1. Enter a prompt to request code edits.
 
-    In agent mode, Copilot Edits will determine the relevant context and files to edit autonomously.
+    You don't have to specify the working set. In agent mode, Copilot Edits determines the relevant context and files to edit autonomously.
+
+    ![Screenshot showing the Copilot Edits view, highlighting that Copilot searched the codebase for relevant files.](images/copilot-edits/copilot-edits-agent-search-codebase.png)
 
     Copilot Edits streams the edits in the editor and updates the working set. In addition, Copilot can suggest terminal commands to run.
 
 1. Review the suggested code edits, and confirm if Copilot can run the proposed terminal commands
 
-    You have to confirm the commands to run because they might result in changes to your project.
+    As a user, you stay in control of the changes that are made to your project and can [review the generated edits](#accept-or-discard-edits) and need to confirm the terminal commands to run.
+
+    ![Screenshot showing the Copilot Edits view, highlighting the terminal command that Copilot wants to run.](images/copilot-edits/copilot-edits-agent-confirm-command.png)
 
 1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
+
+    ![Screenshot showing the Copilot Edits view, highlighting that Copilot verified the code edits for errors.](images/copilot-edits/copilot-edits-agent-check-errors.png)
+
+1. Continue to ask follow-up questions and iterate on the code changes that Copilot Edits provides.
 
 ## Manage the working set
 
@@ -197,18 +211,22 @@ After moving a chat request to Copilot Edits, the chat request is removed from t
 
 ## Agent mode tools
 
-To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. The following list gives an overview of the built-in tools:
+To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. These tools can run in parallel to accomplish the requested task.
 
-* search_codebase - Search the workspace for relevant code or documentation
-* file_search - Search for files by glob patterns (e.g., "**/*.js")
-* grep_search - Do a text search in files for exact strings or regex patterns
-* read_file - Read the contents of a file
-* edit_file - Edit a file in the workspace
-* list_dir - List the contents of a directory
-* run_in_terminal - Run shell commands in a terminal
-* get_terminal_output - Get output from a previously run terminal command
-* get_errors - Check for errors in code files
-* get_changed_files - Get diffs of file changes
+The following list gives an overview of the built-in tools:
+
+* `search_codebase` - Search the workspace for relevant code or documentation
+* `file_search` - Search for files by glob patterns (for example, "**/*.js")
+* `grep_search` - Do a text search in files for exact strings or regex patterns
+* `read_file` - Read the contents of a file
+* `edit_file` - Edit a file in the workspace, changes can be [reviewed](#accept-or-discard-edits) like other edits
+* `list_dir` - List the contents of a directory
+* `run_in_terminal` - Run shell commands in a terminal (requires user confirmation)
+* `get_terminal_output` - Get output from a previously run terminal command
+* `get_errors` - Check for errors in code files and helps agent mode to self-correct code issues
+* `get_changed_files` - Get diffs of file changes
+
+Agent mode gives you a more autonomous AI-powered editing experience, however you maintain control over the generated edits and terminal commands that are run.
 
 ## Settings
 
@@ -280,11 +298,12 @@ You can drag and drop the Copilot Edits view into the Activity Bar to show it in
 
 ### Why would I use edit mode instead of agent mode?
 
-Consider the following criteria
+Consider the following criteria to choose between edit mode and agent mode:
 
 * **Edit scope**: you might use edit mode if your request involves only code edits and you know the precise scope and working set for the changes.
 * **Preview feature**: agent mode is still in preview and might not work for all scenarios.
-* **Response time**: agent mode involves more steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
+* **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
+* **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
 ## Related content
