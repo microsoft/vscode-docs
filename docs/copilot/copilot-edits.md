@@ -66,7 +66,7 @@ In edit mode, you select which files to edit and provide the relevant context an
     Copilot Edits streams the edits in the editor. In the working set, files that were edited by Copilot are marked in bold.
 
     > [!TIP]
-    > Let Copilot find the right files automatically by adding `#codebase` in your prompt.
+    > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting to get the best results.
 
 1. Review the suggested edits and accept or discard the suggested edits
 
@@ -137,6 +137,8 @@ You have many options to add files to the working set:
 
 * Let Copilot find the right files automatically by adding `#codebase` in your prompt.
 
+    Make sure to enable the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting to get the best results.
+
 * Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Copilot Edits view.
 
     When you drop a folder onto the Copilot Edits view, all files in that folder are added to the working set.
@@ -155,13 +157,13 @@ When Copilot Edits generates edits for your project, it visually indicates which
 
 ## Accept or discard edits
 
-Copilot Edits gives you a code review flow where you can accept or discard each of the AI-generated edits. When you accept the AI-generated edits, the file changes are confirmed in the working set. If you discard the edits, the files are restored to their previously accepted state.
+Copilot Edits gives you a code review flow where you can accept or discard each of the AI-generated edits. If you discard the edits, the modified files are restored to their previously accepted state.
 
-Navigate between the different edits in your project by using the editor overlay controls. Use the **Accept** and **Discard** controls to accept or reject all changes for a given file.
+With the editor overlay controls, you can navigate between the suggested edits by using the <i class="codicon codicon-arrow-up"></i> and <i class="codicon codicon-arrow-down"></i> controls. Use the **Accept** or **Discard** button to accept or reject the edits for a given file.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor table bar.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-For more fine-grained control over which edit you want to accept or reject within a file, hover over the code edit and select the **Undo** control to reject a change.
+To accept or discard a specific edit within a file, hover over the code edit and use the **Accept** or **Discard** controls for that edit.
 
 Alternatively, you can also accept or discard the changes from the working set in the Copilot Edits view:
 
@@ -171,16 +173,12 @@ Alternatively, you can also accept or discard the changes from the working set i
 
 ![Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
 
-## Save generated edits
+With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
 
-Copilot Edits shows the generated edits in-place in your code but doesn't automatically save the changes to disk (notice the dirty indicator in the editor tab). As part of reviewing the edits, you might depend on automated tasks that are triggered by a file change, such as a build or test task. You can save the individual files or select **Save All** (`kb(chatEditing.saveAllFiles)`) in the working set to save the edits to disk.
-
-![Screenshot showing the Copilot Edits view, highlighting the Save All button.](images/copilot-edits/copilot-edits-save-all.png)
-
-When you save a file that contains AI-generated changes, a confirmation dialog is shown. In the dialog, you can check the option to always save files without asking for confirmation. When checked, the Save All control is no longer shown. You can reset the confirmation by using the `setting(chat.editing.alwaysSaveWithGeneratedChanges)` setting.
+When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored and you can still accept or discard the edits.
 
 > [!NOTE]
-> Saving the files doesn't mean that you automatically accept the changes. After saving the files, you can still accept or discard the generated edits.
+> In agent mode, edits are automatically saved to disk, regardless if Auto Save (`setting(files.autoSave)`) is enabled. You can still review the edits and choose to discard them if needed.
 
 ## Undo edits
 
@@ -234,6 +232,8 @@ The following list contains the settings related to Copilot Edits. You can confi
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
 * `setting(github.copilot.chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
+* `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
+* `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ - let Copilot find the right files by adding `#codebase` to your prompt, similar to how agent mode works (default: `false`)
 * `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
 
 ## Keyboard shortcuts
@@ -256,7 +256,7 @@ The following list contains the default keyboard shortcuts related to Copilot Ed
 
 * Multiple simultaneous edit sessions are not supported yet.
 * The use of `@workspace /new` to scaffold a new project is not supported yet in an Edit session. For now, use Copilot Chat for the initial scaffolding.
-* Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Explicitly adding files to your working set creates better results.
+* Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Experiment with the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting for an improved, agentic experience to find files, or explicitly add files to your working set to create better results.
 * Support for Jupyter notebooks, other custom text formats, and binary file formats is absent or untested.
 * The working set is currently limited to 10 files.
 * Copilot Edits is limited to 7 editing requests per 10 minutes.
