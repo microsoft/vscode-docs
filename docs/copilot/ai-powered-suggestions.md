@@ -65,6 +65,11 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (aka "Copilot NES") is this evolution.
 
+<video src="./images/inline-suggestions/nes-video-silent.mp4" width="720" controls>
+    Copilot NES video walkthrough.
+</video>
+<!-- TODO: Update to video with voiceover from Olivia -->
+
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
@@ -75,9 +80,6 @@ Based on the edits you're making, Copilot NES both predicts the location of the 
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
 >
 > You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
-
-![Video overview of Copilot NES in VS Code](./images/inline-suggestions/nes-video-silent.mp4)
-<!-- TODO: Update to video with voiceover from Olivia -->
 
 ### Navigate and accept edit suggestions
 
