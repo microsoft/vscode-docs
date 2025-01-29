@@ -16,7 +16,7 @@ We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka 
 
 Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
-<!-- TODO: Video about NES from Rob -->
+<!-- TODO: Video about NES from Olivia -->
 
 You may have seen [previous work from the GitHub Next Team on NES](https://githubnext.com/projects/copilot-next-edit-suggestions/) – this is the evolution of the Next Team's great work, now part of the existing GitHub Copilot extensions.
 
@@ -32,38 +32,46 @@ Like completions, all you need to do to start getting suggestions from NES is to
 
 When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again, saving you time to find the next relevant edit (no manual searching through files or references required).
 
-An arrow in the gutter indicates if there is an edit suggestion available:
-![NES with right arrow](scan-right-highlight.png)
+An arrow in the gutter indicates if there is an edit suggestion available. If an edit suggestion is below the current editor view, the arrow will point down instead of right.
+![NES with arrow directions changing](nes-arrow-directions.gif)
 
-If an edit suggestion is below the current editor view, the arrow will point down instead of right:
-![NES with down arrow](scan-down-highlight.png)
+<!-- ![NES with right arrow](scan-right-highlight.png) -->
+<!-- ![NES with down arrow](scan-down-highlight.png) -->
 
 You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
-![NES gutter menu expanded](gutter-menu-highlighted.png)
+![NES gutter menu gif](nes-gutter.gif)
+<!-- ![NES gutter menu expanded](gutter-menu-highlighted.png) -->
 
 Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 ## Example scenarios
-Copilot NES is your AI companion as you make changes that may cascade throughout your file or project. The following are a few examples where NES shines.
+Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
-**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition:
-![NES for updating Point to Point3D](point3d.png)
+Our development team has been self-hosting on NES for a while, and one of our engineers remembers one of his first "aha!" moments with NES. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&`:
+![NES fixing an if statement mistake](nes-de-morgan.gif)
 
-After accepting the change, NES next recommends adding `z` to the distance calculation:
-![NES for updating Point to Point3D](point3d-distance.png)
+The following are a few more examples where NES shines.
+
+**Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
+
+NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
+![NES fixing a typo from "conts" to "const"](nes-typo.gif)
+
+NES can also help with more challenging mistakes in logic, like an evaluation that should've used `>` instead of `<`:
+![NES fixing a fibonacci logic mistake](nes-fib-logic.gif)
+
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition and to the distance calculation:
+![NES gif for updating Point to Point3D](nes-point.gif)
+<!-- ![NES for updating Point to Point3D](point3d-distance.png) -->
 
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
-It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`:
-![Add command in package.json](add-disposable.png)
-
-And then when you open `package.json`, NES may suggest registering that command as well:
-![Add command in package.json](call-disposable-full.png)
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES may suggest registering that command as well:
+![Updating extension.ts and package.json](nes-extension-and-package.gif)
+<!-- ![Add command in package.json](add-disposable.png) -->
+<!-- ![Add command in package.json](call-disposable-full.png) -->
 
 **Refactoring:** If you use a new name or naming pattern, Copilot suggests to rename subsequent variables similarly.
-
-**Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
-<!-- TODO: Add image -->
 
 ## Share your feedback
 NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
