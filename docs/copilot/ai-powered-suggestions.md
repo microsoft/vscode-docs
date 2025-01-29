@@ -113,7 +113,7 @@ And then when you open `package.json`, NES may suggest registering that command 
 
 **Refactoring**
 
-* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to rename subsequent variables similarly.
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
 **Correcting mistakes**

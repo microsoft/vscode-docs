@@ -60,7 +60,7 @@ It could also be more complex: if you added a new command to your VS Code extens
 And then when you open `package.json`, NES may suggest registering that command as well:
 ![Add command in package.json](call-disposable-full.png)
 
-**Refactoring:** If you use a new naming pattern (like renaming a variable `index1` to `indexArr1`), Copilot suggests to rename subsequent variables similarly (like updating `index2` to `indexArr2`).
+**Refactoring:** If you use a new name or naming pattern, Copilot suggests to rename subsequent variables similarly.
 
 **Correcting mistakes:** Copilot NES helps with mistakes like typos. It can also help with more challenging mistakes in logic, like if a statement should've used `AND` instead of `OR`.
 <!-- TODO: Add image -->
