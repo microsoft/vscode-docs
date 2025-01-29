@@ -52,9 +52,9 @@
           "name": "Workspaces",
           "area": "workspaces",
           "topics": [
-            ["Workspaces", "/docs/editor/workspaces"],
-            ["Workspace Trust", "/docs/editor/workspace-trust"],
-            ["Multi-root Workspaces", "/docs/editor/multi-root-workspaces"]
+            ["Workspaces", "/docs/editor/workspaces/workspaces"],
+            ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"],
+            ["Multi-root Workspaces", "/docs/editor/workspaces/multi-root-workspaces"]
           ]
         }
         ],
