@@ -35,15 +35,14 @@ Like completions, all you need to do to start getting suggestions from NES is to
 
 When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again, saving you time to find the next relevant edit (no manual searching through files or references required).
 
-An arrow in the gutter indicates if there is an edit suggestion available. If an edit suggestion is below the current editor view, the arrow will point down instead of right:
-![NES with arrow directions changing](nes-arrow-directions.gif)
-
-<!-- ![NES with right arrow](scan-right-highlight.png) -->
-<!-- ![NES with down arrow](scan-down-highlight.png) -->
-
-You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 <!-- ![NES gutter menu gif](nes-gutter.gif) -->
 ![NES gutter menu expanded](gutter-menu-highlighted.png)
+
+If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+![NES with arrow directions changing](nes-arrow-directions.gif)
+<!-- ![NES with right arrow](scan-right-highlight.png) -->
+<!-- ![NES with down arrow](scan-down-highlight.png) -->
 
 Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
