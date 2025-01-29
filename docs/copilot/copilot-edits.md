@@ -15,7 +15,7 @@ Use Copilot Edits to start an AI-powered code editing session and iterate quickl
 Copilot Edits can function in two modes:
 
 * [*Edit mode*](#use-edit-mode): select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
-* [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot determine which files to edit and which commands to run. Copilot will autonomously use different tools to iterate and resolve issues to achieve the desired outcome.
+* [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot determine which files to edit and which commands to run. Copilot will autonomously use different [tools](#agent-mode-tools) to iterate and resolve issues to achieve the desired outcome.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -79,7 +79,7 @@ In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to
 * Offers both code changes and terminal commands to complete the task. For example, Copilot might compile code, install packages, run tests, and more.
 * Monitors correctness of code edits and terminal command output and iterates to remediate issues.
 
-Copilot Edits agent mode uses a set of _tools_ to accomplish these tasks. For example, to determine which files to edit, gather project context, run terminal commands, read terminal output, and more.
+Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) to accomplish these tasks. For example, to determine which files to edit, gather project context, run terminal commands, read terminal output, and more.
 
 To enable agent mode in Copilot Edits, set the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
 
@@ -192,6 +192,21 @@ In the Chat view, select the **Edit with Copilot** button at the bottom of the c
 ![Screenshot highlighting the Edit with Copilot button in the Chat view to move a chat conversation to Copilot Edits.](images/copilot-edits/copilot-chat-edit-with-copilot.png)
 
 After moving a chat request to Copilot Edits, the chat request is removed from the chat conversation in the Chat view.
+
+## Agent mode tools
+
+To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. The following list gives an overview of the built-in tools:
+
+* search_codebase - Search the workspace for relevant code or documentation
+* file_search - Search for files by glob patterns (e.g., "**/*.js")
+* grep_search - Do a text search in files for exact strings or regex patterns
+* read_file - Read the contents of a file
+* edit_file - Edit a file in the workspace
+* list_dir - List the contents of a directory
+* run_in_terminal - Run shell commands in a terminal
+* get_terminal_output - Get output from a previously run terminal command
+* get_errors - Check for errors in code files
+* get_changed_files - Get diffs of file changes
 
 ## Settings
 
