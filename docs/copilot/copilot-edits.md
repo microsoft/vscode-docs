@@ -8,7 +8,7 @@ DateApproved: 12/11/2024
 MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Copilot Edits (preview)
+# Copilot Edits
 
 Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code. Copilot Edits brings the conversational flow of Copilot Chat and immediate feedback from Inline Chat together in one experience.
 
@@ -17,15 +17,12 @@ Copilot Edits can function in two modes:
 * [*Edit mode*](#use-edit-mode): select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
 * [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot determine which files to edit and which commands to run. Copilot will autonomously use different [tools](#agent-mode-tools) to iterate and resolve issues to achieve the desired outcome.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
 The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
 
 <video src="images/copilot-edits/copilot-edits-hero.mp4" title="Use Copilot Edits to modify an Express app" loop controls muted></video>
 
-> [!NOTE]
-> The Copilot Edits feature is currently in preview. You can provide feedback and report problems in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Start a Copilot Edits session
 
@@ -284,7 +281,6 @@ Consider the following criteria
 * **Preview feature**: agent mode is still in preview and might not work for all scenarios.
 * **Response time**: agent mode involves more steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
-
 
 ## Related content
 

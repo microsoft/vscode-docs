@@ -42,7 +42,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 > - Be specific, keep it simple, and ask follow-up questions to get the best results.
 > - Provide context by attaching files, symbols, or selections to your chat prompt.
 
-## Code editing session (Preview)
+## Code editing session
 
 Use Copilot Edits to start a code editing session where you can iterate quickly on AI-generated code edits that are applied directly across multiple files in your workspace.
 
