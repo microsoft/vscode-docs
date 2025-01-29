@@ -66,7 +66,7 @@ In edit mode, you select which files to edit and provide the relevant context an
     Copilot Edits streams the edits in the editor. In the working set, files that were edited by Copilot are marked in bold.
 
     > [!TIP]
-    > Add more specific context by using chat variables like `#file` or `#sym` to reference files or symbols. Use `#codebase` to let Copilot collect relevant context from your entire workspace.
+    > Let Copilot find the right files automatically by adding `#codebase` in your prompt.
 
 1. Review the suggested edits and accept or discard the suggested edits
 
@@ -135,6 +135,8 @@ You have many options to add files to the working set:
 
     ![Screenshot showing the Copilot Edits view and the file search Quick Pick, highlighting the buttons to add context.](images/copilot-edits/copilot-edits-add-files.png)
 
+* Let Copilot find the right files automatically by adding `#codebase` in your prompt.
+
 * Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Copilot Edits view.
 
     When you drop a folder onto the Copilot Edits view, all files in that folder are added to the working set.
@@ -146,10 +148,6 @@ You have many options to add files to the working set:
     <video src="images/copilot-edits/working-set-suggested-files.mp4" title="Add suggested files to Copilot Edits working set." autoplay loop controls muted></video>
 
     If you don't want to see these suggestions, you can disable them with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
-
-To further help Copilot Edits provide better code suggestions, you can also add relevant context to your prompt, such as `#selection` or `#terminalSelection`. Use `#codebase` to let Copilot collect relevant context from your entire workspace. Type the `#` symbol or use the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`) to add context to your prompt.
-
-You can also add specific file or symbol references in your prompt by using `#` as an IntelliSense trigger for file or symbol suggestions. If Copilot decides to make changes to the files you mentioned in your prompt, they are added automatically to your working set.
 
 When Copilot Edits generates edits for your project, it visually indicates which files in the working set are edited. Select a file in the working set to open it and view the proposed edits in the editor.
 
