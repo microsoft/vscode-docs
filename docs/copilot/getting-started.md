@@ -8,7 +8,45 @@ DateApproved: 12/11/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Getting started with GitHub Copilot in VS Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Simple Calculator</title>
+                <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <div class="calculator">
+                            <input type="text" class="calculator-screen" value="" disabled />
+                                    <div class="calculator-keys">
+                                                <button type="button" class="operator" value="+">+</button>
+                                                            <button type="button" class="operator" value="-">-</button>
+                                                                        <button type="button" class="operator" value="*">&times;</button>
+                                                                                    <button type="button" class="operator" value="/">&divide;</button>
+
+                                                                                                <button type="button" value="7">7</button>
+                                                                                                            <button type="button" value="8">8</button>
+                                                                                                                        <button type="button" value="9">9</button>
+
+                                                                                                                                    <button type="button" value="4">4</button>
+                                                                                                                                                <button type="button" value="5">5</button>
+                                                                                                                                                            <button type="button" value="6">6</button>
+
+                                                                                                                                                                        <button type="button" value="1">1</button>
+                                                                                                                                                                                    <button type="button" value="2">2</button>
+                                                                                                                                                                                                <button type="button" value="3">3</button>
+
+                                                                                                                                                                                                            <button type="button" value="0">0</button>
+                                                                                                                                                                                                                        <button type="button" class="decimal" value=".">.</button>
+                                                                                                                                                                                                                                    <button type="button" class="all-clear" value="all-clear">AC</button>
+
+                                                                                                                                                                                                                                                <button type="button" class="equal-sign operator" value="=">=</button>
+                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                <script src="script.js"></script>
+                                                                                                                                                                                                                                                                </body>
+                                                                                                                                                                                                                                                                </html># Getting started with GitHub Copilot in VS Code
 
 This tutorial walks you through the key features of GitHub Copilot in Visual Studio Code. Learn how to get started with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension to get AI-powered code suggestions in the editor, use chat conversations to refactor your code, and fix code errors with smart actions.
 
