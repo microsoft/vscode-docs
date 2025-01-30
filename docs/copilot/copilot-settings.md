@@ -65,6 +65,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or set to a string/array of folders.
 
 ## Debugging settings
 
