@@ -51,11 +51,6 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 ## Example scenarios
 Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
-Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
-![NES fixing an if statement mistake](nes-de-morgan.gif)
-
-The following are some more examples where NES shines.
-
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
 NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
@@ -63,6 +58,9 @@ NES helps with small mistakes like typos - maybe you were coding quickly in the 
 
 NES can also help with more challenging mistakes in logic, like a return statement that should've used `<=` instead of `>`:
 ![NES fixing a fibonacci logic mistake](nes-fib-logic.gif)
+
+Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
+![NES fixing an if statement mistake](nes-de-morgan.gif)
 
 **Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition and to the distance calculation:
 ![NES gif for updating Point to Point3D](nes-point.gif)
