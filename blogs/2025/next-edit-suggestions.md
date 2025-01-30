@@ -8,7 +8,9 @@ Author: Brigit Murtaugh, Burke Holland
 ---
 
 # Copilot Next Edit Suggestions (preview)
-Feburary 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
+February 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
+
+Today marks the first release of VS Code for 2025. We've been working hard on this release since well into last year, and we're excited to bring you not only the latest and greatest features for your favorite code editor, but some major developments for GitHub Copilot.
 
 GitHub Copilot code completions are great at autocomplete - they can predict and suggest the code that was in your head, without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits.
 
@@ -86,6 +88,26 @@ Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
 We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
+
+But before you go, there's one more feature in preview that we want to talk about: agent mode.
+
+## Agent mode
+
+As of today's release, GitHub Copilot Edits now has a toggle to enable agent mode. You can opt-in to this experience via the VS Code setting `setting(github.copilot.chat.agent.enabled)`.
+
+In agent mode, Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
+
+[TODO: add gif]
+
+We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out.
+
+## New year, new Copilot
+
+We have big plans for Copilot as an AI pair programmer that is not only [freely available to everyone](https://code.visualstudio.com/blogs/2024/12/18/free-github-copilot), but continually pushes the boundaries of what AI can do to radically accelerate your productivity and happiness.
+
+There's much more in this release of VS Code for GitHub Copilot - including Prompt Files, Gemini 2.0 pro, and model selections for completions. We never stop improving VS Code itself, so check out the [full release notes](https://code.visualstudio.com/updates) for all the brand new goodness. We're adamant about making sure you have the best possible version of your code editor and the best AI pair programmer.
+
+We know things are moving fast in the world of AI, so make sure to follow us on [X](https://x.com/code)/[Bluesky](https://bsky.app/profile/vscode.dev)/[LinkedIn](https://www.linkedin.com/showcase/vs-code/) and we'll make it easy for you to stay up to date on all of the latest and greatest Copilot capabilities.
 
 Happy coding!
 
