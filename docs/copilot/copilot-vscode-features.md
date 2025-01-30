@@ -127,7 +127,9 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 ## Customize AI code generation
 
-Copilot can generate responses that match the coding style, tools, and developer workflow of your team or project, provided it has the right context. You can provide custom instructions to help Copilot adjust to your preferences, so that you don't have to provide these details every time you make a Copilot request. These custom instructions are automatically added to your requests. Get more information about [customizing Copilot in VS Code](/docs/copilot/copilot-customization.md).
+Define [custom instructions](/docs/copilot/copilot-customization.md#custom-instructions) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
+
+With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file, that you can then reuse in your chat prompts.
 
 | Action | Description |
 |--------|-------------|
@@ -136,13 +138,14 @@ Copilot can generate responses that match the coding style, tools, and developer
 | Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Commit-message generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Reusable prompt files _(Preview)_ | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-preview).  |
 
 > **Tips**
 >
 > - Define language-specific instructions to get more accurate generated code for each language.
 > - Store your instructions in a file to easily share them with your team and across projects.
 
-## Review code (Preview)
+## Review code (preview)
 
 Copilot can do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
 
