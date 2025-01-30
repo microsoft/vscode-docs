@@ -131,15 +131,7 @@ To configure custom commit message generation instructions, use the `setting(git
 
 * Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
 
-## Settings
-
-* `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
-
-## Reusable Prompt Files (Preview)
+## Reusable Prompt Files (preview)
 
 Prompt Files in GitHub Copilot Chat are designed to streamline workflows, enhance collaboration, and bring domain-specific expertise to you and your team's fingertips. With reusable and shareable prompts, you can save time, maintain consistency, and tackle complex tasks with ease. While the existing file-based custom instructions help to add codebase-wide context to each AI workflow, developers can add specific prompts as they need them, which makes them scale to the complexity of larger multi-faceted codebases.
 
@@ -189,12 +181,15 @@ While the feature is in preview, make sure that `setting(chat.promptFiles)` is e
 To use prompt files, follow these steps:
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
+
 1. Write prompt instructions by using Markdown formatting
 
   Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
 
-1. Attach the prompt file to Copilot Chat or Edits by using the <i class="codicon codicon-attach"></i> icon, selecting **Prompts**, and then choosing the Prompts file.
+1. Select the <i class="codicon codicon-attach"></i> icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
+
 1. Optionally, attach additional context files required for the task.
+
 1. Send the chat prompt
 
   - For reusable tasks, send the prompt without any additional instructions.
@@ -202,6 +197,20 @@ To use prompt files, follow these steps:
 
 > [!TIP]
 > Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
+
+## Settings
+
+### Custom instructions
+
+* `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
+* `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
+
+### Prompt files (preview)
+
+* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable Prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or set to a string/array of folders.
 
 ## Related content
 
