@@ -62,6 +62,18 @@ Finally, this context is used by GitHub Copilot to answer your question. If the 
 
 You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #file:form.ts`.
 
+## Managing the workspace index
+
+<!-- TODO: these in -->
+
+### Remote index
+
+### Local index
+
+### Basic index
+
+
+
 ## Tips for using `@workspace`
 
 The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
