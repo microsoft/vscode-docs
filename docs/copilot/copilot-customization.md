@@ -145,42 +145,42 @@ Prompt Files in GitHub Copilot Chat are designed to streamline workflows, enhanc
 
 Common use cases include:
 
-- **Code Generation**: Create reusable prompts for components, tests, or migrations (e.g., React forms, API mocks)
-- **Domain Expertise**: Share specialized knowledge through prompts (e.g., security practices, compliance checks)
-- **Team Collaboration**: Document patterns and guidelines with references to specs and documentation
-- **Onboarding**: Create step-by-step guides for complex processes or project-specific patterns
+- **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+- **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
+- **Team collaboration**: document patterns and guidelines with references to specs and documentation.
+- **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
 
-### Example
+### Prompt file examples
 
-`react-form.prompt.md` documents a re-usable task for generating a form:
+- `react-form.prompt.md` - documents a reusable task for generating a form:
 
-```markdown
-Your goal is to generate a new React form component.
+  ```markdown
+  Your goal is to generate a new React form component.
 
-Ask for the form name and fields if not provided.
+  Ask for the form name and fields if not provided.
 
-Requirements for the form:
-- Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-- Use `react-hook-form` for form state management:
-  - Always define TypeScript types for your form data
-  - Prefer *uncontrolled* components using register
-  - Use `defaultValues` to prevent unnecessary rerenders
-- Use `yup` for validation:
-  - Create reusable validation schemas in separate files
-  - Use TypeScript types to ensure type safety
-  - Customize UX-friendly validation rules
-```
+  Requirements for the form:
+  - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+  - Use `react-hook-form` for form state management:
+    - Always define TypeScript types for your form data
+    - Prefer *uncontrolled* components using register
+    - Use `defaultValues` to prevent unnecessary rerenders
+  - Use `yup` for validation:
+    - Create reusable validation schemas in separate files
+    - Use TypeScript types to ensure type safety
+    - Customize UX-friendly validation rules
+  ```
 
-`security-api.prompt.md` documents re-usable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+- `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
 
-```markdown
-Secure REST API review:
-- Ensure all endpoints are protected by authentication and authorization
-- Validate all user inputs and sanitize data
-- Implement rate limiting and throttling
-- Implement logging and monitoring for security events
-…
-```
+  ```markdown
+  Secure REST API review:
+  - Ensure all endpoints are protected by authentication and authorization
+  - Validate all user inputs and sanitize data
+  - Implement rate limiting and throttling
+  - Implement logging and monitoring for security events
+  …
+  ```
 
 ### Usage
 
@@ -189,14 +189,21 @@ While the feature is in preview, make sure that `setting(chat.promptFiles)` is e
 To use prompt files, follow these steps:
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
-2. Write prompt instructions, using markdown formatting, referencing additional files as markdown links (`[index](../index.ts)`) or `#file:../index.ts` references within the prompt file. This can also include other `.prompt.md` files.
-4. Attach the prompt file to Copilot Chat or Edits using the <i class="codicon codicon-attach"></i> icon, then picking `Prompts` and the file you want to use.
-5. Optionally attach additional context files required for the task.
-6. Send prompt without any additional instructions (useful for reusable tasks) or with additional instructions to provide more context for the task at hand.
+1. Write prompt instructions by using Markdown formatting
+
+  Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+
+1. Attach the prompt file to Copilot Chat or Edits by using the <i class="codicon codicon-attach"></i> icon, selecting **Prompts**, and then choosing the Prompts file.
+1. Optionally, attach additional context files required for the task.
+1. Send the chat prompt
+
+  - For reusable tasks, send the prompt without any additional instructions.
+  - Include additional instructions to provide more context for the task at hand.
 
 > [!TIP]
-> Reference additional context files like API specs or documentation using markdown links to provide Copilot with more complete information.
+> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
 
 ## Related content
 
-* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Start AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/copilot-edits.md).
