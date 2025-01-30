@@ -19,7 +19,7 @@ Edits are often not made in isolation - there's a logical flow of what edits nee
 We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
 
 <!-- TODO: Update to video with voiceover from Olivia -->
-<video src="nes-video-silent.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/05/point3d.png"></video>
+<video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/05/point3d.png"></video>
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
@@ -95,7 +95,7 @@ As of today's release, GitHub Copilot Edits now has a toggle to enable agent mod
 
 In agent mode, Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
-[TODO: add gif]
+<!-- TODO: add gif from github -->
 
 We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out.
 
