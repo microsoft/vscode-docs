@@ -95,18 +95,22 @@ You can learn more about using Remote - SSH with Dev Containers in the [develop 
 
 However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Dev Containers: Try a Dev Container Sample...** and [Dev Containers: Clone Repository in Container Volume...](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) commands.
 
-To work around issues with rootless Podman (for example, not respecting a non-root `"remoteUser"` and trying to install the server in `root`), you can set the following:
+To work around issues where Podman lacks permissions to create a directory in the new devcontainer, you can set Podman to build images with the Docker format, disable labling containers with SELinux, and maintain the user's UID and GID
 
-```json
-"runArgs": [
-  "--userns=keep-id"
-],
-"containerEnv": {
-  "HOME": "/home/node"
-}
+```toml
+[containers]
+env = [
+  "BUILDAH_FORMAT=docker"
+]
+label = false
+userns = "keep-id"
 ```
 
-`"remoteUser"` can be used when `"HOME"` is set because Dev Containers gives that setting precedence over the home folder it finds in `/etc/passwd`.
+After that you will need to add the following to your `devcontainer.json` to prevent Podman from attempting to create directories in `root`
+
+```json
+	"containerUser": "vscode"
+```
 
 Podman also has its own implementation of the Compose Spec with [Podman Compose](https://github.com/containers/podman-compose).
 
