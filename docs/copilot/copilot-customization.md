@@ -131,7 +131,7 @@ To configure custom commit message generation instructions, use the `setting(git
 
 * Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
 
-## Reusable prompt files (preview)
+## Reusable prompt files (experimental)
 
 Prompt files (_prompts_) let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file that mimics the existing format of writing prompts in Copilot Chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
 
