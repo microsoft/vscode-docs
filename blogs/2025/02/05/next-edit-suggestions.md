@@ -102,7 +102,7 @@ We see tremendous power in agent mode for GitHub Copilot. It's getting better ev
 
 We have big plans for Copilot as an AI pair programmer that is not only [freely available to everyone](https://code.visualstudio.com/blogs/2024/12/18/free-github-copilot), but continually pushes the boundaries of what AI can do to radically accelerate your productivity and happiness.
 
-There's much more in this release of VS Code for GitHub Copilot - including prompt files, Gemini 2.0 pro, and model selections for completions. We never stop improving VS Code itself, so check out the [full release notes](https://code.visualstudio.com/updates) for all the brand new goodness. We're adamant about making sure you have the best possible version of your code editor and the best AI pair programmer.
+There's much more in this release of VS Code for GitHub Copilot - including prompt files and model selections for completions. We never stop improving VS Code itself, so check out the [full release notes](https://code.visualstudio.com/updates) for all the brand new goodness. We're adamant about making sure you have the best possible version of your code editor and the best AI pair programmer.
 
 We know things are moving fast in the world of AI, so make sure to follow us on [X](https://x.com/code)/[Bluesky](https://bsky.app/profile/vscode.dev)/[LinkedIn](https://www.linkedin.com/showcase/vs-code/) and we'll make it easy for you to stay up to date on all of the latest and greatest Copilot capabilities.
 
