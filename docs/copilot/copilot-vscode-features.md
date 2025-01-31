@@ -129,7 +129,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 Define [custom instructions](/docs/copilot/copilot-customization.md#custom-instructions) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
 
-With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file, that you can then reuse in your chat prompts.
+With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts.
 
 | Action | Description |
 |--------|-------------|
