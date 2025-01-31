@@ -18,7 +18,6 @@ Edits are often not made in isolation - there's a logical flow of what edits nee
 
 We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
 
-<!-- TODO: Update to video with voiceover from Olivia -->
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/05/point3d.png"></video>
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
@@ -56,7 +55,7 @@ Copilot NES is your AI companion as you make changes that may cascade throughout
 NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
 ![NES fixing a typo from "conts" to "const"](nes-typo.gif)
 
-NES can also help with more challenging mistakes in logic, like a return statement that should've used `<=` instead of `>`:
+NES can also help with more challenging mistakes in logic, like an inverted ternary expression:
 ![NES fixing a fibonacci logic mistake](nes-fib-logic.gif)
 
 Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
