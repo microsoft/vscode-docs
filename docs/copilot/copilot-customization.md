@@ -131,14 +131,90 @@ To configure custom commit message generation instructions, use the `setting(git
 
 * Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
 
+## Reusable prompt files (experimental)
+
+Prompt files (_prompts_) let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file that mimics the existing format of writing prompts in Copilot Chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+
+While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+
+Common use cases include:
+
+- **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+- **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
+- **Team collaboration**: document patterns and guidelines with references to specs and documentation.
+- **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
+
+### Prompt file examples
+
+- `react-form.prompt.md` - documents a reusable task for generating a form:
+
+  ```markdown
+  Your goal is to generate a new React form component.
+
+  Ask for the form name and fields if not provided.
+
+  Requirements for the form:
+  - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+  - Use `react-hook-form` for form state management:
+    - Always define TypeScript types for your form data
+    - Prefer *uncontrolled* components using register
+    - Use `defaultValues` to prevent unnecessary rerenders
+  - Use `yup` for validation:
+    - Create reusable validation schemas in separate files
+    - Use TypeScript types to ensure type safety
+    - Customize UX-friendly validation rules
+  ```
+
+- `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+
+  ```markdown
+  Secure REST API review:
+  - Ensure all endpoints are protected by authentication and authorization
+  - Validate all user inputs and sanitize data
+  - Implement rate limiting and throttling
+  - Implement logging and monitoring for security events
+  …
+  ```
+
+### Usage
+
+To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace, and the default value of `.github/prompts` is used if no other paths provided.
+
+To use prompt files, follow these steps:
+
+1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
+
+2. Write prompt instructions by using Markdown formatting.
+
+Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+
+1. Select the <i class="codicon codicon-attach"></i> icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
+
+1. Optionally, attach additional context files required for the task.
+
+1. Send the chat prompt
+
+  - For reusable tasks, send the prompt without any additional instructions.
+  - Include additional instructions to provide more context for the task at hand.
+
+> [!TIP]
+> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
+
 ## Settings
 
-* `setting(github.copilot.chat.codeGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate code.
+### Custom instructions
+
+* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
 * `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` <i class="codicon codicon-beaker"></i>: A set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.
+
+### Prompt files (experimental)
+
+* `setting(chat.promptFiles)` _(Experimental)_: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
 
 ## Related content
 
-* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Start AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/copilot-edits.md).
