@@ -95,11 +95,11 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
     ![NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
 
 > [!NOTE]
-> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEdits.enabled)`.
+> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEditSuggestions.enabled)`.
 >
 > For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
 >
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 >
 > You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
