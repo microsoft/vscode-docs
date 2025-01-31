@@ -72,7 +72,7 @@ Based on the edits you're making, Copilot NES both predicts the location of the 
 
 ### Enabling edit suggestions
 
-Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`, with the following steps:
+Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`, using the following steps:
 * Open the VS Code Settings editor (`kb(workbench.action.openSettings)`)
 * Search for `setting(github.copilot.nextEditSuggestions.enabled)`
 * Enable the setting
