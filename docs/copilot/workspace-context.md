@@ -64,6 +64,12 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 ## Managing the workspace index
 
+Copilot uses an index to search through your codebase quickly and accurately. This index can either be maintained by Github or locally on your machine. This section covers the different types of indicies ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)) and explains how you can switch between them.
+
+At any point, you can check the language status UI to see the type of idnex that Copilot is currently along with any relevant information about this index, such as the number of files being reindexed. Just click on the `{}` in the statusbar and look for the Copilot workspace index entry:
+
+![Viewing the status of the Copilot index in the language status UI](images/copilot-chat/workspace-index-status.png)
+
 ### Remote index
 For GitHub repositories, Copilot can use [Github code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-specific-repository-file-or-symbol) to build a remote index of your codebase. This allows Copilot to search your entire codebase very quickly, even when the codebase becomes very large.
 
