@@ -69,14 +69,17 @@ Inline suggestions are great at autocompleting a section of code. But since most
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-> [!NOTE]
-> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
->
-> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
->
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
->
-> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
+### Enabling edit suggestions
+
+Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`, with the following steps:
+* Open the VS Code Settings editor (`kb(workbench.action.openSettings)`)
+* Search for `setting(github.copilot.nextEditSuggestions.enabled)`
+* Enable the setting
+
+If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
+
+You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 ### Navigate and accept edit suggestions
 
@@ -122,6 +125,14 @@ It could also be more complex: if you added a new command to your VS Code extens
 * **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
 ![NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
+
+### Further configuring Next Edit Suggestions
+
+You use Copilot NES, you must set `setting(github.copilot.nextEditSuggestions.enabled)`. There are a couple of additional settings you can also use to configure your NES experience:
+* `setting(editor.inlineSuggest.edits.codeShifting)`: You can disable this setting if you never want NES to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`:
+     * **auto (default)**: Show larger suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions is shown below the relevant code.
+     * **never**: Always show larger suggestions below the relevant code.
 
 ## Tips & tricks
 
