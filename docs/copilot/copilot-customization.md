@@ -178,7 +178,7 @@ Common use cases include:
 
 ### Usage
 
-To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to provide specific folders where your prompt files are stored. Relative folder paths are resolved relative to the root folder(s) of your project, and the default value of `.github/prompts` is used if no other paths are specified.
+To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace, and the default value of `.github/prompts` is used if no other paths provided.
 
 To use prompt files, follow these steps:
 
@@ -212,7 +212,7 @@ Reference additional workspace files as Markdown links (`[index](../index.ts)`),
 
 ### Prompt files (preview)
 
-* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to provide specific folders where your prompt files are stored. Relative folder paths are resolved relative to the root folder(s) of your project.
+* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
 
 ## Related content
 
