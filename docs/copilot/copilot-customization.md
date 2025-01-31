@@ -178,13 +178,13 @@ Common use cases include:
 
 ### Usage
 
-To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or a string/array of folders where prompt files are stored. The default location for prompt files is the `.github/prompts` folder.
+To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to provide specific folders where your prompt files are stored. Relative folder paths are resolved relative to the root folder(s) of your project, and the default value of `.github/prompts` is used if no other paths are specified.
 
 To use prompt files, follow these steps:
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
 
-1. Write prompt instructions by using Markdown formatting.
+2. Write prompt instructions by using Markdown formatting.
 
   Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
 
@@ -212,7 +212,7 @@ To use prompt files, follow these steps:
 
 ### Prompt files (preview)
 
-* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or set to a string/array of folders.
+* `setting(chat.promptFiles)` <i class="codicon codicon-beaker"></i>: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to provide specific folders where your prompt files are stored. Relative folder paths are resolved relative to the root folder(s) of your project.
 
 ## Related content
 
