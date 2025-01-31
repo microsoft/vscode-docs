@@ -113,6 +113,7 @@ Argument|Description
 `--upload-logs` | Uploads logs from current session to a secure endpoint.
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
+`--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.
 
 ### Create remote tunnel
 
