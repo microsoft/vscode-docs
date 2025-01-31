@@ -1,16 +1,26 @@
 ---
 Order: 92
-TOCTitle: Copilot Next Edit Suggestions (preview)
-PageTitle: Copilot Next Edit Suggestions (preview)
+TOCTitle: Introducing Next Edit Suggestions (and more!) for GitHub Copilot
+PageTitle: Introducing Next Edit Suggestions (and more!) for GitHub Copilot
 MetaDescription: Announcing the Next Edit Suggestions (NES) feature for GitHub Copilot in Visual Studio Code.
 Date: 2025-02-05
 Author: Brigit Murtaugh, Burke Holland
 ---
 
-# Copilot Next Edit Suggestions (preview)
+# Introducing Next Edit Suggestions (and more!) for GitHub Copilot
 February 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
 Today marks the first release of VS Code for 2025. We've been working hard on this release since well into last year, and we're excited to bring you not only the latest and greatest features for your favorite code editor, but some major developments for GitHub Copilot.
+
+We're introducing what we've been calling "Next Edit Suggestions" (NES) - a new way to get suggestions for your next edit, rather than just the next line of code.
+
+We're also unveiling prompt files, o3-mini is now available in the model picker, and Copilot Edits is GA!
+
+And as if that wasn't enough, today's VS Code Insiders release has a couple of features that we're *really* excited about: Copilot Edits agent mode and Vision in GitHub Copilot.
+
+That's a lot, so let's get into exactly what these features are, how they work, and how you can use them today.
+
+## Copilot Next Edit Suggestions (preview)
 
 GitHub Copilot code completions are great at autocomplete - they can predict and suggest the code that was in your head, without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits.
 
@@ -84,25 +94,44 @@ Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/
 
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
-We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
+We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write.
 
-But before you go, there's one more feature in preview that we want to talk about: agent mode.
+But the *second* best prompt is one that you can reuse and share - which is why we're introducing prompt files.
+
+## Prompt files
+Prompt Files in GitHub Copilot Chat are designed to streamline workflows, enhance collaboration, and bring domain-specific expertise to you and your team's fingertips. With reusable and shareable prompts, you can save time, maintain consistency, and tackle complex tasks with ease. While the existing file-based custom instructions help to add codebase-wide context to each AI workflow, developers can add specific prompts as they need them, which makes them scale to the complexity of larger multi-faceted codebases.
+
+Prompt files is currently in preview and can be enabled via the VS Code setting `setting(chat.promptFiles)`. Set it to true or a string/array of folders to define where prompt files are stored (default is .github/prompts).
+
+Now let's close out with some features available exclusively in VS Code Insiders: agent mode and Vision. These features are in preview and changing everyday, but we wanted to get them into your hands as quickly as we could.
 
 ## Agent mode
 
 As of today's [VS Code Insiders](https://code.visualstudio.com/insiders/) release, GitHub Copilot Edits now has a toggle to enable agent mode. You can opt-in to this experience via the VS Code setting `setting(github.copilot.chat.agent.enabled)`.
 
-In agent mode, Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
+Agent mode in Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
 <!-- TODO: add gif from github -->
 
-We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in Stable).
+We see tremendous power in agent mode for GitHub Copilot.  Watch this space for major changes and improvements over the next few weeks as we refine the experience.
+
+## Vision
+
+Vision for Copilot allows you to include images in your prompts. This unlocks an entirely new way of interacting with Copilot. You can imagine taking a screenshot of a layout that isn't quite right and including that in your prompt for Copilot to fix a stylesheet. Or even having Copilot create an entire UI based on a mockup.\
+
+<!-- TODO: add gifs -->
+
+You can even use it to generate alt text for images in Markdown and HTML. I used it for this very blog post.
+
+To use vision, simply take a screenshot and paste it into your prompt directly from your clipboard. That's all there is to it.
+
+While in preview, Vision will only use 4o as the backing model - regardless of what model you have chosen in the model picker. We'll continue improving Vision and adding support for additional models in the near future.
 
 ## New year, new Copilot
 
-We have big plans for Copilot as an AI pair programmer that is not only [freely available to everyone](https://code.visualstudio.com/blogs/2024/12/18/free-github-copilot), but continually pushes the boundaries of what AI can do to radically accelerate your productivity and happiness.
+Speaking of Vision, we hope that you can _see the vision_ we have for Copilot as an AI pair programmer that is not only [freely available to everyone](https://code.visualstudio.com/blogs/2024/12/18/free-github-copilot), but continually pushes the boundaries of what AI can do to radically accelerate your productivity and happiness.
 
-There's much more in this release of VS Code for GitHub Copilot - including prompt files and model selections for completions. We never stop improving VS Code itself, so check out the [full release notes](https://code.visualstudio.com/updates) for all the brand new goodness. We're adamant about making sure you have the best possible version of your code editor and the best AI pair programmer.
+We never stop improving VS Code itself, so check out the [full release notes](https://code.visualstudio.com/updates) for all the brand new goodness. We're adamant about making sure you have the best possible version of your code editor and the best AI pair programmer.
 
 We know things are moving fast in the world of AI, so make sure to follow us on [X](https://x.com/code)/[Bluesky](https://bsky.app/profile/vscode.dev)/[LinkedIn](https://www.linkedin.com/showcase/vs-code/) and we'll make it easy for you to stay up to date on all of the latest and greatest Copilot capabilities.
 
