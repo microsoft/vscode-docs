@@ -65,8 +65,7 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (aka "Copilot NES") is this evolution.
 
-<video src="./images/inline-suggestions/nes-video-silent.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/05/point3d.png"></video>
-<!-- TODO: Update to video with voiceover from Olivia -->
+<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/05/point3d.png"></video>
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
@@ -97,7 +96,7 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 
 * **Copilot helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
 ![NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.gif)
-* **Copilot can also help with more challenging mistakes in logic**, like where a statement should've had `<` instead of `<=`:
+* **Copilot can also help with more challenging mistakes in logic**, like an inverted ternary expression:
 ![NES fixing a fibonacci logic mistake](./images/inline-suggestions/nes-fib-logic.gif)
 Or a comparison that should've used `&&` instead of `||`:
 ![NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.gif)
