@@ -145,7 +145,7 @@ With reusable prompt files, you can specify common prompt instructions and relev
 > - Define language-specific instructions to get more accurate generated code for each language.
 > - Store your instructions in a file to easily share them with your team and across projects.
 
-## Review code (preview)
+## Review code (experimental)
 
 Copilot can do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
 
