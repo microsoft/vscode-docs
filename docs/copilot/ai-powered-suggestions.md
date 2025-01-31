@@ -126,7 +126,7 @@ It could also be more complex: if you added a new command to your VS Code extens
 ![NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
-### Further configuring Next Edit Suggestions
+### Further configuring edit suggestions
 
 You use Copilot NES, you must set `setting(github.copilot.nextEditSuggestions.enabled)`. There are a couple of additional settings you can also use to configure your NES experience:
 * `setting(editor.inlineSuggest.edits.codeShifting)`: You can disable this setting if you never want NES to shift your code to show a suggestion.
@@ -167,7 +167,11 @@ You can temporarily enable or disable code completions either for all languages,
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
-* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (preview)
+* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
+
+* `setting(editor.inlineSuggest.edits.codeShifting)` - configure if NES is able to shift your code to show a suggestion.
+
+* `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code.
 
 ## Next steps
 
