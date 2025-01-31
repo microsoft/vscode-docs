@@ -186,7 +186,7 @@ To use prompt files, follow these steps:
 
 2. Write prompt instructions by using Markdown formatting.
 
-  Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
 
 1. Select the <i class="codicon codicon-attach"></i> icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
 
