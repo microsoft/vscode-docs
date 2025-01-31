@@ -38,7 +38,7 @@ When you're presented with an edit suggestion, you can navigate to it with the `
 
 An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
 <!-- ![NES gutter menu gif](nes-gutter.gif) -->
-![NES gutter menu expanded](gutter-menu-highlighted.png)
+![NES gutter menu expanded](gutter-menu-highlighted-updated.png)
 
 If an edit suggestion is below the current editor view, the arrow will point down instead of right:
 ![NES with arrow directions changing](nes-arrow-directions.gif)
