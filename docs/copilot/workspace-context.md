@@ -64,9 +64,9 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 ## Managing the workspace index
 
-Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by Github or stored locally on your machine. This section covers the different types of indicies that Copilot can use ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)) as well as explaining when each one is used and how you can switch between them.
+Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by Github or stored locally on your machine. This section covers the different types of indices that Copilot can use ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)) as well as explaining when each one is used and how you can switch between them.
 
-To see the type of idnex that Copilot is currently using, just check the language status UI by clicking on the `{}` in the statusbar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed
+To see the type of index that Copilot is currently using, just check the language status UI by clicking on the `{}` in the statusbar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed
 
 ![Viewing the status of the Copilot index in the language status UI](images/copilot-chat/workspace-index-status.png)
 
