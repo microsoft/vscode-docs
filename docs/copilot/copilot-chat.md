@@ -176,7 +176,6 @@ You're not limited to asking for code changes. Use Inline Chat to ask more explo
 > [!TIP]
 > Attach context to your Inline Chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](#add-context-to-your-chat-prompt).
 
-If you prefer to see code suggestions in a side-by-side diff view, configure the `setting(inlineChat.mode)` setting and set it to `preview`. The following example shows the `preview` mode for Inline Chat.
 
 ![Copilot Inline Chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 
