@@ -17,7 +17,7 @@ You can access GitHub Copilot in VS Code through the Chat view, directly in the 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Items in the cheat sheet marked with <i class="codicon codicon-beaker"></i> are experimental features. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
+The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues).
 
 ## Chat with GitHub Copilot
 
@@ -30,7 +30,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | <i class="codicon codicon-mention"></i> | Type `@` in chat or select <i class="codicon codicon-mention"></i> to view the list of *chat participants*, which are domain experts that can help you in a specific area. Extensions can also contribute additional participants.<br/>Example: `@workspace how is auth implemented?`  |
-| Participant detection <i class="codicon codicon-beaker"></i> | Copilot Chat can also automatically route your question to the appropriate participant. [Get more info](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental). |
+| Participant detection _(Experimental)_ | Copilot Chat can also automatically route your question to the appropriate participant. [Get more info](https://code.visualstudio.com/updates/v1_93#_automatic-chat-participant-detection-in-chat-view-experimental). |
 | `/` | Invoke a *slash command* to prompt for commonly used actions, such as explaining a block of code, generating tests or documentation. |
 | `/explain` | Ask Copilot to explain a block of code or a programming concept. |
 | <i class="codicon codicon-history"></i> | Select this icon in the Chat view to access your history of chat sessions. |
@@ -99,7 +99,7 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 | `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
 | `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
 | Drag & drop file | Drag & drop a file or editor onto the chat to attach the file as context. |
-| Recent files <i class="codicon codicon-beaker"></i> | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
+| Recent files _(Experimental)_ | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
 
 > **Tips**
 >
@@ -116,7 +116,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
 | Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
-| Prompt from the editor <i class="codicon codicon-beaker"></i> | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
+| Prompt from the editor _(Experimental)_ | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
 
 > **Tips**
@@ -127,22 +127,25 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 ## Customize AI code generation
 
-Copilot can generate responses that match the coding style, tools, and developer workflow of your team or project, provided it has the right context. You can provide custom instructions to help Copilot adjust to your preferences, so that you don't have to provide these details every time you make a Copilot request. These custom instructions are automatically added to your requests. Get more information about [customizing Copilot in VS Code](/docs/copilot/copilot-customization.md).
+Define [custom instructions](/docs/copilot/copilot-customization.md#custom-instructions) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
+
+With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts.
 
 | Action | Description |
 |--------|-------------|
 | File-based instructions _(Preview)_ | Define shared instructions for code generation in a `.gitHub/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
-| Code-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Test-generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Commit-message generation instructions <i class="codicon codicon-beaker"></i> | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Code-generation instructions _(Experimental)_ | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Commit-message generation instructions _(Experimental)_ | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Reusable prompt files _(Preview)_ | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-preview).  |
 
 > **Tips**
 >
 > - Define language-specific instructions to get more accurate generated code for each language.
 > - Store your instructions in a file to easily share them with your team and across projects.
 
-## Review code (Preview)
+## Review code (experimental)
 
 Copilot can do a quick review pass of a code block or perform a review of uncommitted changes in your workspace. Review feedback shows up as comments in the editor, where you can apply the suggestions.
 
@@ -160,7 +163,7 @@ Copilot can generate tests for functions and methods in your codebase. Get more 
 | `/tests` | Generate tests for all or only the selected methods and functions in the editor. The generated tests are appended in an existing tests file or a new tests file is created.  |
 | `/setupTests` | Get help setting up a testing framework for your code. Get recommendation for a relevant testing framework, steps to set up and configure it, and suggestions for VS Code testing extensions.   |
 | `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
-| Test coverage <i class="codicon codicon-beaker"></i> | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
+| Test coverage _(Experimental)_ | Generate tests for functions and methods that are not yet covered by tests. [Get more information](https://code.visualstudio.com/updates/v1_93#_generate-tests-based-on-test-coverage-experimental). |
 
 > **Tips**
 >
@@ -182,7 +185,7 @@ Use Copilot to help fix coding problems and to get help with configuring and sta
 |--------|-------------|
 | `/fix` | Ask Copilot for suggestions on how to fix a block of code or how to resolve any compiler or linting errors in your code. For example, to help fix unresolved Node.js package names. |
 | `/fixTestFailure` | Ask Copilot for suggestions on how to fix failing tests. |
-| `/startDebugging` <i class="codicon codicon-beaker"></i> | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. [Get more information](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental). |
+| `/startDebugging` _(Experimental)_ | Generate a `launch.json` debug configuration file and start a debugging session from the Chat view. [Get more information](https://code.visualstudio.com/updates/v1_93#_start-debugging-from-chat-experimental). |
 | `copilot-debug` command | Terminal command to help you debug your programs. Prefix a run command to start a debugging session for it (for example, `copilot-debug python foo.py`). [Get more information](https://code.visualstudio.com/updates/v1_96#_debugging-with-copilot). |
 
 > **Tips**
