@@ -5211,7 +5211,7 @@ fragment IssueFields on Issue {
 	 nodes {
 	 	body
 	  }
-	}	 	
+	}
 }`;
 const GET_ISSUES_REQUESTS = `
 ${ISSUE_FIELDS}
@@ -5235,7 +5235,7 @@ async function getReleaseFeatures(milestoneName) {
         const gqlClient = await gql();
         const releaseFeatures = [], onTestPlan = [];
         const result = await gqlClient(GET_ISSUES_REQUESTS, {
-            repositoryQuery: `repo:microsoft/vscode milestone:"${milestoneName}" label:feature-request assignee:@me`,
+            repositoryQuery: `repo:microsoft/vscode repo:microsoft/vscode-copilot milestone:"${milestoneName}" label:feature-request assignee:@me`,
             after: null
         });
         for (const edge of result.search.edges) {
