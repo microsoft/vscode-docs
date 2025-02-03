@@ -59,7 +59,7 @@ Copilot Edits automatically adds the active editor to the working set. If you ha
 
 You have many options to add files to the working set:
 
-* Select **Add Files...** or use the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select files in the Quick Pick.
+* Select **Add Files...** or use the Attach (<i class="codicon codicon-attach"></i>) icon (`kb(workbench.action.chat.attachContext)`), and then select files in the Quick Pick.
 
     > [!TIP]
     > To quickly select multiple items from a Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.
@@ -78,7 +78,7 @@ You have many options to add files to the working set:
 
     If you don't want to see these suggestions, you can disable them with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
 
-To further help Copilot Edits provide better code suggestions, you can also add relevant context to your prompt, such as `#selection` or `#terminalSelection`. Reference context by typing the `#` symbol, or by using the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`).
+To further help Copilot Edits provide better code suggestions, you can also add relevant context to your prompt, such as `#selection` or `#terminalSelection`. Reference context by typing the `#` symbol, or by using the Attach (<i class="codicon codicon-attach"></i>) icon (`kb(workbench.action.chat.attachContext)`).
 
 You can also add file or symbol references in your prompt by using `#` as an IntelliSense trigger for file or symbol suggestions. If Copilot decides to make changes to the files you mentioned in your prompt, they are added automatically to your working set.
 

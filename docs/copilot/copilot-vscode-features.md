@@ -86,7 +86,7 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 | Action | Description |
 |--------|-------------|
-| <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
+| Attach (<i class="codicon codicon-attach"></i>) (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
 | <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
 | `Prompts...` _(Experimental)_ | Add reusable prompt instructions to your request. Get more information about [prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental). |
 | `#changes` | Context variable: the list of source control changes. |

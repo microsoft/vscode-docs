@@ -74,7 +74,7 @@ There are several ways to add context to your chat prompt:
 
     ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
 
-* Use the <i class="codicon codicon-attach"></i> button (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
+* Use the Attach (<i class="codicon codicon-attach"></i>) icon (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
 
     ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
 
