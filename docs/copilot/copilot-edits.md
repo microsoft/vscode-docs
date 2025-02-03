@@ -18,7 +18,7 @@ Copilot Edits can function in two modes:
 * [*Agent mode*](#use-agent-mode-preview) (preview): let Copilot autonomously plan the tasks and relevant files that are needed to implement the request. Copilot will apply code edits and suggest terminal commands, and will continuously iterate to resolve any issues that arise.
 
 > [!NOTE]
-> Agent mode is currently in preview and we continue to improve the experience. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
+> Agent mode is currently in preview and is only available in [VS Code Insiders](https://code.visualstudio.com/insiders). Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
 >
 > To enable agent mode, set the `setting(chat.agent.enabled)` setting to `true`.
 
@@ -116,6 +116,9 @@ To use agent mode in Copilot Edits:
     > The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that Copilot Edits can make in agent mode.
 
 1. Continue to ask follow-up questions and iterate on the code changes that Copilot Edits provides.
+
+> [!NOTE]
+> Agent mode for Copilot Edits is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders).
 
 ## Manage the working set
 
