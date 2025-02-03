@@ -30,7 +30,7 @@ fragment IssueFields on Issue {
 	 nodes {
 	 	body
 	  }
-	}	 	
+	}
 }`;
 
 const GET_ISSUES_REQUESTS = `
@@ -84,7 +84,7 @@ export async function getReleaseFeatures(milestoneName: string): Promise<Release
 		const releaseFeatures: ReleaseFeature[] = [], onTestPlan: Issue[] = [];
 
 		const result = await gqlClient<QueryResult>(GET_ISSUES_REQUESTS, {
-			repositoryQuery: `repo:microsoft/vscode milestone:"${milestoneName}" label:feature-request assignee:@me`,
+			repositoryQuery: `repo:microsoft/vscode repo:microsoft/vscode-copilot milestone:"${milestoneName}" label:feature-request assignee:@me`,
 			after: null
 		});
 
