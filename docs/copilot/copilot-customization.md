@@ -188,7 +188,7 @@ To use prompt files, follow these steps:
 
 Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
 
-1. Select the Attach (<i class="codicon codicon-attach"></i>) icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
+1. Select the Attach <i class="codicon codicon-attach"></i> icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
 
 1. Optionally, attach additional context files required for the task.
 
