@@ -14,7 +14,7 @@ Today marks the first release of VS Code for 2025. We've been working hard on th
 
 We're introducing what we've been calling "Next Edit Suggestions" (NES) - a new way to get suggestions for your next edit, rather than just the next line of code.
 
-We're also unveiling prompt files, o3-mini is now available in the model picker, and Copilot Edits is GA!
+We're also unveiling prompt files, Copilot Edits is GA, and [o3-mini is now available in the model picker](https://github.blog/changelog/2025-01-31-openai-o3-mini-now-available-in-github-copilot-and-github-models-public-preview/)!
 
 And as if that wasn't enough, today's VS Code Insiders release has a couple of features that we're *really* excited about: Copilot Edits agent mode and Vision in GitHub Copilot.
 
