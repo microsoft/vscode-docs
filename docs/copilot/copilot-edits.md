@@ -74,7 +74,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     If you're not entirely happy with the edits, you can ask follow-up questions, such as "don't include the phone number", or "use jest instead of vitest". Or you can incrementally edit your code further. For example, when building a web app, use a series of prompts such as "add a navigation bar", "add a theme switcher", "store order items in JSON format in MongoDB".
 
-## Use Agent mode (preview)
+## Use agent mode (preview)
 
 In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. To process a request, Copilot loops over the following steps and iterates multiple times as needed:
 
