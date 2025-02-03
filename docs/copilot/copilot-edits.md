@@ -20,7 +20,7 @@ Copilot Edits can function in two modes:
 > [!NOTE]
 > Agent mode is currently in preview and we continue to improve the experience. Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
 >
-> To enable agent mode, set the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
+> To enable agent mode, set the `setting(chat.agent.enabled)` setting to `true`.
 
 The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
 
@@ -74,11 +74,10 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     If you're not entirely happy with the edits, you can ask follow-up questions, such as "don't include the phone number", or "use jest instead of vitest". Or you can incrementally edit your code further. For example, when building a web app, use a series of prompts such as "add a navigation bar", "add a theme switcher", "store order items in JSON format in MongoDB".
 
-## Use agent mode (preview)
+## Use Agent mode (preview)
 
 In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. To process a request, Copilot loops over the following steps and iterates multiple times as needed:
 
-* Creates a plan of action and decomposes the request into smaller tasks.
 * Determines the relevant context and files to edit autonomously.
 * Offers both code changes and terminal commands to complete the task. For example, Copilot might compile code, install packages, run tests, and more.
 * Monitors the correctness of code edits and terminal command output and iterates to remediate issues.
@@ -87,7 +86,7 @@ Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) to accomplis
 
 To use agent mode in Copilot Edits:
 
-1. Enable agent mode in by setting the `setting(github.copilot.chat.agent.enabled)` setting to `true`.
+1. Enable agent mode in by setting the `setting(chat.agent.enabled)` setting to `true`.
 
 1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
 
@@ -112,6 +111,9 @@ To use agent mode in Copilot Edits:
 1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
 
     ![Screenshot showing the Copilot Edits view, highlighting that Copilot verified the code edits for errors.](images/copilot-edits/copilot-edits-agent-check-errors.png)
+
+    > [!NOTE]
+    > The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that Copilot Edits can make in agent mode.
 
 1. Continue to ask follow-up questions and iterate on the code changes that Copilot Edits provides.
 
@@ -207,22 +209,11 @@ After moving a chat request to Copilot Edits, the chat request is removed from t
 
 ## Agent mode tools
 
-To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. Consider these tools as specialized utilities that Copilot can use to perform a specific task, such as listing the files in a directory, or running a terminal command. These tools can run in parallel to accomplish the requested task.
+To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. Consider these tools as specialized utilities that Copilot can use to perform a specific task. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
-The following list gives an overview of the built-in tools:
+Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
 
-* `search_codebase` - Search the workspace for relevant code or documentation
-* `file_search` - Search for files by glob patterns (for example, "**/*.js")
-* `grep_search` - Do a text search in files for exact strings or regex patterns
-* `read_file` - Read the contents of a file
-* `edit_file` - Edit a file in the workspace, changes can be [reviewed](#accept-or-discard-edits) like other edits
-* `list_dir` - List the contents of a directory
-* `run_in_terminal` - Run shell commands in a terminal (requires user confirmation)
-* `get_terminal_output` - Get output from a previously run terminal command
-* `get_errors` - Check for errors in code files and helps agent mode to self-correct code issues
-* `get_changed_files` - Get diffs of file changes
-
-Agent mode gives you a more autonomous AI-powered editing experience, however you maintain control over the generated edits and terminal commands that are run.
+Although agent mode can operate in an autonomous manner, you maintain control over the generated edits and the terminal commands that are run.
 
 ## Settings
 
@@ -231,10 +222,10 @@ The following list contains the settings related to Copilot Edits. You can confi
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
-* `setting(github.copilot.chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
+* `setting(chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
 * `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
 * `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ - let Copilot find the right files by adding `#codebase` to your prompt, similar to how agent mode works (default: `false`)
-* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
+* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 
 ## Keyboard shortcuts
 
