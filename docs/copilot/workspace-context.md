@@ -64,14 +64,15 @@ You can explicitly expand the context by using chat variables, such as `#editor`
 
 ## Managing the workspace index
 
-Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by Github or stored locally on your machine. This section covers the different types of indices that Copilot can use ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)) as well as explaining when each one is used and how you can switch between them.
+Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine. This section covers the different types of indices that Copilot can use ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)), and explains when each one is used and how you can switch between them.
 
-To see the type of index that Copilot is currently using, just check the language status UI by clicking on the `{}` in the statusbar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed
+To see the type of index that Copilot is currently using, check the language status UI by selecting the `{}` icon in the Status Bar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed.
 
 ![Viewing the status of the Copilot index in the language status UI](images/copilot-chat/workspace-index-status.png)
 
 ### Remote index
-For GitHub repositories, Copilot can uses [Github code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository) to build a remote index of your codebase. This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
+
+For GitHub repositories, Copilot can use [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository) to build a remote index of your codebase. This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
 
 To use a remote index:
 
@@ -79,28 +80,31 @@ To use a remote index:
 
 - Open a project with a GitHub git remote. Make sure that you have pushed your code to GitHub too.
 
-    The remote index will work best if Github has a relatively up to date version of your code, so make sure to push your code to Github regularly.
+    The remote index works best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
-- Build the remote index by running the `Build remote workspace index` command or by clicking the `Build Index` button in the workspace index status UI.
+- Build the remote index by running the **Build remote workspace index** command or by selecting the Build Index button in the workspace index status UI.
 
     It may take some time for the remote index to be built, especially for large codebases. You can monitor the status of the remote index in the workspace index status UI.
 
-    Once the remote index has been built, GitHub will automatically keep it up to date whenever you push code changes. You only need to run the `Build remote workspace index` command once per repo.
+    Once the remote index has been built, GitHub automatically keeps it up-to-date whenever you push code changes. You only need to run the **Build remote workspace index** command once per repository.
 
 ### Local index
-For cases where you can't use a [remote index](#remote-index), Copilot can instead use an advanced semantic index that is stored on your local machine. This index can also provide fast, high quality search results. However it is currently limited to 2500 indexable files. Unlike the remote index, the local index must also be built once per user per machine. With the remote index, all users of a given repo can all use the same index.
 
-Copilot will automatically build an advanced local index if your project has under 750 indexable files. For projects with between 750 and 2500 files, you can run the `Build local workspace index` command to start indexing. This command only needs to be run once.
+For cases where you can't use a [remote index](#remote-index), Copilot can instead use an advanced semantic index that is stored on your local machine. This index can also provide fast, high quality search results. However it is currently limited to 2500 indexable files. Unlike the remote index, the local index must be built once per user per machine. With the remote index, all users of a given repo can all use the same index.
+
+Copilot automatically builds an advanced local index if your project has under 750 indexable files. For projects with between 750 and 2500 files, you can run the **Build local workspace index** command to start indexing. This command only needs to be run once.
 
 It may take some time to build the initial local index or update the index if many files have changed (such as when switching git branches). You can monitor the current local index status in the  workspace index status UI.
 
 ### Basic index
-If your project does not have a [remote index](#remote-index) and also has more than 2500 [indexable files](#what-content-is-included-in-the-workspace-index), Copilot will fall back to use a basic index to search your codebase. This index uses simpler algorithms to search your codebase and has been optimized to work locally for larger codebases.
 
-The basic index should work just fine for many questions. However if you find that Copilot is struggling to answer questions about your codebase, try upgrading to a [remote index](#remote-index).
+If your project does not have a [remote index](#remote-index) and also has more than 2500 [indexable files](#what-content-is-included-in-the-workspace-index), Copilot falls back to using a basic index to search your codebase. This index uses simpler algorithms to search your codebase and has been optimized to work locally for larger codebases.
+
+The basic index should work just fine for many questions. However, if you find that Copilot is struggling to answer questions about your codebase, try upgrading to a [remote index](#remote-index).
 
 ### What content is included in the workspace index
-Copilot indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages, however we will automatically skip over some common file types that are typically not relevant to `@workspace` questions, such as `.tmp` or `.out` files. We also exclude any files that are excluded from VS Code using the `files.exclude` setting or that are part of the `.gitignore`.
+
+Copilot indexes relevant text files that are part of your current project. This is not limited to specific file types or programming languages, however Copilot automatically skips over some common file types that are typically not relevant to `@workspace` questions, such as `.tmp` or `.out` files. Copilot also excludes any files that are excluded from VS Code using the `setting(files.exclude)` setting or that are part of the `.gitignore` file.
 
 Copilot also currently does not index binary files, such as images or PDFs.
 
