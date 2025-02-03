@@ -12,7 +12,7 @@ February 5, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Hol
 
 Today marks the first release of VS Code for 2025. We've been working hard on this release since well into last year, and we're excited to bring you not only the latest and greatest features for your favorite code editor, but some major developments for GitHub Copilot.
 
-We're introducing what we've been calling "Next Edit Suggestions" (NES) - a new way to get suggestions for your next edit, rather than just the next line of code.
+We're introducing a preview of what we've been calling "Copilot Next Edit Suggestions" (NES) - a new way to get suggestions for your next edit, rather than just the next line of code.
 
 We're also unveiling prompt files, Copilot Edits is GA, and [o3-mini is now available in the model picker](https://github.blog/changelog/2025-01-31-openai-o3-mini-now-available-in-github-copilot-and-github-models-public-preview/)!
 
@@ -84,8 +84,6 @@ It could also be more complex: if you added a new command to your VS Code extens
 
 **Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly:
 ![NES suggesting change after updating function name](nes-gutter.gif)
-
-After copy-pasting some code, NES may suggest how to adjust it to match the current code where the paste happened.
 
 ## Share your feedback
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
