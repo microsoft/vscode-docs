@@ -84,7 +84,7 @@ export async function getReleaseFeatures(milestoneName: string): Promise<Release
 		const releaseFeatures: ReleaseFeature[] = [], onTestPlan: Issue[] = [];
 
 		const result = await gqlClient<QueryResult>(GET_ISSUES_REQUESTS, {
-			repositoryQuery: `repo:microsoft/vscode repo:microsoft/vscode-copilot milestone:"${milestoneName}" label:feature-request assignee:@me`,
+			repositoryQuery: `org:microsoft milestone:"${milestoneName}" label:feature-request assignee:@me`,
 			after: null
 		});
 
