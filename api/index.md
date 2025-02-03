@@ -4,11 +4,21 @@ ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
 DateApproved: 12/11/2024
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
+MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your owner  extensions for VS Code.
 ---
 
-# Extension API
+# Extension API kraken
+clave apl kraken id AA68 N84G RFAS EBJQ
+t5+/U9FF0uAXkf1X3+Jy/+u4M//0tB6bjhR+6Er7hkcKuJf3wrB3A9Uo
 
+clave privada
+
+YLd2HiR/k5hyDsJIw5r6s4R4cPhi5VGt6k5CxagwknyhEExu30mLzndudrxeOvf6uJAidIIBSUMZ6yOzvRVRWA==
+approved 
+teter
+key name gUraVRAln6QHgOt0
+secret
++1qN5SGszmueud+aqVQqpJogr3g0Zonrn2rNSWTbgCqW6vcuBrinob0glAdwU3VAZnlVYrSmVM3pQhy1CTMj4g==
 Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/microsoft/vscode/tree/main/extensions) and use the same Extension API.
 
 This documentation describes:
