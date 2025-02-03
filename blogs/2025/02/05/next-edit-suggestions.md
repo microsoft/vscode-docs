@@ -99,9 +99,18 @@ We're excited about this next step in AI where Copilot anticipates what you'll w
 But the *second* best prompt is one that you can reuse and share - which is why we're introducing prompt files.
 
 ## Prompt files
-Prompt Files in GitHub Copilot Chat are designed to streamline workflows, enhance collaboration, and bring domain-specific expertise to you and your team's fingertips. With reusable and shareable prompts, you can save time, maintain consistency, and tackle complex tasks with ease. While the existing file-based custom instructions help to add codebase-wide context to each AI workflow, developers can add specific prompts as they need them, which makes them scale to the complexity of larger multi-faceted codebases.
 
-Prompt files is currently in preview and can be enabled via the VS Code setting `setting(chat.promptFiles)`. Set it to true or a string/array of folders to define where prompt files are stored (default is .github/prompts).
+Prompt files in GitHub Copilot Chat allow you to reuse and share prompts, helping you save time, maintain consistency, and tackle complex tasks with ease.
+
+While the existing file-based [custom instructions](https://code.visualstudio.com/docs/copilot/copilot-customization) help to add codebase-wide context to each AI workflow, with prompt files, developers can add specific prompts as they need them. This is really helpful for things like:
+
+**Code Generation:** Create reusable prompts for components, tests, or migrations (e.g., React forms, API mocks).
+
+**Domain Expertise:** Share specialized knowledge through prompts (e.g., security practices, compliance checks).
+
+**Team Collaboration:** Document patterns and guidelines with references to specs and documentation.
+
+This feature is currently in preview and can be enabled via the VS Code setting `setting(chat.promptFiles)`. Head to [our docs](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files) to learn more.
 
 Now let's close out with some features available exclusively in VS Code Insiders: agent mode and Vision. These features are in preview and changing everyday, but we wanted to get them into your hands as quickly as we could.
 
@@ -117,7 +126,7 @@ We see tremendous power in agent mode for GitHub Copilot.  Watch this space for 
 
 ## Vision
 
-Vision for Copilot allows you to include images in your prompts. This unlocks an entirely new way of interacting with Copilot. You can imagine taking a screenshot of a layout that isn't quite right and including that in your prompt for Copilot to fix a stylesheet. Or even having Copilot create an entire UI based on a mockup.\
+Also available in today's [VS Code Insiders](https://code.visualstudio.com/insiders/) release, Vision for Copilot allows you to include images in your prompts. This unlocks an entirely new way of interacting with Copilot. You can imagine taking a screenshot of a layout that isn't quite right and including that in your prompt for Copilot to fix a stylesheet. Or even having Copilot create an entire UI based on a mockup.
 
 <!-- TODO: add gifs -->
 
