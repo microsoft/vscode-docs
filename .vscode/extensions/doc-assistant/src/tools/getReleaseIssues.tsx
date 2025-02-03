@@ -40,13 +40,13 @@ export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
 	static readonly ID = 'getReleaseFeatures';
 
 	constructor(
-		private readonly milestone: string,
 		private readonly logger: vscode.LogOutputChannel
 	) {
 	}
 
 	async invoke(options: vscode.LanguageModelToolInvocationOptions<void>, token: vscode.CancellationToken) {
-		const issues = await getReleaseFeatures(this.milestone);
+		const milestoneName = vscode.workspace.getConfiguration().get<string>('doc-assistant.milestone') ?? 'January 2025';
+		const issues = await getReleaseFeatures(milestoneName);
 		this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
 		return createLanguageModelToolResult(
 			await renderElementJSON(GetReleaseFeaturesResult, { result: { features: issues } }, options.tokenizationOptions, token),

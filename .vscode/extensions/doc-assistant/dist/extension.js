@@ -51,13 +51,12 @@ exports.deactivate = deactivate;
 const vscode = __importStar(__webpack_require__(1));
 const docParticipant_1 = __importDefault(__webpack_require__(2));
 const getReleaseIssues_1 = __webpack_require__(26);
-const milestoneName = 'January 2025';
 function activate(context) {
     const chatContext = { prompt: '' };
     const logger = vscode.window.createOutputChannel('VS Code Doc Writer', { log: true });
     context.subscriptions.push(vscode.chat.createChatParticipant('vscode-doc', (0, docParticipant_1.default)(chatContext, logger)));
     // Register the release features tool
-    context.subscriptions.push(vscode.lm.registerTool(getReleaseIssues_1.GetReleaseFeatures.ID, new getReleaseIssues_1.GetReleaseFeatures(milestoneName, logger)));
+    context.subscriptions.push(vscode.lm.registerTool(getReleaseIssues_1.GetReleaseFeatures.ID, new getReleaseIssues_1.GetReleaseFeatures(logger)));
 }
 function deactivate() {
     // Clean up resources if necessary
@@ -5046,7 +5045,7 @@ exports.GenerateReleaseNotesPrompt = GenerateReleaseNotesPrompt;
 
 /***/ }),
 /* 26 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
@@ -5054,8 +5053,42 @@ exports.GenerateReleaseNotesPrompt = GenerateReleaseNotesPrompt;
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetReleaseFeatures = void 0;
+const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(27);
 const queries_1 = __webpack_require__(28);
@@ -5073,15 +5106,14 @@ class GetReleaseFeaturesResult extends prompt_tsx_1.PromptElement {
     }
 }
 class GetReleaseFeatures {
-    milestone;
     logger;
     static ID = 'getReleaseFeatures';
-    constructor(milestone, logger) {
-        this.milestone = milestone;
+    constructor(logger) {
         this.logger = logger;
     }
     async invoke(options, token) {
-        const issues = await (0, queries_1.getReleaseFeatures)(this.milestone);
+        const milestoneName = vscode.workspace.getConfiguration().get('doc-assistant.milestone') ?? 'January 2025';
+        const issues = await (0, queries_1.getReleaseFeatures)(milestoneName);
         this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
         return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetReleaseFeaturesResult, { result: { features: issues } }, options.tokenizationOptions, token));
     }

@@ -6,9 +6,6 @@
 import * as vscode from 'vscode';
 import createChatParticipant from './docParticipant';
 import { GetReleaseFeatures } from './tools/getReleaseIssues';
-import { getReleaseFeatures } from './tools/queries';
-
-const milestoneName = 'January 2025';
 
 export function activate(context: vscode.ExtensionContext) {
     const chatContext: { prompt: string } = { prompt: '' };
@@ -18,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.chat.createChatParticipant('vscode-doc', createChatParticipant(chatContext, logger)));
 
     // Register the release features tool
-    context.subscriptions.push(vscode.lm.registerTool(GetReleaseFeatures.ID, new GetReleaseFeatures(milestoneName, logger)));
+    context.subscriptions.push(vscode.lm.registerTool(GetReleaseFeatures.ID, new GetReleaseFeatures(logger)));
 }
 
 export function deactivate() {
