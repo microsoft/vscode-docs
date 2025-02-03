@@ -789,7 +789,7 @@ Just follow these steps:
 2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
-     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
     ```
 
 Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.

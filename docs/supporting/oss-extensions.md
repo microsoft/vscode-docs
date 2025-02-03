@@ -78,7 +78,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Remote - SSH](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license) |
 | [WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
 | [Reference Search View](https://marketplace.visualstudio.com/items/ms-vscode.references-view) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.references-view/license) |
-| [Resharper 9 Keybindings](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
+| [Resharper 9 keyboard shortcuts](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
 | [Service Fabric Reliable Services](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services/license) |
 | [Spring Boot Dashboard](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard/license) |
 | [Spark & Hive Tools](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight) |  | [Microsoft](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight/license) |

@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code's integrated terminal has several advanced f
 ---
 # Terminal Advanced
 
-Visual Studio Code's integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keybindings, and automatic replies. This topic explains these advanced features in detail. If you are new to VS Code or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
+Visual Studio Code's integrated terminal has many advanced features and settings, such as Unicode and emoji support, custom keyboard shortcuts, and automatic replies. This topic explains these advanced features in detail. If you are new to VS Code or the integrated terminal, you may want to review the [Terminal Basics](/docs/terminal/basics.md) topic first.
 
 ## Persistent sessions
 
@@ -32,18 +32,18 @@ When opening a window, if the terminal view is visible it will either reconnect 
 * `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
 * `always`: Always hide the terminal, even when there are persistent sessions restored.
 
-## Keybinding and the shell
+## Keyboard shortcuts and the shell
 
-As an embedded application, the integrated terminal should intercept some, but not all, keybindings dispatched within VS Code.
+As an embedded application, the integrated terminal should intercept some, but not all, keyboard shortcuts dispatched within VS Code.
 
-The configurable `setting(terminal.integrated.commandsToSkipShell)` setting determines which command's keybindings should always "skip the shell" and instead be handled by VS Code's keybinding system. By default, it contains a hard-coded list of commands that are integral to the VS Code experience but you can add or remove specific commands:
+The configurable `setting(terminal.integrated.commandsToSkipShell)` setting determines which command's keyboard shortcuts should always "skip the shell" and instead be handled by VS Code's keyboard shortcut system. By default, it contains a hard-coded list of commands that are integral to the VS Code experience but you can add or remove specific commands:
 
 ```jsonc
 {
   "terminal.integrated.commandsToSkipShell": [
-    // Ensure the toggle sidebar visibility keybinding skips the shell
+    // Ensure the toggle sidebar visibility keyboard shortcut skips the shell
     "workbench.action.toggleSidebarVisibility",
-    // Send quick open's keybinding to the shell
+    // Send quick open's keyboard shortcut to the shell
     "-workbench.action.quickOpen",
   ]
 }
@@ -51,15 +51,15 @@ The configurable `setting(terminal.integrated.commandsToSkipShell)` setting dete
 
 Look at the `setting(terminal.integrated.commandsToSkipShell)` setting details to see the complete list of default commands.
 
->**Tip:** `setting(terminal.integrated.sendKeybindingsToShell)` can be configured to override `setting(terminal.integrated.commandsToSkipShell)` and dispatch most keybindings to the shell. Note that this will disable keybindings like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#find) though.
+>**Tip:** `setting(terminal.integrated.sendKeybindingsToShell)` can be configured to override `setting(terminal.integrated.commandsToSkipShell)` and dispatch most keyboard shortcuts to the shell. Note that this will disable keyboard shortcuts like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#find) though.
 
 ### Chords
 
-Chord keybindings are made up of two keybindings, for example `kbstyle(Ctrl+K)` followed by `kbstyle(Ctrl+C)` to change the line to a comment. Chords always skip the shell by default but can be disabled with `setting(terminal.integrated.allowChords)`.
+Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbstyle(Ctrl+K)` followed by `kbstyle(Ctrl+C)` to change the line to a comment. Chords always skip the shell by default but can be disabled with `setting(terminal.integrated.allowChords)`.
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keybindings in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keybinding](/docs/getstarted/keybindings.md#removing-a-specific-key-binding-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/getstarted/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {
@@ -68,7 +68,7 @@ On macOS, `kbstyle(Cmd+K)` is a common keybindings in terminals to clear the scr
 }
 ```
 
-Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keybindings due to how keybinding priority works. To re-enable the `kbstyle(Cmd+K)` clear keybinding in this case, you can redefine it in user keybindings, which have a higher priority than extension keybindings:
+Additionally, this keyboard shortcut will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keyboard shortcuts due to how keyboard shortcut priority works. To re-enable the `kbstyle(Cmd+K)` clear keyboard shortcut in this case, you can redefine it in user keyboard shortcuts, which have a higher priority than extension keyboard shortcuts:
 
 ```json
 {
@@ -82,7 +82,7 @@ Additionally, this keyboard shortcut will be overridden automatically if any ext
 
 Using mnemonics to access VS Code's menu (for example, `kbstyle(Alt+F)` for File menu) is disabled by default in the terminal as these key events are often important hotkeys in shells. Set `setting(terminal.integrated.allowMnemonics)` to enable mnemonics, but note that this will disallow any `kbstyle(Alt)` key events to go to the shell. This setting does nothing on macOS.
 
-### Custom sequence keybindings
+### Custom sequence keyboard shortcuts
 
 The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, etc.
 
@@ -125,7 +125,7 @@ The terminal can automatically provide a configurable input response to the shel
 }
 ```
 
-Notice that the `\r` character used here means `kbstyle(Enter)`, and much like [custom sequence keybindings](#custom-sequence-keybindings), this feature supports sending escape sequences to the shell.
+Notice that the `\r` character used here means `kbstyle(Enter)`, and much like [custom sequence keyboard shortcuts](#custom-sequence-keyboard-shortcuts), this feature supports sending escape sequences to the shell.
 
 No auto replies are configured by default as providing shell input should be an explicit action or configuration by the user.
 
