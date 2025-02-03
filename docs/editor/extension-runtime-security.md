@@ -28,6 +28,8 @@ When you trust the publisher of an extension pack or an extension with dependenc
 
 Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers.
 
+You can manage the list of trusted extensions by using the **Extensions: Manage Trusted Extensions Publishers** command.
+
 > [!IMPORTANT]
 > When you install extensions by using the [VS Code command line](/docs/editor/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
 
