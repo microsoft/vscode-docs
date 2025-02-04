@@ -19,8 +19,9 @@ Copilot Edits can function in two modes:
 
 > [!NOTE]
 > Agent mode is currently in preview and is only available in [VS Code Insiders](https://code.visualstudio.com/insiders). Provide feedback and report issues in the [Copilot repository](https://github.com/microsoft/vscode-copilot-release/issues).
->
-> To enable agent mode, set the `setting(chat.agent.enabled)` setting to `true`.
+
+> [!IMPORTANT]
+> If you're using notebooks, Copilot Edits support is currently limited. We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) with notebooks in VS Code.
 
 The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
 
@@ -297,6 +298,12 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
+
+## Can I use Copilot Edits with notebooks?
+
+Copilot Edits support is limited when you're using notebooks. For example, agent mode is not available for working with notebooks in VS Code.
+
+We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) with notebooks in VS Code instead.
 
 ## Related content
 
