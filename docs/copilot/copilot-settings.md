@@ -46,7 +46,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
-* `setting(github.copilot.chat.edits.temporalContext.enabled)`: Whether to include recently viewed and edited files with requests in Copilot Edits.
+* `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.edits.codesearch.enabled)` _(Experimental)_: When using `#codebase` in the prompt, Copilot Edits automatically discovers relevant files to be edited.
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
 
@@ -57,8 +57,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(inlineChat.holdToSpeech)`: Whether holding the Inline Chat keyboard shortcut will automatically enable speech recognition.
 * `setting(inlineChat.inlineChat.lineEmptyHint)` _(Experimental)_: Controls whether to show a hint for Inline Chat on an empty line.
 * `setting(inlineChat.lineNaturalLanguageHint)` _(Experimental)_: Experimental suggestion that triggers Inline Chat as soon as a line mostly consists of words.
-* `setting(github.copilot.chat.editor.temporalContext.enabled)`: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
-* `setting(github.copilot.chat.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
+* `setting(github.copilot.chat.editor.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
 
 ## Customize Copilot prompts
 
