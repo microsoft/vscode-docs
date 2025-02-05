@@ -44,7 +44,7 @@ You can also add other folder-specific configurations, such as workspace-specifi
 
 ## Multi-root workspaces
 
-[Multi-root workspaces](/docs/editor/multi-root-workspaces.md) are an advanced capability of VS Code that allows you to configure multiple distinct folders to be part of the same workspace. Instead of opening a folder as workspace, you open a `<name>.code-workspace` JSON file that lists all folders of the workspace. For example:
+[Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md) are an advanced capability of VS Code that allows you to configure multiple distinct folders to be part of the same workspace. Instead of opening a folder as workspace, you open a `<name>.code-workspace` JSON file that lists all folders of the workspace. For example:
 
 ```json
 {

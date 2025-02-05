@@ -43,14 +43,14 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
     Because you created the folder on your computer, you can trust the code in the folder.
 
     > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editor/workspace-trust.md).
+    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editor/workspaces/workspace-trust.md).
 
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
 
 > [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editor/workspaces.md).
+> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editor/workspaces/workspaces.md).
 
 ## Explore the user interface
 

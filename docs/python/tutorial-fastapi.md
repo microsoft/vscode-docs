@@ -52,7 +52,7 @@ In this section, we will create a folder to open as a workspace in VS Code, set 
 
 2. Open this new folder in VS Code (**File** > **Open Folder…**).
 
-3. When the [Workspace Trust](/docs/editor/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editor/workspace-trust.md).
+3. When the [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editor/workspaces/workspace-trust.md).
 
 Now, let's create a `requirements.txt` file that lists the dependencies we wish to install for the application. The `requirements.txt` file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency.
 

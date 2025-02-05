@@ -105,7 +105,7 @@ In addition to debugging a program, VS Code supports **running** the program. Th
 
 To run or debug a simple app in VS Code, select **Run and Debug** on the Debug start view or press `kb(workbench.action.debug.start)` and VS Code will try to run your currently active file.
 
-However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
+However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
 
 To create a `launch.json` file, select **create a launch.json file** in the Run start view.
 

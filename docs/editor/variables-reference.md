@@ -276,7 +276,7 @@ Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)
 
 ### Why isn't ${workspaceRoot} documented?
 
-The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) support.
 
 ### Why aren't variables in tasks.json being resolved?
 

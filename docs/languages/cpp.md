@@ -128,7 +128,7 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 Now create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 

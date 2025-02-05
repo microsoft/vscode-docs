@@ -34,7 +34,7 @@ You can access your user settings in a few ways:
 
 Workspace settings are specific to a project and override user settings. If you have specific settings that you want to apply to a specific project, you can use workspace settings. For example, for a backend server project, you might want to set the `files.exclude` setting to exclude the `node_modules` folder from the File Explorer.
 
->**Note**: A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editor/workspaces.md).
+>**Note**: A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editor/workspaces/workspaces.md).
 
 VS Code stores workspace settings at the root of the project in a `.vscode` folder. This makes it easy to share settings with others in a version-controlled (for example, Git) project.
 
@@ -102,7 +102,7 @@ Here are some of the filters available:
 * `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
 * `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
+* `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspaces/workspace-trust.md), or `@tag:accessibility` for settings related to accessibility.
 
 The search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
@@ -156,7 +156,7 @@ The workspace settings file is located under the `.vscode` folder in your root f
 
 ![The File Explorer displaying settings.json under the .vscode folder](images/settings/settings-json-under-vscode.png)
 
-> **Note:** For a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+> **Note:** For a [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Reset settings
 
@@ -249,7 +249,7 @@ Configurations can be overridden at multiple levels by the different setting sco
 * User settings - Apply globally to all VS Code instances.
 * Remote settings - Apply to a remote machine opened by a user.
 * Workspace settings - Apply to the open folder or workspace.
-* Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/multi-root-workspaces.md).
+* Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/workspaces/multi-root-workspaces.md).
 * Language-specific default settings - These are language-specific default values that can be contributed by extensions.
 * Language-specific user settings - Same as User settings, but specific to a language.
 * Language-specific remote settings - Same as Remote settings, but specific to a language.

@@ -76,7 +76,7 @@ cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editor/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+>**Note**: Enable [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 

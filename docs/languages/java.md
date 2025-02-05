@@ -115,7 +115,7 @@ In Visual Studio Code, a "Workspace" means a collection of one or more filesyste
 
 A "folder workspace" is presented by VS Code when you open a filesystem folder (directory) in VS Code.
 
-A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/multi-root-workspaces.md).
+A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
 
 ### Java projects in VS Code
 
