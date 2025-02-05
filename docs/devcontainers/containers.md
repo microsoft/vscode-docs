@@ -395,9 +395,9 @@ You can also inspect your volumes in the Remote Explorer. Make sure you have Con
 
 ![Right-click dev volumes in Remote Explorer](images/containers/dev-volumes.png)
 
-If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Explore in a Development Container**.
+If you have the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed, you can right-click on a volume in the **Volumes** section of the **Container Explorer** and select **Explore in a Development Container**.
 
-![Explore in dev container in Docker context menu](images/containers/docker-explore-dev-container.png)
+![Explore in dev container in Container Tools context menu](images/containers/docker-explore-dev-container.png) <!-- TODO: image needs updating -->
 
 ## Managing extensions
 
@@ -459,11 +459,11 @@ If there are extensions that you would like always installed in any container, y
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
+For example, the setting below will force the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-docker": [ "ui" ],
+    "ms-azuretools.vscode-containers": [ "ui" ],
     "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
@@ -610,9 +610,9 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
 
-### Docker Extension limitations
+### Container Tools Extension limitations
 
-If you are using the Docker or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Docker or Kubernetes views will ask to pick from the available containers a second time.
+If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
 
 ### Extension limitations
 

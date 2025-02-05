@@ -240,7 +240,7 @@
       ]
     },
     {
-      "name": "Docker",
+      "name": "Containers",
       "area": "containers",
       "topics": [
         ["Overview", "/docs/containers/overview"],
@@ -293,7 +293,7 @@
         ["Overview", "/docs/azure/overview"],
         ["Getting Started", "/docs/azure/gettingstarted"],
         ["Deployment", "/docs/azure/deployment"],
-        ["Docker", "/docs/azure/docker"],
+        ["Containers", "/docs/azure/containers"],
         ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
         ["Kubernetes", "/docs/azure/kubernetes"],
         ["MongoDB", "/docs/azure/mongodb"],

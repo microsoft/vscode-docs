@@ -49,8 +49,8 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     // Allow prettier extension
     "esbenp.prettier-vscode": true,
 
-    // Do not allow docker extension
-    "ms-azuretools.vscode-docker": false,
+    // Do not allow container tools extension
+    "ms-azuretools.vscode-containers": false,
 
     // Allow only version 3.0.0 of the eslint extension
     "dbaeumer.vscode-eslint": ["3.0.0"],
