@@ -256,6 +256,11 @@ Type `?` in the input field to get a list of available commands that you can run
 
 ![Quick Open Help](images/userinterface/quickopenhelp.png)
 
+> [!TIP]
+> You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/userinterface/command-palette-position.png)
+
 ## Configure the editor
 
 VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
