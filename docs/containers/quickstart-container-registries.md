@@ -5,13 +5,13 @@ TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
 DateApproved: 12/1/2023
-MetaDescription: Work with Docker container registries in Visual Studio Code
+MetaDescription: Work with container registries in Visual Studio Code
 ---
 # Using container registries
 
-A container registry is a storage and content delivery system, holding named Docker images, available in different tagged versions.
+A container registry is a storage and content delivery system, holding named container images, available in different tagged versions.
 
-Users can connect to Docker registries from the following sources:
+Users can connect to container registries from the following sources:
 
 - [Azure Container Registry](https://learn.microsoft.com/azure/container-registry)
 - [Docker Hub](https://hub.docker.com/)
@@ -20,30 +20,30 @@ Users can connect to Docker registries from the following sources:
 
 ## Push an image to a container registry
 
-Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to Docker Hub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
+Before you can deploy a container image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to Docker Hub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
 
-1. Open the Docker Explorer, select **Connect Registry...** icon under the **Registries** group, and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension.
+1. Open the Container Explorer, select **Connect Registry...** icon under the **Registries** view, and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension.
 
-    ![Connect to Registry](images/registries/connect-registry-2.png)
+    ![Connect to Registry](images/registries/connect-registry-2.png) <!-- TODO: image needs updating -->
 
 2. Now the registry will be visible under **Registries**.
 
-   ![Registries](images/registries/explorer-registries.png)
+   ![Registries](images/registries/explorer-registries.png) <!-- TODO: image needs updating -->
 
-3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
-    - Images you previously built appear in the Docker Explorer under the **Images** tab. Right-click and choose **Tag...**.
+3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the `docker push` will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
+    - Images you previously built appear in the Container Explorer under the **Images** view. Right-click and choose **Tag...**.
 
-        ![Tag image](images/registries/explorer-tag-image.png)
+        ![Tag image](images/registries/explorer-tag-image.png) <!-- TODO: image needs updating -->
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
     tag action. For example, new image name for ACR would be `mainacr.azurecr.io/webapp6:latest` and for Docker Hub it would be `myusername/webapp6:latest`.
 
-4. The image shows up in the Docker Explorer in the **Images** tab under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you're prompted to choose a registry to push to, or create a new registry, and the image is tagged based on the selection.
+4. The image shows up in the Container Explorer in the **Images** view under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you're prompted to choose a registry to push to, or create a new registry, and the image is tagged based on the selection.
 
-    ![Push image](images/registries/explorer-push-image.png)
+    ![Push image](images/registries/explorer-push-image.png) <!-- TODO: image needs updating -->
 
 5. Once the push command is completed, refresh the registry node where the image is pushed to and the uploaded image will show up.
 
-    ![Refresh registry](images/registries/explorer-refresh-registry.png)
+    ![Refresh registry](images/registries/explorer-refresh-registry.png) <!-- TODO: image needs updating -->
 
 ## Docker Hub
 
@@ -105,7 +105,7 @@ For each tagged image in a repository, here are the actions that can be performe
 
 ## GitHub
 
-This connects to Docker registries in your [GitHub](https://github.com/) account. Once you select this option, you are asked to type in your GitHub account credentials.
+This connects to container registries in your [GitHub](https://github.com/) account. Once you select this option, you are asked to type in your GitHub account credentials.
 
 ![GitHub](images/registries/github.png)
 
