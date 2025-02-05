@@ -88,6 +88,19 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
+* **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow- you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions. You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
+
+    ![NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
+
+> [!NOTE]
+> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEditSuggestions.enabled)`.
+>
+> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
+>
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot editor preview features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
+>
+> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
 ### Iterate on large changes across multiple files
 
 * **Start a AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
