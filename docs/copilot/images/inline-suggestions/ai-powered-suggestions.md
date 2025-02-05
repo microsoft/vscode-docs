@@ -65,73 +65,61 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (aka "Copilot NES") is this evolution.
 
-<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
-
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-### Enabling edit suggestions
+> [!NOTE]
+> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEdits.enabled)`.
+>
+> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
+>
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEdits.enabled)` in your editor.
+>
+> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
-Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`, using the following steps:
-* Open the VS Code Settings editor (`kb(workbench.action.openSettings)`)
-* Search for `setting(github.copilot.nextEditSuggestions.enabled)`
-* Enable the setting
-
-If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot editor preview features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
-
-You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+<!-- TODO: Add video from blog -->
 
 ### Navigate and accept edit suggestions
 
 You can quickly navigate suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
-An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
-![NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
+An arrow in the gutter indicates if there is an edit suggestion available:
+![NES with right arrow](./images/inline-suggestions/scan-right-highlight.png)
 
 If an edit suggestion is below the current editor view, the arrow will point down instead of right:
-![NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
-<!-- ![NES with right arrow](./images/inline-suggestions/scan-right-highlight.png) -->
-<!-- ![NES with down arrow](./images/inline-suggestions/scan-down-highlight.png) -->
+![NES with down arrow](./images/inline-suggestions/scan-down-highlight.png)
+
+You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+![NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted.png)
 
 ### Use cases for Next Edit Suggestions
 
-**Catching and correcting mistakes**
-
-* **Copilot helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
-![NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.gif)
-* **Copilot can also help with more challenging mistakes in logic**, like an inverted ternary expression:
-![NES fixing a fibonacci logic mistake](./images/inline-suggestions/nes-fib-logic.gif)
-Or a comparison that should've used `&&` instead of `||`:
-![NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.gif)
-
 **Changing intent**
 
-* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition. After accepting the change, NES next recommends adding `z` to the distance calculation:
-![NES gif for updating Point to Point3D](./images/inline-suggestions/nes-point.gif)
-<!-- ![NES for updating Point to Point3D](./images/inline-suggestions/point3d.png)
-![NES for adding z to distance calculation of Point3D](./images/inline-suggestions/point3d-distance.png) -->
+* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition:
+![NES for updating Point to Point3D](./images/inline-suggestions/point3d.png)
+
+After accepting the change, NES next recommends adding `z` to the distance calculation:
+![NES for adding z to distance calculation of Point3D](./images/inline-suggestions/point3d-distance.png)
 
 **Adding new variables or logic**
 
-* **Using newly added arguments, variables, or functions**. Copilot helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+* **Using newly added arguments, variables, or functions**. Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
-It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, Copilot will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, Copilot suggests registering that command as well:
-![Updating extension.ts and package.json with a new command](./images/inline-suggestions/nes-extension-and-package.gif)
-<!-- ![Add command in package.json](./images/inline-suggestions/add-disposable.png)
-![Add command in package.json](./images/inline-suggestions/call-disposable-full.png) -->
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`:
+![Add command in package.json](./images/inline-suggestions/add-disposable.png)
+
+And then when you open `package.json`, NES may suggest registering that command as well:
+![Add command in package.json](./images/inline-suggestions/call-disposable-full.png)
 
 **Refactoring**
 
-* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
-![NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to rename subsequent variables similarly.
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
-### Further configuring edit suggestions
+**Correcting mistakes**
 
-You use Copilot NES, you must set `setting(github.copilot.nextEditSuggestions.enabled)`. There are a couple of additional settings you can also use to configure your NES experience:
-* `setting(editor.inlineSuggest.edits.codeShifting)`: You can disable this setting if you never want NES to shift your code to show a suggestion.
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`:
-     * **auto (default)**: Show larger suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions is shown below the relevant code.
-     * **never**: Always show larger suggestions below the relevant code.
+* **Copilot helps with mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
+* **Copilot can also help with mistakes in logic**, like where a statement should've had `<` instead of `<=`, or an `OR` statement that should've been an `AND`.
 
 ## Tips & tricks
 
@@ -166,11 +154,7 @@ You can temporarily enable or disable code completions either for all languages,
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
-* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
-
-* `setting(editor.inlineSuggest.edits.codeShifting)` - configure if NES is able to shift your code to show a suggestion.
-
-* `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code.
+* `setting(github.copilot.nextEdits.enabled)` - enable Copilot Next Edit Suggestions (preview)
 
 ## Next steps
 

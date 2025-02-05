@@ -26,6 +26,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.commandCenter.enabled)` _(Experimental)_: Controls whether the command center shows a menu for chat actions.
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
+* `setting(github.copilot.nextEditSuggestions.enabled)` _(Preview)_: Enables Copilot Next Edit Suggestions (preview, aka "Copilot NES").
+* `setting(editor.inlineSuggest.edits.codeShifting)`: Configure if NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code.
 
 ## Chat settings
 
@@ -42,13 +45,17 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.editor.lineHeight)`: Line height in pixels in chat codeblocks.
 * `setting(chat.editor.wordWrap)`: Toggle line wrapping in chat codeblocks.
 
-## Edits settings
+## Copilot Edits settings
 
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(github.copilot.chat.edits.temporalContext.enabled)`: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.edits.codesearch.enabled)` _(Experimental)_: When using `#codebase` in the prompt, Copilot Edits automatically discovers relevant files to be edited.
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
+* `setting(chat.agent.enabled)` _(Experimental)_ - enable or disable agent mode in Copilot Edits (default: `false`)
+* `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
+* `setting(github.copilot.chat.edits.codesearch.enabled)` _(Preview)_ - let Copilot find the right files by adding `#codebase` to your prompt, similar to how agent mode works (default: `false`)
+* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
 
 ## Inline Chat settings
 

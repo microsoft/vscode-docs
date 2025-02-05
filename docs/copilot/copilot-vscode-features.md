@@ -42,7 +42,7 @@ Use natural language to chat with GitHub Copilot and get help with coding tasks.
 > - Be specific, keep it simple, and ask follow-up questions to get the best results.
 > - Provide context by attaching files, symbols, or selections to your chat prompt.
 
-## Code editing session (Preview)
+## Code editing session
 
 Use Copilot Edits to start a code editing session where you can iterate quickly on AI-generated code edits that are applied directly across multiple files in your workspace.
 
@@ -116,6 +116,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Action | Description |
 |--------|-------------|
 | Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
+| Next Edit Suggestions _(Preview)_ | Predict your next code edit with Copilot Next Edit Suggestions. Enable NES with the `setting(github.copilot.nextEditSuggestions.enabled)` setting. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview). |
 | Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | Prompt from the editor _(Experimental)_ | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
