@@ -118,6 +118,29 @@ You can disable this functionality by toggling the `setting(git.useEditorAsCommi
 
 To use the same flow for git commit commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting.
 
+## Git blame information
+
+VS Code can show git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
+
+To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
+
+- `setting(git.blame.statusBarItem.enabled)` (enabled by default)
+- `setting(git.blame.editorDecoration.enabled)`
+
+<video src="images/overview/git-blame.mp4" title="Show git blame information in editor and Status Bar." autoplay loop controls muted></video>
+
+You can customize the format of the message that is shown in the editor and in the Status Bar with the `setting(git.blame.editorDecoration.template)` and `setting(git.blame.statusBarItem.template)` settings. You can use variables for the most common information.
+
+For example, the following template shows the subject of the commit, the author's name, and the author's date relative to now:
+
+```json
+{
+  "git.blame.editorDecoration.template": "${subject}, ${authorName} (${authorDateAgo})"
+}
+```
+
+To adjust the color of the editor decoration, use the `git.blame.editorDecorationForeground` theme color.
+
 ## Review uncommitted code changes with AI
 
 GitHub Copilot in VS Code can help you review your uncommitted code changes.
