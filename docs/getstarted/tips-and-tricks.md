@@ -45,6 +45,11 @@ Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
 ![Command Palette](images/tips-and-tricks/OpenCommandPalette.gif)
 
+> [!TIP]
+> You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/tips-and-tricks/command-palette-position.png)
+
 ### Default keyboard shortcuts
 
 Many of the commands in the Command Palette have default keyboard shortcuts associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).

@@ -55,6 +55,12 @@ At any time, you can drag and drop views and panels into the Primary or Secondar
 > [!NOTE]
 > You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 
+### Command Palette position
+
+You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/custom-layout/command-palette-position.png)
+
 ### Activity Bar position
 
 By default, the Activity Bar moves with the Primary Side Bar and remains on the outer edge of the workbench. You can also choose to hide the Activity Bar, or move it to the top or bottom of the Primary Side Bar.
