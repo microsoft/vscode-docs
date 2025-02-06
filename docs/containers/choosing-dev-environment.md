@@ -28,7 +28,7 @@ The second important choice is whether to debug your service running as an ordin
 
 1. Debugging your service running in a container is possible, but brings additional complexity. Use normal debugging by default, and debugging in the container when you need it.
 
-> The Docker extension natively supports container debugging for .NET-, Node.js-, and Python-based services.
+> The Container Tools extension natively supports container debugging for .NET-, Node.js-, and Python-based services.
 
 ## Enabling Docker CLI inside a remote development environment
 
@@ -86,11 +86,11 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 1. A new VS Code window opens, running in the context of the target machine. If you're using password authentication, the password will be prompted here. We strongly recommend that you set up [SSH key authentication](https://www.ssh.com/ssh/public-key-authentication), for ease of use.
 
-1. In the Extensions view, install the Docker extension (on the remote host) (a reload may be required after this step):
+1. In the Extensions view, install the Container Tools extension (on the remote host) (a reload may be required after this step):
 
-   ![Screenshot - Installing the Docker extension](images/devenv/install-in-ssh.png)
+   ![Screenshot - Installing the Container Tools extension](images/devenv/install-in-ssh.png) <!-- TODO: image needs updating -->
 
->**Note**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
+>**Note**: If you are using the Container Tools extension to build container images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Container Tools extension for the Container Explorer features, then you can disregard this.
 
 ### Local Linux VM
 
@@ -100,7 +100,7 @@ Alternatively, you can install just the Docker CLI inside your development envir
 
 ## Debugging in a container
 
-The Docker extension supports debugging .NET and Node.js-based services running inside a container. Other programming languages are not supported at this time.
+The Container Tools extension supports debugging .NET and Node.js-based services running inside a container. Other programming languages are not supported at this time.
 
 Debugging in a container may be harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
@@ -109,7 +109,7 @@ Debugging in a container may be harder to set up than regular debugging because 
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
 
-For more information about how to set up debugging inside a container see [ASP.NET Core quickstart](/docs/containers/quickstart-aspnet-core.md), [Node.js quickstart](/docs/containers/quickstart-node.md), and [Docker extension task properties](/docs/containers/reference.md) (`docker-build` and `docker-run` tasks).
+For more information about how to set up debugging inside a container see [ASP.NET Core quickstart](/docs/containers/quickstart-aspnet-core.md), [Node.js quickstart](/docs/containers/quickstart-node.md), and [Container Tools extension task properties](/docs/containers/reference.md) (`docker-build` and `docker-run` tasks).
 
 ## Next steps
 

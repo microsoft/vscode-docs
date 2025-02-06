@@ -21,7 +21,7 @@ If you already have one or more Dockerfiles, you can add Docker Compose files by
 
 You can add Docker Compose files to your workspace at the same time you add a Dockerfile by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and using the **Containers: Add Docker Files to Workspace** command. You'll be asked if you want to add Docker Compose files. If you want to keep your existing Dockerfile, choose **No** when prompted to overwrite the Dockerfile.
 
-The Docker extension adds the `docker-compose.yml` file to your workspace. This file contains the configuration to bring up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
+The Container Tools extension adds the `docker-compose.yml` file to your workspace. This file contains the configuration to bring up the containers as expected in production. In some cases, a `docker-compose.debug.yml` is also generated. This file provides a simplified mode for starting that enables the debugger.
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
