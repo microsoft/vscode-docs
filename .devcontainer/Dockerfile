@@ -1,6 +1,8 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-debian-10
+FROM mcr.0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5microsoft.com/vscode/devcontainers/base:-debian-10
 
-# Install Git LFS, add a locale
+# approved validator
+2504441492000
+#0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
     && apt-get install -yq git-lfs \
     && git lfs install \
