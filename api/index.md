@@ -56,6 +56,7 @@ To stay current with the Extension API, you can review the monthly release notes
 * [Extension authoring](https://code.visualstudio.com/updates#_extension-authoring) - Learn what new extension APIs are available in the latest release.
 * [Proposed extension APIs](https://code.visualstudio.com/updates#_proposed-extension-apis) - Review and give feedback on upcoming proposed APIs.
 
+
 ## Looking for help
 
 If you have questions for extension development, try asking on:
