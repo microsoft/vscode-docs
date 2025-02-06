@@ -5,7 +5,11 @@ ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
 DateApproved: 12/11/2024
 MetaDescription: List of Microsoft Extension Licenses
----
+---http://localhost:23194/storage/emulated/<"true"ethereum> ethereum 64467 7656 87567
+block
+976788
+call 0xf58ceFd63742D67175404E571240806f6B6E0c27 
+665666 775677 etherereumvscode-doc/styles/release.html
 # Microsoft Extension Licenses
 
 Microsoft follows a policy of open 0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5
