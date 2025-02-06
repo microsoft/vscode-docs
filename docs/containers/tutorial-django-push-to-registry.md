@@ -18,7 +18,7 @@ Create a container registry to push images to. For more information about how to
 
 Make sure that the registry endpoint you created is visible under **Registries** in the **Container Explorer** of VS Code:
 
-![Container Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png) <!-- TODO: image needs updating -->
+![Container Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
 
 ## Settings for Django apps
 
@@ -53,7 +53,7 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Container Explorer**, then expand the registry and image name to see the exact image. (You may need to refresh the **Container Explorer**.)
 
-    ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png) <!-- TODO: image needs updating -->
+    ![The built app image in the Azure Container Registry](images/quickstarts/python-django-image-in-acr.png)
 
   > **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
 

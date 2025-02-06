@@ -36,7 +36,7 @@ In this guide you will learn how to:
 1. Wait for the C# extension to prompt you to add required assets for build and debug, and choose **Yes**. You can also open the Command Palette (`kb(workbench.action.showCommands)`) and use the **.NET: Generate Assets for Build and Debug** command.
 1. Open Command Palette (`kb(workbench.action.showCommands)`) and use **Containers: Add Docker Files to Workspace...** command:
 
-   ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png) <!-- TODO: image needs updating -->
+   ![Add Dockerfile to a .NET project](images/quickstarts/aspnetcore-add-dotnet.png)
 
 1. Use **.NET: ASP.NET Core** when prompted for application platform.
 1. Choose **Windows** or **Linux** when prompted to choose the operating system.
@@ -85,13 +85,13 @@ You can use the Container Tools extension to author Docker files. The extension 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and issue **Container Images: Build Image...** command.
 1. Open the Container Explorer and verify that the new image is visible in the Images tree:
 
-   ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png) <!-- TODO: image needs updating -->
+   ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
 
 ## Test the service container
 
 1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" view of the Container Explorer:
 
-   ![Running service container](images/quickstarts/aspnetcore-running-container.png) <!-- TODO: image needs updating -->
+   ![Running service container](images/quickstarts/aspnetcore-running-container.png)
 
 1. Open the web browser and navigate to [http://localhost:5000/WeatherForecast](http://localhost:5000/WeatherForecast). You should see weather data in JSON format, similar to following:
 
@@ -138,7 +138,7 @@ When Docker files were added to the application, the Container Tools extension a
 
 1. Make sure the configuration is selected as active:
 
-    ![Selected Docker debug configuration](images/quickstarts/aspnetcore-debug-configuration.png) <!-- TODO: image needs updating -->
+    ![Selected Docker debug configuration](images/quickstarts/aspnetcore-debug-configuration.png)
 
 1. Start debugging (`kb(workbench.action.debug.start)`).
     - The debug version of the service container builds and starts.

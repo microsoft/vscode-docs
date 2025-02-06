@@ -42,7 +42,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 1. Open the project folder in VS Code.
 1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and choose **Containers: Add Docker Files to Workspace...**:
 
-    ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png) <!-- TODO: image needs updating -->
+    ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
 1. When prompted for the app type, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we'll focus on the **Python: General** case, but will also include notes for Django and Flask.
 
@@ -82,7 +82,7 @@ The Container Tools Extension helps you author Dockerfiles by using [IntelliSens
 1. Open the `Dockerfile`.
 2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
 
-    ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png) <!-- TODO: image needs updating -->
+    ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png)
 
 3. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to the name of the variable, and set the `value`.
 
@@ -127,7 +127,7 @@ The **Containers: Add Docker Files to Workspace...** command automatically creat
 
 1. Navigate to **Run and Debug** and select **Containers: Python - General**, **Containers: Python - Django**, or **Containers: Python - Flask**, as appropriate.
 
-    ![Selected container debug configuration](images/quickstarts/python-debug-configuration.png) <!-- TODO: image needs updating -->
+    ![Selected container debug configuration](images/quickstarts/python-debug-configuration.png)
 
 1. Start debugging using the `kb(workbench.action.debug.start)` key.
     - The container image builds.
@@ -150,7 +150,7 @@ The Container Explorer provides an interactive experience to examine and manage 
 1. Navigate to the Container Explorer.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
-    ![Viewing the logs of a container](images/quickstarts/python-view-logs.png) <!-- TODO: image needs updating -->
+    ![Viewing the logs of a container](images/quickstarts/python-view-logs.png)
 
 1. The output will be displayed in the terminal.
 
@@ -184,7 +184,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. Right-click on the image tag and choose **Deploy Image to Azure App Service** or **Deploy Image to Azure Container Apps**.
 
-   ![Deploy image to Azure App Service](images/quickstarts/deploy-image-to-azure-python.png) <!-- TODO: image needs updating -->
+   ![Deploy image to Azure App Service](images/quickstarts/deploy-image-to-azure-python.png)
 
 1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the `settings.py` file.
 

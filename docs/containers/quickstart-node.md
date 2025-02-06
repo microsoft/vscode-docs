@@ -35,7 +35,7 @@ In this guide you will learn how to:
 1. Open the project folder in VS Code.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Containers: Add Docker Files to Workspace...** command:
 
-   ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node-dark.png) <!-- TODO: image needs updating -->
+   ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node-dark.png)
 
 1. Select **Node.js** when prompted for the application platform.
 1. Choose the default **package.json** file.
@@ -79,13 +79,13 @@ The Container Tools extension helps you author Dockerfiles by using [IntelliSens
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Container Images: Build Image...** command.
 1. Open the Container Explorer and verify that the new image is visible in the Images view:
 
-   ![Verify Docker image exists](images/quickstarts/node-verify-image-dark.png) <!-- TODO: image needs updating -->
+   ![Verify Docker image exists](images/quickstarts/node-verify-image-dark.png)
 
 ## Run the service container
 
 1. Right-click on the image built in the previous section and select **Run** or **Run Interactive**. The container should start and you should be able to see it in the Containers view:
 
-   ![Running service container](images/quickstarts/node-running-container-dark.png) <!-- TODO: image needs updating -->
+   ![Running service container](images/quickstarts/node-running-container-dark.png)
 
 1. Open the web browser and navigate to [http://localhost:3000](http://localhost:3000). You should see a page similar to the following:
 
@@ -101,7 +101,7 @@ When the Container Tools extension adds files to the application, it also adds a
 
 1. Make sure the **Containers: Node.js Launch** debugger configuration is selected.
 
-   ![Selected debug configuration](images/quickstarts/node-debug-configuration-dark.png) <!-- TODO: image needs updating -->
+   ![Selected debug configuration](images/quickstarts/node-debug-configuration-dark.png)
 
 1. Start debugging (use the `kb(workbench.action.debug.start)` key).
     - The image for the service builds.
