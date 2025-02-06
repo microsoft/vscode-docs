@@ -7,7 +7,7 @@ PageTitle: Workspaces in Visual Studio Code
 DateApproved: 12/11/2024
 MetaDescription: Learn about Visual Studio Code workspaces
 ---
-# What is a VS Code "workspace"?
+# What is a VS Code workspace?
 
 A Visual Studio Code *workspace* is the collection of one or more folders that are opened in a VS Code window (instance). In most cases, you will have a single folder opened as the workspace. However, depending on your development workflow, you can include more than one folder, using an advanced configuration called [Multi-root workspaces](#multiroot-workspaces).
 
