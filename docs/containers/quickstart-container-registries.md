@@ -24,26 +24,26 @@ Before you can deploy a container image, the image must be uploaded to a contain
 
 1. Open the Container Explorer, select **Connect Registry...** icon under the **Registries** view, and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension.
 
-    ![Connect to Registry](images/registries/connect-registry-2.png) <!-- TODO: image needs updating -->
+    ![Connect to Registry](images/registries/connect-registry-2.png)
 
 2. Now the registry will be visible under **Registries**.
 
-   ![Registries](images/registries/explorer-registries.png) <!-- TODO: image needs updating -->
+   ![Registries](images/registries/explorer-registries.png)
 
 3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the `docker push` will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
     - Images you previously built appear in the Container Explorer under the **Images** view. Right-click and choose **Tag...**.
 
-        ![Tag image](images/registries/explorer-tag-image.png) <!-- TODO: image needs updating -->
+        ![Tag image](images/registries/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
     tag action. For example, new image name for ACR would be `mainacr.azurecr.io/webapp6:latest` and for Docker Hub it would be `myusername/webapp6:latest`.
 
 4. The image shows up in the Container Explorer in the **Images** view under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you're prompted to choose a registry to push to, or create a new registry, and the image is tagged based on the selection.
 
-    ![Push image](images/registries/explorer-push-image.png) <!-- TODO: image needs updating -->
+    ![Push image](images/registries/explorer-push-image.png)
 
 5. Once the push command is completed, refresh the registry node where the image is pushed to and the uploaded image will show up.
 
-    ![Refresh registry](images/registries/explorer-refresh-registry.png) <!-- TODO: image needs updating -->
+    ![Refresh registry](images/registries/explorer-refresh-registry.png)
 
 ## Docker Hub
 
