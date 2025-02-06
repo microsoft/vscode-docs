@@ -149,7 +149,7 @@ However, this does not clean up any images you may have downloaded, which can cl
 
 3. You can then go to the Container Explorer and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
-     ![Container Explorer screenshot](images/tips-and-tricks/docker-remove.png) <!-- TODO: image needs updating -->
+     ![Container Explorer screenshot](images/tips-and-tricks/docker-remove.png)
 
 ### Option 3: Use the Docker CLI to pick containers to delete
 
