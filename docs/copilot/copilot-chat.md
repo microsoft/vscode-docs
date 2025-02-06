@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -74,7 +74,7 @@ There are several ways to add context to your chat prompt:
 
     ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
 
-* Use the <i class="codicon codicon-attach"></i> button (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
+* Use the Attach <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
 
     ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
 
@@ -110,7 +110,7 @@ To list all installed chat participants, type `@` in the chat input field.
 | Built-in participant | Description |
 |------------------|-------------|
 | `@workspace`     | Knows about the code in your workspace. Use it to navigate your code base, find relevant classes, files, and more.<br/><br/>**Example prompts:**<br/><ul><li>`@workspace how are notifications scheduled?`</li><li>`@workspace add form validation, similar to the newsletter page`</li></ul> |
-| `@vscode`        | Knows about features, settings, and APIs of VS Code.<br/><br/>**Example prompts:**<br/><ul><li>`@vscode the name of that thing when vscode fake opens a file? And how to disable it?`</li><li>`@vscode /runCommand Enable the minimap`</li></ul> |
+| `@vscode`        | Knows about features, settings, and APIs of VS Code.<br/><br/>**Example prompt:**<br/><ul><li>`@vscode the name of that thing when vscode fake opens a file? And how to disable it?`</li></ul> |
 | `@terminal`      | Knows about the integrated terminal shell and its contents.<br/><br/>**Example prompts:**<br/><ul><li>`@terminal how to undo the last commit`</li><li>`@terminal help with #terminalLastCommand`</li></ul> |
 | `@github`        | Knows about and has skills for GitHub repositories issues, PRs, and more. Can also perform web searches using the Bing API. Get more information about [using GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-github-skills-for-copilot).<br/><br/>**Example prompts:**<br/><ul><li>`@github What are all of the open PRs assigned to me?`</li><li>`@github #web what is the latest VS Code version`</li></ul> |
 
@@ -142,7 +142,6 @@ Some common built-in slash commands are:
 * `@workspace /explain` (or `/explain`): explain how the selected code works
 * `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
 * `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
-* `@vscode /runCommand`: search or run a VS Code command
 
 To list all available slash commands, type `/` in the chat input field.
 
@@ -177,7 +176,6 @@ You're not limited to asking for code changes. Use Inline Chat to ask more explo
 > [!TIP]
 > Attach context to your Inline Chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](#add-context-to-your-chat-prompt).
 
-If you prefer to see code suggestions in a side-by-side diff view, configure the `setting(inlineChat.mode)` setting and set it to `preview`. The following example shows the `preview` mode for Inline Chat.
 
 ![Copilot Inline Chat preview mode, showing the code changes side-by-side](images/copilot-chat/inline-chat-preview-mode.png)
 

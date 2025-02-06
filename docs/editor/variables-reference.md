@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -276,7 +276,7 @@ Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)
 
 ### Why isn't ${workspaceRoot} documented?
 
-The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) support.
 
 ### Why aren't variables in tasks.json being resolved?
 

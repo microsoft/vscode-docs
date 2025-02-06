@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 ---
 # Developing inside a Container
 
@@ -233,7 +233,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 ## Trusting your Workspace
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
 The Dev Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
@@ -260,7 +260,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 ### Inspect volume
 
-[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
+[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspaces/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
 ### Docker daemon running remotely
 

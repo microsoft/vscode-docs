@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -47,7 +47,8 @@ $ vsce publish
 
 ---
 
-**Note:** Due to security concerns, `vsce` will not publish extensions that contain user-provided SVG images.
+> [!NOTE]
+> Due to security concerns, `vsce` will not publish extensions that contain user-provided SVG images.
 
 The publishing tool checks the following constraints:
 
@@ -160,7 +161,8 @@ vsce publish 1.1.0
 
 Both commands will first modify the extension's `package.json` [version](/api/references/extension-manifest#fields) attribute and then publish it with the updated version.
 
-> **Note:** If you run `vsce publish` in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description). The default commit message will be the extension's version, but you can supply a custom commit message using the `-m` flag. (The current version can be referenced from the commit message with `%s`).
+> [!NOTE]
+> If you run `vsce publish` in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description). The default commit message will be the extension's version, but you can supply a custom commit message using the `-m` flag. (The current version can be referenced from the commit message with `%s`).
 
 ## Unpublishing extensions
 
@@ -172,7 +174,8 @@ Once unpublished, the extension's Availability status is changed to **Unpublishe
 
 ![Unpublished extension](images/publishing-extension/unpublished-extension.png)
 
-> **Note:** When you unpublish an extension, the Marketplace will preserve the extension statistics.
+> [!NOTE]
+> When you unpublish an extension, the Marketplace preserves the extension statistics.
 
 ## Removing extensions
 
@@ -190,11 +193,12 @@ You can remove an extension in two ways:
 
 In both cases, you will be prompted to confirm the removal by typing the extension name. Note that the removal action is **irreversible**.
 
-> **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics. You may want to update your extension rather than unpublish it.
+> [!NOTE]
+> When you remove an extension, the Marketplace also removes any extension statistics. You may want to unpublish your extension rather than remove it.
 
 ## Deprecating extensions
 
-You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strikethrough text in the UI:
+You can just deprecate an extension or deprecate in favor of another extension or a setting. The deprecated extension will be rendered with a dimmed strike-through text in the UI:
 
 ![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated-extension.png)
 
@@ -218,7 +222,8 @@ VS Code will not automatically migrate or uninstall already installed deprecated
 
 To mark your extension as deprecated, please leave a comment in the [Deprecated extensions](https://github.com/microsoft/vscode-discussions/discussions/1) discussion thread.
 
-> **Note:** For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
+> [!NOTE]
+> For now, extensions are not rendered as deprecated in the Marketplace. This functionality will be available later.
 
 ## Packaging extensions
 
@@ -230,31 +235,31 @@ You can choose to package your extension if you want to:
 
 Packaging means creating a `.vsix` file that contains your extension. This file can then be installed in VS Code. Some extensions publish `.vsix` files as a part of their GitHub releases.
 
-For extension authors, to package an extension, run the following command in your extension's root folder:
+To package an extension, run the following command in your extension's root folder:
 
 ```bash
 vsce package
 ```
 
-This command will create a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
+This command creates a `.vsix` file in your extension's root folder. For example, `my-extension-0.0.1.vsix`.
 
 For users, to install a `.vsix` file in VS Code:
 
-1. Go to the Extensions view.
-1. Click **Views and More Actions...**
-1. Select **Install from VSIX...**
+* From the Extensions view in VS Code:
 
-or
+  1. Go to the Extensions view.
+  1. Select **Views and More Actions...**
+  1. Select **Install from VSIX...**
 
-in your terminal, run the following command:
+* From the command line:
 
-```bash
-# if you use VS Code
-code --install-extension my-extension-0.0.1.vsix
+  ```bash
+  # if you use VS Code
+  code --install-extension my-extension-0.0.1.vsix
 
-# if you use VS Code Insiders
-code-insiders --install-extension my-extension-0.0.1.vsix
-```
+  # if you use VS Code Insiders
+  code-insiders --install-extension my-extension-0.0.1.vsix
+  ```
 
 ## Your extension folder
 
@@ -293,7 +298,8 @@ Here are some tips for making your extension look great on the Marketplace:
 
 - Add a `README.md` file to the root of your extension with the content you want to show on the extension's Marketplace page.
 
-  > **Note:** If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
+  > [!NOTE]
+  > If you have a `repository` property in your `package.json` that points to a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `main` branch by default. You can override this with the `--githubBranch` flag when running `vsce package` or `vsce publish`. You can also set base URLs for links and images with the `--baseContentUrl` and `--baseImagesUrl` flags.
 
 - Add a `LICENSE` file to the root of your extension with the information about the extension's license.
 - Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
@@ -372,7 +378,8 @@ To show a pricing label, add the `pricing` property to your `package.json`. For 
 
 Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` property is not specified, the default value is `Free`.
 
->**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
+> [!NOTE]
+> Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
 
 ### Extension Sponsor
 
@@ -386,7 +393,8 @@ To show a sponsor link, add the `sponsor` property to your `package.json`. For e
 }
 ```
 
-> **Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
+> [!NOTE]
+> Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
 
 The sponsor link will appear on your extension's page in Marketplace and VS Code in the extension details header:
 
@@ -406,7 +414,8 @@ You can create a `.vscodeignore` file to prevent some files from being included 
 
 You should ignore all files not needed at runtime. For example, if your extension is written in TypeScript, you should ignore all `**/*.ts` files, like in the example above.
 
-**Note:** Development dependencies listed in `devDependencies` will be automatically ignored, so you don't need to add them explicitly.
+> [!NOTE]
+> Development dependencies listed in `devDependencies` will be automatically ignored, so you don't need to add them explicitly.
 
 ### Pre-publish step
 
@@ -447,7 +456,8 @@ If extension authors do not want their pre-release users to be updated to the re
 
 Pre-release extensions are supported after VS Code version `1.63.0`, so all pre-release extensions should have the `engines.vscode` value in their `package.json` set to `>= 1.63.0`.
 
-> **Note:** Extensions that already have a separate standalone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install the pre-release version of the main extension.
+> [!NOTE]
+> Extensions that already have a separate standalone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install the pre-release version of the main extension.
 
 ### Platform-specific extensions
 

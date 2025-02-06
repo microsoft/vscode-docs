@@ -90,7 +90,7 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
@@ -237,7 +237,7 @@ with this:
 
 ### Modifying tasks.json
 
-Starting November 3, 2024, MSYS2 has disabled wildcard support for `mingw-w64` by default. This change impacts how wildcards like `"*.cpp"` are processed in build commands. To build multiple C++ files in your `tasks.json`, you must explicitly list the files, use a build system like `make` or `cmake` or implement the following workarounds: https://www.msys2.org/docs/c/#expanding-wildcard-arguments.  
+Starting November 3, 2024, MSYS2 has disabled wildcard support for `mingw-w64` by default. This change impacts how wildcards like `"*.cpp"` are processed in build commands. To build multiple C++ files in your `tasks.json`, you must explicitly list the files, use a build system like `make` or `cmake` or implement the following workarounds: https://www.msys2.org/docs/c/#expanding-wildcard-arguments.
 
 If you previously used `"${workspaceFolder}/*.cpp"` to compile all `.cpp` files in the current folder, this will no longer work directly. Instead, you can manually list the files or define a build script.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -275,6 +275,7 @@ The Minimap shows a minified version of the current file.
 - `minimapGutter.addedBackground`: Minimap gutter color for added content.
 - `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
 - `minimapGutter.deletedBackground`: Minimap gutter color for deleted content.
+- `editorMinimap.inlineChatInserted`: Minimap marker color for inline chat inserted content.
 
 ## Editor Groups & Tabs
 
@@ -595,6 +596,28 @@ The editor comments widget can be seen when reviewing pull requests:
 - `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
 - `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
 - `editorCommentsWidget.replyInputBackground`: Background color for comment reply input box.
+
+Editor inline edits can be seen when using Copilot to suggest the next change to make:
+
+- `inlineEdit.gutterIndicator.primaryForeground`: Foreground color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.primaryBackground`: Background color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryForeground`: Foreground color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryBackground`: Background color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulForeground`: Foreground color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulBackground`: Background color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.background`: Background color for the inline edit gutter indicator.
+- `inlineEdit.indicator.foreground`: Foreground color for the inline edit indicator.
+- `inlineEdit.indicator.background`: Background color for the inline edit indicator.
+- `inlineEdit.indicator.border`: Border color for the inline edit indicator.
+- `inlineEdit.originalBackground`: Background color for the original text in inline edits.
+- `inlineEdit.modifiedBackground`: Background color for the modified text in inline edits.
+- `inlineEdit.originalChangedLineBackground`: Background color for the changed lines in the original text of inline edits.
+- `inlineEdit.originalChangedTextBackground`: Overlay color for the changed text in the original text of inline edits.
+- `inlineEdit.modifiedChangedLineBackground`: Background color for the changed lines in the modified text of inline edits.
+- `inlineEdit.modifiedChangedTextBackground`: Overlay color for the changed text in the modified text of inline edits.
+- `inlineEdit.originalBorder`: Border color for the original text in inline edits.
+- `inlineEdit.modifiedBorder`: Border color for the modified text in inline edits.
+- `inlineEdit.wordReplacementView.background`: Background color for the inline edit word replacement view.
 
 ## Diff editor colors
 

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -87,6 +87,10 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 * **Copilot suggests code as you type**. Copilot analyzes the context in the file you're editing and related files, and offers suggestions from within the editor. For example, begin typing the name of a method and Copilot suggests the implementation, following your coding style.
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
+
+* **Predict your next code edit** with Copilot Next Edit Suggestions (Copilot NES) (preview). Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Use the `kbstyle(Tab)` key to quickly navigate and accept suggestions. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview).
+
+    ![Copilot NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
 
 ### Iterate on large changes across multiple files
 
