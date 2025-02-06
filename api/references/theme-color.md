@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.

@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced

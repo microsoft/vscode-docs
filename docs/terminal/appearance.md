@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -127,7 +127,7 @@ When ligatures are enabled, it's also possible to set a detailed list of font fe
 
 ### Fallback ligatures
 
-When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures. 
+When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
 
 By default, the fallback ligatures are a list of common ligatures used in coding. Fine-tune the list by configuring the `setting(terminal.integrated.fontLigatures.fallbackLigatures)` setting. For example:
 

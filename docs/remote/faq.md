@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 ---
 # Remote Development FAQ
 
