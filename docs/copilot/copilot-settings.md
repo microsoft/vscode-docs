@@ -26,9 +26,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.commandCenter.enabled)` _(Experimental)_: Controls whether the command center shows a menu for chat actions.
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
-* `setting(github.copilot.nextEditSuggestions.enabled)` _(Preview)_: Enables Copilot Next Edit Suggestions (preview, aka "Copilot NES").
-* `setting(editor.inlineSuggest.edits.codeShifting)`: Configure if NES is able to shift your code to show a suggestion.
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if NES can show larger suggestions side-by-side if possible, or if NES should always show larger suggestions below the relevant code.
+* `setting(github.copilot.nextEditSuggestions.enabled)` _(Preview)_: Enables Copilot Next Edit Suggestions (Copilot NES) _(Preview)_.
+* `setting(editor.inlineSuggest.edits.codeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 
 ## Chat settings
 
