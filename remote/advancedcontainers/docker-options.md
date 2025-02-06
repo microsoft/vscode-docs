@@ -97,6 +97,8 @@ However, certain tricks like [Docker-from-Docker do not work](https://github.com
 
 To work around issues where Podman lacks permissions to create a directory in the new devcontainer, you can set Podman to build images with the Docker format, disable labling containers with SELinux, and maintain the user's UID and GID
 
+In `~/.config/containers/containers.conf`:
+
 ```toml
 [containers]
 env = [
