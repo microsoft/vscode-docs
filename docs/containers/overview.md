@@ -43,17 +43,17 @@ The Container Tools extension contributes a Container Explorer view to VS Code. 
 
 The right-click menu provides access to commonly used commands for each type of asset.
 
-![Container Explorer context menu](images/overview/docker-view-context-menu.gif) <!-- TODO: image needs updating -->
+![Container Explorer context menu](images/overview/docker-view-context-menu.gif)
 
 You can rearrange the Container Explorer panes by dragging them up or down with a mouse and use the context menu to hide or show them.
 
-![Customize Container Explorer](images/overview/docker-view-rearrange.gif) <!-- TODO: image needs updating -->
+![Customize Container Explorer](images/overview/docker-view-rearrange.gif)
 
 ## Container commands
 
 Many of the most common container-related commands are built right into the Command Palette:
 
-![Container commands](images/overview/command-palette.png) <!-- TODO: image needs updating -->
+![Container commands](images/overview/command-palette.png)
 
 You can run commands to manage [images](https://docs.docker.com/engine/reference/commandline/image/), [networks](https://docs.docker.com/engine/reference/commandline/network/), [volumes](https://docs.docker.com/engine/reference/commandline/volume/), [image registries](https://docs.docker.com/engine/reference/commandline/push/), and [Docker Compose](https://docs.docker.com/compose/reference/overview/). In addition, the **Containers: Prune System** command will remove stopped containers, dangling images, and unused networks and volumes.
 
@@ -73,13 +73,13 @@ While `Compose Up` allows you to run all of your services at once, our new featu
 
 Once your `Compose Up` command completes, navigate to the Container Explorer to view your services as a Compose Group. This allows you to start, stop, and view the logs of each service as a group.
 
-![Docker Compose Groups](images/overview/compose-group.png) <!-- TODO: image needs updating -->
+![Docker Compose Groups](images/overview/compose-group.png)
 
 ## Using image registries
 
 You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), [GitHub](https://github.com/), and more:
 
-![Azure Container Registry content](images/overview/container-registry.png) <!-- TODO: image needs updating -->
+![Azure Container Registry content](images/overview/container-registry.png)
 
 An image in an Azure Container Registry can be deployed to Azure App Service or Azure Container Apps directly from VS Code. See [Deploy to Azure](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
