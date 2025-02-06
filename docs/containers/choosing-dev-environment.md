@@ -88,7 +88,7 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 1. In the Extensions view, install the Container Tools extension (on the remote host) (a reload may be required after this step):
 
-   ![Screenshot - Installing the Container Tools extension](images/devenv/install-in-ssh.png) <!-- TODO: image needs updating -->
+   ![Screenshot - Installing the Container Tools extension](images/devenv/install-in-ssh.png)
 
 >**Note**: If you are using the Container Tools extension to build container images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Container Tools extension for the Container Explorer features, then you can disregard this.
 
