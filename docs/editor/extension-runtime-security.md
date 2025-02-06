@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Runtime Security
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
 PageTitle: Visual Studio Code Extension Runtime Security
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 
@@ -27,6 +27,8 @@ As of VS Code release 1.97, when you first install an extension from a third-par
 When you trust the publisher of an extension pack or an extension with dependencies on other extensions, you are also trusting the publishers of the dependent extensions.
 
 Publishers for extensions that you installed previously are considered trusted and are automatically added to the list of trusted publishers.
+
+You can manage the list of trusted extensions by using the **Extensions: Manage Trusted Extensions Publishers** command.
 
 > [!IMPORTANT]
 > When you install extensions by using the [VS Code command line](/docs/editor/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
@@ -80,6 +82,6 @@ To report an extension:
 
 * Learn how to install and manage extensions in [Visual Studio Code](/docs/editor/extension-marketplace.md).
 
-* Use [Workspace Trust](/docs/editor/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
+* Use [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) to decide whether code in a project folder can be executed by VS Code and extensions without explicit approval. This adds an extra layer of security when working with unfamiliar code.
 
 * Configure [allowed extensions in VS Code](/docs/setup/enterprise.md#configure-allowed-extensions) to enforce which extensions are allowed to be used in your organization.

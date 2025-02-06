@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).

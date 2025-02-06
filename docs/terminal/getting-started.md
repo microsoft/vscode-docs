@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Getting Started Tutorial
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Getting started with the integrated terminal
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Learn how to get started running shell commands with the integrated terminal in Visual Studio Code.
 ---
 # Getting started with the terminal

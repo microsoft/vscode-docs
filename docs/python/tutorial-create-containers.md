@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Create containers
 ContentId: 4e45a3f6-b72d-4647-82a5-22f7ee593d47
 PageTitle: Create Docker containers for Python web apps in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: How to create Docker containers for Python web apps using the VS Code Docker extension
 MetaSocialImage: images/tutorial/python-social.png
 ---

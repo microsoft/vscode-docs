@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
@@ -54,6 +54,12 @@ At any time, you can drag and drop views and panels into the Primary or Secondar
 
 > [!NOTE]
 > You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
+
+### Command Palette position
+
+You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/custom-layout/command-palette-position.png)
 
 ### Activity Bar position
 

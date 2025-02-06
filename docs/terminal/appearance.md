@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -117,9 +117,28 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## Ligatures
 
-Terminal ligatures which allow rendering multiple character as one can be turned on with the `setting(terminal.integrated.fontLigatures)` setting. This feature requires the configured `setting(terminal.integrated.fontFamily)` to also support ligatures.
+Terminal [ligatures](https://en.wikipedia.org/wiki/Ligature_(writing)) allow rendering multiple characters as one. You can enable ligatures in the terminal by configuring the `setting(terminal.integrated.fontLigatures.enabled)`  setting, provided that the terminal font family (`setting(terminal.integrated.fontFamily)`) supports them.
 
 ![Enabling ligatures will combine certain sets of characters into one, for example >= into the greater than or equals sign](images/appearance/ligatures.png)
+
+### Font feature settings
+
+When ligatures are enabled, it's also possible to set a detailed list of font feature settings in the format of the [`font-feature-settings`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) CSS property. This gives you more fine-grained control over how ligatures are rendered. For example, disabling the standard `calt` ligatures and enabling a particular font variant looks something like `"calt" off, "ss03"`. For a list of variants supported by the font, consult the font's documentation.
+
+### Fallback ligatures
+
+When a font supports ligatures but VS Code does not support parsing the font in question, you can either disable [GPU acceleration](#gpu-acceleration) or specify a list of character sequences to manually join to make ligatures.
+
+By default, the fallback ligatures are a list of common ligatures used in coding. Fine-tune the list by configuring the `setting(terminal.integrated.fontLigatures.fallbackLigatures)` setting. For example:
+
+```json
+// Only use ligatures for `ff`, `fi` and `fl`
+"terminal.integrated.fontLigatures.fallbackLigatures": [
+    "ff",
+    "fi",
+    "fl"
+]
+```
 
 ## GPU acceleration
 

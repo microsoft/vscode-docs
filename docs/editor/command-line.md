@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line interface
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -63,13 +63,13 @@ For both files and folders, you can use absolute or relative paths. Relative pat
 
 If you specify more than one file at the command line, VS Code will open only a single instance.
 
-If you specify more than one folder at the command line, VS Code will create a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) including each folder.
+If you specify more than one folder at the command line, VS Code will create a [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) including each folder.
 
 Argument|Description
 ------------------|-----------
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 `file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
-`folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
+`folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
@@ -113,6 +113,7 @@ Argument|Description
 `--upload-logs` | Uploads logs from current session to a secure endpoint.
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
+`--remove <dir>` | Remove folder(s) from the last active window for a multi-root workspace.
 
 ### Create remote tunnel
 
