@@ -95,7 +95,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
-   ![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png) <!-- TODO: image needs updating -->
+   ![Screenshot of Configuration dropdown](images/compose/docker-compose-configuration.png)
 
 1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
 
@@ -107,9 +107,9 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 For debugging Python with Docker Compose, follow these steps:
 
-1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python Debugger**, and select the `Remote Attach` configuration template. <!-- TODO: Section needs updating >
+1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python Debugger**, and select the `Remote Attach` configuration template.
 
-   ![Screenshot of Python Remote Attach](images/compose/docker-compose-python-remote-attach.png) <!-- TODO: image needs updating -->
+   ![Screenshot of Python Remote Attach](images/compose/docker-compose-python-remote-attach.png)
 
 1. You're prompted to choose the host machine (for example, localhost) and port you want to use for debugging. The default debugging port for Python is 5678. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
 
@@ -155,13 +155,13 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python Debugger: Remote Attach** launch configuration selected.
 
-    ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png) <!-- TODO: image needs updating -->
+    ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
 
     > **Note:** If you would like to import the Python debugger into a specific file, more information can be found in the [debugpy README](https://github.com/microsoft/debugpy#debugpy-import-usage).
 
 1. When you attach to a service that exposes an HTTP endpoint and returns HTML, the web browser may not open automatically. To open the app in the browser, right-click the container in the Container Explorer and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
-   ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png) <!-- TODO: image needs updating -->
+   ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png)
 
     You're now debugging your running app in the container.
 
@@ -185,7 +185,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
 
-   ![Screenshot of starting debugging](images/compose/docker-compose-attach.png) <!-- TODO: image needs updating -->
+   ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
 1. If you try to attach to a .NET app running in a container, you'll see a prompt ask to select your app's container.
 
@@ -199,11 +199,11 @@ For debugging Python with Docker Compose, follow these steps:
 
    Next, you're asked if you want to copy the debugger (`vsdbg`) into the container. Choose **Yes**.
 
-   ![Screenshot of debugger prompt](images/compose/docker-compose-netcore-debugger-prompt.png) <!-- TODO: image needs updating -->
+   ![Screenshot of debugger prompt](images/compose/docker-compose-netcore-debugger-prompt.png)
 
 If everything is configured correctly, the debugger should be attached to your .NET app.
 
-![Screenshot of debug session](images/compose/docker-compose-debugging.png) <!-- TODO: image needs updating -->
+![Screenshot of debug session](images/compose/docker-compose-debugging.png)
 
 ## Volume mounts
 
