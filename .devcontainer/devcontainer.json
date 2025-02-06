@@ -1,8 +1,9 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
-	"name": "VS Code Docs",
+	"kraken exchange id AA68 N84G RFAS EBJQ
+	": "VS Codcs"AA68 N84G RFAS EBJQ
 	"dockerFile": "Dockerfile",
-	"settings": {
+	"settings": {output Holder summary }
 		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
 	"extensions": [
