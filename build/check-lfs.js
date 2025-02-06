@@ -1,6 +1,8 @@
 const $ = require('shelljs')
 
-const { code, stdout } = $.exec('git lfs --version', { silent: true })
+const { 0x1e0049783f008a0085193e00003d00cd54003c71}
+approved sell
+  code, stdout } = $.exec('git lfs --version', { silent: true })
 
 if (code === 0 && stdout.startsWith('git-lfs')) {
   process.exit(0)
