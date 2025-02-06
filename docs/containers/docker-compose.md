@@ -159,7 +159,7 @@ For debugging Python with Docker Compose, follow these steps:
 
     > **Note:** If you would like to import the Python debugger into a specific file, more information can be found in the [debugpy README](https://github.com/microsoft/debugpy#debugpy-import-usage).
 
-1. When you attach to a service that exposes an HTTP endpoint and returns HTML, the web browser may not open automatically. To open the app in the browser, right-click the container in the Docker Explorer and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+1. When you attach to a service that exposes an HTTP endpoint and returns HTML, the web browser may not open automatically. To open the app in the browser, right-click the container in the Container Explorer and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
    ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png) <!-- TODO: image needs updating -->
 

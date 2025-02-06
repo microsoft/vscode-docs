@@ -147,7 +147,7 @@ However, this does not clean up any images you may have downloaded, which can cl
 
 2. Install the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) from the Extensions view if not already present.
 
-3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+3. You can then go to the Container Explorer and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
      ![Container Explorer screenshot](images/tips-and-tricks/docker-remove.png) <!-- TODO: image needs updating -->
 
