@@ -148,61 +148,68 @@ Common use cases include:
 
 - `react-form.prompt.md` - documents a reusable task for generating a form:
 
-  ```markdown
-  Your goal is to generate a new React form component.
+    ```markdown
+    Your goal is to generate a new React form component.
 
-  Ask for the form name and fields if not provided.
+    Ask for the form name and fields if not provided.
 
-  Requirements for the form:
-  - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-  - Use `react-hook-form` for form state management:
+    Requirements for the form:
+    - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+    - Use `react-hook-form` for form state management:
     - Always define TypeScript types for your form data
     - Prefer *uncontrolled* components using register
     - Use `defaultValues` to prevent unnecessary rerenders
-  - Use `yup` for validation:
+    - Use `yup` for validation:
     - Create reusable validation schemas in separate files
     - Use TypeScript types to ensure type safety
     - Customize UX-friendly validation rules
-  ```
+    ```
 
 - `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
 
-  ```markdown
-  Secure REST API review:
-  - Ensure all endpoints are protected by authentication and authorization
-  - Validate all user inputs and sanitize data
-  - Implement rate limiting and throttling
-  - Implement logging and monitoring for security events
-  …
-  ```
+    ```markdown
+    Secure REST API review:
+    - Ensure all endpoints are protected by authentication and authorization
+    - Validate all user inputs and sanitize data
+    - Implement rate limiting and throttling
+    - Implement logging and monitoring for security events
+    …
+    ```
 
 ### Usage
 
-To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace, and the default value of `.github/prompts` is used if no other paths provided.
+To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. By default, prompt files are located in the `.github/prompts` directory of your workspace. You can also [specify additional folders](#prompt-files-experimental-settings) where prompt files are located.
 
-To use prompt files, follow these steps:
+#### Create a prompt file
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
 
-2. Write prompt instructions by using Markdown formatting.
+1. Write prompt instructions by using Markdown formatting.
 
-Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file.
 
-1. Select the Attach <i class="codicon codicon-attach"></i> icon, then select **Prompt...** and choose the prompt file to attach it in Copilot Chat or Edits.
+    You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
+
+#### Attach a prompt file to a chat request
+
+1. Select the **Attach Context** <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select **Prompt...**.
+
+1. Choose a prompt file from the Quick Pick to attach it to your chat request.
+
+    You can use prompt files in both Copilot Chat and Copilot Edits.
 
 1. Optionally, attach additional context files required for the task.
 
-1. Send the chat prompt
+    For reusable tasks, send the prompt without any additional instructions.
 
-  - For reusable tasks, send the prompt without any additional instructions.
-  - Include additional instructions to provide more context for the task at hand.
+    To further refine a reusable prompt, include additional instructions to provide more context for the task at hand.
 
 > [!TIP]
 > Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
 
 ## Settings
 
-### Custom instructions
+### Custom instructions settings
 
 * `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
 * `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
@@ -210,9 +217,15 @@ Reference additional workspace files as Markdown links (`[index](../index.ts)`),
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.
 
-### Prompt files (experimental)
+### Prompt files (experimental) settings
 
 * `setting(chat.promptFiles)` _(Experimental)_: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+
+    | Setting value | Description |
+    |---------------|-------------|
+    | `false` (default) | Disable prompt files. |
+    | `true` | Enable prompt files. Use the default prompt file location (`.github/prompts`). |
+    | `{ "/path/to/folder": boolean }` | Enable prompt files. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. |
 
 ## Related content
 
