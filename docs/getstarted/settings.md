@@ -7,7 +7,7 @@ PageTitle: Visual Studio Code User and Workspace Settings
 DateApproved: 02/06/2025
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
-# User and Workspace Settings
+# User and workspace settings
 
 You can configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
@@ -34,7 +34,8 @@ You can access your user settings in a few ways:
 
 Workspace settings are specific to a project and override user settings. If you have specific settings that you want to apply to a specific project, you can use workspace settings. For example, for a backend server project, you might want to set the `files.exclude` setting to exclude the `node_modules` folder from the File Explorer.
 
->**Note**: A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editor/workspaces/workspaces.md).
+> [!NOTE]
+> A VS Code "workspace" is usually just your project root folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md). Get more info about [VS Code workspaces](/docs/editor/workspaces/workspaces.md).
 
 VS Code stores workspace settings at the root of the project in a `.vscode` folder. This makes it easy to share settings with others in a version-controlled (for example, Git) project.
 
@@ -66,7 +67,8 @@ The gear icon alongside the setting (`kb(settings.action.showContextMenu)`) open
 
 ![Settings edit gear context menu](images/settings/more-actions-context-menu.png)
 
-> **Tip**: A settings URL enables you to navigate directly to a specific setting in the Settings editor from the browser. The URL is in the format `vscode://settings/<settingName>`, where `<settingName>` is the ID of the setting you want to navigate to. For example, to navigate to the `workbench.colorTheme` setting, use the URL `vscode://settings/workbench.colorTheme`.
+> [!TIP]
+> A settings URL enables you to navigate directly to a specific setting in the Settings editor from the browser. The URL is in the format `vscode://settings/<settingName>`, where `<settingName>` is the ID of the setting you want to navigate to. For example, to navigate to the `workbench.colorTheme` setting, use the URL `vscode://settings/workbench.colorTheme`.
 
 ### Settings groups
 
@@ -76,7 +78,8 @@ In the following example, the source control settings are focused by selecting *
 
 ![Settings editor with the Source Control section of the table of contents selected](images/settings/settings-groups.png)
 
-> **Note**: VS Code extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
+> [!NOTE]
+> VS Code extensions can also add their own custom settings, and those settings are visible under an **Extensions** section.
 
 ### Settings editor filters
 
@@ -138,7 +141,8 @@ Some settings can only be edited in `settings.json` such as **Workbench: Color C
 
 ![Workbench: Color Customizations setting with Edit in settings.json link](images/settings/edit-in-settings-json-link.png)
 
-> **Tip**: If you prefer to always work directly with `settings.json`, you can set `setting(workbench.settings.editor)` to `json`. Then, **File** > **Preferences** > **Settings** and the keybinding `kb(workbench.action.openSettings)` always open the `settings.json` file and not the Setting editor UI.
+> [!TIP]
+> If you prefer to always work directly with `settings.json`, you can set `setting(workbench.settings.editor)` to `json`. Then, **File** > **Preferences** > **Settings** and the keybinding `kb(workbench.action.openSettings)` always open the `settings.json` file and not the Setting editor UI.
 
 ### Settings file locations
 
@@ -156,7 +160,8 @@ The workspace settings file is located under the `.vscode` folder in your root f
 
 ![The File Explorer displaying settings.json under the .vscode folder](images/settings/settings-json-under-vscode.png)
 
-> **Note:** For a [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+> [!NOTE]
+> For a [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Reset settings
 
@@ -173,7 +178,8 @@ For example, when modifying the user-scope `setting(diffEditor.codeLens)` settin
 
 ![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-example.png)
 
->**Note:** If you enter more than one language filter in the search widget, the current behavior is that only the first language filter will be used.
+> [!NOTE]
+> If you enter more than one language filter in the search widget, the current behavior is that only the first language filter will be used.
 
 Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want. Then, the Settings editor opens with a language filter for the selected language, which allows you to modify language-specific settings for that language. Though, if you have the `setting(workbench.settings.editor)` setting set to `json`, then the `settings.json` file opens with a new language entry where you can add applicable settings.
 
@@ -233,13 +239,18 @@ You can use [profiles in VS Code](/docs/editor/profiles.md) to create sets of cu
 
 When you switch to a profile, the user settings are scoped to only that profile. When you switch to another profile, the user settings of that other profile are applied. This way, you can have different settings for different profiles.
 
-If you're using a non-default profile, you notice that there is a **Preferences: Open Application Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). This command opens the user `settings.json` file that is associated with default profile.
-
 The user settings JSON file for a profile is located in the following directory:
 
 * **Windows** `%APPDATA%\Code\User\profiles\<profile ID>\settings.json`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles/<profile ID>/settings.json`
 * **Linux** `$HOME/.config/Code/User/profiles/<profile ID>/settings.json`
+
+The `<profile ID>` is the unique identifier of the profile. For each profile that overrides settings, there will be a corresponding profile settings file.
+
+> [!NOTE]
+> The `settings.json` file for a profile is only created when you modify a setting for that profile.
+
+When you're using a non-default profile, you can access the `settings.json` file that is associated with the default profile by using the **Preferences: Open Application Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Settings precedence
 
@@ -322,7 +333,8 @@ You can share your user settings across your VS Code instances with the [Setting
 
 You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/settings-sync.md) user guide.
 
-> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
+> [!NOTE]
+> VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Feature lifecycle
 
