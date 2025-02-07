@@ -37,7 +37,7 @@
         ["Basic Editing", "/docs/editor/codebasics"],
         ["Extension Marketplace", "/docs/editor/extension-marketplace"],
         ["Extension Runtime Security", "/docs/editor/extension-runtime-security"],
-        ["Intellisense", "/docs/editor/intellisense"],
+        ["IntelliSense", "/docs/editor/intellisense"],
         ["Code Navigation", "/docs/editor/editingevolved"],
         ["Refactoring", "/docs/editor/refactoring"],
         ["Debugging", "/docs/editor/debugging"],
