@@ -11,19 +11,17 @@ Author: Brigit Murtaugh, Burke Holland
 
 February 12, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
-GitHub Copilot code completions are great at autocomplete - they can predict and suggest the code that was in your head, without you even having to ask for it. But since most coding activity is editing existing code, it's a natural evolution of completions to also help with edits.
+We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES") - the next evolution of Copilot completions.
 
-Edits are often not made in isolation - there's a logical flow of what edits need to be made as you iterate on your project - and they can happen both at your current cursor location and further away.
-
-We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES"), which is this evolution of Copilot completions.
+GitHub Copilot code completions - which are also called "Ghost Text" - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity is editing _existing code_. It's a natural next step for completions to work on that code as well.
 
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/point3d.png"></video>
 
+We call this, "Next Edit Suggestions". Or NES for short. Yes, we feel the nastalgia when we see that acronymn too.
+
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
 
-You may have seen [previous work from the GitHub Next Team on NES](https://githubnext.com/projects/copilot-next-edit-suggestions/) – this is the evolution of the Next Team's great work, now part of the existing GitHub Copilot extensions.
-
-## Getting your first suggestions
+## Getting started with NES
 
 You can enable Copilot NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
@@ -80,21 +78,19 @@ You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more in
 
 We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
 
-But before you go, there's one more feature in preview that we want to talk about: agent mode.
+And, there's...just one more thing.
 
 ## Agent mode
 
 As of today's [VS Code Insiders](https://code.visualstudio.com/insiders/) release, GitHub Copilot Edits now has an option for agent mode. You can opt-in to this experience via the VS Code setting `setting(github.copilot.chat.agent.enabled)`.
 
-![Agent mode option in Copilot Edits](agent-mode.gif)
-
 Agent mode in Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
-[TODO add gif or video]
+<video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="/assets/blogs/2025/02/12/Agent-Sunrise-1.webp"></video>
 
 We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in Stable).
 
-You can read more about agent mode in our docs and GitHub's blogpost. [TODO update links]
+You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/copilot-edits#_use-agent-mode-preview) and [GitHub's blogpost](https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/).
 
 ## New year, new Copilot
 
