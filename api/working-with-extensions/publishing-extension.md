@@ -104,9 +104,9 @@ To create a publisher:
     - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
     - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
 
-    Below is an example of publisher identifier and name for the Container Tools extension:
+    Below is an example of publisher identifier and name for the Python extension:
 
-    ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png) <!-- TODO: image needs updating -->
+    ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
 
 1. Optionally, fill out the rest of the fields.
 1. Click **Create**
