@@ -125,7 +125,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
 1. Follow the steps in the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md) to learn how you can also use Copilot Chat to ask questions about your specific codebase.
 
-## Make edits across multiple files with Copilot Edits (preview)
+## Make edits across multiple files with Copilot Edits
 
 Larger code changes might involve making edits to multiple files. With Copilot Edits, you can get AI-powered suggestions inline in the editor, across multiple files in your workspace. Instead of applying individual code blocks, Copilot Edits makes edits across your workspace.
 
