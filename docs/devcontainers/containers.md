@@ -397,7 +397,7 @@ You can also inspect your volumes in the Remote Explorer. Make sure you have Con
 
 If you have the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed, you can right-click on a volume in the **Volumes** section of the **Container Explorer** and select **Explore in a Development Container**.
 
-![Explore in dev container in Container Tools context menu](images/containers/docker-explore-dev-container.png) <!-- TODO: image needs updating -->
+![Explore in dev container in Container Tools context menu](images/containers/docker-explore-dev-container.png)
 
 ## Managing extensions
 
