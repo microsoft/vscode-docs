@@ -29,6 +29,7 @@ The following predefined variables are supported:
 - **${fileDirnameBasename}** - the current opened file's folder name
 - **${cwd}** - the task runner's current working directory upon the startup of VS Code
 - **${lineNumber}** - the current selected line number in the active file
+- **${columnNumber}** - the current selected column number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
 - **${defaultBuildTask}** - the name of the default build task
@@ -57,6 +58,7 @@ So you will have the following values for each variable:
 - **${fileDirname}** - `/home/your-username/your-project/folder`
 - **${fileDirnameBasename}** - `folder`
 - **${lineNumber}** - line number of the cursor
+- **${columnNumber}** - column number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
 - **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
