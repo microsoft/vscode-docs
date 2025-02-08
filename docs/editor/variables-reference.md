@@ -53,8 +53,9 @@ So you will have the following values for each variable:
 - **${relativeFileDirname}** - `folder`
 - **${fileBasename}** - `file.ext`
 - **${fileBasenameNoExtension}** - `file`
-- **${fileDirname}** - `/home/your-username/your-project/folder`
 - **${fileExtname}** - `.ext`
+- **${fileDirname}** - `/home/your-username/your-project/folder`
+- **${fileDirnameBasename}** - `folder`
 - **${lineNumber}** - line number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
