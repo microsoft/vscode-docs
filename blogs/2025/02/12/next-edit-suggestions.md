@@ -26,6 +26,8 @@ Based on the edits you're making, Copilot NES both predicts the location of the 
 You can enable Copilot NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
 > [!NOTE]
+> You may need to reload VS Code for your updated settings to take effect.
+>
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 >
 > You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
