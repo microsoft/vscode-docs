@@ -56,10 +56,10 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     "dbaeumer.vscode-eslint": ["3.0.0"],
 
     // Allow multiple versions of the figma extension
-    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"]
+    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"],
 
     // Allow version 5.0.0 of the rust extension on Windows and macOS
-    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]
+    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"],
 
     // Allow only stable versions of the GitHub Pull Requests extension
     "github.vscode-pull-request-github": "stable",
