@@ -79,7 +79,7 @@ Copilot NES is currently in preview. You can enable it via the VS Code setting `
 1. Search for `github.copilot.nextEditSuggestions.enabled`
 1. Enable the setting
 
-If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot editor preview features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
+If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 
 You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
