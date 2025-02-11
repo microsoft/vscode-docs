@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -88,18 +88,9 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
 
-* **Predict your next code edit** with Copilot Next Edit Suggestions (preview), aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow- you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions. You can learn more in the [Copilot NES doc](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions).
+* **Predict your next code edit** with Copilot Next Edit Suggestions (Copilot NES) (preview). Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Use the `kbstyle(Tab)` key to quickly navigate and accept suggestions. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview).
 
-    ![NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
-
-> [!NOTE]
-> Copilot NES is currently in preview. You can enable NES via the VS Code setting `setting(github.copilot.chat.nextEditSuggestions.enabled)`.
->
-> For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md).
->
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot editor preview features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
->
-> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+    ![Copilot NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
 
 ### Iterate on large changes across multiple files
 

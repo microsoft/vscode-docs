@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -46,7 +46,7 @@ async function main() {
 		platform: 'node',
 		outfile: 'dist/extension.js',
 		external: ['vscode'],
-		logLevel: 'silent',
+		logLevel: 'warning',
 		plugins: [
 			/* add to the end of plugins array */
 			esbuildProblemMatcherPlugin,
@@ -73,6 +73,7 @@ const esbuildProblemMatcherPlugin = {
 		build.onEnd((result) => {
 			result.errors.forEach(({ text, location }) => {
 				console.error(`✘ [ERROR] ${text}`);
+                if (location == null) return;
 				console.error(`    ${location.file}:${location.line}:${location.column}:`);
 			});
 			console.log('[watch] build finished');

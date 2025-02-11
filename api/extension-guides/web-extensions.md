@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
@@ -531,7 +531,7 @@ async function main() {
 		platform: 'browser',
 		outdir: 'dist/web',
 		external: ['vscode'],
-		logLevel: 'silent',
+		logLevel: 'warning',
 		// Node.js global to browser globalThis
 		define: {
 			global: 'globalThis',
@@ -597,6 +597,7 @@ const esbuildProblemMatcherPlugin = {
 		build.onEnd((result) => {
 			result.errors.forEach(({ text, location }) => {
 				console.error(`✘ [ERROR] ${text}`);
+        if (location == null) return;
 				console.error(`    ${location.file}:${location.line}:${location.column}:`);
 			});
 			console.log('[watch] build finished');

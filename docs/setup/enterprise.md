@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
 PageTitle: Visual Studio Code enterprise support
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -56,10 +56,10 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     "dbaeumer.vscode-eslint": ["3.0.0"],
 
     // Allow multiple versions of the figma extension
-    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"]
+    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"],
 
     // Allow version 5.0.0 of the rust extension on Windows and macOS
-    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]
+    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"],
 
     // Allow only stable versions of the GitHub Pull Requests extension
     "github.vscode-pull-request-github": "stable",
@@ -86,10 +86,10 @@ If you want to learn more about extensions in VS Code, refer to the [extensions 
 
 Use [device management](#device-management) to centrally control which extensions are allowed to be installed in your organization. Configure the `AllowedExtensions` VS Code policy to override the corresponding `extensions.allowed` VS Code setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
 
-> [!IMPORTANT]
-> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**). In the Settings editor (`kb(workbench.action.openSettings)`), you can see a warning message for the `Extensions: Allowed` setting that the setting value was not applied.
+![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
 
-![Settings editor showing a warning message for the 'Extensions: Allowed' setting.](images/enterprise/allowed-extensions-not-applied.png)
+> [!IMPORTANT]
+> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
 
 ## Configure automatic updates
 

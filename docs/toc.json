@@ -34,9 +34,10 @@
       "name": "User Guide",
       "area": "editor",
       "topics": [
-        ["Code Basics", "/docs/editor/codebasics"],
+        ["Basic Editing", "/docs/editor/codebasics"],
         ["Extension Marketplace", "/docs/editor/extension-marketplace"],
-        ["Intellisense", "/docs/editor/intellisense"],
+        ["Extension Runtime Security", "/docs/editor/extension-runtime-security"],
+        ["IntelliSense", "/docs/editor/intellisense"],
         ["Code Navigation", "/docs/editor/editingevolved"],
         ["Refactoring", "/docs/editor/refactoring"],
         ["Debugging", "/docs/editor/debugging"],
@@ -48,9 +49,16 @@
         ["Snippets", "/docs/editor/userdefinedsnippets"],
         ["Emmet", "/docs/editor/emmet"],
         ["Command Line Interface", "/docs/editor/command-line"],
-        ["Workspaces", "/docs/editor/workspaces"],
-        ["Workspace Trust", "/docs/editor/workspace-trust"],
-        ["Multi-root Workspaces", "/docs/editor/multi-root-workspaces"],
+        ["", "", {
+          "name": "Workspaces",
+          "area": "editor/workspaces",
+          "topics": [
+            ["Workspaces", "/docs/editor/workspaces/workspaces"],
+            ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"],
+            ["Multi-root Workspaces", "/docs/editor/workspaces/multi-root-workspaces"]
+          ]
+        }
+        ],
         ["Accessibility", "/docs/editor/accessibility"],
         ["Voice Interactions", "/docs/editor/voice"],
         ["Custom Layout", "/docs/editor/custom-layout"],

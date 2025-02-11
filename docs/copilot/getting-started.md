@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Quickstart
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot quickstart
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -125,7 +125,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
 1. Follow the steps in the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md) to learn how you can also use Copilot Chat to ask questions about your specific codebase.
 
-## Make edits across multiple files with Copilot Edits (preview)
+## Make edits across multiple files with Copilot Edits
 
 Larger code changes might involve making edits to multiple files. With Copilot Edits, you can get AI-powered suggestions inline in the editor, across multiple files in your workspace. Instead of applying individual code blocks, Copilot Edits makes edits across your workspace.
 

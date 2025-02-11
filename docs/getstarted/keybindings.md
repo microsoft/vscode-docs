@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Keyboard Shortcuts
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code keyboard shortcuts
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---

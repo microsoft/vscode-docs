@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Edits
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
 PageTitle: Copilot Edits
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -134,7 +134,7 @@ Copilot Edits automatically adds the active editor to the working set. If you ha
 
 You have many options to add files to the working set:
 
-* Select **Add Files...** or use the <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select files in the Quick Pick.
+* Select **Add Files...** or use the Attach <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select files in the Quick Pick.
 
     > [!TIP]
     > To quickly select multiple items from a Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -139,7 +139,7 @@ Selection applies to the following, and follows a traditional hierarchical patte
 
 Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that was renamed or to a file that no longer exists on disk.
 
-![A warning shown in the editor when linking to a file that does not exist](images/markdown/link-validation.png)
+![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
 
 Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. VS Code then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
 

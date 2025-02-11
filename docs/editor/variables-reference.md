@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -29,6 +29,7 @@ The following predefined variables are supported:
 - **${fileDirnameBasename}** - the current opened file's folder name
 - **${cwd}** - the task runner's current working directory upon the startup of VS Code
 - **${lineNumber}** - the current selected line number in the active file
+- **${columnNumber}** - the current selected column number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
 - **${defaultBuildTask}** - the name of the default build task
@@ -53,9 +54,11 @@ So you will have the following values for each variable:
 - **${relativeFileDirname}** - `folder`
 - **${fileBasename}** - `file.ext`
 - **${fileBasenameNoExtension}** - `file`
-- **${fileDirname}** - `/home/your-username/your-project/folder`
 - **${fileExtname}** - `.ext`
+- **${fileDirname}** - `/home/your-username/your-project/folder`
+- **${fileDirnameBasename}** - `folder`
 - **${lineNumber}** - line number of the cursor
+- **${columnNumber}** - column number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
 - **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
@@ -276,7 +279,7 @@ Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)
 
 ### Why isn't ${workspaceRoot} documented?
 
-The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/workspaces/multi-root-workspaces.md) support.
 
 ### Why aren't variables in tasks.json being resolved?
 

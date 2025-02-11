@@ -4,10 +4,10 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 12/11/2024
+DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
-# Visual Studio Code Tips and Tricks
+# Visual Studio Code tips and tricks
 
 Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
 
@@ -45,6 +45,11 @@ Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
 ![Command Palette](images/tips-and-tricks/OpenCommandPalette.gif)
 
+> [!TIP]
+> You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/tips-and-tricks/command-palette-position.png)
+
 ### Default keyboard shortcuts
 
 Many of the commands in the Command Palette have default keyboard shortcuts associated with them. You can see the default keyboard shortcut alongside the command in the **Command Palette** (`kb(workbench.action.showCommands)`).
@@ -57,38 +62,6 @@ Download the keyboard shortcut reference sheet for your platform ([macOS](https:
 
 ![Keyboard Reference Sheet](images/tips-and-tricks/KeyboardReferenceSheet.png)
 
-### Quick Open
-
-Quickly search and open files.
-
-Keyboard Shortcut: `kb(workbench.action.quickOpen)`
-
-![Quick Open](images/tips-and-tricks/QuickOpen.gif)
-
-**Tip:** Type `kbstyle(?)` to view command suggestions.
-
-![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
-
-Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
-
-![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
-
-### Navigate between recently opened files
-
-Repeatedly press the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
-
-### Open multiple files from Quick Open
-
-You can open multiple files from **Quick Open** by pressing `kbstyle(Right Arrow)`. This opens the currently selected file in the background, and you can continue selecting files from **Quick Open**.
-
-### Navigate between recently opened folders and workspaces
-
-Open a recent folder or workspace.
-
-Keyboard Shortcut: `kb(workbench.action.openRecent)`
-
-Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
-
 ### Floating windows
 
 You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
@@ -96,6 +69,41 @@ You can open an editor in a floating window, for example to move the editor to a
 To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window. Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
 
 <video src="images/tips-and-tricks/floating-windows.mp4" autoplay loop controls muted></video>
+
+### Integrated Terminal
+
+Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
+
+![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
+
+You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
+
+Further reading:
+
+* [Integrated Terminal](/docs/terminal/basics.md) documentation
+* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
+
+### Toggle Sidebar
+
+Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
+
+![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
+
+### Toggle Panel
+
+Keyboard Shortcut: `kb(workbench.action.togglePanel)`
+
+![toggle panel](images/tips-and-tricks/toggle_panel.gif)
+
+### Zen mode
+
+Enter distraction-free Zen mode.
+
+Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
+
+![zen mode](images/tips-and-tricks/zen_mode.gif)
+
+Press `kbstyle(Esc)` twice to exit Zen Mode.
 
 ## Command line
 
@@ -131,7 +139,7 @@ code --disable-extensions .
 
 ### .vscode folder
 
-Workspace specific files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
+Workspace-specific configuration files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
 
 ## Status Bar
 
@@ -184,7 +192,9 @@ Additionally, you can install and change your File Icon themes.
 
 ### Keymaps
 
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
+Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Use the **Preferences: Keymaps** command to see the current list on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
+
+Some of the more popular keymaps are:
 
 * [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 * [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
@@ -385,6 +395,14 @@ Specify the full path to the browser executable as the settings value. Alternati
 "workbench.externalBrowser": "edge"
 ```
 
+### Combine multiple logs into a single view
+
+The Output panel shows the output of various services. Each services typically has their own log. To analyze related log information from multiple services, you can combine multiple logs into a single _compound log_.
+
+Select **Create Compound Log...** from the overflow menu of the Output panel.
+
+<video src="images/tips-and-tricks/compound-log.mp4" title="Video showing how to create a compound log that combines the log messages from two other logs." autoplay loop controls muted></video>
+
 ## Extensions
 
 Keyboard Shortcut: `kb(workbench.view.extensions)`
@@ -440,58 +458,41 @@ To enable the simple file dialog, configure the `files.simpleDialog` [setting](/
     "files.simpleDialog.enable": true
 ```
 
-### Integrated Terminal
-
-Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
-
-![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
-
-You can select another terminal shell from the dropdown. Depending on your operating system and system configuration, you might see different shells listed.
-
-Further reading:
-
-* [Integrated Terminal](/docs/terminal/basics.md) documentation
-* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
-
-### Toggle Sidebar
-
-Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
-
-![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
-
-### Toggle Panel
-
-Keyboard Shortcut: `kb(workbench.action.togglePanel)`
-
-![toggle panel](images/tips-and-tricks/toggle_panel.gif)
-
-### Zen mode
-
-Enter distraction-free Zen mode.
-
-Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
-
-![zen mode](images/tips-and-tricks/zen_mode.gif)
-
-Press `kbstyle(Esc)` twice to exit Zen Mode.
-
-### Side by side editing
-
-Keyboard Shortcut: `kb(workbench.action.splitEditor)`
-
-You can also drag and drop editors to create new editor groups and move editors between groups.
-
-![split editors](images/tips-and-tricks/split_editor.gif)
-
-### Switch between editors
-
-Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
-
-![navigate editors](images/tips-and-tricks/navigate_editors.gif)
-
 ### Show Explorer view
 
 Keyboard Shortcut: `kb(workbench.view.explorer)`
+
+### Quick Open
+
+Quickly search and open files.
+
+Keyboard Shortcut: `kb(workbench.action.quickOpen)`
+
+![Quick Open](images/tips-and-tricks/QuickOpen.gif)
+
+**Tip:** Type `kbstyle(?)` to view command suggestions.
+
+![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
+
+Typing commands such as `edt` or `term` followed by a space brings up a dropdown list.
+
+![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
+
+#### Navigate between recently opened files
+
+Repeatedly press the **Quick Open** keyboard shortcut to cycle quickly between recently opened files.
+
+#### Open multiple files from Quick Open
+
+You can open multiple files from **Quick Open** by pressing `kbstyle(Right Arrow)`. This opens the currently selected file in the background, and you can continue selecting files from **Quick Open**.
+
+### Navigate between recently opened folders and workspaces
+
+Open a recent folder or workspace.
+
+Keyboard Shortcut: `kb(workbench.action.openRecent)`
+
+Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
 
 ### Create or open a file from a link
 
@@ -542,6 +543,20 @@ Use the actions in the editor toolbar to resolve the save conflict. You can eith
 Here is a selection of common features for editing code. If you're more familiar with the keyboard shortcuts for another editor, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs).
 
 **Tip**: You can see recommended keymap extensions in the **Extensions** view by filtering the search to `@recommended:keymaps`.
+
+### Side by side editing
+
+Keyboard Shortcut: `kb(workbench.action.splitEditor)`
+
+You can also drag and drop editors to create new editor groups and move editors between groups.
+
+![split editors](images/tips-and-tricks/split_editor.gif)
+
+### Switch between editors
+
+Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
+
+![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
 ### Multi cursor selection
 
@@ -839,6 +854,19 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
 Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
+
+## Git blame
+
+VS Code shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
+
+![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/1_97/scm-git-blame.png)
+
+To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
+
+* `setting(git.blame.statusBarItem.enabled)` (enabled by default)
+* `setting(git.blame.editorDecoration.enabled)`
+
+Learn more about [git blame support in VS Code](/docs/sourcecontrol/overview.md#git-blame-information) and how to customize the layout.
 
 ### Diffs
 
