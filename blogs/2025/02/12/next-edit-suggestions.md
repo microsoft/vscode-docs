@@ -13,7 +13,7 @@ February 12, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Ho
 
 We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES") - the next evolution of Copilot completions.
 
-GitHub Copilot code completions - which are also called "Ghost Text" - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity is editing _existing code_. It's a natural next step for completions to work on that code as well.
+GitHub Copilot code completions - which are also called _ghost text_ - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity is editing _existing code_. It's a natural next step for completions to work on that code as well.
 
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/point3d.png"></video>
 
