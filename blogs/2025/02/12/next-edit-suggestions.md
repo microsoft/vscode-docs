@@ -2,7 +2,7 @@
 Order: 92
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
-MetaDescription: Announcing the Next Edit Suggestions (NES) feature for GitHub Copilot in Visual Studio Code.
+MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
 Date: 2025-02-12
 Author: Brigit Murtaugh, Burke Holland
 ---
@@ -11,38 +11,48 @@ Author: Brigit Murtaugh, Burke Holland
 
 February 12, 2025 by [Brigit Murtaugh](https://github.com/bamurtaugh), [Burke Holland](https://github.com/burkeholland)
 
-We're excited to announce the preview of **Copilot Next Edit Suggestions** (aka "Copilot NES") - the next evolution of Copilot completions.
+We're excited to announce not one, not two, but _three_ previews for GitHub Copilot in this release of Visual Studio Code:
 
-GitHub Copilot code completions - which are also called "Ghost Text" - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity is editing _existing code_. It's a natural next step for completions to work on that code as well.
+1. **Next Edit Suggestions**
+2. **Agent Mode** for Copilot Edits
+3. **Vision**
+
+In this post, we're going to dive into Next Edit Suggestions and take a look at the next evolution of AI-powered code completions in your editor.
+
+## Next Edit Suggestions (NES)
+
+GitHub Copilot code completions - which are also called _ghost text_ - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity involves editing _existing code_ as much as it does writing new lines. It's a natural next step for completions to work on existing code as well.
+
+We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the nostalgia when we see that acronymn.
 
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/point3d.png"></video>
 
-We call this, "Next Edit Suggestions". Or NES for short. Yes, we feel the nastalgia when we see that acronymn too.
+### Getting started with NES
 
-Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept suggestions.
-
-## Getting started with NES
-
-You can enable Copilot NES via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
-
-> [!NOTE]
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of previews of Copilot features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
->
-> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+To get started with Copilot NES, first enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
 Like completions, all you need to do to start getting suggestions from NES is to start coding!
 
-When you're presented with an edit suggestion, you can navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again, saving you time to find the next relevant edit (no manual searching through files or references required).
+When you're presented with an edit suggestion, navigate to it with the `kbstyle(Tab)` key and then accept it with the `kbstyle(Tab)` key again. Forget about manually searching through related files or references. Copilot NES will keep tabs on your next relevant edit!
 
-An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+An arrow in the gutter indicates that there is an edit suggestion available. Hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+
 ![NES gutter menu expanded](gutter-menu-highlighted-updated.png)
 
-If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+Scrolled all the way past that edit suggestion? The arrow hints you at the location of the next edit suggestion, pointing up or down based on where you are in the file:
+
 ![NES with arrow directions changing](nes-arrow-directions.gif)
 
 Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-## Example scenarios
+> [!NOTE]
+> You may need to reload VS Code for your updated settings to take effect.
+>
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
+>
+> You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
+### Example scenarios
 
 Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
@@ -68,7 +78,9 @@ It could also be more complex: if you added a new command to your VS Code extens
 **Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly:
 ![NES suggesting change after updating function name](nes-gutter.gif)
 
-## Share your feedback
+Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios, as we expand the NES experience.
+
+### Share your feedback
 
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
 
@@ -78,19 +90,36 @@ You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more in
 
 We're excited about this next step in AI where Copilot anticipates what you'll want to do next - the best prompt is the one that you don't have to write. We hope you're excited too and look forward to seeing what you build!
 
-And, there's...just one more thing.
-
 ## Agent mode
 
-As of today's [VS Code Insiders](https://code.visualstudio.com/insiders/) release, GitHub Copilot Edits now has an option for agent mode. You can opt-in to this experience via the VS Code setting `setting(github.copilot.chat.agent.enabled)`.
+As of last week's [VS Code Insiders](https://code.visualstudio.com/insiders/) release, GitHub Copilot Edits now has an option for agent mode. Opt-in to this experience via the VS Code setting `setting(github.copilot.chat.agent.enabled)`.
 
 Agent mode in Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
 <video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="/assets/blogs/2025/02/12/Agent-Sunrise-1.webp"></video>
 
-We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in Stable).
+We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
 
 You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/copilot-edits#_use-agent-mode-preview) and [GitHub's blogpost](https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/).
+
+## Vision
+
+This release of VS Code Insiders also brings Vision support to GitHub Copilot.
+
+It can be frustrating to have to translate what you see into a description for Copilot over and over again. This is especially true when working with user interfaces or asking it how to configure something in the editor. Now, you can just attach a screenshot to your prompt so that Copilot can see exactly what you see. You can...
+
+* Paste from your clipboard
+* Drag and drop images from the Explorer view
+* Attach a screenshot of the current VS Code window (Select Attach > Screenshot Window)
+
+This enables all kinds of scenarios...
+
+* Giving mockups to Copilot so it can generate UI code.
+* Providing a screenshot of an interface that isn't correct so Copilot can help you fix the layout.
+* Generating alt text for images in HTML and Markdown
+* Providing a screenshot of an error
+
+Vision works today in VS Code Insiders and is available to everyone. The only supported model at the moment is GPT 4o, with support for other models in the works. Currently, the supported image types are JPEG/JPG, PNG, GIF, and WEBP.
 
 ## New year, new Copilot
 
