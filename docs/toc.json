@@ -105,7 +105,8 @@
           "name": "Guides",
           "area": "copilot/guides",
           "topics": [
-            ["Testing with Copilot", "/docs/copilot/guides/testing-with-copilot"]
+            ["Testing with Copilot", "/docs/copilot/guides/testing-with-copilot"],
+            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
           ]
         }
         ],
