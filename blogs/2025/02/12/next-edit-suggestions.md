@@ -23,7 +23,7 @@ In this post, we're going to dive into Next Edit Suggestions and take a look at 
 
 GitHub Copilot code completions - which are also called _ghost text_ - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity involves editing _existing code_ as much as it does writing new lines. It's a natural next step for completions to work on existing code as well.
 
-We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the nostalgia when we see that acronymn.
+We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronymn.
 
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/point3d.png"></video>
 
