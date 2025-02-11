@@ -25,7 +25,7 @@ GitHub Copilot code completions - which are also called _ghost text_ - are reall
 
 We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronymn.
 
-<video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/point3d.png"></video>
+<video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/nes-video-cover.png"></video>
 
 ### Getting started with NES
 
@@ -59,24 +59,30 @@ Copilot NES is your AI companion as you make changes that may cascade throughout
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
 NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
-![NES fixing a typo from "conts" to "const"](nes-typo.gif)
+
+<video src="nes-typo.mp4" title="NES fixing a typo" controls poster="/assets/blogs/2025/02/12/nes-typo-cover.png"></video>
 
 NES can also help with more challenging mistakes in logic, like an inverted ternary expression:
-![NES fixing a fibonacci logic mistake](nes-fib-logic.gif)
+
+<video src="nes-fib-logic.mp4" title="NES fixing a fibonacci logic mistake" controls poster="/assets/blogs/2025/02/12/nes-fib-logic-cover.png"></video>
 
 Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
-![NES fixing an if statement mistake](nes-de-morgan.gif)
+
+<video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="/assets/blogs/2025/02/12/nes-de-morgan-cover.png"></video>
 
 **Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition and to the distance calculation:
-![NES gif for updating Point to Point3D](nes-point.gif)
+
+<video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="/assets/blogs/2025/02/12/nes-point-cover.png"></video>
 
 **Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
 
 It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
-![Updating extension.ts and package.json with a new command](nes-extension-and-package.gif)
+
+<video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="/assets/blogs/2025/02/12/nes-extension-and-package-cover.png"></video>
 
 **Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly:
-![NES suggesting change after updating function name](nes-gutter.gif)
+
+<video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="/assets/blogs/2025/02/12/nes-gutter-cover.png"></video>
 
 Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios, as we expand the NES experience.
 
