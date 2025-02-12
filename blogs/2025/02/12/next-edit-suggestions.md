@@ -23,7 +23,7 @@ In this post, we're going to dive into Next Edit Suggestions and take a look at 
 
 GitHub Copilot code completions - which are also called _ghost text_ - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity involves editing _existing code_ as much as it does writing new lines. It's a natural next step for completions to work on existing code as well.
 
-We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronymn.
+We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronym.
 
 <video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/nes-video-cover.png"></video>
 
@@ -43,10 +43,10 @@ Scrolled all the way past that edit suggestion? The arrow hints you at the locat
 
 ![NES with arrow directions changing](nes-arrow-directions.gif)
 
-Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+Suggestions can span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
-> You may need to reload VS Code for your updated settings to take effect.
+> You might need to reload VS Code for your updated settings to take effect.
 >
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 >
@@ -54,7 +54,7 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 
 ### Example scenarios
 
-Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
+Copilot NES is your AI companion as you make changes that can cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
@@ -70,17 +70,17 @@ Our development team has been self-hosting on NES, and one of our engineers reme
 
 <video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="/assets/blogs/2025/02/12/nes-de-morgan-cover.png"></video>
 
-**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition and to the distance calculation:
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` leads to a suggestion to add a `z` variable to the class definition and to the distance calculation:
 
 <video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="/assets/blogs/2025/02/12/nes-point-cover.png"></video>
 
-**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This could be a small change, like calling a new method parameter in the actual method.
 
-It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest cleaning up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
 
 <video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="/assets/blogs/2025/02/12/nes-extension-and-package-cover.png"></video>
 
-**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly:
+**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests updating subsequent code similarly:
 
 <video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="/assets/blogs/2025/02/12/nes-gutter-cover.png"></video>
 
