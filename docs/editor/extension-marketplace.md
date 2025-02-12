@@ -116,6 +116,12 @@ For example, typing 'python' will bring up a list of Python language extensions:
 
 If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:vue.volar`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
 
+### Install a pre-release extension version
+
+An extension publisher may provide a pre-release version of an extension. To install a pre-release version, select the dropdown on the **Install** button and select **Install Pre-Release Version**.
+
+![Install pre-release version](images/extension-marketplace/extensions-install-prerelease.png)
+
 ## Manage extensions
 
 VS Code makes it easy to manage your extensions. You can install, disable, update, and uninstall extensions through the Extensions view, the **Command Palette** (commands have the **Extensions:** prefix) or command-line switches.

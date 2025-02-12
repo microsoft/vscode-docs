@@ -46,7 +46,7 @@ Scrolled all the way past that edit suggestion? The arrow hints you at the locat
 Suggestions can span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
-> You might need to reload VS Code for your updated settings to take effect.
+> Reload VS Code for your updated settings to take effect.
 >
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 >
@@ -58,7 +58,7 @@ Copilot NES is your AI companion as you make changes that can cascade throughout
 
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
-NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
+NES helps with small mistakes like typos - maybe you were coding quickly and in the zone, and you wrote `conts` instead of `const`:
 
 <video src="nes-typo.mp4" title="NES fixing a typo" controls poster="/assets/blogs/2025/02/12/nes-typo-cover.png"></video>
 
@@ -90,7 +90,7 @@ Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more informatio
 
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
 
-Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes.
+Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes. Get more details on how to [install an extension pre-release version](/docs/editor/extension-marketplace.md#install-a-pre-release-extension-version).
 
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
