@@ -67,7 +67,7 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (Copilot NES) is this evolution.
 
-<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="/assets/docs/copilot/inline-suggestions/point3d.png"></video>
+<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
