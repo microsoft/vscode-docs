@@ -7,19 +7,19 @@ MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up
 
 # Debug with GitHub Copilot
 
-GitHub Copilot can help streamline your debugging workflow in Visual Studio Code by assisting with debug configuration setup and providing suggestions for fixing issues discovered during debugging. This article shows you how to use Copilot's debugging capabilities to make your debugging sessions more productive.
+GitHub Copilot can help improve your debugging workflow in Visual Studio Code. Copilot can assist with the setup of the debug configuration for your project and provide suggestions for fixing issues discovered during debugging. This article gives an overview of how to use Copilot for debugging applications in VS Code.
 
 Copilot can help with the following debugging tasks:
 
-* **Configure debug settings**: Generate and customize launch configurations for your project.
-* **Start a debugging session**: Set up and initiate debugging with the right configuration.
+* **Configure debug settings**: generate and customize launch configurations for your project.
+* **Start a debugging session**: use `copilot-debug` to start a debugging session from the terminal.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Set up debug configuration
 
-VS Code uses a `launch.json` file to store [debug configuration](/docs/editor/debugging.md#launch-configurations). Copilot can help you create and customize this file to set up debugging for your project.
+VS Code uses the `launch.json` file to store [debug configuration](/docs/editor/debugging.md#launch-configurations). Copilot can help you create and customize this file to set up debugging for your project.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`).
 1. Enter the `/startDebugging` command.
@@ -53,5 +53,5 @@ The `copilot-debug` terminal command simplifies the process of configuring and s
 
 ## Next steps
 
-* Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
 * Explore [general debugging features in VS Code](/docs/editor/debugging.md).
+* Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
