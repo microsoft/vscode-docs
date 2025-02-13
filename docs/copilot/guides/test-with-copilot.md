@@ -11,11 +11,11 @@ Writing and maintaining tests is a crucial but often time-consuming part of soft
 
 Copilot can help with the following testing tasks:
 
-* **Generate test code**: create unit tests, integration tests, and end-to-end tests that cover your application code.
 * **Set up testing frameworks**: get help configuring the right testing framework and VS Code extensions for your project and language.
-* **Fix failing tests**: receive suggestions for fixing test failures.
+* **Generate test code**: create unit tests, integration tests, and end-to-end tests that cover your application code.
 * **Handle edge cases**: generate comprehensive test suites to cover edge cases and error conditions.
-* **Maintain consistency**: generate tests that follow your project's coding standards and patterns.
+* **Fix failing tests**: receive suggestions for fixing test failures.
+* **Maintain consistency**: personalize Copilot to generate tests that follow your project's coding practices.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
