@@ -8,7 +8,7 @@ DateApproved: 02/06/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 ---
 
-# Testing with GitHub Copilot
+# Test with GitHub Copilot
 
 Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in Visual Studio Code. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.
 
@@ -25,23 +25,15 @@ Copilot can help with the following testing tasks:
 
 ## Set up your testing framework
 
-You can use Copilot to help set up the testing framework and VS Code extensions for your project:
+To accelerate your testing workflow, Copilot can help set up the testing framework and VS Code extensions for your project. Copilot suggests appropriate testing frameworks based on your project type.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`).
-2. Enter the `/setupTests` command in the chat input field.
-3. Follow Copilot's guidance to configure your project.
-
-Copilot will suggest appropriate testing frameworks based on your project type and help you with the installation and configuration steps.
+1. Enter the `/setupTests` command in the chat input field.
+1. Follow Copilot's guidance to configure your project.
 
 ## Write tests with Copilot
 
-There are two main ways to generate tests using Copilot:
-
-### Use editor smart actions
-
-1. Open your application code file.
-1. Optionally select the code you want to test.
-1. Right-click and select **Copilot** > **Generate Tests**.
+Copilot can help you write tests for your application code by generating test code that covers your codebase. This includes unit tests, end-to-end tests, and tests for edge cases.
 
 ### Use chat prompts
 
@@ -59,9 +51,21 @@ There are two main ways to generate tests using Copilot:
 
 Get more guidance about [using GitHub Copilot for writing tests](https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot) in the GitHub documentation.
 
+### Use editor smart actions
+
+To generate tests for your application code without writing a prompt, you can use the editor smart actions.
+
+1. Open your application code file.
+1. Optionally, select the code you want to test.
+1. Right-click and select **Copilot** > **Generate Tests**.
+
+   Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
+
+1. Optionally, refine the generated tests by providing additional context in the Inline Chat prompt.
+
 ## Fix failing tests
 
-When you have failing tests, Copilot can help you fix them:
+Copilot integrates with the Test Explorer in VS Code and can help with fixing failing tests.
 
 1. In the Test Explorer, hover over a failing test
 1. Select the **Fix Test Failure** button (sparkle icon)
@@ -73,16 +77,8 @@ Alternatively, you can:
 1. Enter the `/fixTestFailure` command
 1. Follow Copilot's suggestions to fix the test
 
-When you use [Copilot Edits in agent mode](/docs/copilot/copilot-edits.md#use-agent-mode-preview), it can automatically run tests for your application code. In agent mode, Copilot monitors the test output and attempts to fix failing tests automatically and rerun the tests.
-
-## Tips for better test generation
-
-To get the best results when generating tests with Copilot, follow these tips:
-
-* Provide context in your prompts about the testing framework you prefer
-* Specify if you want particular types of tests (unit, integration, end-to-end)
-* Ask for specific test cases or edge cases
-* Request tests that follow your project's coding standards
+> [!TIP]
+> [Copilot Edits agent mode (preview)](/docs/copilot/copilot-edits.md#use-agent-mode-preview) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 
@@ -94,6 +90,15 @@ If your organization has specific testing requirements, you can customize how Co
 * Request specific test patterns or methodologies
 
 Get more information about [personalizing Copilot for generating tests](/docs/copilot/copilot-customization.md).
+
+## Tips for better test generation
+
+To get the best results when generating tests with Copilot, follow these tips:
+
+* Provide context in your prompts about the testing framework you prefer
+* Specify if you want particular types of tests (unit, integration, end-to-end)
+* Ask for specific test cases or edge cases
+* Request tests that follow your project's coding standards
 
 ## Next steps
 
