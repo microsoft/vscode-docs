@@ -1,7 +1,4 @@
 ---
-Order: 7
-Area: copilot
-TOCTitle: Testing with Copilot
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
 PageTitle: Testing with GitHub Copilot in Visual Studio Code
 DateApproved: 02/06/2025
