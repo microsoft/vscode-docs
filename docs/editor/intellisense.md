@@ -66,7 +66,8 @@ VS Code IntelliSense offers different types of completions, including language s
 | ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
-| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
+| ![enumeration icon](images/intellisense/Enum_16x.svg) | Enumerations | `enum` |
+| ![enumeration item icon](images/intellisense/EnumItem_16x.svg) | Enumeration members | `enumMember` |
 | ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
 | ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
 | ![file](images/intellisense/symbol-file.svg) | Files | `file` |
@@ -192,7 +193,8 @@ To get started:
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
-> **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
+> [!TIP]
+> For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
 A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
@@ -207,8 +209,6 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 ## Common questions
 
 ### Why am I not getting any suggestions?
-
-![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
 This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript-specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 
