@@ -183,7 +183,8 @@ Different Large Language Models (LLMs) are trained on different types of data an
 
     ![Screenshot showing Copilot Completions menu, highlighting option to change completions model](./images/overview/change-completions-model.png)
 
-Please note: the list of available models might vary and change over time.
+> [!NOTE]
+> The list of available models might vary and change over time.
 
 ### Settings
 
