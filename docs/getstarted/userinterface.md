@@ -87,7 +87,7 @@ If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor,
 ![minimap](images/userinterface/minimap.png)
 
 > [!TIP]
-> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/editor/settings.md).
 
 ## Sticky Scroll
 
@@ -102,7 +102,7 @@ Sticky Scroll uses several different content models to create its headings. It i
 
 ### Indent guides
 
-The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/editor/settings.md).
 
 ## Breadcrumbs
 
@@ -170,7 +170,7 @@ For symbols, the view relies on information computed by your installed extension
 
 ![Markdown Outline view](images/userinterface/markdown-outline-view.png)
 
-There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
+There are several Outline view [settings](/docs/editor/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
 ### Timeline view
 
@@ -273,7 +273,7 @@ You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu
 
 ### Settings
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settings-json-file).
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/editor/settings.md#settings-json-file).
 
 You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 

@@ -128,7 +128,7 @@ There are only a few changes to the VS Code UI when you are using multi-root wor
 
 ![tabbed headers](images/multi-root-workspaces/tabbed-headers.png)
 
-If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/getstarted/settings.md) "medium" or "long" values to show the folder or full paths.
+If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/editor/settings.md) "medium" or "long" values to show the folder or full paths.
 
 ```json
 "workbench.editor.labelFormat": "medium"

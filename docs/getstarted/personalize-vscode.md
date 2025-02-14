@@ -91,7 +91,7 @@ In the Settings editor, you can switch between user and workspace settings by us
 > [!TIP]
 > To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
 
-Get more details about [configuring settings in VS Code](/docs/getstarted/settings.md), such as configuring language-specific settings or syncing settings across machines.
+Get more details about [configuring settings in VS Code](/docs/editor/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
 ## Change the display language
 

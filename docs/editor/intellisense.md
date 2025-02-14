@@ -82,7 +82,7 @@ You can customize your IntelliSense experience in settings and keyboard shortcut
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/getstarted/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
+The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/editor/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
 
 ```javascript
 {

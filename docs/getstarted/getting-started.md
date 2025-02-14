@@ -165,7 +165,7 @@ You can customize almost every part of VS Code by configuring settings. You can 
 
 1. You can use the tabs in the Settings Editor to switch between **User** settings and **Workspace** settings.
 
-    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/getstarted/settings.md).
+    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/editor/settings.md).
 
 ## Write some code
 

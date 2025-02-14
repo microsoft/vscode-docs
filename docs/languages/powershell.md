@@ -226,7 +226,7 @@ If you find a bug, [open an issue][18] and revert to the stable version while we
 [04]: /docs/editor/editingevolved#_reference-information
 [05]: /docs/editor/intellisense
 [06]: /docs/editor/userdefinedsnippets
-[07]: /docs/getstarted/settings
+[07]: /docs/editor/settings
 [08]: /docs/editor/themes
 [09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
 [10]: /docs/getstarted/userinterface#_outline-view

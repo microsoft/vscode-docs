@@ -348,7 +348,7 @@ In the example below, debugging the program always **stops on entry** except on 
 
 ## Global launch configuration
 
-VS Code supports adding a `"launch"` object inside your User [settings](/docs/getstarted/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
+VS Code supports adding a `"launch"` object inside your User [settings](/docs/editor/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
 
 ```json
 "launch": {
