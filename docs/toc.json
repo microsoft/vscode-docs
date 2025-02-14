@@ -60,7 +60,8 @@
         ["Accessibility", "/docs/editor/accessibility"],
         ["Voice Interactions", "/docs/editor/voice"],
         ["Custom Layout", "/docs/editor/custom-layout"],
-        ["Port Forwarding", "/docs/editor/port-forwarding"]
+        ["Port Forwarding", "/docs/editor/port-forwarding"],
+        ["Telemetry", "/docs/editor/telemetry"]
       ]
     },
     {

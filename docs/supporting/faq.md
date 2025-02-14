@@ -25,7 +25,7 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 ## How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/editor/telemetry.md) to learn more.
 
 If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
@@ -41,7 +41,7 @@ From **File** > **Preferences** > **Settings**, search for `experiments`, and un
 
 ## How to disable crash reporting
 
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/editor/telemetry.md) to learn more.
 
 If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
@@ -57,11 +57,11 @@ To support GDPR:
 * The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
 * There are valid data retention policies in place for any data collected, for example crash dumps.
 
-You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
+You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/editor/telemetry.md).
 
 ## What online services does VS Code use?
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/editor/telemetry.md#managing-online-services).
 
 You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
