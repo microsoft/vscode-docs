@@ -23,11 +23,7 @@
         ["Intro Videos", "/docs/getstarted/introvideos"],
         ["User Interface", "/docs/getstarted/userinterface"],
         ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
-        ["Themes", "/docs/getstarted/themes"],
-        ["Settings", "/docs/getstarted/settings"],
-        ["Keyboard Shortcuts", "/docs/getstarted/keybindings"],
-        ["Display Language", "/docs/getstarted/locales"],
-        ["Telemetry", "/docs/getstarted/telemetry"]
+        ["Personalize VS Code", "/docs/getstarted/personalize-vscode.md"]
       ]
     },
     {
