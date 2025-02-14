@@ -184,7 +184,7 @@ Different Large Language Models (LLMs) are trained on different types of data an
     ![Screenshot showing Copilot Completions menu, highlighting option to change completions model](./images/overview/change-completions-model.png)
 
 > [!NOTE]
-> The list of available models might vary and change over time.
+> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, you will also need your Administrator to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Settings
 
