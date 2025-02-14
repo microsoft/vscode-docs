@@ -29,7 +29,7 @@ To change your color theme:
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to preview themes and use `kbstyle(Enter)` to select it.
 1. Optionally, select **Browse Additional Color Themes** to browse the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) for more options.
 
-There are more theming options available in VS Code, such as File Icon themes. Get more details about [themes in VS Code](/docs/getstarted/themes.md).
+There are more theming options available in VS Code, such as File Icon themes. Get more details about [themes in VS Code](/docs/editor/themes.md).
 
 ## Change default keyboard shortcuts
 

@@ -178,7 +178,7 @@ There are many options to customize VS Code to meet your preferences:
 
 ### Change your theme
 
-VS Code comes with a number of built-in [color themes](/docs/getstarted/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+VS Code comes with a number of built-in [color themes](/docs/editor/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 

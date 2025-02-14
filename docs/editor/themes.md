@@ -30,7 +30,8 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
   "workbench.colorTheme": "Solarized Dark"
 ```
 
-> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace-specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
+> [!TIP]
+> By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace-specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
 >
 > ![Screenshot of Settings editor to set a workspace-specific Color Theme.](images/themes/workspace-color-theme.png)
 
@@ -114,7 +115,8 @@ A preconfigured set of syntax tokens ('comments', 'strings', ...) is available f
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
->**Note**: Directly configuring TextMate rules is an advanced skill, as you need to understand how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
+> [!NOTE]
+> Directly configuring TextMate rules is an advanced skill, as you need to understand how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
 
 To customize specific themes, you can do this in one of the following ways:
 

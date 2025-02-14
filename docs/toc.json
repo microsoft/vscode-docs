@@ -40,6 +40,7 @@
         ["Testing", "/docs/editor/testing"],
         ["VS Code for the Web", "/docs/editor/vscode-web"],
         ["Keyboard Shortcuts", "/docs/editor/keybindings"],
+        ["Themes", "/docs/editor/themes"],
         ["Tasks", "/docs/editor/tasks"],
         ["Profiles", "/docs/editor/profiles"],
         ["Settings Sync", "/docs/editor/settings-sync"],

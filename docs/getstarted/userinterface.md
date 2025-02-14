@@ -504,7 +504,7 @@ The `setting(window.restoreWindows)` setting informs VS Code about how to restor
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
 
-* [Changing the theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon Theme to your preference.
+* [Changing the theme](/docs/editor/themes.md) - Set a Color and/or File Icon Theme to your preference.
 * [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions

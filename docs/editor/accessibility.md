@@ -47,7 +47,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/editor/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -63,7 +63,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Go to [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
+>**Note**: Go to [Customizing a Color Theme](/docs/editor/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
 
 To customize the error and warning squiggles, go to **File** > **Preferences** > **Settings** for user settings. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 
