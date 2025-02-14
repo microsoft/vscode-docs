@@ -41,6 +41,7 @@
         ["VS Code for the Web", "/docs/editor/vscode-web"],
         ["Keyboard Shortcuts", "/docs/editor/keybindings"],
         ["Themes", "/docs/editor/themes"],
+        ["Display Language", "/docs/editor/locales"],
         ["Tasks", "/docs/editor/tasks"],
         ["Profiles", "/docs/editor/profiles"],
         ["Settings Sync", "/docs/editor/settings-sync"],
