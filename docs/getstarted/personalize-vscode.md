@@ -108,7 +108,7 @@ To change the current display language:
 
 VS Code installs the appropriate Language Pack from the Marketplace if needed.
 
-Get more details about [changing the display language in VS Code](/docs/getstarted/locales.md).
+Get more details about [changing the display language in VS Code](/docs/editor/locales.md).
 
 ## Next steps
 

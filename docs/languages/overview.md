@@ -19,7 +19,7 @@ Here are eight of the most popular language extensions:
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
 
->**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
+>**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/editor/locales.md) topic.
 
 ## Language specific documentation
 
