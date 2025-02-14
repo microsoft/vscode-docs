@@ -59,7 +59,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/getstarted/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/editor/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {

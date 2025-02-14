@@ -159,4 +159,4 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/getstarted/settings.md) - Read about available options to customize VS Code.
-* [Key Bindings](/docs/getstarted/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
+* [Key Bindings](/docs/editor/keybindings.md) - You can easily modify commonly used keyboard shortcuts.

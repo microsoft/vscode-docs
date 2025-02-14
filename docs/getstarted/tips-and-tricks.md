@@ -218,7 +218,7 @@ You can also search for shortcuts and add your own keyboard shortcuts to the `ke
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
-See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
+See more in [Key Bindings for Visual Studio Code](/docs/editor/keybindings.md).
 
 ### Tune your settings
 

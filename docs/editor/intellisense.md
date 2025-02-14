@@ -164,7 +164,7 @@ By default, VS Code shows snippets and completion proposals in one control. You 
 
 ### Keyboard shortcuts
 
-The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/getstarted/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
+The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/editor/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
 
 | Command | Keybinding |
 | --- | --- |

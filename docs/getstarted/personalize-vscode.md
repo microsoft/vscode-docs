@@ -33,7 +33,7 @@ There are more theming options available in VS Code, such as File Icon themes. G
 
 ## Change default keyboard shortcuts
 
-VS Code lets you perform most tasks directly from the keyboard. When you install VS Code, it comes with a set of default keyboard shortcuts. You can customize these shortcuts, or add new ones for your favorite commands and actions.
+VS Code lets you perform most tasks directly from the keyboard. When you install VS Code, it comes with a set of [default keyboard shortcuts](/docs/reference/default-keybindings.md). You can customize these shortcuts, or add new ones for your favorite commands and actions.
 
 ![Video that shows how to open the Keyboard Shortcuts editor, search for commands, and modify shortcuts.](images/personalize-vscode/keyboard-shortcuts.gif)
 
@@ -54,7 +54,7 @@ If you're used to the keyboard shortcuts from another editor, you can install a 
 > [!TIP]
 > Hover over a UI element to see its keyboard shortcut. The Command Palette also shows the keyboard shortcut for each command that has one assigned.
 
-Get more details about [configuring keyboard shortcuts in VS Code](/docs/getstarted/keybindings.md), such as specifying keyboard rules or running multiple commands.
+Get more details about [configuring keyboard shortcuts in VS Code](/docs/editor/keybindings.md), such as specifying keyboard rules or running multiple commands.
 
 ## Configure settings
 

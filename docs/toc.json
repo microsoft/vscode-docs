@@ -39,6 +39,7 @@
         ["Debugging", "/docs/editor/debugging"],
         ["Testing", "/docs/editor/testing"],
         ["VS Code for the Web", "/docs/editor/vscode-web"],
+        ["Keyboard Shortcuts", "/docs/editor/keybindings"],
         ["Tasks", "/docs/editor/tasks"],
         ["Profiles", "/docs/editor/profiles"],
         ["Settings Sync", "/docs/editor/settings-sync"],
@@ -333,6 +334,13 @@
         ["Dev Container CLI", "/docs/devcontainers/devcontainer-cli"],
         ["Tips and Tricks", "/docs/devcontainers/tips-and-tricks"],
         ["FAQ", "/docs/devcontainers/faq"]
+      ]
+    },
+    {
+      "name": "Reference",
+      "area": "reference",
+      "topics": [
+        ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings.md"]
       ]
     }
 ]

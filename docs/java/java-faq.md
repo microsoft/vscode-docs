@@ -25,7 +25,7 @@ We do have limited capacity within the team and we'd really like to encourage mo
 
 ## Can I use keyboard shortcuts from other IDE?
 
-Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+Sure. [Keymap extensions](/docs/editor/keybindings.md#keymap-extensions) in VS Code modify the VS Code shortcuts to match those of other editors. You can find [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings) as well as keymaps for other popular editors in [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 

@@ -450,7 +450,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 * `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` - close all editors.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
+>If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/keybindings.md) for details.
 
 ## Working without tabs
 
@@ -464,7 +464,7 @@ Without tabs, the **Open Editors** section of the Explorer view is a quick way t
 
 You can change vs for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
 
-Edit your [keyboard shortcuts](/docs/getstarted/keybindings.md) and add the following:
+Edit your [keyboard shortcuts](/docs/editor/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
@@ -473,7 +473,7 @@ Edit your [keyboard shortcuts](/docs/getstarted/keybindings.md) and add the foll
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/editor/keybindings.md).
 
 macOS:
 

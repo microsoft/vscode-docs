@@ -73,7 +73,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ## Go to Type Definition
 
-Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/getstarted/keybindings.md).
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/editor/keybindings.md).
 
 ## Go to Implementation
 
@@ -197,7 +197,7 @@ Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
-* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
+* [Key Bindings](/docs/editor/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
