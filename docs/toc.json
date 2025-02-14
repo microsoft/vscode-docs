@@ -23,7 +23,7 @@
         ["Intro Videos", "/docs/getstarted/introvideos"],
         ["User Interface", "/docs/getstarted/userinterface"],
         ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
-        ["Personalize VS Code", "/docs/getstarted/personalize-vscode.md"]
+        ["Personalize VS Code", "/docs/getstarted/personalize-vscode"]
       ]
     },
     {
@@ -344,8 +344,8 @@
       "name": "Reference",
       "area": "reference",
       "topics": [
-        ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings.md"],
-        ["Default Settings", "/docs/reference/default-settings.md"]
+        ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
+        ["Default Settings", "/docs/reference/default-settings"]
       ]
     }
 ]
