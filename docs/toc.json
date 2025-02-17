@@ -18,13 +18,13 @@
       "name": "Getting Started",
       "area": "getstarted",
       "topics": [
-        ["Tutorial", "/docs/getstarted/getting-started"],
+        ["VS Code Tutorial", "/docs/getstarted/getting-started"],
         ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"],
-        ["Intro Videos", "/docs/getstarted/introvideos"],
         ["User Interface", "/docs/getstarted/userinterface"],
         ["Personalize VS Code", "/docs/getstarted/personalize-vscode"],
         ["Install Extensions", "/docs/getstarted/extensions"],
-        ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"]
+        ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
+        ["Intro Videos", "/docs/getstarted/introvideos"]
       ]
     },
     {
