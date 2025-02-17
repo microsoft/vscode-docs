@@ -33,31 +33,25 @@ There are more theming options available in VS Code, such as File Icon themes or
 
 ## Change default keyboard shortcuts
 
-VS Code lets you perform most tasks directly from the keyboard. When you install VS Code, it comes with a set of [default keyboard shortcuts](/docs/reference/default-keybindings.md). You can customize these shortcuts, or add new ones for your favorite commands and actions.
+VS Code lets you perform most tasks directly from the keyboard. When you install VS Code, it comes with a set of [default keyboard shortcuts](/docs/reference/default-keybindings.md). Hover over a UI element in the VS Code interface to see its keyboard shortcut, if one's available. The Command Palette also shows the keyboard shortcut for commands that have a shortcut.
+
+You can customize these default shortcuts or add new ones for your favorite commands and actions by using the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`).
 
 ![Video that shows how to open the Keyboard Shortcuts editor, search for commands, and modify shortcuts.](images/personalize-vscode/keyboard-shortcuts.gif)
 
-The Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) lets you view and modify the default keyboard shortcuts.
+To change a keyboard shortcut in VS Code with the Keyboard Shortcuts editor:
 
-1. Select **File** > **Preferences** > **Keyboard Shortcuts** or use the `kb(kb(workbench.action.openGlobalKeybindings))`shortcut to open the Keyboard Shortcuts editor.
+1. Select **File** > **Preferences** > **Keyboard Shortcuts** or use the `kb(workbench.action.openGlobalKeybindings)`shortcut to open the Keyboard Shortcuts editor.
 1. Select the pencil icon next to the command you want to change.
 1. Press the keys you want to assign as a shortcut for the command.
 
-If you're used to the keyboard shortcuts from another editor, you can install a _keymap extension_ from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). These extensions modify the VS Code shortcuts to match those of other editors, so you don't need to learn new keyboard shortcuts.
-
-1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Type _keymap_ and select **Preferences: Keymaps**.
-1. The Extensions view opens with a list of keymap extensions for popular editors.
-1. Select **Install** on the extension you want to use.
+A _keymap extension_ enables you to modify the VS Code shortcuts to match those of your preferred editor. Select the **Preferences: Keymaps** command from the Command Palette to see a list of keymap extensions.
 
 Get more details about [configuring keyboard shortcuts in VS Code](/docs/editor/keybindings.md), such as specifying keyboard rules or running multiple commands.
 
-> [!TIP]
-> Hover over a UI element in the VS Code interface to see its keyboard shortcut, if one's available. The Command Palette also shows the keyboard shortcut for commands that have a shortcut.
-
 ## Configure settings
 
-Almost every aspect of VS Code can be customized via settings. You can configure settings such as enabling word wrapping, showing the minimap, setting up language-specific debugger settings, or enabling Workspace Trust. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).
+Almost every aspect of VS Code can be customized via settings. Settings let you configure editor options such as enabling word wrapping or showing the minimap, setting up language-specific debugger settings, enabling Workspace Trust, and more. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).
 
 The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, VS Code stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
 
