@@ -9,12 +9,12 @@ VS Code is highly customizable. You can change the look of the editor with color
 
 This article covers the following topics:
 
-* [Use themes to change the look of VS Code](#use-themes-to-change-the-look-of-vs-code)
+* [Change the look of VS Code with themes](#change-the-look-of-vs-code-with-themes)
 * [Change default keyboard shortcuts](#change-default-keyboard-shortcuts)
 * [Configure settings](#configure-settings)
 * [Change the display language](#change-the-display-language)
 
-## Use themes to change the look of VS Code
+## Change the look of VS Code with themes
 
 Themes let you modify VS Code's appearance to match your preferences. VS Code comes with several built-in themes. You can install more themes from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -22,14 +22,14 @@ _Color themes_ enable you to modify the colors in the Visual Studio Code user in
 
 ![Video that shows how to preview color themes from the Command Palette.](images/personalize-vscode/themes_hero.gif)
 
-To change your color theme:
+To change the color theme in VS Code:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`).
-1. Type _color_ and select **Preferences: Color Theme**.
-1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to preview themes and use `kbstyle(Enter)` to select it.
-1. Optionally, select **Browse Additional Color Themes** to browse the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) for more options.
+1. Type _color_, and then select **Preferences: Color Theme**.
+1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to preview color themes and use `kbstyle(Enter)` to select one.
+1. Optionally, select **Browse Additional Color Themes** to browse the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) for more color themes.
 
-There are more theming options available in VS Code, such as File Icon themes. Get more details about [themes in VS Code](/docs/editor/themes.md).
+There are more theming options available in VS Code, such as File Icon themes or creating your own themes. Get more details about [themes in VS Code](/docs/editor/themes.md).
 
 ## Change default keyboard shortcuts
 
@@ -39,10 +39,9 @@ VS Code lets you perform most tasks directly from the keyboard. When you install
 
 The Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) lets you view and modify the default keyboard shortcuts.
 
-1. Press `kb(workbench.action.openGlobalKeybindings)` to open the Keyboard Shortcuts editor.
-1. Search for the command you want to change.
-1. Select the pencil icon next to the command.
-1. Press the keys you want to assign to the command.
+1. Select **File** > **Preferences** > **Keyboard Shortcuts** or use the `kb(kb(workbench.action.openGlobalKeybindings))`shortcut to open the Keyboard Shortcuts editor.
+1. Select the pencil icon next to the command you want to change.
+1. Press the keys you want to assign as a shortcut for the command.
 
 If you're used to the keyboard shortcuts from another editor, you can install a _keymap extension_ from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). These extensions modify the VS Code shortcuts to match those of other editors, so you don't need to learn new keyboard shortcuts.
 
@@ -51,29 +50,22 @@ If you're used to the keyboard shortcuts from another editor, you can install a 
 1. The Extensions view opens with a list of keymap extensions for popular editors.
 1. Select **Install** on the extension you want to use.
 
-> [!TIP]
-> Hover over a UI element to see its keyboard shortcut. The Command Palette also shows the keyboard shortcut for each command that has one assigned.
-
 Get more details about [configuring keyboard shortcuts in VS Code](/docs/editor/keybindings.md), such as specifying keyboard rules or running multiple commands.
+
+> [!TIP]
+> Hover over a UI element in the VS Code interface to see its keyboard shortcut, if one's available. The Command Palette also shows the keyboard shortcut for commands that have a shortcut.
 
 ## Configure settings
 
-Almost every aspect of VS Code can be customized via settings. The following table lists examples of settings you can configure:
+Almost every aspect of VS Code can be customized via settings. You can configure settings such as enabling word wrapping, showing the minimap, setting up language-specific debugger settings, or enabling Workspace Trust. When you install extensions from the Visual Studio Marketplace, they might add their own [extension settings](/docs/getstarted/extensions.md#open-extension-settings).
 
-| Scenario | Configuration examples |
-|----------|------------------------|
-| Editor behavior | Enable word wrapping, autosave files, or code formatting. |
-| User interface | Show the minimap, configure accessibility settings, or move the Activity Bar to a different location. |
-| Language-specific settings | Configure debugger settings or default library paths. |
-| Security settings | Enable Workspace Trust, or configure allowed UNC host names.  |
+The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. When you modify settings, VS Code stores them in the `settings.json` file. Optionally, you can edit the `settings.json` file directly.
 
-When you install extensions from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode), they might add their own settings.
+![Screenshot that shows the Settings editor, with the settings filtered by 'wordwrap'.](images/personalize-vscode/settings-search.png)
 
-VS Code stores your settings in a `settings.json` file. The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical interface to modify settings. Alternatively, you can edit the `settings.json` file directly.
+VS Code provides two types of settings: user settings and workspace settings. User settings apply globally to any VS Code instance, while workspace settings are stored with your project and apply only to that project. In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
 
-![Screenshot that shows the Settings editor, with the settings filtered by 'wordwrap'.](images/settings/settings-search.png)
-
-To modify a setting:
+To modify a setting in VS Code with the Settings editor:
 
 1. Open the Settings editor via the **File** > **Preferences** > **Settings** menu or press `kb(workbench.action.openSettings)`.
 
@@ -81,15 +73,8 @@ To modify a setting:
 
 1. Modify the setting in the Settings editor.
 
-VS Code provides two types of settings:
-
-* User settings: apply globally to any VS Code instance.
-* Workspace settings: settings that are stored with your project and apply only to that project.
-
-In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
-
-> [!TIP]
-> To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
+    > [!TIP]
+    > To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
 
 Get more details about [configuring settings in VS Code](/docs/editor/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
