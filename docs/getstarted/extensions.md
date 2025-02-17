@@ -37,7 +37,7 @@ You can install an extension directly from the Extensions view in VS Code.
 Alternatively, install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) website. Select the **Install** button on the extension's Marketplace page to open the extension's details view in VS Code.
 
 > [!TIP]
-> If you switch between different workloads, you can use [VS Code profiles](/docs/editor/profiles.md) to only install and enable the extensions you need for each workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
+> If you have to switch between different technology stacks, use [VS Code profiles](/docs/editor/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
 
 ## Open extension settings
 
