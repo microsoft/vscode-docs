@@ -22,8 +22,9 @@
         ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"],
         ["Intro Videos", "/docs/getstarted/introvideos"],
         ["User Interface", "/docs/getstarted/userinterface"],
-        ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"],
-        ["Personalize VS Code", "/docs/getstarted/personalize-vscode"]
+        ["Personalize VS Code", "/docs/getstarted/personalize-vscode"],
+        ["Install Extensions", "/docs/getstarted/extensions"],
+        ["Tips and Tricks", "/docs/getstarted/tips-and-tricks"]
       ]
     },
     {

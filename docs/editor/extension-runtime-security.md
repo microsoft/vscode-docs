@@ -52,7 +52,7 @@ Before you install an extension, you can take various steps to determine if it's
 
 ## Marketplace protections
 
-The Visual Studio Code Marketplace employs several mechanisms to protect you from malicious extensions:
+The Visual Studio Marketplace employs several mechanisms to protect you from malicious extensions:
 
 * **Malware scanning**: The Marketplace runs a malware scan on each extension package that's published to ensure its safety. The scan, which uses several antivirus engines, is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
 
