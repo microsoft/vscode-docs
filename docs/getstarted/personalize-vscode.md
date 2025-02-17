@@ -63,7 +63,7 @@ The Settings editor (`kb(workbench.action.openSettings)`) provides a graphical i
 
 ![Screenshot that shows the Settings editor, with the settings filtered by 'wordwrap'.](images/personalize-vscode/settings-search.png)
 
-VS Code provides two types of settings: user settings and workspace settings. User settings apply globally to any VS Code instance, while workspace settings are stored with your project and apply only to that project. In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
+VS Code provides two types of settings. _User settings_ apply globally to any VS Code instance, while _workspace settings_ are stored with your project and apply only to that project. In the Settings editor, you can switch between user and workspace settings by using the corresponding tabs.
 
 To modify a setting in VS Code with the Settings editor:
 
@@ -90,8 +90,6 @@ To change the current display language:
 1. Select the **Configure Display Language** command.
 1. Select your preferred language from the list.
 1. Restart VS Code when prompted.
-
-VS Code installs the appropriate Language Pack from the Marketplace if needed.
 
 Get more details about [changing the display language in VS Code](/docs/editor/locales.md).
 
