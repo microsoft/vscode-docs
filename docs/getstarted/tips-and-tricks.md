@@ -1,9 +1,5 @@
 ---
-Order: 5
-Area: getstarted
-TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-PageTitle: Visual Studio Code Tips and Tricks
 DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---

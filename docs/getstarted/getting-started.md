@@ -1,9 +1,5 @@
 ---
-Order: 1
-Area: getstarted
-TOCTitle: Tutorial
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-PageTitle: Getting started with Visual Studio Code
 DateApproved: 02/06/2025
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---

@@ -115,6 +115,6 @@ Get more details about [changing the display language in VS Code](/docs/editor/l
 After personalizing VS Code, you can:
 
 * [Explore key VS Code features with our Quickstart](/docs/getstarted/getting-started.md)
-* [Install extensions to add features for your programming language](/docs/editor/extension-marketplace.md)
+* [Install extensions to add features for your programming language](/docs/getstarted/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
 * [Configure debugging for your project](/docs/editor/debugging.md)
