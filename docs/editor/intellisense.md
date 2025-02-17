@@ -54,28 +54,28 @@ VS Code IntelliSense offers different types of completions, including language s
 
 | Icon | Name | Symbol type |
 | ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
-| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
-| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
-| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
-| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
-| ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
-| ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
-| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
-| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
-| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
-| ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
-| ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
-| ![enumeration icon](images/intellisense/Enum_16x.svg) | Enumerations | `enum` |
-| ![enumeration item icon](images/intellisense/EnumItem_16x.svg) | Enumeration members | `enumMember` |
-| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
-| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
-| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
-| ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
-| ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
-| ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
+| <i class="codicon codicon-symbol-method"></i> | Methods and Functions | `method`, `function`, `constructor`  |
+| <i class="codicon codicon-symbol-variable"></i> | Variables | `variable` |
+| <i class="codicon codicon-symbol-field"></i> | Fields | `field` |
+| <i class="codicon codicon-symbol-parameter"></i> | Type parameters | `typeParameter` |
+| <i class="codicon codicon-symbol-constant"></i> | Constants | `constant` |
+| <i class="codicon codicon-symbol-class"></i> | Classes | `class` |
+| <i class="codicon codicon-symbol-interface"></i> | Interfaces | `interface` |
+| <i class="codicon codicon-symbol-structure"></i> | Structures | `struct` |
+| <i class="codicon codicon-symbol-event"></i> | Events | `event` |
+| <i class="codicon codicon-symbol-operator"></i> | Operators | `operator` |
+| <i class="codicon codicon-symbol-namespace"></i> | Modules | `module` |
+| <i class="codicon codicon-symbol-property"></i> | Properties and Attributes | `property` |
+| <i class="codicon codicon-symbol-enum"></i> | Enumerations | `enum` |
+| <i class="codicon codicon-symbol-enum-member"></i> | Enumeration members | `enumMember` |
+| <i class="codicon codicon-symbol-reference"></i> | References | `reference` |
+| <i class="codicon codicon-symbol-keyword"></i> | Keywords | `keyword` |
+| <i class="codicon codicon-symbol-file"></i> | Files | `file` |
+| <i class="codicon codicon-symbol-folder"></i> | Folders | `folder` |
+| <i class="codicon codicon-symbol-color"></i> | Colors | `color` |
+| <i class="codicon codicon-symbol-ruler"></i> | Unit | `unit` |
+| <i class="codicon codicon-symbol-snippet"></i> | Snippet prefixes | `snippet` |
+| <i class="codicon codicon-symbol-text"></i> | Words | `text` |
 
 ## Customizing IntelliSense
 
