@@ -25,7 +25,7 @@ To browse the extension Marketplace from within VS Code:
 
 ## Install a VS Code extension
 
-You can install an extension directly from the Extensions view in VS Code.
+You can install an extension directly from the Extensions view in VS Code. Alternatively, you can install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) website.
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`).
 1. Select the **Install** button on the extension's tile.
@@ -34,27 +34,24 @@ You can install an extension directly from the Extensions view in VS Code.
 
 1. You can also select the **Install** button on the extension's details view.
 
-Alternatively, install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) website. Select the **Install** button on the extension's Marketplace page to open the extension's details view in VS Code.
-
 > [!TIP]
 > If you have to switch between different technology stacks, use [VS Code profiles](/docs/editor/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
 
 ## Open extension settings
 
-Extensions can contribute settings to VS Code. You can view and modify these settings in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings) like you would for other settings in VS Code.
+Extensions can also contribute settings to VS Code. Use the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings) to view and modify these settings like you would for other settings in VS Code.
 
 1. Open the Settings editor via the **File** > **Preferences** > **Settings** menu or use the `kb(workbench.action.openSettings)` keyboard shortcut.
 1. In the settings tree view, select **Extensions**, and then select the specific extension to see its settings.
 
+    ![Screenshot of the Settings view, showing the settings of the GitHub Pull Requests extension, highlighting the Extensions entry in the tree view.](images/extensions/settings-view-extension-settings.png)
+
 ## Uninstall a VS Code extension
 
-You can uninstall an extension from the Extensions view in VS Code.
+You can uninstall an extension from the Extensions view in VS Code. If you want to temporarily disable an extension, you might choose to disable the extension instead of uninstalling it.
 
 1. Open the Extensions view (`kb(workbench.view.extensions)`).
 1. Select the gear icon or right-click on the extension's tile, and then select **Uninstall**.
-
-> [!TIP]
-> If you temporarily want to remove an extension, you can disable the extension instead of uninstalling it. You can also disable an extension for the current workspace.
 
 ## Next steps
 
