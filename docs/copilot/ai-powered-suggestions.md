@@ -160,11 +160,9 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 You can temporarily enable or disable code completions either for all languages, or for specific languages only.
 
-1. The GitHub Copilot status icon in the VS Code Status Bar indicates whether GitHub Copilot is enabled or disabled.
+1. To enable or disable Copilot completions, select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
 
-    ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/inline-suggestions/vscode-status-bar-copilot-active.jpg)
-
-1. To enable or disable Copilot completions, first select the GitHub Copilot icon in the Status Bar.
+   ![Screenshot showing Copilot menu, highlighting Configure Code Completions.](./images/overview/configure-completions.png)
 
 1. If you are disabling GitHub Copilot, you are asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
 
@@ -172,6 +170,21 @@ You can temporarily enable or disable code completions either for all languages,
     * To disable suggestions from GitHub Copilot for the specified language, select **Disable for \<language\>**.
 
     ![Screenshot showing the VS Code command menu for Copilot, highlighting the options to disable completions.](./images/inline-suggestions/copilot-disable-completions.png)
+
+### Change the AI model
+
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. With Copilot, you can change the language model that is used to generate completions. To change the current model:
+
+1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+
+    ![Screenshot showing Copilot menu, highlighting Configure Code Completions.](./images/overview/configure-completions.png)
+
+1. Select **Change Completions Model...** from the Configure Copilot Completions menu.
+
+    ![Screenshot showing Copilot Completions menu, highlighting option to change completions model](./images/overview/change-completions-model.png)
+
+> [!NOTE]
+> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, you will also need your Administrator to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ### Settings
 

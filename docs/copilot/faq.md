@@ -70,9 +70,7 @@ To switch to another GitHub account for using Copilot:
 
 ### How can I provide feedback on Copilot?
 
-You can give feedback on Copilot inline suggestions and responses in the [GitHub Copilot Discussions](https://github.com/orgs/community/discussions/categories/copilot).
-
-If you would like to provide feedback on the Copilot Chat features, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
+If you would like to provide feedback on the Copilot features including inline suggestions and chat, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
 
 It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
 
