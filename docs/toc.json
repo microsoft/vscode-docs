@@ -346,7 +346,9 @@
       "area": "reference",
       "topics": [
         ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
-        ["Default Settings", "/docs/reference/default-settings"]
+        ["Default Settings", "/docs/reference/default-settings"],
+        ["Substitution Variables", "/docs/reference/variables-reference"]
+
       ]
     }
 ]

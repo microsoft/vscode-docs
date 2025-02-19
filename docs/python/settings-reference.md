@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/python-social.png
 
 The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
-For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/editor/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
+For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/editor/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
 
 ## General Python settings
 
@@ -195,7 +195,7 @@ The Python extension settings support predefined variables. Similar to the gener
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
 
-For additional information about predefined variables and example usages, see the [Variables reference](/docs/editor/variables-reference.md) in the general VS Code docs.
+For additional information about predefined variables and example usages, see the [Variables reference](/docs/reference/variables-reference.md) in the general VS Code docs.
 
 ## Next steps
 

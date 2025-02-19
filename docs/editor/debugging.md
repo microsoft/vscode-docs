@@ -285,7 +285,7 @@ Many debuggers support some of the following attributes:
 
 VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. This means that you do not have to use absolute paths in debug configurations. For example, `${workspaceFolder}` gives the root path of a workspace folder, `${file}` the file open in the active editor, and `${env:Name}` the environment variable 'Name'.
 
-You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
+You can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md) or by invoking IntelliSense inside the `launch.json` string attributes.
 
 ```json
 {
