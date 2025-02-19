@@ -116,7 +116,7 @@ By default, the task/debug features will use the default profile. This may not b
 
 ## Profile-specific keyboard shortcuts
 
-Launching a terminal with a specific profile via a [dedicated keyboard shortcut](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
+Launching a terminal with a specific profile via a [dedicated keyboard shortcut](https://code.visualstudio.com/docs/editor/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
 
 ```json
 {

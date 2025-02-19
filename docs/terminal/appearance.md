@@ -99,7 +99,7 @@ When the terminal's bell is triggered, a yellow bell icon is briefly shown. This
 
 ## Terminal colors
 
-While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](/docs/getstarted/themes.md), but they can also be configured independently from the theme with the [workbench.colorCustomizations](/docs/getstarted/themes.md#workbench-colors) setting.
+While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](/docs/editor/themes.md), but they can also be configured independently from the theme with the [workbench.colorCustomizations](/docs/editor/themes.md#workbench-colors) setting.
 
 Whether bold text uses the normal ANSI colors or the bright variant can be configured with the `setting(terminal.integrated.drawBoldTextInBrightColors)` setting.
 

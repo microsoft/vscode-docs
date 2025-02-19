@@ -269,7 +269,7 @@ A consequence of this is that the evaluation of a variable (for example, a comma
 
 ### Is variable substitution supported in User and Workspace settings?
 
-The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some [settings](/docs/getstarted/settings.md) like `setting(window.title)` have their own variables:
+The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some [settings](/docs/editor/settings.md) like `setting(window.title)` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"

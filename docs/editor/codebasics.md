@@ -16,9 +16,9 @@ Visual Studio Code is an editor first and foremost, and includes the features yo
 
 Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them.
 
-* [Keyboard Shortcuts Reference](/docs/getstarted/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
-* [Install a Keymap extension](/docs/getstarted/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
-* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#keyboard-shortcuts-editor) - Change the default keyboard shortcuts to fit your style.
+* [Keyboard Shortcuts Reference](/docs/editor/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
+* [Install a Keymap extension](/docs/editor/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Customize Keyboard Shortcuts](/docs/editor/keybindings.md#keyboard-shortcuts-editor) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 
@@ -38,7 +38,7 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 ### Multi-cursor modifier
 
-If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
+If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `setting(editor.multiCursorModifier)` [setting](/docs/editor/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
 
 The setting can be set to:
 
@@ -77,7 +77,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
+You can [edit](/docs/editor/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
 
 ### Column Selection mode
 
@@ -89,7 +89,7 @@ By default, VS Code requires an explicit action to save your changes to disk, `k
 
 However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle that turns on and off save after a delay.
 
-For more control over `Auto Save`, open User or Workspace [settings](/docs/getstarted/settings.md) and find the associated settings:
+For more control over `Auto Save`, open User or Workspace [settings](/docs/editor/settings.md) and find the associated settings:
 
 * `setting(files.autoSave)`: Can have the values:
   * `off` - to disable auto save.
@@ -195,7 +195,7 @@ In the two input boxes below the search box, you can enter patterns to include o
 * `[]` to **declare** a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 * `[!...]` to negate a range of characters to match (`example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
-VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
+VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/editor/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
 
 Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
@@ -276,13 +276,13 @@ The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (defaul
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these keyboard shortcuts](/docs/getstarted/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these keyboard shortcuts](/docs/editor/keybindings.md).
 
 > [!TIP]
 >  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
 > [!TIP]
-> IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
+> IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/editor/settings.md).
 
 JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
@@ -297,13 +297,13 @@ VS Code has great support for source code formatting. The editor has two explici
 
 You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
 
-VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `setting(html.format.indentInnerHtml)`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `setting(html.format.indentInnerHtml)`) which you can tune to your preference in your user or workspace [settings](/docs/editor/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
 ```json
 "html.format.enable": false
 ```
 
-Along with manually invoking code formatting, you can also trigger formatting based on user gestures such as typing, saving or pasting. These are off by default but you can enable these behaviors through the following [settings](/docs/getstarted/settings.md):
+Along with manually invoking code formatting, you can also trigger formatting based on user gestures such as typing, saving or pasting. These are off by default but you can enable these behaviors through the following [settings](/docs/editor/settings.md):
 
 * `setting(editor.formatOnType)` - Format the line after typing.
 * `setting(editor.formatOnSave)` - Format a file on save.
@@ -378,7 +378,7 @@ Manual folding ranges are especially useful for cases when there isn't programmi
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `setting(editor.insertSpaces)` and `setting(editor.tabSize)` [settings](/docs/getstarted/settings.md).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `setting(editor.insertSpaces)` and `setting(editor.tabSize)` [settings](/docs/editor/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -423,7 +423,7 @@ Then choose an encoding.
 
 ## Overtype mode
 
-Prior to release 1.96, VS Code only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/getstarted/keybindings.md#keymap-extensions).
+Prior to release 1.96, VS Code only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/editor/keybindings.md#keymap-extensions).
 
 As of release 1.96, VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
 
@@ -456,7 +456,7 @@ To compare any two files:
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
-* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [User/Workspace Settings](/docs/editor/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
@@ -472,7 +472,7 @@ Yes, expand the Search view text box to include a replace text field. You can se
 
 ### How do I turn on word wrap?
 
-You can control word wrap through the `setting(editor.wordWrap)` [setting](/docs/getstarted/settings.md). By default, `setting(editor.wordWrap)` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+You can control word wrap through the `setting(editor.wordWrap)` [setting](/docs/editor/settings.md). By default, `setting(editor.wordWrap)` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
     "editor.wordWrap": "on"

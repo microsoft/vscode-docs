@@ -47,7 +47,7 @@ Argument|Description
 `-d` or `--diff <file1> <file2>` | Open a file difference editor. Requires two file paths as arguments.
 `-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.
 `-w` or `--wait` | Wait for the files to be closed before returning.
-`--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
+`--locale <locale>` | Set the [display language](/docs/editor/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
 
 ![launch with locale](images/command-line/launch-locale.png)
 

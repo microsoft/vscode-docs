@@ -161,7 +161,7 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 
 ## Hiding derived JavaScript files
 
-When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/editor/settings.md) and you can easily create an expression to hide those derived files:
 
 `**/*.js: { "when": "$(basename).ts" }`
 
@@ -205,7 +205,7 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 Use this to switch between the version of TypeScript that comes with VS Code and the version of TypeScript in your workspace. You can also trigger the TypeScript version selector with the **TypeScript: Select TypeScript Version** command.
 
-VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `typescript.tsdk` in your user or workspace [settings](/docs/getstarted/settings.md). The `typescript.tsdk` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
+VS Code will automatically detect workspace versions of TypeScript that are installed under `node_modules` in the root of your workspace. You can also explicitly tell VS Code which version of TypeScript to use by configuring the `typescript.tsdk` in your user or workspace [settings](/docs/editor/settings.md). The `typescript.tsdk` setting should point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
 For example:
 
@@ -292,4 +292,4 @@ By default, VS Code TypeScript displays code style issues as warnings instead of
 
 Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
 
-You can disable this behavior by setting `"typescript.reportStyleChecksAsWarnings": false` in your User [settings](/docs/getstarted/settings.md).
+You can disable this behavior by setting `"typescript.reportStyleChecksAsWarnings": false` in your User [settings](/docs/editor/settings.md).

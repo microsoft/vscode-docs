@@ -25,7 +25,7 @@ In VS Code, Code Actions can provide both refactorings and Quick Fixes for detec
 
 If you prefer to only see refactorings without Quick Fixes, then you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
->**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
+>**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/editor/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
 ### Code Actions on save
 
