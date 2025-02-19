@@ -128,7 +128,7 @@ There are only a few changes to the VS Code UI when you are using multi-root wor
 
 ![tabbed headers](images/multi-root-workspaces/tabbed-headers.png)
 
-If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/getstarted/settings.md) "medium" or "long" values to show the folder or full paths.
+If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/editor/settings.md) "medium" or "long" values to show the folder or full paths.
 
 ```json
 "workbench.editor.labelFormat": "medium"
@@ -138,7 +138,7 @@ VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you are using a [File Icon Theme](/docs/getstarted/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using a [File Icon Theme](/docs/editor/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
 Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** file icon theme:
 
@@ -210,7 +210,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
+[Variables](/docs/reference/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
 ### Workspace launch configurations
 
@@ -253,7 +253,7 @@ If the individual launch configuration names are not unique, the qualifying fold
   }]
 ```
 
-In addition to `compounds`, the `setting(launch)` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
+In addition to `compounds`, the `setting(launch)` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/reference/variables-reference.md#variables-scoped-per-workspace-folder).
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 

@@ -144,7 +144,7 @@ Once you have made commits to your local Git repository, you can push them to th
 ![Sync button with one change to push](images/intro/sync.png)
 
 > [!TIP]
-> You can enable the **Git: Autofetch** [setting](/docs/getstarted/settings.md) to always get an up-to-date remote commit indicator.
+> You can enable the **Git: Autofetch** [setting](/docs/editor/settings.md) to always get an up-to-date remote commit indicator.
 
 Push and pull can also be performed individually by using their respective commands. You can access these commands from the Source Control menu.
 

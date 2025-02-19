@@ -156,7 +156,7 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/getstarted/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/editor/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
 
 ![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
@@ -189,7 +189,7 @@ To dismiss a recommendation, select on the extension item to open the Details pa
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/editor/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 

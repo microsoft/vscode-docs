@@ -35,7 +35,7 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 > **Tip:** You can trigger between different color modes by clicking on the color string at the top of the picker.
 
-You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
+You can hide VS Code's color previews by setting the following [setting](/docs/editor/settings.md):
 
 ```json
 "editor.colorDecorators": false
@@ -77,7 +77,7 @@ VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.m
 
 There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/editor/settings.md) to false.
 >```json
 >"css.validate": false
 >```
@@ -293,7 +293,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 ## Customizing CSS, SCSS and Less Settings
 
-You can configure the following lint warnings as [User and Workspace Settings](/docs/getstarted/settings.md).
+You can configure the following lint warnings as [User and Workspace Settings](/docs/editor/settings.md).
 
 The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
 

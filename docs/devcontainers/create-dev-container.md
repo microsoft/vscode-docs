@@ -459,7 +459,7 @@ If you already have VS Code and Docker installed, you can click the badge above 
 
 In some cases, you may want to create a configuration for a repository that you do not control or that you would prefer didn't have a configuration included in the repository itself. To handle this situation, you can configure a location on your local filesystem to store configuration files that will be picked up automatically based on the repository.
 
-First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/getstarted/settings.md) with the local folder you want to use to store your repository container configuration files.
+First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/editor/settings.md) with the local folder you want to use to store your repository container configuration files.
 
 In the Settings editor, you can search for 'dev containers repo' to find the setting:
 
