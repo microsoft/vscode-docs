@@ -341,7 +341,7 @@ The Python extension also offers support for discovering and running Django unit
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
 3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/editor/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
 
-> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/editor/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/editor/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
+> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/editor/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 

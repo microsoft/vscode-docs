@@ -31,7 +31,7 @@ Example profile:
 }
 ```
 
-You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. There is a list of available variables in the [Variables Reference](/docs/editor/variables-reference.md) topic.
+You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. There is a list of available variables in the [Variables Reference](/docs/reference/variables-reference.md) topic.
 
 Configure your default profile by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
 
@@ -69,7 +69,7 @@ Other arguments supported in profiles include:
 * `icon`: An icon ID to use for the profile.
 * `color`: A theme color ID to style the icon.
 
->**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
+>**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/reference/variables-reference)
 
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 

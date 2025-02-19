@@ -163,7 +163,7 @@ Here is a sample of a `tasks.json` file on macOS:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/reference/variables-reference.md).
 
 The `command` setting specifies the program to run. In this case, that is`clang++`.
 
