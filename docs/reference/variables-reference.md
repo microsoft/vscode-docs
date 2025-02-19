@@ -7,63 +7,66 @@ PageTitle: Visual Studio Code Variables Reference
 DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code variable substitution reference
 ---
-# Variables Reference
+# Variables reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files, and for some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files by using the **${variableName}** syntax.
 
 ## Predefined variables
 
 The following predefined variables are supported:
 
-- **${userHome}** - the path of the user's home folder
-- **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
-- **${file}** - the current opened file
-- **${fileWorkspaceFolder}** - the current opened file's workspace folder
-- **${relativeFile}** - the current opened file relative to `workspaceFolder`
-- **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
-- **${fileBasename}** - the current opened file's basename
-- **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileExtname}** - the current opened file's extension
-- **${fileDirname}** - the current opened file's folder path
-- **${fileDirnameBasename}** - the current opened file's folder name
-- **${cwd}** - the task runner's current working directory upon the startup of VS Code
-- **${lineNumber}** - the current selected line number in the active file
-- **${columnNumber}** - the current selected column number in the active file
-- **${selectedText}** - the current selected text in the active file
-- **${execPath}** - the path to the running VS Code executable
-- **${defaultBuildTask}** - the name of the default build task
-- **${pathSeparator}** - the character used by the operating system to separate components in file paths
-- **${/}** - shorthand for **${pathSeparator}**
+| Variable                       | Description                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|
+| **${userHome}**                | Path of the user's home folder                                              |
+| **${workspaceFolder}**         | Path of the folder opened in VS Code                                        |
+| **${workspaceFolderBasename}** | Name of the folder opened in VS Code without any slashes (/)                |
+| **${file}**                    | Currently opened file                                                       |
+| **${fileWorkspaceFolder}**     | Currently opened file's workspace folder                                    |
+| **${relativeFile}**            | Currently opened file relative to `workspaceFolder`                         |
+| **${relativeFileDirname}**     | Currently opened file's dirname relative to `workspaceFolder`               |
+| **${fileBasename}**            | Currently opened file's basename                                            |
+| **${fileBasenameNoExtension}** | Currently opened file's basename with no file extension                     |
+| **${fileExtname}**             | Currently opened file's extension                                           |
+| **${fileDirname}**             | Currently opened file's folder path                                         |
+| **${fileDirnameBasename}**     | Currently opened file's folder name                                         |
+| **${cwd}**                     | Task runner's current working directory upon the startup of VS Code         |
+| **${lineNumber}**              | Currently selected line number in the active file                           |
+| **${columnNumber}**            | Currently selected column number in the active file                         |
+| **${selectedText}**            | Currently selected text in the active file                                  |
+| **${execPath}**                | Path to the running VS Code executable                                      |
+| **${defaultBuildTask}**        | Name of the default build task                                              |
+| **${pathSeparator}**           | Character used by the operating system to separate components in file paths |
+| **${/}**                       | Shorthand for **${pathSeparator}**                                          |
 
-### Predefined variables examples
+### Predefined variables example
 
-Supposing that you have the following requirements:
+Suppose that you have the following conditions:
 
 1. A file located at `/home/your-username/your-project/folder/file.ext` opened in your editor;
-2. The directory `/home/your-username/your-project` opened as your root workspace.
+1. The directory `/home/your-username/your-project` opened as your root workspace.
 
-So you will have the following values for each variable:
+This leads to the following values for each of the variables:
 
-- **${userHome}** - `/home/your-username`
-- **${workspaceFolder}** - `/home/your-username/your-project`
-- **${workspaceFolderBasename}** - `your-project`
-- **${file}** - `/home/your-username/your-project/folder/file.ext`
-- **${fileWorkspaceFolder}** - `/home/your-username/your-project`
-- **${relativeFile}** - `folder/file.ext`
-- **${relativeFileDirname}** - `folder`
-- **${fileBasename}** - `file.ext`
-- **${fileBasenameNoExtension}** - `file`
-- **${fileExtname}** - `.ext`
-- **${fileDirname}** - `/home/your-username/your-project/folder`
-- **${fileDirnameBasename}** - `folder`
-- **${lineNumber}** - line number of the cursor
-- **${columnNumber}** - column number of the cursor
-- **${selectedText}** - text selected in your code editor
-- **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
+- **${userHome}**: `/home/your-username`
+- **${workspaceFolder}**: `/home/your-username/your-project`
+- **${workspaceFolderBasename}**: `your-project`
+- **${file}**: `/home/your-username/your-project/folder/file.ext`
+- **${fileWorkspaceFolder}**: `/home/your-username/your-project`
+- **${relativeFile}**: `folder/file.ext`
+- **${relativeFileDirname}**: `folder`
+- **${fileBasename}**: `file.ext`
+- **${fileBasenameNoExtension}**: `file`
+- **${fileExtname}**: `.ext`
+- **${fileDirname}**: `/home/your-username/your-project/folder`
+- **${fileDirnameBasename}**: `folder`
+- **${lineNumber}**: line number of the cursor
+- **${columnNumber}**: column number of the cursor
+- **${selectedText}**: text selected in your code editor
+- **${execPath}**: location of Code.exe
+- **${pathSeparator}**: `/` on macOS or linux, `\` on Windows
 
->**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
+> [!TIP]
+> Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
 ### Variables scoped per workspace folder
 
@@ -73,7 +76,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Environment variables
 
-You can also reference environment variables through the **${env:Name}** syntax (for example, `${env:USERNAME}`).
+You can reference environment variables with the **${env:Name}** syntax. For example, **${env:USERNAME}** references the `USERNAME` environment variable.
 
 ```json
 {
@@ -88,11 +91,11 @@ You can also reference environment variables through the **${env:Name}** syntax 
 
 ## Configuration variables
 
-You can reference VS Code settings ("configurations") through **${config:Name}** syntax (for example, `${config:editor.fontSize}`).
+To reference VS Code settings (_configurations_), use the **${config:Name}** syntax. For example, **${config:editor.fontSize}** references the `editor.fontSize` setting.
 
 ## Command variables
 
-If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
+You can use any VS Code command as a variable with the **${command:commandID}** syntax.
 
 A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
 
@@ -111,13 +114,13 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 }
 ```
 
-When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This allows commands to know the context and parameters of the specific `launch.json` configuration when they are called.
+When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This enables commands to know the context and parameters of the specific `launch.json` configuration when they are called.
 
 ## Input variables
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
-This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
+This limitation is solved with **input variables**, which have the syntax **${input:variableID}**. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
 
 The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
@@ -143,30 +146,30 @@ The following example shows the overall structure of a `tasks.json` that makes u
 
 Currently VS Code supports three types of input variables:
 
-- **promptString**: Shows an input box to get a string from the user.
-- **pickString**: Shows a Quick Pick dropdown to let the user select from several options.
-- **command**: Runs an arbitrary command.
+- **promptString**: shows an input box to get a string from the user.
+- **pickString**: shows a Quick Pick dropdown to let the user select from several options.
+- **command**: runs an arbitrary command.
 
 Each type requires additional configuration attributes:
 
 `promptString`:
 
-- **description**: Shown in the quick input, provides context for the input.
-- **default**: Default value that will be used if the user doesn't enter something else.
-- **password**: Set to true to input with a password prompt that will not show the typed value.
+- **description**: shown in the quick input, provides context for the input.
+- **default**: default value that will be used if the user doesn't enter something else.
+- **password**: set to true to input with a password prompt that will not show the typed value.
 
 `pickString`:
 
-- **description**: Shown in the quick pick, provides context for the input.
-- **options**:  An array of options for the user to pick from.
-- **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
+- **description**: shown in the quick pick, provides context for the input.
+- **options**:  an array of options for the user to pick from.
+- **default**: default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
 An option can be a string value or an object with both a label and value. The dropdown will display **label: value**.
 
 `command`:
 
-- **command**: Command being run on variable interpolation.
-- **args**: Optional option bag passed to the command's implementation.
+- **command**: runs a command on variable interpolation.
+- **args**: optional option bag passed to the command's implementation.
 
 Below is an example of a `tasks.json` that illustrates the use of `inputs` using Angular CLI:
 
@@ -205,7 +208,7 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
 
 Running the example:
 
-![Inputs Example](images/tasks/run-input-example.gif)
+![Inputs Example](images/variables-reference/run-input-example.gif)
 
 The following example shows how to use a user input variable of type `command` in a debug configuration that lets the user pick a test case from a list of all test cases found in a specific folder. It is assumed that some extension provides an `extension.mochaSupport.testPicker` command that locates all test cases in a configurable location and shows a picker UI to pick one of them. The arguments for a command input are defined by the command itself.
 
@@ -269,13 +272,13 @@ A consequence of this is that the evaluation of a variable (for example, a comma
 
 ### Is variable substitution supported in User and Workspace settings?
 
-The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some [settings](/docs/editor/settings.md) like `setting(window.title)` have their own variables:
+The predefined variables are supported in a select number of setting keys in `settings.json` files such as the terminal `cwd`, `env`, `shell` and `shellArgs` values. Some settings like `setting(window.title)` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 
-Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
+Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting-specific variables.
 
 ### Why isn't ${workspaceRoot} documented?
 
@@ -300,3 +303,8 @@ One easy way to check a variable's runtime value is to create a VS Code [task](/
         }
     ]
 }
+
+## Related resources
+
+- [Debugging](/docs/editor/debugging.md)
+- [Tasks](/docs/editor/tasks.md)
