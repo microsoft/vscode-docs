@@ -3,7 +3,7 @@ ContentId: d2ce015b-4075-4467-a221-114aff2633db
 DateApproved: 02/06/2025
 MetaDescription: Learn how to install extensions from the Visual Studio Marketplace to add features for your programming language, framework, or development workflow to Visual Studio.
 ---
-# Extend Visual Studio with extensions
+# Use extensions in Visual Studio Code
 
 Visual Studio Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. When you use VS Code, you can install extensions directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) and take advantage of automatic updates to always have the latest features. In this article, you learn how to browse and install extensions in VS Code.
 
