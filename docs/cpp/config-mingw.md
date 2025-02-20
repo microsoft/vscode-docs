@@ -206,7 +206,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/reference/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is `g++`.
 

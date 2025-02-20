@@ -53,28 +53,29 @@ The JavaScript code in the following screenshot illustrates IntelliSense complet
 VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 | Icon | Name | Symbol type |
-| ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
-| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
-| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
-| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
-| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
-| ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
-| ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
-| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
-| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
-| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
-| ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
-| ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
-| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
-| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
-| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
-| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
-| ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
-| ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
-| ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
+| ---- | ---- | ----------- |
+| <i class="codicon codicon-symbol-method" style="color:#b180d7"></i> | Methods and Functions | `method`, `function`, `constructor`  |
+| <i class="codicon codicon-symbol-variable" style="color:#75beff"></i> | Variables | `variable` |
+| <i class="codicon codicon-symbol-field" style="color:#75beff"></i> | Fields | `field` |
+| <i class="codicon codicon-symbol-parameter"></i> | Type parameters | `typeParameter` |
+| <i class="codicon codicon-symbol-constant"></i> | Constants | `constant` |
+| <i class="codicon codicon-symbol-class" style="color:#ee9d28"></i> | Classes | `class` |
+| <i class="codicon codicon-symbol-interface" style="color:#75beff"></i> | Interfaces | `interface` |
+| <i class="codicon codicon-symbol-structure"></i> | Structures | `struct` |
+| <i class="codicon codicon-symbol-event" style="color:#ee9d28"></i> | Events | `event` |
+| <i class="codicon codicon-symbol-operator"></i> | Operators | `operator` |
+| <i class="codicon codicon-symbol-namespace"></i> | Modules | `module` |
+| <i class="codicon codicon-symbol-property"></i> | Properties and Attributes | `property` |
+| <i class="codicon codicon-symbol-enum" style="color:#ee9d28"></i> | Enumerations | `enum` |
+| <i class="codicon codicon-symbol-enum-member" style="color:#75beff"></i> | Enumeration members | `enumMember` |
+| <i class="codicon codicon-symbol-reference"></i> | References | `reference` |
+| <i class="codicon codicon-symbol-keyword"></i> | Keywords | `keyword` |
+| <i class="codicon codicon-symbol-file"></i> | Files | `file` |
+| <i class="codicon codicon-symbol-folder"></i> | Folders | `folder` |
+| <i class="codicon codicon-symbol-color"></i> | Colors | `color` |
+| <i class="codicon codicon-symbol-ruler"></i> | Unit | `unit` |
+| <i class="codicon codicon-symbol-snippet"></i> | Snippet prefixes | `snippet` |
+| <i class="codicon codicon-symbol-text"></i> | Words | `text` |
 
 ## Customizing IntelliSense
 
@@ -82,7 +83,7 @@ You can customize your IntelliSense experience in settings and keyboard shortcut
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/getstarted/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
+The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/editor/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
 
 ```javascript
 {
@@ -164,7 +165,7 @@ By default, VS Code shows snippets and completion proposals in one control. You 
 
 ### Keyboard shortcuts
 
-The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/getstarted/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
+The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/editor/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
 
 | Command | Keybinding |
 | --- | --- |
@@ -192,7 +193,8 @@ To get started:
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
-> **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
+> [!TIP]
+> For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
 A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
@@ -207,8 +209,6 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 ## Common questions
 
 ### Why am I not getting any suggestions?
-
-![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
 This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript-specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 

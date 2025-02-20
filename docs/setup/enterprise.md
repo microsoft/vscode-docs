@@ -56,10 +56,10 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     "dbaeumer.vscode-eslint": ["3.0.0"],
 
     // Allow multiple versions of the figma extension
-    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"]
+    "figma.figma-vscode-extension": ["3.0.0", "4.2.3", "4.1.2"],
 
     // Allow version 5.0.0 of the rust extension on Windows and macOS
-    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"]
+    "rust-lang.rust-analyzer": ["5.0.0@win32-x64", "5.0.0@darwin-x64"],
 
     // Allow only stable versions of the GitHub Pull Requests extension
     "github.vscode-pull-request-github": "stable",
@@ -128,7 +128,7 @@ VS Code has support for [Windows Registry-based Group Policy](https://learn.micr
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
-Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/getstarted/settings.md) value configured at any level (default, user, workspace, etc.).
+Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/settings.md) value configured at any level (default, user, workspace, etc.).
 
 ### Additional policies
 

@@ -93,7 +93,7 @@ You can attach to a C# process using with the Command Palette `kb(workbench.acti
 
 ## Configuration options
 
-There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/getstarted/settings) to modify your debug options, or directly modify your `launch.json`.
+There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/editor/settings) to modify your debug options, or directly modify your `launch.json`.
 
 ### launchSettings.json
 

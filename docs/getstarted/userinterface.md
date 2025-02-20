@@ -1,9 +1,5 @@
 ---
-Order: 4
-Area: getstarted
-TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-PageTitle: Visual Studio Code User Interface
 DateApproved: 02/06/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
@@ -87,7 +83,7 @@ If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor,
 ![minimap](images/userinterface/minimap.png)
 
 > [!TIP]
-> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/editor/settings.md).
 
 ## Sticky Scroll
 
@@ -102,7 +98,7 @@ Sticky Scroll uses several different content models to create its headings. It i
 
 ### Indent guides
 
-The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/editor/settings.md).
 
 ## Breadcrumbs
 
@@ -170,7 +166,7 @@ For symbols, the view relies on information computed by your installed extension
 
 ![Markdown Outline view](images/userinterface/markdown-outline-view.png)
 
-There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
+There are several Outline view [settings](/docs/editor/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
 ### Timeline view
 
@@ -273,7 +269,7 @@ You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu
 
 ### Settings
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settings-json-file).
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/editor/settings.md#settings-json-file).
 
 You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 
@@ -450,7 +446,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 * `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` - close all editors.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
+>If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/keybindings.md) for details.
 
 ## Working without tabs
 
@@ -464,7 +460,7 @@ Without tabs, the **Open Editors** section of the Explorer view is a quick way t
 
 You can change vs for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
 
-Edit your [keyboard shortcuts](/docs/getstarted/keybindings.md) and add the following:
+Edit your [keyboard shortcuts](/docs/editor/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
@@ -473,7 +469,7 @@ Edit your [keyboard shortcuts](/docs/getstarted/keybindings.md) and add the foll
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/editor/keybindings.md).
 
 macOS:
 
@@ -504,7 +500,7 @@ The `setting(window.restoreWindows)` setting informs VS Code about how to restor
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
 
-* [Changing the theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon Theme to your preference.
+* [Changing the theme](/docs/editor/themes.md) - Set a Color and/or File Icon Theme to your preference.
 * [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions

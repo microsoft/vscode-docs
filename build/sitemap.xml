@@ -31,11 +31,6 @@
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/learntocode</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.70</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/migrate-from-brackets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -171,27 +166,32 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/themes</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/getstarted/settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/keybindings</loc>
+        <loc>https://code.visualstudio.com/docs/getstarted/personalize-vscode</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/locales</loc>
+        <loc>https://code.visualstudio.com/docs/editor/themes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/telemetry</loc>
+        <loc>https://code.visualstudio.com/docs/editor/keybindings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editor/locales</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editor/telemetry</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -422,11 +422,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/editor/multi-root-workspaces</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/editor/variables-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1656,6 +1651,21 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/references/document-selector</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/reference/variables-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/reference/default-keybindings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/reference/default-settings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -1,9 +1,5 @@
 ---
-Order: 5
-Area: getstarted
-TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-PageTitle: Visual Studio Code Tips and Tricks
 DateApproved: 02/06/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
@@ -178,7 +174,7 @@ There are many options to customize VS Code to meet your preferences:
 
 ### Change your theme
 
-VS Code comes with a number of built-in [color themes](/docs/getstarted/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+VS Code comes with a number of built-in [color themes](/docs/editor/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
@@ -218,7 +214,7 @@ You can also search for shortcuts and add your own keyboard shortcuts to the `ke
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
-See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.md).
+See more in [Key Bindings for Visual Studio Code](/docs/editor/keybindings.md).
 
 ### Tune your settings
 
@@ -318,7 +314,7 @@ Remove these files / folders from search results.
 }
 ```
 
-Learn about the many [other customizations](/docs/getstarted/settings.md).
+Learn about the many [other customizations](/docs/editor/settings.md).
 
 ### Language specific settings
 
@@ -387,7 +383,7 @@ See more in the [JSON](/docs/languages/json.md) documentation.
 
 ### Configure the default browser
 
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/getstarted/settings.md).
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/editor/settings.md).
 
 Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
 
@@ -452,7 +448,7 @@ After you enable the Simple File Dialog, you can browse and select files and fol
 
 ![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
 
-To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/getstarted/settings.md):
+To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/editor/settings.md):
 
 ```json
     "files.simpleDialog.enable": true
@@ -572,7 +568,7 @@ You can add additional cursors to all occurrences of the current selection with 
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/editor/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
