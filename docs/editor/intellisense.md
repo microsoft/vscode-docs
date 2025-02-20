@@ -53,29 +53,29 @@ The JavaScript code in the following screenshot illustrates IntelliSense complet
 VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 | Icon | Name | Symbol type |
-| ----- | ------- | ----- |
-| <i class="codicon codicon-symbol-method"></i> | Methods and Functions | `method`, `function`, `constructor`  |
-| <i class="codicon codicon-symbol-variable"></i> | Variables | `variable` |
-| <i class="codicon codicon-symbol-field"></i> | Fields | `field` |
-| <i class="codicon codicon-symbol-parameter"></i> | Type parameters | `typeParameter` |
-| <i class="codicon codicon-symbol-constant"></i> | Constants | `constant` |
-| <i class="codicon codicon-symbol-class"></i> | Classes | `class` |
-| <i class="codicon codicon-symbol-interface"></i> | Interfaces | `interface` |
-| <i class="codicon codicon-symbol-structure"></i> | Structures | `struct` |
-| <i class="codicon codicon-symbol-event"></i> | Events | `event` |
-| <i class="codicon codicon-symbol-operator"></i> | Operators | `operator` |
-| <i class="codicon codicon-symbol-namespace"></i> | Modules | `module` |
-| <i class="codicon codicon-symbol-property"></i> | Properties and Attributes | `property` |
-| <i class="codicon codicon-symbol-enum"></i> | Enumerations | `enum` |
-| <i class="codicon codicon-symbol-enum-member"></i> | Enumeration members | `enumMember` |
-| <i class="codicon codicon-symbol-reference"></i> | References | `reference` |
-| <i class="codicon codicon-symbol-keyword"></i> | Keywords | `keyword` |
-| <i class="codicon codicon-symbol-file"></i> | Files | `file` |
-| <i class="codicon codicon-symbol-folder"></i> | Folders | `folder` |
-| <i class="codicon codicon-symbol-color"></i> | Colors | `color` |
-| <i class="codicon codicon-symbol-ruler"></i> | Unit | `unit` |
-| <i class="codicon codicon-symbol-snippet"></i> | Snippet prefixes | `snippet` |
-| <i class="codicon codicon-symbol-text"></i> | Words | `text` |
+| ---- | ---- | ----------- |
+| <i class="codicon codicon-symbol-method" style="color:#b180d7"></i> | Methods and Functions | `method`, `function`, `constructor`  |
+| <i class="codicon codicon-symbol-variable" style="color:#75beff"></i> | Variables | `variable` |
+| <i class="codicon codicon-symbol-field" style="color:#75beff"></i> | Fields | `field` |
+| <i class="codicon codicon-symbol-parameter" style="color:#999999"></i> | Type parameters | `typeParameter` |
+| <i class="codicon codicon-symbol-constant" style="color:#999999"></i> | Constants | `constant` |
+| <i class="codicon codicon-symbol-class" style="color:#ee9d28"></i> | Classes | `class` |
+| <i class="codicon codicon-symbol-interface" style="color:#75beff"></i> | Interfaces | `interface` |
+| <i class="codicon codicon-symbol-structure" style="color:#999999"></i> | Structures | `struct` |
+| <i class="codicon codicon-symbol-event" style="color:#ee9d28"></i> | Events | `event` |
+| <i class="codicon codicon-symbol-operator" style="color:#999999"></i> | Operators | `operator` |
+| <i class="codicon codicon-symbol-namespace" style="color:#999999"></i> | Modules | `module` |
+| <i class="codicon codicon-symbol-property" style="color:#999999"></i> | Properties and Attributes | `property` |
+| <i class="codicon codicon-symbol-enum" style="color:#ee9d28"></i> | Enumerations | `enum` |
+| <i class="codicon codicon-symbol-enum-member" style="color:#75beff"></i> | Enumeration members | `enumMember` |
+| <i class="codicon codicon-symbol-reference" style="color:#999999"></i> | References | `reference` |
+| <i class="codicon codicon-symbol-keyword" style="color:#999999"></i> | Keywords | `keyword` |
+| <i class="codicon codicon-symbol-file" style="color:#999999"></i> | Files | `file` |
+| <i class="codicon codicon-symbol-folder" style="color:#999999"></i> | Folders | `folder` |
+| <i class="codicon codicon-symbol-color" style="color:#999999"></i> | Colors | `color` |
+| <i class="codicon codicon-symbol-ruler" style="color:#999999"></i> | Unit | `unit` |
+| <i class="codicon codicon-symbol-snippet" style="color:#999999"></i> | Snippet prefixes | `snippet` |
+| <i class="codicon codicon-symbol-text" style="color:#999999"></i> | Words | `text` |
 
 ## Customizing IntelliSense
 
