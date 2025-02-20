@@ -58,7 +58,7 @@ GitHub Copilot can provide assistance in a variety of scenarios.
 
 ## Getting started
 
-1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the VS Code title bar
+1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the VS Code title bar or from the Command Palette (`kb(workbench.action.showCommands)`)
 
 1. Sign in with your GitHub account to use Copilot
 
