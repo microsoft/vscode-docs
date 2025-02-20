@@ -159,16 +159,15 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 You can temporarily enable or disable code completions either for all languages, or for specific languages only.
 
-To enable completions:
+To enable or disable code completions:
 
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
-1. Select **Enable Completions**.
+1. Select the Copilot menu in the VS Code title bar, and then select **Configure Code Completions...**.
 
-To disable completions:
+    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
 
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
-1. To disable completions globally, select **Disable Globally**.
-1. To disable completions for the language of the file you are currently editing, select **Disable for \<language\>**.
+1. To enable or disable completions for all languages, select **Enable Completions** or **Disable Completions** respectively.
+
+1. To enable or disable completions for the language of the current file, select **Enable Completions for \<language\>** or **Disable Completions for \<language\>**.
 
 ### Change the AI model
 
@@ -177,7 +176,10 @@ Different Large Language Models (LLMs) are trained on different types of data an
 To change the model that is used for code completions:
 
 1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
-1. Select **Change Completions Model...**, and then select one of the models.
+
+    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
+
+1. Select **Change Completions Model...**, and then select one of the models from the list.
 
 > [!NOTE]
 > The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
