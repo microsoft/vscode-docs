@@ -65,7 +65,7 @@ To start a debugging session in VS Code, perform the following steps:
 
     ![debug session](images/debugging/debug-session.png)
 
-    The **debug status** in the Status Bar shows the active debug configuration. Select the debug status to change the active launch configuration and start debugging without needing to open the **Run and Debug** view.
+1. The debug status in the Status Bar shows the active debug configuration. Select the debug status to change the active launch configuration and start debugging without needing to open the **Run and Debug** view.
 
     ![Debug status](images/debugging/debug-status.png)
 

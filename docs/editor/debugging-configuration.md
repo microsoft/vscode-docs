@@ -359,7 +359,7 @@ The named launch configuration must be in the same file or folder as the one wit
 
 Here the **serverReadyAction** feature in action:
 
-![Server ready feature in action](images/debugging/server-ready.gif)
+<video src="images/debugging/server-ready.mp4" title="Server ready feature in action" autoplay loop controls muted></video>
 
 ## Next steps
 
