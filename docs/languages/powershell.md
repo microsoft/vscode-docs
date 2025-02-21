@@ -14,13 +14,13 @@ provides a powerful toolset for administrators on any platform.
 
 The Microsoft [PowerShell][31] extension for Visual Studio Code (VS Code) provides rich language
 support and capabilities such as syntax completions, definition tracking, and linting for
-PowerShell. The extension should work anywhere VS Code is supported using supported versions of
-[PowerShell 7][17].
+PowerShell. The extension should work everywhere VS Code is supported using
+[PowerShell 7+ currently supported versions][17].
 
 Support for Windows PowerShell 5.1 is provided on a best effort basis. [.NET Framework 4.8][18] or
 higher is required.
 
-[VS Code Remote Development][13] Environments, including [Github Codespaces][19] and
+[VS Code Remote Development][13] Environments, including [GitHub Codespaces][19] and
 [VS Code Server][14] are supported.
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ We actively test the following configurations:
 
 - **Windows Server 2022** with Windows PowerShell 5.1 and PowerShell 7+
 - **macOS 14.7** with PowerShell 7+
-- **Ubuntu 22.04** with PowerShell 7+
+- **Ubuntu 24.04** with PowerShell 7+
 
 On Windows, we also test with and without Constrained Language Mode enabled.
 
