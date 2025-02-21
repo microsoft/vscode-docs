@@ -136,7 +136,7 @@ With reusable prompt files, you can specify common prompt instructions and relev
 
 | Action | Description |
 |--------|-------------|
-| File-based instructions _(Preview)_ | Define shared instructions for code generation in a `.gitHub/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
+| File-based instructions _(Preview)_ | Define shared instructions for code generation in a `.github/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
 | Code-generation instructions _(Experimental)_ | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
