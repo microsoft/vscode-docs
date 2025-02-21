@@ -100,7 +100,7 @@ Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in
 
 ### Launch configuration attributes
 
-Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) article. You can either "launch" a browser with your application, or "attach" to an existing browser that you [started in debug mode](#attaching-to-browsers).
+Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging-configuration.md#launch-configurations) article. You can either "launch" a browser with your application, or "attach" to an existing browser that you [started in debug mode](#attaching-to-browsers).
 
 Below is a reference of common `launch.json` attributes specific to browser debugging. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 

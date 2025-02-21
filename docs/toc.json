@@ -38,6 +38,7 @@
         ["Code Navigation", "/docs/editor/editingevolved"],
         ["Refactoring", "/docs/editor/refactoring"],
         ["Debugging", "/docs/editor/debugging"],
+        ["Debug Configuration", "/docs/editor/debugging-configuration"],
         ["Testing", "/docs/editor/testing"],
         ["VS Code for the Web", "/docs/editor/vscode-web"],
         ["Keyboard Shortcuts", "/docs/editor/keybindings"],
