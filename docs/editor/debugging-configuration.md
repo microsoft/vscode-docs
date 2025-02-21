@@ -10,75 +10,72 @@ For complex debugging scenarios or applications, you need to create a `launch.js
 
 To learn more about debugging in VS Code, see [Debugging in Visual Studio Code](/docs/editor/debugging.md).
 
+> [!TIP]
+> Copilot in VS Code can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
+
 ## Launch configurations
 
-To run or debug a simple app in VS Code, use `kb(workbench.action.debug.start)`, and VS Code tries to run your currently active file.
+For simple applications or debugging scenarios, you can run and debug a program without specific debugging configurations. Use the `kb(workbench.action.debug.start)` key and VS Code will try to run your currently active file.
 
-For most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details.
+However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
 VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editor/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
 
+The following snippet describes a sample configuration for debugging a Node.js application:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\app.js"
+        }
+    ]
+}
+```
+
+VS Code also supports [compound launch configurations](#compound-launch-configurations) for starting multiple configurations at the same time.
+
+> [!NOTE]
+> You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging.
+
 ## Create a debug configuration file
 
-To create a `launch.json` file:
+To create an initial `launch.json` file:
 
 1. Select **create a launch.json file** in the Run and Debug view.
 
     ![launch configuration](images/debugging/launch-configuration.png)
 
-    VS Code tries to detect your debug environment. If it's unable to do so, you can choose it manually:
+1. VS Code tries to detect your debug environment. If it's unable to do so, you can choose it manually:
 
     ![debug environment selector](images/debugging/debug-environments.png)
 
-    Here is the sample configuration for debugging a Node.js application:
-
-    ```json
-    {
-        "version": "0.2.0",
-        "configurations": [
-            {
-                "type": "node",
-                "request": "launch",
-                "name": "Launch Program",
-                "skipFiles": [
-                    "<node_internals>/**"
-                ],
-                "program": "${workspaceFolder}\\app.js"
-            }
-        ]
-    }
-    ```
+    Based on the selected debug environment, VS Code creates a starter configuration in the `launch.json` file.
 
 1. In the Explorer view (`kb(workbench.view.explorer)`), notice that VS Code created a `.vscode` folder and added the `launch.json` file to your workspace.
 
     ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
 
-> [!NOTE]
-> You can debug a simple application even if you don't have a folder open in VS Code, but it is not possible to manage launch configurations and set up advanced debugging.
+You can now edit the `launch.json` file to add more configurations or modify existing ones.
 
-The attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`kb(editor.action.triggerSuggest)`) to find out which attributes exist for a specific debugger. Hover help is also available for all attributes.
-
-Do not assume that an attribute that is available for one debugger automatically works for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
-
-Review all automatically generated values and make sure that they make sense for your project and debugging environment.
-
-## Add a new configuration
+### Add a configuration to launch.json
 
 To add a new configuration to an existing `launch.json`, use one of the following techniques:
 
+* Press the **Add Configuration** button and then select a snippet to add a predefined configuration.
 * Use IntelliSense if your cursor is located inside the configurations array.
-* Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
-* Choose **Add Configuration** option in the Run menu.
+* Choose the **Run** > **Add Configuration** menu option.
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
-To start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
-
-Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
-
-VS Code also supports compound launch configurations for starting multiple configurations at the same time; for more details, please read this [section](#compound-launch-configurations).
-
-## Generate a launch configuration with AI
+### Generate a launch configuration with AI
 
 With Copilot in VS Code, you can accelerate the process of creating a launch configuration for your project. To generate a launch configuration with Copilot:
 
@@ -95,21 +92,37 @@ With Copilot in VS Code, you can accelerate the process of creating a launch con
 
 1. Apply the suggested configuration, and then start debugging.
 
+## Start a debugging session with a launch configuration
+
+To start a debug session with a launch configuration:
+
+1. Select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view.
+
+    The list of available configurations matches those in the `launch.json` file.
+
+    ![Screenshot that shows the launch configuration dropdown.](images/debugging/launch-configuration-dropdown.png)
+
+1. Start your debug session with `kb(workbench.action.debug.start)` or select **Start Debugging** (play icon) in **Run and Debug** view.
+
+Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
+
 ## Launch versus attach configurations
 
 In VS Code, there are two core debugging modes, **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
 
 If you come from a browser Developer Tools background, you might not be used to "launching from your tool," since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a server or desktop background, it's quite normal to have your editor **launch** your process for you, and your editor automatically attaches its debugger to the newly launched process.
 
-The best way to explain the difference between **launch** and **attach** is to think of a **launch** configuration as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an **attach** configuration is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
+The best way to explain the difference between launch and attach is to think of a launch configuration as a recipe for how to start your app in debug mode _before_ VS Code attaches to it, while an attach configuration is a recipe for how to connect VS Code's debugger to an app or process that's _already_ running.
 
 VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`), different attributes are required, and VS Code's `launch.json` validation and suggestions should help with that.
 
 ## Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute.
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute. The attributes available in launch configurations vary from debugger to debugger.
 
 ![launch json suggestions](images/debugging/launch-json-suggestions.png)
+
+An attribute that is available for one debugger doesn't automatically work for other debuggers too. If you see red squiggles in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
 
 The following attributes are mandatory for every launch configuration:
 
@@ -204,7 +217,7 @@ In the following example, debugging the program always **stops on entry**, excep
 
 ## Global launch configuration
 
-VS Code supports adding a launch configuration object in the `setting(launch)` user setting. This `launch` configuration is then shared across your workspaces. For example:
+You can define launch configurations that are available across all your workspaces. To specify a global launch configuration, add a launch configuration object in your `setting(launch)` user setting. This `launch` configuration is then shared across your workspaces. For example:
 
 ```json
 "launch": {
@@ -282,7 +295,7 @@ Optionally, specify a `preLaunchTask` task that is run before the individual deb
 }
 ```
 
-Compound launch configurations are displayed in the launch configuration dropdown menu.
+Compound launch configurations are also displayed in the launch configuration dropdown menu.
 
 ## Automatically open a URI when debugging a server program
 
