@@ -17,7 +17,7 @@ Copilot agent mode is the next evolution in AI-assisted coding. Acting as an aut
 
 ## How to use Copilot agent mode
 
-In VS Code Insiders, open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`), select **Agent** from the model dropdown, and enter your prompt.
+In VS Code Insiders, open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`), select **Agent** from the mode dropdown, and enter your prompt.
 
 Copilot agent mode can create apps from scratch, perform refactorings across multiple files, write and run tests, and migrate legacy code to modern frameworks. It can automatically generate documentation, integrate new libraries, or help answer questions about a complex codebase. Copilot agent mode helps you be super-productive by having an AI collaborator that understands the workspace. It can orchestrate your inner development flow while keeping you in control.
 
