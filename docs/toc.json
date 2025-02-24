@@ -38,6 +38,7 @@
         ["Code Navigation", "/docs/editor/editingevolved"],
         ["Refactoring", "/docs/editor/refactoring"],
         ["Debugging", "/docs/editor/debugging"],
+        ["Debug Configuration", "/docs/editor/debugging-configuration"],
         ["Testing", "/docs/editor/testing"],
         ["VS Code for the Web", "/docs/editor/vscode-web"],
         ["Keyboard Shortcuts", "/docs/editor/keybindings"],
@@ -103,6 +104,15 @@
         ["Customizing Copilot", "/docs/copilot/copilot-customization"],
         ["Best Practices", "/docs/copilot/prompt-crafting"],
         ["Workspace Context", "/docs/copilot/workspace-context"],
+        ["", "", {
+          "name": "Guides",
+          "area": "copilot/guides",
+          "topics": [
+            ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
+            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ]
+        }
+        ],
         ["Copilot Cheat Sheet", "/docs/copilot/copilot-vscode-features"],
         ["Settings Reference", "/docs/copilot/copilot-settings"],
         ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
@@ -346,7 +356,9 @@
       "area": "reference",
       "topics": [
         ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
-        ["Default Settings", "/docs/reference/default-settings"]
+        ["Default Settings", "/docs/reference/default-settings"],
+        ["Substitution Variables", "/docs/reference/variables-reference"]
+
       ]
     }
 ]

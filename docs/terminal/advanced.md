@@ -98,7 +98,7 @@ For example, the sequence below jumps over the word to the left of the cursor (`
 }
 ```
 
-This feature supports [variable substitution](/docs/editor/variables-reference.md).
+This feature supports [variable substitution](/docs/reference/variables-reference.md).
 
 The `sendSequence` command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and terminal sequences in the following resources:
 

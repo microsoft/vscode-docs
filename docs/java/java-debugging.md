@@ -52,7 +52,7 @@ If you would like to customize and persist your launch configuration, you can se
 
 The `launch.json` file is located in a `.vscode` folder in your workspace (project root folder).
 
-For more details on how to create the `launch.json`, read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
+For more details on how to create the `launch.json`, read [Launch configurations](/docs/editor/debugging-configuration.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
 
 ## Run and Debug
 
