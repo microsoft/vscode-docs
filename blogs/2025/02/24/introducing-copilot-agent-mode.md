@@ -109,7 +109,7 @@ Next, we plan to work on:
 * Unifying the chat and edits experience
 * In parallel, we are improving the quality and performance with the goal of shipping Copilot agent mode to all VS Code Stable users.
 
-For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/copilot-edits.md#_use-agent-mode-preview).
+For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/copilot-edits.md#use-agent-mode-preview).
 
 We’re thrilled about Copilot agent mode — try it today and let us know what you think.
 
