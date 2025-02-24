@@ -1,6 +1,5 @@
 ---
 ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
-PageTitle: Debugging with GitHub Copilot in Visual Studio Code
 DateApproved: 02/06/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
 ---
