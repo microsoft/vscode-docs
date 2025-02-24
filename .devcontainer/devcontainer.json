@@ -1,6 +1,6 @@
-        "format details": ( "github/vin757/vscode/remote/devcontainer/json" )
-        "name": "vin757": 
-        "vscode-docs":
+        
+        "name": "vin757"
+        "vscode-docs"
 	"dockerFile": 
 	"settings":
 	"terminal": 
@@ -9,9 +9,5 @@
 	"linux": 
 	"zsh": 
 	"extensions":
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker",
-		"DavidAnson.vscode-markdownlint",
-		"bierner.github-markdown-preview",
 		"github.vscode-pull-request-github"
 	"User": "vin23"
