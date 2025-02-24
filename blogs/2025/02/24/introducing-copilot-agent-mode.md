@@ -97,7 +97,7 @@ Today, the VS Code team prefers Claude 3.5 Sonnet over GPT-4o for our Copilot ag
 
 ## Available today
 
-Copilot agent mode is in preview and available today to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users. We literally push code every day to improve Copilot, so the experience in VS Code Insiders is getting better every day (e.g. today we pushed the ability to edit the proposed terminal tool call). We look forward to getting your feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/). Let us know how you want to use Copilot agent mode, so we can make sure the features we are delivering will be impactful to you.
+Copilot agent mode is in preview and available today to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users. We literally push code every day to improve Copilot, so the experience in VS Code Insiders is getting better every day (e.g. today we pushed the ability to edit the proposed terminal command). We look forward to getting your feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/). Let us know how you want to use Copilot agent mode, so we can make sure the features we are delivering will be impactful to you.
 
 Next, we plan to work on:
 * Fine-grained undo capability
