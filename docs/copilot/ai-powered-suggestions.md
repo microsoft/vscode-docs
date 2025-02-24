@@ -79,9 +79,8 @@ Copilot NES is currently in preview. You can enable it via the VS Code setting `
 1. Search for `github.copilot.nextEditSuggestions.enabled`
 1. Enable the setting
 
-If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot editor preview features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
-
-You can learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+> [!IMPORTANT]
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 ### Navigate and accept edit suggestions
 
@@ -139,16 +138,16 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
-### Further configuring edit suggestions
+### Edit suggestions configuration options
 
-To use Copilot NES, you must set `setting(github.copilot.nextEditSuggestions.enabled)`. There are a couple of additional settings you can also use to configure your Copilot NES experience:
+To further configure edit suggestions, configure these settings:
 
-* `setting(editor.inlineSuggest.edits.codeShifting)`: You can disable this setting if you never want Copilot NES to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.codeShifting)`: disable this setting if you never want Copilot NES to shift your code when showing a suggestion.
 
 * `setting(editor.inlineSuggest.edits.renderSideBySide)`:
 
-     * **auto (default)**: Show larger suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
-     * **never**: Always show larger suggestions below the relevant code.
+     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
+     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
 
 ## Tips & tricks
 
@@ -160,20 +159,34 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 You can temporarily enable or disable code completions either for all languages, or for specific languages only.
 
-1. The GitHub Copilot status icon in the VS Code Status Bar indicates whether GitHub Copilot is enabled or disabled.
+To enable or disable code completions:
 
-    ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/inline-suggestions/vscode-status-bar-copilot-active.jpg)
+1. Select the Copilot menu in the VS Code title bar, and then select **Configure Code Completions...**.
 
-1. To enable or disable Copilot completions, first select the GitHub Copilot icon in the Status Bar.
+    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
 
-1. If you are disabling GitHub Copilot, you are asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
+1. To enable or disable completions for all languages, select **Enable Completions** or **Disable Completions** respectively.
 
-    * To disable suggestions from GitHub Copilot globally, select **Disable Globally**.
-    * To disable suggestions from GitHub Copilot for the specified language, select **Disable for \<language\>**.
+1. To enable or disable completions for the language of the current file, select **Enable Completions for \<language\>** or **Disable Completions for \<language\>**.
 
-    ![Screenshot showing the VS Code command menu for Copilot, highlighting the options to disable completions.](./images/inline-suggestions/copilot-disable-completions.png)
+### Change the AI model
 
-### Settings
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. You can change the language model that is used to generate code completions.
+
+To change the model that is used for code completions:
+
+1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+
+    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
+
+1. Select **Change Completions Model...**, and then select one of the models from the list.
+
+> [!NOTE]
+> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+
+## Settings
+
+### Code completions settings
 
 * `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
 
@@ -183,6 +196,8 @@ You can temporarily enable or disable code completions either for all languages,
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
+### Next Edit Suggestions settings
+
 * `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
 
 * `setting(editor.inlineSuggest.edits.codeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
@@ -191,12 +206,8 @@ You can temporarily enable or disable code completions either for all languages,
 
 ## Next steps
 
-* Get started with the introductory [Copilot tutorial](/docs/copilot/getting-started-chat.md) to get set up with Copilot in VS Code and experience Copilot hands-on.
+* Discover the key features with the [Copilot Quickstart](/docs/copilot/getting-started-chat.md).
 
-* Learn how you can use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
 
-## Additional resources
-
-You can read more about [Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
-
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+* Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

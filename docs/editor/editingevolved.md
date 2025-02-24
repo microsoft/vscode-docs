@@ -39,7 +39,7 @@ If the current file type has language support for symbols, you will see the curr
 
 ![breadcrumb symbol dropdown](images/editingevolved/breadcrumb-symbol-dropdown.png)
 
-You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/getstarted/settings.md).
+You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/editor/settings.md).
 
 ### Breadcrumb customization
 
@@ -73,7 +73,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ## Go to Type Definition
 
-Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/getstarted/keybindings.md).
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/editor/keybindings.md).
 
 ## Go to Implementation
 
@@ -99,7 +99,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/editor/settings.md).
 
 ## Bracket matching
 
@@ -135,7 +135,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/editor/settings.md).
 
 ## Rename symbol
 
@@ -197,7 +197,7 @@ Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
-* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
+* [Key Bindings](/docs/editor/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
 ## Common questions

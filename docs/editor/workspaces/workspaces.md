@@ -36,7 +36,7 @@ code .
 
 You don't have to do anything for a folder to become a VS Code workspace other than open the folder with VS Code. Once you open a folder, VS Code automatically keeps track of configuration, such as your open files or editor layout. When you reopen that folder in VS Code, the editor will be as you left it previously.
 
-You can also add other folder-specific configurations, such as workspace-specific [settings](/docs/getstarted/settings.md) (versus global user settings), [task definitions](/docs/editor/tasks.md), and [debugging launch](/docs/editor/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
+You can also add other folder-specific configurations, such as workspace-specific [settings](/docs/editor/settings.md) (versus global user settings), [task definitions](/docs/editor/tasks.md), and [debugging launch](/docs/editor/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
 
 ![Single-folder workspace](images/workspaces/single-folder-workspace.png)
 
@@ -85,7 +85,7 @@ Unless you have already opened a `.code-workspace` file, the first time you add 
 
 Workspace settings enable you to configure settings in the context of the workspace you have opened. Workspace settings always override the global user settings. They are physically stored in a JSON file and their location depends on whether you opened a folder as a workspace, or whether you opened a `.code-workspace` file.
 
-Refer to the [settings](/docs/getstarted/settings.md) documentation for a comprehensive explanation of setting scopes and their file locations.
+Refer to the [settings](/docs/editor/settings.md) documentation for a comprehensive explanation of setting scopes and their file locations.
 
 ### Single-folder workspace settings
 

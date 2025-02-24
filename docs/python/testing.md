@@ -94,7 +94,7 @@ Once you have the Python extension installed and a Python file open within the e
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If both frameworks are enabled, then the Python extension will only run `pytest`.
 
@@ -147,7 +147,7 @@ def test_decrement():
 
 By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/settings.md) documentation. You will need to reload the window for this setting to take effect.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. You will need to reload the window for this setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -334,14 +334,14 @@ Below are all the supported commands for testing with the Python extension in VS
 The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
 > **Tip**: Django test support is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
 
-1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/getstarted/settings.md#settingsjson).
+1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/editor/settings.md#settingsjson).
 2. Add `MANAGE_PY_PATH` as an environment variable:
     1. Create a `.env` file at the root of your project.
     2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
-3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/getstarted/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
+3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/editor/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
 
-> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/editor/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/getstarted/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
+> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/editor/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
@@ -377,7 +377,7 @@ The behavior of testing with Python is driven by general UI settings provided by
 
 ### General UI settings
 
-The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings editor](/docs/getstarted/settings.md) when you search for "Testing".
+The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings editor](/docs/editor/settings.md) when you search for "Testing".
 
 ### General Python settings
 

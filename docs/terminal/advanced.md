@@ -59,7 +59,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/getstarted/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/editor/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {
@@ -98,7 +98,7 @@ For example, the sequence below jumps over the word to the left of the cursor (`
 }
 ```
 
-This feature supports [variable substitution](/docs/editor/variables-reference.md).
+This feature supports [variable substitution](/docs/reference/variables-reference.md).
 
 The `sendSequence` command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and terminal sequences in the following resources:
 
