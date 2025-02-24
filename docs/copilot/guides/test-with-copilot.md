@@ -37,14 +37,14 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-   * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
-   * Chat view (`kb(workbench.action.chat.open)`)
-   * Inline Chat (`kb(inlineChat.start)`)
+    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
+    * Chat view (`kb(workbench.action.chat.open)`)
+    * Inline Chat (`kb(inlineChat.start)`)
 
 1. Enter a prompt like:
-   * "Generate tests for this code"
-   * "Write unit tests including edge cases"
-   * "Create integration tests for this module"
+    * "Generate tests for this code"
+    * "Write unit tests including edge cases"
+    * "Create integration tests for this module"
 
 Get more guidance about [using GitHub Copilot for writing tests](https://docs.github.com/en/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot) in the GitHub documentation.
 
@@ -56,7 +56,7 @@ To generate tests for your application code without writing a prompt, you can us
 1. Optionally, select the code you want to test.
 1. Right-click and select **Copilot** > **Generate Tests**.
 
-   Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
+    Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
 
 1. Optionally, refine the generated tests by providing additional context in the Inline Chat prompt.
 
