@@ -83,7 +83,7 @@ Each tool has detailed instructions for the LLM on how and when to use it. Here�
 
 A lot of our development time went into refining these tool descriptions and the system prompt so the LLM uses tools accurately. We have our automated evaluations, but there is still a lot of back-and-forth between updating the prompts and descriptions and seeing how they behave in real world use cases.
 
-We see different behaviors across GPT 4o and Claud 3.5 Sonnet, but for now, we send a similar system prompt to those models. Going forward, as we expand support of Copilot agent mode to more LLMs, we’ll specifically tailor prompts for each model.
+We see different behaviors across GPT 4o and Claude Sonnet, but for now, we send a similar system prompt to those models. Going forward, as we expand support of Copilot agent mode to more LLMs, we’ll specifically tailor prompts for each model.
 
 ## We love self-hosting
 
@@ -93,7 +93,7 @@ Our team owns more than 200 GitHub repositories, and we’ve seen Copilot agent 
 
 Apart from self-hosting, VS Code team members enjoy using Copilot agent mode for their hobby projects, like apps for weather forecasting, meal planning, [coffee consumption](https://www.youtube.com/watch?v=pUK7MRzoTDc) or [gym workouts](https://www.youtube.com/watch?v=gKEWB0vg_Cs).
 
-Today, the VS Code team prefers Claude 3.5 Sonnet over GPT-4o for our Copilot agent mode use cases.
+Today, the VS Code team prefers Claude Sonnet over GPT-4o for our Copilot agent mode use cases.
 
 ## Available today
 
