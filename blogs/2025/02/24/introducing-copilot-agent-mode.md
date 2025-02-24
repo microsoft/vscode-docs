@@ -9,7 +9,7 @@ Author: Isidor Nikolic
 
 # Introducing GitHub Copilot agent mode (preview)
 
-February 21st, 2025 by [Isidor Nikolic](https://github.com/isidorn)
+February 24, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
 Copilot agent mode is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — scanning your workspace, finding relevant files, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
 
