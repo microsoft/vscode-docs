@@ -104,6 +104,15 @@
         ["Customizing Copilot", "/docs/copilot/copilot-customization"],
         ["Best Practices", "/docs/copilot/prompt-crafting"],
         ["Workspace Context", "/docs/copilot/workspace-context"],
+        ["", "", {
+          "name": "Guides",
+          "area": "copilot/guides",
+          "topics": [
+            ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
+            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ]
+        }
+        ],
         ["Copilot Cheat Sheet", "/docs/copilot/copilot-vscode-features"],
         ["Settings Reference", "/docs/copilot/copilot-settings"],
         ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
