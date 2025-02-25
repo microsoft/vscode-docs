@@ -30,7 +30,7 @@ Copilot agent mode uses a set of tools to accomplish these tasks.
 
 ![Screenshot of the Copilot agent mode, and the proposed inline changes](agent-mode.png)
 
-In an ideal world, you would just care about the final output of Copilot agent mode, but it can sometimes make mistakes and go off track. To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval, and we support rich undo capabilities. Instead of relying on one long, detailed prompt to yield a perfect solution, you should iterate with Copilot – the UI is built for iterations, giving you full control over the process ensuring the final result is better.
+In an ideal world, you would just care about the final output of Copilot agent mode, but it can sometimes make mistakes and go off track. To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval, and we support rich undo capabilities - you can use the **Undo Last Edit** control in the view title bar to revert to the state before the last edit was applied. Instead of relying on one long, detailed prompt to yield a perfect solution, you should iterate with Copilot – the UI is built for iterations, giving you full control over the process ensuring the final result is better.
 
 Copilot agent mode automatically finds the precise context and sets the working set of files by calling the right workspace tools. To more precisely guide Copilot, you can always explicitly reference context with `#file`, using drag and drop or by clicking on the **Add Files** button. For example, you can create a `specifications.md` file and add it as context to better control Copilot, or you can set [custom instructions](/docs/copilot/copilot-customization.md) - so Copilot respects your coding guidelines or other preferences.
 
@@ -81,7 +81,7 @@ Each tool has detailed instructions for the LLM on how and when to use it. Here�
 }
 ```
 
-A lot of our development time went into refining these tool descriptions and the system prompt so the LLM uses tools accurately. We have our automated evaluations, but there is still a lot of back-and-forth between updating the prompts and descriptions and seeing how they behave in real world use cases.
+A lot of our development time went into refining these tool descriptions and the system prompt so the LLM uses tools accurately - also noted by Anthropic in their [building effective agents](https://www.anthropic.com/research/building-effective-agents) blog. We have our automated evaluations, but there is still a lot of back-and-forth between updating the prompts and descriptions and seeing how they behave in real world use cases.
 
 We see different behaviors across GPT 4o and Claude Sonnet, but for now, we send a similar system prompt to those models. Going forward, as we expand support of Copilot agent mode to more LLMs, we’ll specifically tailor prompts for each model.
 
@@ -105,7 +105,7 @@ Next, we plan to work on:
 * Notebook support (right now edit sessions only work on text editors)
 * Ability to auto-approve specific terminal commands
 * Improve the terminal tool UI (e.g. show terminal command output inline)
-* Exploring [tool extensibility](/api/extension-guides/tools.md) for agent mode (if you have extension ideas [tell us](https://github.com/microsoft/vscode-discussions/discussions/2411))
+* Exploring [tool extensibility](/api/extension-guides/tools.md) and [MCP servers](https://github.com/modelcontextprotocol/servers) as tools for agent mode. If you have extension ideas [tell us](https://github.com/microsoft/vscode-discussions/discussions/2411)
 * Unifying the chat and edits experience
 * In parallel, we are improving the quality and performance with the goal of shipping Copilot agent mode to all VS Code Stable users.
 
