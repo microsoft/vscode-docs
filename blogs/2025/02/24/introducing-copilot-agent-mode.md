@@ -3,7 +3,7 @@ Order: 93
 TOCTitle: Copilot Agent Mode (preview)
 PageTitle: Copilot Agent Mode (preview)
 MetaDescription: Announcing the GitHub Copilot agent mode in Visual Studio Code.
-Date: 2024-02-24
+Date: 2025-02-24
 Author: Isidor Nikolic
 ---
 
@@ -93,7 +93,7 @@ Our team owns more than 200 GitHub repositories, and we’ve seen Copilot agent 
 
 Apart from self-hosting, VS Code team members enjoy using Copilot agent mode for their hobby projects, like apps for weather forecasting, meal planning, [coffee consumption](https://www.youtube.com/watch?v=pUK7MRzoTDc) or [gym workouts](https://www.youtube.com/watch?v=gKEWB0vg_Cs).
 
-Today, the VS Code team prefers Claude Sonnet over GPT-4o for our Copilot agent mode use cases.
+Today, the VS Code team prefers Claude Sonnet over GPT-4o for our Copilot agent mode use cases. In initial testing of Claude 3.7 Sonnet, we’ve seen significant improvements in Copilot agent mode functionality.
 
 ## Available today
 
