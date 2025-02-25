@@ -28,7 +28,7 @@ Copilot agent mode operates in a more autonomous and dynamic manner to achieve t
 
 Copilot agent mode uses a set of tools to accomplish these tasks.
 
-![Screenshot of the Copilot agent mode, and the proposed inline changes](full-agent-mode.png)
+![Screenshot of the Copilot agent mode, and the proposed inline changes](agent-mode.png)
 
 In an ideal world, you would just care about the final output of Copilot agent mode, but it can sometimes make mistakes and go off track. To easily intervene and undo in those situations, every tool invocation is transparently displayed in the UI, terminal tool requires approval, and we support rich undo capabilities. Instead of relying on one long, detailed prompt to yield a perfect solution, you should iterate with Copilot – the UI is built for iterations, giving you full control over the process ensuring the final result is better.
 
@@ -48,7 +48,7 @@ When you send a request to Copilot in agent mode, we make a prompt to the LLM yo
 
 We define a set of tools for the LLM to call, each tool has its own capabilities that help Copilot get the job done. Using these tools Copilot can search the workspace, read the contents of files, run commands in the terminal, get compile or lint errors from the editor and apply proposed changes via a speculative decoder endpoint (performance improvements underway). The list of tools is ever-expanding, as we are experimenting what other tools could improve Copilot’s capabilities in agent mode.
 
-![Screenshot Copilot agent mode proposing a terminal tool to "npm run dev"](terminal-tool.png)
+![Screenshot Copilot agent mode proposing a terminal tool to "npm run dev"](run-terminal-tool.png)
 
 Each tool has detailed instructions for the LLM on how and when to use it. Here’s the `read_file` tool description as an example:
 
