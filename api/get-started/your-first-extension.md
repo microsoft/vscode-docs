@@ -54,7 +54,7 @@ Run the **Hello World** command from the Command Palette (`kb(workbench.action.s
 
 You should see the `Hello World from HelloWorld!` notification showing up. Success!
 
-If you aren't able to see the **Hello World** command in the debug window, check the `package.json` file and make sure that `engines.vscode` version is compatible with the installed version of VS Code.
+If you aren't able to see the **Hello World** command in the debug window, make sure the extension was properly compiled by adding `"build": "tsc"` in the `scripts` tag in `package.json` and run `npm run build` or check the `package.json` file and make sure that `engines.vscode` version is compatible with the installed version of VS Code.
 
 ## Developing the extension
 
