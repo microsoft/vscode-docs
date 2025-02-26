@@ -24,6 +24,8 @@ You can specify custom instructions for specific purposes:
 
 * **Commit message generation instructions** - provide context specific for generating commit messages. You can specify commit-message-generation instructions in settings, or in a Markdown file in your workspace.
 
+* **Pull request title and description generation instructions** - provide context specific for generating pull request titles and descriptions. You can specify pull request title and description generation instructions in settings, or in a Markdown file in your workspace.
+
 Custom instructions consist of natural language instructions and should be short, self-contained statements that add context or relevant information to supplement chat questions.
 
 ## Define code-generation custom instructions
@@ -122,6 +124,12 @@ To configure custom code review instructions, use the `setting(github.copilot.ch
 In the Source Control view, you can use Copilot to generate a commit message for the pending code changes. You can define custom instructions to help Copilot generate a commit message that takes into account specific formatting and structure that are specific to your project and development workflow.
 
 To configure custom commit message generation instructions, use the `setting(github.copilot.chat.commitMessageGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
+
+## Define pull request title and description generation custom instructions
+
+When you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use Copilot to generate a title and description for a pull request. You can define custom instructions to help Copilot generate a title and description that take into account specific formatting and structure that are specific to your project and development workflow.
+
+To configure custom pull request title and description generation instructions, use the `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
 
 ## Tips for defining custom instructions
 

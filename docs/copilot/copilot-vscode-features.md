@@ -149,6 +149,7 @@ With reusable prompt files, you can specify common prompt instructions and relev
 | Code-generation instructions _(Experimental)_ | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Commit-message generation instructions _(Experimental)_ | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Pull request title and description generation instructions _(Experimental)_ | Define instructions for pull request title and description generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Reusable prompt files _(Preview)_ | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-preview).  |
 
 > **Tips**
