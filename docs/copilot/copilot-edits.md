@@ -67,7 +67,7 @@ In edit mode, you select which files to edit and provide the relevant context an
     Copilot Edits streams the edits in the editor. In the working set, files that were edited by Copilot are marked in bold.
 
     > [!TIP]
-    > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting to get the best results.
+    > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
 1. Review the suggested edits and accept or discard the suggested edits
 
@@ -140,7 +140,7 @@ You have many options to add files to the working set:
 
 * Let Copilot find the right files automatically by adding `#codebase` in your prompt.
 
-    Make sure to enable the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting to get the best results.
+    Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
 * Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Copilot Edits view.
 
@@ -226,7 +226,7 @@ The following list contains the settings related to Copilot Edits. You can confi
 * `setting(chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
 * `setting(chat.implicitContext.enabled)` _(preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
-* `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ - let Copilot find the right files by adding `#codebase` to your prompt, similar to how agent mode works (default: `false`)
+* `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ - let Copilot find the right files when you add `#codebase` to your prompt, similar to how agent mode works (default: `false`)
 * `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 
 ## Keyboard shortcuts
@@ -249,7 +249,7 @@ The following list contains the default keyboard shortcuts related to Copilot Ed
 
 * Multiple simultaneous edit sessions are not supported yet.
 * The use of `@workspace /new` to scaffold a new project is not supported yet in an Edit session. For now, use Copilot Chat for the initial scaffolding.
-* Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Experiment with the `setting(github.copilot.chat.edits.codesearch.enabled)` _(preview)_ setting for an improved, agentic experience to find files, or explicitly add files to your working set to create better results.
+* Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Experiment with the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting for an improved, agentic experience to find files, or explicitly add files to your working set to create better results.
 * Support for Jupyter notebooks, other custom text formats, and binary file formats is absent or untested.
 * The working set is currently limited to 10 files.
 * Copilot Edits is limited to 7 editing requests per 10 minutes.

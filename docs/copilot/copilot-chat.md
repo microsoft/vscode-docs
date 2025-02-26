@@ -68,6 +68,9 @@ Copilot tries to determine the intent and scope of your question based on your n
 
 To help Copilot give you the best and most relevant answers, add context to your chat prompt. For example, attach specific files, specific code symbols, the current editor selection, and more.
 
+> [!TIP]
+> Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
+
 There are several ways to add context to your chat prompt:
 
 * VS Code automatically adds the currently active editor as context. If you selected a code block in the editor, only that selection is added as context.
