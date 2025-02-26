@@ -92,7 +92,9 @@ To open the `keybindings.json` file:
 
 * Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 
-  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png) in the Command Palette (`kb(workbench.action.showCommands)`).
+  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+
+* Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
 
