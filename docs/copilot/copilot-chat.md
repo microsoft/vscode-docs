@@ -74,7 +74,7 @@ There are several ways to add context to your chat prompt:
 
     ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
 
-* Use the Attach <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
+* Use the **Attach** (<i class="codicon codicon-attach"></i>) icon (`kb(workbench.action.chat.attachContext)`) and then select a type of context from the Quick Pick.
 
     ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
 
@@ -93,6 +93,12 @@ There are several ways to add context to your chat prompt:
 
     > [!TIP]
     > Type `#` and use it as an IntelliSense trigger for selecting files or symbols.
+
+* Drag and drop items from the **Problems** panel to attach the corresponding issue as context to your prompt.
+
+    Alternatively, select the **Attach** (<i class="codicon codicon-attach"></i>) icon, and then select the **Problem...** context type to select a problem from the Quick Pick.
+
+    ![Screenshot of the Chat view with a problem attached to the chat input field, the result of doing drag and drop of that problem from the Problems panel.](./images/copilot-chat/copilot-chat-attach-problem.png)
 
 * Use the context menu **Copilot** > **Add File to Chat** on a file in the Explorer or Search view, or **Add Selection to Chat** for a text selection in the editor.
 

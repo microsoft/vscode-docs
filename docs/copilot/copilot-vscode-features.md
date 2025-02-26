@@ -91,7 +91,9 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 | Attach <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from different context types, such as workspace files, symbols, current editor selection, terminal selection, and more. |
 | <i class="codicon codicon-eye"></i> | Enable/disable attaching the active editors as context. |
 | `Prompts...` _(Experimental)_ | Add reusable prompt instructions to your request. Get more information about [prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental). |
-| Drag & drop to attach | Drag & drop a file, folder, or editor onto the chat to attach the file as context. |
+| Drag & drop file | Drag & drop a file or editor tab onto the chat to attach the file as context. |
+| Drag & drop folder | Drag & drop a folder onto the chat to attach the files within it as context. |
+| Drag & drop problem | Drag & drop an item from the **Problems** panel to attach it as context. |
 | Recent files _(Experimental)_ | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
 
 ### Chat variables
