@@ -127,9 +127,6 @@ The _working set_ is the set of files that you want Copilot Edits to work on for
 
 ![Screenshot of Copilot Edits, showing the working set contains 3 files, including the currently opened file.](images/copilot-edits/copilot-edits-working-set.png)
 
-> [!IMPORTANT]
-> The working set is currently limited to 10 files.
-
 Copilot Edits automatically adds the active editor to the working set. If you have multiple [editor groups](/docs/getstarted/userinterface.md#editor-groups), the active editor for each group is added to the working set. To add all open editors, select **Add Files...**, and then choose **Open Editors** from the Files Quick Pick.
 
 You have many options to add files to the working set:
