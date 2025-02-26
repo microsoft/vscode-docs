@@ -70,7 +70,9 @@ To help Copilot give you the best and most relevant answers, add context to your
 
 There are several ways to add context to your chat prompt:
 
-* VS Code automatically adds the currently active editor as context. If you selected a code block in the editor, only that selection is added as context. You can disable adding the active editor by selecting the disable (_eye_) icon next to the context item.
+* VS Code automatically adds the currently active editor as context. If you selected a code block in the editor, only that selection is added as context.
+
+    You can disable adding the active editor for the current request by selecting the disable (_eye_) icon next to the context item. Use the `setting(chat.implicitContext.enabled)` setting to configure if the active editor should be added automatically for all requests.
 
     ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
 
