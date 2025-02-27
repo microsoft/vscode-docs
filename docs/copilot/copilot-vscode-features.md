@@ -61,7 +61,7 @@ Use Copilot Edits to start a code editing session where you can iterate quickly 
 
 > **Tips**
 >
-> - Add all files for which you want to get edits to the working set.
+> - Add all files for which you want to get edits to your prompt.
 > - Be specific and precise about the changes you want Copilot Edits to make.
 > - If you have a larger task, decompose it in smaller tasks and iterate often.
 

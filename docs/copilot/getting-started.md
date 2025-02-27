@@ -135,11 +135,11 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
 
     ![Screenshot showing the Copilot menu in the Command Center, highlighting the Open Edit Session item](images/copilot-edits/copilot-command-center-open-edit-session.png)
 
-1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the *working set*.
+1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the prompt.
 
-    The working set contains the files that can be modified by Copilot Edits. If the file is not added, use **Add Files...* to add the file to the working set.
+    Copilot automatically adds the active editor to the prompt. If the file is not added, use **Add Files...** to manually add the file to the prompt.
 
-    ![Screenshot of the Copilot Edits view, showing the working set with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
+    ![Screenshot of the Copilot Edits view, showing the prompt input field with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
 
 1. Enter *Return a static html page as the home page and implement it.* in the chat input field and press `kbstyle(Enter)` to start a new edit session.
 
@@ -147,13 +147,11 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
 
     ![Screenshot of VS Code editor, showing the Copilot Edits response for returning a static HTML page in the web server response.](./images/getting-started/copilot-edits-html-response.png)
 
-1. If you're happy with the results, select **Accept** to apply all suggested changes.
+1. If you're happy with the results, select **Keep** to apply all suggested changes.
 
-    ![Screenshot of the Copilot Edits view, highlighting the Accept button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
+    You can also navigate between the different edited files and accept/reject them by using the editor overlay controls.
 
-    You can also navigate between the different edited files and accept/discard them by using the editor overlay controls.
-
-    ![Screenshot of the Copilot Edits view, highlighting editor overlay controls to navigate between edits and accept or discard them.](./images/getting-started/copilot-edits-overlay-controls.png)
+    ![Screenshot of the Copilot Edits view, highlighting the Keep button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
 
 ## Fix coding errors with Copilot
 

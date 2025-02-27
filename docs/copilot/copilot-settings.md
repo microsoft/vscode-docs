@@ -58,6 +58,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.implicitContext.enabled)` _(Preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
 * `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)
+* `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)`_(Experimental)_ - suggest related files from git history in Copilot Edits (default: `false`)
+* `setting(github.copilot.chat.agent.runTasks)` - run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 
 ## Inline Chat settings
 
