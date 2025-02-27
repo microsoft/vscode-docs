@@ -232,7 +232,7 @@ The Explorer view is only one of the views available in VS Code. There are also 
 
 You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
 
-![view management](images/userinterface/view-management.gif)
+<video src="images/userinterface/view-management.mp4" autoplay loop controls muted title="View Management"></video>
 
 ## Command Palette
 
@@ -411,7 +411,7 @@ The following examples use the `${extname}` variable for the file `tests/editor.
 
 By default, editor groups are laid out in vertical columns. For example, when you split an editor, it opens the editor to the side. You can arrange editor groups in any layout you like, both vertically and horizontally:
 
-![Grid Editor Layout](images/userinterface/grid-layout.gif)
+<video src="images/userinterface/grid-layout.mp4" autoplay loop controls muted title="Grid Editor Layout"></video>
 
 To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group also closes the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
 
@@ -425,7 +425,7 @@ By default, editors that open to the side (for example, by selecting the editor 
 
 There are many keyboard commands for adjusting the editor layout by using the keyboard. If you prefer to use the mouse, you can use drag and drop to split the editor into any direction:
 
-![Grid Editor Drag and Drop](images/userinterface/grid-dnd.gif)
+<video src="images/userinterface/grid-dnd.mp4" autoplay loop controls muted title="Grid Editor Drag and Drop"></video>
 
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
