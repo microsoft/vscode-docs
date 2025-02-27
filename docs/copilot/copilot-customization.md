@@ -204,6 +204,8 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 Global prompt files are stored in your [user profile](/docs/editor/profiles.md). You can use global prompt files to share reusable prompts across multiple workspaces.
 
+When you have enabled [Setting Sync](/docs/editor/settings-sync.md), your global prompt files are automatically synced across all your devices.
+
 You can add a global prompt file to chat prompt in the same way as a workspace prompt file.
 
 To create a global prompt file:
