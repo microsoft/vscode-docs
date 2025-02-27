@@ -357,8 +357,8 @@
       "topics": [
         ["Default Keyboard Shortcuts", "/docs/reference/default-keybindings"],
         ["Default Settings", "/docs/reference/default-settings"],
-        ["Substitution Variables", "/docs/reference/variables-reference"]
-
+        ["Substitution Variables", "/docs/reference/variables-reference"],
+        ["Tasks Schema", "/docs/reference/tasks-appendix"]
       ]
     }
 ]

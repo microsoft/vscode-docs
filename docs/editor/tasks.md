@@ -175,7 +175,7 @@ You can see the full set of task properties and values with IntelliSense in your
 
 ![tasks.json IntelliSense](images/tasks/tasks-intellisense.png)
 
-You can also review the [tasks.json schema](/docs/editor/tasks-appendix.md).
+You can also review the [tasks.json schema](/docs/reference/tasks-appendix.md).
 
 Shell commands need special treatment when it comes to commands and arguments that contain spaces or other special characters like `$`. By default, the task system supports the following behavior:
 
@@ -889,7 +889,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 That was tasks - let's keep going...
 
-* [tasks.json Schema](/docs/editor/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
+* [tasks.json Schema](/docs/reference/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
