@@ -147,14 +147,14 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 Common use cases include:
 
-- **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
-- **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
-- **Team collaboration**: document patterns and guidelines with references to specs and documentation.
-- **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
+* **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+* **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
+* **Team collaboration**: document patterns and guidelines with references to specs and documentation.
+* **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
 
 ### Prompt file examples
 
-- `react-form.prompt.md` - documents a reusable task for generating a form:
+* `react-form.prompt.md` - documents a reusable task for generating a form:
 
     ```markdown
     Your goal is to generate a new React form component.
@@ -162,25 +162,25 @@ Common use cases include:
     Ask for the form name and fields if not provided.
 
     Requirements for the form:
-    - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-    - Use `react-hook-form` for form state management:
-    - Always define TypeScript types for your form data
-    - Prefer *uncontrolled* components using register
-    - Use `defaultValues` to prevent unnecessary rerenders
-    - Use `yup` for validation:
-    - Create reusable validation schemas in separate files
-    - Use TypeScript types to ensure type safety
-    - Customize UX-friendly validation rules
+    * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+    * Use `react-hook-form` for form state management:
+    * Always define TypeScript types for your form data
+    * Prefer *uncontrolled* components using register
+    * Use `defaultValues` to prevent unnecessary rerenders
+    * Use `yup` for validation:
+    * Create reusable validation schemas in separate files
+    * Use TypeScript types to ensure type safety
+    * Customize UX-friendly validation rules
     ```
 
-- `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+* `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
 
     ```markdown
     Secure REST API review:
-    - Ensure all endpoints are protected by authentication and authorization
-    - Validate all user inputs and sanitize data
-    - Implement rate limiting and throttling
-    - Implement logging and monitoring for security events
+    * Ensure all endpoints are protected by authentication and authorization
+    * Validate all user inputs and sanitize data
+    * Implement rate limiting and throttling
+    * Implement logging and monitoring for security events
     …
     ```
 
@@ -190,6 +190,8 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 #### Create a prompt file
 
+1. Set the `setting(chat.promptFiles)` setting to `true` for the `.github/prompts` directory.
+
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
 
 1. Write prompt instructions by using Markdown formatting.
@@ -198,9 +200,25 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
 
+#### Use a global prompt file
+
+Global prompt files are stored in your [user profile](/docs/editor/profiles.md). You can use global prompt files to share reusable prompts across multiple workspaces.
+
+You can add a global prompt file to chat prompt in the same way as a workspace prompt file.
+
+To create a global prompt file:
+
+1. Select the **Create Global Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Enter a name for your prompt file.
+
+1. Write prompt instructions by using Markdown formatting.
+
 #### Attach a prompt file to a chat request
 
 1. Select the **Attach Context** <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select **Prompt...**.
+
+    Alternatively, use the **Chat: Use Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose a prompt file from the Quick Pick to attach it to your chat request.
 
@@ -227,13 +245,11 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 ### Prompt files (experimental) settings
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.promptFiles)` _(Experimental)_: enable prompt file locations. Use the `{ "/path/to/folder": boolean }` notation to specify a specific path and whether it's enabled or not. Relative paths are resolved from the root folder(s) of your workspace.
 
     | Setting value | Description |
     |---------------|-------------|
-    | `false` (default) | Disable prompt files. |
-    | `true` | Enable prompt files. Use the default prompt file location (`.github/prompts`). |
-    | `{ "/path/to/folder": boolean }` | Enable prompt files. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. |
+    | `{ "/path/to/folder": boolean }` | Enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
 
 ## Related content
 
