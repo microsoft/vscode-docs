@@ -12,62 +12,6 @@ MetaSocialImage: images/tutorial/python-social.png
 
 The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework and [pytest](https://docs.pytest.org/).
 
-## A little background on unit testing
-
-(If you're already familiar with unit testing, you can skip to the [walkthroughs](#example-test-walkthroughs).)
-
-A **unit** is a specific piece of code to be tested, such as a function or a class. **Unit tests** are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases. Both the unittest and pytest frameworks can be used to write unit tests.
-
-For example, say you have a function to validate the format of an account number that a user enters in a web form:
-
-```python
-def validate_account_number_format(account_string):
-    # Return False if invalid, True if valid
-    # ...
-```
-
-Unit tests are concerned only with the unit's **interface**&mdash;its arguments and return values&mdash;not with its implementation (which is why no code is shown here in the function body; often you'd be using other well-tested libraries to help implement the function). In this example, the function accepts any string and returns true if that string contains a properly formatted account number, false otherwise.
-
-To thoroughly test this function, you want to throw at it every conceivable input: valid strings, mistyped strings (off by one or two characters, or containing invalid characters), strings that are too short or too long, blank strings, null arguments, strings containing control characters (non-text codes), string containing HTML, strings containing injection attacks (such as SQL commands or JavaScript code), and so on. It's especially important to test security cases like injection attacks if the validated string is later used in database queries or displayed in the app's UI.
-
-For each input, you then define the function's expected return value (or values). In this example, again, the function should return true for only properly formatted strings. (Whether the number itself is a real account is a different matter that would be handled elsewhere through a database query.)
-
-With all the arguments and expected return values in hand, you now write the tests themselves, which are pieces of code that call the function with a particular input, then compare the actual return value with the expected return value (this comparison is called an **assertion**):
-
-```python
-# Import the code to be tested
-import validator
-
-# Import the test framework (this is a hypothetical module)
-import test_framework
-
-# This is a generalized example, not specific to a test framework
-class Test_TestAccountValidator(test_framework.TestBaseClass):
-    def test_validator_valid_string():
-        # The exact assertion call depends on the framework as well
-        assert(validate_account_number_format("1234567890"), True)
-
-    # ...
-
-    def test_validator_blank_string():
-        # The exact assertion call depends on the framework as well
-        assert(validate_account_number_format(""), False)
-
-    # ...
-
-    def test_validator_sql_injection():
-        # The exact assertion call depends on the framework as well
-        assert(validate_account_number_format("drop database master"), False)
-
-    # ... tests for all other cases
-```
-
-The exact structure of the code depends on the test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is simple: invoke the function with an argument and assert the expected return value.
-
-The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of **test-driven development** is where you actually write the tests first, then write the code to pass increasingly more tests until all of them pass.)
-
-Because unit tests are small, isolated pieces of code (in unit testing you avoid external dependencies and use mock data or otherwise simulated inputs), they're quick and inexpensive to run. This characteristic means that you can run unit tests early and often. Developers typically run unit tests even before committing code to a repository; gated check-in systems can also run unit tests before merging a commit. Many continuous integration systems also run unit tests after every build. Running the unit test early and often means that you quickly catch **regressions,** which are unexpected changes in the behavior of code that previously passed all its unit tests. Because the test failure can easily be traced to a particular code change, it's easy to find and remedy the cause of the failure, which is undoubtedly better than discovering a problem much later in the process!
-
 For a general background on unit testing, read [Unit testing](https://wikipedia.org/wiki/Unit_testing) on Wikipedia. For useful unit test examples, you can review [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting), a repository with tests for different sorting algorithms.
 
 ## Example test walkthroughs
