@@ -101,6 +101,7 @@
         ["Copilot Chat", "/docs/copilot/copilot-chat"],
         ["Copilot Chat Tutorial", "/docs/copilot/getting-started-chat"],
         ["Copilot Edits", "/docs/copilot/copilot-edits"],
+        ["Adding Chat Context", "/docs/copilot/copilot-chat-context"],
         ["Customizing Copilot", "/docs/copilot/copilot-customization"],
         ["Best Practices", "/docs/copilot/prompt-crafting"],
         ["Workspace Context", "/docs/copilot/workspace-context"],
