@@ -121,6 +121,9 @@ To use agent mode in Copilot Edits:
 > [!NOTE]
 > Agent mode for Copilot Edits is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders).
 
+> [!IMPORTANT]
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features, in addition to you setting `setting(chat.agent.enabled)` in your editor. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
 ## Manage the working set
 
 The _working set_ is the set of files that you want Copilot Edits to work on for your edit session. Copilot Edits does not make changes outside the working set, except when suggesting to create a new file. When you use agent mode, Copilot autonomously determines which files to edit and adds them to the working set.
