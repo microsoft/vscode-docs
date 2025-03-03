@@ -24,13 +24,15 @@ Both of these persistent sessions can be disabled by setting `setting(terminal.i
 
 Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
 
-### Configure how the terminal behaves on start up
+### Configure terminal visibility
 
 When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `setting(terminal.integrated.hideOnStartup)` setting.
 
 * `never` (default): Never hide the terminal view on startup.
 * `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
 * `always`: Always hide the terminal, even when there are persistent sessions restored.
+
+The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to overriding the default behavior of closing the terminal view when the last terminal is closed.
 
 ## Keyboard shortcuts and the shell
 
