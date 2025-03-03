@@ -76,7 +76,7 @@ Let's use **Inline Chat** to help generate a basic Express web server.
 
     ![Screenshot of VS Code editor, showing the Copilot Inline Chat control.](./images/getting-started/copilot-inline-chat.png)
 
-1. Type *"add a simple express web server"* in the chat input field, and press `kbstyle(Enter)` to send the prompt to Copilot.
+1. Type "add a simple express web server" in the chat input field, and press `kbstyle(Enter)` to send the prompt to Copilot.
 
     Notice that Copilot returns a streaming response in the editor. The response is an implementation for a simple Node.js Express web server.
 
@@ -94,7 +94,7 @@ Notice that our web server is currently using a static port number `3000`. Let's
 
 1. In the editor, select the `3000` port number in the `server.ts` file, and then press `kb(inlinechat.start)` to start Inline Chat.
 
-1. Type *"use an environment variable for the port number"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
+1. Type "use an environment variable for the port number" in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
 
     Notice how Copilot updates the existing code to use an environment variable for the port number.
 
@@ -112,7 +112,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
 1. Open the Chat view from the Command Center Copilot menu or press `kb(workbench.action.chat.open)`.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the Copilot menu in the Command Center.](./images/getting-started-chat/command-center-open-chat.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the Copilot menu in the Command Center.](./images/getting-started/copilot-chat-menu-command-center.png)
 
     > [!TIP]
     > You can access different Copilot features from the Command Center menu at any time.
@@ -121,7 +121,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
-    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
+    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you to get information about methods and symbols by hovering over them, or to go to their definition.
 
 1. Follow the steps in the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md) to learn how you can also use Copilot Chat to ask questions about your specific codebase.
 
