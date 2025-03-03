@@ -91,7 +91,7 @@ Here are all variables available for use:
 - `${local}`: indicates a local terminal in a remote workspace
 - `${process}`: the name of the terminal process
 - `${progress}`: the progress state as reported by the OSC `9;4` sequence
-- `${separator}`: a conditional separator (-) that only shows when surrounded by variables with values or static text.
+- `${separator}`: a conditional separator (-) that only shows when it's surrounded by variables with values or static text.
 - `${sequence}`: the name provided to the terminal by the process
 - `${task}`: indicates this terminal is associated with a task
 - `${shellType}`: the detected shell type
