@@ -82,6 +82,22 @@ Other terminals often display the escape sequence sent by the shell as the title
 "terminal.integrated.tabs.title": "${sequence}"
 ```
 
+Here are all variables available for use:
+
+- `${cwd}`: the terminal's current working directory
+- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+- `${workspaceFolder}`: the workspace in which the terminal was launched
+- `${workspaceFolderName}`: the name of the workspace in which the terminal was launched
+- `${local}`: indicates a local terminal in a remote workspace
+- `${process}`: the name of the terminal process
+- `${progress}`: the progress state as reported by the OSC `9;4` sequence
+- `${separator}`: a conditional separator (-) that only shows when surrounded by variables with values or static text.
+- `${sequence}`: the name provided to the terminal by the process
+- `${task}`: indicates this terminal is associated with a task
+- `${shellType}`: the detected shell type
+- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
+- `${shellPromptInput}`: the shell's full prompt input according to shell integration
+
 ### Icons
 
 Each terminal has an associated icon that is determined by its [terminal profile](/docs/terminal/profiles.md). The default icon and its color, which will be used if not defined in a profile, can be configured with the `setting(terminal.integrated.tabs.defaultIcon)` and `setting(terminal.integrated.tabs.defaultColor)` settings.
