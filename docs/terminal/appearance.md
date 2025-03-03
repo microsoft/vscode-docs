@@ -25,6 +25,7 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
+- `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts
 
