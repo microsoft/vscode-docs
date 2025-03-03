@@ -95,7 +95,7 @@ Here are all variables available for use:
 - `${sequence}`: the name provided to the terminal by the process
 - `${task}`: indicates this terminal is associated with a task
 - `${shellType}`: the detected shell type
-- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
+- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
 - `${shellPromptInput}`: the shell's full prompt input according to shell integration
 
 ### Icons
