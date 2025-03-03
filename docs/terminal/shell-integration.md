@@ -15,7 +15,7 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 Supported shells:
 
 - Linux/macOS: bash, fish, pwsh, zsh
-- Windows: pwsh
+- Windows: Git Bash, pwsh
 
 ## Installation
 
