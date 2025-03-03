@@ -32,7 +32,7 @@ When opening a window, if the terminal view is visible it will either reconnect 
 * `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
 * `always`: Always hide the terminal, even when there are persistent sessions restored.
 
-The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to overriding the default behavior of closing the terminal view when the last terminal is closed.
+The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to override the default behavior of closing the terminal view when the last terminal is closed.
 
 ## Keyboard shortcuts and the shell
 
