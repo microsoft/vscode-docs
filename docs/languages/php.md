@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code

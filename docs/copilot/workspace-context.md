@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Workspace Context
 ContentId: c77dcce9-4ba9-40ac-8ae5-2df855088090
 PageTitle: Chat using @workspace Context References
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: How to use Copilot's @workspace chat to ask questions against your entire codebase.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

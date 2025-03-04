@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Polyglot
 ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
 PageTitle: Polyglot Programming with Notebooks in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
 # Polyglot Notebooks in VS Code

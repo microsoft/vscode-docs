@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Edits
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
 PageTitle: Copilot Edits
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
