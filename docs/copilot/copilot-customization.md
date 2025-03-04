@@ -194,21 +194,23 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
 
+    Alternatively, use the **Create Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
 1. Write prompt instructions by using Markdown formatting.
 
     Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file.
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
 
-#### Use a global prompt file
+#### Create a user prompt file
 
-Global prompt files are stored in your [user profile](/docs/editor/profiles.md). You can use global prompt files to share reusable prompts across multiple workspaces.
+User prompt files are stored in your [user profile](/docs/editor/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
 
-You can add a global prompt file to chat prompt in the same way as a workspace prompt file.
+You can add a user prompt file to a chat prompt in the same way as a workspace prompt file.
 
-To create a global prompt file:
+To create a user prompt file:
 
-1. Select the **Create Global Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select the **Create User Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Enter a name for your prompt file.
 
