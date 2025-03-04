@@ -88,7 +88,7 @@ To use agent mode in Copilot Edits:
 1. Open your project in [VS Code Insiders](https://code.visualstudio.com/insiders).
 
     > [!NOTE]
-    > Agent mode is in preview and currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/). The roll-out to VS Code Stable is ongoing and once agent mode is enabled for you, you will see a mode dropdown in the Copilot Edits view.
+    > Agent mode is in preview and currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/). The gradual roll-out to VS Code Stable is ongoing and once agent mode is enabled for you, you will see a mode dropdown in the Copilot Edits view.
 
 1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
 
