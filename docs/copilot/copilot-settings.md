@@ -54,7 +54,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
 * `setting(chat.editing.alwaysSaveWithGeneratedChanges)` - automatically save generated changes from Copilot Edits to disk (default: `false`)
-* `setting(chat.agent.enabled)` _(Experimental)_ - enable or disable agent mode in Copilot Edits (default: `false`)
 * `setting(chat.implicitContext.enabled)` _(Preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
 * `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 15)

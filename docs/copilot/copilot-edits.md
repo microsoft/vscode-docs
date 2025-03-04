@@ -81,16 +81,14 @@ In edit mode, you select which files to edit and provide the relevant context an
 In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. Copilot agent mode determines the relevant context, offers both code changes and terminal commands, and iterates to remediate issues. To perform these tasks, agent mode uses a set of [_tools_](#agent-mode-tools).
 
 > [!IMPORTANT]
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features, in addition to you setting `setting(chat.agent.enabled)` in your editor. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 To use agent mode in Copilot Edits:
 
 1. Open your project in [VS Code Insiders](https://code.visualstudio.com/insiders).
 
     > [!NOTE]
-    > Agent mode is currently in preview and is only available in [VS Code Insiders](https://code.visualstudio.com/insiders).
-
-1. Enable agent mode by setting `setting(chat.agent.enabled)` to `true` in your [settings](/docs/getstarted/personalize-vscode.md#configure-settings).
+    > Agent mode is in preview and currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/). The roll-out to VS Code Stable is ongoing and once agent mode is enabled for you, you will see a mode dropdown in the Copilot Edits view.
 
 1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
 
@@ -202,7 +200,6 @@ The following list contains the settings related to Copilot Edits. You can confi
 
 * `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
-* `setting(chat.agent.enabled)` <i class="codicon codicon-beaker"></i> - enable or disable agent mode in Copilot Edits (default: `false`)
 * `setting(chat.implicitContext.enabled)` _(preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
 * `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ - let Copilot find the right files when you add `#codebase` to your prompt, similar to how agent mode works (default: `false`)
