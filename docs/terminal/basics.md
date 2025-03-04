@@ -395,9 +395,14 @@ The keybindings ⌃⌘← and ⌃⌘→ are the defaults for resizing individual
 mkdir -p ~/Library/KeyBindings
 cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
 {
-  "^@\UF701" = "noop";
-  "^@\UF702" = "noop";
-  "^@\UF703" = "noop";
+  "@^\UF700" = "noop:";
+  "@^\UF701" = "noop:";
+  "@^\UF702" = "noop:";
+  "@^\UF703" = "noop:";
+  "@~^\UF700" = "noop:";
+  "@~^\UF701" = "noop:";
+  "@~^\UF702" = "noop:";
+  "@~^\UF703" = "noop:";
 }
 EOF
 ```
