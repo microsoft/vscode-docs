@@ -71,8 +71,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Customize Copilot prompts
 
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 * `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 * `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.

@@ -239,11 +239,11 @@ To create a user prompt file:
 
 ### Custom instructions settings
 
-* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
+* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate code.
+* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: set of instructions that will be added to Copilot requests for reviewing the current editor selection.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate commit messages.
 
 ### Prompt files (experimental) settings
 
@@ -251,7 +251,7 @@ To create a user prompt file:
 
     | Setting value | Description |
     |---------------|-------------|
-    | `{ "/path/to/folder": boolean }` | Enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
+    | `{ "/path/to/folder": boolean }` | enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
 
 ## Related content
 
