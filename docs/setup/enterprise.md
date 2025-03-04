@@ -120,15 +120,24 @@ VS Code currently supports the following admin-controlled features:
 > [!NOTE]
 > Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
 
-### Group Policy on Windows
+System administrators need a way to control default software settings across all client machines in their organization. The following platform-specific solutions provide administrators flexibility to implement the behavior for each of the available policies and settings.
 
-System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
+### Group Policy on Windows
 
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
 Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/settings.md) value configured at any level (default, user, workspace, etc.).
+
+### Configuration profiles on macOS
+
+Configuration profiles are a way to manage settings on macOS devices. They are XML files that contain settings and preferences for applications and system features. Configuration profiles can be deployed using Mobile Device Management (MDM) solutions or manually installed.
+
+Starting from VS Code version TODO, each release provides a `.mobileconfig` file in the `policies` directory. This file contains default configuration for available policies. This file can be manually edited with a text-editor, or with a configuration profile editor such as [iMazing Profile Editor](https://imazing.com/profile-editor).
+
+Configuration profiles can be manually installed by double-clicking on a `.mobileconfig` profile and then enabling it in System Preferences under `General > Device Management`.
+
 
 ### Additional policies
 
