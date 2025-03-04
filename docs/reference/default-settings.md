@@ -456,6 +456,9 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - never: Larger suggestions are never shown side by side and will always be shown below.
     "editor.inlineSuggest.edits.renderSideBySide": "auto",
 
+    // Controls whether the suggestion will show as collapsed until jumping to it.
+    "editor.inlineSuggest.edits.showCollapsed": false,
+
     // Controls whether to automatically show inline suggestions in the editor.
     "editor.inlineSuggest.enabled": true,
 
@@ -526,6 +529,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether the minimap is shown.
     "editor.minimap.enabled": true,
 
+    // Defines the regular expression used to find section headers in comments.
+    "editor.minimap.markSectionHeaderRegex": "\\bMARK:\\s*(?<separator>-?)\\s*(?<label>.*)$",
+
     // Limit the width of the minimap to render at most a certain number of columns.
     "editor.minimap.maxColumn": 120,
 
@@ -588,7 +594,7 @@ You can also view the default values in the Settings editor or see a read-only v
     "editor.occurrencesHighlight": "singleFile",
 
     // Controls the delay in milliseconds after which occurrences are highlighted.
-    "editor.occurrencesHighlightDelay": 250,
+    "editor.occurrencesHighlightDelay": 0,
 
     // Controls the cursor style in overtype input mode.
     "editor.overtypeCursorStyle": "block",
@@ -1248,16 +1254,16 @@ You can also view the default values in the Settings editor or see a read-only v
         "default": false,
         "workbench.editor.chatSession": false,
         "workbench.editorinputs.searchEditorInput": false,
+        "jupyter-notebook": false,
         "repl": false,
         "workbench.editors.gettingStartedInput": false,
+        "terminalEditor": true,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
         "jsProfileVisualizer.heapsnapshot.table": false,
-        "jupyter-notebook": false,
-        "terminalEditor": true,
         "workbench.input.interactive": false,
         "mainThreadWebview-markdown.preview": false,
         "mainThreadWebview-simpleBrowser.view": true,
@@ -1601,6 +1607,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls the feedback area size in pixels of the dragging area in between views/editors. Set it to a larger value if you feel it's hard to resize views using the mouse.
     "workbench.sash.size": 4,
 
+    // Controls whether activity items in the secondary sidebar title are shown as label or icon. This setting only has an effect when `workbench.activityBar.location` is not set to `top`.
+    "workbench.secondarySideBar.showLabels": true,
+
     // Configure settings to be applied for all profiles.
     "workbench.settings.applyToAllProfiles": [],
 
@@ -1831,17 +1840,16 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - auto: Uses operating system specific end of line character.
     "files.eol": "auto",
 
-    // Configure glob patterns for excluding files and folders. For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `search.exclude` setting to define search-specific excludes.
+    // Configure [glob patterns](https://aka.ms/vscode-glob-patterns) for excluding files and folders. For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `search.exclude#` setting to define search-specific excludes. Refer to the `#explorer.excludeGitIgnore` setting for ignoring files based on your `.gitignore`.
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true
     },
 
-    // Hot Exit controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
+    // [Hot Exit](https://aka.ms/vscode-hot-exit) controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
     //  - off: Disable hot exit. A prompt will show when attempting to close a window with editors that have unsaved changes.
     //  - onExit: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu). All windows without folders opened will be restored upon next launch. A list of previously opened windows with unsaved files can be accessed via `File > Open Recent > More...`
     //  - onExitAndWindowClose: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), and also for any window with a folder opened regardless of whether it's the last window. All windows without folders opened will be restored upon next launch. A list of previously opened windows with unsaved files can be accessed via `File > Open Recent > More...`
@@ -2624,9 +2632,6 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - onDoubleHash: Enable workspace header suggestions after typing `#` in a path, for example: `[link text](#`.
     //  - onSingleOrDoubleHash: Enable workspace header suggestions after typing either `#` or `#` in a path, for example: `[link text](#` or `[link text](#`.
     "markdown.suggest.paths.includeWorkspaceHeaderCompletions": "onDoubleHash",
-
-    // Enable debug logging for the Markdown extension.
-    "markdown.trace.extension": "off",
 
     // Traces the communication between VS Code and the Markdown language server.
     "markdown.trace.server": "off",
@@ -3641,6 +3646,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Whether to use the enhanced text diff editor for notebook.
     "notebook.diff.enablePreview": true,
 
+    // Enable the command to toggle the experimental notebook inline diff editor.
+    "notebook.diff.experimental.toggleInline": true,
+
     // Hide Metadata Differences
     "notebook.diff.ignoreMetadata": false,
 
@@ -3658,6 +3666,12 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Settings for code editors used in notebooks. This can be used to customize most editor.* settings.
     "notebook.editorOptionsCustomizations": {},
+
+    // Enable experimental generate action to create code cell with inline chat enabled.
+    "notebook.experimental.generate": true,
+
+    // Enables the incremental saving of notebooks between processes and across Remote connections. When enabled, only the changes to the notebook are sent to the extension host, improving performance for large notebooks and slow network connections.
+    "notebook.experimental.remoteSave": true,
 
     // Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.
     "notebook.find.filters": {
@@ -3682,8 +3696,8 @@ You can also view the default values in the Settings editor or see a read-only v
     // When enabled, the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.
     "notebook.gotoSymbols.showAllSymbols": true,
 
-    // Enable the showing of inline values within notebook code cells after cell execution.
-    "notebook.inlineValues": false,
+    // Control whether to show inline values within notebook code cells after cell execution.
+    "notebook.inlineValues": "off",
 
     // When enabled, insert a final new line into the end of code cells when saving a notebook.
     "notebook.insertFinalNewline": false,
@@ -3790,9 +3804,9 @@ You can also view the default values in the Settings editor or see a read-only v
 // Terminal
 
     // When opening a file from the Explorer in a terminal, determines what kind of terminal will be launched
-    //  - integrated: Use VS Code's integrated terminal.
-    //  - external: Use the configured external terminal.
-    //  - both: Use the other two together.
+    //  - integrated: Show the integrated terminal action.
+    //  - external: Show the external terminal action.
+    //  - both: Show both integrated and external terminal actions.
     "terminal.explorerKind": "integrated",
 
     // Customizes which terminal to run on Linux.
@@ -3805,9 +3819,9 @@ You can also view the default values in the Settings editor or see a read-only v
     "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\cmd.exe",
 
     // When opening a repository from the Source Control Repositories view in a terminal, determines what kind of terminal will be launched
-    //  - integrated: Use VS Code's integrated terminal.
-    //  - external: Use the configured external terminal.
-    //  - both: Use the other two together.
+    //  - integrated: Show the integrated terminal action.
+    //  - external: Show the external terminal action.
+    //  - both: Show both integrated and external terminal actions.
     "terminal.sourceControlRepositoriesKind": "integrated",
 
     // Focus the terminal accessible view when a command is executed.
@@ -3819,7 +3833,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
     "terminal.integrated.allowChords": true,
 
-    // An array of strings containing the URI schemes that the terminal is allowed to open links for.
+    // An array of strings containing the URI schemes that the terminal is allowed to open links for. By default, only a small subset of possible schemes are allowed for security reasons.
     "terminal.integrated.allowedLinkSchemes": [
         "file",
         "http",
@@ -3910,6 +3924,9 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - Command Prompt: $(terminal-cmd) Command Prompt
     // - path: C:\WINDOWS\System32\cmd.exe
     // - args: []
+    //  - Ubuntu-24.04 (WSL): $(terminal-ubuntu) Ubuntu-24.04 (WSL)
+    // - path: C:\WINDOWS\System32\wsl.exe
+    // - args: ['-d','Ubuntu-24.04']
     //  - JavaScript Debug Terminal: $($(debug)) JavaScript Debug Terminal
     // - extensionIdentifier: ms-vscode.js-debug
     "terminal.integrated.defaultProfile.windows": null,
@@ -3933,7 +3950,7 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - notRemote: Enable only when not in a remote workspace.
     "terminal.integrated.enableFileLinks": "on",
 
-    // Enables image support in the terminal, this will only work when `terminal.integrated.gpuAcceleration#` is enabled. Both sixel and iTerm's inline image protocol are supported on Linux and macOS. This will only work on Windows for versions of ConPTY >= v2 which is shipped with Windows itself, see also `#terminal.integrated.experimental.windowsUseConptyDll`. Images will currently not be restored between window reloads/reconnects.
+    // Enables image support in the terminal, this will only work when `terminal.integrated.gpuAcceleration#` is enabled. Both sixel and iTerm's inline image protocol are supported on Linux and macOS. This will only work on Windows for versions of ConPTY >= v2 which is shipped with Windows itself, see also `#terminal.integrated.windowsUseConptyDll`. Images will currently not be restored between window reloads/reconnects.
     "terminal.integrated.enableImages": false,
 
     // Controls whether to show a warning dialog when pasting multiple lines into the terminal.
@@ -4042,7 +4059,7 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - on: Always enabled
     //  - off: Always disabled
     //  - auto: Enabled only for remote workspaces
-    "terminal.integrated.localEchoEnabled": "auto",
+    "terminal.integrated.localEchoEnabled": "off",
 
     // Local echo will be disabled when any of these program names are found in the terminal title.
     "terminal.integrated.localEchoExcludePrograms": [
@@ -4162,6 +4179,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Determines whether or not shell integration is auto-injected to support features like enhanced command tracking and current working directory detection.
     "terminal.integrated.shellIntegration.enabled": true,
 
+    // Controls whether to report the shell environment, enabling its use in features such as `terminal.integrated.suggest.enabled`.
+    "terminal.integrated.shellIntegration.environmentReporting": true,
+
     // Controls the number of recently used commands to keep in the terminal command history. Set to 0 to disable terminal command history.
     "terminal.integrated.shellIntegration.history": 100,
 
@@ -4189,23 +4209,33 @@ You can also view the default values in the Settings editor or see a read-only v
     // Defines the maximum number of sticky lines to show. Sticky scroll lines will never exceed 40% of the viewport regardless of this setting.
     "terminal.integrated.stickyScroll.maxLineCount": 5,
 
-    // Controls which built-in completions are activated. This setting can cause conflicts if custom shell completions are configured in the shell profile.
-    "terminal.integrated.suggest.builtinCompletions": {
-        "pwshCode": true,
-        "pwshGit": true
-    },
+    // Controls whether to enable $CDPATH support which exposes children of the folders in the $CDPATH variable regardless of the current working directory. $CDPATH is expected to be semi colon-separated on Windows and colon-separated on other platforms.
+    //  - off: Disable the feature.
+    //  - relative: Enable the feature and use relative paths.
+    //  - absolute: Enable the feature and use absolute paths. This is useful when the shell doesn't natively support `$CDPATH`.
+    "terminal.integrated.suggest.cdPath": "absolute",
 
-    // Enables experimental terminal Intellisense suggestions for supported shells (PowerShell v7+, zsh, bash, fish) when `terminal.integrated.shellIntegration.enabled` is set to `true`.
+    // Enables terminal intellisense suggestions (preview) for supported shells (PowerShell v7+, zsh, bash, fish) when `terminal.integrated.shellIntegration.enabled` is set to `true`.
     "terminal.integrated.suggest.enabled": false,
 
-    // Controls which suggestion providers are enabled
+    // Controls whether the shell's inline suggestion should be detected and how it is scored.
+    //  - off: Disable the feature.
+    //  - alwaysOnTopExceptExactMatch: Enable the feature and sort the inline suggestion without forcing it to be on top.
+    //  - alwaysOnTop: Enable the feature and always put the inline suggestion on top.
+    "terminal.integrated.suggest.inlineSuggestion": "alwaysOnTop",
+
+    // List of inline suggestions providers (enabled by default). Omit them by setting the id of the provider to `false`.
     "terminal.integrated.suggest.providers": {
         "terminal-suggest": true,
-        "pwsh-shell-integration": false
+        "pwsh-shell-integration": true
     },
 
     // Controls whether suggestions should automatically show up while typing.
-    "terminal.integrated.suggest.quickSuggestions": true,
+    "terminal.integrated.suggest.quickSuggestions": {
+        "commands": "on",
+        "arguments": "on",
+        "unknown": "off"
+    },
 
     // Controls whether suggestions should run immediately when `Enter` (not `Tab`) is used to accept the result.
     //  - ignore: Ignore suggestions and send the enter directly to the shell without completing.
@@ -4314,6 +4344,9 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
     "terminal.integrated.windowsEnableConpty": true,
+
+    // Whether to use the experimental conpty.dll (v1.22.250204002) shipped with VS Code, instead of the one bundled with Windows.
+    "terminal.integrated.windowsUseConptyDll": true,
 
     // A string containing all characters to be considered word separators when double-clicking to select word and in the fallback 'word' link detection. Since this is used for link detection, including characters such as `:` that are used when detecting links will cause the line and column part of links like `file:10:5` to be ignored.
     "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’“”|",
@@ -4587,7 +4620,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Configure settings to be overridden for the coffeescript language.
     "[coffeescript]":  {
         "diffEditor.ignoreTrimWhitespace": false,
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
     // Configure settings to be overridden for the csharp language.
@@ -4677,7 +4710,7 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Configure settings to be overridden for the julia language.
     "[julia]":  {
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
     // Configure settings to be overridden for the less language.
@@ -4712,12 +4745,12 @@ You can also view the default values in the Settings editor or see a read-only v
     // Configure settings to be overridden for the python language.
     "[python]":  {
         "diffEditor.ignoreTrimWhitespace": false,
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
-    // Configure settings to be overridden for the Ruby language.
+    // Configure settings to be overridden for the ruby language.
     "[ruby]":  {
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
     // Configure settings to be overridden for the scss language.
@@ -4733,7 +4766,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Configure settings to be overridden for the shellscript language.
     "[shellscript]":  {
         "files.eol": "\n",
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
     // Configure settings to be overridden for the snippets language.
@@ -4750,10 +4783,13 @@ You can also view the default values in the Settings editor or see a read-only v
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
         "diffEditor.ignoreTrimWhitespace": false,
-        "editor.defaultColorDecorators": false
+        "editor.defaultColorDecorators": "never"
     },
 
 // Chat
+
+    // Enable agent mode for Copilot Edits. When this is enabled, a dropdown appears in the Copilot Edits view to toggle agent mode.
+    "chat.agent.enabled": true,
 
     // The maximum number of requests to allow Copilot Edits to use in agent mode.
     "chat.agent.maxRequests": 15,
@@ -4788,8 +4824,22 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether lines should wrap in chat codeblocks.
     "chat.editor.wordWrap": "off",
 
-    // Enable support for attaching reusable prompt files (`*.prompt.md`) for Chat, Edits, and Inline Chat sessions.
-    "chat.promptFiles": null,
+    // Enables automatically using the active editor as chat context for specified chat locations.
+    "chat.implicitContext.enabled": {
+        "panel": "always",
+        "editing-session": "first"
+    },
+
+    // Enable reusable prompt files (`*.prompt.md`) in Chat, Edits, and Inline Chat sessions.
+    "chat.promptFiles": true,
+
+    // Specify location(s) of reusable prompt files (`*.prompt.md`) that can be attached in Chat, Edits, and Inline Chat sessions.
+    "chat.promptFilesLocations": {
+        ".github/prompts": true
+    },
+
+    // Controls whether related files should be rendered in the chat input.
+    "chat.renderRelatedFiles": false,
 
 // Diff editor
 
@@ -4846,6 +4896,12 @@ You can also view the default values in the Settings editor or see a read-only v
     // Restores the ports you forwarded in a workspace.
     "remote.restoreForwardedPorts": true,
 
+    // The name under which the remote tunnel access is registered. If not set, the host name is used.
+    "remote.tunnels.access.hostNameOverride": "",
+
+    // Prevent this computer from sleeping when remote tunnel access is turned on.
+    "remote.tunnels.access.preventSleep": false,
+
 // Accessibility
 
     // On keypress, close the Accessible View and focus the element from which it was invoked.
@@ -4865,6 +4921,11 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // The volume of the sounds in percent (0-100).
     "accessibility.signalOptions.volume": 70,
+
+    // Plays a sound / audio cue when revealing a file with changes from chat edits
+    "accessibility.signals.chatEditModifiedFile": {
+        "sound": "auto"
+    },
 
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made.
     "accessibility.signals.chatRequestSent": {
@@ -5088,6 +5149,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Provide information about how to open the walkthrough in an Accessible View.
     "accessibility.verbosity.walkthrough": true,
 
+    // Controls whether the `window.title` should be optimized for screen readers when in screen reader mode. When enabled, the window title will have `activeEditorState` appended to the end.
+    "accessibility.windowTitleOptimized": true,
+
     // Set the color mode for native UI elements such as native dialogs, menus and title bar.
     //  - default: Native widget colors match the system colors.
     //  - auto: Use light native widget colors for light color themes and dark for dark color themes.
@@ -5269,6 +5333,17 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Controls the limit of Git submodules detected.
     "git.detectSubmodulesLimit": 10,
+
+    // Controls whether to check for unresolved diagnostics before committing.
+    "git.diagnosticsCommitHook.Enabled": false,
+
+    // Controls the list of sources (**Item**) and the minimum severity (**Value**) to be considered before committing.
+    "git.diagnosticsCommitHook.Sources": {
+        "*": "error"
+    },
+
+    // Controls whether discarding untracked changes moves the file(s) to the Recycle Bin (Windows), Trash (macOS, Linux) instead of deleting them permanently.
+    "git.discardUntrackedChangesToTrash": true,
 
     // Enables commit signing with GPG, X.509, or SSH.
     "git.enableCommitSigning": false,
@@ -5638,6 +5713,15 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Display hover with 'Run' and 'Debug' commands for scripts.
     "npm.scriptHover": true,
+
+    // The script runner used to run scripts.
+    //  - auto: Auto-detect which script runner to use based on lock files and installed package managers.
+    //  - npm: Use npm as the script runner.
+    //  - yarn: Use yarn as the script runner.
+    //  - pnpm: Use pnpm as the script runner.
+    //  - bun: Use bun as the script runner.
+    //  - node: Use Node.js as the script runner.
+    "npm.scriptRunner": "auto",
 
 // References Search View
 
