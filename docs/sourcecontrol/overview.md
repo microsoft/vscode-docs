@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -30,7 +30,7 @@ VS Code recognizes when you open a folder that is a Git repository. The Source C
 
 You can access the Source Control view from the by selecting the **Source Control** icon in the Activity Bar or by using the `kb(workbench.view.scm)` keyboard shortcut. If you have changes, the Source Control icon indicates **how many changes** you currently have in your repository.
 
-The Source Control view shows the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**. You can also view the [**Source Control graph**](#source-control-graph) to see how your changes relate to the repository's history.
+The Source Control view shows the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**. You can also view the [**source control graph**](#source-control-graph) to see how your changes relate to the repository's history.
 
 ![Overview of Git](images/overview/overview.png)
 
@@ -183,9 +183,9 @@ VS Code is able to periodically fetch changes from your remotes. This enables VS
 > [!TIP]
 > You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/editor/settings.md) to reduce the number of prompts you get.
 
-## Source Control Graph
+## Source control graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
 ---
 # Default keyboard shortcuts reference

@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -444,15 +444,12 @@ Are you interested in creating your own extension? You can learn how to do this 
 
 With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
 
-After you enable the Simple File Dialog, you can browse and select files and folders by using a Quick Pick inside VS Code.
+Setting: `setting(files.simpleDialog)`
 
 ![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
 
-To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/editor/settings.md):
-
-```json
-    "files.simpleDialog.enable": true
-```
+> [!TIP]
+> Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
 
 ### Show Explorer view
 

@@ -366,6 +366,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-chat-context</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1681,6 +1686,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/reference/default-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/reference/tasks-appendix</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Runtime Security
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
 PageTitle: Visual Studio Code Extension Runtime Security
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
 
