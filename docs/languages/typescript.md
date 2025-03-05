@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
