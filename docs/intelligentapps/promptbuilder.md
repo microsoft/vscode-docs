@@ -53,12 +53,12 @@ After experimenting with models and prompts, you can get into coding right away 
 
 To access the code, follow these steps:
 1. Click on **View Code**
-2. Select the inference SDK you want to use
+2. Select the inference SDK you want to use if it's hosted by GitHub
    > [!TIP]
-   > Currently AI Toolkit supports [`Azure AI Inference SDK`](https://learn.microsoft.com/python/api/overview/azure/ai-inference-readme?view=azure-python-preview) and [OpenAI SDK](https://platform.openai.com/docs/libraries) in Python.
+   > AI Toolkit will generate the code for the corresponding model you selected using the provider's client SDK. For models hosted by GitHub, you have the option to select the inference SDK you want to use: [`Azure AI Inference SDK`](https://learn.microsoft.com/python/api/overview/azure/ai-inference-readme?view=azure-python-preview) or the SDK from model provider such as [OpenAI SDK](https://platform.openai.com/docs/libraries) or [Mistral API](https://docs.mistral.ai/api).
 3. You can view the generated code snippet in a new file window and copy them into your application.
    > [!TIP]
-   > To authenticate with the model you will need to [generate a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) (PAT) in your GitHub settings
+   > To authenticate with the model you will normally need API key from the provider. To access models hosted by GitHub, [generate a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) (PAT) in your GitHub settings
 
 ## Next steps
 
