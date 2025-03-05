@@ -65,7 +65,7 @@ Always add comments.
 
 ### Use a `.github/copilot-instructions.md` file
 
-You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically picks up this file.
+You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically pick up this file.
 
 If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
 
