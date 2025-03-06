@@ -59,7 +59,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     Copilot automatically adds the active editor as context. Use the `setting(chat.implicitContext.enabled)` setting to configure if the active editor should be added automatically.
 
-    When you add one or more files to the prompt, Copilot Edits proposes other relevant files based on the Git history. Configure this with the `setting(`github.copilot.chat.edits.suggestRelatedFilesFromGitHistory`)` setting.
+    When you add one or more files to the prompt, Copilot Edits proposes other relevant files based on the Git history. Configure this with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
 
     > [!TIP]
     > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results. Learn more about [adding context to your Copilot prompt](/docs/copilot/copilot-chat-context.md).
