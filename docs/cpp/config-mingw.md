@@ -432,7 +432,7 @@ You must follow the steps on the [MSYS2 website](https://www.msys2.org/) to use 
 
 UCRT on Windows machines is only included in Windows 10 or later. If you are using another version of Windows, run the following command that does not use UCRT:
 
-```MSYS2
+```bash
 pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 ```
 
