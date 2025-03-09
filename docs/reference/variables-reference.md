@@ -299,6 +299,7 @@ One easy way to check a variable's runtime value is to create a VS Code [task](/
         }
     ]
 }
+```
 
 ## Related resources
 
