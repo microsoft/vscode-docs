@@ -198,7 +198,7 @@ This section outlines topics specific to when VS Code is connected to a remote m
 
 ### Local terminals in remote windows
 
-The default **local** terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently non-default profiles cannot be launched from remote windows.
+The default *local* terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently, non-default profiles cannot be launched from remote windows.
 
 ### Reducing remote input latency (Preview)
 
