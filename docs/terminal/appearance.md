@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -25,6 +25,7 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
+- `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts
 
@@ -80,6 +81,22 @@ Other terminals often display the escape sequence sent by the shell as the title
 ```json
 "terminal.integrated.tabs.title": "${sequence}"
 ```
+
+Here are all variables available for use:
+
+- `${cwd}`: the terminal's current working directory.
+- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+- `${workspaceFolder}`: the workspace in which the terminal was launched.
+- `${workspaceFolderName}`: the name of the workspace in which the terminal was launched.
+- `${local}`: indicates a local terminal in a remote workspace.
+- `${process}`: the name of the terminal process.
+- `${progress}`: the progress state as reported by the OSC `9;4` sequence.
+- `${separator}`: a conditional separator (-) that only shows when it's surrounded by variables with values or static text.
+- `${sequence}`: the name provided to the terminal by the process.
+- `${task}`: indicates this terminal is associated with a task.
+- `${shellType}`: the detected shell type.
+- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
+- `${shellPromptInput}`: the shell's full prompt input according to shell integration.
 
 ### Icons
 

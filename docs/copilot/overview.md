@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: GitHub Copilot overview
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -22,9 +22,9 @@ GitHub Copilot can provide assistance in a variety of scenarios.
     <i class="codicon codicon-keyboard"></i>
     <p class="card-title">Get code suggestions as you type</p>
 </a>
-<a href="#_iterate-on-large-changes-across-multiple-files" class="card">
+<a href="#_iterate-on-changes-across-multiple-files" class="card">
     <i class="codicon codicon-edit-session"></i>
-    <p class="card-title">Make large changes across multiple files</p>
+    <p class="card-title">Make changes across multiple files</p>
 </a>
 <a href="#_answer-coding-questions" class="card">
     <i class="codicon codicon-comment-discussion"></i>
@@ -92,11 +92,11 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
     ![Copilot NES for adding z to distance calculation of Point3D](images/overview/point3d-distance.png)
 
-### Iterate on large changes across multiple files
+### Iterate on changes across multiple files
 
-* **Start a AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
+* **Start an AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
 
-    ![Screenshot showing the Copilot Edits response for "Add a feedback field in the contact page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-view-edits-in-file.png)
+    ![Screenshot showing the Copilot Edits response for "Make the activities page the home page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-changed-files.png)
 
 ### Answer coding questions
 
@@ -110,7 +110,7 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
 * **Provide guidance that is specific to your codebase**. Copilot has the context of your workspace and can give step-by-step guidance and code samples that are tailored to your project. For example, "how to add a contacts page?" or "how do I read customer data from the database?".
 
-    ![Copilot Chat provides step-by-step guidance about adding a page to an Express app](images/overview/copilot-chat-view-add-page.png)
+    ![Copilot Chat provides step-by-step guidance about adding a page to an Express app](images/getting-started-chat/copilot-chat-view-add-page.png)
 
 ### Code refactoring and improvements
 
@@ -134,13 +134,13 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
 * **Suggest terminal command fixes**. When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
 
-    ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/overview/terminal-command-explanation.png)
+    ![Fix with Copilot option in the terminal after a failed terminal command.](images/overview/terminal-command-explanation.png)
 
 ### Jumpstart your project
 
 * **Generate a new VS Code workspace** for your choice of technologies with `/new` to get started quickly with a new project. Pick and choose your technology stack, preview the workspace files, and let Copilot scaffold the entire workspace for you.
 
-    ![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/overview/copilot-chat-view-file-tree-preview.png)
+    ![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/overview/copilot-chat-view-workspace-file-tree.png)
 
 * **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
 
@@ -171,10 +171,6 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 * **AI-generated commit messages and PR descriptions** based on the code changes in a commit or the changes in a pull request. Use the *sparkle* button in the Source Control view or GitHub PR extension to generate a title and description that summarizes your changes.
 
     ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/overview/generate-commit-message.png)
-
-* **Ask help in the Command Palette** to help you find the relevant command in VS Code. You can describe the functionality and Copilot can help identify the matching functionality. For example, type "code preview in scrollbar" in the Command Palette, and Copilot can identify that you're referring to the `editor.minimap` settings.
-
-    ![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
 
 * **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
 

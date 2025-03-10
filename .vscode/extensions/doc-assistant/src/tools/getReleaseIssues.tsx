@@ -7,6 +7,7 @@ import * as vscode from 'vscode';
 import { BasePromptElementProps, PromptElement, renderElementJSON } from '@vscode/prompt-tsx';
 import { createLanguageModelToolResult } from './utils';
 import { getReleaseFeatures, ReleaseFeature } from './queries';
+import path from 'path';
 
 interface GetReleaseFeaturesResultSuccessProps extends BasePromptElementProps {
 	readonly result: {
@@ -45,7 +46,14 @@ export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
 	}
 
 	async invoke(options: vscode.LanguageModelToolInvocationOptions<void>, token: vscode.CancellationToken) {
-		const milestoneName = vscode.workspace.getConfiguration().get<string>('doc-assistant.milestone') ?? 'January 2025';
+		const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
+		const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get<string>('doc-assistant.milestone');
+		if (!milestoneName) {
+			return createLanguageModelToolResult(
+				await renderElementJSON(GetReleaseFeaturesResult, { error: 'No milestone specified' }, options.tokenizationOptions, token),
+			);
+		}
+
 		const issues = await getReleaseFeatures(milestoneName);
 		this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
 		return createLanguageModelToolResult(

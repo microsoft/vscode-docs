@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -147,7 +147,9 @@ def test_decrement():
 
 By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. You will need to reload the window for this setting to take effect.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`. You can refine for which files auto test discovery occurs by specifying a glob pattern in the `python.testing.autoTestDiscoverOnSavePattern` setting. Its default value is `**/*.py`.
+
+You can [configure the settings](/docs/editor/settings.md) in the Settings editor or directly in the `settings.json` file. You need to reload the window for the test discovery setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -384,6 +386,7 @@ The settings that affect the UI of the testing features are provided by VS Code 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. You may need to reload the window after making changes to this setting for it to be applied. |
+| autoTestDiscoverOnSavePattern | `**/*.py` | Specifies a glob pattern that determines which file changes trigger auto test discovery when `autoTestDiscoverOnSaveEnabled` is `true`. |
 | cwd | null | Specifies an optional working directory for tests. |
 | debugPort | `3000` | Port number used for debugging of unittest tests. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |

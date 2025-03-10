@@ -53,7 +53,7 @@ First, refer to the debugging documentation for your target platform, to underst
 
 If you want to debug in Docker Compose, run the command **Containers: Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
-Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Container Tools extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
+Create an **Attach** [launch configuration](/docs/editor/debugging-configuration.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Container Tools extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
 
 ### Node.js
 

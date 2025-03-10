@@ -236,6 +236,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/debugging-configuration</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/editor/testing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -361,6 +366,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-chat-context</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -387,6 +397,16 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/copilot/faq</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/test-with-copilot</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/debug-with-copilot</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1666,6 +1686,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/reference/default-settings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/reference/tasks-appendix</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

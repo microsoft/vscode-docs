@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Keyboard Shortcuts
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code keyboard shortcuts
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Here you will find the complete list of keyboard shortcuts for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization-keybindings-social.png
 ---
@@ -92,7 +92,9 @@ To open the `keybindings.json` file:
 
 * Open **Keyboard Shortcuts** editor, and then select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
 
-  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png) in the Command Palette (`kb(workbench.action.showCommands)`).
+  ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
+
+* Alternatively, use the **Open Default Keyboard Shortcuts (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Keyboard rules
 

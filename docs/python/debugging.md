@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -450,7 +450,7 @@ Allows for the automatic reload of the debugger when changes are made to code af
 
 ### `subProcess`
 
-Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multitarget-debugging).
+Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multi-target-debugging).
 
 ### `cwd`
 
