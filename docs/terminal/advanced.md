@@ -200,7 +200,7 @@ The default **local** terminal profile can be launched in remote windows with th
 
 ### Reducing remote input latency (Preview)
 
-Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature start running when latency is detected to be above 30 ms and the timing can be configured with `setting(terminal.integrated.localEchoLatencyThreshold)`. The color of the unconfirmed characters is defined by `setting(terminal.integrated.localEchoStyle)`.
+Local echo is a feature that helps mitigate input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature starts running when latency is detected to be above 30 ms and the timing can be configured with `setting(terminal.integrated.localEchoLatencyThreshold)`. The color of the unconfirmed characters is defined by `setting(terminal.integrated.localEchoStyle)`.
 
 Local echo disables itself dynamically depending on the active program in the terminal. This is controlled by `setting(terminal.integrated.localEchoExcludePrograms)`, which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended that you disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
 
