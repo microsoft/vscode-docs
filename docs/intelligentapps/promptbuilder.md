@@ -1,9 +1,5 @@
 ---
-Order: 4
-Area: intelligentapps
-TOCTitle: Prompt Builder
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
-PageTitle: Prompt Builder
 DateApproved: 04/09/2025
 MetaDescription: Get Started with creating, iterating and optimizing your prompts in AI Toolkit.
 ---

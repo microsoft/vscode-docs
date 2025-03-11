@@ -1,9 +1,5 @@
 ---
-Order: 7
-Area: intelligentapps
-TOCTitle: Finetune
 ContentId: 5b6626b8-98a9-497e-bbc6-e2274885be56
-PageTitle: Finetune AI Models
 DateApproved: 12/11/2024
 MetaDescription: Use custom dataset to fine-tune a generative AI model in the Azure cloud or locally with GPUs. Deploy the fine-tuned model to the Azure cloud or download incremental files from fine-tuned model.
 ---
