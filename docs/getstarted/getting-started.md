@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -227,7 +227,7 @@ Let's use the built-in Git support to commit the changes you've made previously.
     ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
 
     > [!TIP]
-    > You can use the **Source Control Graph** to show a visual representation of the commit history of your Git repository.
+    > Select **Graph** in the Source Control view to show a visual representation of the commit history of your Git repository.
 
 There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
 

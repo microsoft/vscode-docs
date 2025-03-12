@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Run Python Code
 ContentId:
 PageTitle: Running Python Code in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Running Python Code in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---

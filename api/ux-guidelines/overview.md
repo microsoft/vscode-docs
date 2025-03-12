@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 5b4962ff-2dc9-4201-aa95-46edb5a575b6
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Guidelines that showcase best practices for creating Visual Studio Code extensions.

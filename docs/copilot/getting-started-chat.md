@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Chat Tutorial
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -34,12 +34,12 @@ In this tutorial, you'll be creating a simple Node.js web application.
 
 1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started/command-center-open-chat.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started-chat/copilot-chat-menu-command-center.png)
 
     > [!TIP]
     > You can access different Copilot features from the Command Center menu at any time.
 
-1. Enter *@workspace /new express with typescript and pug* in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
+1. Enter "@workspace /new express with typescript and pug" in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
 
     Notice how this chat prompt is structured to provide clear and concise instructions to Copilot. Let's break it down:
 
@@ -57,9 +57,7 @@ In this tutorial, you'll be creating a simple Node.js web application.
 
     When the workspace creation finishes, VS Code reloads with the new workspace.
 
-    ![Screenshot of VS Code, showing the newly created workspace for an Express app.](./images/getting-started-chat/copilot-chat-create-workspace-result.png)
-
-Congratulations! You've just created a workspace with Copilot Chat by using natural language. The advantage of this approach is that you tweak your request as you like. Maybe you prefer using Express.js with EJS, or not use Express.js at all and use plain Node.js with Bootstrap. Choose what you prefer most!
+Congratulations! You've just created a workspace with Copilot Chat by using natural language. The advantage of this approach is that you can tweak your request as you like. Maybe you prefer using Express.js with EJS, or not use Express.js at all and use plain Node.js with Bootstrap. Choose what you prefer most!
 
 ## Use chat participants
 
@@ -67,9 +65,9 @@ Previously, you used the `@workspace` chat participant to generate a new workspa
 
 Let's iterate on our generated Express app and add a new page to it.
 
-1. In the Chat view, enter the *@workspace how to add a new page?*
+1. In the Chat view, enter "@workspace how to add a new page?"
 
-    ![Screenshot of VS Code Copilot Chat view, showing the results for added a page.](./images/getting-started-chat/copilot-chat-view-add-page.png)
+    ![Screenshot of VS Code Copilot Chat view, showing the results for adding a page.](./images/getting-started-chat/copilot-chat-view-add-page.png)
 
     Copilot returns step-by-step instructions for adding a new page that are specific to your code. This is because you added `@workspace` in the chat prompt, which has the context about your specific workspace contents. If you wouldn't include `@workspace`, you would get more generic instructions.
 
@@ -78,14 +76,14 @@ Let's iterate on our generated Express app and add a new page to it.
     > [!TIP]
     > You can add more details about the type of page you want to add, such as a home page, a contact page, or a product page.
 
-1. There are more chat participants that you can use, each with its own domain-specific expertise. Select the <i class="codicon codicon-mention"></i> icon or just type `@` in the Chat view to get the list of available chat participants.
+1. There are more chat participants that you can use, each with its own domain-specific expertise. Select the `@` icon or just type `@` in the Chat view to get the list of available chat participants.
 
     ![Screenshot of VS Code Copilot Chat view, showing the list of chat participants.](./images/getting-started-chat/copilot-chat-view-participants.png)
 
     > [!NOTE]
     > Extensions can also contribute chat participants, so the list might vary based on the extensions you have installed in VS Code.
 
-1. Let's use `@vscode` to ask about VS Code. Enter `@vscode how to debug node.js app` in the chat input field.
+1. Let's use `@vscode` to set up debugging. Enter "@vscode /startDebugging" in the chat input field.
 
     You get instructions about how to debug a Node.js app in VS Code, and also get a button to directly access the corresponding VS Code functionality.
 
@@ -119,12 +117,9 @@ Let's look at how to use chat for code refactoring.
 
     ![Screenshot of VS Code Inline Chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
 
-1. Select **Accept** or **Discard** to apply or ignore the changes.
+1. Select **Accept** or **Close** to apply or ignore the changes.
 
     If you're not happy with the suggested code changes, you can select the **Rerun Request** button to get another suggestion.
-
-    > [!TIP]
-    > Use the thumbs up and thumbs down buttons to provide feedback to Copilot about the suggestions.
 
 Congratulations on using Copilot Inline Chat in the editor to help you with code refactoring!
 
@@ -166,13 +161,13 @@ Let's ask Copilot about what the purpose of a specific file in the workspace is.
 
     In the context Quick Pick, you can select different types of context to add to your chat prompt, such as a file from your workspace, a symbol, the current selection, and more.
 
-1. Start typing `index.ts` to find the corresponding file, and then select the `src\types\index.ts` file.
+1. In the context Quick Pick, start typing `index.ts`, and then select the `src\types\index.ts` file.
 
-    ![Screenshot of VS Code context Quick Pick, highlighting the selected' index.ts' file.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
+    ![Screenshot of VS Code context Quick Pick, highlighting the selected 'index.ts' file.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
 
     After you select the file, notice that the file is added in the Chat view. Optionally, you can add more files or other context types to your chat prompt.
 
-1. Now enter the following prompt in the chat input field: *@workspace what does this do*. Then, press `kbstyle(Enter)` to send the request.
+1. Now enter the following prompt in the chat input field: "@workspace what does this do?". Then, press `kbstyle(Enter)` to send the request.
 
     ![Screenshot of VS Code Copilot Chat view, showing the chat prompt with the attached file context.](./images/getting-started-chat/copilot-chat-view-context-prompt.png)
 

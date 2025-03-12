@@ -118,7 +118,7 @@ exports["default"] = default_1;
 const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const generateReleaseNotes_1 = __webpack_require__(25);
-const tools_1 = __webpack_require__(53);
+const tools_1 = __webpack_require__(54);
 class History extends prompt_tsx_1.PromptElement {
     render() {
         return (vscpp(prompt_tsx_1.PrioritizedList, { priority: this.props.priority, descending: false }, this.props.context.history.map((turn) => {
@@ -5020,8 +5020,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GenerateReleaseNotesPrompt = void 0;
 const prompt_tsx_1 = __webpack_require__(3);
 const getReleaseIssues_1 = __webpack_require__(26);
-const tools_1 = __webpack_require__(53);
-const history_1 = __webpack_require__(54);
+const tools_1 = __webpack_require__(54);
+const history_1 = __webpack_require__(55);
 class GenerateReleaseNotesPrompt extends prompt_tsx_1.PromptElement {
     static ID = 'generate-release-notes';
     render(state, sizing, progress, token) {
@@ -5086,12 +5086,16 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetReleaseFeatures = void 0;
 const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(27);
 const queries_1 = __webpack_require__(28);
+const path_1 = __importDefault(__webpack_require__(53));
 function isSuccess(props) {
     return !!props.result;
 }
@@ -5112,7 +5116,11 @@ class GetReleaseFeatures {
         this.logger = logger;
     }
     async invoke(options, token) {
-        const milestoneName = vscode.workspace.getConfiguration().get('doc-assistant.milestone') ?? 'January 2025';
+        const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path_1.default.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
+        const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get('doc-assistant.milestone');
+        if (!milestoneName) {
+            return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetReleaseFeaturesResult, { error: 'No milestone specified' }, options.tokenizationOptions, token));
+        }
         const issues = await (0, queries_1.getReleaseFeatures)(milestoneName);
         this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
         return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetReleaseFeaturesResult, { result: { features: issues } }, options.tokenizationOptions, token));
@@ -10338,6 +10346,13 @@ function wrappy (fn, cb) {
 
 /***/ }),
 /* 53 */
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
+
+/***/ }),
+/* 54 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10444,7 +10459,7 @@ exports.ToolResultMetadata = ToolResultMetadata;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";

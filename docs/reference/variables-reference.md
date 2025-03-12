@@ -1,6 +1,6 @@
 ---
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables reference
@@ -299,6 +299,7 @@ One easy way to check a variable's runtime value is to create a VS Code [task](/
         }
     ]
 }
+```
 
 ## Related resources
 
