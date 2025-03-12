@@ -39,11 +39,11 @@ Colima automatically sets up a `colima` [Docker context](https://docs.docker.com
 
 ## Podman
 
-[Podman](https://podman.io/) 5+ is mostly compatible with Docker's CLI commands and therefore does work if you update the **Docker Path** setting (via **Dev > Containers: Docker Path** in the Settings editor) to `podman` on Linux, Windows or macOS.
+[Podman](https://podman.io/) version 5+ is mostly compatible with Docker's CLI commands. To use Podman, update the **Docker Path** (`setting(dev.containers.dockerPath)`) setting to `podman` on Linux, Windows, or macOS.
 
 ![Docker Path setting](images/platform-options/docker-path-setting.png)
 
-Podman has a [`podman compose` command](https://docs.podman.io/en/latest/markdown/podman-compose.1.html) too but that requires a compose provider that can be either Docker Compose or [Podman Compose](https://github.com/containers/podman-compose).
+Podman has a [`podman compose` command](https://docs.podman.io/en/latest/markdown/podman-compose.1.html) too, but that requires a compose provider that can be either Docker Compose or [Podman Compose](https://github.com/containers/podman-compose).
 
 ## Linux
 
