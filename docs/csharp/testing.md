@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: Testing
 ContentId: 0e62b3c9-6c13-4a71-a942-63d37c8f47d1
 PageTitle: Testing C# with C# Dev Kit in Visual Studio Code
-DateApproved: 6/6/2023
+DateApproved: 3/12/2025
 MetaDescription: Testing C# with C# Dev Kit in Visual Studio Code
 ---
 
@@ -87,17 +87,19 @@ dotnet add [location of your test csproj file] reference [location of the csproj
 
 ### Run/Debug test cases
 
+Once you have written test cases, you will need to perform a build of your test project for them to be recognized as a test. Open the Command Palette and select **.NET: Build**. This will build your project.
+
 [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
 
 ### Test Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there. If you have not performed a build of your project, you can select the **Refreshe Tests** button and it will perform a build to discover all of your tests.
 
 ### Code coverage in C# Dev Kit
 C# Dev Kit now supports code coverage via the VS Code Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
 
 
-Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested 
+Code coverage is a metric that tracks the percentage of your codebase executed by automated tests. It helps identify untested
 sections of code and improves the quality of your testing by ensuring comprehensive coverage.
 
 
@@ -114,9 +116,9 @@ If you have generated a coverage report and want to view the result in VS Code:
       - Green lines: Indicate tested code.
       - Red lines: Indicate untested code.
   - 3. Test Explorer summary: The Test Explorer provides an overall coverage summary and allows you to explore specific files or methods that require additional testing.
-  
+
 To improve test coverage of your code:
-  - Examine the coverage report (in the Test Explorer or editor) to identify areas marked in red,     
+  - Examine the coverage report (in the Test Explorer or editor) to identify areas marked in red,
 indicating untested code.
   - Create new tests to cover the untested areas highlighted in the report.
   - Rerun the tests and review the updated coverage to ensure your code is well-tested.
