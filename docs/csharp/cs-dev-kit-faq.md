@@ -183,6 +183,12 @@ C# Dev Kit also requires that it has built your project successfully before test
 
 Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
+If your tests are still not appearing, consider the following additional checks:
+- **Supported .NET Core SDK**: Ensure you are using a supported .NET Core SDK for your platform and machine. Some SDKs do not work on specific operating systems or architectures. For more information, check the official .NET download page: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
+- **Valid SDK Installation**: Verify that a valid SDK installation is detected. You can enable diagnostic logging to check which SDK is detected for your .NET project (see "How do I collect logs for troubleshooting issues with Test Explorer?" below for instructions). Note that .NET SDKs installed via unsupported tools like ASDF or Mise (e.g., [https://mise.jdx.dev/](https://mise.jdx.dev/)) may not be detected, as they deviate from Microsoft’s official installation methods. We recommend following the official instructions at [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
+- **Build Output**: Confirm that the build is complete and has generated the corresponding output binaries (e.g., `.dll` or `.exe` files).
+- **Project Loading**: Ensure all projects have finished loading. In the Solution Explorer, look for a test icon next to test projects to confirm they are detected.
+
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 
 Make sure that your tests are targeting NET Core. C# Dev Kit does not support .NET Framework projects, although .NET Framework projects may load and appear to work. The debugger in VS Code does not support .NET Framework.
