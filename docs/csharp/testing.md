@@ -93,7 +93,7 @@ Once you have written test cases, you will need to perform a build of your test 
 
 ### Test Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there. If you have not performed a build of your project, you can select the **Refreshe Tests** button and it will perform a build to discover all of your tests.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity Bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there. If you have not performed a build of your project, select the **Refresh Tests** button to perform a build and discover all of your tests.
 
 ### Code coverage in C# Dev Kit
 C# Dev Kit now supports code coverage via the VS Code Code Coverage APIs. This feature allows you to measure the effectiveness of your tests by showing which lines of code are executed during testing and which are not.
