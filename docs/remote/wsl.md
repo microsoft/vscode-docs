@@ -5,13 +5,13 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 # Developing in WSL
 
 The **Visual Studio Code WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux-specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
-The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
+The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.  The extension will install VS Code Server inside WSL; the server is independent of any existing VS Code installation in WSL.
 
 ![WSL Architecture](images/wsl/architecture-wsl.png)
 

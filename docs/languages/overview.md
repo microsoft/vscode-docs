@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -19,7 +19,7 @@ Here are eight of the most popular language extensions:
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
 
->**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
+>**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/editor/locales.md) topic.
 
 ## Language specific documentation
 
@@ -71,7 +71,7 @@ You can find a list of known identifiers in the [language identifier reference](
 
 ## Add a file extension to a language
 
-You can add new file extensions to an existing language with the `setting(files.associations)` [setting](/docs/getstarted/settings.md).
+You can add new file extensions to an existing language with the `setting(files.associations)` [setting](/docs/editor/settings.md).
 
 For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
@@ -104,7 +104,7 @@ Yes, you can also add support for your favorite language through TextMate colori
 
 ### Can I map additional file extensions to a language?
 
-Yes, with the `setting(files.associations)` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
+Yes, with the `setting(files.associations)` [setting](/docs/editor/settings.md) you can map file extensions to an existing language either globally or per workspace.
 
 Here is an example that will associate more file extensions to the PHP language:
 
@@ -127,7 +127,7 @@ Note that the pattern is a [glob pattern](/docs/editor/glob-patterns.md) that wi
 
 ### How do I set the default language for new files?
 
-Using the `setting(files.defaultLanguage)` [setting](/docs/getstarted/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
+Using the `setting(files.defaultLanguage)` [setting](/docs/editor/settings.md), you can map all new files to a default language. Whenever a new blank file is opened, the editor will be configured for that language mode.
 
 This example will associate new files with the HTML language:
 

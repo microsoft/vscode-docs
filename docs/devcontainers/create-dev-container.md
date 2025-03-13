@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 # Create a Dev Container
 
@@ -446,7 +446,7 @@ You may also add a badge or link in your repository so that users can easily ope
 As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-java](https://github.com/microsoft/vscode-remote-try-java) would look like:
 
 ```markdown
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
 ```
 
 You can also include an `open in dev container` link directly:
@@ -459,7 +459,7 @@ If you already have VS Code and Docker installed, you can click the badge above 
 
 In some cases, you may want to create a configuration for a repository that you do not control or that you would prefer didn't have a configuration included in the repository itself. To handle this situation, you can configure a location on your local filesystem to store configuration files that will be picked up automatically based on the repository.
 
-First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/getstarted/settings.md) with the local folder you want to use to store your repository container configuration files.
+First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/editor/settings.md) with the local folder you want to use to store your repository container configuration files.
 
 In the Settings editor, you can search for 'dev containers repo' to find the setting:
 

@@ -41,7 +41,7 @@ After installing, check the language status item to see the status of the Ruby L
 
 The extension generates a `.ruby-lsp` folder automatically with a custom bundle that includes the language server gem `ruby-lsp`. No configuration should be required.
 
-By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/getstarted/settings.md):
+By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/editor/settings.md):
 
 ```json
 {
@@ -156,7 +156,7 @@ in a new terminal or launch the debugger. For these uses, no configuration is re
 
 ### Debugging through launch tasks
 
-To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugging.md#launch-configurations)
+To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugging-configuration.md#launch-configurations)
 in a `launch.json` file. The configuration lets you configure the program to be executed.
 
 To create a `launch.json` for a Ruby program:

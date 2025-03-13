@@ -175,7 +175,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/reference/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler.
 

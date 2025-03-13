@@ -5,7 +5,7 @@ TOCTitle: Docker options
 PageTitle: Dev Containers Docker options
 ContentId: 5098c2a8-5aba-4a48-9e9b-5dabf1db93ca
 MetaDescription: Dev Containers Docker options
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 
 # Alternate ways to install Docker
@@ -36,6 +36,14 @@ One issue is that the `dockerd` daemon won't start automatically due to the lack
 Colima automatically sets up a `colima` [Docker context](https://docs.docker.com/engine/context/working-with-contexts/) and makes it the active context. You may also want to install the `docker` and `docker-compose` CLIs before running `colima start` for this setup to work properly.
 
 > Note: Colima uses Alpine Linux, which isn't supported by Remote - SSH.
+
+## Podman
+
+[Podman](https://podman.io/) version 5+ is mostly compatible with Docker's CLI commands. To use Podman, update the **Docker Path** (`setting(dev.containers.dockerPath)`) setting to `podman` on Linux, Windows, or macOS.
+
+![Docker Path setting](images/platform-options/docker-path-setting.png)
+
+Podman has a [`podman compose` command](https://docs.podman.io/en/latest/markdown/podman-compose.1.html) too, but that requires a compose provider that can be either Docker Compose or [Podman Compose](https://github.com/containers/podman-compose).
 
 ## Linux
 
@@ -86,29 +94,6 @@ az vm create \
 ```
 
 You can learn more about using Remote - SSH with Dev Containers in the [develop on a remote Docker host](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts) documentation.
-
-### Podman
-
-[Podman](https://podman.io/) 1.9+ is mostly compatible with Docker's CLI commands and therefore does work if you update the **Docker Path** setting (via **Dev > Containers: Docker Path** in the Settings editor) to `podman` on Linux.
-
-![Docker Path setting](images/platform-options/docker-path-setting.png)
-
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Dev Containers: Try a Dev Container Sample...** and [Dev Containers: Clone Repository in Container Volume...](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) commands.
-
-To work around issues with rootless Podman (for example, not respecting a non-root `"remoteUser"` and trying to install the server in `root`), you can set the following:
-
-```json
-"runArgs": [
-  "--userns=keep-id"
-],
-"containerEnv": {
-  "HOME": "/home/node"
-}
-```
-
-`"remoteUser"` can be used when `"HOME"` is set because Dev Containers gives that setting precedence over the home folder it finds in `/etc/passwd`.
-
-Podman also has its own implementation of the Compose Spec with [Podman Compose](https://github.com/containers/podman-compose).
 
 ## Other container engines
 

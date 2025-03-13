@@ -5,13 +5,13 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 # Remote Development using SSH
 
 The **Visual Studio Code Remote - SSH** extension allows you to open a remote folder on any remote machine, virtual machine, or container with a running SSH server and take full advantage of VS Code's feature set. Once connected to a server, you can interact with files and folders anywhere on the remote filesystem.
 
-No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.
+No source code needs to be on your local machine to gain these benefits since the extension runs commands and other extensions directly on the remote machine.  The extension will install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
 
 ![SSH Architecture](images/ssh/architecture-ssh.png)
 
@@ -52,7 +52,7 @@ To get started, you need to:
 
 1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
-2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/getstarted/settings.md) for improved security.
+2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/editor/settings.md) for improved security.
 
     In the Settings editor:
 
@@ -82,7 +82,7 @@ To connect to a remote host for the first time, follow these steps:
 
     ![Illustration of platform selection](images/ssh/ssh-select-platform.png)
 
-    Once you select a platform, it will be stored in [VS Code settings](/docs/getstarted/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
+    Once you select a platform, it will be stored in [VS Code settings](/docs/editor/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
 
 4. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
@@ -335,7 +335,7 @@ Installation of VS Code Server requires that your local machine has outbound HTT
 - `vscode.blob.core.windows.net`
 - `*.vo.msecnd.net` (Azure CDN)
 
-By default, the Remote - SSH will attempt to download on the remote host, but if you enable `remote.SSH.allowLocalServerDownload`, the extension will fall back to downloading VS Code Server locally and transferring it remotely once a connection is established.
+By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
 
 You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel to install extensions, your local machine and VS Code Server server will need outbound HTTPS (port 443) access to:
 

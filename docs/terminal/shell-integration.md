@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -15,7 +15,7 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 Supported shells:
 
 - Linux/macOS: bash, fish, pwsh, zsh
-- Windows: pwsh
+- Windows: Git Bash, pwsh
 
 ## Installation
 
@@ -148,9 +148,9 @@ Some other functionality of the command:
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `setting(terminal.integrated.shellIntegration.history)` setting.
 
-The default keybinding for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
+The default keyboard shortcut for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
 
-The keybindings can be flipped when accessibility mode is off with the following keybindings:
+The keyboard shortcuts can be flipped when accessibility mode is off with the following keyboard shortcuts:
 
 ```jsonc
 {
@@ -170,7 +170,7 @@ The keybindings can be flipped when accessibility mode is off with the following
 
 Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-The default keybinding for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
+The default keyboard shortcut for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 
@@ -180,11 +180,11 @@ One of the biggest features this enables is enhanced resolving of links in the t
 
 The current working directory is also used to show the directory in the terminal tab, in the run recent command quick pick and for the `"terminal.integrated.splitCwd": "inherited"` feature.
 
-## Extended PowerShell keybindings
+## Extended PowerShell keyboard shortcuts
 
-Windows' console API allows for more keybindings than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keybindings that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keybindings to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
+Windows' console API allows for more keyboard shortcuts than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keyboard shortcuts that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keyboard shortcuts to send a special sequence to PowerShell that then gets handled in the shell integration script and forwarded to the proper key handler.
 
-The following keybindings should work in PowerShell when shell integration is enabled:
+The following keyboard shortcuts should work in PowerShell when shell integration is enabled:
 
 - `kbstyle(Ctrl+Space)`: Defaults to `MenuComplete` on Windows only
 - `kbstyle(Alt+Space)`: Defaults to `SetMark` on all platforms

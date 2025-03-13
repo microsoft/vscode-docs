@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
 
-Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
+Visual Studio Code has hundreds of [settings](/docs/editor/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
 
 ## Access the Profiles editor
 
@@ -194,20 +194,19 @@ VS Code comes with a predefined set of profile templates that you can use to cus
 The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
 
 * [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
-* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
-* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
+* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support for e.g. `pyproject.toml` files.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
 * [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
 * [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
-* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
 
 This profile also sets the following settings:
 
 ```json
     "python.analysis.autoImportCompletions": true,
     "python.analysis.fixAll": ["source.unusedImports"],
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
 ```
 
 ### Data Science Profile Template
@@ -215,17 +214,17 @@ This profile also sets the following settings:
 The Data Science profile is a good starting point for all data and notebook work. It comes with specific snippets and has the following extensions:
 
 * [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - Data viewing, cleaning and preparation for tabular datasets and Excel/CSV/Parquet files.
-* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
-* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
-* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
 * [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - Your AI pair programmer.
+* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
+* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
 
 This profile also sets the following settings:
 
 ```json
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnType": true,
         "editor.formatOnSave": true
     },
@@ -233,13 +232,12 @@ This profile also sets the following settings:
     "editor.lineHeight": 17,
     "breadcrumbs.enabled": false,
     "files.autoSave": "afterDelay",
+    "notebook.output.scrolling": true,
     "jupyter.themeMatplotlibPlots": true,
     "jupyter.widgetScriptSources": [
         "unpkg.com",
         "jsdelivr.com"
     ],
-    "notebook.experimental.outputScrolling": true,
-    // "notebook.outline.showCodeCells": true,
     "files.exclude": {
         "**/.csv": true,
         "**/.parquet": true,
@@ -411,7 +409,7 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-Profiles are stored under your User configurations similar to your user settings and keybindings.
+Profiles are stored under your User configurations similar to your user settings and keyboard shortcuts.
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
@@ -425,13 +423,19 @@ A Temporary Profile is a profile that is not saved across VS Code sessions. You 
 
 Temporary Profiles are useful if you want to try a new configuration or test an extension without modifying your default or existing profile. Restarting VS Code reenables the current profile for your workspace.
 
+### Can I inherit settings from another profile?
+
+Currently, it's not possible to inherit settings from another profile, where you override specific settings and keep the rest of the settings from the other profile. We're tracking this [feature request in the vscode repo](https://github.com/microsoft/vscode/issues/188612).
+
+When you create a new profile, you can choose to copy the settings from another or the default profile. This creates a copy of the settings in the new profile but does not maintain a link to the profile you used as a source.
+
 ### How can I remove the profile from my project?
 
 You can set your project back to the Default Profile. If you'd like to remove all profile workspace associations, you can use the **Developer: Reset Workspace Profiles Associations**, which will set all local folders currently assigned a profile back to the Default Profile. **Reset Workspace Profiles Associations** does not delete any existing profiles.
 
 ### Why are some settings not exported when exporting a profile?
 
-When exporting profiles, machine-specific settings are not included because these setting would not be applicable on another machine. For example, settings that point to local paths are not included.
+When exporting profiles, machine-specific settings are not included because these settings would not be applicable on another machine. For example, settings that point to local paths are not included.
 
 ### Why are templates not available when creating a new profile?
 

@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
 
-Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
+Settings Sync lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 > **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
@@ -136,7 +136,7 @@ If you want to remove all your data from our servers, just turn off sync via **S
 
 ## Next steps
 
-* [User and Workspace settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [User and Workspace settings](/docs/editor/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 
 ## Common questions
 

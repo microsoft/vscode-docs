@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -25,7 +25,7 @@ Below are specific troubleshooting steps, if the user guide hasn't helped you di
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
-1. **Check your user settings.** Review these `terminal.integrated` [settings](/docs/getstarted/settings.md) that could affect the launch:
+1. **Check your user settings.** Review these `terminal.integrated` [settings](/docs/editor/settings.md) that could affect the launch:
 
    * `terminal.integrated.defaultProfile.{platform}` - The default shell profile that the terminal uses.
    * `terminal.integrated.profiles.{platform}` - The defined shell profiles. Sets the shell path and arguments.

@@ -1,10 +1,6 @@
 ---
-Order: 10
-Area: getstarted
-TOCTitle: Educators & Students
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-PageTitle: Visual Studio Code for Educators and Students
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Resources for educators and students to get started with Visual Studio Code.
 ---
 # VS Code for Educators and Students
@@ -123,7 +119,7 @@ For more details about what you can do with Live Share, visit the [how-to-guide]
 
 To get started with using Live Share in VS Code, download the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension from the VS Code Marketplace.
 
-    > <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
+> <a class="install-extension-btn" href="vscode:extension/MS-vsliveshare.vsliveshare">Install the Live Share extension</a>
 
 Once you log into your GitHub account, you can see the Live Share icon in the Activity Bar.
 

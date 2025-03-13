@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -402,6 +402,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-compass"></i>|compass|
 |<i class="codicon codicon-console"></i>|console|
 |<i class="codicon codicon-copilot"></i>|copilot|
+|<i class="codicon codicon-copy"></i>|copy|
 |<i class="codicon codicon-credit-card"></i>|credit-card|
 |<i class="codicon codicon-dash"></i>|dash|
 |<i class="codicon codicon-dashboard"></i>|dashboard|

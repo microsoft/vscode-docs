@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
@@ -101,7 +101,7 @@ In addition to smart code completions, VS Code also includes basic TypeScript [s
 
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
-> **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/editor/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## Errors and warnings
 
@@ -136,7 +136,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `typescript.format.*` [settings](/docs/editor/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
 

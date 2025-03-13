@@ -29,9 +29,9 @@ Once the appropriate environment is activated, you can create and open a Jupyter
 
 ## Workspace Trust
 
-When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editor/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
+When getting started with Jupyter Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
 
-If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
+If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editor/workspaces/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
 
 ## Create or open a Jupyter Notebook
 

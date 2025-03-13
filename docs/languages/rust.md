@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
 PageTitle: Rust with Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in Visual Studio Code
@@ -76,7 +76,7 @@ cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editor/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+>**Note**: Enable [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
@@ -157,7 +157,7 @@ rust-analyzer is able to use [semantic syntax highlighting](https://github.com/m
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/getstarted/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/editor/settings.md).
 
 In `settings.json`, you would add:
 

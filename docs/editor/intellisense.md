@@ -4,84 +4,86 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
 
 IntelliSense is a general term for various code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."
 
-![IntelliSense demo](images/intellisense/intellisense.gif)
+<video src="images/intellisense/intellisense.mp4" title="Video that shows IntelliSense in action. When typing 'app' for an Express app, suggestions are shown, such as '_router'." autoplay loop controls muted></video>
 
 ## IntelliSense for your programming language
 
-Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
+Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word-based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
 
-Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
+Below are the most popular language extensions in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
 
 <div class="marketplace-extensions-languages-curated"></div>
 
 ## IntelliSense features
 
-VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, etc.) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
+VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, and more) is filtered to only include members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
 
 You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as the dot character (`kbstyle(.)`) in JavaScript).
 
-![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
+<video src="images/intellisense/intellisense_packagejson.mp4" title="Video that shows IntelliSense triggered with 'Ctrl+Space' in a 'package.json' file." autoplay loop controls muted></video>
 
-> **Tip:** The suggestions widget supports CamelCase filtering, meaning you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> [!TIP]
+> The suggestions control supports CamelCase filtering, which means that you can type the letters that are upper cased in a method name to limit the suggestions. For example, "cra" brings up "createApplication".
 
-If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense) below to learn how to disable or customize VS Code's IntelliSense features.
+If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](#customizing-intellisense), to learn how to disable or customize VS Code's IntelliSense features.
 
-As provided by the language service, you can see **quick info** for each method by either pressing `kb(toggleSuggestionDetails)` or clicking the info icon. The accompanying documentation for the method will now expand to the side. The expanded documentation will stay so and will update as you navigate the list. You can close this by pressing `kb(toggleSuggestionDetails)` again or by clicking on the close icon.
+As provided by the language service, you can see **quick info** for each method by either pressing `kb(toggleSuggestionDetails)` or selecting the `>` icon. The accompanying documentation for the method expands to the side. The expanded documentation remains available and updates as you navigate the list. You can close this by pressing `kb(toggleSuggestionDetails)` again or by selecting the close icon.
 
-![quick info](images/intellisense/intellisense_docs.gif)
+<video src="images/intellisense/intellisense_docs.mp4" title="Video that shows quick info for suggestions." autoplay loop controls muted></video>
 
-After choosing a method you are provided with **parameter info**.
+After choosing a method, you are provided with **parameter info**.
 
 ![parameter info](images/intellisense/paramater_info.png)
 
-When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
+When applicable, a language service surfaces the underlying types in the quick info and method signatures. In the previous screenshot, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
 
 ## Types of completions
 
-The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the Word icon).
+The JavaScript code in the following screenshot illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (indicated by the `abc` word icon).
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
-VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
+VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 | Icon | Name | Symbol type |
-| ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
-| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
-| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
-| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
-| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
-| ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
-| ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
-| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
-| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
-| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
-| ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
-| ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
-| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
-| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
-| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
-| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
-| ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
-| ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
-| ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
+| ---- | ---- | ----------- |
+| <i class="codicon codicon-symbol-method" style="color:#b180d7"></i> | Methods and Functions | `method`, `function`, `constructor`  |
+| <i class="codicon codicon-symbol-variable" style="color:#75beff"></i> | Variables | `variable` |
+| <i class="codicon codicon-symbol-field" style="color:#75beff"></i> | Fields | `field` |
+| <i class="codicon codicon-symbol-parameter"></i> | Type parameters | `typeParameter` |
+| <i class="codicon codicon-symbol-constant"></i> | Constants | `constant` |
+| <i class="codicon codicon-symbol-class" style="color:#ee9d28"></i> | Classes | `class` |
+| <i class="codicon codicon-symbol-interface" style="color:#75beff"></i> | Interfaces | `interface` |
+| <i class="codicon codicon-symbol-structure"></i> | Structures | `struct` |
+| <i class="codicon codicon-symbol-event" style="color:#ee9d28"></i> | Events | `event` |
+| <i class="codicon codicon-symbol-operator"></i> | Operators | `operator` |
+| <i class="codicon codicon-symbol-namespace"></i> | Modules | `module` |
+| <i class="codicon codicon-symbol-property"></i> | Properties and Attributes | `property` |
+| <i class="codicon codicon-symbol-enum" style="color:#ee9d28"></i> | Enumerations | `enum` |
+| <i class="codicon codicon-symbol-enum-member" style="color:#75beff"></i> | Enumeration members | `enumMember` |
+| <i class="codicon codicon-symbol-reference"></i> | References | `reference` |
+| <i class="codicon codicon-symbol-keyword"></i> | Keywords | `keyword` |
+| <i class="codicon codicon-symbol-file"></i> | Files | `file` |
+| <i class="codicon codicon-symbol-folder"></i> | Folders | `folder` |
+| <i class="codicon codicon-symbol-color"></i> | Colors | `color` |
+| <i class="codicon codicon-symbol-ruler"></i> | Unit | `unit` |
+| <i class="codicon codicon-symbol-snippet"></i> | Snippet prefixes | `snippet` |
+| <i class="codicon codicon-symbol-text"></i> | Words | `text` |
 
 ## Customizing IntelliSense
 
-You can customize your IntelliSense experience in settings and key bindings.
+You can customize your IntelliSense experience in settings and keyboard shortcuts.
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/getstarted/settings.md).
+The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/editor/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
 
 ```javascript
 {
@@ -121,11 +123,11 @@ The settings shown below are the default settings. You can change these settings
 }
 ```
 
-### Tab Completion
+### Tab completion
 
-The editor supports "tab completion" which inserts the best matching completion when pressing `kb(insertBestCompletion)`. This works regardless of the suggest widget showing or not. Also, pressing `kb(insertNextSuggestion)` after inserting a suggestions will insert the next best suggestion.
+The editor supports _tab completion_, which inserts the best matching completion when pressing `kb(insertBestCompletion)`. This works regardless of the suggest control showing or not. Also, pressing `kb(insertNextSuggestion)` after inserting a suggestion inserts the next best suggestion.
 
-![Tab Completion](images/intellisense/tabCompletion.gif)
+<video src="images/intellisense/tabCompletion.mp4" title="Video that shows toggling between suggestions with the Tab key." autoplay loop controls muted></video>
 
 By default, tab completion is disabled. Use the `setting(editor.tabCompletion)` setting to enable it. These values exist:
 
@@ -133,13 +135,13 @@ By default, tab completion is disabled. Use the `setting(editor.tabCompletion)` 
 * `on` - Tab completion is enabled for all suggestions and repeated invocations insert the next best suggestion.
 * `onlySnippets` - Tab completion only inserts static snippets which prefix match the current line prefix.
 
-### Locality Bonus
+### Locality bonus
 
 Sorting of suggestions depends on extension information and on how well they match the current word you are typing. In addition, you can ask the editor to boost suggestions that appear closer to the cursor position, using the `setting(editor.suggest.localityBonus)` setting.
 
 ![Sorted By Locality](images/intellisense/localitybonus.png)
 
-In above images you can see that `count`, `context`, and `colocated` are sorted based on the scopes in which they appear (loop, function, file).
+In the previous screenshot, you can see that `count`, `context`, and `colocated` are sorted based on the scopes in which they appear (loop, function, file).
 
 ### Suggestion selection
 
@@ -159,49 +161,40 @@ When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item
 
 ### Snippets in suggestions
 
-By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
+By default, VS Code shows snippets and completion proposals in one control. You can modify the behavior with the `setting(editor.snippetSuggestions)` setting. To remove snippets from the suggestions control, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
-### Key bindings
+### Keyboard shortcuts
 
-The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
+The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/editor/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
 
-> **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
+| Command | Keybinding |
+| --- | --- |
+| `editor.action.triggerSuggest` | `kb(editor.action.triggerSuggest)` |
+| `toggleSuggestionDetails` | `kb(toggleSuggestionDetails)` |
+| `toggleSuggestionFocus` | `kb(toggleSuggestionFocus)` |
 
-```json
-[
-    {
-        "key": "ctrl+space",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+space",
-        "command": "toggleSuggestionDetails",
-        "when": "editorTextFocus && suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+alt+space",
-        "command": "toggleSuggestionFocus",
-        "when": "editorTextFocus && suggestWidgetVisible"
-    }
-]
-```
+> [!TIP]
+> There are many more keyboard shortcuts related to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
 ## Enhance completions with AI
 
-In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+GitHub Copilot provides coding suggestions as you type in your editor. You can also ask Copilot coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works.
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+To get started:
 
-[![GitHub Copilot extension in the VS Code Marketplace](images/intellisense/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+1. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+1. Discover the key functionality with our [Copilot quickstart](/docs/copilot/getting-started.md).
+
+> [!TIP]
+> If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Troubleshooting
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
-> **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
+> [!TIP]
+> For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
 A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
@@ -209,22 +202,20 @@ A particular language extension may not support all the VS Code IntelliSense fea
 
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
-* [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
-* [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
-* [GitHub Copilot in VS Code](/docs/editor/github-copilot.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
+* [GitHub Copilot in VS Code](/docs/copilot/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 
 ### Why am I not getting any suggestions?
 
-![image of IntelliSense not working](images/intellisense/intellisense_error.png)
-
-This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
+This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript-specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 
 ### Why am I not seeing method and variable suggestions?
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-This issue is caused by missing type declaration (typings) files in JavaScript. Most common JavaScript libraries ship with declaration files or have type declaration files available. Make sure install the corresponding npm or yarn package for the library you are using. Learn more about IntelliSense in the [Working with JavaScript](/docs/nodejs/working-with-javascript.md#intellisense) article. For other languages, please consult the extension's documentation.
+This issue is caused by missing type declaration (typings) files in JavaScript. Most common JavaScript libraries ship with declaration files or have type declaration files available.
+
+Make sure to install the corresponding npm or yarn package for the library you are using. Learn more about IntelliSense in the [Working with JavaScript](/docs/nodejs/working-with-javascript.md#intellisense) article. For other languages, please consult the extension's documentation.

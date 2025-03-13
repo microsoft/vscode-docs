@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -23,7 +23,7 @@ You can also work with embedded CSS and JavaScript. However, note that script an
 
 You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
-You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/getstarted/settings.md) if you prefer not to see the corresponding suggestions.
+You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/editor/settings.md) if you prefer not to see the corresponding suggestions.
 
 ```json
 // Configures if the built-in HTML language suggests HTML5 tags, properties and values.
@@ -40,7 +40,7 @@ The matching closing tag is inserted when `/` of the closing tag is entered.
 
 ![HTML Close2](images/html/auto-close2.gif)
 
-You can turn off autoclosing tags with the following [setting](/docs/getstarted/settings.md):
+You can turn off autoclosing tags with the following [setting](/docs/editor/settings.md):
 
 ```json
 "html.autoClosingTags": false
@@ -101,7 +101,7 @@ If you prefer to switch to indentation based folding for HTML use:
 
 To improve the formatting of your HTML source code, you can use the **Format Document** command `kb(editor.action.formatDocument)` to format the entire file or **Format Selection** `kb(editor.action.formatSelection)` to just format the selected text.
 
-The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/getstarted/settings.md):
+The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-beautify). The formatting options offered by that library are surfaced in the VS Code [settings](/docs/editor/settings.md):
 
 * `setting(html.format.wrapLineLength)`: Maximum amount of characters per line.
 * `setting(html.format.unformatted)`: List of tags that shouldn't be reformatted.
@@ -135,7 +135,7 @@ VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviatio
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `setting(emmet.includeLanguages)` [setting](/docs/getstarted/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `setting(emmet.includeLanguages)` [setting](/docs/editor/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 

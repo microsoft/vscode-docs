@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Dev Containers, and WSL extensions
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 # Remote Development with Linux
 
@@ -77,7 +77,7 @@ The following is a list of distributions and any base requirements that may be m
 | ❌ RedHat Enterprise Linux 7 (64-bit) |  | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
 | ✅ Ubuntu Server 20.04 (64-bit) | `ubuntu:20.04` | &lt;none&gt;  | &lt;none&gt; |
-| ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | &lt;none&gt;  | &lt;none&gt; |
+| ❌ Ubuntu Server 18.04 (64-bit) | `ubuntu:18.04` | `glibc` >= 2.28  | &lt;none&gt; |
 
 ## Questions or feedback
 

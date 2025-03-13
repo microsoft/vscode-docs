@@ -4,62 +4,45 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
 
-Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
+Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through extensions on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=SCM%20Providers&sortBy=Installs).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+With GitHub Copilot in VS Code, you can get suggestions for commit messages, pull requests, and review code changes before committing them. Learn more about [GitHub Copilot in VS Code](/docs/copilot/overview.md).
+
+> [!TIP]
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allowfullscreen></iframe>
+
+> [!TIP]
+> If you're just getting started with Git, the [git-scm](https://git-scm.com/doc) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
 ## Working in a Git repository
 
->**Just getting started with Git?** The [git-scm](https://git-scm.com/documentation) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+VS Code recognizes when you open a folder that is a Git repository. The Source Control view enables you to perform most of the Git operations without using the command line.
+
+> [!IMPORTANT]
+> **Make sure that Git is installed on your machine.** VS Code uses your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+
+You can access the Source Control view from the by selecting the **Source Control** icon in the Activity Bar or by using the `kb(workbench.view.scm)` keyboard shortcut. If you have changes, the Source Control icon indicates **how many changes** you currently have in your repository.
+
+The Source Control view shows the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**. You can also view the [**source control graph**](#source-control-graph) to see how your changes relate to the repository's history.
 
 ![Overview of Git](images/overview/overview.png)
 
->**Make sure Git is installed.** VS Code will use your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+When you select a file in the Source Control view, you will see the changes that you have made to that file in a diff editor.
 
-The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
+> [!TIP]
+> For unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
-Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
+You can also find indicators of the **status of your repository** in the bottom-left of the VS Code Status Bar: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. To **check out** any branch in your repository, select the status indicator and select the Git reference from the list.
 
-You can also find indicators of the **status of your repository** in the bottom-left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
-
-> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
-
-## Commit
-
-**Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
-
->**Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
-
-![Stage all changes button](images/overview/stage-changes.png)
-
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
-
-We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `overview.png` will be included in the commit. Later staging and commit actions could include the changes to `versioncontrol.md` and the two other `.png` images as a separate commit.
-
-More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
-
-![views and more actions button](images/overview/scm-more-actions.png)
-
-> **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
-
-<iframe src="https://www.youtube-nocookie.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
-
-### Author commit messages using an editor
-
-If you don't enter a commit message when commiting changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
-
-To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
-
-![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
-
-You can disable this functionality by toggling the `setting(git.useEditorAsCommitInput)` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
-
-To use the same flow for git commit commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting.
+> [!TIP]
+> You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
 ## Cloning a repository
 
@@ -79,7 +62,102 @@ You would then paste that URL into the **Git: Clone** prompt.
 
 You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
 
->**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+> [!NOTE]
+> If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
+
+## Initialize a repository
+
+If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
+
+![Git initialize repository](images/overview/initialize-repository.png)
+
+You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+- **Initialize Repository**: creates the necessary Git repository metadata files and shows your workspace files as untracked changes ready to be staged.
+- **Publish to GitHub**: directly publishes your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
+
+## Commit
+
+**Staging** (`git add`) and **unstaging** (`git reset`) can be done via contextual actions in the files or by drag-and-drop.
+
+> [!NOTE]
+> **Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+
+![Stage all changes button](images/overview/stage-changes.png)
+
+You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+
+We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `overview.png` will be included in the commit. Later staging and commit actions could include the changes to `versioncontrol.md` and the two other `.png` images as a separate commit.
+
+More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
+
+![views and more actions button](images/overview/scm-more-actions.png)
+
+> [!TIP]
+> If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+<iframe src="https://www.youtube-nocookie.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
+
+### Generate a commit message with AI
+
+GitHub Copilot in VS Code can generate a commit message for you, based on the code changes you've made. In the Source Control view, select the **Generate Commit Message with Copilot** button (<i class="codicon codicon-sparkle"></i>) in the commit message input box.
+
+![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
+
+If you have specific requirements for your commit message for your organization or project, you can use Copilot custom instructions for generating commit messages. For example, _commit messages have a maximum length of 60 chars and should start with a verb in the present tense_. Get more details about [Copilot custom instructions for generating commit messages](/docs/copilot/copilot-customization.md).
+
+### Author commit messages using an editor
+
+If you don't enter a commit message when committing changes, VS Code opens an editor for the `COMMIT_EDITMSG` file where you can author the commit message in the editor. After you provide a commit message, either close the editor tab, or select the **Accept Commit Message** button in the editor toolbar to commit the changes.
+
+To cancel the commit operation, you can either clear the contents of the text editor and close the editor tab, or select the **Discard Commit Message** button in the editor toolbar.
+
+![Author commit message in a full text editor](images/overview/scm-git-editor.gif)
+
+You can disable this functionality by toggling the `setting(git.useEditorAsCommitInput)` setting. After the setting is changed, you have to restart VS Code for the change to take effect.
+
+To use the same flow for git commit commands executed in the integrated terminal, enable the `setting(git.terminalGitEditor)` setting.
+
+## Git blame information
+
+VS Code can show git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
+
+To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
+
+- `setting(git.blame.statusBarItem.enabled)` (enabled by default)
+- `setting(git.blame.editorDecoration.enabled)`
+
+<video src="images/overview/git-blame.mp4" title="Show git blame information in editor and Status Bar." autoplay loop controls muted></video>
+
+You can customize the format of the message that is shown in the editor and in the Status Bar with the `setting(git.blame.editorDecoration.template)` and `setting(git.blame.statusBarItem.template)` settings. You can use variables for the most common information.
+
+For example, the following template shows the subject of the commit, the author's name, and the author's date relative to now:
+
+```json
+{
+  "git.blame.editorDecoration.template": "${subject}, ${authorName} (${authorDateAgo})"
+}
+```
+
+To adjust the color of the editor decoration, use the `git.blame.editorDecorationForeground` theme color.
+
+## Review uncommitted code changes with AI
+
+GitHub Copilot in VS Code can help you review your uncommitted code changes.
+
+1. In the Source Control view, select the **Copilot Code Review** button to start a code review of the uncommitted changes
+
+    ![Screenshot that shows the Copilot Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
+
+1. Copilot generates code review comments and suggestions as overlays in the editor
+
+    ![Screenshot that shows the code review comments generated by Copilot.](images/overview/copilot-code-review-results.png)
+
+    You can also view a list of all code review comments in the **Comments** panel.
+
+1. You apply or discard suggestions by using the corresponding buttons, or context menu actions in the Comments panel
+
+Get more details about [reviewing code changes with Copilot](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) in the GitHub documentation.
 
 ## Branches and Tags
 
@@ -93,19 +171,21 @@ If you run **Git: Checkout to**, you will see a dropdown list containing all of 
 
 The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
 
-> **Tip**: VS Code can automatically save and restore open editors when you switch to another branch. Use the `setting(scm.workingSets.enabled)` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `setting(scm.workingSets.default)` setting.
+> [!TIP]
+> VS Code can automatically save and restore open editors when you switch to another branch. Use the `setting(scm.workingSets.enabled)` setting to enable this feature. To control the open editors when switching to a branch for the first time, you can use the `setting(scm.workingSets.default)` setting.
 
 ## Remotes
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/getstarted/settings.md) to enable it.
+VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/editor/settings.md) to enable it.
 
->**Tip:** You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
+> [!TIP]
+> You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/editor/settings.md) to reduce the number of prompts you get.
 
-## Source Control Graph
+## Source control graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 
@@ -184,7 +264,8 @@ The Diff editor has a separate gutter in the middle, which enables you to **Stag
 
 ![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
 
-> **Tip**: You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
+> [!TIP]
+> You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
 
 ### Accessible Diff Viewer
 
@@ -192,7 +273,8 @@ There is an Accessible Diff Viewer in the Diff editor that presents changes in a
 
 ![diff-review-pane](images/overview/diff-review-pane.png)
 
-**Note:** This experience is especially helpful for screen reader users.
+> [!NOTE]
+> This experience is especially helpful for screen reader users.
 
 ## Timeline view
 
@@ -206,21 +288,14 @@ Visual Studio Code supports more Git history workflows through [extensions](/doc
 
 <div class="marketplace-extensions-scm-history-curated"></div>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+> [!TIP]
+> Click on an extension tile to read the description and reviews in the Marketplace.
 
 ## Git output window
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
 To open the Git output window, run **View** > **Output** and select **Log (Git)** from the dropdown list.
-
-## Initialize a repository
-
-If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
-
-![Git initialize repository](images/overview/initialize-repository.png)
-
-You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
 
 ## VS Code as Git editor
 
@@ -247,9 +322,9 @@ You can use VS Code's diff and merge capabilities even when using Git from comma
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-  tool = code
+    tool = code
 [mergetool "code"]
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 ```
 
 This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
@@ -269,7 +344,8 @@ Visual Studio Code can also bring in GitHub's pull requests and issues. Create y
 
 <div class="marketplace-extensions-scm-curated"></div>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+> [!TIP]
+> Click on an extension tile to read the description and reviews in the Marketplace.
 
 VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`kb(workbench.view.scm)`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
 
@@ -284,8 +360,9 @@ If you would like to install another SCM provider, you can search on the **scm p
 ## Next steps
 
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
+
+* [Intro to collaborating on GitHub](/docs/sourcecontrol/github.md) - Learn how to use GitHub with VS Code.
+
+* Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.
+
 * [Source Control API](/api/extension-guides/scm-provider.md) - If you want to integrate another Source Control provider into VS Code, see our Source Control API.

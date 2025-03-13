@@ -126,7 +126,7 @@ For Maven project, you can add a dependency by clicking the **+** icon next to *
 If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
 node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
 
-![manage referenced librares](images/java-project/manage-referenced-libraries.png)
+![manage referenced libraries](images/java-project/manage-referenced-libraries.png)
 
 > You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
 
@@ -222,8 +222,7 @@ Clicking the language status item switches to standard mode.
 
 When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
-<video autoplay loop muted playsinline controls title="Build status for the Java project">
-  <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
+<video src="images/java-project/java.build.status.mp4" autoplay loop muted playsinline controls title="Build status for the Java project">
 </video>
 
 ### Additional resources

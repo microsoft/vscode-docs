@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -15,7 +15,7 @@ Visual Studio Code has a high productivity code editor which, when combined with
 
 >**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
-The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
+The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use keyboard shortcuts.
 
 Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
 
@@ -39,7 +39,7 @@ If the current file type has language support for symbols, you will see the curr
 
 ![breadcrumb symbol dropdown](images/editingevolved/breadcrumb-symbol-dropdown.png)
 
-You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/getstarted/settings.md).
+You can turn off breadcrumbs with the **View** > **Show Breadcrumbs** toggle or with the `setting(breadcrumbs.enabled)` [setting](/docs/editor/settings.md).
 
 ### Breadcrumb customization
 
@@ -73,7 +73,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ## Go to Type Definition
 
-Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/getstarted/keybindings.md).
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/editor/keybindings.md).
 
 ## Go to Implementation
 
@@ -99,7 +99,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `setting(editor.stablePeek)` [setting](/docs/editor/settings.md).
 
 ## Bracket matching
 
@@ -135,7 +135,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 > **Tip:** Directly invoke the **Peek References** action by clicking on these annotations.
 
-> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/getstarted/settings.md).
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `setting(editor.codeLens)` [setting](/docs/editor/settings.md).
 
 ## Rename symbol
 
@@ -197,14 +197,14 @@ Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
-* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
+* [Key Bindings](/docs/editor/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
 
 ### How can I automatically select the second entry in Quick Open instead of the first?
 
-With the command `workbench.action.quickOpenPreviousEditor`, you can have the second entry automatically selected in Quick Open. This can be useful if you want to select the previous entry from the list without having to invoke another keybinding:
+With the command `workbench.action.quickOpenPreviousEditor`, you can have the second entry automatically selected in Quick Open. This can be useful if you want to select the previous entry from the list without having to invoke another keyboard shortcut:
 
 ```json
 [

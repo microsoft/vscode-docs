@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -102,7 +102,7 @@ If you'd like to watch an introductory video, see [Getting started with debuggin
 
 ## Launch configuration attributes
 
-Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) article.
+Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging-configuration.md#launch-configurations) article.
 
 Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
@@ -123,7 +123,7 @@ These attributes are only available for launch configurations of request type `l
 * `program` - an absolute path to the Node.js program to debug.
 * `args` - arguments passed to the program to debug. This attribute is of type array and expects individual arguments as array elements.
 * `cwd` - launch the program to debug in this directory.
-* `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging.md#launch-configuration-support-for-npm-and-other-tools).
+* `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging-configuration.md#launch-configuration-support-for-npm-and-other-tools).
 * `runtimeArgs` - optional arguments passed to the runtime executable.
 * `runtimeVersion` - if "[nvm](https://github.com/creationix/nvm)" (or "[nvm-windows](https://github.com/coreybutler/nvm-windows)") or "[nvs](https://github.com/jasongin/nvs)" is used for managing Node.js versions, this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
@@ -672,7 +672,6 @@ While close to parity, debugging WebAssembly is a little different than ordinary
 * Variables in the **Variables** view cannot be edited directly. However, you can select the **View Binary Data** action beside the variable to edit their associated memory.
 * Basic expression evaluation in the **Debug Console** and **Watch** views is provided by [lldb-eval](https://github.com/google/lldb-eval). This is different than ordinary JavaScript expressions.
 * Locations not mapped to source code will be shown in disassembled WebAssembly Text Format. For WebAssembly, the command **Disable Source Map Stepping** will cause the debugger to step only in disassembled code.
-* Breakpoints in WebAssembly code are resolved asynchronously, so breakpoints hit early on in a program's lifecycle may be missed. There are plans to fix this in the future. If you're debugging in a browser, you can refresh the page for your breakpoint to be hit. If you're in Node.js, you can add an artificial delay, or set another breakpoint, after your WebAssembly module is loaded but before your desired breakpoint is hit.
 
 VS Code's WebAssembly debugging is built upon the [C/C++ Debugging Extension](https://github.com/ChromeDevTools/devtools-frontend/tree/main/extensions/cxx_debugging) from the Chromium authors.
 

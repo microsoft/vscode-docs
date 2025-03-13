@@ -21,13 +21,13 @@ You can dictate into the editor via these commands: **Voice: Start Dictation in 
 
 ![Editor Dictation Mode](images/accessibility/editor-dictate.png)
 
-You can press and hold the keybinding for the voice start command (`kb(workbench.action.editorDictation.start)`) to enable **walky-talky mode**. Voice recognition is active until you release the keys, after which the request is submitted automatically.
+You can press and hold the keyboard shortcut for the voice start command (`kb(workbench.action.editorDictation.start)`) to enable **walky-talky mode**. Voice recognition is active until you release the keys, after which the request is submitted automatically.
 
 **Note:** dictation even works in other places where a rich editor is used, such as the SCM commit input box and the comments input field when reviewing pull requests.
 
 ## Voice in Copilot Chat
 
-You can use your voice to talk to [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) easily. The command **Voice: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, inline chat is started, otherwise the Chat view is opened.
+You can use your voice to talk to [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) easily. The command **Voice: Start Voice Chat** (`kb(workbench.action.chat.startVoiceChat)`) brings up a voice chat, regardless of where the current focus is. If the focus is in the editor, Inline Chat is started, otherwise the Chat view is opened.
 
 ![Screenshot of the chat input field showing an active microphone icon to enter a voice chat message](images/accessibility/voice-chat.png)
 
@@ -41,7 +41,7 @@ Each chat response also shows a new speaker icon, so that you can selectively re
 
 ## Walky talky mode
 
-When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictation.start)` or `kb(workbench.action.chat.startVoiceChat)`), either in the editor or chat, you can press and hold the keybinding to start the voice recognition. When you release the keybinding, voice recognition will stop. In addition, when used in chat, the prompt will be submitted.
+When using keyboard shortcuts to start voice (`kb(workbench.action.editorDictation.start)` or `kb(workbench.action.chat.startVoiceChat)`), either in the editor or chat, you can press and hold the keyboard shortcut to start the voice recognition. When you release the keyboard shortcut, voice recognition will stop. In addition, when used in chat, the prompt will be submitted.
 
 ## "Hey Code"
 
@@ -51,7 +51,7 @@ It is possible to enable a mode where VS Code will always listen for the phrase 
 
 ## Support for multiple languages
 
-You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/getstarted/locales.md), if that language is available.
+You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/editor/locales.md), if that language is available.
 
 Each language for the speech extension comes as its own extension. When you start speech recognition for the first time, you will see an extension installation for each language you selected.
 

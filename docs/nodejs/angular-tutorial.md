@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular TypeScript Tutorial in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
@@ -101,7 +101,7 @@ export class AppComponent {
 
 Once you save the `app.component.ts` file, the running instance of the server will update the web page and you'll see "Welcome to Hello World!!".
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+>**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/editor/settings.md).
 
 ![hello world](images/angular/hello-world.png)
 

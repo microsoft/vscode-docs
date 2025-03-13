@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Refactoring
 ContentId: 481dfd3a-d847-4ed3-b37b-7fc8d234a4c2
 PageTitle: Refactoring source code in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
@@ -25,7 +25,34 @@ In VS Code, Code Actions can provide both refactorings and Quick Fixes for detec
 
 If you prefer to only see refactorings without Quick Fixes, then you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
->**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/getstarted/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
+>**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/editor/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
+
+### Code Actions on save
+
+With the `setting(editor.codeActionsOnSave)` setting, you can configure a set of Code Actions that are automatically applied when you save a file, for example to organize imports. Based on your workspace files and active extensions, IntelliSense provides a list of available Code Actions.
+
+![Screenshot of settings.json, showing IntelliSense suggestions for the editor.codeActionsOnSave setting.](images/refactoring/code-actions-on-save.png)
+
+You can configure one or more Code Actions for `setting(editor.codeActionsOnSave)`. The Code Actions are then run in the order they're listed.
+
+The following example shows how to configure multiple Code Actions on save:
+
+```json
+// On explicit save, run sortImports source action. On auto save (window or focus change), run organizeImports source action.
+"editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.sortImports": "explicit",
+},
+```
+
+The following values are supported for each Code Action:
+
+* `explicit` (default): Triggers Code Actions when explicitly saved
+* `always`: Triggers Code Actions when explicitly saved and on Auto Saves from window or focus changes
+* `never`: Never triggers Code Actions on save
+
+> [!NOTE]
+> Although `true` and `false` are still valid configuration values at the moment, they will be deprecated in favor of `explicit`, `always`, and `never`.
 
 ## Refactoring actions
 
@@ -65,9 +92,9 @@ Optionally, you can partially apply the refactoring changes by deselecting some 
 
 ![Screenshot of the Refactor Preview panel that shows how to partially apply changes by deselecting specific changes.](images/refactoring/refactor-preview-partial.png)
 
-## Keybindings for Code Actions
+## Keyboard shortcuts for Code Actions
 
-The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding, for example, triggers the **Extract function** refactoring Code Actions:
+The `editor.action.codeAction` command lets you configure keyboard shortcuts for specific Code Actions. This keyboard shortcut, for example, triggers the **Extract function** refactoring Code Actions:
 
 ```json
 {
@@ -81,7 +108,7 @@ The `editor.action.codeAction` command lets you configure keybindings for specif
 
 Code Action kinds are specified by extensions using the enhanced `CodeActionProvider` API. Kinds are hierarchical, so `"kind": "refactor"` shows all refactoring Code Actions, whereas `"kind": "refactor.extract.function"` only shows **Extract function** refactorings.
 
-Using the above keybinding, if only a single `"refactor.extract.function"` Code Action is available, it is automatically applied. If multiple **Extract function** Code Actions are available, VS Code brings up a context menu to select them:
+Using the above keyboard shortcut, if only a single `"refactor.extract.function"` Code Action is available, it is automatically applied. If multiple **Extract function** Code Actions are available, VS Code brings up a context menu to select them:
 
 ![Select Code Action context menu](images/refactoring/code-action-context-menu.png)
 
@@ -104,9 +131,9 @@ Valid values for `apply`:
 * `ifSingle` - (Default) Automatically apply the Code Action if only one is available. Otherwise, show the context menu.
 * `never` - Always show the Code Action context menu, even if only a single Code Action is available.
 
-When a Code Action keybinding is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
+When a Code Action keyboard shortcut is configured with `"preferred": true`, only preferred Quick Fixes and refactorings are shown. A preferred Quick Fix addresses the underlying error, while a preferred refactoring is the most common refactoring choice. For example, while multiple `refactor.extract.constant` refactorings might exist, each extracting to a different scope in the file, the preferred `refactor.extract.constant` refactoring is the one that extracts to a local variable.
 
-This keybinding uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
+This keyboard shortcut uses `"preferred": true` to create a refactoring that always tries to extract the selected source code to a constant in the local scope:
 
 ```json
 {

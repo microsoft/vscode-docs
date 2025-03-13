@@ -5,7 +5,7 @@ TOCTitle: Environment variables
 PageTitle: Container environment variables
 ContentId: 031424a7-ab0e-42e0-ab7d-30a5371b9a50
 MetaDescription: Use environment variables in containers
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 ---
 # Environment variables
 

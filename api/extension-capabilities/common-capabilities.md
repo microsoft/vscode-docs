@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -36,12 +36,13 @@ An extension can register custom Context Menu items that will be displayed in di
 
 ## Data Storage
 
-There are four options for storing data:
+There are five options for storing data:
 
 - [`ExtensionContext.workspaceState`](/api/references/vscode-api#ExtensionContext.workspaceState): A workspace storage where you can write key/value pairs. VS Code manages the storage and will restore it when the same workspace is opened again.
 - [`ExtensionContext.globalState`](/api/references/vscode-api#ExtensionContext.globalState): A global storage where you can write key/value pairs. VS Code manages the storage and will restore it for each extension activation. You can selectively synchronize key/value pairs in global storage by setting the keys for sync using `setKeysForSync` method on `globalState`.
 - [`ExtensionContext.storageUri`](/api/references/vscode-api#ExtensionContext.storageUri): A workspace specific storage URI pointing to a local directory where your extension has read/write access. This is a good option if you need to store large files that are accessible only from the current workspace.
 - [`ExtensionContext.globalStorageUri`](/api/references/vscode-api#ExtensionContext.globalStorageUri): A global storage URI pointing to a local directory where your extension has read/write access. This is a good option if you need to store large files that are accessible from all workspaces.
+- [`ExtensionContext.secrets`](/api/references/vscode-api#ExtensionContext.secrets): A global storage for secrets (or any information that is sensitive) that will be encrypted. These are not synced across machines. For VS Code desktop, this leverages Electron's [safeStorage API](https://www.electronjs.org/docs/latest/api/safe-storage). For VS Code for the Web, this uses a Double Key Encryption (DKE) implementation.
 
 The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
 

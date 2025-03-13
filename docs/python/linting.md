@@ -1,10 +1,10 @@
 ---
-Order: 4
+Order: 5
 Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---

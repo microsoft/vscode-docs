@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using React in Visual Studio Code
@@ -113,7 +113,7 @@ reportWebVitals();
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!" when you refresh your browser.
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+>**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/editor/settings.md).
 
 ![Hello, world](images/reactjs/hello-world.png)
 

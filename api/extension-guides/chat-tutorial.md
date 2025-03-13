@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: bea1d4c5-71e5-4b27-ac1e-fa9b59886dab
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Tutorial that walks you through creating a GitHub Copilot chat participant in VS Code by using the Chat API.
@@ -14,11 +14,13 @@ In this tutorial, you'll learn how to create a Visual Studio Code extension that
 ## Prerequisites
 
 You'll need the following tools and accounts to complete this tutorial:
+
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 - [Node.js](https://nodejs.org/en/download/)
 
 ## Step 1: Set up your project
+
 First, generate the extension project by using Yeoman and the VS Code Extension Generator.
 
 ```bash
@@ -43,6 +45,7 @@ Select the following options to complete the setup:
 ```
 
 Once your extension project is generated, there are two files you will be working in: `extension.ts` and `package.json`, which you can learn more about in the [Extension Anatomy docs](/api/get-started/extension-anatomy#extension-file-structure). As a quick overview:
+
 - `extension.ts` is the main entry point for your extension and contains the logic for your chat participant.
 - `package.json` contains the metadata for your extension, such as the name and description of your participant.
 
@@ -54,19 +57,20 @@ In the `package.json` file, replace the auto-generated `contributes` section wit
 
 ```json
 "contributes":{
-	"chatParticipants": [
-		{
-			"id": "chat-tutorial.code-tutor",
-			"fullName": "Code Tutor",
-			"name": "tutor",
-			"description": "What can I teach you?",
-			"isSticky": true
-		}
-	]
+    "chatParticipants": [
+    {
+        "id": "chat-tutorial.code-tutor",
+        "fullName": "Code Tutor",
+        "name": "tutor",
+        "description": "What can I teach you?",
+        "isSticky": true
+    }
+    ]
 }
 ```
 
 This code registers a chat participant with the following attributes:
+
 - Unique ID `chat-tutorial.code-tutor`, which will be referenced in the code
 - Full name `Code Tutor`, which will be shown in the title area of a response from your participant
 - Name `tutor`, which will be used to reference the chat participant as `@tutor` in the Chat view
@@ -74,37 +78,31 @@ This code registers a chat participant with the following attributes:
 
 Finally, setting `isSticky: true` will automatically prepend the participant name in the chat input field after the user has started interacting with the participant.
 
-## Step 3: Craft the prompt and select the model
+## Step 3: Craft the prompt
 
-Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt and select the model for the requests.
+Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt for the requests.
 
 Crafting a good prompt is the key to getting the best response from your participant. Check out [this article](https://platform.openai.com/docs/guides/prompt-engineering) for tips on prompt engineering.
 
 Your code tutor should emulate a real-world tutor by guiding the student to understand the concept instead of providing direct answers. Additionally, the tutor should remain focused on the topic and refrain from answering non-programming questions.
 
 Consider the following two prompts. Which is more likely to give the specified behavior?
+
 1. > You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept.
 2. > You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept. Respond with a guided overview of the concept in a series of messages. Do not give the user the answer directly, but guide them to find the answer themselves. If the user asks a non-programming question, politely decline to respond.
 
-
 The second prompt is more specific and gives the participant a clear direction on how to respond. Add this prompt in the `extension.ts` file.
-
 
 ```ts
 const BASE_PROMPT = 'You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept. Respond with a guided overview of the concept in a series of messages. Do not give the user the answer directly, but guide them to find the answer themselves. If the user asks a non-programming question, politely decline to respond.';
 ```
 
-You also need to select the model for the requests. gpt-4o is recommended since it is fast and high quality.
-
-```ts
-const MODEL_SELECTOR: vscode.LanguageModelChatSelector = { vendor: 'copilot', family: 'gpt-4o' }
-```
-
 ## Step 4: Implement the request handler
 
-Now that the prompt and model are selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
+Now that the prompt is selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
 
 First, define the handler:
+
 ```ts
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
@@ -113,55 +111,31 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 }
 ```
 
-Within the body of this handler, initialize the prompt and model. Check that the model returned successfully.
-```ts
-// define a chat handler
-const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
+Within the body of this handler, initialize the prompt and a `messages` array with the prompt. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
 
-    // initialize the prompt and model
-    let prompt = BASE_PROMPT;
-
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
-
-    // make sure the model is available
-    if (model) {
-
-    }
-
-    return;
-};
-```
-
-Initialize a `messages` array with the prompt we crafted in the previous step. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
-
-Finally, send the request and stream the response to the user.
+Send the request using `request.model.sendRequest`, which will send the request using the currently selected model. Finally, stream the response to the user.
 
 ```ts
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
-
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -178,28 +152,23 @@ You should further customize your participant by adding an icon for it. This wil
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
-
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -239,43 +208,38 @@ You'll need to retrieve that history and add it to the `messages` array. You wil
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // get all the previous participant messages
+    const previousMessages = context.history.filter(
+        (h) => h instanceof vscode.ChatResponseTurn
+    );
 
-        // get all the previous participant messages
-        const previousMessages = context.history.filter(
-            (h) => h instanceof vscode.ChatResponseTurn
-        );
-
-        // add the previous messages to the messages array
-        previousMessages.forEach((m) => {
-            let fullMessage = '';
-            m.response.forEach((r) => {
-                const mdPart = r as vscode.ChatResponseMarkdownPart;
-                fullMessage += mdPart.value.value;
-            });
-            messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    // add the previous messages to the messages array
+    previousMessages.forEach((m) => {
+        let fullMessage = '';
+        m.response.forEach((r) => {
+            const mdPart = r as vscode.ChatResponseMarkdownPart;
+            fullMessage += mdPart.value.value;
         });
+        messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    });
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -293,6 +257,7 @@ Now that the basic participant is implemented, you can extend it by adding a com
 It would be great to add a command to prompt your tutor to give a practice exercise for a concept. You'll need to register the command in the `package.json` file and implement the logic in `extension.ts`. You can name the command `exercise` so that it can be invoked by typing `/exercise`.
 
 In `package.json` add the `commands` property to the `chatParticipants` property. Here, you'll specify the name of the command and a quick description:
+
 ```json
 "contributes": {
     "chatParticipants": [
@@ -327,47 +292,42 @@ If the command is referenced, update the prompt to the newly created `EXERCISES_
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
     if (request.command === 'exercise') {
         prompt = EXERCISES_PROMPT;
     }
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // get all the previous participant messages
+    const previousMessages = context.history.filter(
+        (h) => h instanceof vscode.ChatResponseTurn
+    );
 
-        // get all the previous participant messages
-        const previousMessages = context.history.filter(
-            (h) => h instanceof vscode.ChatResponseTurn
-        );
-
-        // add the previous messages to the messages array
-        previousMessages.forEach((m) => {
-            let fullMessage = '';
-            m.response.forEach((r) => {
-                const mdPart = r as vscode.ChatResponseMarkdownPart;
-                fullMessage += mdPart.value.value;
-            });
-            messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    // add the previous messages to the messages array
+    previousMessages.forEach((m) => {
+        let fullMessage = '';
+        m.response.forEach((r) => {
+            const mdPart = r as vscode.ChatResponseMarkdownPart;
+            fullMessage += mdPart.value.value;
         });
+        messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    });
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -381,12 +341,13 @@ Now you can type `/exercise`, which will bring up your chat participant, and you
 ![Participant with a slash command](images/chat-tutorial/exercise-command.png)
 
 ## Next steps
-Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model.md). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
 You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-tutorial).
 
 ## Related content
 
-- [Chat API extension guide](/api/extension-guides/chat.md)
-- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial.md)
-- [Language Model API extension guide](/api/extension-guides/language-model.md)
+- [Chat API extension guide](/api/extension-guides/chat)
+- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial)
+- [Language Model API extension guide](/api/extension-guides/language-model)

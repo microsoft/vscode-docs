@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -25,9 +25,9 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 ## How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/editor/telemetry.md) to learn more.
 
-If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/editor/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
 
@@ -35,15 +35,15 @@ From **File** > **Preferences** > **Settings**, search for `telemetry`, and set 
 
 ### How to disable experiments
 
-VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/getstarted/settings.md) to `false`.
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/editor/settings.md) to `false`.
 
 From **File** > **Preferences** > **Settings**, search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
 
 ## How to disable crash reporting
 
-VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/editor/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
+If you don't want to send crash data to Microsoft, you can change the `telemetry.telemetryLevel` user [setting](/docs/editor/settings.md) to `off`.
 
 From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events including crash reporting from VS Code. You will need to restart VS Code for the setting change to take effect.
 
@@ -57,11 +57,11 @@ To support GDPR:
 * The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
 * There are valid data retention policies in place for any data collected, for example crash dumps.
 
-You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
+You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/editor/telemetry.md).
 
 ## What online services does VS Code use?
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/getstarted/telemetry.md#managing-online-services).
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, or providing Natural Language Search within the Settings editor. You can learn more in [Managing online services](/docs/editor/telemetry.md#managing-online-services).
 
 You can choose to turn on/off features that use these services. From **File** > **Preferences** > **Settings**, and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
@@ -209,9 +209,9 @@ You can download the official Visual Studio Code icons and read the usage guidel
 
 ## What is a VS Code "workspace"?
 
-A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/editor/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
 
-You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
+You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) article.
 
 ## Can I run a portable version of VS Code?
 
@@ -295,9 +295,9 @@ Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004.
 
 ## Can I run VS Code on old macOS versions?
 
-VS Code desktop version starting with 1.83 (September 2023) is deprecating support for macOS Mojave (version 10.14 and older). Starting with VS Code 1.86 (January 2024), we will stop updating VS Code on macOS Mojave (version 10.14 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
+VS Code desktop version starting with 1.96 (November 2024) is deprecating support for macOS Catalina (version 10.15 and older). Starting with VS Code 1.98 (February 2025), we will stop updating VS Code on macOS Catalina (version 10.15 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
 
-VS Code will no longer provide product updates or security fixes on macOS Mojave (versions 10.14 and older) and VS Code version 1.85 will be the last available release for macOS Mojave (10.14 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
+VS Code will no longer provide product updates or security fixes on macOS Catalina (versions 10.15 and older) and VS Code version 1.97 will be the last available release for macOS Catalina (10.15 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ## Can I run VS Code on older Linux distributions?
 

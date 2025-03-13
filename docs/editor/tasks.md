@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -175,7 +175,7 @@ You can see the full set of task properties and values with IntelliSense in your
 
 ![tasks.json IntelliSense](images/tasks/tasks-intellisense.png)
 
-You can also review the [tasks.json schema](/docs/editor/tasks-appendix.md).
+You can also review the [tasks.json schema](/docs/reference/tasks-appendix.md).
 
 Shell commands need special treatment when it comes to commands and arguments that contain spaces or other special characters like `$`. By default, the task system supports the following behavior:
 
@@ -376,6 +376,7 @@ You can specify a task's run behaviors using the `runOptions` property:
 * **runOn**: Specifies when a task is run.
   * `default` - The task will only be run when executed through the **Run Task** command.
   * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
+* **instanceLimit** - The number of instances of the task that are allowed to run simultaneously. The default value is `1`.
 
 ## Customizing auto-detected tasks
 
@@ -463,7 +464,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 ## Variable substitution
 
-When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
+When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/reference/variables-reference.md).
 
 >**Note:** Not all properties will accept variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
@@ -502,7 +503,7 @@ If simple variable substitution isn't enough, you can also get input from the us
 
 ![Inputs Example](images/tasks/run-input-example.gif)
 
-For more information about `inputs`, see the [Variables Reference](/docs/editor/variables-reference.md).
+For more information about `inputs`, see the [Variables Reference](/docs/reference/variables-reference.md).
 
 ## Operating system specific properties
 
@@ -888,7 +889,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 That was tasks - let's keep going...
 
-* [tasks.json Schema](/docs/editor/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
+* [tasks.json Schema](/docs/reference/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
