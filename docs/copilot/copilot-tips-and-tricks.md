@@ -134,7 +134,38 @@ Get more details about [adding context to chat prompts](/docs/copilot/copilot-ch
 
 ## Reusable prompts
 
-## Iterate on your prompts
+Reusable prompts enable you to save a prompt for a specific task with its context and instructions in a file. You can then attach and reuse that prompt in chat. If you store the prompt in your workspace, you can also share it with your team.
+
+To create a reusable prompt:
+
+1. Configure the `setting(chat.promptFiles)` setting.
+
+1. Use the **Create Prompt** command from the Command Palette to create a `.prompt.md` file in your workspace.
+
+1. Describe your prompt and relevant context in Markdown format.
+
+    For example, use this prompt to generate a new React form component.
+
+    ```markdown
+    Your goal is to generate a new React form component.
+
+    Ask for the form name and fields if not provided.
+
+    Requirements for the form:
+    * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+    * Use `react-hook-form` for form state management:
+    * Always define TypeScript types for your form data
+    * Prefer *uncontrolled* components using register
+    * Use `defaultValues` to prevent unnecessary rerenders
+    * Use `yup` for validation:
+    * Create reusable validation schemas in separate files
+    * Use TypeScript types to ensure type safety
+    * Customize UX-friendly validation rules
+    ```
+
+1. Add the prompt as context in chat.
+
+Get started with [reusable prompts](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental).
 
 ## Choose your AI model
 
