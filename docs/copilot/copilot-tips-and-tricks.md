@@ -1,12 +1,12 @@
 ---
 ContentId: 58ea6755-9bfa-42c2-a4c8-ff0510f9c031
 DateApproved: 02/06/2025
-MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
+MetaDescription: Tips and tricks to optimize your development experience with GitHub Copilot in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Best practices for using GitHub Copilot in VS Code
+# Tips and tricks for using GitHub Copilot in VS Code
 
-This article provides tips and best practices for using GitHub Copilot in Visual Studio Code.
+This article provides tips and tricks to optimize your development experience for using GitHub Copilot in Visual Studio Code.
 
 ## Choose the right Copilot tool
 
@@ -27,10 +27,14 @@ Get started with [code completions](/docs/copilot/ai-powered-suggestions.md).
 * Generating large sections of code, then iterating on that code to meet your needs
 * Accomplishing domain-specific tasks with subject-matter chat participants
 
+Get started with [Copilot Chat](/docs/copilot/copilot-chat.md).
+
 ### Edits
 
 * Generating and directly applying large sections of code across multiple files in your project
 * Implementing high-level requirements by autonomously applying code changes and running commands to meet those requirements
+
+Get started with [Copilot Edits](/docs/copilot/copilot-edits.md).
 
 ## Personalize Copilot with custom instructions
 

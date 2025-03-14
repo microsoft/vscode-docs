@@ -103,7 +103,7 @@
         ["Copilot Edits", "/docs/copilot/copilot-edits"],
         ["Adding Chat Context", "/docs/copilot/copilot-chat-context"],
         ["Personalize Copilot", "/docs/copilot/copilot-customization"],
-        ["Best Practices", "/docs/copilot/copilot-best-practices"],
+        ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
         ["Prompt Engineering", "/docs/copilot/prompt-crafting"],
         ["Workspace Context", "/docs/copilot/workspace-context"],
         ["", "", {
