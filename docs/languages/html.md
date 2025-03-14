@@ -54,6 +54,14 @@ When modifying a tag, the linked editing feature automatically updates the match
 "editor.linkedEditing": true
 ```
 
+## Character case
+
+Intellisense suggestions and syntax highlighting
+prefer lowercase tags and attribute names.
+Uppercase tags will be treated as support classes
+and not as entity tags by the syntax highlighting engine.
+Formatting will not change markup character case.
+
 ## Color picker
 
 The VS Code color picker UI is now available in HTML style sections.
