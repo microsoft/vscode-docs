@@ -38,6 +38,34 @@ Get started with [Copilot Edits](/docs/copilot/copilot-edits.md).
 
 ## Personalize Copilot with custom instructions
 
+When Copilot generates code or answers questions, it tries to match your coding practices and preferences such as which libraries you use or how you name your variables. However, it might not always have enough context to do this effectively. For example, if you work with a specific framework version, you need to provide additional context in your prompts.
+
+To enhance Copilot's responses, you can use _custom instructions_ to provide it with contextual details about your team's workflow, tools, or project specifics. Copilot then incorporates these custom instructions with every request.
+
+To enable custom instructions for your workspace:
+
+1. Enable the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`
+1. Create a `.github/copilot-instructions.md` file in the root of your workspace
+1. Add your instructions in Markdown format to the file. For example:
+
+    ```markdown
+    # Custom instructions for Copilot
+
+    ## Project context
+    This project is a web application built with React and Node.js.
+
+    ## Indentation
+    We use tabs, not spaces.
+
+    ## Coding style
+    Use camelCase for variable names and prefer arrow functions over traditional function expressions.
+
+    ## Testing
+    We use Jest for unit testing and Playwright for end-to-end testing.
+    ```
+
+Get more details about [using custom instructions for Copilot in VS Code](/docs/copilot/copilot-customization.md).
+
 ## Prompt engineering
 
 ## Provide the right context
