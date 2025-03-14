@@ -24,8 +24,8 @@ Get started with [code completions](/docs/copilot/ai-powered-suggestions.md).
 
 * Answering questions about your code or technology in general by using natural language
 * Brainstorming on software design and architecture ideas and concepts
-* Generating large sections of code, then iterating on that code to meet your needs
 * Accomplishing domain-specific tasks with subject-matter chat participants
+* Generating code blocks, which you can then apply to your codebase
 
 Get started with [Copilot Chat](/docs/copilot/copilot-chat.md).
 
