@@ -71,11 +71,48 @@ Get more details about [using custom instructions for Copilot in VS Code](/docs/
 You can enhance the quality of Copilot's responses by using effective prompts. A well-crafted prompt can help Copilot understand your requirements better and generate more relevant code suggestions.
 
 * Start general, then get specific.
+
+    ```text
+    Generate a Calculator class.
+    Add methods for addition, subtraction, multiplication, division, and factorial.
+    Don't use any external libraries and don't use recursion.
+    ```
+
 * Give examples of what you want.
+
+    ```text
+    Generate a function that takes a string and returns the number of vowels in it.
+    Example:
+    findVowels("hello") returns 2
+    findVowels("sky") returns 0
+    ```
+
 * Break down complex tasks into simpler tasks.
+
+    Instead of asking Copilot to generate a meal planner app, break it down into smaller tasks:
+    * Generate a function that takes a list of ingredients and returns a list of recipes.
+    * Generate a function that takes a list of recipes and returns a shopping list.
+    * Generate a function that takes a list of recipes and returns a meal plan for the week.
+
 * Provide the [right context](#provide-the-right-context), such as code selections, files, terminal output, and more.
+
+    Example, use the `#codebase` variable to refer to the entire codebase:
+
+    ```text
+    Where is the database connection string used in #codebase?
+    ```
+
 * Iterate on your prompts.
+
+    Provide follow-up prompts to refine or modify the response. For example:
+
+    * "Write a function to calculate the factorial of a number."
+    * "Don't use recursion and optimize by using caching."
+    * "Use meaningful variable names."
+
 * Keep chat history relevant.
+
+    Copilot uses history of the conversation to provide context. Remove past questions and responses from the history if they're not relevant. Or, start a new session if you want to change the context.
 
 Get more details about [prompt engineering](/docs/copilot/prompt-crafting.md).
 
