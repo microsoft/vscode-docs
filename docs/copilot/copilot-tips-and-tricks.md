@@ -120,6 +120,18 @@ Find practical [examples of prompts to use with Copilot](https://docs.github.com
 
 ## Provide the right context
 
+Enrich your prompts with relevant context to get more accurate and relevant response from Copilot.
+
+* Use the `#codebase` variable to let Copilot find the right files automatically.
+* Reference files or symbols in your prompt by using `#file` or `#sym` chat variables.
+* Drag and drop files, folders, or editor tabs onto the chat prompt.
+* Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
+* Add images or screenshots to your prompt to let Copilot analyze the image.
+
+When you use [Agent mode](/docs/copilot/copilot-edits.md#use-agent-mode-preview), Copilot autonomously finds the relevant files and context for you.
+
+Get more details about [adding context to chat prompts](/docs/copilot/copilot-chat-context.md).
+
 ## Reusable prompts
 
 ## Iterate on your prompts
