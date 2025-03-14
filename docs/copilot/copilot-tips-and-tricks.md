@@ -4,7 +4,7 @@ DateApproved: 02/06/2025
 MetaDescription: Tips and tricks to optimize your development experience with GitHub Copilot in VS Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Tips and tricks for using GitHub Copilot in VS Code
+# Tips and tricks for Copilot in VS Code
 
 This article provides tips and tricks to optimize your development experience for using GitHub Copilot in Visual Studio Code.
 
