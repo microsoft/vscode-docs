@@ -371,6 +371,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-tips-and-tricks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/prompt-crafting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
