@@ -169,8 +169,17 @@ Get started with [reusable prompts](/docs/copilot/copilot-customization.md#reusa
 
 ## Choose your AI model
 
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. For example, some models might be better at generating code, while others might be better at answering questions or providing explanations.
+
+Experiment with different models to find the one that works best for your specific use case. Use the model picker in the chat input field to switch between different models.
+
 ## Workspace indexing
 
+Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+
+For GitHub repositories, you can use a remote index of your workspace, based on [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository). This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
+
+Get more details about [workspace indexing](/docs/copilot/workspace-context.md#managing-the-workspace-index).
 
 ## Related resources
 
