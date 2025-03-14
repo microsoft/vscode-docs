@@ -68,6 +68,19 @@ Get more details about [using custom instructions for Copilot in VS Code](/docs/
 
 ## Prompt engineering
 
+You can enhance the quality of Copilot's responses by using effective prompts. A well-crafted prompt can help Copilot understand your requirements better and generate more relevant code suggestions.
+
+* Start general, then get specific.
+* Give examples of what you want.
+* Break down complex tasks into simpler tasks.
+* Provide the [right context](#provide-the-right-context), such as code selections, files, terminal output, and more.
+* Iterate on your prompts.
+* Keep chat history relevant.
+
+Get more details about [prompt engineering](/docs/copilot/prompt-crafting.md).
+
+Find practical [examples of prompts to use with Copilot](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
+
 ## Provide the right context
 
 ## Reusable prompts
