@@ -44,7 +44,6 @@ To enhance Copilot's responses, you can use _custom instructions_ to provide it 
 
 To enable custom instructions for your workspace:
 
-1. Enable the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`
 1. Create a `.github/copilot-instructions.md` file in the root of your workspace
 1. Add your instructions in Markdown format to the file. For example:
 
@@ -138,9 +137,9 @@ Reusable prompts enable you to save a prompt for a specific task with its contex
 
 To create a reusable prompt:
 
-1. Configure the `setting(chat.promptFiles)` setting.
+1. Create a prompt file with the **Create Prompt** command from the Command Palette.
 
-1. Use the **Create Prompt** command from the Command Palette to create a `.prompt.md` file in your workspace.
+    This command creates a `.prompt.md` file in the `.github/prompts` folder at the root of your workspace.
 
 1. Describe your prompt and relevant context in Markdown format.
 
