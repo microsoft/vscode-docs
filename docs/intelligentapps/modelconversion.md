@@ -1,6 +1,6 @@
 ---
-ContentId:
-DateApproved:
+ContentId: d32ac103-3830-4694-a68f-933ea9f0beba
+DateApproved: 03/17/2025
 MetaDescription: Learn how to convert your models to ONNX format for use in AI Toolkit.
 ---
 
@@ -36,7 +36,7 @@ Follow these steps to set up your environment:
 
 ## Access Hugging Face models
 
-There are multiple ways to access Hugging Face models. In this documentation, we use the `huggingface_hub` CLI as an example to demonstrate managing a model repository.
+There are multiple ways to access Hugging Face models. In this tutorial, we use the `huggingface_hub` CLI as an example to demonstrate managing a model repository.
 
 > Note: Ensure your Python environment is properly set up before proceeding.
 
@@ -67,8 +67,8 @@ mkdir C:\Users\Administrator\.aitk\models\microsoft\Phi-3.5-vision-instruct-onnx
 
 In this example, the four-layer directory structure is `microsoft\Phi-3.5-vision-instruct-onnx\cpu\phi3.5-cpu-int4-rtn-block-32`.
 
-> [!TIP]
-> **The naming of the four-layer directory structure is important.** Each directory layer corresponds to a specific system parameter: `$publisherName\$modelName\$runtime\$displayName`. The `$displayName` appears in the local model tree view at the top-left side of the extension. Use distinct `displayName` values for different models to avoid confusion.
+> [!IMPORTANT]
+> The naming of the four-layer directory structure is important. Each directory layer corresponds with a specific system parameter: `$publisherName\$modelName\$runtime\$displayName`. The `$displayName` appears in the local model tree view at the top-left side of the extension. Use distinct `displayName` values for different models to avoid confusion.
 
 ## Convert models to ONNX format
 
