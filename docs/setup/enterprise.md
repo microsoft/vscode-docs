@@ -117,8 +117,6 @@ VS Code currently supports the following admin-controlled features:
 | `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
 
-System administrators need a way to control default software settings across all client machines in their organization. The following platform-specific solutions provide administrators flexibility to implement the behavior for each of the available policies and settings.
-
 ### Group Policy on Windows
 
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
