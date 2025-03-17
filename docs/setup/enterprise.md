@@ -117,9 +117,6 @@ VS Code currently supports the following admin-controlled features:
 | `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
 
-> [!NOTE]
-> Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
-
 System administrators need a way to control default software settings across all client machines in their organization. The following platform-specific solutions provide administrators flexibility to implement the behavior for each of the available policies and settings.
 
 ### Group Policy on Windows
@@ -132,11 +129,31 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 ### Configuration profiles on macOS
 
-Configuration profiles are a way to manage settings on macOS devices. They are XML files that contain settings and preferences for applications and system features. Configuration profiles can be deployed using Mobile Device Management (MDM) solutions or manually installed.
+Configuration profiles are a way to manage settings on macOS devices. Profiles are XML files that contain key/value pairs to set policy values. Configuration profiles can be deployed using Mobile Device Management (MDM) solutions or manually installed.
 
-Starting from VS Code version TODO, each release provides a `.mobileconfig` file in the `policies` directory. This file contains default configuration for available policies. This file can be manually edited with a text-editor, or with a configuration profile editor such as [iMazing Profile Editor](https://imazing.com/profile-editor).
+Starting from VS Code version 1.99, each release provides an example `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually remove or edit the available policy keys.
 
-Configuration profiles can be manually installed by double-clicking on a `.mobileconfig` profile and then enabling it in System Preferences under `General > Device Management`.
+> [!TIP] To view the contents of `.app` bundle, right-click on the Application (eg: `/Applications/Visual Studio Code.app` in Finder) and select **Show Package Contents**.
+
+For example, to configure the `extensions.allowed` policy
+
+```xml
+<key>AllowedExtensions</key>
+<string></string>
+```
+
+Add the appropriate JSON string defining your policy.
+
+```xml
+<key>AllowedExtensions</key>
+<string>{"microsoft": true, "github": true}</string>
+```
+
+To not configure a given policy, remove the key/value pair from the XML file.
+
+Additionally, VS Code ships with localized schema files following [Apple's Preference Manifest Format](https://developer.apple.com/library/archive/documentation/MacOSXServer/Conceptual/Preference_Manifest_Files/Chapter_1/PM_Chapter1.html#//apple_ref/doc/uid/TP30000196-BABCDJIE). Tools like [iMazing Profile Editor](https://imazing.com/profile-editor) read these files and provide a user-friendly interface to edit and generate the `.mobileconfig` profile. The schema files are located in the `Contents/Resources/app/policies/<locale>` directory of the `.app` bundle.
+
+Configuration profiles are installed by double-clicking on the `.mobileconfig` profile and then enabling it in System Preferences under `General > Device Management`.
 
 
 ### Additional policies
@@ -162,8 +179,6 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 
 ## Frequently asked questions
 
-### Does VS Code support configuration profiles on macOS or Linux?
-
-Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
