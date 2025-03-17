@@ -8,33 +8,32 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 This article provides tips and tricks to optimize your development experience for using GitHub Copilot in Visual Studio Code.
 
+## Checklist for using Copilot in VS Code
+
+Use the following checklist to get the most out of Copilot:
+
+1. [Choose the right Copilot tool](#choose-the-right-copilot-tool). _Use the tool that's optimized for code editing, brainstorming, or to help you stay in the flow of writing code._
+
+1. [Personalize Copilot with custom instructions](#personalize-copilot-with-custom-instructions). _Get code suggestions that meet your style and coding practices._
+
+1. [Write effective prompts](#prompt-engineering) and provide [context](#provide-the-right-context). _Get the most relevant responses._
+
+1. [Index your workspace](#workspace-indexing). _Get accurate responses to questions about your codebase._
+
+1. [Choose your AI model](#choose-your-ai-model). _Select the right model for your task._
+
+1. [Reuse prompts](#reusable-prompts). _Save time by saving and reusing task-specific prompts across your team._
+
 ## Choose the right Copilot tool
 
 Depending on your task, you can choose between different Copilot tools.
 
-### Code completions
-
-* Completing code snippets, variable names, and functions as you write them in the editor
-* Generating repetitive code
-* Generating code from inline comments in natural language
-
-Get started with [code completions](/docs/copilot/ai-powered-suggestions.md).
-
-### Chat
-
-* Answering questions about your code or technology in general by using natural language
-* Brainstorming on software design and architecture ideas and concepts
-* Accomplishing domain-specific tasks with subject-matter chat participants
-* Generating code blocks, which you can then apply to your codebase
-
-Get started with [Copilot Chat](/docs/copilot/copilot-chat.md).
-
-### Edits
-
-* Generating and directly applying large sections of code across multiple files in your project
-* Implementing high-level requirements by autonomously applying code changes and running commands to meet those requirements
-
-Get started with [Copilot Edits](/docs/copilot/copilot-edits.md).
+| Tool | Use case |
+|------|----------|
+| [Code completions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
+| [Chat](/docs/copilot/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
+| [Edits](/docs/copilot/copilot-edits.md) | Use natural language to start a coding editing session.<br/>Automatically apply large code changes across multiple files in your workspace. |
+| [Agent mode](/docs/copilot/copilot-edits.md#use-agent-mode-preview) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
 ## Personalize Copilot with custom instructions
 
@@ -44,7 +43,6 @@ To enhance Copilot's responses, you can use _custom instructions_ to provide it 
 
 To enable custom instructions for your workspace:
 
-1. Enable the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`
 1. Create a `.github/copilot-instructions.md` file in the root of your workspace
 1. Add your instructions in Markdown format to the file. For example:
 
@@ -128,7 +126,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
 
-When you use [Agent mode](/docs/copilot/copilot-edits.md#use-agent-mode-preview), Copilot autonomously finds the relevant files and context for you.
+When you use [agent mode](/docs/copilot/copilot-edits.md#use-agent-mode-preview), Copilot autonomously finds the relevant files and context for you.
 
 Get more details about [adding context to chat prompts](/docs/copilot/copilot-chat-context.md).
 
@@ -138,9 +136,9 @@ Reusable prompts enable you to save a prompt for a specific task with its contex
 
 To create a reusable prompt:
 
-1. Configure the `setting(chat.promptFiles)` setting.
+1. Create a prompt file with the **Create Prompt** command from the Command Palette.
 
-1. Use the **Create Prompt** command from the Command Palette to create a `.prompt.md` file in your workspace.
+    This command creates a `.prompt.md` file in the `.github/prompts` folder at the root of your workspace.
 
 1. Describe your prompt and relevant context in Markdown format.
 
@@ -169,9 +167,16 @@ Get started with [reusable prompts](/docs/copilot/copilot-customization.md#reusa
 
 ## Choose your AI model
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. For example, some models might be better at generating code, while others might be better at answering questions or providing explanations.
+Copilot offers different AI models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks.
 
-Experiment with different models to find the one that works best for your specific use case. Use the model picker in the chat input field to switch between different models.
+| Model type | Models |
+|-----------|--------|
+| Fast coding | <ul><li>GPT-4o</li><li>Claude Sonnet 3.5</li><li>Claude Sonnet 3.7</li><li>Gemini 2.0 Flash</li></ul> |
+| Reasoning/planning | <ul><li>Claude Sonnet 3.7 Thinking</li><li>o1</li><li>o3-mini</li></ul> |
+
+Choose the model that best fits your needs by using the model picker in the chat input field.
+
+Learn more about [AI models for Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) in the GitHub Copilot documentation.
 
 ## Workspace indexing
 
