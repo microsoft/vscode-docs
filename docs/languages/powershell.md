@@ -225,9 +225,9 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [03]: /docs/editor/editing/editingevolved#_open-symbol-by-name
 [04]: /docs/editor/editing/editingevolved#_reference-information
 [05]: /docs/editor/editing/intellisense
-[06]: /docs/editor/settings
-[07]: /docs/editor/themes
-[08]: /docs/editor/userdefinedsnippets
+[06]: /docs/editor/customizing/settings
+[07]: /docs/editor/customizing/themes
+[08]: /docs/editor/customizing/userdefinedsnippets
 [09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
 [10]: /docs/getstarted/userinterface#_outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer

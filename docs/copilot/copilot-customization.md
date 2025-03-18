@@ -37,7 +37,7 @@ Copilot can help you generate code, for example as part of a refactoring, genera
 
 ### Use settings
 
-You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/editor/settings.md#language-specific-editor-settings).
+You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/editor/customizing/settings.md#language-specific-editor-settings).
 
 The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
 
@@ -204,7 +204,7 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 #### Create a user prompt file
 
-User prompt files are stored in your [user profile](/docs/editor/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
+User prompt files are stored in your [user profile](/docs/editor/customizing/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
 
 You can add a user prompt file to a chat prompt in the same way as a workspace prompt file.
 

@@ -128,7 +128,7 @@ There are only a few changes to the VS Code UI when you are using multi-root wor
 
 ![tabbed headers](images/multi-root-workspaces/tabbed-headers.png)
 
-If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/editor/settings.md) "medium" or "long" values to show the folder or full paths.
+If you'd always like to see the folder displayed in the tabbed header, you can use the `setting(workbench.editor.labelFormat)` [setting](/docs/editor/customizing/settings.md) "medium" or "long" values to show the folder or full paths.
 
 ```json
 "workbench.editor.labelFormat": "medium"
@@ -138,7 +138,7 @@ VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you are using a [File Icon Theme](/docs/editor/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using a [File Icon Theme](/docs/editor/customizing/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
 Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** file icon theme:
 

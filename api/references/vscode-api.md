@@ -15444,7 +15444,7 @@ and to control the editor cursor when insertion happens.</p>
 and <code>${3:foo}</code>. <code>$0</code> defines the final tab stop, it defaults to
 the end of the snippet. Variables are defined with <code>$name</code> and
 <code>${name:default value}</code>. The full snippet syntax is documented
-<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">here</a>.</p>
+<a href="https://code.visualstudio.com/docs/editor/customizing/userdefinedsnippets#_creating-your-own-snippets">here</a>.</p>
 </div>
 
 #### Constructors

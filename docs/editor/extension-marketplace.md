@@ -35,7 +35,7 @@ To install an extension, select the **Install** button. Once the installation is
 
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
-When [Settings Sync](/docs/editor/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+When [Settings Sync](/docs/editor/customizing/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
 
 ### Find and install an extension
 
@@ -156,7 +156,7 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/editor/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/editor/customizing/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
 
 ![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
@@ -189,7 +189,7 @@ To dismiss a recommendation, select on the extension item to open the Details pa
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/editor/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/editor/customizing/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
@@ -381,7 +381,7 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/editor/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/editor/customizing/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 

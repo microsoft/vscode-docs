@@ -25,7 +25,7 @@ You can adjust the zoom level in VS Code with the **View** > **Appearance** > **
 
 ### Persisted zoom level
 
-When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `setting(window.zoomLevel)` [setting](/docs/editor/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
+When you adjust the zoom level with the **View** > **Appearance** > **Zoom In / Out** commands, the zoom level is persisted in the `setting(window.zoomLevel)` [setting](/docs/editor/customizing/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20 percent.
 
 ## Accessibility help
 
@@ -47,7 +47,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/editor/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/editor/customizing/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -63,7 +63,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 
 The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
->**Note**: Go to [Customizing a Color Theme](/docs/editor/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
+>**Note**: Go to [Customizing a Color Theme](/docs/editor/customizing/themes.md#customizing-a-color-theme) for more information about overriding the colors in your current theme.
 
 To customize the error and warning squiggles, go to **File** > **Preferences** > **Settings** for user settings. Search for "color customizations" to find the **Workbench: Color Customizations** setting, and open your user `settings.json` file by selecting **Edit in settings.json**.
 
@@ -118,7 +118,7 @@ VS Code also has many preset keyboard shortcuts for commands.
 
 ![Key bindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify keyboard shortcuts for VS Code actions. See [Key Bindings](/docs/editor/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) opens the Keyboard Shortcuts editor, where you can discover and modify keyboard shortcuts for VS Code actions. See [Key Bindings](/docs/editor/customizing/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
 For quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
 

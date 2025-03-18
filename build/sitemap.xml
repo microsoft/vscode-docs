@@ -176,17 +176,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/themes</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/themes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/keybindings</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/keybindings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/locales</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/locales</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -261,12 +261,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/settings-sync</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/settings-sync</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/profiles</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/profiles</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -276,7 +276,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/custom-layout</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/custom-layout</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -426,7 +426,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/userdefinedsnippets</loc>
+        <loc>https://code.visualstudio.com/docs/editor/customizing/userdefinedsnippets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -74,7 +74,7 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
 | Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/editor/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
 | Power Pages | `/power/pages` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
-| Profiles | `/editor/profile/github/<GUID>` | [Profiles docs](/docs/editor/profiles.md#save-as-a-github-gist) |
+| Profiles | `/editor/profile/github/<GUID>` | [Profiles docs](/docs/editor/customizing/profiles.md#save-as-a-github-gist) |
 | Themes | `/editor/theme/<extensionId>` | [More info below](#themes) |
 | MakeCode | `/edu/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
@@ -164,7 +164,7 @@ Only a subset of extensions can run in the browser. You can use the Extensions v
 
 ![Limited extension support](images/vscode-web/extension-limit.png)
 
-When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/settings-sync).
+When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/customizing/settings-sync).
 
 When an Extension Pack contains extensions that do not run in the browser sandbox, you will get an informational message with the option to see the extensions included in the pack.
 

@@ -35,7 +35,7 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 > **Tip:** You can trigger between different color modes by clicking on the color string at the top of the picker.
 
-You can hide VS Code's color previews by setting the following [setting](/docs/editor/settings.md):
+You can hide VS Code's color previews by setting the following [setting](/docs/editor/customizing/settings.md):
 
 ```json
 "editor.colorDecorators": false
@@ -71,13 +71,13 @@ If you prefer to switch to indentation based folding for CSS, Less and SCSS, use
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
+VS Code also supports [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md).
 
 ## Syntax Verification & Linting
 
 There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/editor/settings.md) to false.
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/editor/customizing/settings.md) to false.
 >```json
 >"css.validate": false
 >```
@@ -293,7 +293,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 ## Customizing CSS, SCSS and Less Settings
 
-You can configure the following lint warnings as [User and Workspace Settings](/docs/editor/settings.md).
+You can configure the following lint warnings as [User and Workspace Settings](/docs/editor/customizing/settings.md).
 
 The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
 

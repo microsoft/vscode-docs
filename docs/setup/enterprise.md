@@ -128,7 +128,7 @@ VS Code has support for [Windows Registry-based Group Policy](https://learn.micr
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
-Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/settings.md) value configured at any level (default, user, workspace, etc.).
+Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/customizing/settings.md) value configured at any level (default, user, workspace, etc.).
 
 ### Additional policies
 

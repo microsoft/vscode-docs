@@ -37,14 +37,14 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic TypeScript [snippets](/docs/editor/customizing/userdefinedsnippets.md) that are suggested as you type;
 
 ![Typescript snippets](images/editing/ts-snippets.png)
 
-You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) for more information.
 
 > [!TIP]
-> You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/editor/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/editor/customizing/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## Inlay hints
 
@@ -179,7 +179,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/editor/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `typescript.format.*` [settings](/docs/editor/customizing/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
 
@@ -189,7 +189,7 @@ In addition to syntax highlighting, TypeScript and JavaScript also provide seman
 
 Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
 
-Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/editor/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/editor/customizing/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
 
 If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
 

@@ -1153,7 +1153,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/customizing/userdefinedsnippets#_snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 

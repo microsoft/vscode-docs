@@ -137,7 +137,7 @@ To add a new terminal in a different shell:
 
 1. Drag a terminal from the terminal list into the editor area.
 
-    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/editor/custom-layout.md#editor).
+    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/editor/customizing/custom-layout.md#editor).
 
     ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
 

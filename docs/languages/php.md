@@ -17,7 +17,7 @@ VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. Th
 
 > Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries.
 
-There are three [settings](/docs/editor/settings.md) to control the PHP linter:
+There are three [settings](/docs/editor/customizing/settings.md) to control the PHP linter:
 
 * `setting(php.validate.enable)`: controls whether to enable PHP linting at all. Enabled by default.
 * `setting(php.validate.executablePath)`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.

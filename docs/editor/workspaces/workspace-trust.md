@@ -57,7 +57,7 @@ If you try to start a debug session (**Debug** > **Start Debugging**) while in R
 
 ### Workspace settings
 
-Workspace [settings](/docs/editor/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, VS Code disables a set of workspace settings when running in Restricted Mode.
+Workspace [settings](/docs/editor/customizing/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, VS Code disables a set of workspace settings when running in Restricted Mode.
 
 ![Workspace Trust editor workspace settings link](images/workspace-trust/workspace-settings-link.png)
 

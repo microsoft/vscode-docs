@@ -301,7 +301,7 @@ To learn how to build web apps with popular Python web frameworks, see the follo
 
 There is then much more to explore with Python in Visual Studio Code:
 
-- [Python profile template](/docs/editor/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets
+- [Python profile template](/docs/editor/customizing/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

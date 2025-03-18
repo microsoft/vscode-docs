@@ -46,13 +46,13 @@
         "name": "Customize VS Code",
         "area": "editor/customizing",
         "topics": [
-          ["Themes", "/docs/editor/themes"],
-          ["Keyboard Shortcuts", "/docs/editor/keybindings"],
-          ["Settings", "/docs/editor/settings"],
-          ["Snippets", "/docs/editor/userdefinedsnippets"],
-          ["Custom Layout", "/docs/editor/custom-layout"],
-          ["Display Language", "/docs/editor/locales"],
-          ["Profiles", "/docs/editor/profiles"]
+          ["Themes", "/docs/editor/customizing/themes"],
+          ["Keyboard Shortcuts", "/docs/editor/customizing/keybindings"],
+          ["Settings", "/docs/editor/customizing/settings"],
+          ["Snippets", "/docs/editor/customizing/userdefinedsnippets"],
+          ["Custom Layout", "/docs/editor/customizing/custom-layout"],
+          ["Display Language", "/docs/editor/customizing/locales"],
+          ["Profiles", "/docs/editor/customizing/profiles"]
         ]
       }],
       ["", "", {
@@ -94,7 +94,7 @@
         "name": "Advanced Features",
         "area": "editor/advanced",
         "topics": [
-          ["Settings Sync", "/docs/editor/settings-sync"],
+          ["Settings Sync", "/docs/editor/customizing/settings-sync"],
           ["Port Forwarding", "/docs/editor/port-forwarding"],
           ["Command Line Interface", "/docs/editor/command-line"],
           ["Telemetry", "/docs/editor/telemetry"]

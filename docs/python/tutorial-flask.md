@@ -496,7 +496,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. Now, whenever you start typing the snippet's prefix, such as `flext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 
-For more information on code snippets in general, refer to [Creating snippets](/docs/editor/userdefinedsnippets.md).
+For more information on code snippets in general, refer to [Creating snippets](/docs/editor/customizing/userdefinedsnippets.md).
 
 ### Use the code snippet to add pages
 

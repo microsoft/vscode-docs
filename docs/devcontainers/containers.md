@@ -324,7 +324,7 @@ The Features sourced in VS Code UI now come from a central index, which you can 
 
 ### "Always installed" Features
 
-Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/editor/settings.md) to set Features you'd always like installed:
+Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/editor/customizing/settings.md) to set Features you'd always like installed:
 
 ```json
 "dev.containers.defaultFeatures": {
@@ -446,7 +446,7 @@ If a base image or Feature configures an extension that you do not want installe
 
 ### "Always installed" extensions
 
-If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/editor/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/editor/customizing/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "dev.containers.defaultExtensions": [

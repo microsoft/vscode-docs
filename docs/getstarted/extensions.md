@@ -35,7 +35,7 @@ You can install an extension directly from the Extensions view in VS Code. Alter
 1. You can also select the **Install** button on the extension's details view.
 
 > [!TIP]
-> If you have to switch between different technology stacks, use [VS Code profiles](/docs/editor/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
+> If you have to switch between different technology stacks, use [VS Code profiles](/docs/editor/customizing/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
 
 ## Open extension settings
 

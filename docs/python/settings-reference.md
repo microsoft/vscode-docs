@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/python-social.png
 
 The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
-For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/editor/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
+For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/editor/customizing/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
 
 ## General Python settings
 

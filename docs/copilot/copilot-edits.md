@@ -262,7 +262,7 @@ The following table shows a comparison of the capabilities of each experience.
 
 ### Can I change the location of the Copilot Edits view?
 
-You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/editor/custom-layout.md#workbench) in VS Code.
+You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/editor/customizing/custom-layout.md#workbench) in VS Code.
 
 ### Why would I use edit mode instead of agent mode?
 

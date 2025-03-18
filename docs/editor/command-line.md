@@ -47,7 +47,7 @@ Argument|Description
 `-d` or `--diff <file1> <file2>` | Open a file difference editor. Requires two file paths as arguments.
 `-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.
 `-w` or `--wait` | Wait for the files to be closed before returning.
-`--locale <locale>` | Set the [display language](/docs/editor/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
+`--locale <locale>` | Set the [display language](/docs/editor/customizing/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
 
 ![launch with locale](images/command-line/launch-locale.png)
 
@@ -75,7 +75,7 @@ Argument|Description
 
 ## Select a profile
 
-You can launch VS Code with a specific [profile](/docs/editor/profiles.md) via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+You can launch VS Code with a specific [profile](/docs/editor/customizing/profiles.md) via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
 
 `code ~/projects/web-sample --profile "Web Development"`
 

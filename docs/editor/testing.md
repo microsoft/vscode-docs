@@ -202,7 +202,7 @@ The following code snippet shows a `tasks.json` file that specifies the `node --
 }
 ```
 
-To run the test task, use the command **Tasks: Run Test Task** or [create a keyboard shortcut](/docs/editor/keybindings.md) for the command.
+To run the test task, use the command **Tasks: Run Test Task** or [create a keyboard shortcut](/docs/editor/customizing/keybindings.md) for the command.
 
 Learn more about [using and configuring Tasks](/docs/editor/tasks.md).
 

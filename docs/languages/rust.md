@@ -157,7 +157,7 @@ rust-analyzer is able to use [semantic syntax highlighting](https://github.com/m
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/editor/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/editor/customizing/settings.md).
 
 In `settings.json`, you would add:
 

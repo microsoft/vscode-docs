@@ -85,7 +85,7 @@ For information on snippets in C# Dev Kit, go to the [Navigate and Edit document
 
 ![Snippets](images/csharp/snippet.png)
 
->**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) to find out how.
 
 ## Search for Symbols
 
@@ -101,7 +101,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/editor/settings.md).
+>**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/editor/customizing/settings.md).
 
 ## Find References/Peek Definition
 

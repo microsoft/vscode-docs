@@ -68,11 +68,11 @@ You can drag and drop editor groups on the workbench, move individual tabs betwe
 
 ### Split in group
 
-You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#split-in-group) article.
+You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/editor/customizing/custom-layout.md#split-in-group) article.
 
 ### Floating windows
 
-You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) article.
+You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/customizing/custom-layout.md#floating-editor-windows) article.
 
 ## Minimap
 
@@ -83,7 +83,7 @@ If you have [folding markers](/docs/editor/editing/codebasics.md#folding) in the
 ![minimap](images/userinterface/minimap.png)
 
 > [!TIP]
-> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/editor/settings.md).
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/editor/customizing/settings.md).
 
 ## Sticky Scroll
 
@@ -98,7 +98,7 @@ Sticky Scroll uses several different content models to create its headings. It i
 
 ### Indent guides
 
-The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/editor/settings.md).
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/editor/customizing/settings.md).
 
 ## Breadcrumbs
 
@@ -166,7 +166,7 @@ For symbols, the view relies on information computed by your installed extension
 
 ![Markdown Outline view](images/userinterface/markdown-outline-view.png)
 
-There are several Outline view [settings](/docs/editor/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
+There are several Outline view [settings](/docs/editor/customizing/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
 ### Timeline view
 
@@ -269,7 +269,7 @@ You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu
 
 ### Settings
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/editor/settings.md#settings-json-file).
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/editor/customizing/settings.md#settings-json-file).
 
 You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 
@@ -349,7 +349,7 @@ For example, you might like new tabbed items to appear on the left:
 
 You can reorder tabs by dragging and dropping them.
 
-If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/customizing/custom-layout.md#pinned-tabs) article.
 
 ### Preview mode
 
@@ -446,7 +446,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 * `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` - close all editors.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/keybindings.md) for details.
+>If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/editor/customizing/keybindings.md) for details.
 
 ## Working without tabs
 
@@ -460,7 +460,7 @@ Without tabs, the **Open Editors** section of the Explorer view is a quick way t
 
 You can change vs for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
 
-Edit your [keyboard shortcuts](/docs/editor/keybindings.md) and add the following:
+Edit your [keyboard shortcuts](/docs/editor/customizing/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
@@ -469,7 +469,7 @@ Edit your [keyboard shortcuts](/docs/editor/keybindings.md) and add the followin
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/editor/keybindings.md).
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/editor/customizing/keybindings.md).
 
 macOS:
 
@@ -500,8 +500,8 @@ The `setting(window.restoreWindows)` setting informs VS Code about how to restor
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
 
-* [Changing the theme](/docs/editor/themes.md) - Set a Color and/or File Icon Theme to your preference.
-* [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+* [Changing the theme](/docs/editor/customizing/themes.md) - Set a Color and/or File Icon Theme to your preference.
+* [Using custom layouts](/docs/editor/customizing/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

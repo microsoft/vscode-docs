@@ -32,5 +32,5 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Key Bindings for Visual Studio Code](/docs/editor/keybindings.md) - See a list of defined keyboard shortcuts and learn how to update them.
-* [User and Workspace Settings](/docs/editor/settings.md) - Learn how to customize user and workspace settings.
+* [Key Bindings for Visual Studio Code](/docs/editor/customizing/keybindings.md) - See a list of defined keyboard shortcuts and learn how to update them.
+* [User and Workspace Settings](/docs/editor/customizing/settings.md) - Learn how to customize user and workspace settings.

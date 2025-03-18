@@ -11,7 +11,7 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
 
->**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/customizing/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -27,7 +27,7 @@ The Outline view is a great way to review your document's header structure and o
 
 VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) to find out how.
 
 ### Go to header in file
 
@@ -105,7 +105,7 @@ For example, if you want every Markdown file under `/docs` in your workspace to 
 
 Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
 
-You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
+You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/customizing/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
 
 ```jsonc
 "markdown.copyFiles.destination": {
@@ -215,7 +215,7 @@ VS Code automatically synchronizes the Markdown editor and the preview panes. Sc
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
-You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/editor/settings.md).
+You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/editor/customizing/settings.md).
 
 The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
@@ -261,7 +261,7 @@ Extensions can contribute custom styles and scripts to the Markdown preview to c
 
 ### Using your own CSS
 
-You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/editor/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
+You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/editor/customizing/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
 
 For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
@@ -318,7 +318,7 @@ Disables additional security in the preview window. This allows script execution
 
 ## Doc Writer profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[Profiles](https://code.visualstudio.com/docs/editor/customizing/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/customizing/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

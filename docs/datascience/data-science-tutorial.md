@@ -265,7 +265,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
 Now that you're familiar with the basics of performing machine learning within Visual Studio Code, here are some other Microsoft resources and tutorials to check out.
 
-- [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
+- [Data Science profile template](/docs/editor/customizing/profiles.md#data-science-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets.
 - Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
 - [Get started with Azure Machine Learning for VS Code](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code) to deploy and optimize your model using the power of Azure.
 - Find more data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).

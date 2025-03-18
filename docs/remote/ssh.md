@@ -52,7 +52,7 @@ To get started, you need to:
 
 1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
-2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/editor/settings.md) for improved security.
+2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/editor/customizing/settings.md) for improved security.
 
     In the Settings editor:
 
@@ -82,7 +82,7 @@ To connect to a remote host for the first time, follow these steps:
 
     ![Illustration of platform selection](images/ssh/ssh-select-platform.png)
 
-    Once you select a platform, it will be stored in [VS Code settings](/docs/editor/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
+    Once you select a platform, it will be stored in [VS Code settings](/docs/editor/customizing/settings.md) under the `remote.SSH.remotePlatform` property so you can change it at any time.
 
 4. After a moment, VS Code will connect to the SSH server and set itself up. VS Code will keep you up-to-date using a progress notification and you can see a detailed log in the `Remote - SSH` output channel.
 
