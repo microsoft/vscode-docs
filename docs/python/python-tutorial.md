@@ -24,7 +24,7 @@ To successfully complete this tutorial, you need to first set up your Python dev
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
-- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md))
+- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md))
 
 ## Install a Python interpreter
 

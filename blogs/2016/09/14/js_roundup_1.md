@@ -20,7 +20,7 @@ Visual Studio Code is not an IDE, but you can extend it to do many of the things
 
 Below are some of the essential JavaScript extensions that I and many of you are using every day.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extensions/extension-marketplace.md#browse-for-extensions).
 
 ## ESLint
 

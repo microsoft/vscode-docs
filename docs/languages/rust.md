@@ -285,7 +285,7 @@ If you have any issues or feature requests, feel free to log them in the rust-an
 If you'd like to learn more about VS Code, try these topics:
 
 * [Basic Editing](/docs/editor/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Install an Extension](/docs/editor/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
 
 ## Common questions

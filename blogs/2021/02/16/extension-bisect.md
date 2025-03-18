@@ -23,7 +23,7 @@ For fun, and to make it easier to demonstrate extension bisect, we have created 
 
 ## Finding a "bad" extension the hard way
 
-Today, finding a "bad" extension can be easy or hard.  Open the Extensions view (`kb(workbench.view.extensions)`), [disable an extension](/docs/editor/extension-marketplace.md#disable-an-extension), reload the window (**Developer: Reload Window**), and check to see if the problem still exists. If the problem is gone, that extension is "bad" and you are done. Otherwise, re-enable the extension and repeat the process with the next extension.
+Today, finding a "bad" extension can be easy or hard.  Open the Extensions view (`kb(workbench.view.extensions)`), [disable an extension](/docs/editor/extensions/extension-marketplace.md#disable-an-extension), reload the window (**Developer: Reload Window**), and check to see if the problem still exists. If the problem is gone, that extension is "bad" and you are done. Otherwise, re-enable the extension and repeat the process with the next extension.
 
 ![Disabling an extension step by step](./disable_manually.png)
 

@@ -361,7 +361,7 @@ Click on the reference count to quickly browse a list of references:
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extensions/extension-marketplace.md) available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
@@ -394,7 +394,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Popular extensions
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-marketplace.md).
+VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extensions/extension-marketplace.md).
 
 <div class="marketplace-extensions-javascript-curated"></div>
 

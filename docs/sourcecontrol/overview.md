@@ -284,7 +284,7 @@ The Timeline view, accessible at the bottom of the File Explorer by default, is 
 
 VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
 
-Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-marketplace.md) available on the VS Code Marketplace.
+Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extensions/extension-marketplace.md) available on the VS Code Marketplace.
 
 <div class="marketplace-extensions-scm-history-curated"></div>
 

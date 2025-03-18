@@ -846,7 +846,7 @@ See more details in [Creating your own Snippets](/docs/editor/customizing/userde
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
+Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
 
 ## Git blame
 

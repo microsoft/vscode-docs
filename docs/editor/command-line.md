@@ -83,7 +83,7 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ## Working with extensions
 
-You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extensions/extension-marketplace.md) from the command line.
 
 Argument|Description
 ------------------|-----------

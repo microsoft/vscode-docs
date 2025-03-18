@@ -18,7 +18,7 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md). Both extensions are published by Microsoft.
 
 - [Miniconda with latest Python](https://docs.anaconda.com/miniconda/)
 

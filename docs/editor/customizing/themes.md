@@ -37,7 +37,7 @@ The active color theme is stored in your user [settings](/docs/editor/customizin
 
 ## Color Themes from the Marketplace
 
-There are several out-of-the-box color themes in VS Code for you to try. Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md) by the community.
+There are several out-of-the-box color themes in VS Code for you to try. Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md) by the community.
 
 You can select Color Themes from the VS Code Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
 
@@ -204,7 +204,7 @@ If you'd like to remove some of the default themes shipped with VS Code from the
 
 ![built-in themes](images/themes/built-in-themes.png)
 
-You can disable a built-in theme extension, as you would any other VS Code [extension](/docs/editor/extension-marketplace.md) with the **Disable** command on the gear context menu.
+You can disable a built-in theme extension, as you would any other VS Code [extension](/docs/editor/extensions/extension-marketplace.md) with the **Disable** command on the gear context menu.
 
 ![disable theme](images/themes/disable-theme.png)
 

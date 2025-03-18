@@ -14,7 +14,7 @@ March 17, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](https://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 
-We will continue to iterate on improving the API and we would love your [feedback](https://github.com/microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](/docs/editor/extension-marketplace.md) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
+We will continue to iterate on improving the API and we would love your [feedback](https://github.com/microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](/docs/editor/extensions/extension-marketplace.md) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
 
 In the spirit of a great [curated extensions list](https://github.com/viatsko/awesome-vscode), we wanted to give you regular updates on what is happening in the VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode).
 

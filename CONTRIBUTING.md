@@ -173,7 +173,7 @@ Before moving or renaming content, a redirect should be added in case people hav
 
 It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
 
-For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extensions/extension-marketplace.md`
 
 ### sitemap
 

@@ -59,8 +59,8 @@
         "name": "Extensions",
         "area": "editor/extensions",
         "topics": [
-          ["Extension Marketplace", "/docs/editor/extension-marketplace"],
-          ["Extension Runtime Security", "/docs/editor/extension-runtime-security"]
+          ["Extension Marketplace", "/docs/editor/extensions/extension-marketplace"],
+          ["Extension Runtime Security", "/docs/editor/extensions/extension-runtime-security"]
         ]
       }],
       ["", "", {

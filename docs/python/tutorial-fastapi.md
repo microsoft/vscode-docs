@@ -44,7 +44,7 @@ Once you're done, you can continue with the [Replace the database](#replace-the-
 To successfully complete this tutorial in [VS Code](https://code.visualstudio.com/), you first need to set up your Python development environment. Specifically, this tutorial requires:
 
 * Python 3 (check the [installation guide](/docs/python/python-tutorial.md#install-a-python-interpreter) if you don't have it installed)
-* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/editor/extension-marketplace.md)).
+* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md)).
 
 In this section, we will create a folder to open as a workspace in VS Code, set up a Python virtual environment, and install the project's dependencies.
 

@@ -31,7 +31,7 @@ Each extension in the list includes a brief description, the publisher, the down
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
 > [!IMPORTANT]
-> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extensions/extension-runtime-security.md) and how to protect yourself from malicious extensions.
 
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
@@ -367,7 +367,7 @@ The Visual Studio Marketplace employs several measures to protect you from malic
 
 As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
 
-Get more information about [extension runtime security](/docs/editor/extension-runtime-security.md).
+Get more information about [extension runtime security](/docs/editor/extensions/extension-runtime-security.md).
 
 ### The extension signature cannot be verified by VS Code
 

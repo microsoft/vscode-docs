@@ -170,7 +170,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-marketplace.md) available in the Marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extensions/extension-marketplace.md) available in the Marketplace.
 
 [ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
 

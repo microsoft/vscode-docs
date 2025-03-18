@@ -357,7 +357,7 @@ First, check if you're using custom snippets (if there is a `snippets.json` file
 
 If abbreviations are still failing to expand:
 
-* Check the [builtin extensions](/docs/editor/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
+* Check the [builtin extensions](/docs/editor/extensions/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
 * Try restarting the extension host by running the **Developer: Restart Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/getstarted/userinterface.md#command-palette).
 
 ### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?

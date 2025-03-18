@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (syntax highligh
 ---
 # PHP in Visual Studio Code
 
-Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-marketplace.md).
+Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extensions/extension-marketplace.md).
 
 ## Linting
 
@@ -75,5 +75,5 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 
 Read on to find out about:
 
-* [Extension Marketplace](/docs/editor/extension-marketplace.md) - Browse the extensions others have shared
+* [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md) - Browse the extensions others have shared
 * [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging

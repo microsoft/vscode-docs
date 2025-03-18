@@ -67,7 +67,7 @@ In the Workspace Trust editor, select the link for workspace settings that aren'
 
 ### Extensions
 
-The VS Code [extensions](/docs/editor/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
+The VS Code [extensions](/docs/editor/extensions/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
 
 Most extensions run code on your behalf and could potentially do harm. Some extensions have settings that could cause them to act maliciously if configured to run an unexpected executable. For this reason, extensions that have not explicitly opted into Workspace Trust are disabled by default in Restricted Mode.
 

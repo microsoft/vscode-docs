@@ -80,7 +80,7 @@ The more specific the selector, the higher the precedence. For example, `"micros
 
 Duplicate key values are not supported. For example, including both `"microsoft": true` and `"microsoft": false` results in an invalid policy.
 
-If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extension-marketplace.md).
+If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/editor/extensions/extension-marketplace.md).
 
 ### Centrally manage allowed extensions
 
@@ -145,7 +145,7 @@ Follow these steps to bootstrap extensions:
 
 1. Create a folder `bootstrap\extensions` in the VS Code installation directory.
 
-1. Download the [VSIX files](/docs/editor/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace) for the extensions that you want to preinstall and place them in the `bootstrap\extensions` folder.
+1. Download the [VSIX files](/docs/editor/extensions/extension-marketplace.md#can-i-download-an-extension-directly-from-the-marketplace) for the extensions that you want to preinstall and place them in the `bootstrap\extensions` folder.
 
 1. When a user launches VS Code for the first time, all extensions in the `bootstrap\extensions` folder are installed silently in the background.
 
