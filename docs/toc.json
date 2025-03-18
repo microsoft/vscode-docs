@@ -305,6 +305,7 @@
         ["Bulk Run", "/docs/intelligentapps/bulkrun"],
         ["Evaluation", "/docs/intelligentapps/evaluation"],
         ["Fine-tune", "/docs/intelligentapps/finetune"],
+        ["Model Conversion", "/docs/intelligentapps/modelconversion"]
         ["FAQ", "/docs/intelligentapps/faq"]
       ]
     },
