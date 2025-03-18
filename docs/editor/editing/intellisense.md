@@ -83,7 +83,7 @@ You can customize your IntelliSense experience in settings and keyboard shortcut
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/editor/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
+The settings shown below are the default settings. You can change these settings in the [Settings editor](/docs/editor/customizing/settings.md#settings-editor) (`kb(workbench.action.openSettings)`).
 
 ```javascript
 {
@@ -165,7 +165,7 @@ By default, VS Code shows snippets and completion proposals in one control. You 
 
 ### Keyboard shortcuts
 
-The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/editor/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
+The keyboard shortcuts shown here are the default keyboard shortcuts. To assign a different keyboard shortcut, use the [Keyboard Shortcuts editor](/docs/editor/customizing/keybindings.md) (`kb(workbench.action.openGlobalKeybindings)`).
 
 | Command | Keybinding |
 | --- | --- |
