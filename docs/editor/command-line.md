@@ -105,6 +105,7 @@ Argument|Description
 ------------------|-----------
 `--extensions-dir <dir>` | Set the root path for extensions.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
 `--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.<br>Overridden in [Portable Mode](/docs/editor/portable.md) by the `data` folder.
+`--install-extension <ext-id or path>` | Installs or updates an extension. The argument is either the Unique Identifier or a path to a VSIX. Use the '--force' argument to update to latest version. To install a specific version provide append @{version}'. For example:vscode.csharp@1.2.3.
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
