@@ -220,7 +220,7 @@ Available refactorings include:
 * Convert between named imports and namespace imports.
 * Move to new file.
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactorings](/docs/editor/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
@@ -407,7 +407,7 @@ Read on to find out about:
 
 * [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
-* [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
+* [IntelliSense](/docs/editor/editing/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.

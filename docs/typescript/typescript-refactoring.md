@@ -25,7 +25,7 @@ To see the available TypeScript refactorings, put your cursor on a region of you
 
 ![TypeScript refactoring](images/refactoring/refactorings.png)
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactorings](/docs/editor/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 Available TypeScript refactorings include:
 

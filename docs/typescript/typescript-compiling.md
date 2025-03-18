@@ -63,7 +63,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 ## Transpile TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 

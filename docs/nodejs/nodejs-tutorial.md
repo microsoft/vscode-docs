@@ -53,7 +53,7 @@ var msg = 'Hello World';
 console.log(msg);
 ```
 
-Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you.
+Note that when you typed `console.` [IntelliSense](/docs/editor/editing/intellisense.md) on the `console` object was automatically presented to you.
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 

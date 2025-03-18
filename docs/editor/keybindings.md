@@ -373,7 +373,7 @@ The list there isn't exhaustive and you can find other `when` clause contexts by
 
 ## Custom keyboard shortcuts for refactorings
 
-The `editor.action.codeAction` command lets you configure keyboard shortcuts for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keyboard shortcut below triggers the **Extract function** refactoring Code Action:
+The `editor.action.codeAction` command lets you configure keyboard shortcuts for specific [Refactorings](/docs/editor/editing/refactoring.md) (Code Actions). For example, the keyboard shortcut below triggers the **Extract function** refactoring Code Action:
 
 ```json
 {
@@ -385,7 +385,7 @@ The `editor.action.codeAction` command lets you configure keyboard shortcuts for
 }
 ```
 
-This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keyboard-shortcuts-for-code-actions) article, where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
+This is covered in depth in the [Refactoring](/docs/editor/editing/refactoring.md#keyboard-shortcuts-for-code-actions) article, where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
 
 ## Related resources
 

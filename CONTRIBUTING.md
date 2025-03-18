@@ -207,7 +207,7 @@ Use '>' to show menu sequence.
 
 ### Links
 
-For links within our own documentation, use a site relative link like `/docs/editor/codebasics.md`.
+For links within our own documentation, use a site relative link like `/docs/editor/editing/codebasics.md`.
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
@@ -219,7 +219,7 @@ To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](pag
 
 Note the subheading title is lowercase and subheading title words are separated by '-' hyphens.
 
->For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
+>For example: `[Keyboard Shortcuts](/docs/editor/editing/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/editing/codebasics#_keyboard-shortcuts.
 
 ### Images
 

@@ -85,8 +85,8 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 * [.NET Docs](https://learn.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.

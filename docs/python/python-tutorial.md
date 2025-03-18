@@ -128,7 +128,7 @@ msg = "Roll a dice!"
 print(msg)
 ```
 
-When you start typing `print`, notice how [IntelliSense](/docs/editor/intellisense.md) presents auto-completion options.
+When you start typing `print`, notice how [IntelliSense](/docs/editor/editing/intellisense.md) presents auto-completion options.
 
 ![IntelliSense appearing for Python code](images/tutorial/intellisense01.png)
 

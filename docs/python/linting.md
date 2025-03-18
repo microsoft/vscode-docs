@@ -61,7 +61,7 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editor/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
+Some linters may offer [Code Actions](/docs/editor/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 
@@ -86,5 +86,5 @@ Linters report issues with some predefined severity. This can be changed using `
 - [Formatting](/docs/python/formatting.md) - Learn about how to format your Python code.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.

@@ -221,10 +221,10 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 
 <!-- link references -->
 [01]: /docs/editor/debugging
-[02]: /docs/editor/editingevolved#_go-to-definition
-[03]: /docs/editor/editingevolved#_open-symbol-by-name
-[04]: /docs/editor/editingevolved#_reference-information
-[05]: /docs/editor/intellisense
+[02]: /docs/editor/editing/editingevolved#_go-to-definition
+[03]: /docs/editor/editing/editingevolved#_open-symbol-by-name
+[04]: /docs/editor/editing/editingevolved#_reference-information
+[05]: /docs/editor/editing/intellisense
 [06]: /docs/editor/settings
 [07]: /docs/editor/themes
 [08]: /docs/editor/userdefinedsnippets

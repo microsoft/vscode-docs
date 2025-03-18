@@ -68,7 +68,7 @@ Check out the other pages on the VS Code site to find out how you can use more c
 
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
 - [User Interface](/docs/getstarted/userinterface.md) - Just starting out with VS Code? This is worth reviewing.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 
 ## Common questions
 

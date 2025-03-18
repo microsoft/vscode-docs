@@ -89,7 +89,7 @@ IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available la
 
 Now you know that VS Code has support for the languages you care about. Read on...
 
-* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Go to Definition and more
+* [Code Navigation](/docs/editor/editing/editingevolved.md) - Peek and Go to Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 
 ## Common questions

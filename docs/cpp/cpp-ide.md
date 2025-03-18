@@ -9,7 +9,7 @@ MetaDescription: How to edit and navigate C++ source files in Visual Studio Code
 ---
 # Editing and Navigating C++ Code
 
-This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
+This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/editing/codebasics.md) and [Code Navigation](/docs/editor/editing/editingevolved.md).
 
 ## Editing C++ code
 
@@ -42,7 +42,7 @@ You can format an entire file with **Format Document** (`kb(editor.action.format
 * `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-To learn more about formatting, see [Formatting](/docs/editor/codebasics.md#formatting).
+To learn more about formatting, see [Formatting](/docs/editor/editing/codebasics.md#formatting).
 
 ### Clang-format
 
@@ -158,8 +158,8 @@ Read on to find out about:
 * [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Basic Editing in VS Code](/docs/editor/codebasics.md)
-* [Code Navigation in VS Code](/docs/editor/editingevolved.md)
+* [Basic Editing in VS Code](/docs/editor/editing/codebasics.md)
+* [Code Navigation in VS Code](/docs/editor/editing/editingevolved.md)
 * [Tasks in VS Code](/docs/editor/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

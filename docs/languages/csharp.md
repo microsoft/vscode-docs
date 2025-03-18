@@ -59,7 +59,7 @@ There is a lot to discover with C# and the editor, such as format on type, Intel
 
 ![Right-click Menu](images/csharp/editingevolved.png)
 
-For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md) documentation.
+For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editor/editing/codebasics.md) and [Code Navigation](/docs/editor/editing/editingevolved.md) documentation.
 
 Here are a few highlights...
 
@@ -137,7 +137,7 @@ Read on to find out about:
 
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
 * [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.

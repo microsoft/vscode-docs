@@ -281,5 +281,5 @@ You must have more that one editor group for these commands to be available.
 Read on to find out about:
 
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.

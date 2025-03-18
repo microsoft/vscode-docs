@@ -195,7 +195,7 @@ VS Code supports many programming languages and in a next step, you'll [install 
 
     Code Actions are suggestions to apply quick fixes to your code. In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``, which is a special JavaScript construct to embed expressions in strings.
 
-Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
+Learn more about code [editing features](/docs/editor/editing/codebasics.md), [IntelliSense](/docs/editor/editing/intellisense.md), [code navigation](/docs/editor/editing/editingevolved.md), and [refactoring](/docs/editor/editing/refactoring.md) in VS Code.
 
 ## Use source control
 

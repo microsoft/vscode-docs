@@ -77,7 +77,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 This step is not required, but it is included to help you understand how to add environment variables that need to be set in the container's environment.
 
-The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
+The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/editing/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
 
 1. Open the `Dockerfile`.
 2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.

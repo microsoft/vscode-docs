@@ -9,7 +9,7 @@ MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
 # Navigate and edit Java source code
 
-Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
+Visual Studio Code is a source code editor first and foremost with rich editing [features](/docs/editor/editing/codebasics.md). In this document, we will go through a few Java-specific features, which are helpful when working with Java.
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 

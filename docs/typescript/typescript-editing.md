@@ -9,7 +9,7 @@ MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
 
-Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editor/codebasics.md).
+Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editor/editing/codebasics.md).
 
 ## IntelliSense
 

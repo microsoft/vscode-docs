@@ -47,7 +47,7 @@ Start typing a header name to filter down the list and find the header you are a
 
 ### Path completions
 
-Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/editing/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
 
 ![Path completions in a Markdown link](images/Markdown/path-completions.png)
 

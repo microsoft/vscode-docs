@@ -5,7 +5,7 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/editing/codebasics.md) to learn more.
 
 If you're just getting started, make sure to check out the [VS Code tutorial](/docs/getstarted/getting-started.md) for a step-by-step to discover the key features.
 
@@ -27,7 +27,7 @@ Extensions can also contribute walkthroughs. You can also directly open a walkth
 
 ![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
 
-If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
+If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/editing/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/editing/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
 
 Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -565,7 +565,7 @@ You can add additional cursors to all occurrences of the current selection with 
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/editor/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/editor/settings.md) . See [Multi-cursor Modifier](/docs/editor/editing/codebasics.md#multicursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
@@ -578,7 +578,7 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Op
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
-You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
+You can also use [keyboard shortcuts](/docs/editor/editing/codebasics.md#column-box-selection) to trigger column selection.
 
 ### Vertical rulers
 
@@ -626,7 +626,7 @@ Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.s
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
 
-You can learn more in the [Basic Editing](/docs/editor/codebasics.md#shrinkexpand-selection) documentation.
+You can learn more in the [Basic Editing](/docs/editor/editing/codebasics.md#shrinkexpand-selection) documentation.
 
 ### Go to Symbol in File
 

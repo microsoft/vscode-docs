@@ -165,8 +165,8 @@ Read on to find out about:
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
 * [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
+* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
 

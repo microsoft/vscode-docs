@@ -184,8 +184,8 @@ You can use the URL in applications such as browsers or file explorers that can 
 Read on to find out about:
 
 * [Integrated Terminal](/docs/terminal/basics.md) - Run command-line tools from inside VS Code.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
+* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn the basics of the VS Code editor.
+* [Code Navigation](/docs/editor/editing/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
 ## Common questions
 

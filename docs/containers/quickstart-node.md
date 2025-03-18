@@ -46,7 +46,7 @@ The extension creates `Dockerfile` and `.dockerignore` files. If you elected to 
 
 ## Add an environment variable to the image
 
-The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action, add an environment variable to your service image by following these steps:
+The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/editing/intellisense.md) to provide auto-completions and contextual help. To see this feature in action, add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image.
