@@ -66,6 +66,7 @@ Alternatively, when you are on an Azure DevOps repository or pull request, you c
 Like in the desktop, you can customize VS Code for the Web through a rich ecosystem of extensions that support just about every back end, language, and service. `vscode.dev` includes URLs that provide shortcuts to common experiences.
 
 We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azurerepos`). Here's a more complete list:
+
 | Service | URL Structure | Docs |
 | --- | --- | --- |
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
