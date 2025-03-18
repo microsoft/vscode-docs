@@ -247,7 +247,7 @@ You can share and experience color themes through VS Code for the Web through th
 
 For instance, you can go to [https://vscode.dev/editor/theme/sdras.night-owl](https://vscode.dev/editor/theme/sdras.night-owl) to experience the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) without having to go through the download and install process.
 
-You can learn more about previewing and sharing themes with in the [VS Code for the Web documentation](/docs/editor/vscode-web.md#themes).
+You can learn more about previewing and sharing themes with in the [VS Code for the Web documentation](/docs/setup/vscode-web.md#themes).
 
 ## Product Icon Themes
 

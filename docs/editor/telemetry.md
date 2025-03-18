@@ -90,7 +90,7 @@ The `purpose` field describes why the data is collected.
 The `endpoint` field describes what data handler the data is sent to. This is normally applied to special data that requires additional scrubbing and security to protect user privacy.
 
 * `GoogleAnalyticsId` - Used on our website for Google Analytics and tracking page views. These are handled in a more sensitive manner than our normal data.
-* `MacAddressHash` - Used to identify a user of VS Code. This is hashed once on the client side and then hashed again on the pipeline side to make it impossible to identify a given user. On [VS Code for the Web](/docs/editor/vscode-web.md), a UUID is generated for this case.
+* `MacAddressHash` - Used to identify a user of VS Code. This is hashed once on the client side and then hashed again on the pipeline side to make it impossible to identify a given user. On [VS Code for the Web](/docs/setup/vscode-web.md), a UUID is generated for this case.
 * `none` - Data does not require any special handling.
 
 ## GDPR and VS Code

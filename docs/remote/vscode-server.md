@@ -100,7 +100,7 @@ Pure UI extensions are not supported when using a web-based instance of VS Code,
 
 ### Are there browser limitations?
 
-While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/editor/vscode-web.md#additional-browser-setup) documentation.
+While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/setup/vscode-web.md#additional-browser-setup) documentation.
 
 ### How can I keep the VS Code Server up-to-date?
 

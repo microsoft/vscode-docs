@@ -102,7 +102,7 @@ For example, try browsing to [https://vscode.dev/theme/sdras.night-owl](https://
 
 [![Night Owl color theme in vscode.dev](night-owl-theme-vscode-dev.png)](/assets/blogs/2021/10/20/night-owl-theme-vscode-dev.png)
 
-Here you can experience the popular [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) color theme by [@sarah_edo](https://twitter.com/sarah_edo) "live", without having to go through the download and install process, just to see if you like it. No install necessary! If you are a theme author, you can even create a badge in your `README.md` to let users test drive your theme directly from the Marketplace (learn more in the [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web#_themes) user guide).
+Here you can experience the popular [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) color theme by [@sarah_edo](https://twitter.com/sarah_edo) "live", without having to go through the download and install process, just to see if you like it. No install necessary! If you are a theme author, you can even create a badge in your `README.md` to let users test drive your theme directly from the Marketplace (learn more in the [VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web#_themes) user guide).
 
 Feel free to use this URL to share your favorite themes with friends. Personally, I'm a big fan of [@wesbos](https://twitter.com/wesbos)' [Cobalt2](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2) theme, check out [https://vscode.dev/theme/wesbos.theme-cobalt2](https://vscode.dev/theme/wesbos.theme-cobalt2). Note, the `theme` URL only works with themes that are fully declarative (no code).
 

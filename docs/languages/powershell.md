@@ -231,7 +231,7 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
 [10]: /docs/getstarted/userinterface#_outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer
-[12]: https://code.visualstudio.com/docs/editor/vscode-web
+[12]: https://code.visualstudio.com/docs/setup/vscode-web
 [13]: https://code.visualstudio.com/docs/remote/remote-overview
 [14]: https://code.visualstudio.com/docs/remote/vscode-server
 [15]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/
