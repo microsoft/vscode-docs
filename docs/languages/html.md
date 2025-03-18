@@ -168,7 +168,7 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 Read on to find out about:
 
 * [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
-* [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
+* [Emmet](/docs/languages/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 * [Emmet official documentation](https://docs.emmet.io/) - Emmet, the essential toolkit for web-developers.
 
 ## Common questions

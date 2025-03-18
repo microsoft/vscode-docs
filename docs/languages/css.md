@@ -67,7 +67,7 @@ If you prefer to switch to indentation based folding for CSS, Less and SCSS, use
 
 ## Emmet snippets
 
-[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
+[Emmet abbreviation support](/docs/languages/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
