@@ -297,7 +297,7 @@ Let's debug the `hello.py` program that you created in the previous step.
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
+There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugtest/debugging.md).
 
 ## Enhance your coding with AI and GitHub Copilot
 
@@ -341,7 +341,7 @@ There's a lot more you can do with Copilot in VS Code. Discover more about GitHu
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-- [Discover and run unit tests for your code](/docs/editor/testing.md)
+- [Discover and run unit tests for your code](/docs/editor/debugtest/testing.md)
 
 - [Use the integrated terminal](/docs/terminal/getting-started.md)
 

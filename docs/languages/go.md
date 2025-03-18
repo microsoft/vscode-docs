@@ -139,7 +139,7 @@ Select the area for refactoring (for example variable, function body, etc.). Cli
 
 The Go extension lets you debug Go code by utilizing the [Delve](https://github.com/go-delve/delve) debugger.
 
-Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/wiki/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugtest/debugging.md).
 
 Some features unique to Go are:
 

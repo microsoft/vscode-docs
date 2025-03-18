@@ -119,7 +119,7 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ### Configure the debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugtest/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 

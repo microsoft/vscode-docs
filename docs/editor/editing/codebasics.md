@@ -460,7 +460,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
 * [IntelliSense](/docs/editor/editing/intellisense.md) - VS Code brings smart code completions.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Debugging](/docs/editor/debugtest/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
 

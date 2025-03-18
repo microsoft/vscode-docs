@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has an integrated terminal to enable working
 ---
 # Terminal Basics
 
-Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
+Visual Studio Code includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/debugtest/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
 You can open a terminal as follows:
 
@@ -214,7 +214,7 @@ Dragging a file into the terminal will input the path into the terminal, with es
 
 ## Automating terminals with tasks
 
-The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching of terminals, for example, the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
+The [Tasks](/docs/editor/debugtest/tasks.md) feature can be used to automate the launching of terminals, for example, the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
 
 ```jsonc
 {
@@ -317,7 +317,7 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
 * [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
-* [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
+* [Tasks](/docs/editor/debugtest/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
 

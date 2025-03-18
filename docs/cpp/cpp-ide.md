@@ -160,6 +160,6 @@ Read on to find out about:
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
 * [Basic Editing in VS Code](/docs/editor/editing/codebasics.md)
 * [Code Navigation in VS Code](/docs/editor/editing/editingevolved.md)
-* [Tasks in VS Code](/docs/editor/tasks.md)
+* [Tasks in VS Code](/docs/editor/debugtest/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

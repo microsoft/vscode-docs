@@ -54,7 +54,7 @@ Selecting a command starts Jupyter (if necessary, which might take a minute), th
 
 You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `# %%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
 
-You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](/docs/editor/debugging.md) for details).
+You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](/docs/editor/debugtest/debugging.md) for details).
 
 ### Additional commands and keyboard shortcuts
 
@@ -178,7 +178,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
     - For the whole notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Jupyter: Debug Current File in Python Interactive Window** command.
     - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Debug Just My Code** in the Jupyter extension settings (`kb(workbench.action.openSettings)`).
 
-1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
+1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugtest/debugging.md).
 
 1. As you find issues, stop the debugger, correct your code, save the file, and start the debugger again.
 

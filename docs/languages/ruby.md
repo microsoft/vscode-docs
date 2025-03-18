@@ -156,7 +156,7 @@ in a new terminal or launch the debugger. For these uses, no configuration is re
 
 ### Debugging through launch tasks
 
-To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugging-configuration.md#launch-configurations)
+To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugtest/debugging-configuration.md#launch-configurations)
 in a `launch.json` file. The configuration lets you configure the program to be executed.
 
 To create a `launch.json` for a Ruby program:

@@ -34,16 +34,16 @@ The following diagram shows the main components of the debugger user interface:
 
 1. Define a debugging configuration for your project.
 
-    For simple applications, VS Code tries to run and debug the currently active file. For more complex applications or debugging scenarios, you need to create a `launch.json` file to specify the debugger configuration. Get more information about creating a [debug configuration](/docs/editor/debugging-configuration.md).
+    For simple applications, VS Code tries to run and debug the currently active file. For more complex applications or debugging scenarios, you need to create a `launch.json` file to specify the debugger configuration. Get more information about creating a [debug configuration](/docs/editor/debugtest/debugging-configuration.md).
 
     > [!TIP]
-    > Copilot in VS Code can help generate the `launch.json` file for you. For more information, see [Use Copilot to generate debugging configurations](/docs/editor/debugging-configuration.md#generate-a-launch-configuration-with-ai).
+    > Copilot in VS Code can help generate the `launch.json` file for you. For more information, see [Use Copilot to generate debugging configurations](/docs/editor/debugtest/debugging-configuration.md#generate-a-launch-configuration-with-ai).
 
 1. Set breakpoints in your code.
 
     A breakpoint is a marker that you can set on a line of code to tell the debugger to pause execution when it reaches that line. You can set breakpoints by clicking in the gutter next to the line number in the editor.
 
-    For more information about breakpoints, see [Working with Breakpoints](/docs/editor/debugging.md#breakpoints).
+    For more information about breakpoints, see [Working with Breakpoints](/docs/editor/debugtest/debugging.md#breakpoints).
 
 ## Start a debugging session
 
@@ -55,7 +55,7 @@ To start a debugging session in VS Code, perform the following steps:
 
     ![Simplified initial Run and Debug view](images/debugging/debug-start.png)
 
-    For more complex debugging scenarios like attaching to a running process, you need to create a `launch.json` file to specify the debugger configuration. Get more information about [debug configurations](/docs/editor/debugging-configuration.md).
+    For more complex debugging scenarios like attaching to a running process, you need to create a `launch.json` file to specify the debugger configuration. Get more information about [debug configurations](/docs/editor/debugtest/debugging-configuration.md).
 
 1. Choose the debugger you want to use from the list of available debuggers.
 
@@ -271,7 +271,7 @@ To learn about debugging support for other programming languages via VS Code ext
 
 To learn about VS Code's task running support, go to:
 
-* [Tasks](/docs/editor/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
+* [Tasks](/docs/editor/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
 
 To write your own debugger extension, visit:
 

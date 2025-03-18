@@ -446,7 +446,7 @@ VS Code can process the output from a task with a problem matcher. Problem match
 * **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
 * **Node Sass compiler**: `$node-sass` assumes that file names are reported as an absolute path.
 
-You can also create your own problem matcher, which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
+You can also create your own problem matcher, which we'll discuss [in a later section](/docs/editor/debugtest/tasks.md#defining-a-problem-matcher).
 
 ## Binding keyboard shortcuts to tasks
 
@@ -893,7 +893,7 @@ That was tasks - let's keep going...
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
-* [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
+* [Debugging](/docs/editor/debugtest/debugging.md) - Debug your source code directly in the VS Code editor.
 
 ## Common questions
 
@@ -962,7 +962,7 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
 }
 ```
 
-For more on background tasks, go to [Background / watching tasks](/docs/editor/tasks.md#background-watching-tasks).
+For more on background tasks, go to [Background / watching tasks](/docs/editor/debugtest/tasks.md#background-watching-tasks).
 
 ### Why do I get "command not found" when running a task?
 

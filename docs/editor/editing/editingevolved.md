@@ -145,7 +145,7 @@ Some languages support rename symbol across files. Press `kb(editor.action.renam
 
 ## Errors & warnings
 
-Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
+Warnings or Errors can be generated either via [configured tasks](/docs/editor/debugtest/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
 * In the Status Bar, there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
@@ -198,7 +198,7 @@ Now that you know how the editor works, time to try a few other things...
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/editor/customizing/keybindings.md) - Learn how to modify keyboard shortcuts to your preference.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Debugging](/docs/editor/debugtest/debugging.md) - This is where VS Code really shines.
 
 ## Common questions
 

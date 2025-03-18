@@ -240,7 +240,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Run tests with coverage
 
-Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/testing#_test-coverage.md).
+Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/debugtest/testing#_test-coverage.md).
 > **Tip**: Running Python tests with coverage is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
 
 To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the “Run with coverage” option from any menu you normally trigger test runs from. The Python extension will run coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
@@ -254,7 +254,7 @@ For finer grain control of your coverage run when using pytest, you can edit the
 
 ## Debug tests
 
-You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugging.md) articles.
+You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugtest/debugging.md) articles.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 

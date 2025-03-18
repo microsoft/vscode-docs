@@ -328,8 +328,8 @@ VS Code supports folder level extension recommendations through the `extensions.
 ## Next steps
 
 * [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) - More about single-folder and multi-root workspaces.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Tasks](/docs/editor/tasks.md) - Tasks let you run external tools like compilers within VS Code.
+* [Debugging](/docs/editor/debugtest/debugging.md) - Learn how to set up debugging for your application.
+* [Tasks](/docs/editor/debugtest/tasks.md) - Tasks let you run external tools like compilers within VS Code.
 
 ## Common questions
 

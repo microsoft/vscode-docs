@@ -220,7 +220,7 @@ choosing **Install Another Version...**.
 If you find a bug, [open an issue][22] and revert to the stable version while we fix it.
 
 <!-- link references -->
-[01]: /docs/editor/debugging
+[01]: /docs/editor/debugtest/debugging
 [02]: /docs/editor/editing/editingevolved#_go-to-definition
 [03]: /docs/editor/editing/editingevolved#_open-symbol-by-name
 [04]: /docs/editor/editing/editingevolved#_reference-information

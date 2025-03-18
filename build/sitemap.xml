@@ -231,17 +231,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugging</loc>
+        <loc>https://code.visualstudio.com/docs/editor/debugtest/debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugging-configuration</loc>
+        <loc>https://code.visualstudio.com/docs/editor/debugtest/debugging-configuration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/testing</loc>
+        <loc>https://code.visualstudio.com/docs/editor/debugtest/testing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -256,7 +256,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/tasks</loc>
+        <loc>https://code.visualstudio.com/docs/editor/debugtest/tasks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

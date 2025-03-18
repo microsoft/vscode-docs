@@ -76,4 +76,4 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 Read on to find out about:
 
 * [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md) - Browse the extensions others have shared
-* [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging
+* [Debugging](/docs/editor/debugtest/debugging.md) - Learn more about VS Code debugging

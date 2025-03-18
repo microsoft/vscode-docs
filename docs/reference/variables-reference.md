@@ -5,7 +5,7 @@ MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files, and for some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files by using the **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugtest/debugging.md) and [Task](/docs/editor/debugtest/tasks.md) configuration files, and for some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files by using the **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -286,7 +286,7 @@ Not all values in `tasks.json` support variable substitution. Specifically, only
 
 ### How can I know a variable's actual value?
 
-One easy way to check a variable's runtime value is to create a VS Code [task](/docs/editor/tasks.md) to output the variable value to the console. For example, to see the resolved value for `${workspaceFolder}`, you can create and run (**Terminal** > **Run Task**) the following simple 'echo' task in `tasks.json`:
+One easy way to check a variable's runtime value is to create a VS Code [task](/docs/editor/debugtest/tasks.md) to output the variable value to the console. For example, to see the resolved value for `${workspaceFolder}`, you can create and run (**Terminal** > **Run Task**) the following simple 'echo' task in `tasks.json`:
 
 ```json
 {
@@ -303,5 +303,5 @@ One easy way to check a variable's runtime value is to create a VS Code [task](/
 
 ## Related resources
 
-- [Debugging](/docs/editor/debugging.md)
-- [Tasks](/docs/editor/tasks.md)
+- [Debugging](/docs/editor/debugtest/debugging.md)
+- [Tasks](/docs/editor/debugtest/tasks.md)

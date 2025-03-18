@@ -209,7 +209,7 @@ You can download the official Visual Studio Code icons and read the usage guidel
 
 ## What is a VS Code "workspace"?
 
-A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/editor/customizing/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/editor/customizing/settings.md) as well as config files for [debugging](/docs/editor/debugtest/debugging.md) and [tasks](/docs/editor/debugtest/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
 
 You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) article.
 

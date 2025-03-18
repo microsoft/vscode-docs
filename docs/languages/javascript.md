@@ -380,7 +380,7 @@ Type checking of JavaScript is optional and opt-in. Existing JavaScript validati
 
 ## Debugging
 
-VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugging.md) to learn more.
+VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See the [Debugging topic](/docs/editor/debugtest/debugging.md) to learn more.
 
 ### Debug client side
 
@@ -408,7 +408,7 @@ Read on to find out about:
 * [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
 * [IntelliSense](/docs/editor/editing/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
-* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [Debugging](/docs/editor/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
 

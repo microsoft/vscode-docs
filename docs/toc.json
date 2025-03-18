@@ -67,10 +67,10 @@
         "name": "Build, Debug, Test",
         "area": "editor/debugtest",
         "topics": [
-          ["Tasks", "/docs/editor/tasks"],
-          ["Debugging", "/docs/editor/debugging"],
-          ["Debug Configuration", "/docs/editor/debugging-configuration"],
-          ["Testing", "/docs/editor/testing"]
+          ["Tasks", "/docs/editor/debugtest/tasks"],
+          ["Debugging", "/docs/editor/debugtest/debugging"],
+          ["Debug Configuration", "/docs/editor/debugtest/debugging-configuration"],
+          ["Testing", "/docs/editor/debugtest/testing"]
         ]
       }],
       ["", "", {

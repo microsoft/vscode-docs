@@ -138,6 +138,6 @@ Read on to find out about:
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
-* [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
+* [Tasks](/docs/editor/debugtest/tasks.md) - Use tasks to build your project and more.
+* [Debugging](/docs/editor/debugtest/debugging.md) - Find out how to use the debugger with your project.
 * [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.

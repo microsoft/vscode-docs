@@ -223,5 +223,5 @@ Read on to find out more about Visual Studio Code:
 
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+* [Tasks](/docs/editor/debugtest/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/editor/debugtest/debugging.md) - find out how to use the debugger with your project

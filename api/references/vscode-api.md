@@ -8162,7 +8162,7 @@ diagnostics collection and a resource.</p>
 <div class="details collapse" id="details-1411">
 <div class="comment"><p>The name of this diagnostic collection, for instance <code>typescript</code>. Every diagnostic
 from this collection will be associated with this name. Also, the task framework uses this
-name when defining <a href="https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
+name when defining <a href="https://code.visualstudio.com/docs/editor/debugtest/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
 </div>
 </div>
 

@@ -263,7 +263,7 @@ Let's debug the Hello World program, we created earlier. First we will set a bre
 <!--
 ### Using launch.json
 
-For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/editor/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
+For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/editor/debugtest/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
 
 To create a `launch.json` for a Rust program:
 

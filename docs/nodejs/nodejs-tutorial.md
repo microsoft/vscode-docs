@@ -202,8 +202,8 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 * [Node.js profile template](/docs/editor/customizing/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets.
 * [Settings](/docs/editor/customizing/settings.md) - Learn how to customize VS Code for how you like to work.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Debugging](/docs/editor/debugtest/debugging.md) - This is where VS Code really shines.
 * [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn how to use debugging in VS Code.
 * [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
 * [Debugging recipes](/docs/nodejs/debugging-recipes.md) - Examples for scenarios like client-side and container debugging.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.
+* [Tasks](/docs/editor/debugtest/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.

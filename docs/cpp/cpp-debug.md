@@ -105,7 +105,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 * Call stack
 * Stepping
 
-For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugtest/debugging.md).
 
 For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
@@ -167,7 +167,7 @@ Read on to find out about:
 * [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
+* [Tasks](/docs/editor/debugtest/tasks.md) - use tasks to build your project and more.
+* [Debugging](/docs/editor/debugtest/debugging.md) - find out about the Visual Studio Code debugger.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).

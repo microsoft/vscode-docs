@@ -135,7 +135,7 @@ code --disable-extensions .
 
 ### .vscode folder
 
-Workspace-specific configuration files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
+Workspace-specific configuration files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/debugtest/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugtest/debugging.md).
 
 ## Status Bar
 
@@ -961,7 +961,7 @@ Quickly compare the active file with the contents of the clipboard with the **Fi
 
 From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which prompts you to select the environment that matches your project (Node.js, Python, C++, and more). This generates a `launch.json` file in your workspace that contains the debugger configuration.
 
-Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugging.md) for more details.
+Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugtest/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure-debug.png)
 
@@ -969,7 +969,7 @@ Node.js support is built-in and other environments require installing the approp
 
 Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Breakpoints in the editor margin are normally shown as red filled circles.
 
-Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugging.md#debug-actions) in the debugging documentation.
+Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugtest/debugging.md#debug-actions) in the debugging documentation.
 
 ![debug](images/tips-and-tricks/node_debug.gif)
 
@@ -1002,7 +1002,7 @@ Tasks in VS Code can be configured to run scripts and start processes so that th
 ### Auto detect tasks
 
 Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
-This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
+This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/debugtest/tasks.md) documentation for more details.
 
 ```json
 {
