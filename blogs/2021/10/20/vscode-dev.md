@@ -56,7 +56,7 @@ As a result, when in the browser, experiences generally fall into the following 
 
 ## Extensions
 
-Most UI customization extensions such as themes, key maps, and snippets all work in vscode.dev and you can even enable roaming between the browser, the desktop, and GitHub Codespaces through [Settings Sync](https://code.visualstudio.com/docs/editor/customizing/settings-sync).
+Most UI customization extensions such as themes, key maps, and snippets all work in vscode.dev and you can even enable roaming between the browser, the desktop, and GitHub Codespaces through [Settings Sync](https://code.visualstudio.com/docs/editor/advanced/settings-sync).
 
 Extensions that run Node.js code that use OS-specific modules, or shell out to local executables, still show in search results, but are clearly marked as unavailable.
 

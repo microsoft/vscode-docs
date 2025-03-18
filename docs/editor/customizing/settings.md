@@ -327,11 +327,11 @@ The first time you open a workspace that defines any of these settings, VS Code 
 
 ## Settings Sync
 
-You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/customizing/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/advanced/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
 
 ![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
 
-You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/customizing/settings-sync.md) user guide.
+You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/advanced/settings-sync.md) user guide.
 
 > [!NOTE]
 > VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
@@ -355,7 +355,7 @@ Experimental and preview features enable you to try out new features and provide
 ## Related resources
 
 * [VS Code default settings reference](/docs/reference/default-settings.md)
-* [Synchronize settings across machines](/docs/editor/customizing/settings-sync.md)
+* [Synchronize settings across machines](/docs/editor/advanced/settings-sync.md)
 
 ## Common questions
 

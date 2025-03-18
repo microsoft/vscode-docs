@@ -129,7 +129,7 @@ This makes this extension available in all your profiles. You can always revert 
 
 ## Synchronize profiles across machines
 
-You can use [Settings Sync](/docs/editor/customizing/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
+You can use [Settings Sync](/docs/editor/advanced/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
 
 ![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 

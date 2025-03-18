@@ -35,7 +35,7 @@ To install an extension, select the **Install** button. Once the installation is
 
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
-When [Settings Sync](/docs/editor/customizing/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+When [Settings Sync](/docs/editor/advanced/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
 
 ### Find and install an extension
 
@@ -193,7 +193,7 @@ VS Code extensions may have very different configurations and requirements. Some
 
 ## Command line extension management
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/advanced/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
 
 Example:
 
@@ -337,7 +337,7 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/editor/command-line.md).
+You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/editor/advanced/command-line.md).
 
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
@@ -381,7 +381,7 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/editor/customizing/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/editor/advanced/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 

@@ -191,7 +191,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/telemetry</loc>
+        <loc>https://code.visualstudio.com/docs/editor/advanced/telemetry</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -246,7 +246,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/command-line</loc>
+        <loc>https://code.visualstudio.com/docs/editor/advanced/command-line</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -261,7 +261,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/settings-sync</loc>
+        <loc>https://code.visualstudio.com/docs/editor/advanced/settings-sync</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -271,7 +271,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/port-forwarding</loc>
+        <loc>https://code.visualstudio.com/docs/editor/advanced/port-forwarding</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

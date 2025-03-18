@@ -94,10 +94,10 @@
         "name": "Advanced Features",
         "area": "editor/advanced",
         "topics": [
-          ["Settings Sync", "/docs/editor/customizing/settings-sync"],
-          ["Port Forwarding", "/docs/editor/port-forwarding"],
-          ["Command Line Interface", "/docs/editor/command-line"],
-          ["Telemetry", "/docs/editor/telemetry"]
+          ["Settings Sync", "/docs/editor/advanced/settings-sync"],
+          ["Port Forwarding", "/docs/editor/advanced/port-forwarding"],
+          ["Command Line Interface", "/docs/editor/advanced/command-line"],
+          ["Telemetry", "/docs/editor/advanced/telemetry"]
         ]
       }]
     ]

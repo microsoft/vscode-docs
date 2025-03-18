@@ -215,7 +215,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Sync user global state between machines
 
-If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/editor/customizing/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
+If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/editor/advanced/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
 
 There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities#data-storage) topic.
 

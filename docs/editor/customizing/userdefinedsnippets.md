@@ -284,7 +284,7 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Next steps
 
-* [Command Line](/docs/editor/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
+* [Command Line](/docs/editor/advanced/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
 

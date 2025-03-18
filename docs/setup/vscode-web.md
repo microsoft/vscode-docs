@@ -164,7 +164,7 @@ Only a subset of extensions can run in the browser. You can use the Extensions v
 
 ![Limited extension support](images/vscode-web/extension-limit.png)
 
-When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/customizing/settings-sync).
+When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/advanced/settings-sync).
 
 When an Extension Pack contains extensions that do not run in the browser sandbox, you will get an informational message with the option to see the extensions included in the pack.
 

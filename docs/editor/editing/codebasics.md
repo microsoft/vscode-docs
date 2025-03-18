@@ -449,7 +449,7 @@ To compare any two files:
 * To start a comparison between two empty editor windows, select **File: Compare New Untitled Text Files** from the Command Palette.
 
 > [!TIP]
-> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
+> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/advanced/command-line.md#core-cli-options).
 
 ## Next steps
 

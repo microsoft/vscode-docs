@@ -31,7 +31,7 @@ Publishers for extensions that you installed previously are considered trusted a
 You can manage the list of trusted extensions by using the **Extensions: Manage Trusted Extensions Publishers** command.
 
 > [!IMPORTANT]
-> When you install extensions by using the [VS Code command line](/docs/editor/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
+> When you install extensions by using the [VS Code command line](/docs/editor/advanced/command-line.md#working-with-extensions), the extension's publisher is not automatically trusted.
 
 ## Determine extension reliability
 

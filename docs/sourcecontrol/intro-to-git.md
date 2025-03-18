@@ -20,7 +20,7 @@ With GitHub Copilot in VS Code, you can get suggestions for commit messages, pul
 
 To use Git and GitHub in VS Code, first make sure you [have Git installed on your computer](https://git-scm.com/downloads). If Git is missing, the **Source Control** view shows instructions on how to install it. Make sure to restart VS Code afterwards.
 
-Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/editor/customizing/settings-sync.md), but also cloning and publishing repositories from GitHub.
+Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/editor/advanced/settings-sync.md), but also cloning and publishing repositories from GitHub.
 
 ![Screenshot of the Accounts menu in VS Code](images/intro/vscode-accounts-menu.png)
 
