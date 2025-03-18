@@ -153,8 +153,6 @@ To avoid abuse of the underlying tunneling service, there are usage limits in pl
 
 For instance, right now you can have 10 tunnels registered for your account. If you'd like to create a new tunnel and already have 10 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.
 
-If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.
-
 ### Can I configure policies across my organization?
 
 If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.

@@ -97,13 +97,14 @@
         ["Overview", "/docs/copilot/overview"],
         ["Setup", "/docs/copilot/setup"],
         ["Copilot Quickstart", "/docs/copilot/getting-started"],
+        ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
         ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
         ["Copilot Chat", "/docs/copilot/copilot-chat"],
         ["Copilot Chat Tutorial", "/docs/copilot/getting-started-chat"],
         ["Copilot Edits", "/docs/copilot/copilot-edits"],
         ["Adding Chat Context", "/docs/copilot/copilot-chat-context"],
-        ["Customizing Copilot", "/docs/copilot/copilot-customization"],
-        ["Best Practices", "/docs/copilot/prompt-crafting"],
+        ["Personalize Copilot", "/docs/copilot/copilot-customization"],
+        ["Prompt Engineering", "/docs/copilot/prompt-crafting"],
         ["Workspace Context", "/docs/copilot/workspace-context"],
         ["", "", {
           "name": "Guides",
@@ -300,9 +301,11 @@
         ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
         ["Models", "/docs/intelligentapps/models"],
         ["Playground", "/docs/intelligentapps/playground"],
+        ["Prompt Builder", "/docs/intelligentapps/promptbuilder"],
         ["Bulk Run", "/docs/intelligentapps/bulkrun"],
         ["Evaluation", "/docs/intelligentapps/evaluation"],
         ["Fine-tune", "/docs/intelligentapps/finetune"],
+        ["Model Conversion", "/docs/intelligentapps/modelconversion"]
         ["FAQ", "/docs/intelligentapps/faq"]
       ]
     },

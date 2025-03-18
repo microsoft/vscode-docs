@@ -78,17 +78,70 @@ The topics in this repository use Markdown.  Here is a good overview of [Markdow
 
 ## Topic Metadata
 
-Topic metadata enables certain functionalities for the topics such as table of contents order, topic descriptions, and online search optimization as well as aiding Microsoft in evaluating the effectiveness of the content.
+Topic metadata enables certain functionalities for the topics such as topic description and online search optimization.
 
-* **Order** - This is the order that is used in the left rail TOC, the page is left out of the TOC if this is blank.
-* **Area** - General area within VS Code. Corresponds to the high-level Table of Contents (TOC) node.
-* **TOCTitle** - The title used in the left rail Table of Contents for this page.
-* **PageTitle** - The title used in the HTML title for the page and in search results.
+The page title is taken from the first H1 heading in the topic.
+
 * **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
 * **DateApproved** - The date of the most recent update or review. It is displayed at the bottom of an article to indicate freshness. The date should be updated in a significant PR.
 * **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
+
+## Table of contents
+
+The table of contents (TOC) is defined in the `/docs/toc.yml` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.yml` file, it will not be included in the left rail navigation.
+
+To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.yml` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
+
+The order in which the topics are listed in the `/docs/toc.yml` file determines the order in which they are displayed in the left rail navigation.
+
+Each topic in the TOC has two attributes:
+
+* TOC title: the title that is displayed in the left rail navigation.
+* File name: the relative path to the topic file in the format `/docs/<subfolder>/<filename-without-md>`.
+
+The following example shows a `Getting Started` section that has two topics.
+
+```yaml
+    {
+      "name": "Getting Started",
+      "area": "getstarted",
+      "topics": [
+        ["VS Code Tutorial", "/docs/getstarted/getting-started"],
+        ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"]
+      ]
+    },
+```
+
+To create a subsection within a section, add a subsection entry to the `topics` attribute. A subsection entry has the following attributes:
+
+* TOC Title: empty string
+* File name: empty string
+* Subsection: a subsection entry with the same format as a section entry. It has a `name` attribute, an `area` attribute, and a `topics` attribute.
+
+The following example shows a `Guides` subsection with two topics, within the `GitHub Copilot` section.
+
+```yaml
+    {
+      "name": "GitHub Copilot",
+      "area": "copilot",
+      "topics": [
+        ["Overview", "/docs/copilot/overview"],
+        ["Setup", "/docs/copilot/setup"],
+        ["", "", {
+          "name": "Guides",
+          "area": "copilot/guides",
+          "topics": [
+            ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
+            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ]
+        }
+        ],
+        ["FAQ", "/docs/copilot/faq"]
+      ]
+    },
+```
 
 ## Product name
 
