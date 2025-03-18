@@ -258,7 +258,7 @@ After you enable that setting, VS Code should work with the Orca screen reader.
 
 Read on to find out about:
 
-* [Voice interactions](/docs/editor/voice.md) - Learn how to use voice commands in VS Code.
+* [Voice interactions](/docs/editor/accessibility/voice.md) - Learn how to use voice commands in VS Code.
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.

@@ -258,7 +258,7 @@ With the voice control capabilities in VS Code, provided by the [VS Code Speech]
 * Use the "Hey Code" voice command to start a voice session with Copilot Chat
 * Accelerate voice input for chat by using the "hold to speak" mode
 
-Learn more about how to [use voice interactions in VS Code](/docs/editor/voice.md).
+Learn more about how to [use voice interactions in VS Code](/docs/editor/accessibility/voice.md).
 
 ## Privacy and transparency
 

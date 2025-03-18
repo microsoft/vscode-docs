@@ -86,8 +86,8 @@
         "name": "Accessibility",
         "area": "editor/accessibility",
         "topics": [
-          ["Accessibility", "/docs/editor/accessibility"],
-          ["Voice Interactions", "/docs/editor/voice"]
+          ["Accessibility", "/docs/editor/accessibility/accessibility"],
+          ["Voice Interactions", "/docs/editor/accessibility/voice"]
         ]
       }],
       ["", "", {
