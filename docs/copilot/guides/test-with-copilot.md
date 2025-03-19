@@ -99,5 +99,5 @@ To get the best results when generating tests with Copilot, follow these tips:
 ## Next steps
 
 * Learn more about [Copilot in VS Code](/docs/copilot/overview.md).
-* Explore [general testing features in VS Code](/docs/editor/debugtest/testing.md).
+* Explore [general testing features in VS Code](/docs/debugtest/testing.md).
 * Check out example prompts for [generating unit tests](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests)

@@ -23,7 +23,7 @@ New to coding? Visual Studio Code highlights keywords in your code in different 
 
 ### Fix errors as you code
 
-As you code, Visual Studio Code gives you suggestions to complete lines of code and quick fixes for common mistakes. You can also use the debugger in VS Code to step through each line of code and understand what is happening. Check out guides on how to use the debugger if you're coding in [Python](/docs/python/debugging.md), [Java](/docs/java/java-debugging.md#configure), and [JavaScript/TypeScript/Node.js](/docs/editor/debugtest/debugging.md#start-debugging).
+As you code, Visual Studio Code gives you suggestions to complete lines of code and quick fixes for common mistakes. You can also use the debugger in VS Code to step through each line of code and understand what is happening. Check out guides on how to use the debugger if you're coding in [Python](/docs/python/debugging.md), [Java](/docs/java/java-debugging.md#configure), and [JavaScript/TypeScript/Node.js](/docs/debugtest/debugging.md#start-debugging).
 
 ### Make it yours with custom themes and colors
 

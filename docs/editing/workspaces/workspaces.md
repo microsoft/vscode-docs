@@ -14,7 +14,7 @@ A Visual Studio Code *workspace* is the collection of one or more folders that a
 The concept of a workspace enables VS Code to:
 
 * Configure settings that only apply to a specific folder or folders but not others.
-* Persist [task](/docs/editor/debugtest/tasks.md) and [debugger launch](/docs/editor/debugtest/debugging.md) configurations that are only valid in the context of that workspace.
+* Persist [task](/docs/debugtest/tasks.md) and [debugger launch](/docs/debugtest/debugging.md) configurations that are only valid in the context of that workspace.
 * Store and restore UI state associated with that workspace (for example, the files that are opened).
 * Selectively enable or disable extensions only for that workspace.
 
@@ -36,7 +36,7 @@ code .
 
 You don't have to do anything for a folder to become a VS Code workspace other than open the folder with VS Code. Once you open a folder, VS Code automatically keeps track of configuration, such as your open files or editor layout. When you reopen that folder in VS Code, the editor will be as you left it previously.
 
-You can also add other folder-specific configurations, such as workspace-specific [settings](/docs/configure/settings.md) (versus global user settings), [task definitions](/docs/editor/debugtest/tasks.md), and [debugging launch](/docs/editor/debugtest/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
+You can also add other folder-specific configurations, such as workspace-specific [settings](/docs/configure/settings.md) (versus global user settings), [task definitions](/docs/debugtest/tasks.md), and [debugging launch](/docs/debugtest/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
 
 ![Single-folder workspace](images/workspaces/single-folder-workspace.png)
 
@@ -113,7 +113,7 @@ Similar to how [workspace settings](#workspace-settings) are specific to a works
 
 Depending on whether you have a folder opened as workspace or a `.code-workspace` file, the location of workspace task and launch configurations is either inside the `.vscode` folder, or inside the `.code-workspace` file. In addition, task and launch configurations can always be defined at the level of a folder, even when you have opened a `.code-workspace` file.
 
-Refer to [tasks](/docs/editor/debugtest/tasks.md) and [debugging](/docs/editor/debugtest/debugging.md) chapters for a more comprehensive overview of how to use tasks and launch configurations in VS Code.
+Refer to [tasks](/docs/debugtest/tasks.md) and [debugging](/docs/debugtest/debugging.md) chapters for a more comprehensive overview of how to use tasks and launch configurations in VS Code.
 
 ## Common questions
 

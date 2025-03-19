@@ -41,7 +41,7 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 ### Tasks
 
-VS Code [tasks](/docs/editor/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. If someone would create a malicious task, it could be unknowingly run by anyone who cloned that repository.
+VS Code [tasks](/docs/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. If someone would create a malicious task, it could be unknowingly run by anyone who cloned that repository.
 
 If you try to run or even enumerate tasks (**Tasks** > **Run Task**) while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder and can continue executing the task. If you cancel the dialog, VS Code stays in Restricted Mode.
 
@@ -49,7 +49,7 @@ If you try to run or even enumerate tasks (**Tasks** > **Run Task**) while in Re
 
 ### Debugging
 
-Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/editor/debugtest/debugging.md) is also disabled when a folder is open in Restricted Mode.
+Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/debugtest/debugging.md) is also disabled when a folder is open in Restricted Mode.
 
 If you try to start a debug session (**Debug** > **Start Debugging**) while in Restricted Mode, VS Code displays a prompt to confirm that you trust the folder and can continue launching the debugger. If you cancel the dialog, VS Code stays in Restricted Mode, and does not start the debug session.
 

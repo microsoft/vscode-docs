@@ -82,7 +82,7 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 
 ## Debugging
 
-You can take advantage of VS Code's [Debugging](/docs/editor/debugtest/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debugger-extension) that connect VS Code's debugging UI to a specific debugger or runtime.
+You can take advantage of VS Code's [Debugging](/docs/debugtest/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debugger-extension) that connect VS Code's debugging UI to a specific debugger or runtime.
 
 **Extension Ideas**
 

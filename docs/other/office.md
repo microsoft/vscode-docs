@@ -41,7 +41,7 @@ Within your project, you can view and configure your [manifest](https://learn.mi
 
 Debugging your add-in's client-side JavaScript code varies based on your development environment. To assist you with debugging on certain platforms, see [Overview of debugging Office Add-ins](https://learn.microsoft.com/office/dev/add-ins/testing/debug-add-ins-overview).
 
-If you are using [Node.js](https://nodejs.org/) or [ASP.NET Core](https://asp.net) for server-side logic to support your Office Add-in, refer to the [Debugging](/docs/editor/debugtest/debugging.md) page to configure VS Code for debugging either of these runtimes.
+If you are using [Node.js](https://nodejs.org/) or [ASP.NET Core](https://asp.net) for server-side logic to support your Office Add-in, refer to the [Debugging](/docs/debugtest/debugging.md) page to configure VS Code for debugging either of these runtimes.
 
 ### Sideload your add-in for testing
 

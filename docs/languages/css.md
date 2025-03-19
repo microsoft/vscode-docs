@@ -117,7 +117,7 @@ The same settings also exist for `less` and `scss`.
 
 ## Transpiling Sass and Less into CSS
 
-VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/debugtest/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
+VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
 
 ### Step 1: Install a Sass or Less transpiler
 
@@ -333,7 +333,7 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 
 Read on to find out about:
 
-* [Configure Tasks](/docs/editor/debugtest/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
+* [Configure Tasks](/docs/debugtest/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.

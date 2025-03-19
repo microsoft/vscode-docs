@@ -45,8 +45,8 @@ Let's take a closer look at `Hello World` sample's source code and see how these
 
 You can read more about the configuration files:
 
-- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugtest/debugging)
-- `tasks.json` for defining VS Code [Tasks](/docs/editor/debugtest/tasks)
+- `launch.json` used to configure VS Code [Debugging](/docs/debugtest/debugging)
+- `tasks.json` for defining VS Code [Tasks](/docs/debugtest/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 However, let's focus on `package.json` and `extension.ts`, which are essential to understanding the `Hello World` extension.

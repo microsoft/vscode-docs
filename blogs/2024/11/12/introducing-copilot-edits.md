@@ -33,7 +33,7 @@ Working Sets, together with the Undo and Redo functionality, gives you precise c
 
 ![Screenshot of the inline changes, showing the Accept / Discard widget](changes.png)
 
-Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/editor/debugtest/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
+Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/debugtest/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
 
 Using your [voice](https://code.visualstudio.com/docs/configure/accessibility/voice) is a natural experience while using Copilot Edits. Just talking to Copilot makes the back-and-forth smooth and conversational. It almost feels like interacting with a colleague that is an area expert, using the same kind of iterative flow that you would use in real life pair programming.
 

@@ -231,17 +231,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugtest/debugging</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugtest/debugging-configuration</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/debugging-configuration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugtest/testing</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/testing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -256,7 +256,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugtest/tasks</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/tasks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -271,7 +271,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/debugtest/port-forwarding</loc>
+        <loc>https://code.visualstudio.com/docs/debugtest/port-forwarding</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

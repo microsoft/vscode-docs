@@ -156,7 +156,7 @@ One of the simplest refactorings is to rename a method or variable. Press `kb(ed
 
 ## Debugging
 
-VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) and the overall [Debugging topic](/docs/editor/debugtest/debugging.md) to learn more.
+VS Code comes with great debugging support for TypeScript, including support for sourcemaps. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) and the overall [Debugging topic](/docs/debugtest/debugging.md) to learn more.
 
 ### Debug client side
 

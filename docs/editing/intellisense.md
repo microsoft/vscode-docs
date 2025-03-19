@@ -202,7 +202,7 @@ A particular language extension may not support all the VS Code IntelliSense fea
 
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
-* [Debugging](/docs/editor/debugtest/debugging.md) - Learn how to set up debugging for your application.
+* [Debugging](/docs/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
 * [GitHub Copilot in VS Code](/docs/copilot/overview.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 

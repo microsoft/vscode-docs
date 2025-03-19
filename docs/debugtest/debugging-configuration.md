@@ -8,7 +8,7 @@ MetaSocialImage: images/debugging/debugging-social.png
 
 For complex debugging scenarios or applications, you need to create a `launch.json` file to specify the debugger configuration. For example, to specify the application entry point, attach to a running application, or to set environment variables.
 
-To learn more about debugging in VS Code, see [Debugging in Visual Studio Code](/docs/editor/debugtest/debugging.md).
+To learn more about debugging in VS Code, see [Debugging in Visual Studio Code](/docs/debugtest/debugging.md).
 
 > [!TIP]
 > Copilot in VS Code can help you create a launch configuration for your project. Get more info about [generating a launch configuration with Copilot](#generate-a-launch-configuration-with-ai).
@@ -19,7 +19,7 @@ For simple applications or debugging scenarios, you can run and debug a program 
 
 However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
-VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
+VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
 
 The following snippet describes a sample configuration for debugging a Node.js application:
 
@@ -133,8 +133,8 @@ The following attributes are mandatory for every launch configuration:
 Here are some optional attributes available to all launch configurations:
 
 * `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
-* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/editor/debugtest/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
-* `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/debugtest/tasks.md) (in the workspace's `.vscode` folder).
+* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
+* `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/debugtest/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug console panel during a debugging session.
 * `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
 * `serverReadyAction` - if you want to open a URL in a web browser whenever the program under debugging outputs a specific message to the debug console or integrated terminal. For details see section [Automatically open a URI when debugging a server program](#automatically-open-a-uri-when-debugging-a-server-program) below.
@@ -363,7 +363,7 @@ Here the **serverReadyAction** feature in action:
 
 ## Next steps
 
-* [Tasks](/docs/editor/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
+* [Tasks](/docs/debugtest/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
 * [Variables Reference](/docs/reference/variables-reference.md) - Describes the variables available in VS Code.
 
 ## Common questions

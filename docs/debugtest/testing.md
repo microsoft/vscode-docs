@@ -30,7 +30,7 @@ VS Code has the following features for testing your code:
 
 * **Integrated test results**: view the test status inline in the editor alongside the test code, or view all tests in the Test Explorer. Detailed test results are available in the Test Results panel.
 
-* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/editor/debugtest/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
+* **Debugging**: [debug](#run-and-debug-tests) your tests to diagnose test failures. Take advantage of the rich [debugging support](/docs/debugtest/debugging.md) in VS Code, such as breakpoints, watch variables, and more.
 
 * **Test coverage**: [run tests with coverage](#test-coverage) to see how much of your code is covered by your tests.
 
@@ -204,7 +204,7 @@ The following code snippet shows a `tasks.json` file that specifies the `node --
 
 To run the test task, use the command **Tasks: Run Test Task** or [create a keyboard shortcut](/docs/configure/keybindings.md) for the command.
 
-Learn more about [using and configuring Tasks](/docs/editor/debugtest/tasks.md).
+Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md).
 
 > [!NOTE]
 > Currently, tasks don't have special integration into VS Code's testing functionality, so running tests in a task won't update the user interface. Individual testing extensions can provide specific test automation functionality that integrates in the UI.
@@ -230,4 +230,4 @@ You can find all testing-related settings in the Settings editor (`kb(workbench.
 
 * Learn more about [Copilot and AI-assisted testing in VS Code](/docs/copilot/overview.md)
 
-* Learn more about [using and configuring Tasks](/docs/editor/debugtest/tasks.md)
+* Learn more about [using and configuring Tasks](/docs/debugtest/tasks.md)

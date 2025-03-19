@@ -52,9 +52,9 @@ In VS Code, we have two core concepts for debugging: **Launch** and **Attach**, 
 
 If you come from a browser DevTools background, you aren't used to the concept of "launching from your tool" since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a Java background, it's quite normal to have your editor **launch** your Java process for you, and your editor automatically attaches its debugger to the newly launched process.
 
-The best way to explain the difference between **launch** and **attach** is to think about [launch configurations](/docs/editor/debugtest/debugging#_launch-configurations) as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an [attach config](/docs/editor/debugtest/debugging#_launchjson-attributes) is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
+The best way to explain the difference between **launch** and **attach** is to think about [launch configurations](/docs/debugtest/debugging#_launch-configurations) as a recipe for how to start your app in debug mode **before** VS Code attaches to it, while an [attach config](/docs/debugtest/debugging#_launchjson-attributes) is a recipe for how to connect VS Code's debugger to an app or process that's **already** running.
 
-The value of [launch configurations](/docs/editor/debugtest/debugging#_launch-configurations) is that they give you a way to offload some of the cognitive overhead of launching your app with the right debugging parameters by creating a configuration that's repeatable and shareable with your project and team.
+The value of [launch configurations](/docs/debugtest/debugging#_launch-configurations) is that they give you a way to offload some of the cognitive overhead of launching your app with the right debugging parameters by creating a configuration that's repeatable and shareable with your project and team.
 
 However, when we talked to developers about how they were launching their applications, we saw a pattern and made one important observation:
 

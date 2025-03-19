@@ -84,11 +84,11 @@
     "name": "Build, Debug, Test",
     "area": "debugtest",
     "topics": [
-      ["Tasks", "/docs/editor/debugtest/tasks"],
-      ["Debugging", "/docs/editor/debugtest/debugging"],
-      ["Debug Configuration", "/docs/editor/debugtest/debugging-configuration"],
-      ["Testing", "/docs/editor/debugtest/testing"],
-      ["Port Forwarding", "/docs/editor/debugtest/port-forwarding"],
+      ["Tasks", "/docs/debugtest/tasks"],
+      ["Debugging", "/docs/debugtest/debugging"],
+      ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
+      ["Testing", "/docs/debugtest/testing"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
     ]
   },
 

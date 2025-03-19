@@ -88,7 +88,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
-* [Tasks](/docs/editor/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
+* [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
 * [.NET Docs](https://learn.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
 * [Get Started with F# in Visual Studio Code](https://learn.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)

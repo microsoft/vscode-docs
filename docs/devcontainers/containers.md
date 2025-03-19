@@ -532,7 +532,7 @@ You can also use the `code` command line from this same terminal window to perfo
 
 Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
 
-See the [debugging](/docs/editor/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Container specific settings
 

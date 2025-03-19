@@ -79,7 +79,7 @@ The Python extension can apply a number of different linters including Pylint, p
 
 No more `print` statement debugging! VS Code comes with great debugging support for Python via the [Python Debugger extension](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy), allowing you to set breakpoints, inspect variables, and use the debug console for an in-depth look at how your program is executing step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
 
-For more specific information on debugging in Python, such as configuring your `launch.json` settings and implementing remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugtest/debugging.md).
+For more specific information on debugging in Python, such as configuring your `launch.json` settings and implementing remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/debugtest/debugging.md).
 
 Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials provide examples of how to implement debugging in the context of web applications, including debugging Django templates.
 

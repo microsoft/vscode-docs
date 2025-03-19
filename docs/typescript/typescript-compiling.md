@@ -63,7 +63,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 ## Transpile TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 
@@ -123,7 +123,7 @@ Notice that the task has a `group` JSON object that sets the task `kind` to `bui
 
 ### Step 4: Reviewing build issues
 
-The VS Code task system can also detect build issues through a [problem matcher](/docs/editor/debugtest/tasks.md#defining-a-problem-matcher). A problem matcher parses build output based on the specific build tool and provides integrated issue display and navigation. VS Code ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
+The VS Code task system can also detect build issues through a [problem matcher](/docs/debugtest/tasks.md#defining-a-problem-matcher). A problem matcher parses build output based on the specific build tool and provides integrated issue display and navigation. VS Code ships with many problem matchers and `$tsc` seen above in `tasks.json` is the problem matcher for TypeScript compiler output.
 
 As an example, if there was a simple error (extra 'g' in `console.log`) in our TypeScript file, we may get the following output from `tsc`:
 
@@ -137,7 +137,7 @@ You can see the error and warning counts in the Status Bar. Click on the error a
 
 You can also use the keyboard to open the list `kb(workbench.actions.view.problems)`.
 
->**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/debugtest/tasks.md) topic for more information on how to configure them.
+>**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/debugtest/tasks.md) topic for more information on how to configure them.
 
 ## JavaScript source map support
 

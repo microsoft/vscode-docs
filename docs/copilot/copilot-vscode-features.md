@@ -114,7 +114,7 @@ Use chat variables in your chat prompt to reference context that is relevant to 
 | `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
 | `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
 | `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
-| `#testFailure` | Add test failure information as context. Useful when running and diagnosing [tests](/docs/editor/debugtest/testing.md). |
+| `#testFailure` | Add test failure information as context. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
 | `#VSCodeAPI` | Add the VS Code API as context to your prompt to ask questions related to VS Code extension development. |
 
 ## Copilot in the editor

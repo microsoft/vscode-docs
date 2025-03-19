@@ -55,7 +55,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
-* [Tasks](/docs/editor/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
+* [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.

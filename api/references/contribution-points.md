@@ -1036,7 +1036,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/debugtest/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
