@@ -852,7 +852,7 @@ Git integration comes "out-of-the-box" with VS Code. You can install other sourc
 
 VS Code shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
 
-![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/1_97/scm-git-blame.png)
+![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/tips-and-tricks/scm-git-blame.png)
 
 To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
 
