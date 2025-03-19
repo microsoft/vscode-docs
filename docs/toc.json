@@ -43,7 +43,7 @@
         ]
       }],
       ["", "", {
-        "name": "Customize VS Code",
+        "name": "Customize",
         "area": "editor/customizing",
         "topics": [
           ["Themes", "/docs/editor/customizing/themes"],
@@ -78,7 +78,7 @@
         "name": "Workspaces",
         "area": "editor/workspaces",
         "topics": [
-          ["Workspaces", "/docs/editor/workspaces/workspaces"],
+          ["Overview", "/docs/editor/workspaces/workspaces"],
           ["Multi-root Workspaces", "/docs/editor/workspaces/multi-root-workspaces"],
           ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"]
         ]
@@ -87,7 +87,7 @@
         "name": "Accessibility",
         "area": "editor/accessibility",
         "topics": [
-          ["Accessibility", "/docs/editor/accessibility/accessibility"],
+          ["Overview", "/docs/editor/accessibility/accessibility"],
           ["Voice Interactions", "/docs/editor/accessibility/voice"]
         ]
       }],
