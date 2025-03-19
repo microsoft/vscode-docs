@@ -95,11 +95,11 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editor/customizing/userdefinedsnippets.md) that are suggested as you type.
+In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type.
 
 ![TypeScript 'for' snippet suggestions](images/typescript/ts-snippets.png)
 
-You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editing/userdefinedsnippets.md) for more information.
 
 > **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/configure/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 

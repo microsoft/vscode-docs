@@ -33,5 +33,5 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * [User and Workspace Settings](/docs/configure/settings.md) - Configure user and workspace settings.
 * [Key Bindings](/docs/configure/keybindings.md) - See the default keyboard shortcuts (key bindings) for editing, navigation, and more.
-* [Snippets](/docs/editor/customizing/userdefinedsnippets.md) - Create your own custom snippets.
+* [Snippets](/docs/editing/userdefinedsnippets.md) - Create your own custom snippets.
 * [Themes](/docs/configure/themes.md) - Change your Color Theme to customize VS Code's background text and language syntax colorization.

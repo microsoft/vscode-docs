@@ -13,7 +13,7 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
->**Note**: If you'd like to learn more about the VS Code "workspace" concept, you can review [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) Unless you are explicitly creating a multi-root workspace, a "workspace" is just your project's single root folder.
+>**Note**: If you'd like to learn more about the VS Code "workspace" concept, you can review [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) Unless you are explicitly creating a multi-root workspace, a "workspace" is just your project's single root folder.
 
 ## Adding folders
 
@@ -327,7 +327,7 @@ VS Code supports folder level extension recommendations through the `extensions.
 
 ## Next steps
 
-* [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) - More about single-folder and multi-root workspaces.
+* [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) - More about single-folder and multi-root workspaces.
 * [Debugging](/docs/editor/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Tasks](/docs/editor/debugtest/tasks.md) - Tasks let you run external tools like compilers within VS Code.
 

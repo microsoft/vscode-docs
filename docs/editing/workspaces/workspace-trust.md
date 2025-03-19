@@ -21,7 +21,7 @@ It's great that there is so much source code available on public repositories an
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
-> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editor/workspaces/workspaces.md) as a folder with extra metadata created and used by VS Code.
+> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editing/workspaces/workspaces.md) as a folder with extra metadata created and used by VS Code.
 
 ## Restricted Mode
 
@@ -198,7 +198,7 @@ If you would prefer to not be prompted when opening files from outside trusted w
 
 ### Opening untrusted folders
 
-When working with [multi-root workspaces](/docs/editor/workspaces/multi-root-workspaces.md) with multiple folders, if you try to add a new folder to a trusted multi-root workspace, you are prompted to decide if you trust the files in that folder or if not, the entire workspace will switch to Restricted Mode.
+When working with [multi-root workspaces](/docs/editing/workspaces/multi-root-workspaces.md) with multiple folders, if you try to add a new folder to a trusted multi-root workspace, you are prompted to decide if you trust the files in that folder or if not, the entire workspace will switch to Restricted Mode.
 
 ![Untrusted folder dialog](images/workspace-trust/untrusted-folder-dialog.png)
 
@@ -248,7 +248,7 @@ Paths a little weird
 Learn more at:
 
 * [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
-* [What is a VS Code "workspace"?](/docs/editor/workspaces/workspaces.md) - Find out more details about the VS Code "workspace" concept.
+* [What is a VS Code "workspace"?](/docs/editing/workspaces/workspaces.md) - Find out more details about the VS Code "workspace" concept.
 * [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
 
 ## Common questions

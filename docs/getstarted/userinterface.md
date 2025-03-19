@@ -78,7 +78,7 @@ You can move editors into their own floating windows with the **Move into New Wi
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
 
-If you have [folding markers](/docs/editor/editing/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
+If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
 
 ![minimap](images/userinterface/minimap.png)
 
@@ -106,7 +106,7 @@ The editor has a navigation bar at the top, also called [breadcrumbs](https://en
 
 ![Breadcrumbs](images/userinterface/breadcrumbs.png)
 
-You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editing/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editing/editingevolved.md) article.
+You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editing/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editing/editingevolved.md) article.
 
 ## Explorer view
 

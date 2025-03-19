@@ -27,7 +27,7 @@ The Outline view is a great way to review your document's header structure and o
 
 VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editing/userdefinedsnippets.md) to find out how.
 
 ### Go to header in file
 
@@ -47,7 +47,7 @@ Start typing a header name to filter down the list and find the header you are a
 
 ### Path completions
 
-Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/editing/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editing/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
 
 ![Path completions in a Markdown link](images/Markdown/path-completions.png)
 
@@ -105,7 +105,7 @@ For example, if you want every Markdown file under `/docs` in your workspace to 
 
 Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
 
-You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/customizing/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
+You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editing/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
 
 ```jsonc
 "markdown.copyFiles.destination": {

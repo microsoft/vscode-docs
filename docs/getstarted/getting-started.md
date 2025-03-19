@@ -39,14 +39,14 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
     Because you created the folder on your computer, you can trust the code in the folder.
 
     > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editor/workspaces/workspace-trust.md).
+    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
 
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
 
 > [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editor/workspaces/workspaces.md).
+> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
 
 ## Explore the user interface
 
@@ -195,7 +195,7 @@ VS Code supports many programming languages and in a next step, you'll [install 
 
     Code Actions are suggestions to apply quick fixes to your code. In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``, which is a special JavaScript construct to embed expressions in strings.
 
-Learn more about code [editing features](/docs/editor/editing/codebasics.md), [IntelliSense](/docs/editor/editing/intellisense.md), [code navigation](/docs/editor/editing/editingevolved.md), and [refactoring](/docs/editor/editing/refactoring.md) in VS Code.
+Learn more about code [editing features](/docs/editing/codebasics.md), [IntelliSense](/docs/editing/intellisense.md), [code navigation](/docs/editing/editingevolved.md), and [refactoring](/docs/editing/refactoring.md) in VS Code.
 
 ## Use source control
 

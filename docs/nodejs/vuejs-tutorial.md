@@ -99,7 +99,7 @@ The Vue - Official extension in VS Code enhances the Vue.js development experien
 To use Peek Definition, follow these steps:
 1. Place the cursor over `App`.
 2. Right-click, hover over **Peek** in the context menu, and select **Peek Definition**.
-3. A [Peek window](/docs/editor/editing/editingevolved.md#peek) will open, displaying the `App` definition from `App.js`.
+3. A [Peek window](/docs/editing/editingevolved.md#peek) will open, displaying the `App` definition from `App.js`.
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png)
 

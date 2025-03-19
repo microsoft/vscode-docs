@@ -272,7 +272,7 @@ By default, VS Code comes with one Product Icon Theme, **Default**. You can sele
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these articles:
 
 * [Settings](/docs/configure/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Snippets](/docs/editor/customizing/userdefinedsnippets.md) - Add extra snippets to your favorite language.
+* [Snippets](/docs/editing/userdefinedsnippets.md) - Add extra snippets to your favorite language.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.
 * [File Icon Theme](/api/extension-guides/file-icon-theme.md) - File Icon Theme extension API.

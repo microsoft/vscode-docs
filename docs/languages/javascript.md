@@ -58,13 +58,13 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more 
 
 ## Snippets
 
-VS Code includes basic JavaScript [snippets](/docs/editor/customizing/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic JavaScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
 
 <video src="images/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/customizing/userdefinedsnippets.md).
+There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editing/userdefinedsnippets.md).
 
 > [!TIP]
 > To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/configure/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
@@ -220,7 +220,7 @@ Available refactorings include:
 * Convert between named imports and namespace imports.
 * Move to new file.
 
-See [Refactorings](/docs/editor/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactorings](/docs/editing/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 Additionally, **Code Action Widget: Include Nearby Quick Fixes** (`setting(editor.codeActionWidget.includeNearbyQuickFixes)`) is a setting that is enabled on default, which will activate the nearest Quick Fix in a line from `kb(editor.action.quickFix)` (command ID `editor.action.quickFix`), no matter where your cursor is in that line.
 
@@ -407,7 +407,7 @@ Read on to find out about:
 
 * [Working with JavaScript](/docs/nodejs/working-with-javascript.md) - More detailed information about VS Code's JavaScript support and how to troubleshoot common issues.
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
-* [IntelliSense](/docs/editor/editing/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
+* [IntelliSense](/docs/editing/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [Debugging](/docs/editor/debugtest/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.

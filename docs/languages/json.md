@@ -186,7 +186,7 @@ This is an example in a JSON schema:
 Use the property `defaultSnippets` to specify any number of snippets for the given JSON object.
 
 - `label` and `description` will be shown in the completion selection dialog. If no label is provided, a stringified object representation of the snippet will be shown as label instead.
-- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](/docs/editor/customizing/userdefinedsnippets.md#snippet-syntax) can be used inside strings literals to define tabstops, placeholders, and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
+- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](/docs/editing/userdefinedsnippets.md#snippet-syntax) can be used inside strings literals to define tabstops, placeholders, and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
 
 Note that `defaultSnippets` is not part of the JSON schema specification but a VS Code-specific schema extension.
 

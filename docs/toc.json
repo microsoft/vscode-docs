@@ -64,18 +64,18 @@
     "name": "Edit code",
     "area": "editing",
     "topics": [
-      ["Basic Editing", "/docs/editor/editing/codebasics"],
-      ["IntelliSense", "/docs/editor/editing/intellisense"],
-      ["Code Navigation", "/docs/editor/editing/editingevolved"],
-      ["Refactoring", "/docs/editor/editing/refactoring"],
-      ["Snippets", "/docs/editor/customizing/userdefinedsnippets"],
+      ["Basic Editing", "/docs/editing/codebasics"],
+      ["IntelliSense", "/docs/editing/intellisense"],
+      ["Code Navigation", "/docs/editing/editingevolved"],
+      ["Refactoring", "/docs/editing/refactoring"],
+      ["Snippets", "/docs/editing/userdefinedsnippets"],
       ["", "", {
         "name": "Workspaces",
-        "area": "workspaces",
+        "area": "editing/workspaces",
         "topics": [
-          ["Overview", "/docs/editor/workspaces/workspaces"],
-          ["Multi-root Workspaces", "/docs/editor/workspaces/multi-root-workspaces"],
-          ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"]
+          ["Overview", "/docs/editing/workspaces/workspaces"],
+          ["Multi-root Workspaces", "/docs/editing/workspaces/multi-root-workspaces"],
+          ["Workspace Trust", "/docs/editing/workspaces/workspace-trust"]
         ]
       }]
     ]

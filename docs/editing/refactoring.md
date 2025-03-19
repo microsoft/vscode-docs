@@ -158,7 +158,7 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 ## Next steps
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
-* [Code Navigation](/docs/editor/editing/editingevolved) - VS Code lets you move quickly through your source code.
+* [Code Navigation](/docs/editing/editingevolved) - VS Code lets you move quickly through your source code.
 * [Debugging](/docs/editor/debugtest/debugging.md) - Learn about debugging with VS Code.
 
 ## Common questions

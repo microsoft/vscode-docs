@@ -64,7 +64,7 @@ You are now ready to start editing with Visual Studio Code. Double-clicking on a
 * Go to symbol
 * Hover
 
-Two topics that will help you are [Basic Editing](/docs/editor/editing/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references, and more.
+Two topics that will help you are [Basic Editing](/docs/editing/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references, and more.
 
 ![editing evolved example](images/unity/peekreferences.png)
 
@@ -89,6 +89,6 @@ Alternatively, you can modify the `.vscode/launch.json` file in your project and
 
 Read on to learn more about:
 
-* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
-* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [C#](/docs/languages/csharp.md) - Learn about the C# support in Visual Studio Code.

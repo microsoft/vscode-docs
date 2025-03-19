@@ -890,8 +890,8 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 That was tasks - let's keep going...
 
 * [tasks.json Schema](/docs/reference/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
-* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugtest/debugging.md) - Debug your source code directly in the VS Code editor.
 

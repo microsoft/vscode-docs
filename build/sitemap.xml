@@ -196,12 +196,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/editing/codebasics</loc>
+        <loc>https://code.visualstudio.com/docs/editing/codebasics</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/editing/editingevolved</loc>
+        <loc>https://code.visualstudio.com/docs/editing/editingevolved</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -216,12 +216,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/editing/intellisense</loc>
+        <loc>https://code.visualstudio.com/docs/editing/intellisense</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/editing/refactoring</loc>
+        <loc>https://code.visualstudio.com/docs/editing/refactoring</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -431,7 +431,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/userdefinedsnippets</loc>
+        <loc>https://code.visualstudio.com/docs/editing/userdefinedsnippets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

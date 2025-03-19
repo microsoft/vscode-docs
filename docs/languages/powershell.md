@@ -221,13 +221,13 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 
 <!-- link references -->
 [01]: /docs/editor/debugtest/debugging
-[02]: /docs/editor/editing/editingevolved#_go-to-definition
-[03]: /docs/editor/editing/editingevolved#_open-symbol-by-name
-[04]: /docs/editor/editing/editingevolved#_reference-information
-[05]: /docs/editor/editing/intellisense
+[02]: /docs/editing/editingevolved#_go-to-definition
+[03]: /docs/editing/editingevolved#_open-symbol-by-name
+[04]: /docs/editing/editingevolved#_reference-information
+[05]: /docs/editing/intellisense
 [06]: /docs/configure/settings
 [07]: /docs/configure/themes
-[08]: /docs/editor/customizing/userdefinedsnippets
+[08]: /docs/editing/userdefinedsnippets
 [09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
 [10]: /docs/getstarted/userinterface#_outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer

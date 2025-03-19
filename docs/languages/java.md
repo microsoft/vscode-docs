@@ -115,7 +115,7 @@ In Visual Studio Code, a "Workspace" means a collection of one or more filesyste
 
 A "folder workspace" is presented by VS Code when you open a filesystem folder (directory) in VS Code.
 
-A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/workspaces/multi-root-workspaces.md).
+A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editing/workspaces/multi-root-workspaces.md).
 
 ### Java projects in VS Code
 
@@ -147,7 +147,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 
 ### Code Completion
 
-[IntelliSense](/docs/editor/editing/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
+[IntelliSense](/docs/editing/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
 <video autoplay loop muted playsinline controls title="Java inline code completions and hovers">
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
@@ -221,7 +221,7 @@ Learn more about Java in VS Code:
 
 Read on to find out more about Visual Studio Code:
 
-* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/debugtest/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugtest/debugging.md) - find out how to use the debugger with your project

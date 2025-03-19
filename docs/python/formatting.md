@@ -119,6 +119,6 @@ If formatting fails, check the following possible causes:
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.

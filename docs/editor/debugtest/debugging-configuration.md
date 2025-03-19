@@ -19,7 +19,7 @@ For simple applications or debugging scenarios, you can run and debug a program 
 
 However, for most debugging scenarios you need to create a debugging configuration (_launch configuration_). For example, to specify the application entry point, attach to a running application, or set environment variables. Creating a launch configuration file is also beneficial because it allows you to configure and save debugging setup details with your project.
 
-VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editor/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
+VS Code stores debugging configuration information in a `launch.json` file located in the `.vscode` folder in your workspace (project root folder), or in your [user settings](/docs/editor/debugtest/debugging-configuration.md#global-launch-configuration) or [workspace settings](/docs/editing/workspaces/multi-root-workspaces.md#workspace-launch-configurations).
 
 The following snippet describes a sample configuration for debugging a Node.js application:
 

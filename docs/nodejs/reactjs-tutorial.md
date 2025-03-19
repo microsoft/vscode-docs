@@ -65,7 +65,7 @@ As you start typing in `index.js`, you'll see smart suggestions or completions.
 
 ![React IntelliSense suggestions](images/reactjs/suggestions.png)
 
-After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/editing/intellisense.md).
+After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editing/intellisense.md).
 
 ![React IntelliSense](images/reactjs/intellisense.png)
 
@@ -77,7 +77,7 @@ If you select a method, you'll also get parameter help:
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editor/editing/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right click and select **Peek Definition**. A [Peek window](/docs/editing/editingevolved.md#peek) will open showing the `App` definition from `App.js`.
 
 ![React Peek definition](images/reactjs/peek-definition.png)
 

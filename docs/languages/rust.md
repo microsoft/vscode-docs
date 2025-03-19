@@ -76,7 +76,7 @@ cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+>**Note**: Enable [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
@@ -131,7 +131,7 @@ When you first open a Rust project, you can watch rust-analyzer's progress in th
 
 ### Inlay hints
 
-One of the first things you may notice is rust-analyzer providing [inlay hints](/docs/editor/editing/editingevolved.md#inlay-hints) to show inferred types, return values, named parameters in light text in the editor.
+One of the first things you may notice is rust-analyzer providing [inlay hints](/docs/editing/editingevolved.md#inlay-hints) to show inferred types, return values, named parameters in light text in the editor.
 
 ![Rust program with inlay hints displayed](images/rust/inlay-hints.png)
 
@@ -284,9 +284,9 @@ If you have any issues or feature requests, feel free to log them in the rust-an
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 
 ## Common questions
 

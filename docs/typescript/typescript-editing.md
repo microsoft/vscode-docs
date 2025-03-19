@@ -9,7 +9,7 @@ MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
 
-Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editor/editing/codebasics.md).
+Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editing/codebasics.md).
 
 ## IntelliSense
 
@@ -37,11 +37,11 @@ Signature help is shown automatically when you type a `(` or `,` within a functi
 
 ## Snippets
 
-VS Code includes basic TypeScript [snippets](/docs/editor/customizing/userdefinedsnippets.md) that are suggested as you type;
+VS Code includes basic TypeScript [snippets](/docs/editing/userdefinedsnippets.md) that are suggested as you type;
 
 ![Typescript snippets](images/editing/ts-snippets.png)
 
-You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) for more information.
+You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editing/userdefinedsnippets.md) for more information.
 
 > [!TIP]
 > You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/configure/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.

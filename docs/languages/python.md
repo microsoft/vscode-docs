@@ -49,7 +49,7 @@ For a more specific walkthrough and other ways of running code, see the [run cod
 
 ## Autocomplete and IntelliSense
 
-The Python extension supports code completion and IntelliSense using the currently selected interpreter. [IntelliSense](/docs/editor/editing/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+The Python extension supports code completion and IntelliSense using the currently selected interpreter. [IntelliSense](/docs/editing/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 IntelliSense quickly shows methods, class members, and documentation as you type. You can also trigger completions at any time with `kb(editor.action.triggerSuggest)`. Hovering over identifiers will show more information about them.
 
@@ -156,7 +156,7 @@ The extensions shown above are dynamically queried. Click on an extension tile a
 
 - [Python Hello World tutorial](/docs/python/python-tutorial.md) - Get started with Python in VS Code.
 - [Editing Python](/docs/python/editing.md) - Learn about auto-completion, formatting, and refactoring for Python.
-- [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 - [Django tutorial](/docs/python/tutorial-django.md)
 - [Flask tutorial](/docs/python/tutorial-flask.md)

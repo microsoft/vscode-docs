@@ -66,7 +66,7 @@ If there is an unknown symbol in your C++ code and the C/C++ Extension identifie
 Read on to find out about:
 
 * [C++ Code Navigation](/docs/cpp/cpp-ide.md)
-* [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Tasks](/docs/editor/debugtest/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugtest/debugging.md) - find out how to use the debugger with your project
 

@@ -147,7 +147,7 @@ For example, to use Emmet HTML abbreviations inside JavaScript:
 }
 ```
 
-We also support [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md).
+We also support [User Defined Snippets](/docs/editing/userdefinedsnippets.md).
 
 ## HTML custom data
 

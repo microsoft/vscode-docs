@@ -286,7 +286,7 @@ We'll always offer word completion, but for the rich [languages](/docs/languages
 
 JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
-Learn more in the [IntelliSense document](/docs/editor/editing/intellisense.md).
+Learn more in the [IntelliSense document](/docs/editing/intellisense.md).
 
 ## Formatting
 
@@ -457,9 +457,9 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Code Navigation](/docs/editor/editing/editingevolved.md) - Peek and Goto Definition, and more.
+* [Code Navigation](/docs/editing/editingevolved.md) - Peek and Goto Definition, and more.
 * [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
-* [IntelliSense](/docs/editor/editing/intellisense.md) - VS Code brings smart code completions.
+* [IntelliSense](/docs/editing/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugtest/debugging.md) - This is where VS Code really shines.
 
 ## Common questions

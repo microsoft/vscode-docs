@@ -19,7 +19,7 @@ Work together remotely with your teachers or classmates using the free [Live Sha
 
 ### Code to learn
 
-New to coding? Visual Studio Code highlights keywords in your code in different colors to help you easily identify coding patterns and learn faster. You can also take advantage of features like [IntelliSense](/docs/editor/editing/intellisense.md#intellisense-features) and [Peek Definition](/docs/editor/editing/editingevolved.md#peek), which help you understand how functions can be used, and how they relate to one another.
+New to coding? Visual Studio Code highlights keywords in your code in different colors to help you easily identify coding patterns and learn faster. You can also take advantage of features like [IntelliSense](/docs/editing/intellisense.md#intellisense-features) and [Peek Definition](/docs/editing/editingevolved.md#peek), which help you understand how functions can be used, and how they relate to one another.
 
 ### Fix errors as you code
 
