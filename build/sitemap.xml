@@ -271,7 +271,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/advanced/port-forwarding</loc>
+        <loc>https://code.visualstudio.com/docs/editor/debugtest/port-forwarding</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
