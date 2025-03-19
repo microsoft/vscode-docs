@@ -31,11 +31,11 @@ Each extension in the list includes a brief description, the publisher, the down
 To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
 > [!IMPORTANT]
-> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/editor/extensions/extension-runtime-security.md) and how to protect yourself from malicious extensions.
+> Extensions have the same permissions as VS Code itself. As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher. Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md) and how to protect yourself from malicious extensions.
 
 If you want to install a specific version of an extension, right-click the extension and select **Install Another Version**. You can then select a version from the available list.
 
-When [Settings Sync](/docs/editor/advanced/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
+When [Settings Sync](/docs/configure/settings-sync.md) is enabled, you can share your VS Code configurations, such as extensions, across your machines. To install an extension and not sync it across your machines, right-click the extension and select **Install (Do not Sync)**.
 
 ### Find and install an extension
 
@@ -156,7 +156,7 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 VS Code checks for extension updates and installs them automatically. After an update, you are prompted to restart the extension host (**Restart Extensions**).
 
-If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/editor/customizing/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
+If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Update for All Extensions** command or the corresponding action in the Extensions view. You can also configure the `setting(extensions.autoUpdate)` [setting](/docs/configure/settings.md). Use the **Enable Auto Update for All Extensions** command to re-enable auto update.
 
 ![Disable auto update for all extensions action](images/extension-marketplace/disable-auto-update-all-extensions.png)
 
@@ -189,11 +189,11 @@ To dismiss a recommendation, select on the extension item to open the Details pa
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/editor/customizing/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/configure/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command-line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/advanced/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/configure/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `ms-python.python`.
 
 Example:
 
@@ -337,7 +337,7 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/editor/advanced/command-line.md).
+You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/configure/command-line.md).
 
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
@@ -367,7 +367,7 @@ The Visual Studio Marketplace employs several measures to protect you from malic
 
 As of VS Code release 1.97, when you first install an extension from a third-party publisher, VS Code shows a dialog prompting you to confirm that you trust the extension publisher.
 
-Get more information about [extension runtime security](/docs/editor/extensions/extension-runtime-security.md).
+Get more information about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md).
 
 ### The extension signature cannot be verified by VS Code
 
@@ -381,7 +381,7 @@ It's recommended that you contact the [Visual Studio Marketplace team](mailto:vs
 
 ### My extensions don't synchronize when connected to a remote window
 
-[Settings Sync](/docs/editor/advanced/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
+[Settings Sync](/docs/configure/settings-sync.md) lets you share your Visual Studio Code configurations such as settings, keyboard shortcuts, and installed extensions across your machines so you are always working with your favorite setup.
 
 VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 

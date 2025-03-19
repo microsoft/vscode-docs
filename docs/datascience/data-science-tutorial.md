@@ -18,7 +18,7 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. For more details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). Both extensions are published by Microsoft.
 
 - [Miniconda with latest Python](https://docs.anaconda.com/miniconda/)
 
@@ -265,7 +265,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
 Now that you're familiar with the basics of performing machine learning within Visual Studio Code, here are some other Microsoft resources and tutorials to check out.
 
-- [Data Science profile template](/docs/editor/customizing/profiles.md#data-science-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets.
+- [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
 - Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
 - [Get started with Azure Machine Learning for VS Code](https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code) to deploy and optimize your model using the power of Azure.
 - Find more data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).

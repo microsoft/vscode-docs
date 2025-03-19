@@ -101,7 +101,7 @@ In addition to smart code completions, VS Code also includes basic TypeScript [s
 
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/customizing/userdefinedsnippets.md) for more information.
 
-> **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/editor/customizing/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> **Tip**: You can disable snippets by setting `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/configure/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## Errors and warnings
 
@@ -136,7 +136,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-Use the `typescript.format.*` [settings](/docs/editor/customizing/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+Use the `typescript.format.*` [settings](/docs/configure/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
 
@@ -170,7 +170,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extensions/extension-marketplace.md) available in the Marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) available in the Marketplace.
 
 [ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
 

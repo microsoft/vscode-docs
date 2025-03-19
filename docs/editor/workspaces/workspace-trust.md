@@ -57,7 +57,7 @@ If you try to start a debug session (**Debug** > **Start Debugging**) while in R
 
 ### Workspace settings
 
-Workspace [settings](/docs/editor/customizing/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, VS Code disables a set of workspace settings when running in Restricted Mode.
+Workspace [settings](/docs/configure/settings.md) are stored in the `.vscode` folder at the root of your workspace, and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could cause damage. For this reason, VS Code disables a set of workspace settings when running in Restricted Mode.
 
 ![Workspace Trust editor workspace settings link](images/workspace-trust/workspace-settings-link.png)
 
@@ -67,7 +67,7 @@ In the Workspace Trust editor, select the link for workspace settings that aren'
 
 ### Extensions
 
-The VS Code [extensions](/docs/editor/extensions/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
+The VS Code [extensions](/docs/configure/extensions/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis), and others let you play music or have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
 
 Most extensions run code on your behalf and could potentially do harm. Some extensions have settings that could cause them to act maliciously if configured to run an unexpected executable. For this reason, extensions that have not explicitly opted into Workspace Trust are disabled by default in Restricted Mode.
 

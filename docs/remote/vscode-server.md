@@ -23,7 +23,7 @@ We now provide a standalone "VS Code Server," which is a service built off the s
 
 We want to provide a unified VS Code experience no matter how you use the editor, whether it's local or remote, in the desktop or in the browser.
 
-Access to the VS Code Server is built in to the existing [`code` CLI](/docs/editor/advanced/command-line.md#launching-from-command-line).
+Access to the VS Code Server is built in to the existing [`code` CLI](/docs/configure/command-line.md#launching-from-command-line).
 
 The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling securely transmits data from one network to another.
 

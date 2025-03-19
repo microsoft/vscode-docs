@@ -136,7 +136,7 @@ If you want to remove all your data from our servers, just turn off sync via **S
 
 ## Next steps
 
-* [User and Workspace settings](/docs/editor/customizing/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [User and Workspace settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 
 ## Common questions
 

@@ -176,22 +176,22 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/themes</loc>
+        <loc>https://code.visualstudio.com/docs/configure/themes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/keybindings</loc>
+        <loc>https://code.visualstudio.com/docs/configure/keybindings</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/locales</loc>
+        <loc>https://code.visualstudio.com/docs/configure/locales</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/advanced/telemetry</loc>
+        <loc>https://code.visualstudio.com/docs/configure/telemetry</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -206,12 +206,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extensions/extension-marketplace</loc>
+        <loc>https://code.visualstudio.com/docs/configure/extensions/extension-marketplace</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extensions/extension-runtime-security</loc>
+        <loc>https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -246,7 +246,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/advanced/command-line</loc>
+        <loc>https://code.visualstudio.com/docs/configure/command-line</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -261,12 +261,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/advanced/settings-sync</loc>
+        <loc>https://code.visualstudio.com/docs/configure/settings-sync</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/profiles</loc>
+        <loc>https://code.visualstudio.com/docs/configure/profiles</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -276,7 +276,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/customizing/custom-layout</loc>
+        <loc>https://code.visualstudio.com/docs/configure/custom-layout</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -416,12 +416,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/accessibility/accessibility</loc>
+        <loc>https://code.visualstudio.com/docs/configure/accessibility/accessibility</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/accessibility/voice</loc>
+        <loc>https://code.visualstudio.com/docs/configure/accessibility/voice</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

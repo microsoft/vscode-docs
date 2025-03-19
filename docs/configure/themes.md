@@ -23,7 +23,7 @@ To select a different Color Theme:
 
 1. Select the theme you want and press `kbstyle(Enter)`.
 
-The active color theme is stored in your user [settings](/docs/editor/customizing/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
+The active color theme is stored in your user [settings](/docs/configure/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
   // Specifies the color theme used in the workbench.
@@ -31,13 +31,13 @@ The active color theme is stored in your user [settings](/docs/editor/customizin
 ```
 
 > [!TIP]
-> By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace-specific theme. To do so, set a theme in the Workspace [settings](/docs/editor/customizing/settings.md#workspace-settings).
+> By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace-specific theme. To do so, set a theme in the Workspace [settings](/docs/configure/settings.md#workspace-settings).
 >
 > ![Screenshot of Settings editor to set a workspace-specific Color Theme.](images/themes/workspace-color-theme.png)
 
 ## Color Themes from the Marketplace
 
-There are several out-of-the-box color themes in VS Code for you to try. Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md) by the community.
+There are several out-of-the-box color themes in VS Code for you to try. Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) by the community.
 
 You can select Color Themes from the VS Code Marketplace directly from the Color Theme picker by selecting **Browse Additional Color Themes...**.
 
@@ -66,7 +66,7 @@ To customize the themes that are used when a color scheme changes, you can set t
 
 ### Workbench colors
 
-You can customize your active color theme with the `setting(workbench.colorCustomizations)` and `setting(editor.tokenColorCustomizations)` user [settings](/docs/editor/customizing/settings.md).
+You can customize your active color theme with the `setting(workbench.colorCustomizations)` and `setting(editor.tokenColorCustomizations)` user [settings](/docs/configure/settings.md).
 
 To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons, and more, use `setting(workbench.colorCustomizations)`.
 
@@ -107,7 +107,7 @@ If a theme sets a color or border that you don't like, you can use `default` to 
 
 ### Editor syntax highlighting
 
-To tune the editor's syntax highlighting colors, use `setting(editor.tokenColorCustomizations)` in your user [settings](/docs/editor/customizing/settings.md) `settings.json` file:
+To tune the editor's syntax highlighting colors, use `setting(editor.tokenColorCustomizations)` in your user [settings](/docs/configure/settings.md) `settings.json` file:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
@@ -204,7 +204,7 @@ If you'd like to remove some of the default themes shipped with VS Code from the
 
 ![built-in themes](images/themes/built-in-themes.png)
 
-You can disable a built-in theme extension, as you would any other VS Code [extension](/docs/editor/extensions/extension-marketplace.md) with the **Disable** command on the gear context menu.
+You can disable a built-in theme extension, as you would any other VS Code [extension](/docs/configure/extensions/extension-marketplace.md) with the **Disable** command on the gear context menu.
 
 ![disable theme](images/themes/disable-theme.png)
 
@@ -228,7 +228,7 @@ VS Code ships with two file icon themes: **Minimal** and **Seti**. To install mo
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
-The active File Icon Theme is persisted in your user [settings](/docs/editor/customizing/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
+The active File Icon Theme is persisted in your user [settings](/docs/configure/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
   // Specifies the file icon theme used in the workbench.
@@ -271,7 +271,7 @@ By default, VS Code comes with one Product Icon Theme, **Default**. You can sele
 
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these articles:
 
-* [Settings](/docs/editor/customizing/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
+* [Settings](/docs/configure/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Snippets](/docs/editor/customizing/userdefinedsnippets.md) - Add extra snippets to your favorite language.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Color Theme](/api/extension-guides/color-theme.md) - Color Theme extension API.

@@ -27,7 +27,7 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/editor/extensions/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/configure/extensions/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
@@ -253,7 +253,7 @@ You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the 
 
 ## Assign keyboard shortcuts to snippets
 
-You can create custom [keyboard shortcuts](/docs/editor/customizing/keybindings.md) to insert specific snippets. Open `keybindings.json` (**Preferences: Open Keyboard Shortcuts File**), which defines all your keyboard shortcuts, and add a keyboard shortcut passing `"snippet"` as an extra argument:
+You can create custom [keyboard shortcuts](/docs/configure/keybindings.md) to insert specific snippets. Open `keybindings.json` (**Preferences: Open Keyboard Shortcuts File**), which defines all your keyboard shortcuts, and add a keyboard shortcut passing `"snippet"` as an extra argument:
 
 ```json
 {
@@ -266,7 +266,7 @@ You can create custom [keyboard shortcuts](/docs/editor/customizing/keybindings.
 }
 ```
 
-The keyboard shortcut will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/editor/customizing/keybindings.md) as usual with a keyboard shortcut, command ID, and optional [when clause context](/docs/editor/customizing/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
+The keyboard shortcut will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/configure/keybindings.md) as usual with a keyboard shortcut, command ID, and optional [when clause context](/docs/configure/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
 
 Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments. The `langId` argument selects the language for which the snippet denoted by `name` is inserted, e.g the sample below selects the `myFavSnippet` that's available for `csharp`-files.
 
@@ -284,7 +284,7 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Next steps
 
-* [Command Line](/docs/editor/advanced/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
+* [Command Line](/docs/configure/command-line.md) - VS Code has a rich command-line interface to open or diff files and install extensions.
 * [Extension API](/api) - Learn about other ways to extend VS Code.
 * [Snippet Guide](/api/language-extensions/snippet-guide.md) - You can package snippets for use in VS Code.
 

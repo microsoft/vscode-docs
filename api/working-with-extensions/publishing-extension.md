@@ -496,7 +496,7 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ## Next steps
 
-- [Extension Marketplace](/docs/editor/extensions/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
+- [Extension Marketplace](/docs/configure/extensions/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
 - [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 

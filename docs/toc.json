@@ -16,7 +16,7 @@
     ]
   },
   {
-    "name": "Getting Started",
+    "name": "Get Started",
     "area": "getstarted",
     "topics": [
       ["VS Code Tutorial", "/docs/getstarted/getting-started"],
@@ -28,80 +28,70 @@
       ["Intro Videos", "/docs/getstarted/introvideos"]
     ]
   },
+
   {
-    "name": "User Guides",
-    "area": "editor",
+    "name": "Configure",
+    "area": "configure",
     "topics": [
-      ["", "", {
-        "name": "Edit code",
-        "area": "editor/editing",
-        "topics": [
-          ["Basic Editing", "/docs/editor/editing/codebasics"],
-          ["IntelliSense", "/docs/editor/editing/intellisense"],
-          ["Code Navigation", "/docs/editor/editing/editingevolved"],
-          ["Refactoring", "/docs/editor/editing/refactoring"]
-        ]
-      }],
-      ["", "", {
-        "name": "Customize",
-        "area": "editor/customizing",
-        "topics": [
-          ["Themes", "/docs/editor/customizing/themes"],
-          ["Keyboard Shortcuts", "/docs/editor/customizing/keybindings"],
-          ["Settings", "/docs/editor/customizing/settings"],
-          ["Snippets", "/docs/editor/customizing/userdefinedsnippets"],
-          ["Custom Layout", "/docs/editor/customizing/custom-layout"],
-          ["Display Language", "/docs/editor/customizing/locales"],
-          ["Profiles", "/docs/editor/customizing/profiles"]
-        ]
-      }],
+      ["Display Language", "/docs/configure/locales"],
+      ["Layout", "/docs/configure/custom-layout"],
+      ["Keyboard Shortcuts", "/docs/configure/keybindings"],
+      ["Settings", "/docs/configure/settings"],
+      ["Settings Sync", "/docs/configure/settings-sync"],
       ["", "", {
         "name": "Extensions",
-        "area": "editor/extensions",
+        "area": "configure/extensions",
         "topics": [
-          ["Extension Marketplace", "/docs/editor/extensions/extension-marketplace"],
-          ["Extension Runtime Security", "/docs/editor/extensions/extension-runtime-security"]
+          ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
+          ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
         ]
       }],
-      ["", "", {
-        "name": "Build, Debug, Test",
-        "area": "editor/debugtest",
+      ["Themes", "/docs/configure/themes"],
+      ["Profiles", "/docs/configure/profiles"],
+      ["", "",   {
+        "name": "Accessibility",
+        "area": "configure/accessibility",
         "topics": [
-          ["Tasks", "/docs/editor/debugtest/tasks"],
-          ["Debugging", "/docs/editor/debugtest/debugging"],
-          ["Debug Configuration", "/docs/editor/debugtest/debugging-configuration"],
-          ["Testing", "/docs/editor/debugtest/testing"],
-          ["Port Forwarding", "/docs/editor/debugtest/port-forwarding"],
+          ["Overview", "/docs/configure/accessibility/accessibility"],
+          ["Voice Interactions", "/docs/configure/accessibility/voice"]
         ]
       }],
+      ["Command Line Interface", "/docs/configure/command-line"],
+      ["Telemetry", "/docs/configure/telemetry"]
+    ]
+  },
+  {
+    "name": "Edit code",
+    "area": "editing",
+    "topics": [
+      ["Basic Editing", "/docs/editor/editing/codebasics"],
+      ["IntelliSense", "/docs/editor/editing/intellisense"],
+      ["Code Navigation", "/docs/editor/editing/editingevolved"],
+      ["Refactoring", "/docs/editor/editing/refactoring"],
+      ["Snippets", "/docs/editor/customizing/userdefinedsnippets"],
       ["", "", {
         "name": "Workspaces",
-        "area": "editor/workspaces",
+        "area": "workspaces",
         "topics": [
           ["Overview", "/docs/editor/workspaces/workspaces"],
           ["Multi-root Workspaces", "/docs/editor/workspaces/multi-root-workspaces"],
           ["Workspace Trust", "/docs/editor/workspaces/workspace-trust"]
         ]
-      }],
-      ["", "", {
-        "name": "Accessibility",
-        "area": "editor/accessibility",
-        "topics": [
-          ["Overview", "/docs/editor/accessibility/accessibility"],
-          ["Voice Interactions", "/docs/editor/accessibility/voice"]
-        ]
-      }],
-      ["", "", {
-        "name": "Advanced Features",
-        "area": "editor/advanced",
-        "topics": [
-          ["Settings Sync", "/docs/editor/advanced/settings-sync"],
-          ["Command Line Interface", "/docs/editor/advanced/command-line"],
-          ["Telemetry", "/docs/editor/advanced/telemetry"]
-        ]
       }]
     ]
   },
+  {
+    "name": "Build, Debug, Test",
+    "area": "debugtest",
+    "topics": [
+      ["Tasks", "/docs/editor/debugtest/tasks"],
+      ["Debugging", "/docs/editor/debugtest/debugging"],
+      ["Debug Configuration", "/docs/editor/debugtest/debugging-configuration"],
+      ["Testing", "/docs/editor/debugtest/testing"],
+      ["Port Forwarding", "/docs/editor/debugtest/port-forwarding"],
+    ]
+  },
+
   {
     "name": "Source Control",
     "area": "sourcecontrol",

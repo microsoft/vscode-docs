@@ -17,7 +17,7 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
-We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/editor/customizing/settings.md).
+We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/configure/settings.md).
 
 ![IntelliSense](images/json/intellisense.png)
 
@@ -57,7 +57,7 @@ To understand the structure of JSON files, we use [JSON schemas](https://json-sc
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/editor/customizing/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/configure/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well-known JSON files such as `package.json`, `bower.json`, and `tsconfig.json`.
 
@@ -76,7 +76,7 @@ Note that this syntax is VS Code-specific and not part of the [JSON Schema speci
 
 ### Mapping in the User Settings
 
-The following excerpt from User [Settings](/docs/editor/customizing/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
+The following excerpt from User [Settings](/docs/configure/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
 
 ```json
 "json.schemas": [

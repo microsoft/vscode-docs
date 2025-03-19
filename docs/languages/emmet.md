@@ -31,7 +31,7 @@ This setting allows using the `kbstyle(Tab)` key for indentation when text is no
 
 ### Emmet when quickSuggestions are disabled
 
-If you have disabled the `setting(editor.quickSuggestions)` [setting](/docs/editor/customizing/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+If you have disabled the `setting(editor.quickSuggestions)` [setting](/docs/configure/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
 ### Disable Emmet in suggestions
 
@@ -203,7 +203,7 @@ The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets
 
 ## Emmet configuration
 
-Below are Emmet [settings](/docs/editor/customizing/settings.md) that you can use to customize your Emmet experience in VS Code.
+Below are Emmet [settings](/docs/configure/settings.md) that you can use to customize your Emmet experience in VS Code.
 
 * `setting(emmet.includeLanguages)`
 
@@ -357,7 +357,7 @@ First, check if you're using custom snippets (if there is a `snippets.json` file
 
 If abbreviations are still failing to expand:
 
-* Check the [builtin extensions](/docs/editor/extensions/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
+* Check the [builtin extensions](/docs/configure/extensions/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
 * Try restarting the extension host by running the **Developer: Restart Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/getstarted/userinterface.md#command-palette).
 
 ### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?

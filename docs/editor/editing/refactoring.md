@@ -15,7 +15,7 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 
 For example, a common refactoring used to avoid duplicating code (a maintenance headache) is the [Extract Method](https://refactoring.com/catalog/extractMethod.html) refactoring, where you select source code and pull it out into its own shared method, so that can reuse the code elsewhere.
 
-Refactorings are provided by a language service. VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is enabled through VS Code [extensions](/docs/editor/extensions/extension-marketplace.md) that contribute language services.
+Refactorings are provided by a language service. VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is enabled through VS Code [extensions](/docs/configure/extensions/extension-marketplace.md) that contribute language services.
 
 The UI elements and VS Code commands for refactoring are the same across the different languages. This article demonstrates refactoring support in VS Code with the TypeScript language service.
 
@@ -25,7 +25,7 @@ In VS Code, Code Actions can provide both refactorings and Quick Fixes for detec
 
 If you prefer to only see refactorings without Quick Fixes, then you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
->**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/editor/customizing/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
+>**Note:** You can completely disable Code Action lightbulbs in the editor with the `editor.lightbulb.enable` [setting](/docs/configure/settings.md). You can still open Quick Fixes through **Quick Fix** command and `kb(editor.action.quickFix)` keyboard shortcut.
 
 ### Code Actions on save
 

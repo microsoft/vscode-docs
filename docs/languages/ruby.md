@@ -41,7 +41,7 @@ After installing, check the language status item to see the status of the Ruby L
 
 The extension generates a `.ruby-lsp` folder automatically with a custom bundle that includes the language server gem `ruby-lsp`. No configuration should be required.
 
-By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/editor/customizing/settings.md):
+By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/configure/settings.md):
 
 ```json
 {
@@ -217,5 +217,5 @@ If you have any issues or feature requests, feel free to log them in the Ruby LS
 If you'd like to learn more about VS Code, try these topics:
 
 * [Basic Editing](/docs/editor/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.

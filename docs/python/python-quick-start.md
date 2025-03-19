@@ -21,7 +21,7 @@ Get started by installing:
 
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
 
-To further customize VS Code for Python, you can leverage the [Python profile template](/docs/editor/customizing/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/editor/customizing/profiles.md#data-science-profile-template).
+To further customize VS Code for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
 
 ![Gif showing the Python profile template being installing into VS Code.](images/quick-start/python-profile-create.gif)
 
@@ -104,7 +104,7 @@ To learn how to build web apps with popular Python web frameworks, see the follo
 
 There is much more to explore with Python in Visual Studio Code:
 
-- [Python profile template](/docs/editor/customizing/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets
+- [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

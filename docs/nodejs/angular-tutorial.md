@@ -14,7 +14,7 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
->**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/customizing/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
+>**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/configure/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
 
 ## Welcome to Angular
 
@@ -101,7 +101,7 @@ export class AppComponent {
 
 Once you save the `app.component.ts` file, the running instance of the server will update the web page and you'll see "Welcome to Hello World!!".
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/editor/customizing/settings.md).
+>**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/configure/settings.md).
 
 ![hello world](images/angular/hello-world.png)
 
@@ -150,7 +150,7 @@ For more information about the debugger and its available options, check out our
 
 ## Angular profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/customizing/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile template](/docs/editor/customizing/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile template](/docs/configure/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

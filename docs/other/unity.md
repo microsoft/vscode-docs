@@ -29,7 +29,7 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 1. If you haven't already done so, [install Visual Studio Code](https://code.visualstudio.com).
 
-1. Next, install the [Unity for Visual Studio Code](https://aka.ms/vscode-unity) extension from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md). The Unity extension is published by Microsoft.
+1. Next, install the [Unity for Visual Studio Code](https://aka.ms/vscode-unity) extension from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). The Unity extension is published by Microsoft.
 
 Installing the Unity extension installs all its dependencies required to write [C#](/docs/languages/csharp.md) with Visual Studio Code, including the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit).
 

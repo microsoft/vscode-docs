@@ -11,7 +11,7 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
 
->**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/customizing/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/configure/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -215,7 +215,7 @@ VS Code automatically synchronizes the Markdown editor and the preview panes. Sc
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
-You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/editor/customizing/settings.md).
+You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/configure/settings.md).
 
 The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
@@ -261,7 +261,7 @@ Extensions can contribute custom styles and scripts to the Markdown preview to c
 
 ### Using your own CSS
 
-You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/editor/customizing/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
+You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/configure/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
 
 For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
@@ -318,7 +318,7 @@ Disables additional security in the preview window. This allows script execution
 
 ## Doc Writer profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/customizing/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/customizing/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/configure/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

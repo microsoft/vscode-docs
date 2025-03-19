@@ -90,7 +90,7 @@ Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more informatio
 
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
 
-Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes. Get more details on how to [install an extension pre-release version](/docs/editor/extensions/extension-marketplace.md#install-a-pre-release-extension-version).
+Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes. Get more details on how to [install an extension pre-release version](/docs/configure/extensions/extension-marketplace.md#install-a-pre-release-extension-version).
 
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 

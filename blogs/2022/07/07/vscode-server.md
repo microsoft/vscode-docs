@@ -71,7 +71,7 @@ Congratulations, you've successfully installed and run the VS Code Server! The c
 
 ## A preview of a larger journey
 
-The VS Code Server is currently a private preview. In this early preview, the `code-server` CLI is distinct from the `code` CLI [you use today](https://code.visualstudio.com/docs/editor/advanced/command-line#_launching-from-command-line) to launch the desktop VS Code, to install extensions, and more (run `code -h` from the terminal 😊). This is just the first step along the path towards a fully unified `code` CLI that lets you manage both the desktop and the server.
+The VS Code Server is currently a private preview. In this early preview, the `code-server` CLI is distinct from the `code` CLI [you use today](https://code.visualstudio.com/docs/configure/command-line#_launching-from-command-line) to launch the desktop VS Code, to install extensions, and more (run `code -h` from the terminal 😊). This is just the first step along the path towards a fully unified `code` CLI that lets you manage both the desktop and the server.
 
 We're excited for you to try out the VS Code Server. You can learn more about it, including the architecture, other commands, implementation details, and scenarios, in its [documentation](https://aka.ms/vscode-server-doc) and [intro video](https://aka.ms/vscode-server-video). If you have any issues or feedback, please file an issue in the [VS Code Remote Development GitHub repo](https://github.com/microsoft/vscode-remote-release/issues), and you can Tweet us your thoughts [@code](https://twitter.com/code).
 

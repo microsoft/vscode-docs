@@ -37,7 +37,7 @@ After unzipping the VS Code download, create a `data` folder within VS Code's fo
 From then on, the `data` folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
 
 > [!NOTE]
-> The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/editor/advanced/command-line.md#advanced-cli-options) options.
+> The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/configure/command-line.md#advanced-cli-options) options.
 
 The `data` folder can be moved to other VS Code installations. This is useful for updating your portable VS Code version, in which case you can move the `data` folder to a newer extracted version of VS Code.
 

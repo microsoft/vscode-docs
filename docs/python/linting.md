@@ -49,7 +49,7 @@ You can refer to each linter extension's README for more details on the supporte
 
 ## Disable linting
 
-Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/editor/extensions/extension-marketplace.md#disable-an-extension) per workspace.
+Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/configure/extensions/extension-marketplace.md#disable-an-extension) per workspace.
 
 ## Run linting
 
@@ -61,7 +61,7 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editor/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
+Some linters may offer [Code Actions](/docs/editor/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 

@@ -9,7 +9,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 ---
 # Profiles in Visual Studio Code
 
-Visual Studio Code has hundreds of [settings](/docs/editor/customizing/settings.md), thousands of [extensions](/docs/editor/extensions/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
+Visual Studio Code has hundreds of [settings](/docs/configure/settings.md), thousands of [extensions](/docs/configure/extensions/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
 
 ## Access the Profiles editor
 
@@ -129,7 +129,7 @@ This makes this extension available in all your profiles. You can always revert 
 
 ## Synchronize profiles across machines
 
-You can use [Settings Sync](/docs/editor/advanced/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
+You can use [Settings Sync](/docs/configure/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
 
 ![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
 

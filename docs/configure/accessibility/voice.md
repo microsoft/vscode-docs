@@ -51,7 +51,7 @@ It is possible to enable a mode where VS Code will always listen for the phrase 
 
 ## Support for multiple languages
 
-You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/editor/customizing/locales.md), if that language is available.
+You can select from one of the 26 supported languages by using the `setting(accessibility.voice.speechLanguage)` setting. If you set the value to `auto` (default value), the VS Code Speech extension uses the [VS Code display language](/docs/configure/locales.md), if that language is available.
 
 Each language for the speech extension comes as its own extension. When you start speech recognition for the first time, you will see an extension installation for each language you selected.
 
@@ -59,7 +59,7 @@ Each language for the speech extension comes as its own extension. When you star
 
 Read on to find out about:
 
-* [Other VS Code accessibility features](/docs/editor/accessibility/accessibility.md).
+* [Other VS Code accessibility features](/docs/configure/accessibility/accessibility.md).
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Basic Editing](/docs/editor/editing/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editing/editingevolved.md) - Move quickly through your source code.

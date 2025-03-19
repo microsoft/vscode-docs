@@ -24,7 +24,7 @@ To successfully complete this tutorial, you need to first set up your Python dev
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
-- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extensions/extension-marketplace.md))
+- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
 
 ## Install a Python interpreter
 
@@ -301,7 +301,7 @@ To learn how to build web apps with popular Python web frameworks, see the follo
 
 There is then much more to explore with Python in Visual Studio Code:
 
-- [Python profile template](/docs/editor/customizing/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/customizing/profiles) with a curated set of extensions, settings, and snippets
+- [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

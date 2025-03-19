@@ -67,7 +67,7 @@ VS Code includes basic JavaScript [snippets](/docs/editor/customizing/userdefine
 There are many extensions that provide additional snippets, including snippets for popular frameworks such as Redux or Angular. You can even [define your own snippets](/docs/editor/customizing/userdefinedsnippets.md).
 
 > [!TIP]
-> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/editor/customizing/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+> To disable snippets suggestions, set `setting(editor.snippetSuggestions)` to `"none"` in your [settings](/docs/configure/settings.md) file. The `setting(editor.snippetSuggestions)` setting also lets you change where snippets appear in the suggestions: at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ## JSDoc support
 
@@ -167,7 +167,7 @@ The `setting(javascript.updateImportsOnFileMove.enabled)` setting controls this 
 
 VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
 
-The `javascript.format.*` [settings](/docs/editor/customizing/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
+The `javascript.format.*` [settings](/docs/configure/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
 For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -361,7 +361,7 @@ Click on the reference count to quickly browse a list of references:
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extensions/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
@@ -394,7 +394,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Popular extensions
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extensions/extension-marketplace.md).
+VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/configure/extensions/extension-marketplace.md).
 
 <div class="marketplace-extensions-javascript-curated"></div>
 
@@ -453,7 +453,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 ### How do I disable Syntax Validation when using non-ES6 constructs?
 
-Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/editor/customizing/settings.md).
+Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `setting(javascript.validate.enable)` [setting](/docs/configure/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 

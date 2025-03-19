@@ -160,10 +160,10 @@ To open the Chat view:
 * Use the `kb(workbench.action.chat.open)` keyboard shortcut.
 * Alternatively, select **Open Chat** in the Copilot menu in the title bar.
 
-By default, the Chat view is located in the Secondary Side Bar. The [Secondary Side Bar](/docs/editor/customizing/custom-layout.md#secondary-side-bar) is always positioned opposite the Primary Side Bar, so you can have the Chat view open at the same time as the Explorer, Source Control, or other views in the Primary Side Bar.
+By default, the Chat view is located in the Secondary Side Bar. The [Secondary Side Bar](/docs/configure/custom-layout.md#secondary-side-bar) is always positioned opposite the Primary Side Bar, so you can have the Chat view open at the same time as the Explorer, Source Control, or other views in the Primary Side Bar.
 
 > [!TIP]
-> At any time, you can drag the Chat view to another location, or even open it as an editor. Learn more about [custom layouts in VS Code](/docs/editor/customizing/custom-layout.md).
+> At any time, you can drag the Chat view to another location, or even open it as an editor. Learn more about [custom layouts in VS Code](/docs/configure/custom-layout.md).
 
 ### Apply a code block from chat
 
@@ -258,7 +258,7 @@ With the voice control capabilities in VS Code, provided by the [VS Code Speech]
 * Use the "Hey Code" voice command to start a voice session with Copilot Chat
 * Accelerate voice input for chat by using the "hold to speak" mode
 
-Learn more about how to [use voice interactions in VS Code](/docs/editor/accessibility/voice.md).
+Learn more about how to [use voice interactions in VS Code](/docs/configure/accessibility/voice.md).
 
 ## Privacy and transparency
 

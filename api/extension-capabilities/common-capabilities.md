@@ -48,7 +48,7 @@ The extension context is available to the `activate` function in the [Extension 
 
 ### setKeysForSync example
 
-If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/editor/advanced/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
+If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/configure/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
 
 You can use the following pattern:
 

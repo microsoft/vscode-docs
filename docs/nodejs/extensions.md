@@ -13,7 +13,7 @@ Visual Studio Code supports many features for JavaScript and Node.js development
 
 In addition, to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
 
-> **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extensions/extension-marketplace.md).
+> **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/configure/extensions/extension-marketplace.md).
 
 ## Finding extensions
 

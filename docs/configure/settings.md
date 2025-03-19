@@ -235,7 +235,7 @@ You can configure language specific editor settings for multiple languages at on
 
 ## Profile settings
 
-You can use [profiles in VS Code](/docs/editor/customizing/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize VS Code for a specific programming language.
+You can use [profiles in VS Code](/docs/configure/profiles.md) to create sets of customizations and quickly switch between them. For example, they are a great way to customize VS Code for a specific programming language.
 
 When you switch to a profile, the user settings are scoped to only that profile. When you switch to another profile, the user settings of that other profile are applied. This way, you can have different settings for different profiles.
 
@@ -327,11 +327,11 @@ The first time you open a workspace that defines any of these settings, VS Code 
 
 ## Settings Sync
 
-You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/advanced/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+You can share your user settings across your VS Code instances with the [Settings Sync](/docs/configure/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Backup and Sync Settings** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
 
 ![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
 
-You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/advanced/settings-sync.md) user guide.
+You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/configure/settings-sync.md) user guide.
 
 > [!NOTE]
 > VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
@@ -355,7 +355,7 @@ Experimental and preview features enable you to try out new features and provide
 ## Related resources
 
 * [VS Code default settings reference](/docs/reference/default-settings.md)
-* [Synchronize settings across machines](/docs/editor/advanced/settings-sync.md)
+* [Synchronize settings across machines](/docs/configure/settings-sync.md)
 
 ## Common questions
 

@@ -325,7 +325,7 @@ To connect to a remote Jupyter server:
 
 ## Data Science profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/customizing/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Jupyter Notebooks, you can use the [Data Science profile template](/docs/editor/customizing/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Jupyter Notebooks, you can use the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

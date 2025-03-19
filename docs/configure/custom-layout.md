@@ -29,7 +29,7 @@ To change the position of the Primary Side Bar, you can:
 * Right-click the Activity Bar and select **Move Primary Side Bar Right**
 * Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left
 * Use the **View** > **Appearance** > **Move Primary Side Bar Right** menu item
-* Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) setting to `right` in the [Settings editor](/docs/editor/customizing/settings.md)
+* Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) setting to `right` in the [Settings editor](/docs/configure/settings.md)
 
 ### Secondary side bar
 
@@ -196,7 +196,7 @@ To navigate between the sides:
 * **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side.
 * **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
-The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.splitInGroupLayout)`) [setting](/docs/editor/customizing/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
+The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.splitInGroupLayout)`) [setting](/docs/configure/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
 
 ### Grid layout
 
