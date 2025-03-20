@@ -197,7 +197,7 @@ The Python profile is a good starting point for Python development. It comes wit
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
 * [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support for e.g. `pyproject.toml` files.
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
-* [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
+* [Python Environments](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs) - Manage Python environments and packages using your preferred environment manager.
 * [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
 * [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
 
