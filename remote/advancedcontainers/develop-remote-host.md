@@ -167,7 +167,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     **Docker Compose**:
 
-    If you do **not** have login access to the remote host, update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
+    If you do **not** have login access to the remote host, update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `compose.yaml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
 
     ```yaml
     version: '3'

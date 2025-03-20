@@ -167,7 +167,7 @@ docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}
 ### Option 4: Use Docker Compose
 
 1. Open a **local** terminal/command prompt (or use a local window in VS Code).
-2. Go to the directory with your `docker-compose.yml` file.
+2. Go to the directory with your `compose.yaml` file.
 3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
 
 **Option 4: Delete all containers and images that are not running:**
