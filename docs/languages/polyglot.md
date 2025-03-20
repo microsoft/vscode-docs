@@ -59,7 +59,7 @@ To use Polyglot Notebooks in VS Code, you will need:
 
 ### Why do I need the .NET SDK?
 
-The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
+The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 9 SDK is required.
 
 ## Getting started
 
