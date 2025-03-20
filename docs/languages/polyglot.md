@@ -55,7 +55,7 @@ To learn about all the features, visit the VS Code Marketplace [Polyglot Noteboo
 To use Polyglot Notebooks in VS Code, you will need:
 
 - [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension
-- [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ### Why do I need the .NET SDK?
 
