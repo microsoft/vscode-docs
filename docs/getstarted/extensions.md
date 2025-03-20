@@ -7,7 +7,7 @@ MetaDescription: Learn how to install extensions from the Visual Studio Marketpl
 
 Visual Studio Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. When you use VS Code, you can install extensions directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) and take advantage of automatic updates to always have the latest features. In this article, you learn how to browse and install extensions in VS Code.
 
-The Visual Studio Marketplace hosts thousands of extensions across a wide range of categories. To protect you from malicious extensions, it employs several mechanisms, like publisher trust, malware scanning, and more. Learn more about [extension runtime security](/docs/editor/extension-runtime-security.md).
+The Visual Studio Marketplace hosts thousands of extensions across a wide range of categories. To protect you from malicious extensions, it employs several mechanisms, like publisher trust, malware scanning, and more. Learn more about [extension runtime security](/docs/configure/extensions/extension-runtime-security.md).
 
 ## Browse extensions
 
@@ -35,7 +35,7 @@ You can install an extension directly from the Extensions view in VS Code. Alter
 1. You can also select the **Install** button on the extension's details view.
 
 > [!TIP]
-> If you have to switch between different technology stacks, use [VS Code profiles](/docs/editor/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
+> If you have to switch between different technology stacks, use [VS Code profiles](/docs/configure/profiles.md) to only install the extensions you need for a given workload. For example, you can install extensions for web development in one profile and extensions for data science in another profile.
 
 ## Open extension settings
 
@@ -55,9 +55,9 @@ You can uninstall an extension from the Extensions view in VS Code. If you want 
 
 ## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-marketplace.md): learn more about recommended extensions, pre-release extensions, or installing extensions from the command-line.
-* [Extension runtime security](/docs/editor/extension-runtime-security.md): learn more about how VS Code protects you from malicious extensions.
+* [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md): learn more about recommended extensions, pre-release extensions, or installing extensions from the command-line.
+* [Extension runtime security](/docs/configure/extensions/extension-runtime-security.md): learn more about how VS Code protects you from malicious extensions.
 * [VS Code extension development](/api/get-started/your-first-extension.md): create and publish your own extension for VS Code.
 * [VS Code Quickstart](/docs/getstarted/getting-started.md): discover the key features of VS Code with a step-by-step guide.
 * [Version control](/docs/sourcecontrol/overview.md): learn how to set up version control with Git in VS Code.
-* [Debugging](/docs/editor/debugging.md): configure debugging for your project.
+* [Debugging](/docs/debugtest/debugging.md): configure debugging for your project.

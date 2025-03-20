@@ -97,7 +97,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice that your f
 
 ![File Explorer](images/msvc/file-explorer.png)
 
-You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 The Activity Bar on the edge of Visual Studio Code lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
@@ -369,6 +369,6 @@ The most common cause of errors (such as `undefined _main`, or `attempting to li
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editor/codebasics.md).
+- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

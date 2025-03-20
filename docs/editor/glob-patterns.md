@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code glob patterns reference
 ---
 # Glob Patterns Reference
 
-Visual Studio Code uses glob patterns in many components. Examples include setting file and folder includes/excludes in features such as [Search](/docs/editor/codebasics.md#advanced-search-options), hiding files from the File Explorer or marking them readonly, and setting up programming language-specific file associations.
+Visual Studio Code uses glob patterns in many components. Examples include setting file and folder includes/excludes in features such as [Search](/docs/editing/codebasics.md#advanced-search-options), hiding files from the File Explorer or marking them readonly, and setting up programming language-specific file associations.
 
 ## Glob pattern syntax
 

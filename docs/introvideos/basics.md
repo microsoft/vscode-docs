@@ -70,4 +70,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [IntelliSense](/docs/editor/intellisense.md) -VS Code brings smart code completions as you type.
+* [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.

@@ -114,7 +114,7 @@ To use agent mode in Copilot Edits:
 
     Copilot requests for confirmation before running terminal commands. Optionally, you can modify the proposed terminal command in the response, and then select **Continue** to run it.
 
-    If your project has configured [tasks](/docs/editor/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
+    If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
 1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
 
@@ -262,7 +262,7 @@ The following table shows a comparison of the capabilities of each experience.
 
 ### Can I change the location of the Copilot Edits view?
 
-You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/editor/custom-layout.md#workbench) in VS Code.
+You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/configure/custom-layout.md#workbench) in VS Code.
 
 ### Why would I use edit mode instead of agent mode?
 

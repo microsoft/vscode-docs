@@ -463,7 +463,7 @@ The following list provides the output types for a chat response in the Chat vie
     stream.anchor(symbolLocation, 'MySymbol');
     ```
 
-> **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved#outgoing-link-protection).
+> **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editing/editingevolved#outgoing-link-protection).
 
 ## Measuring success
 

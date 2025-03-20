@@ -27,7 +27,7 @@ Most of these features work out of the box, while some may require basic configu
     3. In the Extensions view, search for the term "julia" in the Marketplace search box, then select the Julia extension (julialang.language-julia) and select the **Install** button.
     4. Restart VS Code.
 
-If you run into any issues installing the Julia VS Code extension, check out [install an extension](/docs/editor/extension-marketplace.md#install-an-extension), which should help clarify any issues.
+If you run into any issues installing the Julia VS Code extension, check out [install an extension](/docs/configure/extensions/extension-marketplace.md#install-an-extension), which should help clarify any issues.
 
 ![Julia in the VS Code Marketplace](images/julia/julia-extension-marketplace.png)
 
@@ -63,7 +63,7 @@ The Julia VS Code extension comes with code completion thanks to IntelliSense. T
 
 ![Code completion with IntelliSense](images/julia/code-completion.gif)
 
-You can learn more in the [VS Code IntelliSense](/docs/editor/intellisense.md) topic.
+You can learn more in the [VS Code IntelliSense](/docs/editing/intellisense.md) topic.
 
 ## Julia view
 
@@ -91,6 +91,6 @@ If you have any issues or feature requests, feel free to log them in the Julia e
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

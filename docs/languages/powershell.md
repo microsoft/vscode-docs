@@ -220,18 +220,18 @@ choosing **Install Another Version...**.
 If you find a bug, [open an issue][22] and revert to the stable version while we fix it.
 
 <!-- link references -->
-[01]: /docs/editor/debugging
-[02]: /docs/editor/editingevolved#_go-to-definition
-[03]: /docs/editor/editingevolved#_open-symbol-by-name
-[04]: /docs/editor/editingevolved#_reference-information
-[05]: /docs/editor/intellisense
-[06]: /docs/editor/settings
-[07]: /docs/editor/themes
-[08]: /docs/editor/userdefinedsnippets
+[01]: /docs/debugtest/debugging
+[02]: /docs/editing/editingevolved#_go-to-definition
+[03]: /docs/editing/editingevolved#_open-symbol-by-name
+[04]: /docs/editing/editingevolved#_reference-information
+[05]: /docs/editing/intellisense
+[06]: /docs/configure/settings
+[07]: /docs/configure/themes
+[08]: /docs/editing/userdefinedsnippets
 [09]: /docs/getstarted/tips-and-tricks#_errors-and-warnings
 [10]: /docs/getstarted/userinterface#_outline-view
 [11]: http://github.com/PowerShell/PSScriptAnalyzer
-[12]: https://code.visualstudio.com/docs/editor/vscode-web
+[12]: https://code.visualstudio.com/docs/setup/vscode-web
 [13]: https://code.visualstudio.com/docs/remote/remote-overview
 [14]: https://code.visualstudio.com/docs/remote/vscode-server
 [15]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/

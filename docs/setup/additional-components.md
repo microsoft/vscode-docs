@@ -25,7 +25,7 @@ You'll find the components above mentioned often in our documentation and walkth
 
 ## VS Code extensions
 
-You can extend the VS Code editor itself through [extensions](/docs/editor/extension-marketplace.md). The VS Code community has built thousands of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
+You can extend the VS Code editor itself through [extensions](/docs/configure/extensions/extension-marketplace.md). The VS Code community has built thousands of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 The following list shows some of the popular extensions in the VS Code Marketplace. Select an extension tile to view the extension details.
 
@@ -47,5 +47,5 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 ## Next steps
 
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
-* [User/Workspace Settings](/docs/editor/settings.md) - Learn how to configure VS Code to your preferences through settings.
+* [User/Workspace Settings](/docs/configure/settings.md) - Learn how to configure VS Code to your preferences through settings.
 * [Languages](/docs/languages/overview.md) - VS Code supports many programming languages out-of-the-box as well as many more through community created extensions.

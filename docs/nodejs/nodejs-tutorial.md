@@ -53,7 +53,7 @@ var msg = 'Hello World';
 console.log(msg);
 ```
 
-Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you.
+Note that when you typed `console.` [IntelliSense](/docs/editing/intellisense.md) on the `console` object was automatically presented to you.
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 
@@ -200,10 +200,10 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 
-* [Node.js profile template](/docs/editor/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
-* [Settings](/docs/editor/settings.md) - Learn how to customize VS Code for how you like to work.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Node.js profile template](/docs/configure/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
+* [Settings](/docs/configure/settings.md) - Learn how to customize VS Code for how you like to work.
+* [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
 * [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn how to use debugging in VS Code.
 * [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
 * [Debugging recipes](/docs/nodejs/debugging-recipes.md) - Examples for scenarios like client-side and container debugging.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.
+* [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.

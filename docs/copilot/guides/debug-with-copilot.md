@@ -19,7 +19,7 @@ Copilot can help with the following debugging tasks:
 
 ## Set up debug configuration with Copilot
 
-VS Code uses the `launch.json` file to store [debug configuration](/docs/editor/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.
+VS Code uses the `launch.json` file to store [debug configuration](/docs/debugtest/debugging-configuration.md). Copilot can help you create and customize this file to set up debugging for your project.
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`).
 1. Enter the `/startDebugging` command.
@@ -51,7 +51,7 @@ The `copilot-debug` terminal command simplifies the process of configuring and s
 
 1. Copilot launches a debugging session for your application. You can now use the built-in debugging features in VS Code.
 
-Learn more about [debugging in VS Code](/docs/editor/debugging.md).
+Learn more about [debugging in VS Code](/docs/debugtest/debugging.md).
 
 ## Fix coding issues with Copilot
 
@@ -89,5 +89,5 @@ To fix coding issues for your application code without writing a prompt, you can
 
 ## Next steps
 
-* Explore [general debugging features in VS Code](/docs/editor/debugging.md).
+* Explore [general debugging features in VS Code](/docs/debugtest/debugging.md).
 * Learn more about [Copilot in VS Code](/docs/copilot/overview.md).

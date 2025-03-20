@@ -5740,5 +5740,5 @@ You can also view the default values in the Settings editor or see a read-only v
 
 ## Related resources
 
-* [Configure settings in VS Code](/docs/editor/settings.md)
+* [Configure settings in VS Code](/docs/configure/settings.md)
 * [Personalize VS Code](/docs/getstarted/personalize-vscode.md)
