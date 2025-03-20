@@ -18,7 +18,7 @@ Below are common options you may want to change while debugging.
 
 The `preLaunchTask` field runs the associated taskName in `tasks.json` before debugging your program. You can get the default build prelaunch task by executing the command **Tasks: Configure Tasks Runner** from the VS Code Command Palette.
 
-This creates a task that runs `dotnet build`. You can read more in the VS Code [Tasks](/docs/editor/tasks.md) documentation.
+This creates a task that runs `dotnet build`. You can read more in the VS Code [Tasks](/docs/debugtest/tasks.md) documentation.
 
 **Availability**
 

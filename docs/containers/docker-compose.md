@@ -53,7 +53,7 @@ First, refer to the debugging documentation for your target platform, to underst
 
 If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
-Create an **Attach** [launch configuration](/docs/editor/debugging-configuration.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
+Create an **Attach** [launch configuration](/docs/debugtest/debugging-configuration.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
 
 ### Node.js
 
@@ -216,7 +216,7 @@ volumes:
 
 ## Docker Compose with multiple Compose files
 
-Workspaces can have multiple docker-compose files to handle different environments like development, test, and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and separate override files that define environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](/docs/containers/reference.md#command-customization). Or, you can use a [custom task](/docs/editor/tasks.md#custom-tasks) to invoke the `docker-compose` command with the desired parameters.
+Workspaces can have multiple docker-compose files to handle different environments like development, test, and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and separate override files that define environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](/docs/containers/reference.md#command-customization). Or, you can use a [custom task](/docs/debugtest/tasks.md#custom-tasks) to invoke the `docker-compose` command with the desired parameters.
 
 > **Note**: If your workspace has `docker-compose.yml` and `docker-compose.override.yml` and no other compose files, then the `docker-compose` command is invoked with no input files and it implicitly uses these files. In this case, no customization is needed.
 
@@ -284,7 +284,7 @@ If you omit the `match` property from command templates, you're asked which temp
 
 ## Custom tasks
 
-Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](/docs/editor/tasks.md#custom-tasks) for more detail on this option.
+Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](/docs/debugtest/tasks.md#custom-tasks) for more detail on this option.
 
 ```json
 {

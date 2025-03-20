@@ -40,7 +40,7 @@ These are some examples of extensions in the Visual Studio Marketplace that cont
 
 <div class="marketplace-extensions-chat"></div>
 
-Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
+Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/configure/extensions/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
 
 ## Get started with Copilot extensibility in VS Code
 

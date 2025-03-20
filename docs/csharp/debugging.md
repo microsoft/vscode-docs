@@ -23,7 +23,7 @@ To run and debug without C# Dev Kit, see [Microsoft C# extension's GitHub page](
 
 With the C# Dev Kit extension installed and no debug configurations available to select in the Debug view, you can start debugging your project by having a `.cs` file opened and then pressing `kb(workbench.action.debug.start)`. The debugger will automatically find your project and start debugging. If you have multiple projects, it will prompt for which project you would like to start debugging.
 
-You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
 
 ![Debugging using Run and Debug](images/debugging/run-and-debug.gif)
 
@@ -93,7 +93,7 @@ You can attach to a C# process using with the Command Palette `kb(workbench.acti
 
 ## Configuration options
 
-There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/editor/settings) to modify your debug options, or directly modify your `launch.json`.
+There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/configure/settings) to modify your debug options, or directly modify your `launch.json`.
 
 ### launchSettings.json
 
@@ -261,4 +261,4 @@ Once a Hot Reload session starts and new changes are made, you can apply these c
 
 Read on to find out about:
 
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
