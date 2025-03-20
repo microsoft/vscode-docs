@@ -117,18 +117,43 @@ VS Code currently supports the following admin-controlled features:
 | `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
 
-> [!NOTE]
-> Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
-
 ### Group Policy on Windows
-
-System administrators need a way to control default software settings across all client machines in their organization. Group Policy is a client solution that gives administrators flexibility to implement the behavior for each of the available policies and settings.
 
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
 
 Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/editor/settings.md) value configured at any level (default, user, workspace, etc.).
+
+### Configuration profiles on macOS
+
+Configuration profiles manage settings on macOS devices. A profile is an XML file with key/value pairs that correspond to available policy. These profiles can be deployed using Mobile Device Management (MDM) solutions, or installed manually.
+
+Starting from VS Code version 1.99, each release ships with an example `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually edit or remove policy to match your organization's requirements.
+
+> [!TIP] 
+> To view the contents of `.app` bundle, right-click on the Application (for example, `/Applications/Visual Studio Code.app` in Finder) and select **Show Package Contents**.
+
+For example, to configure the `AllowedExtensions` policy
+
+```xml
+<key>AllowedExtensions</key>
+<string></string>
+```
+
+Add the appropriate JSON string defining your policy between the `<string>` tags.
+
+```xml
+<key>AllowedExtensions</key>
+<string>{"microsoft": true, "github": true}</string>
+```
+
+To omit a given policy, remove the key/value pair from the XML file.
+
+Additionally, VS Code ships with localized schema files following [Apple's Preference Manifest Format](https://developer.apple.com/library/archive/documentation/MacOSXServer/Conceptual/Preference_Manifest_Files/Chapter_1/PM_Chapter1.html#//apple_ref/doc/uid/TP30000196-BABCDJIE). Tools like [iMazing Profile Editor](https://imazing.com/profile-editor) read these files and provide a graphical interface to edit and generate the `.mobileconfig` profile. The schema files are located in the `Contents/Resources/app/policies/<locale>` directory of the `.app` bundle.
+
+Configuration profiles are installed by double-clicking on the `.mobileconfig` profile and then enabling it in System Preferences under **General** > **Device Management**.
+
 
 ### Additional policies
 
@@ -153,8 +178,6 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 
 ## Frequently asked questions
 
-### Does VS Code support configuration profiles on macOS or Linux?
-
-Currently, VS Code only supports Windows group policies. Support for configuration profiles on macOS is coming soon ([tracking issue](https://github.com/microsoft/vscode/issues/148942)).
+### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
