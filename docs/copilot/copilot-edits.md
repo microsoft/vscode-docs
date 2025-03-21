@@ -59,7 +59,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     Copilot automatically adds the active editor as context. Use the `setting(chat.implicitContext.enabled)` setting to configure if the active editor should be added automatically.
 
-    When you add one or more files to the prompt, Copilot Edits proposes other relevant files based on the Git history. Configure this with the `setting(`github.copilot.chat.edits.suggestRelatedFilesFromGitHistory`)` setting.
+    When you add one or more files to the prompt, Copilot Edits proposes other relevant files based on the Git history. Configure this with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
 
     > [!TIP]
     > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results. Learn more about [adding context to your Copilot prompt](/docs/copilot/copilot-chat-context.md).
@@ -114,7 +114,7 @@ To use agent mode in Copilot Edits:
 
     Copilot requests for confirmation before running terminal commands. Optionally, you can modify the proposed terminal command in the response, and then select **Continue** to run it.
 
-    If your project has configured [tasks](/docs/editor/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
+    If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
 1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
 
@@ -262,7 +262,7 @@ The following table shows a comparison of the capabilities of each experience.
 
 ### Can I change the location of the Copilot Edits view?
 
-You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/editor/custom-layout.md#workbench) in VS Code.
+You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/configure/custom-layout.md#workbench) in VS Code.
 
 ### Why would I use edit mode instead of agent mode?
 

@@ -25,7 +25,7 @@ VS Code can provide a **local-quality development experience** - including full 
 
 You have two paths to work with tunnels:
 
-* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/editor/command-line.md#create-remote-tunnel).
+* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/configure/command-line.md#create-remote-tunnel).
 * Enable tunneling through the VS Code Desktop UI.
 
 Both of these paths result in the same tunneling functionality – you can use whichever tooling works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. Using the VS Code Desktop UI is convenient if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
@@ -34,7 +34,7 @@ We'll describe both paths in the sections below.
 
 ## Using the 'code' CLI
 
-You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md).
+You may create and use tunnels through the `code` [CLI](/docs/configure/command-line.md).
 
 1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine. The CLI is automatically built into VS Code Desktop – no additional setup required.
 
@@ -153,8 +153,6 @@ To avoid abuse of the underlying tunneling service, there are usage limits in pl
 
 For instance, right now you can have 10 tunnels registered for your account. If you'd like to create a new tunnel and already have 10 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.
 
-If you are hitting a limit and would like to discuss getting more usage, we'd love to learn more. Please reach out to `vscodeserver@microsoft.com` with information on your scenario and how much usage you need.
-
 ### Can I configure policies across my organization?
 
 If you're part of an organization that wants to control access to port forwarding, you can do so by allowing or denying access to the domain `global.rel.tunnels.api.visualstudio.com`.
@@ -168,7 +166,7 @@ You have a few options:
 * Use the `service` command to run as a service. You can run `code tunnel service install` and `code tunnel service uninstall` to install and remove them.
 * Use the `no-sleep` option, `code tunnel --no-sleep`, to prevent your remote machine from going to sleep.
 
-As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
+As mentioned in the [`code` CLI doc](/docs/configure/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
 
 ### Can I use other Remote Development Extensions or a dev container while I'm tunneling?
 

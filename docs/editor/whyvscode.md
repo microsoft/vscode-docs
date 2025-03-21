@@ -53,4 +53,4 @@ Read on to find out about:
 
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [Intro Videos](/docs/getstarted/introvideos.md) - Learn about the VS Code editor features.
-* [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch.
+* [Debugging](/docs/debugtest/debugging.md) - OK time for the really fun stuff - break, step, watch.

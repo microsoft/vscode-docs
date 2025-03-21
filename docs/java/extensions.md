@@ -11,7 +11,7 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 
 Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/editor/extension-marketplace.md).
+> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/configure/extensions/extension-marketplace.md).
 
 In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
 

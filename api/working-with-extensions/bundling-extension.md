@@ -365,6 +365,6 @@ To address the warning, you should either:
 
 ## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
+* [Extension Marketplace](/docs/configure/extensions/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
 * [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
 * [Continuous Integration](/api/working-with-extensions/continuous-integration) - Learn how to run extension CI builds on Azure Pipelines.
