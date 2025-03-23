@@ -88,7 +88,7 @@
       ["Debugging", "/docs/debugtest/debugging"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Testing", "/docs/debugtest/testing"],
-      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"]
     ]
   },
 
@@ -331,7 +331,7 @@
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
-      ["Model Conversion", "/docs/intelligentapps/modelconversion"]
+      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["FAQ", "/docs/intelligentapps/faq"]
     ]
   },
