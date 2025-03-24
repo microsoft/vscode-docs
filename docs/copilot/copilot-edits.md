@@ -78,7 +78,9 @@ In edit mode, you select which files to edit and provide the relevant context an
 
 ## Use agent mode (preview)
 
-In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. Copilot agent mode determines the relevant context, offers both code changes and terminal commands, and iterates to remediate issues. To perform these tasks, agent mode uses a set of [_tools_](#agent-mode-tools).
+In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. Copilot agent mode determines the relevant context, offers both code changes and terminal commands, and iterates to remediate issues.
+
+To perform these tasks, agent mode uses a set of task-specific [_tools_](#agent-mode-tools), for example to read files, access databases, or APIs. Copilot has a set of built-in tools, and you can configure additional tools by adding [MCP servers](/docs/copilot/mcp-servers.md) or VS Code extensions.
 
 > [!IMPORTANT]
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
@@ -112,13 +114,19 @@ To use agent mode in Copilot Edits:
 
     As a user, you stay in control of the changes that are made to your project and can [review the generated edits](#accept-or-discard-edits).
 
-    Copilot requests for confirmation before running terminal commands. Optionally, you can modify the proposed terminal command in the response, and then select **Continue** to run it.
+    Copilot requests for confirmation before running a terminal command or non-builtin tool. Optionally, you can modify the proposed terminal command or tool parameters, and then select **Continue** to run it.
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
 1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, Copilot uses the test outcome to resolve the issue.
+
+1. Optionally, select the **Tools** icon in the chat input to view and select which tools agent mode can use for responding to your request.
+
+    ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-tools.png)
+
+    Get more details about [agent mode tools](#agent-mode-tools).
 
 1. Continue to ask follow-up questions and iterate on the code changes that Copilot Edits provides.
 
@@ -191,6 +199,10 @@ After moving a chat request to Copilot Edits, the chat request is removed from t
 To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. Consider these tools as specialized utilities that Copilot can use to perform a specific task. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
 
 Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
+
+Copilot has a set of built-in tools and you can configure additional tools by adding [MCP servers](/docs/copilot/mcp-servers.md) or by installing VS Code extensions that contribute tools.
+
+You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select which tools to use.
 
 Although agent mode can operate in an autonomous manner, you maintain control over the generated edits and the terminal commands that are run.
 
