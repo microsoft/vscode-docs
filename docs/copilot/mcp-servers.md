@@ -22,22 +22,22 @@ To add an MCP server to your workspace, follow these steps:
 
 1. Configure an MCP server in the `.vscode/mcp.json` file in your workspace to share configurations with project collaborators.
 
-    Select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
+    Create a `.vscode/mcp.json` file in your workspace and select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
+
+    Alternatively, run the **MCP: Add Server** command from the Command Palette and provide the server information to add a new MCP server configuration. Choose **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
     The following example shows how to configure a Perplexity MCP server, where VS Code prompts you for the API key when the server starts. Learn more about the [Configuration format](#configuration-format).
 
     ```json
-    // Example .vscode/mcp.json
     {
-        // 💡 Inputs will be prompted on first server start,
-        //    then stored securely by VS Code.
+        // 💡 Inputs are prompted on first server start, then stored securely by VS Code.
         "inputs": [
             {
                 "type": "promptString",
                 "id": "perplexity-key",
                 "description": "Perplexity API Key",
                 "password": true
-            },
+            }
         ],
         "servers": {
             // https://github.com/ppl-ai/modelcontextprotocol/
@@ -57,6 +57,8 @@ To add an MCP server to your workspace, follow these steps:
     ```
 
 1. Alternatively, specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+
+    If you use the **MCP: Add Server** command from the Command Palette, choose **User Settings** to add a new MCP server configuration in user settings.
 
 1. VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
 Enable auto-discovery with the `setting(chat.mcp.discovery.enabled)` setting.
