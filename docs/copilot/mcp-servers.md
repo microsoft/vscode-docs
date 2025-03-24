@@ -93,7 +93,7 @@ Use the following JSON configuration format to define MCP servers.
 
 - The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
-    VS Code prompts you for these values when the server starts for the first time, and securely stores them for subsequent use.
+    VS Code prompts you for these values when the server starts for the first time, and securely stores them for subsequent use. To avoid showing the typed value, set the `password` field to `true`.
 
     Learn more about how to configure [input variables](/docs/reference/variables-reference.md#input-variables) in VS Code.
 
