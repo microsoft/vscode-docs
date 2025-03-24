@@ -7,7 +7,7 @@ PageTitle: Port forwarding local services with VS Code
 DateApproved: 03/05/2025
 MetaDescription: Make your local web services accessible over the internet with Visual Studio Code
 ---
-# Remote Port Forwarding
+# Port Forwarding
 
 Support for port forwarding is built into Visual Studio Code via [Microsoft dev tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview), no extension required. When running a local web service, you can use the **Ports** view to make the service accessible to others over the internet.
 
