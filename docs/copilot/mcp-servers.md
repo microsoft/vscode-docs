@@ -153,20 +153,21 @@ The following code snippet shows an example MCP server configuration that specif
 Once you have added an MCP server, you can use the tools it provides in agent mode. To use MCP tools in agent mode:
 
 1. Make sure you're using [VS Code Insiders](http://code.visualstudio.com/insiders).
+<!-- TODO: final check if agent mode is available for all in Stable -->
 
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`), and select **Agent** mode from the dropdown.
 
-    ![Agent mode dropdown option](images/copilot/mcp-tool-list.png)
+    ![Agent mode dropdown option](images/mcp-servers/chat-mode-agent.png)
 
 1. Select the **Refresh** button to start and refresh the list of available MCP servers.
 
-    ![Refresh button](images/copilot/mcp-tool-list.png)
+    ![Refresh button](images/mcp-servers/agent-mode-refresh-tools.png)
 
-1. Select the tools button to view the list of available tools.
+1. Select the **Tools** button to view the list of available tools.
 
     Optionally, select or deselect the tools you want to use.
 
-    ![MCP tools list](images/copilot/mcp-tool-list.png)
+    ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
 1. You can now enter a prompt in the chat input box and notice how the tools are automatically invoked as needed.
 
@@ -174,20 +175,20 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
-    ![MCP Tool Confirmation](images/copilot/mcp-tool-confirmation.png)
+    ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
 
 ## Managing tools
 
 Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers.
 
-![MCP Server List](images/copilot/mcp-server-list.png)
+![MCP server list](images/mcp-servers/mcp-list-servers.png)
 
 When you select a server, you can start, stop, or restart the server. You can also view the server configuration and server logs to diagnose issues.
 
 > [!TIP]
 > When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
 
-![MCP server configuration with lenses to manage server.](images/copilot/mcp-server-config.png)
+![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png)
 
 ### Command-line configuration
 
@@ -214,13 +215,13 @@ This link can be used in a browser, or opened on the command line, for example v
 
 When VS Code encounters an issue with an MCP server, it shows a error indicator in the Chat view.
 
-![MCP Server Error](images/copilot/mcp-server-error.png)
+![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
 Select the error notification in the Chat view, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
-![MCP Server Error Output](images/copilot/mcp-server-error-output.png)
+![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
 ## Related resources
 
-- TODO: link to extension docs for publishing MCP servers inside an extension.
 - [Model Context Protocol documentation](https://modelcontextprotocol.info/)
+- [Use agent mode in Visual Studio Code](/docs/copilot/copilot-edits.md#use-agent-mode-preview)
