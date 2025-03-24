@@ -172,18 +172,13 @@ To enable or disable code completions:
 
 ### Change the AI model
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. You can change the language model that is used to generate code completions.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/ai-language-models.md) in VS Code.
 
-To change the model that is used for code completions:
+To change the language model that is used for generating code completions in the editor:
 
 1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
 
-    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
-
 1. Select **Change Completions Model...**, and then select one of the models from the list.
-
-> [!NOTE]
-> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Settings
 
