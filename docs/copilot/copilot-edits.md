@@ -296,3 +296,4 @@ We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inli
 
 * [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
 * [Use Copilot Chat for AI chat conversations](/docs/copilot/copilot-chat.md)
+* [Configure MCP servers to add tools to agent mode](/docs/copilot/mcp-servers.md)
