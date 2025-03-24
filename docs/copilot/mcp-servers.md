@@ -14,7 +14,7 @@ When you enter a chat prompt to a language model with agent mode in VS Code, the
 
 _MCP servers_ are services that provide one or more tools to _MCP clients_ like VS Code. For example, a file system MCP server might provide tools for reading, writing, or searching files and directories. MCP servers can run locally on your machine or be hosted remotely.
 
-VS Code supports MCP servers, allowing you to add them to your workspace and use the tools they provide in agent mode.
+VS Code supports both local and remote MCP servers, allowing you to add them to your workspace and use the tools they provide in agent mode.
 
 ## Add an MCP server
 
