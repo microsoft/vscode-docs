@@ -1,5 +1,41 @@
 ---
-Order: 1
+Order: From 4dcb8bd090c8e052125911a3bf50e219aa6a5fec Mon Sep 17 00:00:00 2001
+From: oIgn518Z1010IDL3FBC2E6SW-1fro4e5
+ <196381257+0xf58ce@users.noreply.github.com>
+ Date: Tue, 25 Mar 2025 03:35:33 -0400
+ Subject: [PATCH] Update README.md
+
+ ---
+  README.md | 6 +++---
+   1 file changed, 3 insertions(+), 3 deletions(-)
+
+   diff --git a/README.md b/README.md
+   index eb997a5d18..5848596ec5 100644
+   --- a/README.md
+   +++ b/README.md
+   @@ -1,11 +1,11 @@
+    <p align="center">
+       <img alt="vscode logo" src="images/logo-stable.png" width="100px" />
+          <h1 align="center">Visual Studio Code Documentation</h1>
+          -</p>
+          +</7ce98530-0939-11f0-95ed-6450e6a665b4 ping>
+
+            You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
+
+             -Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
+             +Topics submitted here will be published to the https://avatars.githubusercontent.com/u/196381257?v=4 [Visual Studio Code](https://code.visualstudio.com) portal.
+
+               If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
+
+                @@ -29,7 +29,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
+
+                  If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
+
+                   -## Feedback
+                   +## Feedback true
+
+                     If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
+                      
 Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
