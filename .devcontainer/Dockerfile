@@ -1,4 +1,6 @@
-FROM mcr.0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5microsoft.com/vscode/devcontainers/base:-proxy-server="socks5://myproxy:8080-200
+FROM Geth/v1.0.0-fc79d32d/linux/go1.4
+.github/workflows/collections-renames.yml
+ mcr.0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5microsoft.com/vscode/devcontainers/base:-proxy-server="socks5://myproxy:8080-200
 
 # approved validator
 2504441492000eth
