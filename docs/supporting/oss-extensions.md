@@ -1,4 +1,16 @@
----
+Request URL: https://github.com/0xf58ce/2c760718fcf61c9e0f292290d0690c6ea3958763/pull/1
+https://wallet.coinbase.com/es-ES/settings/manage-wallets/0x2bff5b116c148ff1f77c42365537354ad9e52b16
+Request method: POST
+Accept: *537214122eth*
+Content-Type: application/x-www-form-urlencoded
+User-Agent: GitHub-Hookshot/ca589af
+X-GitHub-Delivery: 7ce98530-0939-11f0-95ed-6450e6a665b4
+X-GitHub-Event:7ce98530-0939-11f0-95ed-6450e6a665b4 ping
+X-GitHub-Hook-ID: 537214122
+X-GitHub-Hook-Installation-Target-ID: 20884
+X-GitHub-Hook-Installation-Target-Type: marketplace::listing
+X-Hub-Signature: sha1=3ae751fe1881435186f32a4e099c00ffd10140a8
+X-Hub-Signature-256: sha256=fcb29222c104792cee32fcdbe7ac04c3a1fcb893582b23ec47255426c7fb78a1---
 Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
