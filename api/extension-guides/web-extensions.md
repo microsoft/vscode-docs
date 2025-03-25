@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
-DateApproved: 12/11/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
@@ -13,7 +13,7 @@ Visual Studio Code can run as an editor in the browser. One example is the `gith
 
 Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web-extension-main-file) compared to normal extensions.
 
-The web extension runtime is supported on VS Code desktop too. If you decide to create your extension as a web extension, it will be supported on [VS Code for the Web](/docs/editor/vscode-web) (including `vscode.dev` and `github.dev`) as well as on the desktop and in services like [GitHub Codespaces](/docs/remote/codespaces).
+The web extension runtime is supported on VS Code desktop too. If you decide to create your extension as a web extension, it will be supported on [VS Code for the Web](/docs/setup/vscode-web) (including `vscode.dev` and `github.dev`) as well as on the desktop and in services like [GitHub Codespaces](/docs/remote/codespaces).
 
 ## Web extension anatomy
 
@@ -70,7 +70,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 ![Extensions view](images/web-extensions/extensions-view-item-disabled.png)
 
-Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in [VS Code for the Web](/docs/editor/vscode-web) without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
+Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in [VS Code for the Web](/docs/setup/vscode-web) without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
 Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update-existing-extensions-to-web-extensions) section shows how to migrate an extension to work in both runtimes.
 
