@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 12/11/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
