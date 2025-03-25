@@ -32,7 +32,7 @@ You can also contribute directly to the [Jupyter extension](https://github.com/m
 
 ## Data Science profile template
 
-[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Data Science in VS Code, you can use the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Data Science in VS Code, you can use the [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

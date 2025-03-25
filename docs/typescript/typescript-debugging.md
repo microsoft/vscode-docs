@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
 PageTitle: TypeScript debugging with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: TypeScript debugging with Visual Studio Code.
 MetaSocialImage: ../languages/images/typescript/typescript-social.png
 ---

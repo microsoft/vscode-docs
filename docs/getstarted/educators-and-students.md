@@ -1,6 +1,10 @@
 ---
+Order:
+Area: getstarted
+TOCTitle: Educators & Students
 ContentId: 33b73b13-3d85-49d9-95b2-92b75137818c
-DateApproved: 03/05/2025
+PageTitle: Visual Studio Code for Educators and Students
+DateApproved: 12/11/2024
 MetaDescription: Resources for educators and students to get started with Visual Studio Code.
 ---
 # VS Code for Educators and Students
@@ -145,7 +149,7 @@ You should be able to see and interact with your classmate's code on your screen
 
 #### Joining a Live Share session from the browser
 
-If you want to join a Live Share session but you don't have Visual Studio Code installed on your machine, you can use [Visual Studio Code for the Web](/docs/setup/vscode-web.md) to join a session. VS Code for the Web provides a zero-install Visual Studio Code experience running entirely in your browser. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
+If you want to join a Live Share session but you don't have Visual Studio Code installed on your machine, you can use [Visual Studio Code for the Web](/docs/editor/vscode-web.md) to join a session. VS Code for the Web provides a zero-install Visual Studio Code experience running entirely in your browser. To get started, go to [https://vscode.dev](https://vscode.dev) in your browser.
 
 After you navigate to VS Code for the Web, you can then install the [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) extension, and [join the Live Share session](#joining-a-live-share-session).
 

@@ -1,5 +1,9 @@
 ---
+Order: 5
+Area: intelligentapps
+TOCTitle: Evaluation
 ContentId: 3342b8ef-72fe-4cca-baad-64ee57c05b5f
+PageTitle: AI Evaluation
 DateApproved: 12/11/2024
 MetaDescription: Import a dataset with LLMs or SLMs output or rerun it for the queries. Run evaluation job for the popular evaluators like F1 score, relevance, coherence, similarity... find, visualize, and compare the evaluation results in tables or charts.
 ---

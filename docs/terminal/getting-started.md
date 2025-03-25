@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Getting Started Tutorial
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Getting started with the integrated terminal
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: Learn how to get started running shell commands with the integrated terminal in Visual Studio Code.
 ---
 # Getting started with the terminal
@@ -137,7 +137,7 @@ To add a new terminal in a different shell:
 
 1. Drag a terminal from the terminal list into the editor area.
 
-    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/configure/custom-layout.md#editor).
+    The terminal is moved to an editor tab, where you can arrange it like other editor tabs. For example, you can drag the terminal tab out of the VS Code window to make it a floating window. Learn more about [custom layouts](/docs/editor/custom-layout.md#editor).
 
     ![Move a terminal to the editor area](./images/getting-started/move-terminal.png)
 

@@ -75,7 +75,7 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 Note that, depending on your network speed, installing the .NET Core runtime might take some time. By default, the installation terminates unsuccessfully if it takes longer than 4.5 minutes to finish. If you believe this is too little (or too much) time to allow for the download, you can change the timeout value by setting `dotnetAcquisitionExtension.installTimeoutValue` to a custom value.
 
-[Learn more about configuring VS Code settings](/docs/configure/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
+[Learn more about configuring VS Code settings](/docs/getstarted/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
 
 ```json
 {
@@ -182,12 +182,6 @@ Make sure your solution includes a test project. Only test projects that are par
 C# Dev Kit also requires that it has built your project successfully before tests appear in the Test Explorer panel. Also, if a **Clean** is done on your project/solution, the test dlls are removed from the Test Explorer panel.
 
 Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
-
-If your tests are still not appearing, consider the following additional checks:
-- **Supported .NET Core SDK**: Ensure you are using a supported .NET Core SDK for your platform and machine. Some SDKs do not work on specific operating systems or architectures. For more information, check the official .NET download page: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
-- **Valid SDK installation**: Verify that a valid SDK installation is detected. You can [enable diagnostic logging](#how-do-i-collect-logs-for-troubleshooting-issues-with-test-explorer) to check which SDK is detected for your .NET project. Note that .NET SDKs installed via unsupported tools like ASDF or [Mise](https://mise.jdx.dev/) may not be detected, as they deviate from Microsoft’s official installation methods. We recommend following the [official instructions](https://dotnet.microsoft.com/en-us/download).
-- **Build output**: Confirm that the build is complete and has generated the corresponding output binaries, such as `.dll` or `.exe` files.
-- **Project loading**: Ensure all projects have finished loading. In the Solution Explorer, look for a test icon next to test projects to confirm they are detected.
 
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 

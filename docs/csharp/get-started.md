@@ -31,7 +31,7 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 ### Installing VS Code and extensions
 
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
-1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
+1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
 >**Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
 

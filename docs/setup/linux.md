@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -86,7 +86,7 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
 
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using `dnf` (Fedora 22 and above):
@@ -133,12 +133,13 @@ The yum repository [mentioned previously](#rhel-fedora-and-centos-based-distribu
 
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" |sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" |sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using:
 
     ```bash
+    sudo zypper refresh
     sudo zypper install code
     ```
 
@@ -282,7 +283,7 @@ While 524,288 is the maximum number of files that can be watched, if you're in a
 
 [Arch](https://www.archlinux.org/)-based distros (including Manjaro) require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 
-Another option is to exclude specific workspace directories from the VS Code file watcher with the `setting(files.watcherExclude)` [setting](/docs/configure/settings.md). The default for `setting(files.watcherExclude)` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
+Another option is to exclude specific workspace directories from the VS Code file watcher with the `setting(files.watcherExclude)` [setting](/docs/getstarted/settings.md). The default for `setting(files.watcherExclude)` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 
 ```json
 "files.watcherExclude": {

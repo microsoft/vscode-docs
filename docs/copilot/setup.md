@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Setup
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: Set up GitHub Copilot
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -26,16 +26,20 @@ There are different ways to get access to GitHub Copilot:
 
 ## Set up Copilot in VS Code
 
-VS Code provides a streamlined experience to set up GitHub Copilot. This installs the GitHub Copilot extensions and signs you in to your GitHub account. If you don't have a Copilot subscription yet, it activates the [Copilot Free plan](https://github.com/github-copilot/signup).
+VS Code provides a streamlined experience to set up GitHub Copilot that takes you through the following steps:
 
-1. Select **Use AI Features with Copilot for Free...** from the Copilot menu in the VS Code title bar or from the Command Palette (`kb(workbench.action.showCommands)`)
+* Installs the GitHub Copilot extensions in VS Code
+* Signs in to your GitHub account
+* If you don't have a Copilot subscription yet, signs you up for the [Copilot Free plan](https://github.com/github-copilot/signup)
+
+1. Open the Copilot menu in the VS Code title bar and select **Use AI Features with Copilot for Free...** to open the Chat view
 
     ![The Copilot menu in the VS Code title bar, showing the option to use AI features with Copilot for free.](images/setup/copilot-menu-use-ai-features.png)
 
     > [!TIP]
-    > You can also open the Chat view directly by using the keyboard shortcut `kb(workbench.action.chat.open)` or with the **Open Chat** command.
+    > You can also open the Chat view directly by using the keyboard shortcut `kb(workbench.action.chat.open)` or with the **Chat: Focus on Chat View** command.
 
-1. Select **Sign in to Use Copilot for Free** to sign in to your GitHub account. This step also installs the Copilot extensions.
+1. Select **Sign in to Use Copilot for free** to sign in to your GitHub account. This step also installs the Copilot extensions.
 
     ![Chat view shows the Copilot message and a button that enables you to sign in to use Copilot.](images/setup/copilot-chat-view-new-user.png)
 
@@ -60,22 +64,27 @@ After you've signed in to your GitHub account and have access to Copilot, start 
 
 ## Manually set up GitHub Copilot in VS Code
 
-To manually set up GitHub Copilot in VS Code, perform the following steps:
+To manually set up GitHub Copilot in VS Code, you need to perform the following steps:
 
-1. Install the GitHub Copilot extensions in VS Code
+* Install the GitHub Copilot extensions in VS Code
+* Sign in to Copilot
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-setup">Install the GitHub Copilot extensions</a>
+### Install the GitHub Copilot extensions
 
-    You can also open the Extensions view and search for *GitHub Copilot* to install the extension.
+To manually install the GitHub Copilot extensions:
 
-    > [!NOTE]
-    > When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+> <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-setup">Install the GitHub Copilot extensions</a>
 
-1. Sign in to Copilot from VS Code
+You can also open the Extensions view and search for *GitHub Copilot* to install the extension.
 
-    Sign in to your GitHub account by entering **GitHub Copilot: Sign in** in the Command Palette (`kb(workbench.action.showCommands)`)
+> [!NOTE]
+> When you install the GitHub Copilot extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
 
-    ![Command Palette in VS Code, showing the option to sign in to GitHub Copilot.](images/setup/command-palette-copilot-sign-in.png)
+### Sign in to Copilot
+
+Sign in to your GitHub account by entering **GitHub Copilot: Sign in** in the Command Palette (`kb(workbench.action.showCommands)`)
+
+![Command Palette in VS Code, showing the option to sign in to GitHub Copilot.](images/setup/command-palette-copilot-sign-in.png)
 
 ## Use a different GitHub account with Copilot
 

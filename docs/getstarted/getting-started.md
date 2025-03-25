@@ -1,6 +1,10 @@
 ---
+Order: 1
+Area: getstarted
+TOCTitle: Tutorial
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 03/05/2025
+PageTitle: Getting started with Visual Studio Code
+DateApproved: 12/11/2024
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -39,14 +43,14 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
     Because you created the folder on your computer, you can trust the code in the folder.
 
     > [!IMPORTANT]
-    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
+    > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editor/workspace-trust.md).
 
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
 
 > [!TIP]
-> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
+> When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editor/workspaces.md).
 
 ## Explore the user interface
 
@@ -161,7 +165,7 @@ You can customize almost every part of VS Code by configuring settings. You can 
 
 1. You can use the tabs in the Settings Editor to switch between **User** settings and **Workspace** settings.
 
-    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/configure/settings.md).
+    User settings apply across all your workspaces. Workspace settings only apply to the current workspace. Workspace settings override user settings. Get more information about [settings in VS Code](/docs/getstarted/settings.md).
 
 ## Write some code
 
@@ -195,7 +199,7 @@ VS Code supports many programming languages and in a next step, you'll [install 
 
     Code Actions are suggestions to apply quick fixes to your code. In this case, the Code Action converts `""Hello, " + name` into a [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) `` `Hello, ${name}` ``, which is a special JavaScript construct to embed expressions in strings.
 
-Learn more about code [editing features](/docs/editing/codebasics.md), [IntelliSense](/docs/editing/intellisense.md), [code navigation](/docs/editing/editingevolved.md), and [refactoring](/docs/editing/refactoring.md) in VS Code.
+Learn more about code [editing features](/docs/editor/codebasics.md), [IntelliSense](/docs/editor/intellisense.md), [code navigation](/docs/editor/editingevolved.md), and [refactoring](/docs/editor/refactoring.md) in VS Code.
 
 ## Use source control
 
@@ -227,7 +231,7 @@ Let's use the built-in Git support to commit the changes you've made previously.
     ![Screenshot that shows the Source Control view with a commit message.](images/getting-started/source-control-commit.png)
 
     > [!TIP]
-    > Select **Graph** in the Source Control view to show a visual representation of the commit history of your Git repository.
+    > You can use the **Source Control Graph** to show a visual representation of the commit history of your Git repository.
 
 There's a lot more to discover about source control in VS Code. Get more info about [source control in VS Code](/docs/sourcecontrol/overview.md).
 
@@ -297,7 +301,7 @@ Let's debug the `hello.py` program that you created in the previous step.
 
     ![Screenshot that shows the Debug toolbar with the Continue button highlighted.](images/getting-started/debug-toolbar-play.png)
 
-There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/debugtest/debugging.md).
+There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/editor/debugging.md).
 
 ## Enhance your coding with AI and GitHub Copilot
 
@@ -341,7 +345,7 @@ There's a lot more you can do with Copilot in VS Code. Discover more about GitHu
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
 
-- [Discover and run unit tests for your code](/docs/debugtest/testing.md)
+- [Discover and run unit tests for your code](/docs/editor/testing.md)
 
 - [Use the integrated terminal](/docs/terminal/getting-started.md)
 

@@ -1,6 +1,10 @@
 ---
+Order: 3
+Area: getstarted
+TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
-DateApproved: 03/05/2025
+PageTitle: Visual Studio Code Introductory Videos
+DateApproved: 12/11/2024
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: ../introvideos/images/opengraph/introvideos-social.png
 ---

@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -24,15 +24,13 @@ Both of these persistent sessions can be disabled by setting `setting(terminal.i
 
 Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the Command Palette and the **Terminal: Detach Session** and **Terminal: Attach to Session** commands.
 
-### Configure terminal visibility
+### Configure how the terminal behaves on start up
 
 When opening a window, if the terminal view is visible it will either reconnect to the terminal using persistent sessions, or create a new shell. This behavior can be fine tuned with the `setting(terminal.integrated.hideOnStartup)` setting.
 
 * `never` (default): Never hide the terminal view on startup.
 * `whenEmpty`: Only hide the terminal when there are no persistent sessions restored.
 * `always`: Always hide the terminal, even when there are persistent sessions restored.
-
-The `setting(terminal.integrated.hideOnLastClosed)` setting is also available to override the default behavior of closing the terminal view when the last terminal is closed.
 
 ## Keyboard shortcuts and the shell
 
@@ -61,7 +59,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/getstarted/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {
@@ -100,7 +98,7 @@ For example, the sequence below jumps over the word to the left of the cursor (`
 }
 ```
 
-This feature supports [variable substitution](/docs/reference/variables-reference.md).
+This feature supports [variable substitution](/docs/editor/variables-reference.md).
 
 The `sendSequence` command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and terminal sequences in the following resources:
 
@@ -196,13 +194,9 @@ Since ConPTY is an emulation layer, it does come with some quirks. The most comm
 
 This section outlines topics specific to when VS Code is connected to a remote machine using a VS Code [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extension.
 
-### Local terminals in remote windows
+### Reducing remote input latency
 
-The default *local* terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently, non-default profiles cannot be launched from remote windows.
-
-### Reducing remote input latency (Preview)
-
-Local echo is a feature that helps mitigate input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature starts running when latency is detected to be above 30 ms and the timing can be configured with `setting(terminal.integrated.localEchoLatencyThreshold)`. The color of the unconfirmed characters is defined by `setting(terminal.integrated.localEchoStyle)`.
+Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default, the feature start running when latency is detected to be above 30 ms and the timing can be configured with `setting(terminal.integrated.localEchoLatencyThreshold)`. The color of the unconfirmed characters is defined by `setting(terminal.integrated.localEchoStyle)`.
 
 Local echo disables itself dynamically depending on the active program in the terminal. This is controlled by `setting(terminal.integrated.localEchoExcludePrograms)`, which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended that you disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
 
@@ -213,3 +207,7 @@ To disable the feature completely, use:
   "terminal.integrated.localEchoEnabled": false
 }
 ```
+
+### Local terminals in remote windows
+
+The default **local** terminal profile can be launched in remote windows with the **Terminal: Create New Integrated Terminal (Local)** command via the Command Palette. Currently non-default profiles cannot be launched from remote windows.
