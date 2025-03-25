@@ -48,7 +48,7 @@ A bit more nuanced are the code editing, navigation, and browsing experiences, w
 
 As a result, when in the browser, experiences generally fall into the following categories:
 
-**Good**: For most programming languages, vscode.dev gives you code syntax colorization, text-based completions, and [bracket pair colorization](https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization). Using a [Tree-sitter](https://tree-sitter.github.io/tree-sitter) syntax tree, we're able to [provide additional experiences](https://github.com/microsoft/vscode-anycode) such as [Outline/Go to Symbol](https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol) and [Symbol Search](https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name) for popular languages such as C/C++, C#, Java, PHP, Rust, and Go.
+**Good**: For most programming languages, vscode.dev gives you code syntax colorization, text-based completions, and [bracket pair colorization](https://code.visualstudio.com/blogs/2021/09/29/bracket-pair-colorization). Using a [Tree-sitter](https://tree-sitter.github.io/tree-sitter) syntax tree, we're able to [provide additional experiences](https://github.com/microsoft/vscode-anycode) such as [Outline/Go to Symbol](https://code.visualstudio.com/docs/editing/editingevolved#_go-to-symbol) and [Symbol Search](https://code.visualstudio.com/docs/editing/editingevolved#_open-symbol-by-name) for popular languages such as C/C++, C#, Java, PHP, Rust, and Go.
 
 **Better**: The TypeScript, JavaScript, and [Python](https://devblogs.microsoft.com/python/python-in-visual-studio-code-september-2021-release/#a-rich-python-editing-experience-in-the-browser-via-github-dev) experiences are all powered by language services that run natively in the browser. With these programming languages, you'll get the "**Good**" experience plus rich single file completions, semantic highlighting, syntax errors, and more.
 
@@ -56,7 +56,7 @@ As a result, when in the browser, experiences generally fall into the following 
 
 ## Extensions
 
-Most UI customization extensions such as themes, key maps, and snippets all work in vscode.dev and you can even enable roaming between the browser, the desktop, and GitHub Codespaces through [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync).
+Most UI customization extensions such as themes, key maps, and snippets all work in vscode.dev and you can even enable roaming between the browser, the desktop, and GitHub Codespaces through [Settings Sync](https://code.visualstudio.com/docs/configure/settings-sync).
 
 Extensions that run Node.js code that use OS-specific modules, or shell out to local executables, still show in search results, but are clearly marked as unavailable.
 
@@ -102,7 +102,7 @@ For example, try browsing to [https://vscode.dev/theme/sdras.night-owl](https://
 
 [![Night Owl color theme in vscode.dev](night-owl-theme-vscode-dev.png)](/assets/blogs/2021/10/20/night-owl-theme-vscode-dev.png)
 
-Here you can experience the popular [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) color theme by [@sarah_edo](https://twitter.com/sarah_edo) "live", without having to go through the download and install process, just to see if you like it. No install necessary! If you are a theme author, you can even create a badge in your `README.md` to let users test drive your theme directly from the Marketplace (learn more in the [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web#_themes) user guide).
+Here you can experience the popular [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) color theme by [@sarah_edo](https://twitter.com/sarah_edo) "live", without having to go through the download and install process, just to see if you like it. No install necessary! If you are a theme author, you can even create a badge in your `README.md` to let users test drive your theme directly from the Marketplace (learn more in the [VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web#_themes) user guide).
 
 Feel free to use this URL to share your favorite themes with friends. Personally, I'm a big fan of [@wesbos](https://twitter.com/wesbos)' [Cobalt2](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2) theme, check out [https://vscode.dev/theme/wesbos.theme-cobalt2](https://vscode.dev/theme/wesbos.theme-cobalt2). Note, the `theme` URL only works with themes that are fully declarative (no code).
 

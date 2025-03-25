@@ -9,13 +9,13 @@ MetaDescription: Java web app tutorial showing how to build and deploy a Java we
 
 # Java Web Apps with Visual Studio Code
 
-This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally and eventually on the cloud.
+This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to deploy a Java web application to a Linux Tomcat server in Azure App Service.
 
 ## Scenario
 
-A simple Spring Boot Getting Started web app
+A simple Hello World web app.
 
-![Greeting from Java](images/java-webapp/greeting-from-spring.png)
+![Greeting from Java](images/java-webapp/greeting.png)
 
 ## Before you begin
 
@@ -33,47 +33,33 @@ Install Apache Maven for your local development environment:
 
 <a class="install-extension-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
 
-## Download and test the Spring Boot app
+## Create a Maven Web App project
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the `complete` folder within the cloned repository in VS Code by navigating to the folder and typing `code .`.
+`maven-archetype-webapp` is an archetype which generates a Maven Web App project. To learn more, you can visit [this documentation](https://maven.apache.org/archetypes/maven-archetype-webapp/).
 
->**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
+1. In an empty folder, run the following command to generate a new project from a Maven archetype.
 
-![Clone Spring Repository](images/java-webapp/clone-repository.gif)
+```cmd
+   mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+```
+1. Maven asks you for values needed to finish generating the project on deployment. Provide the following values when prompted:
 
-From within VS Code, open any of the Java files within the `complete` folder (for example `src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.webappproject` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `webapp-project` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
+    | **package** | `com.webappproject` | A value that is the Java package for the generated function code. Use the default. |
 
-![Install Java Extensions](images/java-webapp/install-extensions.gif)
+1. Type `Y` or press Enter to confirm.
 
-Once you have the Extension Pack for Java installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `webapp-project`.
 
-![debug configuration in the Status Bar](images/java-webapp/debugging-status-bar.png)
+1. Navigate into the project folder:
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
-
-![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
-
-Test the web app by browsing to [http://localhost:8080](http://localhost:8080) using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
-
-![Greeting from Spring](images/java-webapp/greeting-from-spring.png)
-
-## Make a change
-
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Navigating and edit Java](/docs/java/java-editing.md) to learn about VS Code's editing and code navigation features.
-
-Click the **Restart** button on the top of the editor to relaunch the app and see result by reloading the browser.
-
-![Restart Application](images/java-webapp/restart-application.png)
-
-## Debug the application
-
-Set a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in the application source code, and reload your browser to hit the breakpoint.
-
-![Debug Application](images/java-webapp/debugging.png)
-
-If you would like to learn more about debugging Java with VS Code, you can read [Java Debugging](/docs/java/java-debugging.md).
-
-Congratulations, you have your first Spring Boot web app running locally! Read on to learn how to host it in the cloud.
+    ```console
+    cd webapp-project
+    ```
 
 ## Deploy Web Apps to the cloud
 
@@ -111,9 +97,9 @@ Once the extension is installed, you can take the following steps to create a ne
 
 3. Select the runtime task of the Web App, for example `Java 17`.
 
-4. Select the Java web server stack, for example `Java SE`.
+4. Select the Java web server stack, for example `Apache Tomcat 10.0`.
 
-5. Select a pricing tier.
+5. Select a pricing tier, for example `Free(F1)`.
 
 ![Create a Web App](images/java-webapp/create-webapp.png)
 
@@ -137,51 +123,15 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 
 > **Note:** For more advanced features of App Service, you can check out the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-## Connect with data services
+## Clean up resources
 
-[Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+1. To delete your web app, navigate to the **RESOURCES** Explorer and locate the **App Services** item.
 
-The [Spring Boot Starter](https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB for NoSQL database.
+2. Right-click the web app you'd like to delete and click **Delete**.
 
-### Create an Azure Cosmos DB entity on Azure
+![Delete the Web App Resources](images/java-webapp/delete-webapp.png)
 
-1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource**.
-2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
-3. Select **SQL (Document DB) API** and type in other information for your database.
-4. Navigate to the database you have created, click **Keys**, and copy your **URI** and **PRIMARY KEY** for your database.
-
-### Config your project
-
-1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-cosmos).
-
-2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
-
-    ```bash
-    azure.documentdb.uri=your-documentdb-uri
-    azure.documentdb.key=your-documentdb-key
-    azure.documentdb.database=your-documentdb-databasename
-    ```
-
-### Run and debug the application
-
-You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open the [Azure portal](https://portal.azure.com/) and access your Azure Cosmos DB instance. Select **Data Explorer**, and next choose **Documents**. Data is shown if it's successfully written into Azure Cosmos DB. You can also browse your data entries in Azure Cosmos DB with the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
-
-After setting a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in your source code, refresh your browser to hit the breakpoint. Details about debugging can be found in [Java Debugging](/docs/java/java-debugging.md)
-
-Alternatively, you can also use Maven to package and run your project as steps below:
-
-1. Navigate to the directory `azure-spring-boot` and run the command.
-
-   ```bash
-   mvn install
-   ```
-
-2. Navigate to the directory `azure-documentdb-spring-boot-sample` and run the command.
-
-   ```bash
-   mvn package
-   java -jar target/azure-documentdb-spring-boot-sample-0.0.1-SNAPSHOT.jar
-   ```
+3. To delete your app service plan or resource group, visit the [Azure portal](https://portal.azure.com) and manually delete the resources under your subscription.
 
 ## Next steps
 

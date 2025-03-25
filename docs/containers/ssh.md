@@ -23,7 +23,7 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
     * **Linux:** `ssh-agent` is present by default. Do `ssh-add <keyfile>`. Ubuntu was tested; you might have different results on other distributions.
 
-    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.profiles.osx` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
+    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `setting(terminal.integrated.profiles.osx)` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
 
 1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
 
@@ -36,6 +36,8 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
     Always include the user name in the Docker endpoint address, even if it is the same as the local user name. If you omit the port, it defaults to 22.
 
 1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Contexts: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
+
+    If you don't have this command, make sure to install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
 
 1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
 

@@ -59,7 +59,7 @@ Once you have the Extension Pack for Java installed, it will automatically build
 
 ![debug configuration in the Status bar](images/java-webapp/debugging-status-bar.png)
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/debugtest/debugging-configuration.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
 
 ![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
 

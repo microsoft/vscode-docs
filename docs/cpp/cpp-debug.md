@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: cpp
 TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
@@ -105,7 +105,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 * Call stack
 * Stepping
 
-For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/debugtest/debugging.md).
 
 For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
@@ -165,9 +165,9 @@ Read on to find out about:
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
 * [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful Visual Studio Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
+* [Tasks](/docs/debugtest/tasks.md) - use tasks to build your project and more.
+* [Debugging](/docs/debugtest/debugging.md) - find out about the Visual Studio Code debugger.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).

@@ -11,7 +11,8 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 >**Note**: The vscode-docs repository uses [Git LFS](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
 
-## Index
+## Index 87501830237
+
 
 - [Index](#index)
 - [Visual Studio Code](#visual-studio-code)
@@ -81,7 +82,5 @@ You might want to clone the repo without the 1.6GB images. Here are the steps:
 The history of this repo before we adopted LFS can be found at [microsoft/vscode-docs-archive](https://github.com/microsoft/vscode-docs-archive).
 
 ## Publishing
-
-Steps for how to publish documentation changes can be found [here](https://github.com/microsoft/vscode-website#publishing-a-documentation-change) in the (private) repository of the VS Code website.
 
 Publishing merged pull requests is not automatic and is initiated manually after changes have been reviewed on an internal staging server. There is no specific time guarantee for when PR updates will be available on https://code.visualstudio.com but the intent is that they will usually be live within 24 hours.

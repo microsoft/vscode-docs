@@ -53,7 +53,7 @@ For the most part, the order of topics follows the actual timeline. To keep each
 
 ### Standing on the shoulder of giants
 
-When we started to consider sandboxing in early 2020, we had already shipped a version of VS Code that was able to run in web browsers. You can run [vscode.dev](https://vscode.dev) in your browser and see [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) in action. While creating a web version of VS Code, we had learned how to remove Node.js dependencies from the workbench – the main VS Code user interface window.
+When we started to consider sandboxing in early 2020, we had already shipped a version of VS Code that was able to run in web browsers. You can run [vscode.dev](https://vscode.dev) in your browser and see [Visual Studio Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web) in action. While creating a web version of VS Code, we had learned how to remove Node.js dependencies from the workbench – the main VS Code user interface window.
 
 ![VS Code for Web running in the browser](vscode-web.png)
 

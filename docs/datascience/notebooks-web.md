@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/python-social.png
 
 # Jupyter Notebooks on the web
 
-Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [GitHub Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](/docs/editor/vscode-web.md).
+Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [GitHub Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](/docs/setup/vscode-web.md).
 
 Using these browser-based platforms enables you to work on your notebooks (and beyond!) without having to install anything on your machine. You can read more about each of options and how to get started below:
 
@@ -34,7 +34,7 @@ Developing Jupyter notebooks in VS Code can be done entirely through a web-based
 
 ## Jupyter notebooks on VS Code for the Web
 
-You can also use [VS Code for the Web](/docs/editor/vscode-web.md) by going to [https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev) (available by typing '.' when viewing a repo on GitHub). With VS Code for the Web, you have two options to connect to the following types of kernels for your notebook:
+You can also use [VS Code for the Web](/docs/setup/vscode-web.md) by going to [https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev) (available by typing '.' when viewing a repo on GitHub). With VS Code for the Web, you have two options to connect to the following types of kernels for your notebook:
 
 1. [Remote tunneling with VS Code Server](#remote-tunneling-with-vs-code-server)
 2. [Connect to a remote Jupyter server](#connect-to-a-remote-jupyter-server)

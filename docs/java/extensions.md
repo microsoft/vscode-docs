@@ -11,7 +11,7 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 
 Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/editor/extension-marketplace.md).
+> **Tip:** To learn how to install and manage your extensions, refer to the general [VS Code extension documentation](/docs/configure/extensions/extension-marketplace.md).
 
 In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
 
@@ -68,7 +68,7 @@ Support for Eclipse MicroProfile and Quarkus are provided via the following exte
 There are some extensions from the community for developers who might be used to the keyboard shortcuts from other Java IDEs.
 
 * [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
-* [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+* [IntelliJ IDEA keyboard shortcuts](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 
 Keymap extensions apply keyboard shortcuts from other IDEs or editors on to VS Code so you don't have to retrain your fingers to new keyboard shortcuts.
 

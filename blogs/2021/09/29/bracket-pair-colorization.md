@@ -55,7 +55,7 @@ Additionally, by reusing the existing tokens from the renderer and its increment
 
 ### VS Code for the Web
 
-Besides being more performant, the new implementation is also supported in [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web), which you can see in action with [vscode.dev](https://vscode.dev) and  [github.dev](https://docs.github.com/codespaces/the-githubdev-web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to be what we call a [web extension](https://code.visualstudio.com/api/extension-guides/web-extensions).
+Besides being more performant, the new implementation is also supported in [VS Code for the Web](https://code.visualstudio.com/docs/setup/vscode-web), which you can see in action with [vscode.dev](https://vscode.dev) and  [github.dev](https://docs.github.com/codespaces/the-githubdev-web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to be what we call a [web extension](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
 Not only does our new implementation work in VS Code for the Web, but also directly in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)!
 
@@ -422,7 +422,7 @@ This needs to be considered when reusing nodes: the pair `( } )` cannot be reuse
 
 ## Going forward
 
-Efficient bracket pair colorization was a fun challenge. With the new data structures, we can also solve other problems related to bracket pairs more efficiently, such as [general bracket matching](https://code.visualstudio.com/docs/editor/editingevolved#_bracket-matching) or [showing colored line scopes](https://github.com/microsoft/vscode/issues/131001).
+Efficient bracket pair colorization was a fun challenge. With the new data structures, we can also solve other problems related to bracket pairs more efficiently, such as [general bracket matching](https://code.visualstudio.com/docs/editing/editingevolved#_bracket-matching) or [showing colored line scopes](https://github.com/microsoft/vscode/issues/131001).
 
 Even though JavaScript might not be the best language to write high performance code, a lot of speed can be gained by reducing asymptotic algorithmic complexity, especially when dealing with large inputs.
 

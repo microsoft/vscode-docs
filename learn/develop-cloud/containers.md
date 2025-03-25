@@ -52,7 +52,7 @@ Below is a list of sample dev containers we'd recommend starting out with:
 
 To learn how to get started with the Dev Containers extension, check out this 5-minute introductory video:
 
-<iframe src="https://youtube.com/embed/Uvf2FVS1F8k?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Development Containers: A Guide for Students"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/Uvf2FVS1F8k?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Development Containers: A Guide for Students"></iframe>
 
 You can also read more in our [Development Containers in Education](/blogs/2020/07/27/containers-edu.md) blog post.
 

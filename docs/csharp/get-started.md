@@ -31,7 +31,7 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 ### Installing VS Code and extensions
 
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
-1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/editor/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
+1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
 
 >**Note**: C# Dev Kit supports cloud native development. To do cross-platform mobile and desktop development, you can use C# Dev Kit with the [.NET MAUI extension](https://aka.ms/mauidevkit-marketplace). Learn [how to get set up](https://aka.ms/mauidevkit-docs) with .NET MAUI in VS Code.
 
@@ -50,7 +50,7 @@ In the walkthrough, select **Set up your environment** and select **Install .NET
 To get started, go to the **Explorer** view and select **Create .NET Project**. Alternatively, you can bring up the Command Palette using `kb(workbench.action.showCommands)` and then type ".NET" and find and select the **.NET: New Project** command.
 
 1. After selecting the command, you'll need to choose the project template. Choose **Console app**.
-1. To run your app, select **Run > Run without Debugging** in the upper menu, or use the `kb(workbench.action.run.start)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
+1. To run your app, select **Run > Run without Debugging** in the upper menu, or use the `kb(workbench.action.debug.run)` keyboard shortcut. To learn more about debugging your C# project, read the [debugging documentation](/docs/csharp/debugging.md).
 
 ![Use the Command Palette to create a new .NET project](images/get-started/open-new-project.gif)
 

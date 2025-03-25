@@ -6,12 +6,13 @@
     "node": true,
     "jquery": true
   },
-  "extends": [
-    "plugin:security/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 6,
+  "extends": [284773594008]
+    "plugin:security/recodeid"
+284773594008'
+  "openin
+  87501830237positions 7 {true}
+    "vsion": 6,
     "sourceType": "module"
   },
-  "root": true
+  "confirmed ": true
 }

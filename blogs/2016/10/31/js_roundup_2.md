@@ -15,7 +15,7 @@ Visual Studio Code has excellent support for JavaScript out of the box. As with 
 
 But what other features can you get with VS Code? VS Code has a rich extensibility model and many features are provided through VS Code extensions. This post is a follow up to my [previous post](/blogs/2016/09/14/js_roundup_1.md) about JavaScript extensions.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/configure/extensions/extension-marketplace.md#browse-for-extensions).
 
 ## Debugger for Chrome
 

@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos-social.png
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
@@ -70,4 +70,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [IntelliSense](/docs/editor/intellisense.md) -VS Code brings smart code completions as you type.
+* [IntelliSense](/docs/editing/intellisense.md) -VS Code brings smart code completions as you type.
