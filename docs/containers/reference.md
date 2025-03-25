@@ -13,7 +13,7 @@ The Docker extension includes several Visual Studio Code tasks to control the be
 
 The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as Node.js, Python, or .NET), and user input. User input takes precedence when it conflicts with defaults.
 
-All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Docker extension tasks. For more information on common task features and properties, see the Visual Studio Code [custom task](/docs/debugtest/tasks.md#custom-tasks) documentation.
+All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Docker extension tasks. For more information on common task features and properties, see the Visual Studio Code [custom task](/docs/editor/tasks.md#custom-tasks) documentation.
 
 ## Docker build task
 

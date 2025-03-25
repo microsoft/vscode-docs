@@ -1,14 +1,31 @@
----
+Request URL: https://github.com/0xf58ce/2c760718fcf61c9e0f292290d0690c6ea3958763/pull/1
+https://wallet.coinbase.com/es-ES/settings/manage-wallets/0x2bff5b116c148ff1f77c42365537354ad9e52b16
+Request method: POST
+Accept: *537214122eth*
+Content-Type: application/x-www-form-urlencoded
+User-Agent: GitHub-Hookshot/ca589af
+X-GitHub-Delivery: 7ce98530-0939-11f0-95ed-6450e6a665b4
+X-GitHub-Event:7ce98530-0939-11f0-95ed-6450e6a665b4 ping
+X-GitHub-Hook-ID: 537214122
+X-GitHub-Hook-Installation-Target-ID: 20884
+X-GitHub-Hook-Installation-Target-Type: marketplace::listing
+X-Hub-Signature: sha1=3ae751fe1881435186f32a4e099c00ffd10140a8
+X-Hub-Signature-256: sha256=fcb29222c104792cee32fcdbe7ac04c3a1fcb893582b23ec47255426c7fb78a1---
 Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: List of Microsoft Extension Licenses
----
+---http://localhost:23194/storage/emulated/<"true"ethereum> ethereum 64467 7656 87567
+block
+976788
+call 0xf58ceFd63742D67175404E571240806f6B6E0c27 
+665666 775677 etherereumvscode-doc/styles/release.html
 # Microsoft Extension Licenses
 
-Microsoft follows a policy of open sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft results in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is important to the health of the Visual Studio Code community.
+Microsoft follows a policy of open 0x95222290dd7278aa3ddd389cc1e1d165cc4baf e5
+sourcing its extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft results in some extensions using a proprietary license. We continue to have a heavy investment and commitment to open source, but we also believe that transparency is important to the health of the Visual Studio Code community.
 
 As more and more teams in Microsoft contribute extensions, we realize that it can be difficult to keep track of which extensions are open source and which are not. To help, the following table is a list of Microsoft contributed extensions in the Marketplace, their published licenses, and whether their source code is available. Given the rate new extensions are being released from an increasing number of teams, this list may not be complete. The list does not include contributions published by individual Microsoft employees to the community on their own time.
 

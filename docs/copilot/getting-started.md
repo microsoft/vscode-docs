@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Quickstart
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
 PageTitle: GitHub Copilot quickstart
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -76,7 +76,7 @@ Let's use **Inline Chat** to help generate a basic Express web server.
 
     ![Screenshot of VS Code editor, showing the Copilot Inline Chat control.](./images/getting-started/copilot-inline-chat.png)
 
-1. Type "add a simple express web server" in the chat input field, and press `kbstyle(Enter)` to send the prompt to Copilot.
+1. Type *"add a simple express web server"* in the chat input field, and press `kbstyle(Enter)` to send the prompt to Copilot.
 
     Notice that Copilot returns a streaming response in the editor. The response is an implementation for a simple Node.js Express web server.
 
@@ -94,7 +94,7 @@ Notice that our web server is currently using a static port number `3000`. Let's
 
 1. In the editor, select the `3000` port number in the `server.ts` file, and then press `kb(inlinechat.start)` to start Inline Chat.
 
-1. Type "use an environment variable for the port number" in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
+1. Type *"use an environment variable for the port number"* in the chat input field, and press `kbstyle(Enter)` to send the chat request or prompt.
 
     Notice how Copilot updates the existing code to use an environment variable for the port number.
 
@@ -112,7 +112,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
 1. Open the Chat view from the Command Center Copilot menu or press `kb(workbench.action.chat.open)`.
 
-    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the Copilot menu in the Command Center.](./images/getting-started/copilot-chat-menu-command-center.png)
+    ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the Copilot menu in the Command Center.](./images/getting-started-chat/command-center-open-chat.png)
 
     > [!TIP]
     > You can access different Copilot features from the Command Center menu at any time.
@@ -121,11 +121,11 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view containing the answer to what recursion is. The result contains both text and a code block.](./images/getting-started/copilot-chat-view-recursion.png)
 
-    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you to get information about methods and symbols by hovering over them, or to go to their definition.
+    Notice how the chat response contains rich results, consisting of text and a code block. The code block in the chat response supports IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
 
 1. Follow the steps in the [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md) to learn how you can also use Copilot Chat to ask questions about your specific codebase.
 
-## Make edits across multiple files with Copilot Edits
+## Make edits across multiple files with Copilot Edits (preview)
 
 Larger code changes might involve making edits to multiple files. With Copilot Edits, you can get AI-powered suggestions inline in the editor, across multiple files in your workspace. Instead of applying individual code blocks, Copilot Edits makes edits across your workspace.
 
@@ -135,11 +135,11 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
 
     ![Screenshot showing the Copilot menu in the Command Center, highlighting the Open Edit Session item](images/copilot-edits/copilot-command-center-open-edit-session.png)
 
-1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the prompt.
+1. The Copilot Edits view is opened. Notice that the `server.ts` file is added to the *working set*.
 
-    Copilot automatically adds the active editor to the prompt. If the file is not added, use **Add Files...** to manually add the file to the prompt.
+    The working set contains the files that can be modified by Copilot Edits. If the file is not added, use **Add Files...* to add the file to the working set.
 
-    ![Screenshot of the Copilot Edits view, showing the prompt input field with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
+    ![Screenshot of the Copilot Edits view, showing the working set with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
 
 1. Enter *Return a static html page as the home page and implement it.* in the chat input field and press `kbstyle(Enter)` to start a new edit session.
 
@@ -147,11 +147,13 @@ Let's use Copilot Edits to return the contents of an HTML file in a web server r
 
     ![Screenshot of VS Code editor, showing the Copilot Edits response for returning a static HTML page in the web server response.](./images/getting-started/copilot-edits-html-response.png)
 
-1. If you're happy with the results, select **Keep** to apply all suggested changes.
+1. If you're happy with the results, select **Accept** to apply all suggested changes.
 
-    You can also navigate between the different edited files and accept/reject them by using the editor overlay controls.
+    ![Screenshot of the Copilot Edits view, highlighting the Accept button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
 
-    ![Screenshot of the Copilot Edits view, highlighting the Keep button to apply the changes.](./images/getting-started/copilot-edits-accept.png)
+    You can also navigate between the different edited files and accept/discard them by using the editor overlay controls.
+
+    ![Screenshot of the Copilot Edits view, highlighting editor overlay controls to navigate between edits and accept or discard them.](./images/getting-started/copilot-edits-overlay-controls.png)
 
 ## Fix coding errors with Copilot
 

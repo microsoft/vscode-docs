@@ -5,7 +5,7 @@ TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 03/05/2025
+DateApproved: 12/11/2024
 ---
 # Visual Studio Code Server
 
@@ -23,7 +23,7 @@ We now provide a standalone "VS Code Server," which is a service built off the s
 
 We want to provide a unified VS Code experience no matter how you use the editor, whether it's local or remote, in the desktop or in the browser.
 
-Access to the VS Code Server is built in to the existing [`code` CLI](/docs/configure/command-line.md#launching-from-command-line).
+Access to the VS Code Server is built in to the existing [`code` CLI](/docs/editor/command-line.md#launching-from-command-line).
 
 The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling securely transmits data from one network to another.
 
@@ -100,7 +100,7 @@ Pure UI extensions are not supported when using a web-based instance of VS Code,
 
 ### Are there browser limitations?
 
-While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/setup/vscode-web.md#additional-browser-setup) documentation.
+While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/editor/vscode-web.md#additional-browser-setup) documentation.
 
 ### How can I keep the VS Code Server up-to-date?
 

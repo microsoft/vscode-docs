@@ -9,7 +9,7 @@ MetaDescription: How to edit and navigate C++ source files in Visual Studio Code
 ---
 # Editing and Navigating C++ Code
 
-This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
+This article provides an overview of code editing and navigating features specific to the C/C++ extension. For more information about general editing and navigating in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
 
 ## Editing C++ code
 
@@ -37,16 +37,16 @@ When you type a member access symbol (`.` or `->`), the editor displays a list o
 
 The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](https://clang.llvm.org/docs/ClangFormat.html) and vc_format. Both of these formatting options are included in the extension, with clang-format being the default.
 
-You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also trigger formatting based on user gestures such as typing, saving, and pasting with the following [settings](/docs/configure/settings.md):
+You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also trigger formatting based on user gestures such as typing, saving, and pasting with the following [settings](/docs/getstarted/settings.md):
 
 * `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-To learn more about formatting, see [Formatting](/docs/editing/codebasics.md#formatting).
+To learn more about formatting, see [Formatting](/docs/editor/codebasics.md#formatting).
 
 ### Clang-format
 
-By default, the clang-format style is set to `file`. This means that if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/configure/settings.md).
+By default, the clang-format style is set to `file`. This means that if a `.clang-format` file is found in your workspace, the settings specified in the file are used as the formatting reference. Otherwise formatting is based on the default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md).
 
 Currently, the default formatting style is `Visual Studio`, an approximation of the default code formatter in Visual Studio. It implies the following settings:
 
@@ -59,7 +59,7 @@ IndentCaseLabels: false
 ColumnLimit: 0
 ```
 
-To use a different version of clang-format than the one that ships with the extension, change the `C_Cpp.clang_format_path` [setting](/docs/configure/settings.md) to the path where the clang-format binary is installed.
+To use a different version of clang-format than the one that ships with the extension, change the `C_Cpp.clang_format_path` [setting](/docs/getstarted/settings.md) to the path where the clang-format binary is installed.
 
 For example, on the Windows platform, use:
 
@@ -69,7 +69,7 @@ For example, on the Windows platform, use:
 
 ### vc_format
 
-By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/configure/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine.
+By default, if an `.editorconfig` file with relevant settings is identified near the code being formatted, the Visual C++ formatting engine is used instead of clang-format. Otherwise, navigate to the `C_Cpp.formatting` [setting](/docs/getstarted/settings.md) and set it to `vc_format` to use the Visual C++ formatting engine.
 
 ### Enhanced semantic colorization
 
@@ -158,8 +158,8 @@ Read on to find out about:
 * [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Basic Editing in VS Code](/docs/editing/codebasics.md)
-* [Code Navigation in VS Code](/docs/editing/editingevolved.md)
-* [Tasks in VS Code](/docs/debugtest/tasks.md)
+* [Basic Editing in VS Code](/docs/editor/codebasics.md)
+* [Code Navigation in VS Code](/docs/editor/editingevolved.md)
+* [Tasks in VS Code](/docs/editor/tasks.md)
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You might be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

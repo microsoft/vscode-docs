@@ -30,7 +30,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
     ![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
 
-1. Enter a project name, and select **C++** as the project language.
+1. Enter a project name, and select and **C++** as the project language.
 
     This information will be written to `CMakeLists.txt` and a few initial source files.
 

@@ -1,5 +1,9 @@
 ---
+Order: 1
+Area: intelligentapps
+TOCTitle: AI Toolkit Overview
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
+PageTitle: AI Toolkit Overview
 DateApproved: 12/11/2024
 MetaDescription: Develop and test AI apps with AI Toolkit for Visual Studio Code. Inference test, batch run, evaluate, fine-tune and deploy LLMs and SLMs.
 ---

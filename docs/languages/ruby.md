@@ -41,7 +41,7 @@ After installing, check the language status item to see the status of the Ruby L
 
 The extension generates a `.ruby-lsp` folder automatically with a custom bundle that includes the language server gem `ruby-lsp`. No configuration should be required.
 
-By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/configure/settings.md):
+By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/getstarted/settings.md):
 
 ```json
 {
@@ -67,7 +67,7 @@ symbol, document symbol, completion and signature help.
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
-To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editing/editingevolved.md).
+To learn more about moving quickly through your source code with VS Code, check out [Code Navigation](/docs/editor/editingevolved.md).
 
 ### Inlay hints
 
@@ -156,7 +156,7 @@ in a new terminal or launch the debugger. For these uses, no configuration is re
 
 ### Debugging through launch tasks
 
-To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/debugtest/debugging-configuration.md#launch-configurations)
+To use the debugger through launch tasks, you will need to create [debugging configurations](/docs/editor/debugging.md#launch-configurations)
 in a `launch.json` file. The configuration lets you configure the program to be executed.
 
 To create a `launch.json` for a Ruby program:
@@ -216,6 +216,6 @@ If you have any issues or feature requests, feel free to log them in the Ruby LS
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
