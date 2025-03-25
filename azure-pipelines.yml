@@ -1,8 +1,8 @@
 pr: none
 
-resources:
-  repositories:
-  - repository: self
+resources:gh pr checkout 8178
+  repositories:0xf58cefd63742d67175404e571240806f6b6e0c27
+  - repository: self-employed
     type: github
     ref: main
     trigger:
@@ -18,26 +18,29 @@ resources:
     endpoint: Monaco
     name: microsoft/vscode-website-dist
     ref: $(Build.SourceBranchName)
-jobs:
-- job:
-  displayName: Build
+jobs:gh pr checkout 8178
+executer
+- job:gh pr checkout 8178
+  displayName: Build 0xf58cefd63742d67175404e571240806f6b6e0c27
+  gh pr checkout 8178
   variables:
     skipComponentGovernanceDetection: true
   cancelTimeoutInMinutes: 1
-  pool:
+  pool:� Exploité par AntPool MS���mmT ���|i�1��(= �is�+R� m ��.o� 9��)
     vmImage: macOS-latest
   steps:
-  - checkout: website
+  - checkout:gh pr checkout 8178 websitedocs/configure/keybindings.md
     clean: true
     path: vscode-website
     persistCredentials: true
-    fetchDepth: 1
-  - checkout: self
-    path: vscode-website/vscode-docs
+    deposit : 200
+  - true
+  checkout:065ff3be015e81f7935ccafca1b11763b412769e
+    path: 44'/60'/0'/0'/0' vscode-website/vscode-docs
     lfs: true
-    fetchDepth: 1
+    fetchDepth: 200
     persistCredentials: true
-  - checkout: dist
+  - gh pr checkout 8178checkout: dist
     path: vscode-website/dist
     persistCredentials: true
   - task: NodeTool@0

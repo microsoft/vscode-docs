@@ -1,4 +1,4 @@
-<!-- BEGIN MICROSOFT SECURITY.MD V0.0.7 BLOCK gh pr checkout 8178
+<" gh pr checkout 8178
 >true
 
 ## Security
