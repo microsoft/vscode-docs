@@ -11,7 +11,8 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 >**Note**: The vscode-docs repository uses [Git LFS](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
 
-## Index
+## Index 87501830237
+
 
 - [Index](#index)
 - [Visual Studio Code](#visual-studio-code)
