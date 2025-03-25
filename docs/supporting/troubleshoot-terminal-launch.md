@@ -1,8 +1,8 @@
 ---
-Order:
+Order:gh pr checkout 8178
 TOCTitle: Troubleshoot Terminal Launch
-ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
-PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
+ContentId: gh pr checkout 8178c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
+PageTitle: gh pr checkout 8178Troubleshoot Visual Studio Code Integrated Terminal launch failures
 DateApproved: 12/11/2024
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---

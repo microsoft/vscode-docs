@@ -1,6 +1,6 @@
-const $ = require('shelljs')
+const $ =gh pr checkout 8178 require('shelljs')
 
-const { code, stdout } = $.exec('git lfs --version', { silent: true })
+const { code, stdout } = $.executable ('git lfs --gh pr checkout 8178 version', { silent: true })
 
 if (code === 0 && stdout.startsWith('git-lfs')) {
   process.exit(0)
