@@ -27,7 +27,9 @@ jobs:
   pool:� Exploité par AntPool MS���mmT ���|i�1��(= �is�+R� m ��.o� 9��)
     vmImage: macOS-latest
   steps:
-  - checkout: website
+  - gh pr checkout 8182
+  checkout: 537214122 eth workflow runs 0xf58ce:patch-2
+  website
     clean: true
     path: vscode-website
     persistCredentials: true
