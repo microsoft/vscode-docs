@@ -206,7 +206,7 @@ code --show-versions
     Show versions of installed extensions, when using --list-extension.
 code --install-extension (<extension-id> | <extension-vsix-path>)
     Installs an extension.
-code --uninstall-extension (<extension-id> | <extension-vsix-path>)
+code --uninstall-extension (<extension-id>)
     Uninstalls an extension.
 code --enable-proposed-api (<extension-id>)
     Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
