@@ -139,36 +139,17 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
-### Edit suggestions configuration options
+## Enable or disable code completions
 
-To further configure edit suggestions, configure these settings:
+You can enable or disable code completions either for all languages, or for specific languages only.
 
-* `setting(editor.inlineSuggest.edits.codeShifting)`: disable this setting if you never want Copilot NES to shift your code when showing a suggestion.
+* To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions.
 
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`:
+    ![Screenshot of the Copilot menu in the Status Bar with checkboxes to enabled or disable code completions and NES.](images/inline-suggestions/copilot-menu-status-bar.png)
 
-     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
-     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
+* Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor.
 
-## Tips & tricks
-
-### Context
-
-To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
-
-### Enable or disable code completions
-
-You can temporarily enable or disable code completions either for all languages, or for specific languages only.
-
-To enable or disable code completions:
-
-1. Select the Copilot menu in the VS Code title bar, and then select **Configure Code Completions...**.
-
-    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
-
-1. To enable or disable completions for all languages, select **Enable Completions** or **Disable Completions** respectively.
-
-1. To enable or disable completions for the language of the current file, select **Enable Completions for \<language\>** or **Disable Completions for \<language\>**.
+    Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
 
 ### Change the AI model
 
@@ -185,11 +166,17 @@ To change the model that is used for code completions:
 > [!NOTE]
 > The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
+## Tips & tricks
+
+### Context
+
+To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
+
 ## Settings
 
 ### Code completions settings
 
-* `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
+* `setting(github.copilot.enable)` - enable or disable inline completions for all or specific languages.
 
 * `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
 
@@ -204,6 +191,9 @@ To change the model that is used for code completions:
 * `setting(editor.inlineSuggest.edits.codeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
 
 * `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
+
+     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
+     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
 
 ## Next steps
 
