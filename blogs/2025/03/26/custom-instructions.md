@@ -1,17 +1,17 @@
 ---
 Order: 93
-TOCTitle: Context is all you need: Better AI results with Custom Instructions
-PageTitle: Context is all you need: Better AI results with Custom Instructions
-MetaDescription: Announcing the general availabilty of Custom Instructions for VS Code.
+TOCTitle: Better AI results with custom instructions
+PageTitle: Context is all you need: Better AI results with custom instructions
+MetaDescription: Announcing the general availability of custom instructions for VS Code.
 Date: 2025-03-26
 Author: Rob Conery, Harald Kirschner
 ---
 
-# Context is all you need: Better AI results with Custom Instructions
+# Context is all you need: Better AI results with custom instructions
 
 March 26, 2025 by Rob Conery, [@robconery.com](https://bsky.app/profile/robconery.com), Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
-Today we're announcing the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
+Earlier this month, we announced the general availability of [custom instructions in Visual Studio Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Custom instructions are how you give Copilot specific context about your team's workflow, your particular style preferences, libraries the model may not know about, etc.
 
 In this post we'll dive into what custom instructions are, how you can use them today to drastically improve your results with GitHub Copilot, and even a brand new preview feature called "prompt files" that you can try today.
 
@@ -21,10 +21,9 @@ Working with GitHub Copilot can supercharge your development process, but there 
 
 But did you know that you can "tune" GitHub Copilot to better suit your needs? By using a simple Markdown file, you can provide Copilot with specific instructions that will help it understand your project better. In this post, we'll walk you through the process of creating and using *custom instructions*, a newly-released feature in VS Code.
 
-
 Try this: create a file in your project called `.github/copilot-instructions.md`. This file will contain instructions that help Copilot understand your project better. It's automatically picked up by Copilot, so you don't have to do anything special to make it work.
 
-![Screenshot showing the Explorer view in VS Code, highlighting the `.github/copilot-instructions.md` file. The file is still empty.](./dot-github.jpg)
+![Screenshot showing the Explorer view in VS Code, highlighting the `.github/copilot-instructions.md` file. The file is still empty.](dot-github.jpg)
 
 Add these instructions to the file:
 
@@ -51,7 +50,7 @@ The title isn't strictly necessary, but it helps to clarify the purpose of the f
 
 Now, open up the Chat view and prompt it with an extremely terse command, such as `tail recursion`. You don't have to ask "how do I do tail recursion in JavaScript" or something similar. Just type `tail recursion` and hit `kbstyle(Enter)`. Notice that Copilot understands the context of your project and provides you with a relevant answer.
 
-![Screenshot that shows the Copilot response for "tail recursion" in the Chat view.](./tail-recursion.jpg)
+![Screenshot that shows the Copilot response for "tail recursion" in the Chat view.](tail-recursion.jpg)
 
 Notice that Copilot gave you a more detailed answer, in the format that you expected (2 spaces, camelCase, etc.), even though you used a *much smaller prompt*.
 
@@ -80,7 +79,7 @@ Save the `settings.json` file and close it. The Source Control icon in the Activ
 
 Here's where the fun starts: open the Source Control view and select the sparkle icon in the commit message input field. This instructs Copilot to generate a commit message for you. Notice that it generates a commit message that is extremely detailed and uses lots of emojis!
 
-![Screenshot that shows the Source Control view, showing a colorful commit message for the latest commit.](./git-commit.jpg)
+![Screenshot that shows the Source Control view, showing a colorful commit message for the latest commit.](git-commit.jpg)
 
 Comment out the instructions in your `settings.json` file and generate the commit message again. You should see a far less detailed commit message that doesn't use any emojis.
 
@@ -110,7 +109,7 @@ Let's try it! Open your `.vscode/settings.json` file (workspace settings) and ad
 
 This is instructing Copilot to look for two files in the `docs` directory: `javascript-styles.md` and `database-styles.md`. You can add as many files as you want, and Copilot will look for them in the order you specify.
 
-![Screenshot that shows the Explorer view, highlighting the two files in the `docs` folder and showing the custom instructions in the `settings.json` file that reference these docs files.](./docs.jpg)
+![Screenshot that shows the Explorer view, highlighting the two files in the `docs` folder and showing the custom instructions in the `settings.json` file that reference these docs files.](docs.jpg)
 
 You can add whatever files you like in here, including specifications for the current sprint you're on. We've even seen people add Gherkin specs as custom instructions!
 
@@ -196,16 +195,15 @@ Our application will have `users` with the following information:
 You can then create another prompt file called `generate-interface.prompt.md` that contains the instructions to generate the interface. Prompt files can reference each other, so you can pass the database schema into this prompt file as a simple Markdown link.
 
 ```md
-Generate a TypeScript interface for the table specified by the user. Refer to the [user schema](./database_users.prompt.md).
+Generate a TypeScript interface for the table specified by the user. Refer to the [user schema](database_users.prompt.md).
 ```
 
 To use these prompt files in chat, use the attach button (paperclip) or use `kb(workbench.command.prompts.use)`. Select **Prompts** from the menu, and then select the prompt file you want to use. Notice that when I use the `generate-interface.prompt.md` file, it automatically pulls in the `database_users.prompt.md` file.
 
-![Animated gif showing how to use prompt files in chat.](./prompts.gif)
+![Animated gif showing how to use prompt files in chat.](prompts.gif)
 
 ## Conclusion
 
 VS Code is a customizable assistant that, when properly configured, can become an integral part of a team's workflow. With custom instructions, the control is in the hands of the developers.
 
 Happy Coding!
-
