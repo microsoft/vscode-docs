@@ -88,7 +88,7 @@ You can install and manage VS Code [extensions](/docs/configure/extensions/exten
 Argument|Description
 ------------------|-----------
 `--install-extension <extension-id> \| <extension-vsix-path>` | Install or update an extension. Provide either the full extension name `publisher.extension` or the path to a VSIX file as an argument. To install a specific version provide append `@{version}`. For example: `vscode.csharp@1.2.3`. Use `--force` argument to avoid prompts.
-`--uninstall-extension <extension-id> \| <extension-vsix-path>` | Uninstall an extension. Provide the full extension name `publisher.extension` or path to a VSIX file as an argument.
+`--uninstall-extension <extension-id>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the **Disabled** section of the Extensions view but they will never be activated.
 `--list-extensions` | List the installed extensions.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
