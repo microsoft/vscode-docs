@@ -1,5 +1,18 @@
-
+---
+Order: 8
+Area: copilot
+TOCTitle: Inline Chat
+ContentId: 7eba2021-9bbb-4102-9d92-0830cb739791
+PageTitle: Inline Chat
+DateApproved: 03/05/2025
+MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
+MetaSocialImage: images/shared/github-copilot-social.png
+---
 # Inline chat
+
+With Copilot inline chat in Visual Studio Code, you can ask questions and get code suggestions directly in the editor or terminal by using natural language. With inline chat, you can stay in the flow of your work and get help without switching between the editor and the Chat view.
+
+## Use editor inline chat
 
 To make edits directly in the editor, use Inline Chat to submit a prompt. Copilot provides code suggestions in-place with your code in the editor. If you have a block of code selected in the editor, Copilot scopes your question to that selection.
 
@@ -16,7 +29,7 @@ You're not limited to asking for code changes. Use Inline Chat to ask more explo
 > [!TIP]
 > Attach context to your Inline Chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
 
-## Terminal Inline Chat
+## Use terminal inline chat
 
 Similar to [Inline Chat in the editor](#inline-chat), you can bring up Copilot Inline Chat in the terminal to help you answer questions related to the terminal and shell commands.
 
@@ -28,3 +41,9 @@ To start Inline Chat in the terminal, press the `kb(inlinechat.start)` keyboard 
 
 Once a command is suggested, use **Run** (`kb(workbench.action.terminal.chat.runCommand)`) to run the command in the terminal, or **Insert** (`kb(workbench.action.terminal.chat.insertCommand)`) to insert the command into the terminal.
 
+## Related resources
+
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [Add context to your chat prompt](/docs/copilot/copilot-chat-context.md)
+* [Start a multi-file coding session](/docs/copilot/copilot-edits.md)
+* [Start an agentic coding workflow](/docs/copilot/chat-agent-mode.md)
