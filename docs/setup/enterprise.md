@@ -129,30 +129,55 @@ Policies can be set both at the Computer level and the User level. If both are s
 
 Configuration profiles manage settings on macOS devices. A profile is an XML file with key/value pairs that correspond to available policy. These profiles can be deployed using Mobile Device Management (MDM) solutions, or installed manually.
 
-Starting from VS Code version 1.99, each release ships with an example `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually edit or remove policy to match your organization's requirements.
+Starting from VS Code version 1.99, each release ships with a sample `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually edit or remove policy to match your organization's requirements.
 
-> [!TIP] 
+> [!TIP]
 > To view the contents of `.app` bundle, right-click on the Application (for example, `/Applications/Visual Studio Code.app` in Finder) and select **Show Package Contents**.
 
-For example, to configure the `AllowedExtensions` policy
+#### String policies
+
+The example below demonstrates configuration of the `AllowedExtensions` policy. The policy value starts empty in the sample file (no extensions are allowed).
 
 ```xml
 <key>AllowedExtensions</key>
 <string></string>
 ```
 
-Add the appropriate JSON string defining your policy between the `<string>` tags.
+Add the [appropriate JSON string](#configure-allowed-extensions) defining your policy between the `<string>` tags.
 
 ```xml
 <key>AllowedExtensions</key>
 <string>{"microsoft": true, "github": true}</string>
 ```
 
-To omit a given policy, remove the key/value pair from the XML file.
+Other policies, like `UpdateMode`, accept a string from a set of [predefined values](#configure-automatic-updates).
 
-Additionally, VS Code ships with localized schema files following [Apple's Preference Manifest Format](https://developer.apple.com/library/archive/documentation/MacOSXServer/Conceptual/Preference_Manifest_Files/Chapter_1/PM_Chapter1.html#//apple_ref/doc/uid/TP30000196-BABCDJIE). Tools like [iMazing Profile Editor](https://imazing.com/profile-editor) read these files and provide a graphical interface to edit and generate the `.mobileconfig` profile. The schema files are located in the `Contents/Resources/app/policies/<locale>` directory of the `.app` bundle.
+```xml
+<key>UpdateMode</key>
+<string>start</string>
+```
 
-Configuration profiles are installed by double-clicking on the `.mobileconfig` profile and then enabling it in System Preferences under **General** > **Device Management**.
+#### Boolean policies
+
+Boolean policy values are represented with `<true/>` or `<false/>`.
+
+```xml
+<key>EnableFeedback</key>
+<true/>
+```
+
+To omit a given policy, remove its key/value pair from the `.mobileconfig` file. For example, to not enforce an update mode policy, remove the `UpdateMode` key and the `<string></string>` tags that follow it.
+
+```xml
+
+> [!IMPORTANT]
+> The provided `.mobileconfig` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
+>
+> If you do not edit or remove a policy from the sample `.mobileconfig`, that policy will be enforced with its default (restrictive) policy value.
+
+Manually install a configuration profile by double-clicking on the `.mobileconfig` profile in Finder and then enabling it in System Preferences under **General** > **Device Management**.  Removing the profile from System Preferences will remove the policies from VS Code.
+
+For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
 
 
 ### Additional policies
