@@ -67,7 +67,7 @@ You can ask Copilot Chat to give code suggestions, increase your code understand
 
 ## Change the AI model
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. With Copilot, you can choose between different models to get the best results for your needs.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/ai-language-models.md) in VS Code.
 
 Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
 
