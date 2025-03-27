@@ -139,7 +139,6 @@
         ]
       }
       ],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Personalize Copilot", "/docs/copilot/copilot-customization"],
       ["Language Models", "/docs/copilot/language-models"],
       ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],

@@ -1,9 +1,14 @@
-
-# Smart actions
+---
+ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
+DateApproved: 03/05/2025
+MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
+MetaSocialImage: images/shared/github-copilot-social.png
+---
+# Copilot smart actions in Visual Studio Code
 
 For several common scenarios, you can use _smart actions_ to get help from Copilot without having to write a prompt. Examples of these smart actions are generating commit messages, generating documentation, explaining or fixing code, or performing a code review. These smart actions are available throughout the VS Code UI.
 
-## Editor Code Actions
+<!-- ## Editor Code Actions
 
 ## Generate a commit message and PR information
 
@@ -20,12 +25,10 @@ For several common scenarios, you can use _smart actions_ to get help from Copil
 ## Fix terminal errors
 
 ## Review code
-Code selection
-PR
+ -->
 
 
-
-In the editor, you can access smart actions by selecting a block of code, right-clicking, and then choosing **Copilot**.
+<!-- In the editor, you can access smart actions by selecting a block of code, right-clicking, and then choosing **Copilot**.
 
 ![Editor context menu with the Copilot menu group expanded](images/copilot-chat/copilot-smart-action-menu.png)
 
@@ -34,4 +37,4 @@ The most powerful smart action is the **Fix** action that helps you correct codi
 ![Quick fix a type mismatch error by using the Copilot smart action](images/copilot-chat/smart-action-fix-with-copilot.png)
 
 Similarly, there's a **Copilot** > **Generate Docs** smart action (`/doc` slash command) to generate documentation for your code.
-
+ -->
