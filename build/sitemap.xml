@@ -376,7 +376,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/ai-language-models</loc>
+        <loc>https://code.visualstudio.com/docs/copilot/language-models</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

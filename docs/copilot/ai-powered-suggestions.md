@@ -172,7 +172,7 @@ To enable or disable code completions:
 
 ### Change the AI model
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/ai-language-models.md) in VS Code.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
 
 To change the language model that is used for generating code completions in the editor:
 
