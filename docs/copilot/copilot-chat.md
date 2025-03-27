@@ -30,9 +30,9 @@ Based on your specific needs, you can choose between different modes of chat:
 
 | Mode | Description | Scenario |
 |------|-------------|----------|
-| **Ask** | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
-| **Edit** | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
-| **Agent** | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
+| [**Ask**](/docs/copilot/chat-ask-mode.md) | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
+| [**Edit**](/docs/copilot/copilot-edits.md) | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
+| [**Agent**](/docs/copilot/chat-agent-mode.md) | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
 
 Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
 
