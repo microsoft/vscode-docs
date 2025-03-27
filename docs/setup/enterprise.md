@@ -134,7 +134,7 @@ Starting from VS Code version 1.99, each release ships with a sample `.mobilecon
 > [!TIP]
 > To view the contents of `.app` bundle, right-click on the Application (for example, `/Applications/Visual Studio Code.app` in Finder) and select **Show Package Contents**.
 
-#### String Policies
+#### String policies
 
 The example below demonstrates configuration of the `AllowedExtensions` policy. The policy value starts empty in the sample file (no extensions are allowed).
 
@@ -157,7 +157,7 @@ Other policies, like `UpdateMode`, accept a string from a set of [predefined val
 <string>start</string>
 ```
 
-#### Boolean Policies
+#### Boolean policies
 
 Boolean policy values are represented with `<true/>` or `<false/>`.
 
@@ -175,7 +175,7 @@ To omit a given policy, remove its key/value pair from the `.mobileconfig` file.
 >
 > If you do not edit or remove a policy from the sample `.mobileconfig`, that policy will be enforced with its default (restrictive) policy value.
 
-Configuration profiles are manually installed by double-clicking on the `.mobileconfig` profile in Finder and then enabling it in System Preferences under **General** > **Device Management**.  Removing the profile from System Preferences will remove the policies from VS Code.
+Manually install a configuration profile by double-clicking on the `.mobileconfig` profile in Finder and then enabling it in System Preferences under **General** > **Device Management**.  Removing the profile from System Preferences will remove the policies from VS Code.
 
 For more information on configuration profiles, refer to [Apple's documentation](https://support.apple.com/guide/mac-help/configuration-profiles-standardize-settings-mh35561/mac).
 
