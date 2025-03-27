@@ -152,30 +152,29 @@ The following code snippet shows an example MCP server configuration that specif
 
 Once you have added an MCP server, you can use the tools it provides in agent mode. To use MCP tools in agent mode:
 
-1. Make sure you're using [VS Code Insiders](http://code.visualstudio.com/insiders).
-<!-- TODO: final check if agent mode is available for all in Stable -->
-
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`), and select **Agent** mode from the dropdown.
 
     ![Agent mode dropdown option](images/mcp-servers/chat-mode-agent.png)
 
-1. Select the **Refresh** button to start and refresh the list of available MCP servers.
-
-    ![Refresh button](images/mcp-servers/agent-mode-refresh-tools.png)
-
 1. Select the **Tools** button to view the list of available tools.
 
-    Optionally, select or deselect the tools you want to use.
+    Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
 
     ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
-1. You can now enter a prompt in the chat input box and notice how the tools are automatically invoked as needed.
+1. You can now enter a prompt in the chat input box and notice how tools are automatically invoked as needed.
 
     By default, when a tool is invoked, you need to confirm the action before it is run. This is because tools might run locally on your machine and might perform actions that modify files or data.
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
     ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+
+1. Optionally, verify and edit the tool input parameters before running the tool.
+
+    Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.
+
+    ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
 ## Managing tools
 
