@@ -1,144 +1,69 @@
 ---
 Order: 8
 Area: copilot
-TOCTitle: Copilot Edits
+TOCTitle: Multi-file Editing
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
-PageTitle: Copilot Edits
+PageTitle: Make edits across multiple files with edit mode
 DateApproved: 03/05/2025
 MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Copilot Edits
+# Make edits across multiple files with edit mode
 
-Use Copilot Edits to start an AI-powered code editing session and iterate quickly on code changes across multiple files by using natural language. Copilot Edits applies the edits directly in the editor, where you can review them in-place, with the full context of the surrounding code.
+With chat _edit mode_ in Visual Studio Code, you can use natural language to make edits across multiple files in your project. The edits are applied directly in the editor, where you can review them in-place, with the full context of the surrounding code.
 
-Copilot Edits can function in two modes:
-
-* [_Edit mode_](#use-edit-mode): select which files to edit, provide the relevant context and prompt, and Copilot will suggest code edits.
-* [_Agent mode_](#use-agent-mode-preview) (preview): let Copilot autonomously plan the tasks and relevant files that are needed to implement the request. Copilot will apply code edits and suggest terminal commands, and will continuously iterate to resolve any issues that arise.
+By selecting specific files and providing clear context, you can guide edit mode to make targeted code changes and improvements.
 
 > [!IMPORTANT]
-> If you're using notebooks, Copilot Edits support is currently limited. We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) with notebooks in VS Code.
-
-The following video demonstrates how to use Copilot Edits to extend a basic Express app, such as adding a new page, navigation bar, and theme switcher.
-
-<video src="images/copilot-edits/copilot-edits-hero.mp4" title="Use Copilot Edits to modify an Express app" loop controls muted></video>
+> If you're using notebooks, edit mode support is currently limited. We recommend that you use [ask mode](/docs/copilot/chat-ask-mode.md) or [inline chat](/docs/copilot/inline-chat.md) with notebooks in VS Code.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
-## Edit mode versus agent mode (preview)
-
-Copilot can operate in two modes: _edit mode_ and _agent mode_. These modes cater to different user preferences and workflows, allowing flexibility in how code is edited and iterated.
-
-In edit mode, you provide the relevant context and files you want Copilot to work on. Copilot will suggest code edits based on your prompt and you can manually iterate on the code changes by providing follow-up prompts.
-
-In agent mode, Copilot autonomously determines the relevant context and files, determines which tasks need to be performed, and offers both code changes and terminal commands to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up.
-
-Copilot Edits agent mode uses a set of [_tools_](#agent-mode-tools) that allow it to perform specific tasks, such as editing files, running and monitoring terminal commands, or validating code. These tools can run in parallel to accomplish the requested task.
-
-In both modes, you can [review the generated edits](#accept-or-discard-edits) and decide to keep or reject them.
 
 ## Use edit mode
 
 In edit mode, you select which files to edit and provide the relevant context and prompt. Copilot will suggest code edits based on your prompt.
 
-1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`).
+1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
-    * Select **Open Copilot Edits** from the Copilot menu in the VS Code title bar (`kb(workbench.action.chat.openEditSession)`).
+1. Select **Ask** from the chat mode dropdown in the Chat view.
 
-    * Alternatively, select the **View** > **Appearance** > **Secondary Side Bar** (`kb(workbench.action.toggleAuxiliaryBar)`) to open the Secondary Side Bar, and then select the **Copilot Edits** view.
+    ![Screenshot showing the Copilot Edits view, highlighting edit mode selected.](images/copilot-chat/chat-mode-dropdown-edit.png)
 
-1. Select **Edit** from the mode dropdown.
+1. Select **Add Context** to provide indicate relevant context for your prompt.
 
-    ![Screenshot showing the Copilot Edits view, highlighting edit mode selected.](images/copilot-edits/copilot-edits-edit-mode.png)
+    To make sure that Copilot has the right context for the changes you want to make, add context to your prompt, such as files or folders in your workspace. Learn more about [adding context to your Copilot prompt](/docs/copilot/copilot-chat-context.md).
 
-1. Use **Add Files** to indicate relevant context for your prompt to Copilot.
-
-    You can also drag and drop files, folders, or editor tabs into the Copilot Edits view to add them as context.
-
-    Copilot automatically adds the active editor as context. Use the `setting(chat.implicitContext.enabled)` setting to configure if the active editor should be added automatically.
-
-    When you add one or more files to the prompt, Copilot Edits proposes other relevant files based on the Git history. Configure this with the `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` setting.
+    The active editor is automatically added as context. When you add files, other relevant files might be suggested.
 
     > [!TIP]
-    > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results. Learn more about [adding context to your Copilot prompt](/docs/copilot/copilot-chat-context.md).
+    > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-1. Enter a prompt to request code edits. Be specific and precise about the changes you want, and decompose larger tasks into smaller tasks.
+1. Enter your prompt in the chat input field to indicate the type of edits you want to make.
 
-    Copilot Edits streams the edits in the editor and shows the list of changed files in the Copilot Edits view.
+    Experiment with some of these example questions to get started:
 
-1. Review the suggested edits and accept or discard the suggested edits.
+    * `Refactor the calculate function to make it more efficient.`
+    * `Add a login form to the app. Use OAuth for authentication.`
+    * `Add unit tests for the calculator class. Use vitest as the test framework.`
 
-    As a user, you stay in control of the changes that are made to your project and can [review the generated edits](#accept-or-discard-edits).
+1. Notice that Copilot streams the suggested edits directly in the editor.
 
-1. Iterate on the code changes.
+    The Chat view shows the list of files that were edited in bold text. The editor overlay controls enable you to navigate between the suggested edits.
 
-    If you're not entirely happy with the edits, you can ask follow-up questions, such as "don't include the phone number", or "use jest instead of vitest". Or you can incrementally edit your code further. For example, when building a web app, use a series of prompts such as "add a navigation bar", "add a theme switcher", "store order items in JSON format in MongoDB".
+    ![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files.png)
 
-## Use agent mode (preview)
+1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
-In agent mode, Copilot Edits operates in a more autonomous and dynamic manner to achieve the desired outcome. Copilot agent mode determines the relevant context, offers both code changes and terminal commands, and iterates to remediate issues.
-
-To perform these tasks, agent mode uses a set of task-specific [_tools_](#agent-mode-tools), for example to read files, access databases, or APIs. Copilot has a set of built-in tools, and you can configure additional tools by adding [MCP servers](/docs/copilot/mcp-servers.md) or VS Code extensions.
-
-> [!IMPORTANT]
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
-
-To use agent mode in Copilot Edits:
-
-1. Open your project in [VS Code Insiders](https://code.visualstudio.com/insiders).
-
-    > [!NOTE]
-    > Agent mode is in preview and currently available in [VS Code Insiders](https://code.visualstudio.com/insiders/). The gradual roll-out to VS Code Stable is ongoing and once agent mode is enabled for you, you will see a mode dropdown in the Copilot Edits view.
-
-1. Open the Copilot Edits view (`kb(workbench.action.chat.openEditSession)`)
-
-    * Select **Open Copilot Edits** from the Copilot menu in the VS Code title bar (`kb(workbench.action.chat.openEditSession)`).
-
-    * Alternatively, select the **View** > **Appearance** > **Secondary Side Bar** (`kb(workbench.action.toggleAuxiliaryBar)`) to open the Secondary Side Bar, and then select the **Copilot Edits** view.
-
-1. Select **Agent** from the mode dropdown
-
-    ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
-
-1. Enter a prompt to request code edits.
-
-    You don't have to specify which files to work on. In agent mode, Copilot Edits determines the relevant context and files to edit autonomously.
-
-    ![Screenshot showing the Copilot Edits view, highlighting that Copilot searched the codebase for relevant files.](images/copilot-edits/copilot-edits-agent-search-codebase.png)
-
-    Copilot Edits streams the edits in the editor and updates the list of changed files. In addition, Copilot might also suggest terminal commands to run. For example, to run tests or build the application.
-
-1. Review the suggested code edits and confirm if Copilot can run the proposed terminal commands.
-
-    As a user, you stay in control of the changes that are made to your project and can [review the generated edits](#accept-or-discard-edits).
-
-    Copilot requests for confirmation before running a terminal command or non-builtin tool. Optionally, you can modify the proposed terminal command or tool parameters, and then select **Continue** to run it.
-
-    If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
-
-1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
-
-    For example, agent mode might run unit tests as a result of a code edit. If the tests fail, Copilot uses the test outcome to resolve the issue.
-
-1. Optionally, select the **Tools** icon in the chat input to view and select which tools agent mode can use for responding to your request.
-
-    ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-tools.png)
-
-    Get more details about [agent mode tools](#agent-mode-tools).
-
-1. Continue to ask follow-up questions and iterate on the code changes that Copilot Edits provides.
-
-Copilot Edits agent mode iterates multiple times to resolve issues and problems. The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that Copilot Edits can make in agent mode.
+1. Continue to iterate on the code changes to refine the edits or to implement additional features.
 
 ## Accept or discard edits
 
-Copilot Edits gives you a code review flow where you can accept or reject each of the AI-generated edits. If you reject the edits, the modified files are restored to their previously accepted state.
+Edit mode provides you with a code review flow where you can accept or reject each of the AI-generated edits. If you reject the edits, the modified files are restored to their previously accepted state.
 
-Copilot lists the files that were edited in the changed files list. Files with pending Copilot edits also have an indicator in the Explorer view and editor tabs.
+Copilot lists the files that were edited in the changed files list in the Chat view. Files with pending Copilot edits also have an indicator in the Explorer view and editor tabs.
 
-![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files.png)
+![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
 With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
@@ -158,22 +83,11 @@ With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a de
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored and you can still accept or discard the edits.
 
-> [!NOTE]
-> In agent mode, edits are automatically saved to disk, regardless if Auto Save (`setting(files.autoSave)`) is enabled. You can still review the edits and choose to reject them if needed.
+## Revert edits
 
-## Interrupt an agent mode request
+As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
 
-To interrupt an ongoing request, you can either **Pause** it or **Cancel** it. When you pause a request, Copilot stops processing the request and waits for your input.
-
-When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.
-
-When you cancel a request, Copilot interrupts and ends the active request. You can still [review and accept or reject](#accept-or-discard-edits) the changes that were made up to that point.
-
-## Undo edits
-
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy.
-
-You can use the **Undo Last Edit** control in the Copilot Edits view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edits, you can redo those edits again by using the **Redo Last Edit** control in the Copilot Edits view title bar.
+You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
 
 ![Screenshot showing the Copilot Edits view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
 
@@ -181,43 +95,16 @@ You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when ho
 
 ![Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
 
-> [!TIP]
-> Sometimes Copilot starts walking down the wrong path when generating edits. Once that happens, it can be hard to convince it about another approach by adding to the conversation. In that case, use **Undo Last Edit** to the point where you agree with Copilot's responses. Then restart from there with a refined prompt.
-
-## Send a chat request to Copilot Edits
-
-Copilot Chat is great for asking questions and exploring ideas about your project or technology topics in general. Rather than applying each code block from Copilot Chat to your code, you can transfer the chat session to Copilot Edits. Copilot Edits is optimized for code editing and can apply code suggestions directly in your code, across multiple files simultaneously.
-
-In the Chat view, select the **Edit with Copilot** button at the bottom of the chat conversation to apply the suggested code changes with Copilot Edits. If you have multiple chat requests in the chat session, you can select which requests you want to transfer to Copilot Edits.
-
-![Screenshot highlighting the Edit with Copilot button in the Chat view to move a chat conversation to Copilot Edits.](images/copilot-edits/copilot-chat-edit-with-copilot.png)
-
-After moving a chat request to Copilot Edits, the chat request is removed from the chat conversation in the Chat view.
-
-## Agent mode tools
-
-To complete a request, Copilot Edits uses a set of _tools_ to accomplish the individual tasks. Consider these tools as specialized utilities that Copilot can use to perform a specific task. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.
-
-Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
-
-Copilot has a set of built-in tools and you can configure additional tools by adding [MCP servers](/docs/copilot/mcp-servers.md) or by installing VS Code extensions that contribute tools.
-
-You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select which tools to use.
-
-Although agent mode can operate in an autonomous manner, you maintain control over the generated edits and the terminal commands that are run.
-
 ## Settings
 
-The following list contains the settings related to Copilot Edits. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
+The following list contains the settings related to edit mode. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
 
-* `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`)
-* `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`)
-* `setting(chat.implicitContext.enabled)` _(preview)_ - configure if the active editor should be automatically added as context to the chat prompt.
-* `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
-* `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ - let Copilot find the right files when you add `#codebase` to your prompt, similar to how agent mode works (default: `false`)
-* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
-* `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)`_(Experimental)_ - suggest related files from git history in Copilot Edits (default: `false`)
-* `setting(github.copilot.chat.agent.runTasks)` - run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.editing.confirmEditRequestRemoval)` - ask for confirmation before undoing an edit (default: `true`).
+* `setting(chat.editing.confirmEditRequestRetry)` - ask for confirmation before performing a redo of the last edit (default: `true`).
+* `setting(chat.editing.autoAcceptDelay)` - configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0).
+* `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ - let Copilot find the right files when you add `#codebase` to your prompt, similar to how agent mode works (default: `false`).
+* `setting(chat.implicitContext.enabled)` _(Experimental)_ - configure if the active editor should be automatically added as context to the chat prompt.
+* `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_ - suggest related files from git history in Copilot Edits (default: `false`).
 
 ## Keyboard shortcuts
 

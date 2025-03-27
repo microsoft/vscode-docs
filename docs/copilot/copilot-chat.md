@@ -8,9 +8,18 @@ DateApproved: 03/05/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Use Chat in VS Code
+# Use chat in VS Code
 
 Use chat in Visual Studio Code to ask about your codebase or make edits across your project by using natural language. Chat can operate in different modes, optimized for your use case, from asking questions to making multi-file edits or starting an agentic coding workflow.
+
+You might want to use chat in VS Code when you need to:
+
+* Understand code - "Explain how this authentication middleware works"
+* Debug issues - "Why am I getting a null reference in this loop?"
+* Get code suggestions - "Show me how to implement a binary search tree in Python"
+* Optimize performance - "Help me improve the efficiency of this database query"
+* Learn best practices - "What's the recommended way to handle errors in async functions?"
+* Get VS Code tips - "How do I customize keyboard shortcuts?"
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -24,6 +33,10 @@ Based on your specific needs, you can choose between different modes of chat:
 | **Ask** | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
 | **Edit** | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
 | **Agent** | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
+
+Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
+
+![Screenshot showing the Copilot Chat view, highlighting the mode dropdown.](images/copilot-chat/chat-mode-dropdown.png)
 
 ## Access chat in VS Code
 

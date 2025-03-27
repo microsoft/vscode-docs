@@ -1,111 +1,95 @@
+---
+Order: 8
+Area: copilot
+TOCTitle: Ask Questions
+ContentId: 9c7d2fe3-ed18-4370-9d59-dfd34a039091
+PageTitle: Ask questions with ask mode for chat
+DateApproved: 03/05/2025
+MetaDescription: Use ask mode for chat in VS Code to ask questions about your codebase, coding, and general technology concepts by using natural language.
+MetaSocialImage: images/shared/github-copilot-social.png
+---
+# Ask questions with ask mode in Copilot Chat
 
-# Ask mode
+Chat in Visual Studio Code lets you use natural language to interact with large language models (LLMs) to get help with your code. _Ask mode_ for chat  is optimized for asking questions about your codebase, coding, and general technology concepts by using natural language. Ask mode is particularly useful for getting a better understanding of your codebase, brainstorming ideas, and getting help with coding tasks.
 
+> [!TIP]
+> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-## Chat participants
+## Use ask mode
 
-_Chat participants_ are like domain experts who have a specialty that they can help you with. You can invoke a chat participant by typing '@' in the chat input field, followed by the participant name. There are several built-in chat participants, and extensions can also contribute chat participants.
+1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
-To list all installed chat participants, type `@` in the chat input field.
+1. Select **Ask** from the chat mode dropdown in the Chat view.
 
-| Built-in participant | Description |
-|------------------|-------------|
-| `@workspace`     | Knows about the code in your workspace. Use it to navigate your code base, find relevant classes, files, and more.<br/><br/>**Example prompts:**<br/><ul><li>`@workspace how are notifications scheduled?`</li><li>`@workspace add form validation, similar to the newsletter page`</li></ul> |
-| `@vscode`        | Knows about features, settings, and APIs of VS Code.<br/><br/>**Example prompt:**<br/><ul><li>`@vscode the name of that thing when vscode fake opens a file? And how to disable it?`</li></ul> |
-| `@terminal`      | Knows about the integrated terminal shell and its contents.<br/><br/>**Example prompts:**<br/><ul><li>`@terminal how to undo the last commit`</li><li>`@terminal help with #terminalLastCommand`</li></ul> |
-| `@github`        | Knows about and has skills for GitHub repositories issues, PRs, and more. Can also perform web searches using the Bing API. Get more information about [using GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-github-skills-for-copilot).<br/><br/>**Example prompts:**<br/><ul><li>`@github What are all of the open PRs assigned to me?`</li><li>`@github #web what is the latest VS Code version`</li></ul> |
+    ![Screenshot showing the Copilot Chat view, highlighting the Ask button.](images/copilot-chat/chat-mode-dropdown.png)
 
-### Extension-contributed chat participants
+1. Type your question in the chat input field and select **Send** (`kb(workbench.action.edits.submit)`) to submit it.
 
-You can install additional chat participants from either the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or from the [GitHub Marketplace](https://github.com/marketplace).
+    Experiment with some of these example questions to get started:
 
-Chat participants contributed via a VS Code extension are _client-side_ extensions that have full access to the VS Code extension API surface.
+    * `What is the factory design pattern?`
+    * `How do I use the fetch API in JavaScript?`
+    * `How do I create a new React component?`
 
-Chat participants contributed via a GitHub App do not run on your local machine and must explicitly request access to your local editor context. After you install a GitHub App that contributes a chat participant, the first time you `@-mention` the participant in VS Code, you are asked to authorize its access to your local editor context.
+    You can ask questions specific to your codebase by [adding context to your prompt](#add-chat-context) by adding workspace files, or using `#codebase` to reference the entire codebase.
 
-> [!NOTE]
-> To protect your privacy, your preference for sharing editor context with chat participants from GitHub App is saved on a per-workspace basis, unless you select 'Allow for All Workspaces'.
+1. Notice that, based on your question, the response might include different types of rich content, such code blocks, terminal commands, links, or references to your code.
 
-These are some examples of VS Code extensions that contribute a chat participant. Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated Extensions view (`kb(workbench.view.extensions)`) and search by tag `chat-participant` (`tag:chat-participant`).
+    Learn how you can [apply code blocks](#apply-a-code-block-from-chat) to your codebase, or run terminal commands directly in the integrated terminal.
 
-<div class="marketplace-extensions-chat"></div>
+## Add chat context
 
-## Slash commands
+You can add context to your chat prompt to get more relevant responses, or to ask questions that are specific to your codebase. For example, instead of asking how to implement authentication in a web app, you can ask `how to implement authentication in this #codebase`.
 
-_Slash commands_ provide a shortcut to specific instructions to avoid that you have to write complex prompts. To use a slash command in your prompt, type the `/` character, followed by a command. Chat participants can contribute their own slash commands.
+Select the **Add Context** button in the chat input field to add context to your prompt, or type `#` to reference a [chat variable](#chat-variables).
 
-For example, `@workspace /new Express app with pug and typescript` is a shortcut for generating a new workspace and scaffold a new Express app in TypeScript that uses the Pug view engine.
+![Screenshot of the Copilot Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
 
-Some common built-in slash commands are:
+You can also drag and drop files onto the Chat view to add them as context. Get more details about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
 
-* `/clear`: start a new chat session
-* `/help`: get help about using GitHub Copilot
-* `@workspace /explain` (or `/explain`): explain how the selected code works
-* `@workspace /fix` (or `/fix`): propose a fix for the problems in the selected code
-* `@workspace /new` (or `/new`): scaffold code for a new workspace or new file
-
-To list all available slash commands, type `/` in the chat input field.
-
-## Chat variables
-
-Use chat variables to include specific context in your prompt. To use a chat variable, type `#` in the chat prompt box, followed by a chat variable. For example, `#codebase` to let Copilot find the relevant files to add as context, or `#selection` to add the current editor selection to your chat prompt.
-
-Get more information about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
+> [!TIP]
+> Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
 ## Apply a code block from chat
 
-Chat responses could contain one or more code blocks. Depending on the language extension, the code block in the chat response might support IntelliSense, which enables you get information about methods and symbols by hovering over them, or to go to their definition.
+When your chat response contains code blocks, you can apply them individually to the corresponding file in your workspace. Copilot performs a smart apply and inserts the changes in the right location within the file.
 
 To apply a code block to your codebase, hover over the code block and select the **Apply in Editor** button. Copilot tries to apply the proposed changes to your existing code.
 
 ![Screenshot of a Copilot Chat code block response, highlighting the actions to apply changes.](images/copilot-chat/copilot-chat-view-code-block-actions.png)
 
-Other actions that are available for code blocks are:
+Alternatively, you can also copy the code or insert it at the current cursor position. Hover over the code block and select the corresponding action.
 
-* Insert the code block at the current cursor position
-* Copy the code block to the clipboard
-* Insert the code block into the integrated terminal
-* Insert the code block into a new file
+Depending on the language extension, code blocks in chat responses might support IntelliSense, similar to the experience in the editor.
 
-If Copilot Chat detects that a code block contains a shell command, you can run it directly in the integrated terminal with **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`). This option creates or opens the active terminal and inserts the command text, ready for you to run.
+If a code block contains a shell command, you can run it directly in the integrated terminal with the **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`) action.
 
 ![Copilot Chat code block to list files with Insert into Terminal option visible](images/copilot-chat/run-in-terminal.png)
 
 > [!TIP]
-> Navigate between code blocks with **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`).
+> Navigate between code blocks with the **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`) commands.
 
-You can control the font for code blocks in chat with the following settings:
+## Quick chat
 
-* `setting(chat.editor.fontFamily)`
-* `setting(chat.editor.fontSize)`
-* `setting(chat.editor.fontWeight)`
-* `setting(chat.editor.lineHeight)`
+To ask a quick question without starting a full chat session, you can open Quick Chat. Select **Quick Chat** from the Copilot menu in the title bar, or use the `kb(workbench.action.openQuickChat)` keyboard shortcut.
 
-## Quick Chat
+You can ask a question in Quick Chat, and if you want to keep the conversation going, promote it to a full chat session with the **Open in Chat View** button.
 
-If you want to ask Copilot a quick question and don't want to start a full Chat view session or open Inline Chat in your editor, you can use the Quick Chat dropdown.
+![Screenshot showing the Quick Chat view, containing the answer to the question "what is recursion".](images/copilot-chat/quick-chat-dropdown.png)
 
-![Quick Chat dropdown](images/copilot-chat/quick-chat-dropdown.png)
+## Special keywords
 
-Press `kb(workbench.action.quickchat.toggle)` on your keyboard to bring up Quick Chat. Alternatively, select **Quick Chat** in the Copilot menu in the title bar.
+In your prompt, you can use special keywords to get more relevant responses:
 
-If you want to keep the conversation going, promote a Quick Chat conversation to a full Chat view session with the **Open in Chat View** button in the upper right of the dropdown.
+* _Chat participants_ can enhance your chat experience by providing domain-specific knowledge, for example how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants. There are several built-in chat participants like `@workspace`, `@vscode`, `@terminal`, and `@github`. Extensions can also contribute chat participants. Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated Extensions view (`kb(workbench.view.extensions)`) and search by tag `chat-participant` (`tag:chat-participant`).
 
-![Quick Chat Open in Chat View button](images/copilot-chat/open-in-chat-view.png)
+* _Slash commands_ provide a shortcut to commonly used instructions, such as `/fix` to propose a fix for a problem, or `/explain` to explain how the selected code works. Type `/` in the chat input field to view a list of available slash commands.
 
+* _Chat variables_ let you reference specific context in your prompt text. For example, use `#file` to reference a workspace file, or `#codebase` to let Copilot find the relevant files to add as context. Type `#` in the chat input field to view a list of available variables.
 
-============
+## Related resources
 
-1. Review the response from Copilot.
-
-    The response may contain text, code blocks, buttons, links to code symbols, file trees, or other rich content. Get more information about how to [apply code suggestions](#apply-a-code-block-from-chat) to your codebase.
-
-    To see which resources Copilot used for the response, select the **Used n resources** dropdown in the chat response. You can help Copilot give more relevant answers by [attaching the context to your chat prompt](#add-context-to-your-chat-prompt).
-
-
-
-1. Optionally, ask follow-up questions to refine the response.
-
-    As you keep the conversation going, Copilot maintains the [history of your chat messages and responses](#chat-history).
-
-    To start over with a new chat session, use the **New Chat** (`kbstyle(+)`) button (`kb(workbench.action.chat.newChat)`) in the Chat view.
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [Add context to your chat prompt](/docs/copilot/copilot-chat-context.md)
+* [Start a multi-file coding session](/docs/copilot/copilot-edits.md)
+* [Start an agentic coding workflow](/docs/copilot/chat-agent-mode.md)
