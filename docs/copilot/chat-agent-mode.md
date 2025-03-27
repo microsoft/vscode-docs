@@ -129,6 +129,7 @@ The following list contains the settings related to agent mode. You can configur
 
 * `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)` - run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.mcp.discovery.enabled)` - enable or disable discovery of MCP servers configured in other tools (default: `true`)
 
 ## Frequently asked questions
 
