@@ -1,9 +1,5 @@
 ---
-Order: 4
-Area: copilot
-TOCTitle: Quickstart
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-PageTitle: GitHub Copilot quickstart
 DateApproved: 03/05/2025
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png

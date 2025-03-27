@@ -1,9 +1,5 @@
 ---
-Order: 8
-Area: copilot
-TOCTitle: Multi-file Editing
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
-PageTitle: Make edits across multiple files with edit mode
 DateApproved: 03/05/2025
 MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png

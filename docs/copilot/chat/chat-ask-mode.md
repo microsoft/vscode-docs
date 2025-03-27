@@ -1,9 +1,5 @@
 ---
-Order: 8
-Area: copilot
-TOCTitle: Ask Questions
 ContentId: 9c7d2fe3-ed18-4370-9d59-dfd34a039091
-PageTitle: Ask questions with ask mode for chat
 DateApproved: 03/05/2025
 MetaDescription: Use ask mode for chat in VS Code to ask questions about your codebase, coding, and general technology concepts by using natural language.
 MetaSocialImage: ../images/shared/github-copilot-social.png
