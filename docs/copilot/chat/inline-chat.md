@@ -6,7 +6,7 @@ ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
 PageTitle: Inline Chat
 DateApproved: 03/05/2025
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Inline chat
 
@@ -41,7 +41,7 @@ To use editor inline chat:
 1. Optionally, ask a follow-up question to get other or suggestions or refine the results.
 
 > [!TIP]
-> Attach context to your Inline Chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
+> Attach context to your Inline Chat prompt to include relevant files, code symbols, or other context. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
 ## Use terminal inline chat
 
@@ -71,7 +71,7 @@ To use terminal inline chat:
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-* [Add context to your chat prompt](/docs/copilot/copilot-chat-context.md)
-* [Start a multi-file coding session](/docs/copilot/copilot-edits.md)
-* [Start an agentic coding workflow](/docs/copilot/chat-agent-mode.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
+* [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
+* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
+* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)

@@ -195,8 +195,8 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 ## Next steps
 
-* Discover the key features with the [Copilot Quickstart](/docs/copilot/getting-started-chat.md).
+* Discover the key features with the [Copilot Quickstart](/docs/copilot/chat/getting-started-chat.md).
 
-* Use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Use AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
 
 * Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

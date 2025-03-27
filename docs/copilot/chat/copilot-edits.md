@@ -6,7 +6,7 @@ ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
 PageTitle: Make edits across multiple files with edit mode
 DateApproved: 03/05/2025
 MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Make edits across multiple files with edit mode
 
@@ -15,7 +15,7 @@ With chat _edit mode_ in Visual Studio Code, you can use natural language to mak
 By selecting specific files and providing clear context, you can guide edit mode to make targeted code changes and improvements.
 
 > [!IMPORTANT]
-> If you're using notebooks, edit mode support is currently limited. We recommend that you use [ask mode](/docs/copilot/chat-ask-mode.md) or [inline chat](/docs/copilot/inline-chat.md) with notebooks in VS Code.
+> If you're using notebooks, edit mode support is currently limited. We recommend that you use [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [inline chat](/docs/copilot/chat/inline-chat.md) with notebooks in VS Code.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -32,7 +32,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
 1. Select **Add Context** to provide indicate relevant context for your prompt.
 
-    To make sure that Copilot has the right context for the changes you want to make, add context to your prompt, such as files or folders in your workspace. Learn more about [adding context to your Copilot prompt](/docs/copilot/copilot-chat-context.md).
+    To make sure that Copilot has the right context for the changes you want to make, add context to your prompt, such as files or folders in your workspace. Learn more about [adding context to your Copilot prompt](/docs/copilot/chat/copilot-chat-context.md).
 
     The active editor is automatically added as context. When you add files, other relevant files might be suggested.
 
@@ -141,10 +141,10 @@ Consider the following criteria to choose between edit mode and agent mode:
 
 Copilot Edits support is limited when you're using notebooks. For example, agent mode is not available for working with notebooks in VS Code.
 
-We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) with notebooks in VS Code instead.
+We recommend that you use [Copilot Chat](/docs/copilot/chat/copilot-chat.md) or [Inline Chat](/docs/copilot/chat/inline-chat.md) with notebooks in VS Code instead.
 
 ## Related content
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-* [Use Copilot Chat for AI chat conversations](/docs/copilot/copilot-chat.md)
-* [Start an agentic code editing session](/docs/copilot/chat-agent-mode.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
+* [Use Copilot Chat for AI chat conversations](/docs/copilot/chat/copilot-chat.md)
+* [Start an agentic code editing session](/docs/copilot/chat/chat-agent-mode.md)

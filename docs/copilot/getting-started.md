@@ -124,7 +124,7 @@ As you're working in a new codebase, or exploring a new programming language, yo
 
     ![Screenshot of VS Code editor, showing the Chat view containing the answer to what recursion is.](./images/getting-started/copilot-chat-view-recursion.png)
 
-1. Follow the steps in the [Chat Tutorial](/docs/copilot/getting-started-chat.md) to learn how you can also use chat to ask questions about your specific codebase.
+1. Follow the steps in the [Chat Tutorial](/docs/copilot/chat/getting-started-chat.md) to learn how you can also use chat to ask questions about your specific codebase.
 
 ## Make edits across multiple files
 
@@ -180,9 +180,9 @@ One such place is the editor, whenever there's a red squiggle due to a compiler 
 
 Congratulations, you've now used AI to enhance your coding! In this tutorial, you successfully used AI features in VS Code to get code completions in the editor, and used chat to ask questions and generate code edits.
 
-* To learn more about chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/getting-started-chat.md).
+* To learn more about chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/chat/getting-started-chat.md).
 
-* To learn more about AI code editing, proceed to the [Copilot Edits](/docs/copilot/copilot-edits.md) documentation.
+* To learn more about AI code editing, proceed to the [Copilot Edits](/docs/copilot/chat/copilot-edits.md) documentation.
 
 ## Related resources
 

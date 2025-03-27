@@ -2,7 +2,7 @@
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 03/05/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Copilot chat context
 
@@ -84,5 +84,5 @@ Copilot supports the following context types:
 
 ## Related resources
 
-* Use [Copilot Chat](/docs/copilot/copilot-chat.md) to interact with Copilot.
-* Use [Copilot Edits](/docs/copilot/copilot-edits.md) to make edits across multiple files.
+* Use [Copilot Chat](/docs/copilot/chat/copilot-chat.md) to interact with Copilot.
+* Use [Copilot Edits](/docs/copilot/chat/copilot-edits.md) to make edits across multiple files.

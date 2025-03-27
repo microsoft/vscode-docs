@@ -95,4 +95,4 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
 * Continue with the [Copilot Quickstart](/docs/copilot/getting-started.md) to discover the key features of Copilot in VS Code.
 
-* Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+* Check our [Copilot cheat sheet](/docs/copilot/reference/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.

@@ -6,7 +6,7 @@ ContentId: 9c7d2fe3-ed18-4370-9d59-dfd34a039091
 PageTitle: Ask questions with ask mode for chat
 DateApproved: 03/05/2025
 MetaDescription: Use ask mode for chat in VS Code to ask questions about your codebase, coding, and general technology concepts by using natural language.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Ask questions with ask mode in Copilot Chat
 
@@ -41,11 +41,11 @@ Chat in Visual Studio Code lets you use natural language to interact with large 
 
 You can add context to your chat prompt to get more relevant responses, or to ask questions that are specific to your codebase. For example, instead of asking how to implement authentication in a web app, you can ask `how to implement authentication in this #codebase`.
 
-Select the **Add Context** button in the chat input field to add context to your prompt, or type `#` to reference a [chat variable](#chat-variables).
+Select the **Add Context** button in the chat input field to add context to your prompt, or type `#` to reference a [chat variable](#special-keywords).
 
 ![Screenshot of the Copilot Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
 
-You can also drag and drop files onto the Chat view to add them as context. Get more details about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
+You can also drag and drop files onto the Chat view to add them as context. Get more details about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
 > [!TIP]
 > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
@@ -89,7 +89,7 @@ In your prompt, you can use special keywords to get more relevant responses:
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-* [Add context to your chat prompt](/docs/copilot/copilot-chat-context.md)
-* [Start a multi-file coding session](/docs/copilot/copilot-edits.md)
-* [Start an agentic coding workflow](/docs/copilot/chat-agent-mode.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
+* [Add context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
+* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
+* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)

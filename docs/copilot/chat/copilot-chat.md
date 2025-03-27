@@ -6,7 +6,7 @@ ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
 PageTitle: AI-powered chat conversations with GitHub Copilot
 DateApproved: 03/05/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in VS Code
 
@@ -30,9 +30,9 @@ Based on your specific needs, you can choose between different modes of chat:
 
 | Mode | Description | Scenario |
 |------|-------------|----------|
-| [**Ask**](/docs/copilot/chat-ask-mode.md) | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
-| [**Edit**](/docs/copilot/copilot-edits.md) | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
-| [**Agent**](/docs/copilot/chat-agent-mode.md) | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
+| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
+| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
+| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
 
 Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
 
@@ -91,7 +91,7 @@ Copilot tries to determine the intent and scope of your question based on your n
 
 ![Screenshot of the Copilot Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
 
-Get more details about [adding context to your chat prompt](/docs/copilot/copilot-chat-context.md).
+Get more details about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
 
 > [!TIP]
 > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
@@ -154,6 +154,6 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 
 ## Next steps
 
-* Get started with the introductory [Copilot Chat tutorial](/docs/copilot/getting-started-chat.md).
+* Get started with the introductory [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md).
 
-* Make edits across multiple files with [Copilot Edits](/docs/copilot/copilot-edits.md).
+* Make edits across multiple files with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).

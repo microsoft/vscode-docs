@@ -6,7 +6,7 @@ ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
 PageTitle: Getting started with Copilot Chat
 DateApproved: 03/05/2025
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Getting started with Copilot Chat in VS Code
 
@@ -188,5 +188,5 @@ Congratulations, you successfully used the [GitHub Copilot Chat](https://marketp
 
 ## Additional resources
 
-* Get an overview of [Copilot Chat in VS Code](/docs/copilot/copilot-chat.md)
-* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/prompt-crafting.md)
+* Get an overview of [Copilot Chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/chat/prompt-crafting.md)

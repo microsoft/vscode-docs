@@ -255,5 +255,5 @@ To create a user prompt file:
 
 ## Related content
 
-* Start AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
-* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/copilot-edits.md).
+* Start AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
+* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).

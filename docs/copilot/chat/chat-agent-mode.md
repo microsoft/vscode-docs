@@ -6,7 +6,7 @@ ContentId: 57754e12-a134-41cc-9693-fb187729c49f
 PageTitle: Start an agentic coding session with agent mode
 DateApproved: 03/05/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Start an agentic coding session with agent mode
 
@@ -76,7 +76,7 @@ Agent mode uses tools to accomplish specialized tasks while processing a user re
 Agent mode can use the following tools:
 
 * Builtin tools
-* [MCP tools](/docs/copilot/mcp-servers.md)
+* [MCP tools](/docs/copilot/chat/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/tools.md)
 
 You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and manage the tools that are available in agent mode.
@@ -145,7 +145,7 @@ Consider the following criteria to choose between edit mode and agent mode:
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-* [Use Copilot Chat for AI chat conversations](/docs/copilot/copilot-chat.md)
-* [Configure MCP servers to add tools to agent mode](/docs/copilot/mcp-servers.md)
-* [Start a multi-file coding session](/docs/copilot/copilot-edits.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
+* [Use Copilot Chat for AI chat conversations](/docs/copilot/chat/copilot-chat.md)
+* [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
+* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)

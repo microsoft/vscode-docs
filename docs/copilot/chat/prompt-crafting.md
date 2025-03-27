@@ -3,7 +3,7 @@ ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
 PageTitle: Best practices for GitHub Copilot in VS Code
 DateApproved: 03/05/2025
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Prompt engineering for Copilot Chat
 
@@ -110,7 +110,7 @@ Slash commands help Copilot Chat understand your **intent** when you ask a quest
 
 You could write out your project scope or current task with a natural language query but using chat participants and slash commands is more concise and explicit.
 
-Learn more about [chat participants](/docs/copilot/copilot-chat.md#chat-participants) and [slash commands](/docs/copilot/copilot-chat.md#slash-commands) in Copilot Chat.
+Learn more about [chat participants](/docs/copilot/chat/chat-ask-mode.md#special-keywords) and [slash commands](/docs/copilot/chat/chat-ask-mode.md#special-keywords) in Copilot Chat.
 
 ### Use chat variables for context
 
@@ -122,7 +122,7 @@ You can also add context to your chat message by using the **Attach Context** bu
 
 ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/prompt-crafting/copilot-chat-view-attach-context.png)
 
-Learn more about [using context variables with Copilot Chat](/docs/copilot/copilot-chat.md#add-context-to-your-chat-prompt).
+Learn more about [using context variables with Copilot Chat](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
 
 ### Be specific and keep it simple
 

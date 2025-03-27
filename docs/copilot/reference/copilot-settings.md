@@ -109,4 +109,4 @@ Copilot requests for reviewing the current editor selection.
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)

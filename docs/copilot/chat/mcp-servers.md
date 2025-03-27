@@ -2,6 +2,7 @@
 ContentId: 7c550054-4ade-4665-b368-215798c48673
 DateApproved: 03/05/2025
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 
 # Use MCP servers in Visual Studio Code (Preview)
@@ -223,4 +224,4 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 ## Related resources
 
 - [Model Context Protocol documentation](https://modelcontextprotocol.info/)
-- [Use agent mode in Visual Studio Code](/docs/copilot/copilot-edits.md#use-agent-mode-preview)
+- [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)

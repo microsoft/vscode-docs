@@ -74,7 +74,7 @@ Alternatively, you can:
 1. Follow Copilot's suggestions to fix the test
 
 > [!TIP]
-> [Copilot Edits agent mode (preview)](/docs/copilot/copilot-edits.md#use-agent-mode-preview) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
+> [Copilot Edits agent mode (preview)](/docs/copilot/chat/copilot-edits.md#use-agent-mode-preview) monitors the test output when running tests, and automatically attempts to fix and rerun failing tests.
 
 ## Personalize test generation
 

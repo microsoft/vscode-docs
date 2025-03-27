@@ -123,15 +123,26 @@
       ["Quickstart", "/docs/copilot/getting-started"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
-      ["Chat", "/docs/copilot/copilot-chat"],
-      ["Chat Tutorial", "/docs/copilot/getting-started-chat"],
-      ["Chat Context", "/docs/copilot/copilot-chat-context"],
-      ["Code Edits", "/docs/copilot/copilot-edits"],
+      ["", "", {
+        "name": "Chat",
+        "area": "copilot/chat",
+        "topics": [
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Ask Questions", "/docs/copilot/chat/chat-ask-mode"],
+          ["Multi-file Editing", "/docs/copilot/chat/copilot-edits"],
+          ["Agentic Coding", "/docs/copilot/chat/chat-agent-mode"],
+          ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
+          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
+        ]
+      }
+      ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Personalize Copilot", "/docs/copilot/copilot-customization"],
-      ["AI Language Models", "/docs/copilot/language-models"],
-      ["MCP Servers", "/docs/copilot/mcp-servers"],
-      ["Prompt Engineering", "/docs/copilot/prompt-crafting"],
-      ["Workspace Context", "/docs/copilot/workspace-context"],
+      ["Language Models", "/docs/copilot/language-models"],
+      ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
@@ -141,10 +152,17 @@
         ]
       }
       ],
-      ["Copilot Cheat Sheet", "/docs/copilot/copilot-vscode-features"],
-      ["Settings Reference", "/docs/copilot/copilot-settings"],
-      ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
-      ["FAQ", "/docs/copilot/faq"]
+      ["FAQ", "/docs/copilot/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "copilot/reference",
+        "topics": [
+          ["Copilot Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
+          ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
+          ["Workspace Context", "/docs/copilot/reference/workspace-context"]
+        ]
+      }
+      ]
     ]
   },
   {
