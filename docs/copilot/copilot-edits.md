@@ -5,7 +5,7 @@ TOCTitle: Multi-file Editing
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
 PageTitle: Make edits across multiple files with edit mode
 DateApproved: 03/05/2025
-MetaDescription: Get started with Copilot Edits to start an AI-powered code editing session across multiple files in your project.
+MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Make edits across multiple files with edit mode
@@ -59,9 +59,7 @@ In edit mode, you select which files to edit and provide the relevant context an
 
 ## Accept or discard edits
 
-Edit mode provides you with a code review flow where you can accept or reject each of the AI-generated edits. If you reject the edits, the modified files are restored to their previously accepted state.
-
-Copilot lists the files that were edited in the changed files list in the Chat view. Files with pending Copilot edits also have an indicator in the Explorer view and editor tabs.
+Copilot lists the files that were edited in the changed files list in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
@@ -69,13 +67,7 @@ With the editor overlay controls, you can navigate between the suggested edits b
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-To accept or reject a specific edit within a file, hover over the code edit and use the **Keep** or **Undo** controls for that edit.
-
-Alternatively, you can also accept or reject the changes from the changed files list in the Copilot Edits view:
-
-* Select **Keep** (`kb(chatEditing.acceptAllFiles)`) or **Undo** (`kb(chatEditing.discardAllFiles)`) in the changed files list to accept or discard all edits.
-
-* Select the **Keep** or **Undo** icon on an individual file to apply the action to that specific file
+Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
 
 ![Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
 
@@ -132,33 +124,6 @@ The following list contains the default keyboard shortcuts related to Copilot Ed
 
 ## Frequently asked questions
 
-### How is Copilot Edits different from Copilot Chat?
-
-Both [Copilot Chat](/docs/copilot/copilot-chat.md) and Copilot Edits use a conversational interface, where you can use natural language prompts to get AI-powered suggestions. There are several distinct differences between Copilot Edits and Copilot Chat.
-
-Copilot Edits puts you in the context of **code editing**, where you start an edit session and use prompts for making changes to your codebase. Copilot Edits can generate and apply code changes directly across **multiple files** in your codebase. You can immediately **preview the generated edits** within the context of your code.
-
-The [Chat view](/docs/copilot/copilot-chat.md#chat-view) gives you a more **general-purpose** chat interface for asking questions about your code or technology topics in general. Copilot can also provide code suggestions and generate code blocks as part of the chat conversation. You need to **manually apply** each code block to the different files in your project to evaluate their validity.
-
-[Inline Chat](/docs/copilot/copilot-chat.md#inline-chat) keeps you in the coding flow by providing a chat interface in the editor, where you can **preview the generated code** suggestions directly in the context of your code. The scope of Inline Chat is limited to the editor in which it's started, so it can only provide code suggestions for a **single file**. You can also use Inline Chat to ask general-purpose questions.
-
-Copilot Edits also provides you a **code review flow** where you can easily review generated edits and decide to accept or discard them. Copilot Chat does not have this code review mechanism. In addition, you can undo past edits and **roll back changes** to a previous accepted state.
-
-The following table shows a comparison of the capabilities of each experience.
-
-| Capability                  | Copilot Edits | Chat view | Inline Chat | Quick Chat |
-|-----------------------------|:-------------:|:---------:|:-----------:|:----------:|
-| Multi-file edits            | ✅ | ✅* |    | ✅* |
-| Preview code edits          | ✅ |     | ✅ |     |
-| Code review flow            | ✅ |     |    |      |
-| Roll back changes           | ✅ |     |    |      |
-| Attach context              | ✅ | ✅ | ✅ | ✅  |
-| Use participants & commands |    | ✅  |    | ✅  |
-| Generate shell commands     |    | ✅  |    | ✅  |
-| General-purpose chat        |    | ✅  | ✅ | ✅  |
-
-\* _code blocks are included in the chat conversation and need to be applied to the right file manually_
-
 ### Can I change the location of the Copilot Edits view?
 
 You can drag and drop the Copilot Edits view into the Activity Bar to show it in the Primary Side Bar. You can also move it to the Secondary Side Bar. Learn more about [custom layouts](/docs/configure/custom-layout.md#workbench) in VS Code.
@@ -168,7 +133,6 @@ You can drag and drop the Copilot Edits view into the Activity Bar to show it in
 Consider the following criteria to choose between edit mode and agent mode:
 
 * **Edit scope**: you might use edit mode if your request involves only code edits and you know the precise scope for the changes.
-* **Preview feature**: agent mode is still in preview and might not work for all scenarios.
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
@@ -183,4 +147,4 @@ We recommend that you use [Copilot Chat](/docs/copilot/copilot-chat.md) or [Inli
 
 * [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
 * [Use Copilot Chat for AI chat conversations](/docs/copilot/copilot-chat.md)
-* [Configure MCP servers to add tools to agent mode](/docs/copilot/mcp-servers.md)
+* [Start an agentic code editing session](/docs/copilot/chat-agent-mode.md)
