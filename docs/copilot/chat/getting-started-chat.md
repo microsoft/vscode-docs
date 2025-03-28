@@ -24,139 +24,125 @@ Follow the steps in the [GitHub Copilot set up guide](/docs/copilot/setup.md) to
 
 ## Get your first chat conversation
 
-Copilot Chat is a chat interface that lets you interact with GitHub Copilot, to ask and receive answers to coding-related questions. The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
+Copilot Chat lets you interact with GitHub Copilot by using natural language, to ask and receive answers to coding-related questions.
 
 In this tutorial, you'll be creating a simple Node.js web application.
+
+1. Open a new VS Code window. You'll be creating a new workspace in a follow-up step.
 
 1. Select **Open Chat** from the Copilot menu in the title bar or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
     ![Screenshot of VS Code editor, showing the Copilot Chat view, highlighting the chat menu in the Command Center.](./images/getting-started-chat/copilot-chat-menu-command-center.png)
 
-    > [!TIP]
-    > You can access different Copilot features from the Command Center menu at any time.
+    Notice that the Chat view opens in the Secondary Side Bar. Having the Chat view on the side allows you to keep the conversation going while you work on your code.
 
 1. In the Chat view, select **Ask** from the chat mode dropdown.
 
-    TODO: add screenshot
+    Use _ask mode_ to ask Copilot questions about coding and technology topics, explain code, or brainstorm ideas.
 
-1. Enter "@workspace /new express with typescript and pug" in the chat input field, and press `kb(workbench.action.chat.submit)` to send the request.
+    ![Screenshot of VS Code Copilot Chat view, showing the Ask mode dropdown.](./images/getting-started-chat/chat-mode-dropdown-ask.png)
 
-    Notice how this chat prompt is structured to provide clear and concise instructions to Copilot. Let's break it down:
+1. Let's ask Copilot about popular web frameworks. Enter "what are the most popular web frameworks?" in the chat input field.
 
-    * `@workspace` is a *chat participant*, which are domain experts that can perform tasks or answer questions in a specific domain. In this case, `@workspace` knows about VS Code workspaces and your codebase.
+    Copilot returns a list of popular web frameworks. Experiment with asking follow-up questions to get more information about a specific framework, or to compare frameworks. For example, you can ask "what are the differences between Express and Fastify?" or "how to do server-side rendering?".
 
-    * `/new` is a *slash command* that tells the `@workspace` participant that you want to create a new workspace. Slash commands are a shorthand for commonly used instructions. You can enter the `/` symbol in the chat input to get the list of supported commands.
+1. To scaffold a new web app, enter "new express app with typescript and pug" in the chat input field.
 
-1. Copilot returns a file tree that represents the new workspace files, and a button to create the workspace.
+    Notice how Copilot returns a file tree that represents the new workspace files. Select any file in the file tree to preview its content.
 
-    ![Screenshot of VS Code Copilot Chat view, showing a file tree for a new workspace and a 'Create workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
+    ![Screenshot of VS Code Copilot Chat view, showing a file tree for a new workspace and a 'Create Workspace' button.](./images/getting-started-chat/copilot-chat-view-workspace-file-tree.png)
 
-    You can select any file in the file tree to preview the content before it's actually created. If you're not happy with the generated files, or want something different, you can ask follow-up questions, like `@workspace use ejs` to use EJS instead of Pug.
+1. Select **Create Workspace** to create the app, and select a folder on disk where the workspace should be created.
 
-1. Select **Create workspace** to create a new workspace and select a folder on disk where the workspace should be created.
+    Select **Open** in the dialog to open the newly-created workspace in VS Code.
 
-    When the workspace creation finishes, VS Code reloads with the new workspace.
+    > [!NOTE]
+    > VS Code might ask if you want to trust the new workspace. Select **Yes, I trust the contents** to trust the workspace. Get more details about [workspace trust](/docs/editing/workspaces/workspace-trust.md).
 
-Congratulations! You've just created a workspace with Copilot Chat by using natural language. The advantage of this approach is that you can tweak your request as you like. Maybe you prefer using Express.js with EJS, or not use Express.js at all and use plain Node.js with Bootstrap. Choose what you prefer most!
+## Stay in the flow with inline chat
 
-## Stay in the flow with Inline Chat
+While the Chat view is great for keeping a conversation going, _editor inline chat_ is optimized for situations where you want to ask Copilot about the code you're actively working on in the editor. For example, to refactor a specific piece of code, or explain a complex algorithm.
 
-While the Chat view is great for keeping a conversation going with Copilot, having access to chat directly from the editor might be more efficient for particular scenarios. For example, when you're reviewing code changes, writing unit tests, or refactoring code.
+Let's look at how to use editor inline chat for code refactoring.
 
-Let's look at how to use inline chat for code refactoring.
+1. Open the `app.ts` file and use the `kb(inlinechat.start)` keyboard shortcut to bring up editor inline chat. Alternatively, select **Editor Inline Chat** from the Copilot menu in the title bar.
 
-1. Open the `app.ts` file in the editor and put the cursor on the line where the port number is set (`const port = 3000`).
-
-    For more complex code changes, you can select a block of code to provide more context to Copilot about what you want to change.
-
-1. Press `kb(inlinechat.start)` on your keyboard to bring up Copilot Inline Chat, or right-click and select **Copilot** > **Start in Editor**.
-
-    Copilot Inline Chat enables you to ask questions to Copilot directly from the editor.
+    A chat input field appears inline in the editor, where you can enter your chat prompt and ask Copilot about the code in the editor.
 
     ![Screenshot of VS Code editor, highlighting the Inline Chat popup control.](./images/getting-started-chat/copilot-inline-chat-popup.png)
 
-    Let's now ask Copilot to refactor the code to make the port number configurable.
+1. Enter "Add support for JSON output" in the chat input field and press `kbstyle(Enter)`.
 
-1. Enter *make configurable* in the chat input field and press `kbstyle(Enter)`.
+    Notice how Copilot provides a code suggestion to add support for JSON output in Express.
 
-    Notice how Copilot updates the selected code and suggests reading the port number from an environment variable.
-
-    ![Screenshot of VS Code editor with the suggested code change.](./images/getting-started-chat/copilot-inline-chat-configurable-port.png)
-
-    You can view the applied changes by selecting **More Actions** > **Toggle Changes**.
-
-    ![Screenshot of VS Code Inline Chat, highlighting the 'More Actions' control and diff editor.](./images/getting-started-chat/copilot-inline-chat-show-changes.png)
+    ![Screenshot of VS Code editor with the suggested code change.](./images/getting-started-chat/copilot-inline-chat-json-support.png)
 
 1. Select **Accept** or **Close** to apply or ignore the changes.
 
-    If you're not happy with the suggested code changes, you can select the **Rerun Request** button to get another suggestion.
+    If you're not happy with the suggested code changes, you can select the **Rerun Request** control or ask a follow-up question to get another suggestion.
 
-Congratulations on using Copilot Inline Chat in the editor to help you with code refactoring!
+> [!TIP]
+> Right-click in the editor and select the **Copilot** context menu to access commonly used Copilot commands, such as fixing or explaining code or generating tests.
 
-## Use smart actions
+## Make edits across multiple files
 
-There are some common scenarios where you might invoke Copilot directly, without having to enter a chat prompt. For example, Copilot can help with adding code documentation, generating unit tests, or help you fix coding errors.
+With inline chat, you made changes to a single file. You can also use Copilot to make changes across multiple files in your workspace by switching to _edit mode_ in the Chat view.
 
-Let's see how to use smart actions to fix a coding error.
+Let's use edit mode to use a `.env` file to store the configuration for your web app.
 
-1. Open the `app.ts` file and select one of the symbols that has a red squiggle.
+1. Open the Chat view and select **Edit** from the chat mode dropdown.
 
-1. Select the sparkle icon to view the Copilot code actions, and then select **Fix using Copilot**.
+    ![Screenshot of VS Code Copilot Chat view, showing the Edit mode dropdown.](./images/getting-started-chat/chat-mode-dropdown-edit.png)
 
-    ![Screenshot of VS Code, highlighting the sparkle and Copilot smart actions context menu.](./images/getting-started-chat/copilot-smart-action-fix.png)
+1. To help Copilot understand the scope of your request, let's add `package.json` and `app.ts` as context to the prompt.
 
-1. Copilot Inline Chat comes up, prepopulated with the error message, and a suggestion to resolve the problem.
+    1. Select **Add Context** in the Chat view, type `package` in the search field, and select the `package.json` file from the list of files. Notice that there are many types of context you can add.
 
-    ![Screenshot of VS Code Inline Chat, showing the result of the fix smart action.](./images/getting-started-chat/copilot-smart-action-fix-suggestion.png)
+    1. Open the `app.ts` file in the editor, and notice that Copilot automatically adds the active file to the chat context.
 
-    Notice how Copilot uses the `/fix` slash command, followed by the error message. You can also use the `/fix` command directly in the chat input field to get help with fixing coding errors.
+1. Enter "Use a .env file for configuration" in the chat input field and press `kbstyle(Enter)`.
 
-In addition to **Fix**, Copilot provides more smart code actions, such as **Explain** (/explain), **Generate Docs** (`/doc`), and **Generate Tests** (`/tests`). You can access these actions via the editor context menu and then selecting **Copilot**.
+1. Notice how Copilot makes updates across multiple files and adds a new `.env` file to your workspace.
 
-![Screenshot of VS Code Copilot smart action context menu.](./images/getting-started-chat/copilot-smart-action-menu.png)
+    The Chat view shows the files that were changed in bold text in the Chat view.
 
-And if you come across some block of code that's unclear, just select it and use `/explain` to get Copilot to give you an explanation and help improve your code understanding.
+    ![Screenshot of VS Code editor, showing the suggested code change in the app.ts file.](./images/getting-started-chat/copilot-inline-chat-env-file.png)
 
-## Add chat context
+1. Select **Keep** in the Chat view to confirm all suggested changes.
 
-Previously, you used `@workspace` to ask questions about your workspace. What if you want to ask Copilot a question about something specific, maybe a particular file or a symbol in your code? How can you provide that context to Copilot without having to describe everything extensively in natural language?
+    Use the overlay controls in the editor to easily navigate and review the individual changes across your files.
 
-Let's ask Copilot about what the purpose of a specific file in the workspace is.
+## Start an agentic coding flow
 
-1. Open the Chat view from the Command Center chat menu or press `kb(workbench.action.chat.open)`.
+For more complex requests, you can use _agent mode_ to let Copilot autonomously plan and execute the tasks that are needed to complete your request. These tasks can involve editing code but also include running commands in the terminal. In agent mode, Copilot might invoke different tools to accomplish the task.
 
-1. Select the **Attach Context** button next to the chat input field to open the context Quick Pick.
+Let's use agent mode to make the web app about sharing travel tips and add testing.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/getting-started-chat/copilot-chat-view-attach-context.png)
+1. Open the Chat view and select **Agent** from the chat mode dropdown.
 
-    In the context Quick Pick, you can select different types of context to add to your chat prompt, such as a file from your workspace, a symbol, the current selection, and more.
+    ![Screenshot of VS Code Copilot Chat view, showing the Agent mode dropdown.](./images/getting-started-chat/chat-mode-dropdown-agent.png)
 
-1. In the context Quick Pick, start typing `index.ts`, and then select the `src\types\index.ts` file.
+1. Enter "Make the app a travel blog. Add tests to avoid code regression." in the chat input field and press `kbstyle(Enter)`.
 
-    ![Screenshot of VS Code context Quick Pick, highlighting the selected 'index.ts' file.](./images/getting-started-chat/copilot-chat-view-attach-context-file.png)
+    Note that you don't need to add context to your prompt. Agent mode automatically analyzes the code in your workspace.
 
-    After you select the file, notice that the file is added in the Chat view. Optionally, you can add more files or other context types to your chat prompt.
+1. Copilot iterates to apply code changes and run commands like running tests. Confirm terminal commands by selecting **Continue** in the Chat view.
 
-1. Now enter the following prompt in the chat input field: "@workspace what does this do?". Then, press `kbstyle(Enter)` to send the request.
+    ![Screenshot of VS Code editor, showing the Chat view asking to confirm running tests in the terminal.](./images/getting-started-chat/copilot-chat-agent-terminal.png)
 
-    ![Screenshot of VS Code Copilot Chat view, showing the chat prompt with the attached file context.](./images/getting-started-chat/copilot-chat-view-context-prompt.png)
+    Depending on the complexity of your request, Copilot might take a few minutes to complete all tasks. If it encounters issues along the way, it iterates to fix them.
 
-    Copilot now returns an explanation about the purpose of the code in the selected file.
+1. Once Copilot completes the tasks, review the changes, test the app.
 
-1. Instead of using the **Attach Context** control, you can also directly reference the different types of context by typing `#` in the chat input field.
-
-    > [!TIP]
-    > Add `#codebase` to add your entire workspace as context to your chat prompt. This can be useful if you want to ask questions that relate to different areas of your project.
-
-1. To quickly attach a file as context for your chat prompt, drag and drop a file from the Explorer view onto the Chat view. If the file is open in the editor, you can also drag and drop the editor tab onto the Chat view to attach the file.
-
-    <video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
+    You can also ask Copilot to run the app by giving it a prompt like "Run the app" or "Start the server".
 
 ## Congratulations
 
-Congratulations, you successfully used the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension to have AI-powered conversations to help refactor your code, fix problems, or improve your code understanding.
+Congratulations, you successfully used Copilot Chat in VS Code to ask questions and make code edits across your workspace. Continue to experiment with different prompts and chat modes to get the most out of Copilot Chat.
 
 ## Additional resources
 
-* Get an overview of [Copilot Chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* Optimize your Copilot experience with [prompt crafting and context setting](/docs/copilot/chat/prompt-crafting.md)
+* [Get an overview of Copilot Chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Use chat for asking questions about your code](/docs/copilot/chat/chat-ask-mode.md)
+* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
+* [Start an agentic coding workflow](/docs/copilot/chat/chat-agent-mode.md)
