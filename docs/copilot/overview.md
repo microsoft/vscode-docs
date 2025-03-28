@@ -1,9 +1,5 @@
 ---
-Order: 1
-Area: copilot
-TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-PageTitle: GitHub Copilot overview
 DateApproved: 03/05/2025
 MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
 MetaSocialImage: images/shared/github-copilot-social.png
@@ -78,7 +74,7 @@ Use the following keyboard shortcuts to start a chat conversation with Copilot:
 | `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 
-Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+Check our [Copilot cheat sheet](/docs/copilot/reference/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
 
 ## Use cases for GitHub Copilot in VS Code
 
@@ -94,7 +90,7 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 
 ### Iterate on changes across multiple files
 
-* **Start an AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
+* **Start an AI-powered code editing session**. [Copilot Edits](/docs/copilot/chat/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
 
     ![Screenshot showing the Copilot Edits response for "Make the activities page the home page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-changed-files.png)
 
@@ -187,8 +183,8 @@ Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an
 ## Next steps
 
 * [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
-* [Get started with editing across multiple files with Copilot Edits](/docs/copilot/copilot-edits.md)
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
+* [Get started with editing across multiple files with Copilot Edits](/docs/copilot/chat/copilot-edits.md)
+* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
 
 ## Additional resources
 

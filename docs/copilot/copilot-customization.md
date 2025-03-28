@@ -1,9 +1,5 @@
 ---
-Order: 11
-Area: copilot
-TOCTitle: Customizing Copilot
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-PageTitle: Customize GitHub Copilot in VS Code
 DateApproved: 03/05/2025
 MetaDescription: Learn how you can customize how GitHub Copilot generates code or tests for your project by defining a set of instructions.
 MetaSocialImage: images/shared/github-copilot-social.png
@@ -255,5 +251,5 @@ To create a user prompt file:
 
 ## Related content
 
-* Start AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
-* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/copilot-edits.md).
+* Start AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
+* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).
