@@ -132,7 +132,7 @@ Let's use agent mode to make the web app about sharing travel tips and add testi
 
     Depending on the complexity of your request, Copilot might take a few minutes to complete all tasks. If it encounters issues along the way, it iterates to fix them.
 
-1. Once Copilot completes the tasks, review the changes, test the app.
+1. Once Copilot completes the tasks, review the changes, and test the app.
 
     You can also ask Copilot to run the app by giving it a prompt like "Run the app" or "Start the server".
 
