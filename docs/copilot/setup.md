@@ -28,7 +28,7 @@ To set up Copilot in VS Code:
 
 1. Hover over the Copilot icon in the Status Bar and select **Set up Copilot**.
 
-    TODO: add screenshot
+    ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
 1. Select **Sign in** to sign in to your GitHub account.
 
