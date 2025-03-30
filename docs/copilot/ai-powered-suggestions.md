@@ -171,7 +171,7 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
 
-* `setting(editor.inlineSuggest.edits.codeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
 
 * `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 

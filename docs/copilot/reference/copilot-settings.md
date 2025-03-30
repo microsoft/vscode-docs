@@ -21,7 +21,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
 * `setting(chat.commandCenter.enabled)`: Controls whether to show the Copilot menu in the VS Code title bar (default: `true`).
 * `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot Next Edit Suggestions (Copilot NES).
-* `setting(editor.inlineSuggest.edits.codeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
 * `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
