@@ -31,6 +31,8 @@
       ["Chat Tutorial", "/api/extension-guides/chat-tutorial"],
       ["Language Model", "/api/extension-guides/language-model"],
       ["Language Model Tutorial", "/api/extension-guides/language-model-tutorial"],
+      ["Language Model Tools", "/api/extension-guides/tools"],
+      ["Prompt TSX", "/api/extension-guides/prompt-tsx"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
       ["Notebook", "/api/extension-guides/notebook"],

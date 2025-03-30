@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -131,7 +131,7 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 
 ### Mapping a schema in an extension
 
-Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
+Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributesjsonvalidation).
 
 ### File match syntax
 
@@ -153,18 +153,18 @@ The file match syntax supports the '*' wildcard. Also, you can define exclusion 
 
 JSON schemas describe the shape of the JSON file, as well as value sets and default values, which are used by the JSON language support to provide completion proposals. If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema.
 
-The following example shows a schema for a key binding settings file defining a snippet:
+The following example shows a schema for a keyboard shortcut settings file defining a snippet:
 
 ```json
 {
     "type": "array",
-    "title": "Keybindings configuration",
+    "title": "Keyboard shortcuts configuration",
     "items": {
         "type": "object",
         "required": ["key"],
         "defaultSnippets": [
             {
-                "label": "New keybinding",
+                "label": "New keyboard shortcut",
                 "description": "Binds a key to a command for a given state",
                 "body": { "key": "$1", "command": "$2", "when": "$3" }
             }

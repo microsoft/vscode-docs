@@ -5,7 +5,7 @@ TOCTitle: Tunnels
 PageTitle: Remote Tunnels
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 ---
 # Developing with Remote Tunnels
 
@@ -13,7 +13,7 @@ The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/i
 
 Tunneling securely transmits data from one network to another via [Microsoft dev tunnels](https://learn.microsoft.com/azure/developer/dev-tunnels/overview).
 
-This can eliminate the need for source code to be on your VS Code client machine since the extension runs commands and other extensions directly on the remote machine.
+This can eliminate the need for source code to be on your VS Code client machine since the extension runs commands and other extensions directly on the remote machine.  The extension will install VS Code Server on the remote OS; the server is independent of any existing VS Code installation on the remote OS.
 
 ![Remote Tunnels architecture overview](images/vscode-server/server-arch-latest.png)
 

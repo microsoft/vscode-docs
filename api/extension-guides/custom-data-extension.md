@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d40b8849-6a4e-428c-b463-c8d61f18136f
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to extend Visual Studio Code's HTML and CSS language support.

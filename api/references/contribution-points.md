@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -11,6 +11,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
+- [`authentication`](/api/references/contribution-points#contributes.authentication)
 - [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
@@ -42,6 +43,23 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
 - [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`walkthroughs`](/api/references/contribution-points#contributes.walkthroughs)
+
+## contributes.authentication
+
+Contributes an authentication provider. This will set up an activation event for your provider and display it in your extension's features.
+
+```json
+{
+  "contributes": {
+    "authentication": [
+      {
+        "label": "Azure Dev Ops",
+        "id": "azuredevops"
+      }
+    ]
+  }
+}
+```
 
 ## contributes.breakpoints
 
@@ -1018,7 +1036,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -1135,7 +1153,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets#_snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 

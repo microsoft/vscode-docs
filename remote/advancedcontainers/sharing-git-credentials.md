@@ -5,7 +5,7 @@ TOCTitle: Sharing git credentials
 PageTitle: Sharing git credentials
 ContentId: 4627daab-1bc2-4e3b-ba81-cd9319ec1230
 MetaDescription: Sharing git credentials
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 ---
 
 # Sharing Git credentials with your container
@@ -29,11 +29,15 @@ If you use HTTPS to clone your repositories and **have a [credential helper conf
 
 There are some cases when you may be cloning your repository using SSH keys instead of a credential helper. To enable this scenario, the extension will automatically forward your **local [SSH agent](https://www.ssh.com/ssh/agent) if one is running**.
 
+First, you should ensure that [SSH agent forwarding](https://www.ssh.com/academy/ssh/agent#ssh-agent-forwarding) is enabled on the **host**. Search for the `AllowAgentForwarding` option in sshd_config (usually located at `/etc/ssh/sshd_config` or `%programdata%\ssh\sshd_config`). If not already, you should set it to `yes` and reload or restart the `sshd` service.
+
 You can add your local SSH keys to the agent if it is running by using the `ssh-add` command. For example, run this from a terminal or PowerShell:
 
 ```bash
-ssh-add $HOME/.ssh/<your ssh key>
+ssh-add
 ```
+
+It will add the default files (`~/.ssh/id_rsa`, `.ssh/id_dsa`, `~/.ssh/id_ecdsa`, `~/.ssh/id_ed25519`, and `~/.ssh/identity`). If you'd like to specify a key, simply append the path to it after the command.
 
 On Windows and Linux, you may get an error because the agent is not running (macOS typically has it running by default). Follow these steps to resolve the problem:
 
@@ -67,9 +71,10 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
         ssh-agent -s &> $HOME/.ssh/ssh-agent
    fi
    eval `cat $HOME/.ssh/ssh-agent` > /dev/null
-   ssh-add $HOME/.ssh/<your ssh key> 2> /dev/null
+   ssh-add 2> /dev/null
 fi
 ```
+
 On the last line, replace `<your ssh key>` with your specific ssh key.
 
 For example `ssh-add $HOME/.ssh/id_ed25519 2> /dev/null`

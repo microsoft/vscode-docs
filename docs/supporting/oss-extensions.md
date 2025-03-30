@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -66,7 +66,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |
 | [Mono Debug](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug/license) |
-| [Nodepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
+| [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
 | [OpenPAI VS Code Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
 | [PostgreSQL](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql/license) |
 | [PowerShell](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/license) |
@@ -78,7 +78,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Remote - SSH](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license) |
 | [WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
 | [Reference Search View](https://marketplace.visualstudio.com/items/ms-vscode.references-view) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.references-view/license) |
-| [Resharper 9 Keybindings](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
+| [Resharper 9 keyboard shortcuts](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
 | [Service Fabric Reliable Services](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services/license) |
 | [Spring Boot Dashboard](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard/license) |
 | [Spark & Hive Tools](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight) |  | [Microsoft](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight/license) |

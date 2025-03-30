@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
 PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---

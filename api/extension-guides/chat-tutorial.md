@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: bea1d4c5-71e5-4b27-ac1e-fa9b59886dab
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Tutorial that walks you through creating a GitHub Copilot chat participant in VS Code by using the Chat API.
@@ -78,9 +78,9 @@ This code registers a chat participant with the following attributes:
 
 Finally, setting `isSticky: true` will automatically prepend the participant name in the chat input field after the user has started interacting with the participant.
 
-## Step 3: Craft the prompt and select the model
+## Step 3: Craft the prompt
 
-Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt and select the model for the requests.
+Now that the participant is registered, you can start implementing the logic for the code tutor. In the `extension.ts` file, you will define a prompt for the requests.
 
 Crafting a good prompt is the key to getting the best response from your participant. Check out [this article](https://platform.openai.com/docs/guides/prompt-engineering) for tips on prompt engineering.
 
@@ -97,15 +97,9 @@ The second prompt is more specific and gives the participant a clear direction o
 const BASE_PROMPT = 'You are a helpful code tutor. Your job is to teach the user with simple descriptions and sample code of the concept. Respond with a guided overview of the concept in a series of messages. Do not give the user the answer directly, but guide them to find the answer themselves. If the user asks a non-programming question, politely decline to respond.';
 ```
 
-You also need to select the model for the requests. gpt-4o is recommended since it is fast and high quality.
-
-```ts
-const MODEL_SELECTOR: vscode.LanguageModelChatSelector = { vendor: 'copilot', family: 'gpt-4o' }
-```
-
 ## Step 4: Implement the request handler
 
-Now that the prompt and model are selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
+Now that the prompt is selected, you need to implement the request handler. This is what will process the user's chat request. You will define the request handler, perform logic for processing the request, and return a response to the user.
 
 First, define the handler:
 
@@ -117,56 +111,31 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 }
 ```
 
-Within the body of this handler, initialize the prompt and model. Check that the model returned successfully.
+Within the body of this handler, initialize the prompt and a `messages` array with the prompt. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
+
+Send the request using `request.model.sendRequest`, which will send the request using the currently selected model. Finally, stream the response to the user.
 
 ```ts
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-    }
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-    return;
-};
-```
-
-Initialize a `messages` array with the prompt we crafted in the previous step. Then, send in what the user typed in the chat box. You can access this through `request.prompt`.
-
-Finally, send the request and stream the response to the user.
-
-```ts
-// define a chat handler
-const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
-
-    // initialize the prompt and model
-    let prompt = BASE_PROMPT;
-
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
-
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
-
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
-
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
-
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -183,28 +152,23 @@ You should further customize your participant by adding an icon for it. This wil
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
-
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -244,43 +208,38 @@ You'll need to retrieve that history and add it to the `messages` array. You wil
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // get all the previous participant messages
+    const previousMessages = context.history.filter(
+        (h) => h instanceof vscode.ChatResponseTurn
+    );
 
-        // get all the previous participant messages
-        const previousMessages = context.history.filter(
-            (h) => h instanceof vscode.ChatResponseTurn
-        );
-
-        // add the previous messages to the messages array
-        previousMessages.forEach((m) => {
-            let fullMessage = '';
-            m.response.forEach((r) => {
-                const mdPart = r as vscode.ChatResponseMarkdownPart;
-                fullMessage += mdPart.value.value;
-            });
-            messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    // add the previous messages to the messages array
+    previousMessages.forEach((m) => {
+        let fullMessage = '';
+        m.response.forEach((r) => {
+            const mdPart = r as vscode.ChatResponseMarkdownPart;
+            fullMessage += mdPart.value.value;
         });
+        messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    });
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;
@@ -333,47 +292,42 @@ If the command is referenced, update the prompt to the newly created `EXERCISES_
 // define a chat handler
 const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, context: vscode.ChatContext, stream: vscode.ChatResponseStream, token: vscode.CancellationToken) => {
 
-    // initialize the prompt and model
+    // initialize the prompt
     let prompt = BASE_PROMPT;
 
     if (request.command === 'exercise') {
         prompt = EXERCISES_PROMPT;
     }
 
-    const [model] = await vscode.lm.selectChatModels(MODEL_SELECTOR);
+    // initialize the messages array with the prompt
+    const messages = [
+        vscode.LanguageModelChatMessage.User(prompt),
+    ];
 
-    // make sure the model is available
-    if (model) {
-        // initialize the messages array with the prompt
-        const messages = [
-            vscode.LanguageModelChatMessage.User(prompt),
-        ];
+    // get all the previous participant messages
+    const previousMessages = context.history.filter(
+        (h) => h instanceof vscode.ChatResponseTurn
+    );
 
-        // get all the previous participant messages
-        const previousMessages = context.history.filter(
-            (h) => h instanceof vscode.ChatResponseTurn
-        );
-
-        // add the previous messages to the messages array
-        previousMessages.forEach((m) => {
-            let fullMessage = '';
-            m.response.forEach((r) => {
-                const mdPart = r as vscode.ChatResponseMarkdownPart;
-                fullMessage += mdPart.value.value;
-            });
-            messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    // add the previous messages to the messages array
+    previousMessages.forEach((m) => {
+        let fullMessage = '';
+        m.response.forEach((r) => {
+            const mdPart = r as vscode.ChatResponseMarkdownPart;
+            fullMessage += mdPart.value.value;
         });
+        messages.push(vscode.LanguageModelChatMessage.Assistant(fullMessage));
+    });
 
-        // add in the user's message
-        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+    // add in the user's message
+    messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
-        // send the request
-        const chatResponse = await model.sendRequest(messages, {}, token);
+    // send the request
+    const chatResponse = await request.model.sendRequest(messages, {}, token);
 
-        // stream the response
-        for await (const fragment of chatResponse.text) {
-            stream.markdown(fragment);
-        }
+    // stream the response
+    for await (const fragment of chatResponse.text) {
+        stream.markdown(fragment);
     }
 
     return;

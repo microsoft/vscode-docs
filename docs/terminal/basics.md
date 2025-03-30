@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Terminal Basics
@@ -134,13 +134,13 @@ Extensions can contribute **link providers** which allow the extension to define
 
 Links are keyboard accessible through several commands that open links based on the type of link.
 
-* **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
-* **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
-* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `kbstyle(Ctrl/Cmd+Shift+O)`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
+* **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keyboard shortcut.
+* **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keyboard shortcut.
+* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keyboard shortcut is `kbstyle(Ctrl/Cmd+Shift+O)`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
 
 ## Copy & paste
 
-The keybindings for copy and paste follow platform standards:
+The keyboard shortcuts for copy and paste follow platform standards:
 
 * Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`; selection paste is available with `kbstyle(Shift+Insert)`
 * macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
@@ -182,7 +182,7 @@ The integrated terminal has find functionality that can be triggered with `kb(wo
 
 ![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keybinding-and-the-shell).
+> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keyboard-shortcuts-and-the-shell).
 
 ## Run selected text
 
@@ -198,7 +198,7 @@ Note that the panel can only be maximized if its [alignment](/docs/editor/custom
 
 ## Select all
 
-There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keybinding:
+There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keyboard shortcut on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keyboard shortcut:
 
 ```json
 {
@@ -316,7 +316,7 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
-* [Terminal inline chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+* [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
@@ -339,7 +339,7 @@ You can open new terminals for specific folders from the Explorer via the **Open
 
 ![A folder selected in the Explorer displaying the context menu with the Open in Integrated Terminal command](images/basics/open-in-terminal-command.png)
 
-By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keyboard shortcut to your `keybindings.json`.
 
 The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)` for `openInTerminal`.
 
@@ -389,7 +389,7 @@ rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 
 ### Why does macOS make a ding sound when I resize terminal split panes?
 
-The keybindings ⌃⌘← and ⌃⌘→ are the defaults for resizing individual split panes in the terminal. While they work, they also cause a system "invalid key" sound to play due to an issue in Chromium. The [recommended workaround](https://github.com/microsoft/vscode/issues/44070#issuecomment-799716362) is to tell macOS to no-op for these keybindings by running this in your terminal:
+The keyboard shortcuts ⌃⌘← and ⌃⌘→ are the defaults for resizing individual split panes in the terminal. While they work, they also cause a system "invalid key" sound to play due to an issue in Chromium. The [recommended workaround](https://github.com/microsoft/vscode/issues/44070#issuecomment-799716362) is to tell macOS to no-op for these keyboard shortcuts by running this in your terminal:
 
 ```bash
 mkdir -p ~/Library/KeyBindings
@@ -441,7 +441,7 @@ To work around this, you have two options:
 
 ### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
 
-The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
+The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keyboard shortcut](/docs/getstarted/keybindings.md):
 
 ```json
 {

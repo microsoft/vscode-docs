@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -101,6 +101,8 @@ If both frameworks are enabled, then the Python extension will only run `pytest`
 If you enable pytest, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
 ![VS Code prompt to install a test framework when enabled](images/testing/install-framework.png)
+
+> **Note**: The minimum supported version of pytest for the python extension is 7.0.0.
 
 ## Create tests
 

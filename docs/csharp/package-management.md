@@ -4,20 +4,30 @@ Area: csharp
 TOCTitle: Package Management
 ContentId: 6e7d5ecf-d7aa-44b5-abc0-2257a2075906
 PageTitle: C# package management with NuGet in Visual Studio Code
-DateApproved: 6/6/2023
+DateApproved: 12/13/2024
 MetaDescription: C# package management with NuGet in Visual Studio Code
 ---
 
 # NuGet in Visual Studio Code
 
-NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, and provides the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project. In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette. To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project.
+
+In Visual Studio Code, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
 
 * [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
 * [Dependency Management](#dependency-management)
 
+To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
+
 ## NuGet commands in C# Dev Kit
 
-In C# Dev Kit, you can perform NuGet package operations in either of two ways: by using the Command Palette (`kb(workbench.action.showCommands)`) or by right-clicking in the C# Dev Kit Solution explorer. The following sections describe how to use each NuGet command through both of the two methods.
+In C# Dev Kit, you can perform NuGet package operations in one of two ways:
+
+* Using the Command Palette (`kb(workbench.action.showCommands)`)
+
+* Right-clicking in the C# Dev Kit Solution explorer
+
+The following sections describe how to use each NuGet command, using both of these two methods.
 
 ### Add a package
 
@@ -67,11 +77,17 @@ In C# Dev Kit, you can perform NuGet package operations in either of two ways: b
 
 4. C# Dev Kit then performs the necessary changes and updates your project file and references.
 
+### Include prerelease package versions
+
+If you are looking to update or add a prerelease version of a NuGet package, you first need to set the **Include Prerelease Package Versions** to **true**.
+
+You can find this option under **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`) and searching for `nuget.includePrereleasePackageVersions` to `true`.
+
 ## Dependency management
 
 ### Automatic NuGet restore
 
-For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Ouput panel.
+For a .NET project, a package restore happens automatically when you create a project from a template, build, load, or make changes to an SDK-style project. You can view in the progress and logs in the Output panel.
 
 ![Automatic NuGet package restore](images/package-management/automatic-nuget-package-restore.png)
 
@@ -79,6 +95,8 @@ For projects that use `<PackageReference>`, you can see the package references i
 
 ![Package references in the Solution Explorer](images/package-management/package-references-solution-explorer.png)
 
-Packages that don't install properly when a restore happens or you run a build will show error icons in **Solution Explorer**.
+Packages that don't install properly when a restore happens or when you run a build, will show error icons in **Solution Explorer**.
 
-**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code. For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).
+**Note**: At this time, you cannot right-click on projects to manage your NuGet packages and there is not a NuGet Package Manager user interface in Visual Studio Code.
+
+For more information on managing packages, see [Install and manage NuGet packages with the dotnet CLI](https://learn.microsoft.com/nuget/consume-packages/install-use-packages-dotnet-cli).

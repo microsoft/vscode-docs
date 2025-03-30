@@ -8,7 +8,7 @@ ShortDescription: The February 2016 Recovery Release of VS Code
 Author: Chris Dias
 ---
 
-# February 2016 "Recovery" Release
+# February 2016 Recovery Release
 
 March 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 

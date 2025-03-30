@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: c64264b1-09cd-4680-b0dc-9f0f7803e451
-DateApproved: 10/03/2024
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to support virtual workspaces in extensions
@@ -19,7 +19,7 @@ Not all extensions are able to work with virtual resources and may require resou
 
 In general, users want as many extensions as possible to work in virtual workspaces and to have a good user experience when browsing and editing remote resources. This guide shows how extensions can test against virtual workspaces, describes modifications to allow them to work in virtual workspaces, and introduces the `virtualWorkspaces` capability property.
 
-Modifying an extension to work with virtual workspaces is also an important step for working well in [VS Code for the Web](/docs/editor/vscode-web). VS Code for the Web runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extensions](/api/extension-guides/web-extensions) guide for more details.
+Modifying an extension to work with virtual workspaces is also an important step for working well in [VS Code for the Web](/docs/setup/vscode-web). VS Code for the Web runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extensions](/api/extension-guides/web-extensions) guide for more details.
 
 ## Is my extension affected?
 

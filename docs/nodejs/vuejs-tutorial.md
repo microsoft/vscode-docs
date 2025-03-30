@@ -4,14 +4,14 @@ Area: nodejs
 TOCTitle: Vue Tutorial
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 PageTitle: Vue JavaScript Tutorial in Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using Vue in Visual Studio Code
 
-[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web application user interfaces and Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) and [Volar for TypeScript](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) extensions that support Vue.js IntelliSense, code snippets, formatting, and more.
+[Vue.js](https://vuejs.org/) is a popular JavaScript library for building web applications and user interfaces, and Visual Studio Code has built-in support for the Vue.js building blocks of [HTML](/docs/languages/html.md), [CSS](/docs/languages/css.md), and [JavaScript](/docs/languages/javascript.md). For a richer Vue.js development environment, you can install the [Vue - Official (previously Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension to have support for IntelliSense, [TypeScript](/docs/languages/typescript), formatting, and more.
 
->**Note**: [Vue 2 support will end on December 31st, 2023](https://v2.vuejs.org/lts/) so the use of the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension is [not recommended](https://github.com/vuejs/vetur/discussions/3378). You will need to [disable Vetur](https://vuejs.org/guide/typescript/overview.html#ide-support) to use Volar.
+>**Note**: [Vue 2 support ended on December 31st, 2023](https://v2.vuejs.org/lts/), so the use of the [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extension is [not recommended](https://github.com/vuejs/vetur/discussions/3378). You will need to [disable Vetur](https://vuejs.org/guide/typescript/overview.html#ide-support) to use the Vue - Official extension.
 
 ---
 
@@ -54,7 +54,7 @@ Let's quickly run our Vue application by typing `npm run dev` to start the web s
 npm run dev
 ```
 
-You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser. You can press `kbstyle(Ctrl+C)` to stop the `vue-cli-service` server.
+You should see "Welcome to your Vue.js App" on [http://localhost:5173](http://localhost:5173) in your browser.
 
 To open your Vue application in VS Code, from a terminal (or command prompt), navigate to the `vue-project` folder and type `code .`:
 
@@ -69,9 +69,9 @@ VS Code will launch and display your Vue application in the File Explorer.
 
 Now expand the `src` folder and select the `App.vue` file. You'll notice that VS Code doesn't show any syntax highlighting and it treats the file as **Plain Text** as you can see in the lower right Status Bar. You'll also see a notification recommending the [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) extension for the `.vue` file type.
 
-The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, snippets, formatting) to VS Code.
+The Vue extension supplies Vue.js language features (syntax highlighting, IntelliSense, and formatting) to VS Code.
 
-![Volar extension](images/vuejs/vue-extension.png)
+![Vue - Official extension](images/vuejs/vue-extension.png)
 
 From the notification, press **Install** to download and install the Vue extension. You should see the Vue extension **Installing** in the Extensions view. Once the installation is complete (may take several minutes), the **Install** button changes to the **Manage** gear button.
 
@@ -91,7 +91,15 @@ and Vue properties such as `computed` in the `scripts` section:
 
 ### Go to Definition, Peek definition
 
-VS Code through the Volar extension Vue.js language service can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.revealDefinition)`) or **Peek Definition** (`kb(editor.action.peekDefinition)`). Put the cursor over the `App`, right-click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) opens showing the `App` definition from `App.js`.
+The Vue - Official extension in VS Code enhances the Vue.js development experience by providing language service features such as type definitions. You can access these features using:
+
+- **Go to Definition** (`kb(editor.action.revealDefinition)`): Navigate directly to the type definition in your code.
+- **Peek Definition** (`kb(editor.action.peekDefinition)`): View the type definition inline without leaving your current context.
+
+To use Peek Definition, follow these steps:
+1. Place the cursor over `App`.
+2. Right-click, hover over **Peek** in the context menu, and select **Peek Definition**.
+3. A [Peek window](/docs/editor/editingevolved.md#peek) will open, displaying the `App` definition from `App.js`.
 
 ![Vue.js peek definition](images/vuejs/peek-definition.png)
 
@@ -99,7 +107,7 @@ Press `kbstyle(Escape)` to close the Peek window.
 
 ## Hello World
 
-Let's update the sample application to "Hello World!". In `App.vue` replace the HelloWorld component `msg` custom attribute text with "Hello World!".
+Let's update the sample application to render "Hello World!". In `App.vue` replace the HelloWorld component `msg` custom attribute text with "Hello World!".
 
 ```html
 <template>
@@ -117,7 +125,8 @@ Let's update the sample application to "Hello World!". In `App.vue` replace the 
 </template>
 ```
 
-Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart the server with `npm run dev` and you'll see "Hello World!". Leave the server running while we go on to learn about Vue.js client side debugging.
+Once you save the `App.vue` file (`kb(workbench.action.files.save)`), Vite's [Hot Module Replacement (HMR)](https://vite.dev/guide/features.html#hot-module-replacement) feature will instantly reflect the updates in the browser, and you'll see "Hello World!". Keep the server running as we move on to learn about Vue.js client-side debugging.
+
 
 >**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
@@ -129,7 +138,7 @@ Once you save the `App.vue` file (`kb(workbench.action.files.save)`), restart th
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin ([eslint-plugin-vue](https://www.npmjs.com/package/eslint-plugin-vue)) checks for Vue.js specific syntax errors, which are shown in the editor as red squiggles and are also displayed in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. The Vue ESLint plugin ([eslint-plugin-vue](https://eslint.vuejs.org/)) checks for Vue.js specific syntax errors, which are shown in the editor as red squiggles and are also displayed in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
 
 Below you can see an error when the Vue linter detects more than one root element in a template:
 
@@ -141,22 +150,18 @@ You can debug client side Vue.js code with the built-in JavaScript debugger. Fol
 
 For Vue CLI, which is [now in maintenance mode](https://vuejs.org/guide/scaling-up/tooling#vue-cli), check out [Vue.js debugging in VS Code](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli) recipe on the VS Code debugging [recipes](https://github.com/microsoft/vscode-recipes) site to learn more.
 
-Another popular tool for debugging Vue.js is the [vue-devtools](https://github.com/vuejs/vue-devtools) plug-in, which can be used regardless of the environment.
+Another popular tool for debugging Vue.js is the [vue-devtools](https://devtools.vuejs.org/) plug-in, which can be used regardless of the environment.
 
 ## Other extensions
 
-Volar is only one of many Vue.js extensions available for VS Code. Another recommended extension is [Volar for TypeScript](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Search in the Extensions view (`kb(workbench.view.extensions)`) by typing _vue_ to find other Vue extensions.
 
-![Vue recommended extensions](images/vuejs/vue-recommended-extensions.png)
+  ![Vue.js extensions](images/vuejs/vue-extensions.png)
 
-You can search in the Extensions view (`kb(workbench.view.extensions)`) by typing 'vue'.
+- Extensions like [Vue VS Code Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
 
-![Vue.js extensions](images/vuejs/vue-extensions.png)
+  ![Vue VS Code Snippets](images/vuejs/vue-vscode-snippets.png)
 
-Extension like [Vue VS Code Snippets](https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets) can be handy for Vue snippets.
+- There are also Extension Packs, which bundle extensions that other people have found useful for Vue.js development.
 
-![Vue VS Code Snippets](images/vuejs/vue-vscode-snippets.png)
-
-There are also Extension Packs, which bundle extensions that other people have found useful for Vue.js development.
-
-![Vue.js Extension Pack](images/vuejs/vue-extension-pack.png)
+  ![Vue.js Extension Pack](images/vuejs/vue-extension-pack.png)

@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
@@ -32,9 +32,12 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ### Compiler versus language service
 
-It is important to keep in mind that VS Code's TypeScript language service is separate from your installed TypeScript compiler. You can see the VS Code's TypeScript version in the Status Bar when you open a TypeScript file.
+It is important to keep in mind that VS Code's TypeScript language service is separate from your installed TypeScript compiler. You can see the VS Code's TypeScript version in the language Status Bar item when you open a TypeScript file.
 
-![TypeScript version displayed in the Status Bar](images/compiling/version-status-bar.png)
+![TypeScript version displayed in the language status in the Status Bar.](images/compiling/version-status-bar.png)
+
+> [!TIP]
+> You can pin the TypeScript version to the Status Bar by using the _pin_ icon.
 
 Later in the article, we'll discuss how you can [change](#using-newer-typescript-versions) the version of TypeScript language service that VS Code uses.
 
@@ -188,7 +191,7 @@ Reasons for doing this include:
 * Trying out the latest TypeScript features by switching to the TypeScript nightly build (`typescript@next`).
 * Making sure you are using the same version of TypeScript for IntelliSense that you use to compile your code.
 
-The active TypeScript version and its install location are displayed in the Status Bar when viewing a TypeScript file:
+The active TypeScript version and its install location can be displayed in the Status Bar when you pinned the version number from language Status Bar with viewing a TypeScript file:
 
 ![TypeScript status bar version](images/compiling/status-bar-version.png)
 

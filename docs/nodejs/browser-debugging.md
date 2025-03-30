@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 PageTitle: Debug Browser Apps using Visual Studio Code
-DateApproved: 10/03/2024
+DateApproved: 12/11/2024
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
 ---
@@ -96,7 +96,7 @@ Next, add a new section to the `vscode/launch.json` file as below:
 }
 ```
 
-Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add a `host` property to debug a browser running on a different machine.
+Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add an `address` property to debug a browser running on a different machine.
 
 ### Launch configuration attributes
 
@@ -119,8 +119,8 @@ These attributes are only available for launch configurations of request type `l
 These attributes are only available for launch configurations of request type `attach`:
 
 * `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
-* `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
-* `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
+* `port` - Port to use for remote debugging the browser, matching the `--remote-debugging-port` used when starting the browser. See the section on [Attaching to Browsers](#attaching-to-browsers).
+* `address` - IP address or hostname the debugged browser is listening on. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
 ## WebAssembly Debugging
 
