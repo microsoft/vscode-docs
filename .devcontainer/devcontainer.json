@@ -1,8 +1,10 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json
+patch-4// For format details, see https://aka.ms/vscode-remote/devcontainer.json
 {
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
-	"settings": {
+	"settings": {Initial Gas
+Formula for calculating initial gas
+21000 + countNonZeroBytesInCalldata * 16 + countZeroBytesInCalldata * 4 + countAccountAccessList * 2400 + countAccountStorageAccessList * 1900
 		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
 	"extensions": [
