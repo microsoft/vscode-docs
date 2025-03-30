@@ -12,7 +12,7 @@ Copilot provides two kinds of suggestions:
 
 * **Code completions** - Start typing in the editor, and Copilot provides code suggestions that match your coding style and take your existing code into account.
 
-* **Next Edit Suggestions (preview)** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Next Edit Suggestions** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 ## Getting started
 
@@ -59,24 +59,13 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Next Edit Suggestions (preview)
+## Next Edit Suggestions
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (Copilot NES) is this evolution.
 
 <video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
-
-### Enabling edit suggestions
-
-Copilot NES is currently in preview. You can enable it via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`:
-
-1. Open the VS Code Settings editor (`kb(workbench.action.openSettings)`)
-1. Search for `github.copilot.nextEditSuggestions.enabled`
-1. Enable the setting
-
-> [!IMPORTANT]
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 ### Navigate and accept edit suggestions
 

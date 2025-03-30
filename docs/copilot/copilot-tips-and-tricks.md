@@ -33,7 +33,7 @@ Depending on your task, you can choose between different Copilot tools.
 | [Code completions](/docs/copilot/ai-powered-suggestions.md) | Streamline coding while staying in the flow.<br/>Receive inline suggestions for code snippets, variable names, and functions as you write them in the editor. |
 | [Chat](/docs/copilot/chat/copilot-chat.md) | Have an ongoing chat conversation for brainstorming design ideas or getting code suggestions, optionally calling on domain-specific chat participants.<br/>Choose to apply specific code suggestions to your codebase. |
 | [Edits](/docs/copilot/chat/copilot-edits.md) | Use natural language to start a coding editing session.<br/>Automatically apply large code changes across multiple files in your workspace. |
-| [Agent mode](/docs/copilot/chat/copilot-edits.md#use-agent-mode-preview) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
+| [Agent mode](/docs/copilot/chat/chat-agent-mode.md) | Implement high-level requirements by starting an agentic coding flow.<br/>Copilot autonomously invokes multiple tools to plan and implement the code changes and tasks that are needed. |
 
 ## Personalize Copilot with custom instructions
 
@@ -126,7 +126,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
 
-When you use [agent mode](/docs/copilot/chat/copilot-edits.md#use-agent-mode-preview), Copilot autonomously finds the relevant files and context for you.
+When you use [agent mode](/docs/copilot/chat/chat-agent-mode.md), Copilot autonomously finds the relevant files and context for you.
 
 Get more details about [adding context to chat prompts](/docs/copilot/chat/copilot-chat-context.md).
 
@@ -184,7 +184,7 @@ Copilot uses an index to quickly and accurately search your codebase for relevan
 
 For GitHub repositories, you can use a remote index of your workspace, based on [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository). This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
 
-Get more details about [workspace indexing](/docs/copilot/workspace-context.md#managing-the-workspace-index).
+Get more details about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
 
 ## Related resources
 

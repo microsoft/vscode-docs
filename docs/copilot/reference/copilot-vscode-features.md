@@ -46,7 +46,7 @@ Use Copilot Edits to start a code editing session where you can iterate quickly 
 |--------|-------------|
 | `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
 | <i class="codicon codicon-plus"></i> | Start a new edit session. |
-| Edit/Agent mode | Switch between edit mode and [agent mode (preview)](/docs/copilot/chat/copilot-edits.md#use-agent-mode-preview) for Copilot Edits. |
+| Edit/Agent mode | Switch between edit mode and [agent mode](/docs/copilot/chat/chat-agent-mode.md) for Copilot Edits. |
 | `Add Files...` | Attach files as context for editing. |
 | `Accept` | Accept all current edits. |
 | `Discard` | Discard all current edits. |
@@ -115,13 +115,13 @@ Use chat variables in your chat prompt to reference context that is relevant to 
 
 ## Copilot in the editor
 
-As you're coding in the editor, you can use Copilot to generate code completions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [code completions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/copilot-chat.md#inline-chat).
+As you're coding in the editor, you can use Copilot to generate code completions as you're typing. Invoke Inline Chat to ask questions and get help from Copilot, while staying in the flow of coding. For example, ask Copilot to generate unit tests for a function or method. Get more information about [code completions](/docs/copilot/ai-powered-suggestions.md) and [Inline Chat](/docs/copilot/chat/inline-chat.md).
 
 | Action | Description |
 |--------|-------------|
 | Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
 | Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
-| Next Edit Suggestions _(Preview)_ | Predict your next code edit with Copilot Next Edit Suggestions. Enable Copilot NES with the `setting(github.copilot.nextEditSuggestions.enabled)` setting. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview). |
+| Next Edit Suggestions | Predict your next code edit with Copilot Next Edit Suggestions. Enable Copilot NES with the `setting(github.copilot.nextEditSuggestions.enabled)` setting. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions). |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | Prompt from the editor _(Experimental)_ | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
@@ -134,7 +134,7 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 ## Customize AI code generation
 
-Define [custom instructions](/docs/copilot/copilot-customization.md#custom-instructions) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
+Define [custom instructions](/docs/copilot/copilot-customization.md) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
 
 With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts.
 
@@ -146,7 +146,7 @@ With reusable prompt files, you can specify common prompt instructions and relev
 | Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Commit-message generation instructions _(Experimental)_ | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Pull request title and description generation instructions _(Experimental)_ | Define instructions for pull request title and description generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Reusable prompt files _(Preview)_ | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-preview).  |
+| Reusable prompt files | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental).  |
 
 > **Tips**
 >
@@ -164,7 +164,7 @@ Copilot can do a quick review pass of a code block or perform a review of uncomm
 
 ## Generate tests
 
-Copilot can generate tests for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/copilot-chat.md#slash-commands).
+Copilot can generate tests for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
 
 | Action | Description |
 |--------|-------------|
@@ -179,7 +179,7 @@ Copilot can generate tests for functions and methods in your codebase. Get more 
 
 ## Generate documentation
 
-Generate code documentation for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/copilot-chat.md#slash-commands).
+Generate code documentation for functions and methods in your codebase. Get more information about [slash commands in Chat](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
 
 | Action | Description |
 |--------|-------------|
@@ -252,7 +252,7 @@ You can use Copilot Chat to help you with Python programming tasks in the Native
 
 ## VS Code commands and APIs
 
-You can use Copilot to get help about VS Code features, settings, and the VS Code extension APIs. Get more information about [chat participants](/docs/copilot/chat/copilot-chat.md#chat-participants).
+You can use Copilot to get help about VS Code features, settings, and the VS Code extension APIs. Get more information about [chat participants](/docs/copilot/chat/chat-ask-mode.md#special-keywords).
 
 | Action | Description |
 |--------|-------------|
