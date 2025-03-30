@@ -1,54 +1,69 @@
 ---
-Order: 24
+Order: 25
 Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-DateApproved: 8/3/2023
+DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
 
 Visual Studio Code comes with a simple user interface and convenient default layout. At the same time, VS Code provides options and settings to let you customize the UI layout to suit your preferences and work style. In this topic, we'll highlight various UI customizations so you can display views, editors, and panels in the way that's most productive for you.
 
->**Note**: If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
-
 This article starts by discussing [Workbench](#workbench) customizations to rearrange UI elements such as the side bars, views, and panels. Later in the article, we'll cover customization of the [Editor](#editor) region with editor groups, split editors, and editor tabs.
+
+> [!NOTE]
+> If you are new to VS Code, you may want to start with the [user interface overview](/docs/getstarted/userinterface.md) or take a look at the [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) article.
 
 ## Workbench
 
 ### Primary side bar
 
-The default (Primary) side bar shows views such as the File Explorer, Search, and Source Control on the left of the workbench. If you'd prefer it on the right, you can:
+By default, the Primary Side Bar is located on the left of the workbench and shows views such as the Explorer, Search, and Source Control views. You can quickly switch between views by selecting the icons in the Activity Bar.
 
-* Right-click the Activity bar and select **Move Primary Side Bar Right**.
-* Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left.
-* Set the **Workbench > Side Bar: Location** (`workbench.sideBar.location`) [setting](/docs/getstarted/settings.md) to `right`.
+![Explorer view opened in the Primary Side Bar, located on the left of the screen.](images/custom-layout/primary-side-bar.png)
+
+To change the position of the Primary Side Bar, you can:
+
+* Right-click the Activity Bar and select **Move Primary Side Bar Right**
+* Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left
+* Use the **View** > **Appearance** > **Move Primary Side Bar Right** menu item
+* Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) setting to `right` in the [Settings editor](/docs/getstarted/settings.md)
 
 ### Secondary side bar
 
-By default, VS Code shows all views in the **Primary Side Bar** located to the left of the editor region. If you like another place to display views, you can open the **Secondary Side Bar** to the right and drag and drop views into that side bar.
+By default, VS Code shows views in the Primary Side Bar located to the left of the editor region. It can be useful to see two views open at the same time. To do this, you can use the **Secondary Side Bar** to show views opposite the Primary Side Bar. The Secondary Side Bar is always positioned opposite the Primary Side Bar, regardless if you switched the position of the Primary Side Bar.
 
-This can be useful if you'd like to see two views at the same time, for example, the File Explorer on the left and Source Control view on the right:
+The following image shows the Explorer view in the Primary Side Bar and the Copilot Chat view in the Secondary Side Bar:
 
-![Source Control view in the Secondary Side bar to the right](images/custom-layout/secondary-side-bar.png)
+![Explorer view in the Primary Side Bar and Copilot Chat view in the Secondary Side Bar.](images/custom-layout/secondary-side-bar.png)
 
-To display the Secondary side bar, you can:
+To show the Secondary Side Bar, you can use the layout controls in the VS Code title bar. If the layout controls are not visible, right-click the VS Code title bar and select **Layout Controls**.
 
-* Run **View: Toggle Secondary Side Bar Visibility** (`kb(workbench.action.toggleAuxiliaryBar)`).
-* Check the **View** > **Appearance** > **Secondary Side Bar** menu item.
+![Title bar buttons to toggle main UI elements, with hover on Toggle Secondary Side Bar.](images/custom-layout/toggle-secondary-side-bar.png)
 
-The Secondary side bar is initially empty but you can drag and drop views and panels into it and the layout is preserved across your VS Code sessions.
+Alternatively, you can also open the Secondary Side Bar as follows:
 
->**Note**: You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
+* Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
+* Use the **View** > **Appearance** > **Secondary Side Bar** menu item
 
-### Activity bar position
+At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
 
-By default, the Activity bar moves with the Primary side bar and remains on the outer edge of the workbench. You can also choose to hide the Activity bar or move it to the top of the Primary side bar. The **Activity Bar Position** menu available from the Activity bar context menu or under **View** > **Appearance** has the options **Side**, **Top**, or **Hidden**.
+![Drag and drop views and panels between the Primary and Secondary Side Bar](images/custom-layout/drag-and-drop-views.gif)
 
-When the Activity bar is in the top position, the **Account** and **Manage** buttons, usually at the bottom of the Activity bar, move to the right side of the title bar.
+> [!NOTE]
+> You can reset views and panels back to their default locations with the **View: Reset View Locations** command.
 
-![Activity bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
+### Activity Bar position
+
+By default, the Activity Bar moves with the Primary Side Bar and remains on the outer edge of the workbench. You can also choose to hide the Activity Bar, or move it to the top or bottom of the Primary Side Bar.
+
+The **Activity Bar Position** menu is available from the Activity Bar context menu, or under **View** > **Appearance** > **Activity Bar Position** has the options **Default**, **Top**, **Bottom**, or **Hidden**.
+
+When the Activity Bar is in the top or bottom position, the **Account** and **Manage** buttons, usually at the bottom of the Activity Bar, move to the right side of the title bar.
+
+![Activity Bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
 ### Panel
 
@@ -56,15 +71,16 @@ The Panel region displays UI elements such as the Problems, Terminal, and Output
 
 ### Panel position
 
-You can also move the region to the left or right of the editor with the **Move Panel** commands:
+You can move the region to the left, right, bottom, or top of the editor. You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, or via the Panel title bar context menu.
+
+![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
+
+You can also use the **Move Panel** commands in the Command Palette:
 
 * **View: Move Panel Left** (`workbench.action.positionPanelLeft`)
 * **View: Move Panel Right** (`workbench.action.positionPanelRight`)
 * **View: Move Panel To Bottom** (`workbench.action.positionPanelBottom`)
-
-You can configure these options in the menu under **View** > **Appearance** > **Panel Position**, Panel title bar context menu, or using the new **View: Move Panel** commands.
-
-![Panel title bar context menu with Panel Position options](images/custom-layout/panel-context-menu-position.png)
+* **View: Move Panel To Top** (`workbench.action.positionPanelTop`)
 
 ### Panel alignment
 
@@ -115,7 +131,7 @@ VS Code has a default layout of views and panels in the Primary Side bar and Pan
 
 >**Note**: Remember that you can reset a view and panel back to its default location with the **Reset Location** context menu item or all views and panels with the general **View: Reset View Locations** command.
 
-You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity bar item and then dropping into the view:
+You can also add views and panels to existing view or panel to create groups. For example, you could move the Output panel to the Explorer view group by dragging over the Explorer Activity Bar item and then dropping into the view:
 
 ![Output panel moved to the Explorer view group](images/custom-layout/output-in-explorer-group.png)
 
@@ -137,7 +153,7 @@ To restore an action to the tool bar, right-click the tool bar button area and s
 
 ## Editor
 
-You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves.
+You can customize the layout of the VS Code editor region independently of the workbench user interface. By default, the editor region displays useful features such as the minimap, breadcrumbs, editor tabs, and has optional UI such as Sticky Scroll. You can also adjust the layout of the editors themselves or move them into floating windows.
 
 ### Minimap and breadcrumbs
 
@@ -174,13 +190,29 @@ To navigate between the sides:
 * **View: Focus Second Side in Active Editor** - Move focus to the second (right or bottom) side.
 * **View: Focus Other Side in Active Editor** - Toggle between the split editor sides.
 
-The **Workbench > Editor: Split in Group Layout** (`workbench.editor.splitInGroupLayout`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
+The **Workbench > Editor: Split in Group Layout** (`setting(workbench.editor.splitInGroupLayout)`) [setting](/docs/getstarted/settings.md) lets you set the preferred split editor layout to either horizontal (default) or vertical.
 
 ### Grid layout
 
 If you'd like more control over the editor group layout, you can use the [grid layout](/docs/getstarted/userinterface.md#grid-editor-layout), where you can have multiple rows and columns of editor groups visible. The **View** > **Editor Layout** menu lists various editor layout options (for example, **Two Columns**, **Three Columns**, **Grid (2x2)**) and you can adjust the group sizes by grabbing and moving the sash between them.
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
+
+### Floating editor windows
+
+You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+
+To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window:
+
+<video src="images/custom-layout/floating-windows.mp4" autoplay loop controls muted></video>
+
+Floating editor windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
+
+Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+
+![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
+
+If you want to move an entire editor group, select **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`).
 
 ### Pinned tabs
 
@@ -197,7 +229,7 @@ Pinned tabs help access files that are important to you as:
 
 Unpin an editor by clicking on the pin icon, using the **Unpin** editor tab context menu item, or the **View: Unpin Editor** command.
 
-You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`workbench.editor.pinnedTabSizing`) setting. The options are:
+You can choose how you'd like to display pinned editors with the **Workbench > Editor: Pinned Tab Sizing** (`setting(workbench.editor.pinnedTabSizing)`) setting. The options are:
 
 * `normal`: A pinned tab inherits the look of other tabs (default)
 * `shrink`: A pinned tab shrinks to a fixed size showing parts of the editor label.
@@ -226,7 +258,7 @@ Locked groups behave differently than unlocked groups:
 
 The primary use case is for [terminals in the editor area](/docs/terminal/basics.md#terminals-in-editor-area). For example, you might want to edit text on the left and have a terminal on the right that is always visible. When a terminal editor is created and moved to the side, it will automatically lock. This means that even when the terminal on the right is focused, opening a file will open it on the left side without needing to manually change focus first.
 
-Auto locking groups can be configured using the `workbench.editor.autoLockGroups` setting, which defaults to only terminal editors but any editor type can be added to get the same behavior.
+Auto locking groups can be configured using the `setting(workbench.editor.autoLockGroups)` setting, which defaults to only terminal editors but any editor type can be added to get the same behavior.
 
 ![Auto Lock Groups setting with Terminal checked in the Settings editor](images/custom-layout/autolockgroup-setting.png)
 

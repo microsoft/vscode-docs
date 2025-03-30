@@ -252,13 +252,15 @@ Now you're ready to start stepping through the code.
 
 You might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
-1. Place the insertion point inside the loop. In the **Watch** window, select the plus sign and type `word` in the text box. This is the name of the loop variable. Now view the **Watch** window as you step through the loop.
+1. In the **Watch** window, select the plus sign and type `word` in the text box. This is the name of the loop variable. Now view the **Watch** window as you step through the loop.
 
    ![Watch window](images/cpp/watch-window.png)
 
+    **Note**: the value of the watch variable is only available when the program execution is within the scope of the variable. For example, for a loop variable, the value is only available when the program is executing the loop.
+
 1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
-1. To quickly view the value of any variable while execution is paused, you can hover over it with the mouse pointer.
+1. You can hover over any variable with the mouse pointer while execution is paused to quickly view its value.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
 

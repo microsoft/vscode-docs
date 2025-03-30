@@ -36,8 +36,7 @@ To run the JavaFX application, you can open the **Maven** Explorer, expand `hell
 
 > **Note**: Make sure you have installed the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension. If you cannot find the **Maven** explorer, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Explorer: Focus on Maven View**.
 
-<video autoplay loop muted playsinline controls title="Run JavaFX application">
-  <source src="/docs/java/java-gui/run-javafx.mp4" type="video/mp4">
+<video src="images/java-gui/run-javafx.mp4" autoplay loop muted playsinline controls title="Run JavaFX application">
 </video>
 
 ### More JavaFX examples
@@ -48,8 +47,7 @@ More JavaFX project examples can be found in the [openjfx samples repository](ht
 
 By default, the types from the Abstract Window Toolkit (AWT) are hidden. You may notice that code completions are not working when you are developing an AWT application. To enable completions, you can open the Command Palette  (`kb(workbench.action.showCommands)`) and then select the command **Java: Help Center**. Go to the **Student** section and select **Enable AWT Development**.
 
-<video autoplay loop muted playsinline controls title="Develop AWT application">
-  <source src="/docs/java/java-gui/enable-awt.mp4" type="video/mp4">
+<video src="images/java-gui/enable-awt.mp4" autoplay loop muted playsinline controls title="Develop AWT application">
 </video>
 
 > Note: This action will update a setting, `java.completion.filteredTypes` at the workspace level in `.vscode\settings.json`, so please make sure a workspace is opened in VS Code.

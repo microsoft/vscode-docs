@@ -1,12 +1,12 @@
 ---
-Order: 9
+Order: 10
 Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
 PageTitle: Working with Jupyter code cells in the Python Interactive window
-DateApproved: 12/1/2021
+DateApproved: 12/11/2024
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
-MetaSocialImage: images/tutorial/social.png
+MetaSocialImage: images/tutorial/python-social.png
 ---
 
 # Python Interactive window

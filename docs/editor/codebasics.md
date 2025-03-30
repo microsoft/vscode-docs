@@ -3,12 +3,12 @@ Order: 2
 Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 02/28/2024
+PageTitle: Basic editing in Visual Studio Code
+DateApproved: 12/11/2024
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
-MetaSocialImage: codebasics_CodeBasics.png
+MetaSocialImage: images/codebasics/code-basics-social.png
 ---
-# Basic Editing
+# Basic editing
 
 Visual Studio Code is an editor first and foremost, and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
 
@@ -24,7 +24,8 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
+> [!NOTE]
+> Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
 ![Multi-cursor](images/codebasics/multicursor.gif)
 
@@ -32,18 +33,19 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 ![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 
-> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
+> [!TIP]
+> You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
 ### Multi-cursor modifier
 
-If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
+If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `setting(editor.multiCursorModifier)` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
 
 The setting can be set to:
 
 * `ctrlCmd` - Maps to `kbstyle(Ctrl)` on Windows and `kbstyle(Cmd)` on macOS.
 * `alt` - The existing default `kbstyle(Alt)`.
 
-There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
+There's also a menu item **Selection** > **Switch to Ctrl+Click for Multi-Cursor** or **Selection** > **Switch to Alt+Click for Multi-Cursor** to quickly toggle this setting.
 
 The **Go to Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
 
@@ -61,9 +63,10 @@ Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging
 
 ![Column text selection](images/codebasics/column-select.gif)
 
-Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
+> [!NOTE]
+> This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
-There are also default key bindings for column selection on macOS and Windows, but not on Linux.
+There are also default keyboard shortcuts for column selection on macOS and Windows, but not on Linux.
 
 Key|Command|Command ID
 ---|-------|----------
@@ -88,24 +91,34 @@ However, it's easy to turn on `Auto Save`, which will save your changes after a 
 
 For more control over `Auto Save`, open User or Workspace [settings](/docs/getstarted/settings.md) and find the associated settings:
 
-* `files.autoSave`: Can have the values:
+* `setting(files.autoSave)`: Can have the values:
   * `off` - to disable auto save.
   * `afterDelay` - to save files after a configured delay (default 1000 ms).
   * `onFocusChange` - to save files when focus moves out of the editor of the dirty file.
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
-* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`. The default is 1000 ms.
+* `setting(files.autoSaveDelay)`: Configures the delay in milliseconds when `setting(files.autoSave)` is configured to `afterDelay`. The default is 1000 ms.
+
+If you want to customize the `Auto Save` functionality for specific languages or file types, you can do so from the `settings.json` file by adding language-specific rules.
+
+For example, to disable `Auto Save` for LaTeX files:
+
+```json
+    "[latex]": {
+        "files.autoSave": "off",
+    },
+```
 
 ## Hot Exit
 
-VS Code will remember unsaved changes to files when you exit by default. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
+By default, VS Code remembers unsaved changes to files when you exit. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
 
-You can configure hot exit by setting `files.hotExit` to the following values:
+You can configure hot exit by setting `setting(files.hotExit)` to the following values:
 
 * `"off"`: Disable hot exit.
 * `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows without folders opened will be restored upon next launch.
-* `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
+* `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `setting(window.restoreWindows)` to `all`.
 
-If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
+If something goes wrong with hot exit, all backups are stored in the following folders for standard install locations:
 
 * **Windows** `%APPDATA%\Code\Backups`
 * **macOS** `$HOME/Library/Application Support/Code/Backups`
@@ -117,13 +130,15 @@ VS Code allows you to quickly find text and replace in the currently opened file
 
 If there are more than one matched result in the current opened file, you can press `kb(editor.action.nextMatchFindAction)` and `kb(editor.action.previousMatchFindAction)` to navigate to next or previous result when the find input box is focused.
 
+By default, VS Code saves the history of your find queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` setting. Set the value to `never` to disable saving the find history.
+
 ### Seed Search String From Selection
 
 When the Find Widget is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
 
 ![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
 
-This feature can be turned off by setting `editor.find.seedSearchStringFromSelection` to `"never"`.
+This feature can be turned off by setting `setting(editor.find.seedSearchStringFromSelection)` to `"never"`.
 
 ### Find In Selection
 
@@ -131,7 +146,7 @@ By default, the find operations are run on the entire file in the editor. It can
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-If you want it to be the default behavior of the Find Widget, you can set `editor.find.autoFindInSelection` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
+If you want it to be the default behavior of the Find Widget, you can set `setting(editor.find.autoFindInSelection)` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
 ### Advanced find and replace options
 
@@ -159,9 +174,13 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 ![A simple text search across files](images/codebasics/search.png)
 
->**Tip:** We support regular expression searching in the search box, too.
+> [!TIP]
+> We support regular expression searching in the search box, too.
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
+
+> [!TIP]
+> You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.
 
 ### Advanced search options
 
@@ -176,13 +195,14 @@ In the two input boxes below the search box, you can enter patterns to include o
 * `[]` to **declare** a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 * `[!...]` to negate a range of characters to match (`example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
-VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
+VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `setting(files.exclude)` and `setting(search.exclude)` section.
 
-Note that glob patterns in the Search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
+Note that glob patterns in the Search view work differently than in settings such as `setting(files.exclude)` and `setting(search.exclude)`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the Search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
-Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
+Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `setting(files.exclude)` and `setting(search.exclude)` settings.
 
->**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+> [!TIP]
+> From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
 ### Search and replace
 
@@ -194,7 +214,8 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
->**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
+> [!TIP]
+> You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
 ### Case changing in regex replace
 
@@ -216,7 +237,7 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 
 The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
 
-In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, you can configure the behavior for single-clicking or double-clicking a search result with the `setting(search.searchEditor.singleClickBehaviour)` and `setting(search.searchEditor.doubleClickBehaviour)` settings. For example, to open a peek definition window or to open the source location.
 
 You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
 
@@ -230,12 +251,12 @@ The Search Editor above was opened by selecting the **Open New Search Editor** b
 * `search.action.openInEditor` - Copy the current Search results into a new Search Editor.
 * `search.action.openNewEditorToSide` - Opens the Search Editor in a new window next to the window you currently have opened.
 
-There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keybindings to configure how a new Search Editor should behave:
+There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keyboard shortcuts to configure how a new Search Editor should behave:
 
 * `triggerSearch` - Whether a search be automatically run when a Search Editor is opened. Default is true.
 * `focusResults` - Whether to put focus in the results of a search or the query input. Default is true.
 
-For example, the following keybinding runs the search when the Search Editor is opened but leaves the focus in the search query control.
+For example, the following keyboard shortcut runs the search when the Search Editor is opened but leaves the focus in the search query control.
 
 ```json
 {
@@ -247,19 +268,21 @@ For example, the following keybinding runs the search when the Search Editor is 
 
 ### Search Editor context default
 
-The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search Editor.
+The `setting(search.searchEditor.defaultNumberOfContextLines)` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search Editor.
 
 ### Reuse last Search Editor configuration
 
-The `search.searchEditor.reusePriorSearchConfiguration` setting (default is `false`) lets you reuse the last active Search Editor's configuration when creating a new Search Editor.
+The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (default is `false`) lets you reuse the last active Search Editor's configuration when creating a new Search Editor.
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these keyboard shortcuts](/docs/getstarted/keybindings.md).
 
-> **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> [!TIP]
+>  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/getstarted/settings.md).
+> [!TIP]
+> IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/getstarted/settings.md).
 
 JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
@@ -274,7 +297,7 @@ VS Code has great support for source code formatting. The editor has two explici
 
 You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
 
-VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `setting(html.format.indentInnerHtml)`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
 ```json
 "html.format.enable": false
@@ -282,11 +305,12 @@ VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. 
 
 Along with manually invoking code formatting, you can also trigger formatting based on user gestures such as typing, saving or pasting. These are off by default but you can enable these behaviors through the following [settings](/docs/getstarted/settings.md):
 
-* `editor.formatOnType` - Format the line after typing.
-* `editor.formatOnSave` - Format a file on save.
-* `editor.formatOnPaste` - Format the pasted content.
+* `setting(editor.formatOnType)` - Format the line after typing.
+* `setting(editor.formatOnSave)` - Format a file on save.
+* `setting(editor.formatOnPaste)` - Format the pasted content.
 
->Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
+> [!NOTE]
+> Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
 In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
@@ -354,7 +378,7 @@ Manual folding ranges are especially useful for cases when there isn't programmi
 
 ## Indentation
 
-VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `setting(editor.insertSpaces)` and `setting(editor.tabSize)` [settings](/docs/getstarted/settings.md).
 
 ```json
     "editor.insertSpaces": true,
@@ -371,7 +395,8 @@ You can click on the Status Bar indentation display to bring up a dropdown with 
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
->**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `editor.detectIndentation` and explicitly set the tab size to 3.
+> [!NOTE]
+> VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `setting(editor.detectIndentation)` and explicitly set the tab size to 3.
 
 ```json
     "editor.detectIndentation": false,
@@ -380,7 +405,7 @@ You can click on the Status Bar indentation display to bring up a dropdown with 
 
 ## File encoding support
 
-Set the file encoding globally or per workspace by using the `files.encoding` setting in **User Settings** or **Workspace Settings**.
+Set the file encoding globally or per workspace by using the `setting(files.encoding)` setting in **User Settings** or **Workspace Settings**.
 
 ![files.encoding setting](images/codebasics/filesencodingsetting.png)
 
@@ -395,6 +420,36 @@ Click on the encoding button in the status bar to reopen or save the active file
 Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
+
+## Overtype mode
+
+Prior to release 1.96, VS Code only supported *insert* mode, where characters are inserted at the cursor position, unless you installed the Vim [keymap extension](/docs/getstarted/keybindings.md#keymap-extensions).
+
+As of release 1.96, VS Code supports *overtype* mode, which lets you overwrite existing characters instead of inserting characters at the cursor position. By default, overtype mode is off.
+
+To switch between insert and overtype mode, run the **Toggle Overtype/Insert Mode** command in the Command Palette or press (`kb(editor.action.toggleOvertypeInsertMode)`). When you're in overtype mode, a Status Bar indicator shows `OVR`.
+
+You can change the cursor style for overtype mode by configuring the `setting(editor.overtypeCursorStyle)` setting.
+
+Use the `setting(editor.overtypeOnPaste)` setting to overwrite text when pasting. You need to be in overtype mode for this setting to take effect.
+
+## Compare files
+
+VS Code supports several ways to compare the content of the current file or of any two files.
+
+When you have an active file open in the editor, you have the following compare options:
+
+* **Compare with a workspace file**: in the Command Palette, select **File: Compare Active File With...**, and then choose another file to compare with.
+* **Compare with clipboard**: in the Command Palette, select **File: Compare Active File with Clipboard** (`kb(workbench.files.action.compareWithClipboard)`) to compare the current file with the clipboard content.
+* **Compare with saved**: in the Command Palette, select **File: Compare Active File with Saved** (`kb(workbench.files.action.compareWithSaved)`) to compare the current file with the last saved version.
+
+To compare any two files:
+
+* Right-click on a file in the Explorer view and select **Select for Compare**. Then, right-click on a second file and select **Compare with Selected**.
+* To start a comparison between two empty editor windows, select **File: Compare New Untitled Text Files** from the Command Palette.
+
+> [!TIP]
+> You can start VS Code from the command line with the `--diff` option to compare two files. Learn more about the [VS Code command line interface](/docs/editor/command-line.md#core-cli-options).
 
 ## Next steps
 
@@ -417,7 +472,7 @@ Yes, expand the Search view text box to include a replace text field. You can se
 
 ### How do I turn on word wrap?
 
-You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+You can control word wrap through the `setting(editor.wordWrap)` [setting](/docs/getstarted/settings.md). By default, `setting(editor.wordWrap)` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
     "editor.wordWrap": "on"
@@ -425,13 +480,13 @@ You can control word wrap through the `editor.wordWrap` [setting](/docs/getstart
 
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
-You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+You can also add vertical column rulers to the editor with the `setting(editor.rulers)` setting, which takes an array of column character positions where you'd like vertical rulers.
 
 As in other editors, commands such as **Cut** and **Copy** apply to the whole wrapped line. Triple-click selects the whole wrapped line. Pressing `kbstyle(Home)` twice moves the cursor to the very beginning of the line. Pressing `kbstyle(End)` twice moves the cursor to the very end of the line.
 
 ### How can I avoid placing extra cursors in word wrapped lines?
 
-If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keybinding like this:
+If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keyboard shortcut like this:
 
 ```json
 {

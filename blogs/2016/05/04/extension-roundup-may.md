@@ -14,7 +14,7 @@ May 4, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 The Visual Studio Code Extension [Marketplace](https://marketplace.visualstudio.com/VSCode) does a great job of highlighting **Featured**, **Most Popular** and **Newly Added** extensions and we encourage you to browse the site to see what's new and what plug-ins other developers are using. In our extension roundups, we like to call out extensions that we've found interesting and useful.
 
-If you are new to VS Code extensions, check out the [docs](/docs/editor/extension-marketplace.md) for instructions on finding and installing new extensions.
+If you are new to VS Code extensions, check out the [docs](/docs/configure/extensions/extension-marketplace.md) for instructions on finding and installing new extensions.
 
 ## Debugger for Edge by Microsoft JS Diagnostics
 

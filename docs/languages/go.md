@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 6/21/2022
+DateApproved: 12/11/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://go.dev/) development.
 
 ![Go extension banner](images/go/go-extension.png)
 
@@ -23,7 +23,7 @@ This article describes only a subset of the features the Go extension provides. 
 
 ![IntelliSense](images/go/completion-signature-help.gif)
 
-IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
+IntelliSense features are provided by the Go language server, [gopls](https://go.dev/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
 
 ### Semantic syntax highlighting
 
@@ -78,7 +78,7 @@ You can add additional lint checks using the `go.lintOnSave` setting and configu
 
 You can format your Go file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the Command Palette or the context menu in the editor.
 
-By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
+By default, formatting is run when you save your Go file. You can disable this behavior by setting `setting(editor.formatOnSave)` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
 
 ```json
 "[go]": {

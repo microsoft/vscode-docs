@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 02/28/2024
+DateApproved: 12/11/2024
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -73,6 +73,7 @@ Compose | `dockercompose`
 CSS | `css`
 CUDA C++ | `cuda-cpp`
 D | `d`
+Dart | `dart`
 Delphi | `pascal`
 Diff | `diff`
 Dockerfile | `dockerfile`
@@ -117,6 +118,7 @@ Shell Script (Bash) | `shellscript`
 Slim | `slim`
 SQL | `sql`
 Stylus | `stylus`
+Svelte | `svelte`
 Swift | `swift`
 TypeScript | `typescript`
 TypeScript JSX | `typescriptreact`

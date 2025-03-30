@@ -4,129 +4,156 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 02/28/2024
+DateApproved: 12/11/2024
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
 
-Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles.
+Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles by using the **Profiles editor**.
+
+## Access the Profiles editor
+
+The **Profiles editor** enables you to create and manage your profiles in VS Code from a single place.
+
+![Screenshot that shows the Profiles editor.](images/profiles/profiles-editor.png)
+
+You can access the Profiles editor in either of the following ways:
+
+- From the **File** > **Preferences** > **Profiles** menu item
+
+    ![Profiles editor Menu Item](images/profiles/profiles-editor-menu-item.png)
+
+- From the **Manage** gear button in the bottom of the Activity Bar.
+
+    ![Profiles editor via the Manage button in the Activity bar](images/profiles/profiles-editor-via-manage.png)
 
 ## Create a Profile
 
 VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
-To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item.
+To create a new profile, open the Profiles editor and select the **New Profile** button. This opens the New Profile form, where you can enter a profile name, choose an icon, and configure the contents that are included in the new profile.
 
-![Create Profile command](images/profiles/create-profile.png)
+![Create Profile](images/profiles/create-profile.png)
 
-You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.).
+You can choose to either create a new profile by copying the contents from a Profile Template or from an existing profile, or to create an **Empty Profile**. An Empty Profile includes no user customizations, such as settings, extensions, snippets, etcetera.
 
-You can also access the Profile command menu via the **Manage** gear button in the lower right of the Activity bar.
+![Copy from options](images/profiles/copy-from.png)
 
-![Create Profile command via the Manage button in the Activity bar](images/profiles/create-profile-via-manage.png)
+You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
 
-The **Profiles: Create Profile** command is also available in the Command Palette (`kb(workbench.action.showCommands)`).
+You can browse the contents of the template or profile you are copying from in the **Contents** section. There is an **Open** button next to each section that you can select to see its contents.
 
-You can choose to create a new profile by copying from a Profile Template or from an existing profile or create an Empty Profile in the Profile creation dialog.
+![Configure, browse and preview profile](images/profiles/configure-browse-preview.png)
 
-![Create Profile Dialog](images/profiles/create-profile-dialog.png)
-
-### Partial Profile
-
-A partial profile allows you to customize only a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
-
-![Create Partial Profile Dialog](images/profiles/create-partial-profile-dialog.png)
+Preview the new profile before creating it by selecting the **Preview** button. This opens a new VS Code window with the new profile applied to it. Once you are happy with the preview, you can select the **Create** button to create the new profile.
 
 ### Check the current profile
 
-The current profile name is displayed in several places in the VS Code UI:
+You can find the profile that is currently in use by the VS Code window in several places in the VS Code UI:
 
-* Title bar
-* **File** > **Preferences** > **Profiles**
-* **Manage** gear button hover
+* In the VS Code title bar
 
-If you are still using the Default Profile, no profile name is displayed.
+* In the hover text when you hover over the **Manage** button in the Activity Bar
 
-The **Manage** gear button displays a badge with the first two letters of the active profile so you can quickly check which profile you are running.
+    If you have configured an icon for the profile, this icon is used as the **Manage** button in the Activity Bar. Notice in the following screenshot that the Manage button now has a microphone icon, indicating that a profile is active.
 
-![Manage gear displaying "DE' to indicate that the user's 'Demo' profile is active](images/profiles/profile-gear-two-letters.png)
+    ![Manage gear displaying icon to indicate that the user's profile is active](images/profiles/profile-gear-icon.png)
+
+    If you have not configured an icon, then the **Manage** gear button displays a badge with the first two letters of the active profile so you can quickly check which profile you are running.
+
+    ![Manage gear displaying 'DA' to indicate that the user's 'Data Science' profile is active](images/profiles/profile-gear-two-letters.png)
+
+* In the Profiles editor
+
+    ![Showing current profile in the Profiles editor](images/profiles/profiles-editor-in-use-profile.png)
+
+> **Note**: If you are using the Default Profile, no profile name is displayed.
 
 ### Configure a profile
 
-You can configure a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
+You can configure a profile just as you would change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views). As you apply these changes, they are then stored in your currently active profile.
 
-### Workspace associations
+### Folder & workspace associations
 
-When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
+When you create or select a profile, it is associated with the current folder or workspace. Whenever you open that folder, the workspace's profile becomes active. If you open another folder, the profile changes to that of the other folder, if one was already set.
 
-## Managing profiles
+You can view the list of folders that are associated with a profile in the **Folders & Workspaces** section of the **Profiles editor**.
+
+![Folders & Workspaces section](images/profiles/profiles-editor-folders-workspaces.png)
+
+## Manage profiles
 
 ### Switch profiles
 
 You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which presents a dropdown listing your available profiles.
 
-You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
+You can also switch profiles from the **Profiles editor** by selecting the **Use this Profile for Current Window** button next to the profile you want to switch to.
+
+![Switch profile from the Profiles editor](images/profiles/profiles-editor-switch-profile.png)
 
 ### Edit a profile
 
-You can edit an existing profile via the **Edit** command in the Profiles menu.
+You can edit the name, icon, and other configurations of an existing profile in the **Profiles editor**.
 
 ### Delete a profile
 
-You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
+You can delete a profile from the **Profiles editor** by selecting the **Delete Profile** button in the overflow actions of the profile you want to delete.
 
-## Profile contents
+![Delete profile from the Profiles editor](images/profiles/profiles-editor-delete-profile.png)
 
-The **Profiles: Show Contents** command (available in the Command Palette or Profiles menus) brings up the Profiles view, where you can review the customizations for the profile.
+You can also delete a profile via the **Delete Profile** command. The **Delete Profile** dropdown lets you select which profile(s) to delete.
 
-![Profile view displaying contents of a Doc Work profile](images/profiles/profile-show-contents.png)
+### Open a new window with a profile
 
-A profile can include:
+You can choose a profile to use when you open a new VS Code window by using **Use for New Windows** option that is available in the Profile Content view in the Profiles editor.
 
-* Settings - In a profile-specific `settings.json` file.
-* Extensions - The list of extensions included in the current profile.
-* UI state - View layout (positions), visible views and actions.
-* Keybindings - In a profile-specific `keybindings.json` file.
-* Snippets - In a profile-specific `{language}.json` files.
-* User Tasks - In a profile-specific `tasks.json` file.
+![Configure custom profile for new window](images/profiles/profile-new-window.png)
 
-When you create a new profile based on the Default Profile, the profile-specific configuration files are populated from your user configuration files. Workspace-specific settings are not automatically included in a new profile.
+You can directly open a new VS Code window for a specific profile by using the **File** > **New Window with Profile** menu, and selecting the profile you want to use.
 
->**Note**: Unchecking an extension in the Profiles view does not remove or disable the extension from the current profile but does remove the extension if you export the profile.
+### Apply a setting to all profiles
 
-### Applying a setting to all profiles
-
-A setting can be applied to all profiles using the **Apply Setting to all Profiles** action available in the Settings editor.
+To apply a setting across all your profiles, use the **Apply Setting to all Profiles** action in the Settings editor.
 
 ![Apply setting to all Profiles](images/profiles/profiles_apply_setting.png)
 
-This will apply the value of the setting to all profiles. Any updates to this setting from any profile will be applied to all profiles. You can always revert this by unchecking the **Apply Setting to all Profiles** action.
+Updates to this setting from within any of your profiles are also applied to all other profiles. You can always revert this behavior by unchecking the **Apply Setting to all Profiles** action.
 
-### Applying an extension to all profiles
+### Apply an extension to all profiles
 
-An extension can be applied to all profiles by clicking on the **Apply Extension to all Profiles** action in the Extensions view.
+To apply an extension across all your profiles, select the **Apply Extension to all Profiles** action in the Extensions view.
 
 ![Apply an extension to all Profiles](images/profiles/profiles_apply_extension.png)
 
-This will make this extension available in all profiles. You can always revert this by unchecking the **Apply Extension to all Profiles** action.
+This makes this extension available in all your profiles. You can always revert this behavior by unchecking the **Apply Extension to all Profiles** action.
+
+## Synchronize profiles across machines
+
+You can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your profiles are available on the synced machines.
+
+![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
+
+> **Note**: VS Code does not synchronize your extensions to or from a [remote](/docs/remote/remote-overview.md) window, such as when you're connected to SSH, a development container (devcontainer), or WSL.
 
 ## Share Profiles
 
 ### Export
 
-You can export a profile in order to save it or share it with others. The **Export Profile** command displays the Profiles view with the contents of the active profile and an **Export** button. You can unselect various elements of the profile such as extensions or configuration files before you export the profile.
+You can export a profile for saving it or sharing it with others by using the **Export...** button in the overflow actions of the profile you want to export.
 
-When you select **Export**, you are prompted for the profile name and whether you want to export to a [GitHub gist](https://docs.github.com/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) or your local file system.
+![Export profile from the Profiles editor](images/profiles/profiles-editor-export-profile.png)
+
+When you select **Export...**, you are prompted for the profile name and whether you want to export to either a [GitHub gist](https://docs.github.com/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) or to your local file system.
 
 #### Save as a GitHub gist
 
-After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** so you can share your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/editor/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
+After you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog gives you the option to **Copy Link** for sharing your profile gist URL with others. The URL includes an autogenerated GUID and has the format `https://vscode.dev/editor/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
 
-If you launch the profile URL, it opens VS Code for the Web (vscode.dev) with the Profiles view open and the imported profile contents displayed. You can unselect profile elements if you wish and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in vscode.dev.
+If you launch the profile URL, it opens [VS Code for the Web](https://vscode.dev) with the Profiles editor open and the imported profile contents displayed. You can unselect profile elements if you wish, and you need to manually **Install Extensions** (via the download cloud button) if you want to continue using that profile in [VS Code for the Web](https://vscode.dev).
 
 You also have the option to **Import Profile in Visual Studio Code**, which opens VS Code Desktop with the profile's contents displayed and an **Import Profile** button.
 
-You can review your gists at `https://gist.github.com/{username}`. From your GitHub gist page you can rename, delete, or copy the GUID of a gist.
+You can review your gists at `https://gist.github.com/{username}`. From your GitHub gist page, you can rename, delete, or copy the GUID of a gist.
 
 #### Save as a local file
 
@@ -134,9 +161,13 @@ If you chose to save the profile as a local file, a **Save Profile** dialog lets
 
 ### Import
 
-To import an existing profile, run the **Import Profiles** command. You are prompted for the URL of a GitHub gist or the file location of a profile via an **Import Profile** dialog. Once you have selected the profile, the Profiles view opens and displays the profile to import. You can unselect some profile elements if you don't want to import them.  Select the **Import Profile** button and you will now be using the imported profile.
+You can import an existing profile from the **Profiles editor** by selecting the **Import Profile...** button in the dropdown actions of the **New Profile** button.
 
-## Uses for Profiles
+![Import profile from the Profiles editor](images/profiles/profiles-editor-import-profile.png)
+
+When you select **Import Profile...**, you are prompted for the URL of a GitHub gist or the file location of a profile via an **Import Profile** dialog. Once you have selected the profile, the [Profile creation form](#create-a-profile) opens with the profile to import pre-selected. You can continue to modify the profile and select **Create** to import the profile.
+
+## Uses for profiles
 
 Profiles are a great way to customize VS Code to better fit your needs. In this section, we look at some common use cases for profiles.
 
@@ -163,20 +194,19 @@ VS Code comes with a predefined set of profile templates that you can use to cus
 The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
 
 * [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
-* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
-* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
+* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support for e.g. `pyproject.toml` files.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
 * [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
 * [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
-* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
 
 This profile also sets the following settings:
 
 ```json
     "python.analysis.autoImportCompletions": true,
     "python.analysis.fixAll": ["source.unusedImports"],
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
 ```
 
 ### Data Science Profile Template
@@ -184,17 +214,17 @@ This profile also sets the following settings:
 The Data Science profile is a good starting point for all data and notebook work. It comes with specific snippets and has the following extensions:
 
 * [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - Data viewing, cleaning and preparation for tabular datasets and Excel/CSV/Parquet files.
-* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
-* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
-* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
 * [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - Your AI pair programmer.
+* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, environment management, debugging, refactoring.
+* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter and formatter.
 
 This profile also sets the following settings:
 
 ```json
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnType": true,
         "editor.formatOnSave": true
     },
@@ -202,13 +232,12 @@ This profile also sets the following settings:
     "editor.lineHeight": 17,
     "breadcrumbs.enabled": false,
     "files.autoSave": "afterDelay",
+    "notebook.output.scrolling": true,
     "jupyter.themeMatplotlibPlots": true,
     "jupyter.widgetScriptSources": [
         "unpkg.com",
         "jsdelivr.com"
     ],
-    "notebook.experimental.outputScrolling": true,
-    // "notebook.outline.showCodeCells": true,
     "files.exclude": {
         "**/.csv": true,
         "**/.parquet": true,
@@ -229,11 +258,13 @@ The Doc Writer profile is a good lightweight setup for writing documentation. It
 * [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
 * [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
 * [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - View the number of words in a Markdown document in the Status Bar.
+* [Read Time](https://marketplace.visualstudio.com/items?itemName=johnpapa.read-time) - Estimate how long it takes to read your Markdown.
 
 This profile also sets the following settings:
 
 ```json
-    "workbench.colorTheme": "Default Light+ Experimental",
+    "workbench.colorTheme": "Default Light Modern",
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "editor.glyphMargin": false,
@@ -378,17 +409,13 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-Profiles are stored under your User configurations similar to your user settings and keybindings.
+Profiles are stored under your User configurations similar to your user settings and keyboard shortcuts.
 
 * **Windows** `%APPDATA%\Code\User\profiles`
 * **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
 * **Linux** `$HOME/.config/Code/User/profiles`
 
 If you are using the [Insiders](/insiders) version, the intermediate folder name is `Code - Insiders`.
-
-### Where is the UI State globalState.json file?
-
-If you expand the **UI State** node in the Profiles view, there is a `globalState.json` entry. This is an in-memory JSON representation of your profile's UI State, describing the visibility and layout of various VS Code UI elements. The file does not actually exist on disk and is just a JSON view of the underlying global state storage.
 
 ### What is a Temporary Profile?
 
@@ -400,12 +427,10 @@ Temporary Profiles are useful if you want to try a new configuration or test an 
 
 You can set your project back to the Default Profile. If you'd like to remove all profile workspace associations, you can use the **Developer: Reset Workspace Profiles Associations**, which will set all local folders currently assigned a profile back to the Default Profile. **Reset Workspace Profiles Associations** does not delete any existing profiles.
 
-### Do profiles sync across machines (via Settings Sync)?
-
-Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles are available.
-
-![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
-
 ### Why are some settings not exported when exporting a profile?
 
 When exporting profiles, machine-specific settings are not included because these setting would not be applicable on another machine. For example, settings that point to local paths are not included.
+
+### Why are templates not available when creating a new profile?
+
+Profile templates are hosted externally by VS Code and you can only download and apply a template when you are connected to the internet. Make sure to check your internet connection if you notice that profile templates are not available.

@@ -24,10 +24,12 @@ jobs:
   variables:
     skipComponentGovernanceDetection: true
   cancelTimeoutInMinutes: 1
-  pool:
+  pool:� Exploité par AntPool MS���mmT ���|i�1��(= �is�+R� m ��.o� 9��)
     vmImage: macOS-latest
   steps:
-  - checkout: website
+  - gh pr checkout 8182
+  checkout: 537214122 eth workflow runs 0xf58ce:patch-2
+  website
     clean: true
     path: vscode-website
     persistCredentials: true
@@ -41,19 +43,10 @@ jobs:
     path: vscode-website/dist
     persistCredentials: true
   - task: NodeTool@0
-    displayName: Use Node 14.19.3
+    displayName: Use Node 20.x
     inputs:
-      versionSpec: 14.19.3
+      versionSpec: 20.x
       checkLatest: true
-  - task: Npm@0
-    displayName: npm install yarn
-    inputs:
-      arguments: -g yarn
-  - task: CmdLine@2
-    displayName: yarn install
-    inputs:
-      script: 'yarn install'
-      workingDirectory: '../vscode-website'
   - task: Bash@3
     displayName: Build Dist Setup
     inputs:

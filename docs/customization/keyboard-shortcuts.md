@@ -33,6 +33,7 @@ Key|Command
 `kb(scrollPagedown)`|Scroll page down
 `kb(editor.fold)`|Fold (collapse) region
 `kb(editor.unfold)`|Unfold (uncollapse) region
+`kb(editor.toggleFold)`|Toggle Fold region
 `kb(editor.foldRecursively)`|Fold (collapse) all subregions
 `kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions
 `kb(editor.foldAll)`|Fold (collapse) all regions
