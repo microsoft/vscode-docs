@@ -17,8 +17,11 @@ Some models are optimized for fast coding tasks, while others are better suited 
 | Fast coding | <ul><li>GPT-4o</li><li>Claude Sonnet 3.5</li><li>Claude Sonnet 3.7</li><li>Gemini 2.0 Flash</li></ul> |
 | Reasoning/planning | <ul><li>Claude Sonnet 3.7 Thinking</li><li>o1</li><li>o3-mini</li></ul> |
 
-> [!NOTE]
-> The list of [available models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode) might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+Depending on which [chat mode](/docs/copilot/chat/copilot-chat.md#chat-mode) you are using, the list of available models might be different. In agent mode, the list of models is limited to those that have good support for tool calling.
+
+The list of [models available in Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode) can change over time.
+
+If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Change the model for chat conversations
 
@@ -26,7 +29,7 @@ Use the language model picker in the chat input field to change the model that i
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-The list of models might vary between the different chat modes (**Ask**, **Edit**, and **Agent**) because not all models support an agentic workflow and tool-calling.
+You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
 ## Change the model for code completions
 
@@ -38,7 +41,10 @@ To change the language model that is used for generating code completions in the
 
 ## Bring your own language model key
 
-If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Ollama, Groq, OpenAI, and OpenRouter.
+If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Ollama, OpenAI, and OpenRouter.
+
+> [!IMPORTANT]
+> This feature is currently in preview and is only available for GitHub Copilot Free and GitHub Copilot Pro users.
 
 To manage the available models for chat:
 
