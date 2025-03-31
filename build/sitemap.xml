@@ -401,6 +401,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/copilot-smart-actions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/copilot-customization</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
