@@ -28,11 +28,11 @@ VS Code integrates AI features seamlessly in your developer workflow. Choose the
 
 Copilot adapts to your development workflow and can be customized to match your team's practices.
 
-* **Custom instructions**: describe your specific coding practices in Markdown and Copilot generates code that seamlessly matches your style.
+* **[Custom instructions](/docs/copilot/copilot-customization.md)**: describe your specific coding practices in Markdown and Copilot generates code that seamlessly matches your style.
 
-* **Language models**: choose from several built-in fast-coding or reasoning models, or bring your own provider API key.
+* **[Language models](/docs/copilot/language-models.md)**: choose from several built-in fast-coding or reasoning models, or bring your own provider API key.
 
-* **Add tools**: extend your agentic coding session with tools from MCP servers or Marketplace extensions.
+* **[Add tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)**: extend your agentic coding session with tools from MCP servers or Marketplace extensions.
 
 ## Additional resources
 
