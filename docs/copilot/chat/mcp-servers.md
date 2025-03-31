@@ -7,18 +7,24 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 # Use MCP servers in Visual Studio Code (Preview)
 
-Model Context Protocol (MCP) support enhances GitHub Copilot's agent mode. It enables you to use any MCP server directly in your agentic coding workflow. This article guides you through setting up MCP servers and using tools with agent mode in Visual Studio Code.
+Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. In VS Code, MCP support enhances GitHub Copilot's agent mode by allowing you to connect any MCP-compatible server to your agentic coding workflow. This article guides you through setting up MCP servers and using tools with agent mode in Visual Studio Code.
 
 > [!NOTE]
 > MCP support in agent mode in VS Code is currently in preview.
 
 ## What is MCP?
 
-When you enter a chat prompt to a language model with agent mode in VS Code, the model can invoke various tools to perform tasks like file operations, accessing databases, or calling APIs in response to your request. MCP (Model Context Protocol) provides a standardized way to connect these tools to the language model. Learn more about [Model Context Protocol](https://modelcontextprotocol.info/).
+Model Context Protocol (MCP) provides a standardized way for AI models to discover and interact with external tools, applications, and data sources. When you enter a chat prompt to a language model with agent mode in VS Code, the model can invoke various tools to perform tasks like file operations, accessing databases, or calling APIs in response to your request.
 
-_MCP servers_ are services that provide one or more tools to _MCP clients_ like VS Code. For example, a file system MCP server might provide tools for reading, writing, or searching files and directories. MCP servers can run locally on your machine or be hosted remotely.
+MCP follows a client-server architecture:
 
-VS Code supports both local and remote MCP servers, allowing you to add them to your workspace and use the tools they provide in agent mode.
+- **MCP clients** (like VS Code) connect to MCP servers and request actions on behalf of the AI model
+- **MCP servers** provide one or more tools that expose specific functionalities through a well-defined interface
+- **The MCP protocol** defines the message format for communication between clients and servers, including tool discovery, invocation, and response handling
+
+For example, a file system MCP server might provide tools for reading, writing, or searching files and directories. GitHub's MCP server offers tools to list repositories, create pull requests, or manage issues. MCP servers can run locally on your machine or be hosted remotely, and VS Code supports both configurations.
+
+By standardizing this interaction, MCP eliminates the need for custom integrations between each AI model and each tool. This allows you to extend your AI assistant's capabilities by simply adding new MCP servers to your workspace. Learn more about the [Model Context Protocol specification](https://modelcontextprotocol.io/).
 
 ## Add an MCP server
 
