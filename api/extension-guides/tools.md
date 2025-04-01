@@ -9,17 +9,24 @@ MetaDescription: A guide to creating a language model tool and how to implement 
 
 # LanguageModelTool API
 
+Language model tools enable you to extend the functionality of a large language model (LLM). VS Code surfaces tools contributed by extensions in Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md). By contributing a tool in a VS Code extension, you can combine the power of agentic coding with deep VS Code integration via its extension APIs.
+
 In this extension guide, you'll learn how to create a language model tool and how to implement tool calling in a chat extension.
 
 ## What is tool calling in an LLM?
 
-Tool calling enables you to extend the functionality of a large language model (LLM) by connecting it to external tools and systems to perform tasks that go beyond text processing.
+A language model tool is a function that can be invoked as part of a language model request. For example, you might have a function that retrieves information from a database, performs some calculation, or calls some online API. When you contribute a tool in a VS Code extension, agent mode can then invoke the tool based on the context of the conversation.
 
-A language model tool is a function that can be invoked as part of language model request. For example, you might have a function that retrieves information from a database, finds files, or performs some calculation. You can implement a language model tool in your extension, or use publicly available tools from other extensions.
-
-The LLM never actually executes the tool itself, instead the LLM generates the parameters that can be used to call your tool. In [agent mode](/docs/copilot/chat/chat-agent-mode.md), the tool might be called automatically based on the context of the conversation. When you [implement tool calling](#tool-calling-flow) within a chat extension, your code can choose how to handle the tool invocation.
+The LLM never actually executes the tool itself, instead the LLM generates the parameters that are used to call your tool. It's important to clearly describe the tool's purpose, functionality, and input parameters so that the tool can be invoked in the right context.
 
 Read more about [function calling](https://platform.openai.com/docs/guides/function-calling) in the OpenAI documentation.
+
+## Why implement a language model tool in your extension?
+
+By implementing a language model tool in your extension, you can:
+
+- **Extend agent mode** with specialized tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying as part of a chat conversation.
+- **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension.md) to augment a user's debugging experience.
 
 ## Create a language model tool
 
@@ -211,30 +218,29 @@ View the full source code for implementing a [language model tool](https://githu
 
 ## Tool-calling flow
 
-If your extension implements a chat participant, you can use the tool-calling flow to call tools in response to user requests. For example, to delegate specific tasks to tools that are specialized for certain tasks.
+The following diagram shows the Copilot tool-calling flow.
 
-The tool-calling flow in a chat extension is as follows:
+![Diagram that shows the Copilot tool-calling flow](images/tools/copilot-tool-calling-flow.png)
 
-1. Retrieve the list of relevant tools
-1. Send the request to the LLM, providing the list of tool definitions to consider
-    The LLM generates a response, which might include one or more requests to invoke a tool
-1. Invoke the tool by using the parameter values provided in the LLM response
-1. Send another request to the LLM, including the tool results
-    The LLM generates the final user response, which might incorporate responses from multiple tools
+When a user sends a chat prompt, the following steps occur:
 
-    If the LLM response includes more requests for tool invocations, repeat steps 4-6 until there are no more tool requests.
+1. Copilot determines the list of available tools based on the user's configuration.
 
-You can implement the tool-calling flow by using the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) or by implementing it in code yourself.
+    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers.md).
 
-### Why use tool calling?
+1. Copilot sends the request to the LLM, providing it with the prompt, chat context, and the list of tool definitions to consider.
 
-There are multiple scenarios where you might want to use tool calling in a chat extension. Some examples include:
+    The LLM generates a response, which might include one or more requests to invoke a tool.
 
-- **Let the LLM dynamically ask for more context**. For example, you can use a tool to retrieve information from a database, or find relevant files.
-- **Let the LLM take some action dynamically**. The LLM itself can't perform calculations or make calls to other systems. For example, use a tool to run a terminal command and return the output to the LLM.
-- **Hook up some context/behavior that is contributed by another VS Code extension**. For example, you might have a tool that uses the Git extension to retrieve information about the current repository.
+1. If needed, Copilot invokes the suggested tool(s) with the parameter values provided by the LLM.
 
-### Implement tool calling with the chat extension library
+    A tool response might result in additional requests for tool invocations.
+
+1. In case of errors or follow-up tool requests, Copilot iterates over the tool-calling flow until all tool requests are resolved.
+
+1. Copilot returns the final response to the user, which might include responses from multiple tools.
+
+## Implement tool calling with the chat extension library
 
 You can use the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
 
@@ -284,7 +290,7 @@ Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat
 
 The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
 
-### Implement tool calling yourself
+## Implement tool calling yourself
 
 For more advanced scenarios, you can also implement tool calling yourself. Optionally, you can use the `@vscode/prompt-tsx` library for crafting the LLM prompts. By implementing tool calling yourself, you have more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
 
@@ -317,6 +323,4 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 ## Related content
 
 - [Get started with the Language Model API](/api/extension-guides/language-model)
-- [Build a chat extension](/api/extension-guides/chat)
 - [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
-- [@vscode/vscode-chat-extension-utils library](https://github.com/microsoft/vscode-chat-extension-utils)
