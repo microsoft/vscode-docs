@@ -10,9 +10,6 @@ With chat _edit mode_ in Visual Studio Code, you can use natural language to mak
 
 By selecting specific files and providing clear context, you can guide edit mode to make targeted code changes and improvements.
 
-> [!IMPORTANT]
-> If you're using notebooks, edit mode support is currently limited. We recommend that you use [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [inline chat](/docs/copilot/chat/inline-chat.md) with notebooks in VS Code.
-
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
@@ -115,8 +112,7 @@ The following list contains the default keyboard shortcuts related to Copilot Ed
 * Multiple simultaneous edit sessions are not supported yet.
 * The use of `@workspace /new` to scaffold a new project is not supported yet in an Edit session. For now, use Copilot Chat for the initial scaffolding.
 * Although `#codebase` is great at finding relevant context for your query, subsequent generated edits are of widely varying quality. Experiment with the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting for an improved, agentic experience to find files, or explicitly add files to your prompt to create better results.
-* Support for Jupyter notebooks, other custom text formats, and binary file formats is absent or untested.
-* Copilot Edits is limited to 7 editing requests per 10 minutes.
+* Support for custom text formats, and binary file formats is absent or untested.
 
 ## Frequently asked questions
 
@@ -132,12 +128,6 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
-
-## Can I use Copilot Edits with notebooks?
-
-Copilot Edits support is limited when you're using notebooks. For example, agent mode is not available for working with notebooks in VS Code.
-
-We recommend that you use [Copilot Chat](/docs/copilot/chat/copilot-chat.md) or [Inline Chat](/docs/copilot/chat/inline-chat.md) with notebooks in VS Code instead.
 
 ## Related content
 
