@@ -142,7 +142,7 @@ The following example shows how to define a tool that counts the number of activ
 
 1. Add tool confirmation messages in the `prepareInvocation` method.
 
-    If the tool has potentially dangerous or destructive side effects, the tool should ask for the user's confirmation before proceeding. Give enough context to the user to understand what the tool is doing. The message can be a `MarkdownString` containing a code block.
+    A generic confirmation dialog will always be shown for tools from extensions, but the tool can customize the confirmation message. Give enough context to the user to understand what the tool is doing. The message can be a `MarkdownString` containing a code block.
 
     The following example shows how to provide a confirmation message for the tab count tool.
 
@@ -168,7 +168,7 @@ The following example shows how to define a tool that counts the number of activ
     }
     ```
 
-    If `prepareInvocation` returned `undefined`, the tool does not require user confirmation.
+    If `prepareInvocation` returned `undefined`, the generic confirmation message will be shown. Note that the user can also select to "Always Allow" a certain tool.
 
 1. Define an interface that describes the tool input parameters.
 
