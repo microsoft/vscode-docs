@@ -57,7 +57,7 @@ The static configuration of the tool is defined in the `package.json` file of yo
     | Property | Description |
     | -------- | ----------- |
     | `canBeReferencedInPrompt` | Set to `true` if the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in chat. |
-    | `toolReferenceName` | The name for users to reference the tool in a chat prompt via `#`. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines). |
+    | `toolReferenceName` | The name for users to reference the tool in a chat prompt via `#`. |
     | `icon` | The icon to display for the tool in the UI. |
     | `userDescription` | User-friendly description of the tool, used for displaying in the UI. |
 
