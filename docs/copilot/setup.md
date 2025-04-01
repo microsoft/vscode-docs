@@ -6,7 +6,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # Set up GitHub Copilot in VS Code
 
-This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account and have the Copilot extensions installed in VS Code.
+This guide walks you through setting up GitHub Copilot in Visual Studio Code. To use Copilot in VS Code, you need to have access to GitHub Copilot with your GitHub account.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -22,7 +22,7 @@ There are different ways to get access to GitHub Copilot:
 
 ## Set up Copilot in VS Code
 
-To use Copilot in VS Code, you need the Copilot extensions and access to a GitHub Copilot subscription.
+To use Copilot in VS Code, you need access to a GitHub Copilot subscription.
 
 To set up Copilot in VS Code:
 
@@ -30,7 +30,7 @@ To set up Copilot in VS Code:
 
     ![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
-1. Select **Sign in** to sign in to your GitHub account.
+1. Select **Sign in** to sign in to your GitHub account or **Use Copilot** if you're already signed in.
 
     If you don't have a Copilot subscription yet, you'll be signed up for the [Copilot Free plan](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free).
 
