@@ -324,3 +324,4 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 - [Get started with the Language Model API](/api/extension-guides/language-model)
 - [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
+- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers.md)
