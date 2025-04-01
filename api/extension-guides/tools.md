@@ -218,15 +218,11 @@ View the full source code for implementing a [language model tool](https://githu
 
 ## Tool-calling flow
 
-The following diagram shows the Copilot tool-calling flow.
-
-![Diagram that shows the Copilot tool-calling flow](images/tools/copilot-tool-calling-flow.png)
-
 When a user sends a chat prompt, the following steps occur:
 
 1. Copilot determines the list of available tools based on the user's configuration.
 
-    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers.md).
+    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers.md). You can contribute to agent mode via extensions or MCP servers (shown in green in the diagram).
 
 1. Copilot sends the request to the LLM, providing it with the prompt, chat context, and the list of tool definitions to consider.
 
@@ -239,6 +235,10 @@ When a user sends a chat prompt, the following steps occur:
 1. In case of errors or follow-up tool requests, Copilot iterates over the tool-calling flow until all tool requests are resolved.
 
 1. Copilot returns the final response to the user, which might include responses from multiple tools.
+
+The following diagram shows the Copilot tool-calling flow.
+
+![Diagram that shows the Copilot tool-calling flow](images/tools/copilot-tool-calling-flow.png)
 
 ## Implement tool calling with the chat extension library
 
