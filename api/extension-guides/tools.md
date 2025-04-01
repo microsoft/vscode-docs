@@ -314,7 +314,7 @@ View the full source code for implementing [tool calling by using prompt-tsx](ht
     - Describe what each parameter does and how it relates to the tool's functionality. For example, "The `destination_location` parameter specifies the location for which to retrieve the weather. It should be a valid location name or coordinates."
     - Describe important limitations or constraints of the tool. For example, "This tool only retrieves weather data for locations in the United States. It might not work for other regions."
 
-- **User confirmation**: provide a confirmation message for the tool invocation. If the tool has potentially dangerous or destructive side effects, ask for the user's confirmation before proceeding. Give enough context to the user to understand what the tool is doing.
+- **User confirmation**: provide a confirmation message for the tool invocation. A generic confirmation dialog will always be shown for tools from extensions, but the tool can customize the confirmation message. Give enough context to the user to understand what the tool is doing.
 
 - **Error handling**: when an error occurs, throw an error with a message that makes sense to the LLM. Optionally, provide instructions on what the LLM should do next, such as retrying with different parameters, or performing a different action.
 
