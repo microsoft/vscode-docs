@@ -30,30 +30,14 @@ By implementing a language model tool in your extension, you can:
 
 ## Create a language model tool
 
-Create a language model tool in your extension to extend the functionality of the LLM. You can create a tool that performs a specific task, such as retrieving information from a database, finding files, or performing calculations.
+You can create a tool that performs a specific task, such as retrieving information from a database, finding files, or performing calculations.
 
-When you register your tool with the VS Code API, it becomes available to all extensions to use as part of a tool-calling flow. Optionally, you can configure your tool to be used in agent mode in the Chat view.
+Implementing a language model tool consists of two main parts:
 
-Alternatively, you can create a _private tool_ that is only available to your extension. This is useful if you want to use the tool internally without exposing it to other extensions.
+1. Define the tool's configuration in the `package.json` file of your extension.
+1. Implement the tool in your extension code.
 
-### Deciding between registering a tool and using it as a private tool
-
-Register a tool with the VS Code API if:
-
-- The tool can be invoked in agent mode
-- The tool makes sense to other extensions, and could be used without special handling for the particular tool
-- The extension needs to provide a progress message and confirmation
-
-Use a private tool if:
-
-- The tool can't be made public, for example because it's specific to your company or retrieves nonpublic data
-- The tool requires some special handling and is specific to your extension
-
-### Implement a language model tool
-
-To implement a language model tool:
-
-#### Static configuration in `package.json`
+### Static configuration in `package.json`
 
 The static configuration of the tool is defined in the `package.json` file of your extension. This includes the tool name, description, input schema, and other metadata.
 
@@ -90,6 +74,22 @@ The static configuration of the tool is defined in the `package.json` file of yo
 
     Describe what each parameter does and how it relates to the tool's functionality.
 
+1. Control when the tool is available by using a `when` clause.
+
+    The `languageModelTools` contribution point lets you restrict when a tool is available for agent mode or can be referenced in a prompt by using a [when clause](/api/references/when-clause-contexts). For example, a tool that gets the debug call stack information, should only be available when the user is debugging.
+
+    ```json
+    "contributes": {
+        "languageModelTools": [
+            {
+                "name": "chat-tools-sample_tabCount",
+                ...
+                "when": "debugState == 'running'"
+            }
+        ]
+    }
+    ```
+
 **Example tool definition**:
 
 The following example shows how to define a tool that counts the number of active tabs in a tab group.
@@ -124,7 +124,7 @@ The following example shows how to define a tool that counts the number of activ
 }
 ```
 
-#### Tool implementation
+### Tool implementation
 
 1. On activation of the extension, register the tool with `vscode.lm.registerTool`.
 
