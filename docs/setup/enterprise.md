@@ -136,12 +136,12 @@ You can control specific features of VS Code through device management solutions
 
 VS Code currently supports the following admin-controlled features:
 
-| Policy | Description | VS Code setting |
-| ------ | ----------- | --------------- |
-| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
-| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
-|`TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` |
-| `EnableFeedback` | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` |
+| Policy | Description | VS Code setting | Available since|
+| ------ | ----------- | --------------- | ---------------------- |
+| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` | 1.96 |
+| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` | 1.67 |
+| `TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` | 1.99 |
+| `EnableFeedback` | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` | 1.99 |
 
 ### Group Policy on Windows
 
