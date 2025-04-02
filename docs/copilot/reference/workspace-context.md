@@ -64,7 +64,7 @@ Copilot uses an index to quickly and accurately search your codebase for relevan
 
 To see the type of index that Copilot is currently using, check the language status UI by selecting the `{}` icon in the Status Bar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed.
 
-![Viewing the status of the Copilot index in the language status UI](images/copilot-chat/workspace-index-status.png)
+![Viewing the status of the Copilot index in the language status UI](../chat/images/copilot-chat/workspace-index-status.png)
 
 ### Remote index
 
