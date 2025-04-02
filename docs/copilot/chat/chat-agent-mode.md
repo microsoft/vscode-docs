@@ -4,7 +4,7 @@ DateApproved: 03/05/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Start an agentic coding session with agent mode
+# Use agent mode in VS Code
 
 With chat _agent mode_ in Visual Studio Code, you can use natural language define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 

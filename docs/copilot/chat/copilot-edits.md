@@ -4,7 +4,7 @@ DateApproved: 03/05/2025
 MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Make edits across multiple files with edit mode
+# Use edit mode in VS Code
 
 With chat _edit mode_ in Visual Studio Code, you can use natural language to make edits across multiple files in your project. The edits are applied directly in the editor, where you can review them in-place, with the full context of the surrounding code.
 

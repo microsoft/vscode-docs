@@ -4,7 +4,7 @@ DateApproved: 03/05/2025
 MetaDescription: Use ask mode for chat in VS Code to ask questions about your codebase, coding, and general technology concepts by using natural language.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Ask questions with ask mode in Copilot Chat
+# Use ask mode in VS Code
 
 Chat in Visual Studio Code lets you use natural language to interact with large language models (LLMs) to get help with your code. _Ask mode_ for chat  is optimized for asking questions about your codebase, coding, and general technology concepts by using natural language. Ask mode is particularly useful for getting a better understanding of your codebase, brainstorming ideas, and getting help with coding tasks.
 
