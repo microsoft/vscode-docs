@@ -240,7 +240,7 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
-## Create my own MCP server?
+## Create an MCP server
 
 VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
 
@@ -256,9 +256,9 @@ VS Code has all the tools you need to develop your own MCP server. While MCP ser
 
 Yes, you have several options to control which tools are active:
 
-- Click the **Tools** button in the Agent mode UI and toggle specific tools on/off as needed
-- Add specific tools to your prompt using the **Add Context** button or by typing `#`
-- For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage
+- Select the **Tools** button in the Chat view when in agent mode, and toggle specific tools on/off as needed.
+- Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
+- For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
 
 ## Related resources
 
