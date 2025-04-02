@@ -106,6 +106,30 @@ The setting has the following options:
 
 Use [device management](#device-management) to centrally control how VS Code manages updates across devices in your organization. Configure the `UpdateMode` VS Code policy, which overrides the corresponding `update.mode` VS Code setting on users's devices. The value of this policy is a string that contains the update mode.
 
+## Configure telemetry level
+
+The `telemetry.telemetryLevel` VS Code setting controls the level of telemetry data that is sent to Microsoft. The setting has the following options:
+
+* `all` - sends usage data, errors, and crash reports
+* `error` - sends general error telemetry and crash reports
+* `crash` - sends OS level crash reports
+* `off` - disables all product telemetry
+
+### Centrally manage telemetry level
+
+Use [device management](#device-management) to centrally control the telemetry level across devices in your organization. Configure the `TelemetryLevel` VS Code policy, which overrides the corresponding `telemetry.telemetryLevel` VS Code setting on users's devices. The value of this policy is a string that contains the telemetry level.
+
+## Configure feedback mechanisms
+
+The `telemetry.feedback.enabled` VS Code setting controls whether feedback mechanisms, such as the issue reporter and surveys, are enabled. The setting has the following options:
+
+* `true` - feedback mechanisms are enabled
+* `false` - feedback mechanisms are disabled
+
+### Centrally manage feedback mechanisms
+
+Use [device management](#device-management) to centrally control the feedback mechanisms across devices in your organization. Configure the `EnableFeedback` VS Code policy, which overrides the corresponding `telemetry.feedback.enabled` VS Code setting on users's devices. The value of this policy is a boolean that indicates whether feedback mechanisms are enabled or disabled.
+
 ## Device management
 
 You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
@@ -116,6 +140,8 @@ VS Code currently supports the following admin-controlled features:
 | ------ | ----------- | --------------- |
 | `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` |
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` |
+|`TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` |
+| `EnableFeedback` | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` |
 
 ### Group Policy on Windows
 
@@ -132,7 +158,7 @@ Configuration profiles manage settings on macOS devices. A profile is an XML fil
 Starting from VS Code version 1.99, each release ships with a sample `.mobileconfig` file. This file is located within the `.app` bundle under `Contents/Resources/app/policies`. Use a text editor to manually edit or remove policy to match your organization's requirements.
 
 > [!TIP]
-> To view the contents of `.app` bundle, right-click on the Application (for example, `/Applications/Visual Studio Code.app` in Finder) and select **Show Package Contents**.
+> To view the contents of the `.app` bundle, right-click on the application (for example, `/Applications/Visual Studio Code.app`) in Finder and select **Show Package Contents**.
 
 #### String policies
 
