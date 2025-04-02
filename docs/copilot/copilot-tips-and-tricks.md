@@ -121,6 +121,7 @@ Find practical [examples of prompts to use with Copilot](https://docs.github.com
 Enrich your prompts with relevant context to get more accurate and relevant response from Copilot.
 
 * Use the `#codebase` variable to let Copilot find the right files automatically.
+* Use the `#fetch` variable to fetch content from a web page.
 * Reference files or symbols in your prompt by using `#file` or `#sym` chat variables.
 * Drag and drop files, folders, or editor tabs onto the chat prompt.
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
