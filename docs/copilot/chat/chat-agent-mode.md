@@ -15,6 +15,8 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language defin
 
 In agent mode, you can Copilot operates in an autonomous manner and determines the relevant context for your prompt.
 
+1. Make sure that agent mode is enabled by configuring the `setting(chat.agent.enabled)` setting in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings).
+
 1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
 1. Select **Ask** from the chat mode dropdown in the Chat view.
@@ -123,9 +125,10 @@ When you cancel a request, Copilot interrupts and ends the active request. You c
 
 The following list contains the settings related to agent mode. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
 
-* `setting(chat.agent.maxRequests)` - maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
-* `setting(github.copilot.chat.agent.runTasks)` - run workspace tasks when using agent mode in Copilot Edits (default: `true`)
-* `setting(chat.mcp.discovery.enabled)` - enable or disable discovery of MCP servers configured in other tools (default: `true`)
+* `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`)
+* `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
+* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
 
 ## Frequently asked questions
 

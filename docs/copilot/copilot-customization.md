@@ -243,11 +243,13 @@ To create a user prompt file:
 
 ### Prompt files (experimental) settings
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable prompt file locations. Use the `{ "/path/to/folder": boolean }` notation to specify a specific path and whether it's enabled or not. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.promptFiles)` _(Experimental)_: enable reusable prompt files.
+
+* `setting(chat.promptFilesLocations)` _(Experimental)_: a list of folders where prompt files are located. You can specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
 
     | Setting value | Description |
     |---------------|-------------|
-    | `{ "/path/to/folder": boolean }` | enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
+    | `["/path/to/folder"]` | Enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
 
 ## Related content
 
