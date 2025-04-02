@@ -108,7 +108,7 @@ Use [device management](#device-management) to centrally control how VS Code man
 
 ## Configure telemetry level
 
-The `telemetry.telemetryLevel` VS Code setting controls VS Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Read more about the [data we collect](https://aka.ms/vscode-telemetry).
+The `setting(telemetry.telemetryLevel)` VS Code setting controls VS Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Read more about the [data we collect](https://aka.ms/vscode-telemetry).
 
 * `all` - sends usage data, errors, and crash reports
 * `error` - sends general error telemetry and crash reports
@@ -117,7 +117,7 @@ The `telemetry.telemetryLevel` VS Code setting controls VS Code telemetry, first
 
 ### Centrally manage telemetry level
 
-Use [device management](#device-management) to centrally control the telemetry level across devices in your organization. Configure the `TelemetryLevel` VS Code policy, which overrides the corresponding `telemetry.telemetryLevel` VS Code setting on users's devices. The value of this policy is a string that contains the telemetry level.
+Use [device management](#device-management) to centrally control the telemetry level across devices in your organization. Configure the `TelemetryLevel` VS Code policy, which overrides the corresponding `telemetry.telemetryLevel` VS Code setting on user devices. The value of this policy is a string that contains the telemetry level.
 
 ## Configure feedback mechanisms
 
@@ -133,8 +133,8 @@ You can control specific features of VS Code through device management solutions
 
 VS Code currently supports the following admin-controlled features:
 
-| Policy | Description | VS Code setting | Available since|
-| ------ | ----------- | --------------- | ---------------------- |
+| Policy | Description | VS Code setting | Available since |
+| ------ | ----------- | --------------- | --------------- |
 | `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` | 1.96 |
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` | 1.67 |
 | `TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` | 1.99 |

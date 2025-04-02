@@ -44,10 +44,6 @@ If you use the JSON editor for your settings, add the following line:
     "telemetry.telemetryLevel": "off"
 ```
 
-## Disable feedback reporting
-
-To disable feedback and issue reporting in VS Code, set the `setting(telemetry.feedback.enabled)` setting to `false`.
-
 ## Extensions and telemetry
 
 VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `setting(telemetry.telemetryLevel)` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
@@ -161,6 +157,7 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Next steps
 
+* [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.
 * [Key Bindings](/docs/configure/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
