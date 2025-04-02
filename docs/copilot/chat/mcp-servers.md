@@ -26,17 +26,27 @@ For example, a file system MCP server might provide tools for reading, writing, 
 
 By standardizing this interaction, MCP eliminates the need for custom integrations between each AI model and each tool. This allows you to extend your AI assistant's capabilities by simply adding new MCP servers to your workspace. Learn more about the [Model Context Protocol specification](https://modelcontextprotocol.io/).
 
+### Supported MCP capabilities
+
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently, servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+
+### Finding MCP servers
+
+MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for reference, official, and community-contributed servers that showcase MCP's versatility. You can explore servers for various functionalities, such as file system operations, database interactions, and web services.
+
+MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
+
 ## Add an MCP server
 
-To add an MCP server to your workspace, follow these steps:
+To add an MCP server to your workspace, follow these steps (see below for how to add a server to your user settings):
 
-1. Configure an MCP server in the `.vscode/mcp.json` file in your workspace to share configurations with project collaborators.
+1. Configure an MCP server in the `.vscode/mcp.json` file in your workspace to share configurations with project collaborators. Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
 
     Create a `.vscode/mcp.json` file in your workspace and select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
 
     Alternatively, run the **MCP: Add Server** command from the Command Palette and provide the server information to add a new MCP server configuration. Choose **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
-    The following example shows how to configure a Perplexity MCP server, where VS Code prompts you for the API key when the server starts. Learn more about the [Configuration format](#configuration-format).
+    The following example shows how to configure a [Perplexity MCP server](https://github.com/ppl-ai/modelcontextprotocol/), where VS Code prompts you for the API key when the server starts. Learn more about the [Configuration format](#configuration-format).
 
     ```json
     {
@@ -230,7 +240,28 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 
 ![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
 
+## Create my own MCP server?
+
+VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
+
+- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk)
+- [Java SDK](https://github.com/modelcontextprotocol/java-sdk)
+- [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk)
+- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
+
+## Frequently asked questions
+
+### Can I control which MCP tools are used?
+
+Yes, you have several options to control which tools are active:
+
+- Click the **Tools** button in the Agent mode UI and toggle specific tools on/off as needed
+- Add specific tools to your prompt using the **Add Context** button or by typing `#`
+- For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage
+
 ## Related resources
 
-- [Model Context Protocol documentation](https://modelcontextprotocol.info/)
+- [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
+- [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
 - [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
