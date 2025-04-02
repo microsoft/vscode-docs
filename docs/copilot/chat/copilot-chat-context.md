@@ -55,6 +55,12 @@ To let Copilot find the right files automatically, add `#codebase` in your promp
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
+## Fetch content from the web
+
+To let Copilot fetch content from a web page, for example to reference a documentation page, add the fetch tool to your prompt, followed by the URL of the page you want to fetch.
+
+To add the fetch tool, select **Add Context** and then **Fetch Web Page** from the Quick Pick. Alternatively, type `#fetch` in the chat prompt.
+
 ## Add context for fixing problems
 
 When you encounter issues in your code, or have failures when running tests, you can add specific context to your chat prompt to help Copilot provide the best answer.
