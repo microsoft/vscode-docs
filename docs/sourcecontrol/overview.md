@@ -206,6 +206,10 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 ![git status bar publish](images/overview/git-status-bar-publish.png)
 
+If your workspace contains multiple Git repositories, the Status Bar will show the current repository. When you select the Status Bar item, you can choose the behavior of which repository should be active.
+
+![git status bar repo name](images/overview/git-status-bar-repository.png)
+
 ## Gutter indicators
 
 If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
