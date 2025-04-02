@@ -116,6 +116,8 @@ The Search view lists exact text matches across your files, in addition to match
 
 ![Search view showing semantic search results that are not an exact match for the search criteria.](images/copilot-smart-actions/semantic-search-results.png)
 
+You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
+
 ## Related content
 
 * [Get started with the Copilot Quickstart](/docs/copilot/getting-started.md).
