@@ -32,7 +32,7 @@ If you enable pytest, but it is not currently installed in the activated environ
 
 By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
-> **Tip**: `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. You will need to reload the window for this setting to take effect.
+> **Tip**: `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. You will need to reload the window for this setting to take effect. For more control over files included in auto test discovery, you can adjust the `python.testing.autoTestDiscoverOnSavePattern` setting which defaults to `**/*.py`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -50,7 +50,7 @@ When triggering test discovery directly from the Test Explorer, you can also can
 
 ![Cancel test discovery button in the Test Explorer.](/images/testing/test-cancel-button.png)
 
-If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer. The Python extension utilizes error tolerant discovery, meaning if there is an error during discovery that effects some tests but not all, you will see a node of tests and an error node in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
+If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer including a link to the logs. The Python extension utilizes error tolerant discovery, meaning if there is an error during discovery that effects some tests but not all, you will see a node of tests and an error node in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
 
 > **Tip**: Unittests can be discovered by pytest, but not vice versa. In the case where testing is configured using unittest but tests are written in pytest, there will be an error message in the Test Explorer.
 
@@ -164,35 +164,7 @@ If you have more than one configuration entry with `"purpose": ["debug-test"]`, 
 
 ## Run tests in parallel
 
-Support for running tests in parallel with pytest is available through the `pytest-xdist` package. To enable parallel testing:
-
-1. Open the integrated terminal and install the `pytest-xdist` package. For more details, refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
-
-   **For Windows**
-
-   ```bat
-   py -3 -m pip install pytest-xdist
-   ```
-
-   **For macOS/Linux**
-
-   ```bash
-   python3 -m pip install pytest-xdist
-   ```
-
-2. Next, create a file named `pytest.ini` in your project directory and add the content below, specifying the number of CPUs to be used. For example, to set it up for 4 CPUs:
-
-   ```ini
-    [pytest]
-    addopts=-n4
-   ```
-
-   Or, if you are using a `pyproject.toml` file
-
-   ```toml
-    [tool.pytest.ini_options]
-    addopts="-n 4"
-   ```
+Support for running tests in parallel with pytest is available through the `pytest-xdist` package. Visit their [documentation](https://pytest-xdist.readthedocs.io/en/stable/), for more information on how to use `pytest-xdist`.
 
 If `xdist` is enabled and no worker count is specified in the arguments, the number of workers is automatically optimized by the Python extension based on how many tests were selected in the Test Explorer.
 
