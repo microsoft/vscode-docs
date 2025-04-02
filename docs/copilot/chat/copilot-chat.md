@@ -92,6 +92,10 @@ Get more details about [adding context to your chat prompt](/docs/copilot/chat/c
 > [!TIP]
 > Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
+## Vision (Preview)
+
+Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask agent mode to implement it.
+
 ## Chat history
 
 The Chat view is designed to be a multi-turn conversation. Copilot uses the history of the conversation as context to your current prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context.
