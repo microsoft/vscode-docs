@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code supports a Portable mode that enables moving your installation and related data to a different location.
 ---
 # Portable mode
@@ -37,7 +37,7 @@ After unzipping the VS Code download, create a `data` folder within VS Code's fo
 From then on, the `data` folder will be used to contain all VS Code data, including session state, preferences, extensions, etc.
 
 > [!NOTE]
-> The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/editor/command-line.md#advanced-cli-options) options.
+> The `data` folder will override the `--user-data-dir` and `--extensions-dir` [command line](/docs/configure/command-line.md#advanced-cli-options) options.
 
 The `data` folder can be moved to other VS Code installations. This is useful for updating your portable VS Code version, in which case you can move the `data` folder to a newer extracted version of VS Code.
 

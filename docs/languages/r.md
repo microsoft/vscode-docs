@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: R
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
 PageTitle: R in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Learn about working with the R programming language in Visual Studio Code.
 ---
 
@@ -86,6 +86,6 @@ If you have any issues, suggestions or feature requests, please feel free to ope
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.

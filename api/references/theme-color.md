@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -267,6 +267,7 @@ The Minimap shows a minified version of the current file.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
 - `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
 - `minimap.infoHighlight`: Minimap marker color for infos.
+- `minimap.chatEditHighlight`: Color of pending edit regions in the minimap.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -617,6 +618,7 @@ Editor inline edits can be seen when using Copilot to suggest the next change to
 - `inlineEdit.modifiedChangedTextBackground`: Overlay color for the changed text in the modified text of inline edits.
 - `inlineEdit.originalBorder`: Border color for the original text in inline edits.
 - `inlineEdit.modifiedBorder`: Border color for the modified text in inline edits.
+- `inlineEdit.tabWillAcceptBorder`: Border color for the inline edits widget over the original text when tab will accept it.
 - `inlineEdit.wordReplacementView.background`: Background color for the inline edit word replacement view.
 
 ## Diff editor colors
@@ -787,6 +789,8 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
 - `panelTitle.border`: Panel title border color on the bottom, separating the title from the views. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelTitleBadge.background`: Panel title badge background color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelTitleBadge.foreground`: Panel title badge foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelInput.border`: Input box border for inputs in the panel.
 - `panelSection.border`: Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSection.dropBackground`: Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
@@ -1000,6 +1004,9 @@ The following customizations are available:
 - `terminal.initialHintForeground`: Foreground color of the terminal initial hint.
 - `terminalOverviewRuler.border`: The overview ruler left-side border color.
 - `terminalCommandGuide.foreground`: The foreground color of the terminal command guide that appears to the left of a command and its output on hover.
+
+- `terminalSymbolIcon.aliasForeground`: The foreground color for an alias icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.flagForeground`: The foreground color for an flag icon. These icons will appear in the terminal suggest widget
 
 ## Debug colors
 
@@ -1247,7 +1254,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `chart.axis`: Axis color for the chart.
 - `chart.guide`: Guide line for the chart.
 
-## Ports Colors
+## Ports colors
 
 - `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
 
@@ -1260,10 +1267,20 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `actionBar.toggledBackground`: Background color for toggled action items in action bar.
 
-## Simple Find Widget
+## Simple Find Widget colors
 
 - `simpleFindWidget.sashBorder`: Border color of the sash border.
 
+## Gauge colors
+
+- `gauge.background`: Gauge background color.
+- `gauge.foreground`: Gauge foreground color.
+- `gauge.border`: Gauge border color.
+- `gauge.warningBackground`: Gauge warning background color.
+- `gauge.warningForeground`: Gauge warning foreground color.
+- `gauge.errorBackground`: Gauge error background color.
+- `gauge.errorForeground`: Gauge error foreground color.
+
 ## Extension colors
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace#extension-details) tab.

@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Cheat Sheet
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 PageTitle: GitHub Copilot in VS Code cheat sheet
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -50,16 +50,18 @@ Use Copilot Edits to start a code editing session where you can iterate quickly 
 |--------|-------------|
 | `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
 | <i class="codicon codicon-plus"></i> | Start a new edit session. |
+| Edit/Agent mode | Switch between edit mode and [agent mode (preview)](/docs/copilot/copilot-edits.md#use-agent-mode-preview) for Copilot Edits. |
+| `Add Files...` | Attach files as context for editing. |
 | `Accept` | Accept all current edits. |
 | `Discard` | Discard all current edits. |
 | <i class="codicon codicon-diff-multiple"></i> | View all edits in a multi-file diff editor. |
 | <i class="codicon codicon-discard"></i> | Undo the last edit. |
 | <i class="codicon codicon-redo"></i> | Redo the last edit. |
-| `Add Files...` | Attach files to working set. |
+| <i class="codicon codicon-eye"></i> | Enable/disable attaching the active editors as context. |
 
 > **Tips**
 >
-> - Add all files for which you want to get edits to the working set.
+> - Add all files for which you want to get edits to your prompt.
 > - Be specific and precise about the changes you want Copilot Edits to make.
 > - If you have a larger task, decompose it in smaller tasks and iterate often.
 
@@ -86,28 +88,34 @@ When you send a chat prompt to Copilot, you can attach context to help Copilot u
 
 | Action | Description |
 |--------|-------------|
-| Attach <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from workspace files, symbols, current editor selection or visible contents, terminal selection or last run command, or the VS Code API.  |
-| <i class="codicon codicon-eye"></i> | Enable/disable automatically attaching open editors as context. |
+| Attach <i class="codicon codicon-attach"></i> (`kb(workbench.action.chat.attachContext)`) | Open a Quick Pick to select relevant context for your chat prompt. Choose from different context types, such as workspace files, symbols, current editor selection, terminal selection, and more. |
+| <i class="codicon codicon-eye"></i> | Enable/disable attaching the active editors as context. |
 | `Prompts...` _(Experimental)_ | Add reusable prompt instructions to your request. Get more information about [prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental). |
-| `#changes` | Context variable: the list of source control changes. |
-| `#codebase` | Context variable: add relevant workspace content as context to your prompt. |
-| `#editor` | Context variable: add the visible contents of the active editor as context for your prompt. |
-| `#selection` | Context variable: add the current editor selection as context to your prompt. |
-| `#terminalSelection` | Context variable: add the current terminal selection as context to your chat prompt. |
-| `#terminalLastCommand` | Context variable: add the last run terminal command as context to your chat prompt. |
-| `#VSCodeAPI` | Context variable: add the VS Code API as context to your prompt to ask questions related to VS Code extension development.  |
-| `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
-| `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
-| `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
-| `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
-| Drag & drop file | Drag & drop a file or editor onto the chat to attach the file as context. |
+| Drag & drop file | Drag & drop a file or editor tab onto the chat to attach the file as context. |
+| Drag & drop folder | Drag & drop a folder onto the chat to attach the files within it as context. |
+| Drag & drop problem | Drag & drop an item from the **Problems** panel to attach it as context. |
 | Recent files _(Experimental)_ | Automatically include recently opened and edited files in your chat prompt. [Get more info](https://code.visualstudio.com/updates/v1_93#_use-recent-coding-files-as-inline-chat-context-experimental).  |
 
-> **Tips**
->
-> - Quickly add multiple files as context by using the right arrow key in the Quick Pick
-> - Explicitly include relevant context by selecting code or mentioning chat variables
-> - Review the used references in the chat response to ensure that the context is relevant
+### Chat variables
+
+Use chat variables in your chat prompt to reference context that is relevant to your question.
+
+| Chat variable | Description |
+|--------|-------------|
+| `#changes` | The list of source control changes. |
+| `#codebase` | Add relevant workspace content as context to your prompt. |
+| `#editor` | Add the visible contents of the active editor as context for your prompt. |
+| `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
+| `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
+| `#folder` | Type `#folder:`, followed by a folder name to select a folder from your workspace and add it as context for your prompt. Adding a folder adds all files within it as context. |
+| `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
+| `#selection` | Add the current editor selection as context to your prompt. |
+| `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
+| `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
+| `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
+| `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
+| `#testFailure` | Add test failure information as context. Useful when running and diagnosing [tests](/docs/debugtest/testing.md). |
+| `#VSCodeAPI` | Add the VS Code API as context to your prompt to ask questions related to VS Code extension development. |
 
 ## Copilot in the editor
 
@@ -116,8 +124,8 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Action | Description |
 |--------|-------------|
 | Code completions | Start typing in the editor and Copilot provides code suggestions that match your coding style and take your existing code into account. |
-| Next Edit Suggestions _(Preview)_ | Predict your next code edit with Copilot Next Edit Suggestions. Enable Copilot NES with the `setting(github.copilot.nextEditSuggestions.enabled)` setting. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview). |
 | Code comments | Provide a code completion prompt to Copilot by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
+| Next Edit Suggestions _(Preview)_ | Predict your next code edit with Copilot Next Edit Suggestions. Enable Copilot NES with the `setting(github.copilot.nextEditSuggestions.enabled)` setting. Learn how to get started with [Copilot NES](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions-preview). |
 | `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
 | Prompt from the editor _(Experimental)_ | Start typing natural language directly in code and Copilot detects that you're not writing code but prompting, and will automatically start Inline Chat for your prompt. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
@@ -136,11 +144,12 @@ With reusable prompt files, you can specify common prompt instructions and relev
 
 | Action | Description |
 |--------|-------------|
-| File-based instructions _(Preview)_ | Define shared instructions for code generation in a `.github/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
+| File-based instructions | Define shared instructions for code generation in a `.github/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
 | Code-generation instructions _(Experimental)_ | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Commit-message generation instructions _(Experimental)_ | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
+| Pull request title and description generation instructions _(Experimental)_ | Define instructions for pull request title and description generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Reusable prompt files _(Preview)_ | Define reusable prompt instructions with additional context in Markdown files and use them for your chat prompts. Learn how to [create reusable prompt files](/docs/copilot/copilot-customization.md#reusable-prompt-files-preview).  |
 
 > **Tips**

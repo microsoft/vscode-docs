@@ -1,11 +1,11 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
 
-Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
+Use the tips and tricks in this article to jump right in and learn how to be productive with Visual Studio Code. Become familiar with the powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. Make sure to explore the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editing/codebasics.md) to learn more.
 
 If you're just getting started, make sure to check out the [VS Code tutorial](/docs/getstarted/getting-started.md) for a step-by-step to discover the key features.
 
@@ -27,7 +27,7 @@ Extensions can also contribute walkthroughs. You can also directly open a walkth
 
 ![Open walkthrough command in the Command Palette](images/tips-and-tricks/open-walkthrough.png)
 
-If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and more.
+If you are looking to improve your code editing skills, open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editing/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editing/intellisense.md), Snippets, [Emmet](/docs/languages/emmet.md), and more.
 
 Open the Welcome page from the **Help** > **Editor Playground** menu or use the **Help: Interactive Editor Playground** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -135,7 +135,7 @@ code --disable-extensions .
 
 ### .vscode folder
 
-Workspace-specific configuration files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/editor/tasks.md) and `launch.json` for the [debugger](/docs/editor/debugging.md).
+Workspace-specific configuration files are in a `.vscode` folder at the root of your workspace. For example, `tasks.json` for the [Task Runner](/docs/debugtest/tasks.md) and `launch.json` for the [debugger](/docs/debugtest/debugging.md).
 
 ## Status Bar
 
@@ -174,7 +174,7 @@ There are many options to customize VS Code to meet your preferences:
 
 ### Change your theme
 
-VS Code comes with a number of built-in [color themes](/docs/editor/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
+VS Code comes with a number of built-in [color themes](/docs/configure/themes.md). Use the **Preferences: Color Theme** command or use the keyboard shortcut.
 
 Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
@@ -214,7 +214,7 @@ You can also search for shortcuts and add your own keyboard shortcuts to the `ke
 
 ![customize keyboard shortcuts](images/tips-and-tricks/KeyboardShortcuts.gif)
 
-See more in [Key Bindings for Visual Studio Code](/docs/editor/keybindings.md).
+See more in [Key Bindings for Visual Studio Code](/docs/configure/keybindings.md).
 
 ### Tune your settings
 
@@ -314,7 +314,7 @@ Remove these files / folders from search results.
 }
 ```
 
-Learn about the many [other customizations](/docs/editor/settings.md).
+Learn about the many [other customizations](/docs/configure/settings.md).
 
 ### Language specific settings
 
@@ -383,7 +383,7 @@ See more in the [JSON](/docs/languages/json.md) documentation.
 
 ### Configure the default browser
 
-In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/editor/settings.md).
+In VS Code, you can `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on a link to open it in your default browser. You can configure the default browser by setting the `setting(workbench.externalBrowser)` [setting](/docs/configure/settings.md).
 
 Specify the full path to the browser executable as the settings value. Alternatively, to ensure correct functioning across devices, you can also use browser aliases, such as `edge`, `chrome`, or `firefox`.
 
@@ -444,15 +444,12 @@ Are you interested in creating your own extension? You can learn how to do this 
 
 With the simple file dialog, you can replace the system's default file dialog for opening and saving files and folders with a simpler Quick Pick dialog within VS Code.
 
-After you enable the Simple File Dialog, you can browse and select files and folders by using a Quick Pick inside VS Code.
+Setting: `setting(files.simpleDialog)`
 
 ![Simple File Dialog](images/tips-and-tricks/simple-file-dialog.png)
 
-To enable the simple file dialog, configure the `files.simpleDialog` [setting](/docs/editor/settings.md):
-
-```json
-    "files.simpleDialog.enable": true
-```
+> [!TIP]
+> Use the eye icon in the top right corner to show or hide files and folders starting with a dot.
 
 ### Show Explorer view
 
@@ -568,7 +565,7 @@ You can add additional cursors to all occurrences of the current selection with 
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/editor/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `setting(editor.multiCursorModifier)` [setting](/docs/configure/settings.md) . See [Multi-cursor Modifier](/docs/editing/codebasics.md#multicursor-modifier) for details.
 
 If you do not want to add all occurrences of the current selection, you can use `kb(editor.action.addSelectionToNextFindMatch)` instead.
 This only selects the next occurrence after the one you selected so you can add selections one by one.
@@ -581,7 +578,7 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Op
 
 ![Column text selection](images/tips-and-tricks/column-select.gif)
 
-You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
+You can also use [keyboard shortcuts](/docs/editing/codebasics.md#column-box-selection) to trigger column selection.
 
 ### Vertical rulers
 
@@ -629,7 +626,7 @@ Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.s
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
 
-You can learn more in the [Basic Editing](/docs/editor/codebasics.md#shrinkexpand-selection) documentation.
+You can learn more in the [Basic Editing](/docs/editing/codebasics.md#shrinkexpand-selection) documentation.
 
 ### Go to Symbol in File
 
@@ -818,7 +815,7 @@ See IntelliSense for your `package.json` file.
 
 ### Emmet syntax
 
-[Support for Emmet syntax](/docs/editor/emmet.md).
+[Support for Emmet syntax](/docs/languages/emmet.md).
 
 ![emmet syntax](images/tips-and-tricks/emmet_syntax.gif)
 
@@ -843,19 +840,19 @@ See IntelliSense for your `package.json` file.
 },
 ```
 
-See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippets.md).
+See more details in [Creating your own Snippets](/docs/editing/userdefinedsnippets.md).
 
 ## Git integration
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
+Git integration comes "out-of-the-box" with VS Code. You can install other source control management (SCM) providers from the VS Code [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). This section describes the Git integration but much of the UI and gestures are common for other SCM providers.
 
 ## Git blame
 
 VS Code shows git blame information inline in the editor and in the Status Bar. Hover over the Status Bar item or inline hint to view detailed git blame information.
 
-![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/1_97/scm-git-blame.png)
+![Screenshot that shows Git blame information when hovering over the git blame item in the Status Bar.](images/tips-and-tricks/scm-git-blame.png)
 
 To enable or disable git blame information, use the **Git: Toggle Git Blame Editor Decoration** and **Git: Toggle Git Blame Status Bar Item** commands, or configure these settings:
 
@@ -964,7 +961,7 @@ Quickly compare the active file with the contents of the clipboard with the **Fi
 
 From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which prompts you to select the environment that matches your project (Node.js, Python, C++, and more). This generates a `launch.json` file in your workspace that contains the debugger configuration.
 
-Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/editor/debugging.md) for more details.
+Node.js support is built-in and other environments require installing the appropriate language extensions. See the [debugging documentation](/docs/debugtest/debugging.md) for more details.
 
 ![configure debugging](images/tips-and-tricks/configure-debug.png)
 
@@ -972,7 +969,7 @@ Node.js support is built-in and other environments require installing the approp
 
 Toggle a breakpoint by selecting the **editor margin** or by using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Breakpoints in the editor margin are normally shown as red filled circles.
 
-Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/editor/debugging.md#debug-actions) in the debugging documentation.
+Once a debug session starts, the **Debug toolbar** appears on the top of the editor and enables you to step through or into the code while debugging. Learn more about [debug actions](/docs/debugtest/debugging.md#debug-actions) in the debugging documentation.
 
 ![debug](images/tips-and-tricks/node_debug.gif)
 
@@ -1005,7 +1002,7 @@ Tasks in VS Code can be configured to run scripts and start processes so that th
 ### Auto detect tasks
 
 Select **Terminal** from the top-level menu, run the command **Configure Tasks**, then select the type of task you'd like to run.
-This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
+This generates a `tasks.json` file with content like the following. See the [Tasks](/docs/debugtest/tasks.md) documentation for more details.
 
 ```json
 {

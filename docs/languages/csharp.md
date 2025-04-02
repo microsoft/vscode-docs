@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C#
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 MetaSocialImage: images/csharp/languages-csharp-social.png
 ---
@@ -59,7 +59,7 @@ There is a lot to discover with C# and the editor, such as format on type, Intel
 
 ![Right-click Menu](images/csharp/editingevolved.png)
 
-For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md) documentation.
+For more information on the C# Dev Kit editing features, go to the [Navigate and Edit documentation](/docs/csharp/navigate-edit.md). For a full description of VS Code editing features, go to the [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md) documentation.
 
 Here are a few highlights...
 
@@ -85,7 +85,7 @@ For information on snippets in C# Dev Kit, go to the [Navigate and Edit document
 
 ![Snippets](images/csharp/snippet.png)
 
->**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for C#. Take a look at [User Defined Snippets](/docs/editing/userdefinedsnippets.md) to find out how.
 
 ## Search for Symbols
 
@@ -101,7 +101,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/editor/settings.md).
+>**Tip:** You can turn off references information displayed in CodeLens with the `setting(editor.codeLens)` [setting](/docs/configure/settings.md).
 
 ## Find References/Peek Definition
 
@@ -137,7 +137,7 @@ Read on to find out about:
 
 * [C# Dev Kit documentation](/docs/csharp/get-started.md)
 * [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Tasks](/docs/debugtest/tasks.md) - Use tasks to build your project and more.
+* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger with your project.
 * [Unity development](/docs/other/unity.md) - Learn about using VS Code with your Unity projects.

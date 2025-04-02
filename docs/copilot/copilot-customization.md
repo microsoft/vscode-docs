@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Customizing Copilot
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
 PageTitle: Customize GitHub Copilot in VS Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Learn how you can customize how GitHub Copilot generates code or tests for your project by defining a set of instructions.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -24,6 +24,8 @@ You can specify custom instructions for specific purposes:
 
 * **Commit message generation instructions** - provide context specific for generating commit messages. You can specify commit-message-generation instructions in settings, or in a Markdown file in your workspace.
 
+* **Pull request title and description generation instructions** - provide context specific for generating pull request titles and descriptions. You can specify pull request title and description generation instructions in settings, or in a Markdown file in your workspace.
+
 Custom instructions consist of natural language instructions and should be short, self-contained statements that add context or relevant information to supplement chat questions.
 
 ## Define code-generation custom instructions
@@ -35,7 +37,7 @@ Copilot can help you generate code, for example as part of a refactoring, genera
 
 ### Use settings
 
-You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/editor/settings.md#language-specific-editor-settings).
+You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/configure/settings.md#language-specific-editor-settings).
 
 The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
 
@@ -63,7 +65,7 @@ Always add comments.
 
 ### Use a `.github/copilot-instructions.md` file
 
-You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically picks up this file.
+You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically pick up this file.
 
 If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
 
@@ -123,6 +125,12 @@ In the Source Control view, you can use Copilot to generate a commit message for
 
 To configure custom commit message generation instructions, use the `setting(github.copilot.chat.commitMessageGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
 
+## Define pull request title and description generation custom instructions
+
+When you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use Copilot to generate a title and description for a pull request. You can define custom instructions to help Copilot generate a title and description that take into account specific formatting and structure that are specific to your project and development workflow.
+
+To configure custom pull request title and description generation instructions, use the `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
+
 ## Tips for defining custom instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
@@ -139,14 +147,14 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 Common use cases include:
 
-- **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
-- **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
-- **Team collaboration**: document patterns and guidelines with references to specs and documentation.
-- **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
+* **Code generation**: create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+* **Domain expertise**: share specialized knowledge through prompts, such as security practices, or compliance checks.
+* **Team collaboration**: document patterns and guidelines with references to specs and documentation.
+* **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
 
 ### Prompt file examples
 
-- `react-form.prompt.md` - documents a reusable task for generating a form:
+* `react-form.prompt.md` - documents a reusable task for generating a form:
 
     ```markdown
     Your goal is to generate a new React form component.
@@ -154,25 +162,25 @@ Common use cases include:
     Ask for the form name and fields if not provided.
 
     Requirements for the form:
-    - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-    - Use `react-hook-form` for form state management:
-    - Always define TypeScript types for your form data
-    - Prefer *uncontrolled* components using register
-    - Use `defaultValues` to prevent unnecessary rerenders
-    - Use `yup` for validation:
-    - Create reusable validation schemas in separate files
-    - Use TypeScript types to ensure type safety
-    - Customize UX-friendly validation rules
+    * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+    * Use `react-hook-form` for form state management:
+    * Always define TypeScript types for your form data
+    * Prefer *uncontrolled* components using register
+    * Use `defaultValues` to prevent unnecessary rerenders
+    * Use `yup` for validation:
+    * Create reusable validation schemas in separate files
+    * Use TypeScript types to ensure type safety
+    * Customize UX-friendly validation rules
     ```
 
-- `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+* `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
 
     ```markdown
     Secure REST API review:
-    - Ensure all endpoints are protected by authentication and authorization
-    - Validate all user inputs and sanitize data
-    - Implement rate limiting and throttling
-    - Implement logging and monitoring for security events
+    * Ensure all endpoints are protected by authentication and authorization
+    * Validate all user inputs and sanitize data
+    * Implement rate limiting and throttling
+    * Implement logging and monitoring for security events
     …
     ```
 
@@ -182,7 +190,11 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 #### Create a prompt file
 
+1. Set the `setting(chat.promptFiles)` setting to `true` for the `.github/prompts` directory.
+
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
+
+    Alternatively, use the **Create Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Write prompt instructions by using Markdown formatting.
 
@@ -190,9 +202,25 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
 
+#### Create a user prompt file
+
+User prompt files are stored in your [user profile](/docs/configure/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
+
+You can add a user prompt file to a chat prompt in the same way as a workspace prompt file.
+
+To create a user prompt file:
+
+1. Select the **Create User Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Enter a name for your prompt file.
+
+1. Write prompt instructions by using Markdown formatting.
+
 #### Attach a prompt file to a chat request
 
 1. Select the **Attach Context** <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select **Prompt...**.
+
+    Alternatively, use the **Chat: Use Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose a prompt file from the Quick Pick to attach it to your chat request.
 
@@ -211,21 +239,20 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 ### Custom instructions settings
 
-* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` _(Preview)_: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: A set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
+* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate code.
+* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate tests.
+* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: set of instructions that will be added to Copilot requests for reviewing the current editor selection.
+* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
 
 ### Prompt files (experimental) settings
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable prompt files and specify prompt file folder(s). Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.promptFiles)` _(Experimental)_: enable prompt file locations. Use the `{ "/path/to/folder": boolean }` notation to specify a specific path and whether it's enabled or not. Relative paths are resolved from the root folder(s) of your workspace.
 
     | Setting value | Description |
     |---------------|-------------|
-    | `false` (default) | Disable prompt files. |
-    | `true` | Enable prompt files. Use the default prompt file location (`.github/prompts`). |
-    | `{ "/path/to/folder": boolean }` | Enable prompt files. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. |
+    | `{ "/path/to/folder": boolean }` | enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
 
 ## Related content
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -24,7 +24,7 @@ To successfully complete this tutorial, you need to first set up your Python dev
 
 - [Python 3](/docs/python/python-tutorial.md#install-a-python-interpreter)
 - [VS Code](https://code.visualstudio.com/)
-- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md))
+- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, see [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md))
 
 ## Install a Python interpreter
 
@@ -128,7 +128,7 @@ msg = "Roll a dice!"
 print(msg)
 ```
 
-When you start typing `print`, notice how [IntelliSense](/docs/editor/intellisense.md) presents auto-completion options.
+When you start typing `print`, notice how [IntelliSense](/docs/editing/intellisense.md) presents auto-completion options.
 
 ![IntelliSense appearing for Python code](images/tutorial/intellisense01.png)
 
@@ -214,7 +214,7 @@ To stop running a program before it's complete, use the red square stop button o
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 
-> **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#logpoints) in the main VS Code debugging article.
+> **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/debugtest/debugging.md#logpoints) in the main VS Code debugging article.
 
 ## Install and use packages
 
@@ -301,7 +301,7 @@ To learn how to build web apps with popular Python web frameworks, see the follo
 
 There is then much more to explore with Python in Visual Studio Code:
 
-- [Python profile template](/docs/editor/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets
+- [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

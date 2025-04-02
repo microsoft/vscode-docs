@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -30,7 +30,7 @@ VS Code recognizes when you open a folder that is a Git repository. The Source C
 
 You can access the Source Control view from the by selecting the **Source Control** icon in the Activity Bar or by using the `kb(workbench.view.scm)` keyboard shortcut. If you have changes, the Source Control icon indicates **how many changes** you currently have in your repository.
 
-The Source Control view shows the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**. You can also view the [**Source Control graph**](#source-control-graph) to see how your changes relate to the repository's history.
+The Source Control view shows the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**. You can also view the [**source control graph**](#source-control-graph) to see how your changes relate to the repository's history.
 
 ![Overview of Git](images/overview/overview.png)
 
@@ -178,14 +178,14 @@ The **Git: Create Branch** command lets you quickly create a new branch. Just pr
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/editor/settings.md) to enable it.
+VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `setting(git.autofetch)` [setting](/docs/configure/settings.md) to enable it.
 
 > [!TIP]
-> You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/editor/settings.md) to reduce the number of prompts you get.
+> You should [set up a credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `setting(git.autofetch)` [setting](/docs/configure/settings.md) to reduce the number of prompts you get.
 
-## Source Control Graph
+## Source control graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Source Control Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 
@@ -265,7 +265,7 @@ The Diff editor has a separate gutter in the middle, which enables you to **Stag
 ![Screenshot of the Diff editor, showing the Stage and Revert controls in the gutter](images/overview/diffEditor-stage-revert-demo.gif)
 
 > [!TIP]
-> You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editor/codebasics.md#compare-files).
+> You can diff any two files by first right-clicking on a file in the Explorer view and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with Selected**. Alternatively, open the Command Palette (`kb(workbench.action.showCommands)`), and select ay of the **File: Compare** commands. Learn more about the different options to [compare files in VS Code](/docs/editing/codebasics.md#compare-files).
 
 ### Accessible Diff Viewer
 
@@ -284,7 +284,7 @@ The Timeline view, accessible at the bottom of the File Explorer by default, is 
 
 VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
 
-Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-marketplace.md) available on the VS Code Marketplace.
+Visual Studio Code supports more Git history workflows through [extensions](/docs/configure/extensions/extension-marketplace.md) available on the VS Code Marketplace.
 
 <div class="marketplace-extensions-scm-history-curated"></div>
 

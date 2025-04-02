@@ -1,6 +1,6 @@
 ---
 ContentId: 5822cc5a-0744-4cf0-9498-05767a0fc2d4
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Reference of default keyboard shortcuts in Visual Studio Code.
 ---
 # Default keyboard shortcuts reference
@@ -13,7 +13,7 @@ You can also view the default shortcuts in the product:
 * Select **Preferences: Open Default Keyboard Shortcuts (JSON)** in the Command Palette.
 
 > [!NOTE]
-> The following keys are rendered assuming a standard US keyboard layout. Get more information about using a different [keyboard layout](/docs/editor/keybindings.md#keyboard-layouts).
+> The following keys are rendered assuming a standard US keyboard layout. Get more information about using a different [keyboard layout](/docs/configure/keybindings.md#keyboard-layouts).
 
 Some commands included below do not have default keyboard shortcuts and so are displayed as `kbstyle(unassigned)` but you can assign your own keyboard shortcuts.
 
@@ -251,5 +251,5 @@ Update All Extensions|`kb(workbench.extensions.action.updateAllExtensions)`|`wor
 
 ## Related resources
 
-* [Customize keyboard shortcuts](/docs/editor/keybindings.md)
+* [Customize keyboard shortcuts](/docs/configure/keybindings.md)
 * [Personalize VS Code](/docs/getstarted/personalize-vscode.md)

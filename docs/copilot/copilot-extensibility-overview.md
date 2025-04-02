@@ -4,7 +4,7 @@ Area: copilot
 TOCTitle: Copilot Extensibility
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
 PageTitle: GitHub Copilot extensibility overview
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Overview of how to extend GitHub Copilot in your Visual Studio Code extension by using the Chat API or Language Model API.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -40,7 +40,7 @@ These are some examples of extensions in the Visual Studio Marketplace that cont
 
 <div class="marketplace-extensions-chat"></div>
 
-Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
+Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or use the integrated [Extensions view](/docs/configure/extensions/extension-marketplace.md) and search for more extensions by using the `chat-participant` tag.
 
 ## Get started with Copilot extensibility in VS Code
 

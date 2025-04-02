@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 03/05/2025
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -49,7 +49,7 @@ You can refer to each linter extension's README for more details on the supporte
 
 ## Disable linting
 
-Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/editor/extension-marketplace.md#disable-an-extension) per workspace.
+Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/configure/extensions/extension-marketplace.md#disable-an-extension) per workspace.
 
 ## Run linting
 
@@ -61,7 +61,7 @@ Errors and warnings are shown in the **Problems** panel (`kb(workbench.actions.v
 
 ## Code Actions
 
-Some linters may offer [Code Actions](/docs/editor/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/editor/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
+Some linters may offer [Code Actions](/docs/editing/refactoring.md#code-actions-quick-fixes-and-refactorings) that can help address reported problems. You can refer to the [Feature Contributions](/docs/configure/extensions/extension-marketplace.md#extension-details) section under your preferred linter extension to find out what Code Actions it offers.
 
 ## Logging
 
@@ -86,5 +86,5 @@ Linters report issues with some predefined severity. This can be changed using `
 - [Formatting](/docs/python/formatting.md) - Learn about how to format your Python code.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.
