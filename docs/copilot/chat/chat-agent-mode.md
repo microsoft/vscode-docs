@@ -37,6 +37,9 @@ In agent mode, you can Copilot operates in an autonomous manner and determines t
 
     ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
 
+    > [!TIP]
+    > You can directly reference a tool in the chat prompt by typing the `#` symbol, and then selecting the tool from the list.
+
 1. Confirm tool invocations and terminal commands.
 
     Before running a terminal command or non-builtin tool, Copilot requests for confirmation to continue. This is because tools might run locally on your machine and might perform actions that modify files or data.
