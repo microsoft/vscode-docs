@@ -212,6 +212,8 @@ To create a user prompt file:
 
 1. Write prompt instructions by using Markdown formatting.
 
+User prompt files can now be synced across multiple devices with [Settings Sync](/docs/configure/settings-sync.md). Make sure to enable support for prompt files in your Settings Sync configuration. Select **Settings Sync: Configure** from the Command Palette, and make sure **Prompts** is selected.
+
 #### Attach a prompt file to a chat request
 
 1. Select the **Attach Context** <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select **Prompt...**.
