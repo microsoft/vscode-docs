@@ -168,8 +168,6 @@ Boolean policy values are represented with `<true/>` or `<false/>`.
 
 To omit a given policy, remove its key/value pair from the `.mobileconfig` file. For example, to not enforce an update mode policy, remove the `UpdateMode` key and the `<string></string>` tags that follow it.
 
-```xml
-
 > [!IMPORTANT]
 > The provided `.mobileconfig` file initializes **all** policies available in that version of VS Code. Delete any policies that are not needed.
 >
