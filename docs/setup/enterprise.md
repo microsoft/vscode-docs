@@ -108,7 +108,7 @@ Use [device management](#device-management) to centrally control how VS Code man
 
 ## Configure telemetry level
 
-The `telemetry.telemetryLevel` VS Code setting controls the level of telemetry data that is sent to Microsoft. The setting has the following options:
+The `telemetry.telemetryLevel` VS Code setting controls VS Code telemetry, first-party extension telemetry, and participating third-party extension telemetry. Some third party extensions might not respect this setting. Read more about the [data we collect](https://aka.ms/vscode-telemetry).
 
 * `all` - sends usage data, errors, and crash reports
 * `error` - sends general error telemetry and crash reports
@@ -121,10 +121,7 @@ Use [device management](#device-management) to centrally control the telemetry l
 
 ## Configure feedback mechanisms
 
-The `telemetry.feedback.enabled` VS Code setting controls whether feedback mechanisms, such as the issue reporter and surveys, are enabled. The setting has the following options:
-
-* `true` - feedback mechanisms are enabled
-* `false` - feedback mechanisms are disabled
+The `telemetry.feedback.enabled` VS Code setting is a boolean value that controls whether feedback mechanisms, such as the issue reporter and surveys, are enabled.
 
 ### Centrally manage feedback mechanisms
 
