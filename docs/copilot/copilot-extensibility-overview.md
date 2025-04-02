@@ -12,7 +12,7 @@ Depending on your use case, you have the following options for extending Copilot
 
 - **Agent mode tool**: use the [Language Model Tool API](/api/extension-guides/tools.md) to contribute a tool for [agent mode](/docs/copilot/chat/chat-agent-mode.md) that is invoked automatically based on the user's prompt. Integrate deeply in VS Code by using other extension APIs in your tool.
 
-- **MCP tool**: automatically register external MCP tools that can then be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md). MCP tools run outside of the VS Code extension host and don't have access to the VS Code extension APIs.
+- **MCP tool**: automatically register external [MCP tools](/docs/copilot/chat/mcp-servers.md) that can then be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md). MCP tools run outside of the VS Code extension host and don't have access to the VS Code extension APIs.
 
 - **Chat participant**: use the [Chat](/api/extension-guides/chat.md) and [Language Model](/api/extension-guides/language-model.md) APIs to create a chat participant for [ask mode](/docs/copilot/chat/chat-ask-mode.md) that enables users to ask domain-specific questions by using natural language.
 
@@ -46,17 +46,10 @@ There are several examples already available in the Visual Studio Marketplace th
 
 To get started with extending Copilot in your VS Code extension, explore the following resources:
 
-- [**Learn how to build a language model tool**](/api/extension-guides/tools.md) or review the [language model tools sample code](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/tools.ts).
+- [**Chat sample**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): sample code for building a VS Code extension that contributes an agent mode tool and chat participant.
 
 - [**Tutorial: AI-powered code annotations**](/api/extension-guides/language-model-tutorial.md): step-by-step guide to implement a VS Code extension that uses the Language Model API to generate code annotations in the editor to help improve your code.
 
 - [**Tutorial: Code tutor chat participant**](/api/extension-guides/chat-tutorial.md): step-by-step guide to implement a code tutor chat participant that enables users to ask for explaining a technical topic by using natural language in the Chat view in VS Code.
 
-- [**Chat participant sample**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): sample code for getting started with building a VS Code Chat extension that uses the Chat API and Language Model API.
-
-- **Extension guides**: Learn how to use the [Chat API](/api/extension-guides/chat.md) and [Language Model API](/api/extension-guides/language-model.md) to extend Copilot in your VS Code extension.
-
-## Related content
-
-- [Get started with Copilot Extensions](https://github.com/features/copilot/extensions)
-- [Enhancing VS Code extensions with GitHub Copilot](https://www.youtube.com/watch?v=YI7kjWzIiTM) Microsoft Build session
+- **Extension guides**: Learn how to use the [Tools API](/api/extension-guides/tools.md) [Chat API](/api/extension-guides/chat.md) and [Language Model API](/api/extension-guides/language-model.md).
