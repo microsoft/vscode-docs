@@ -96,6 +96,9 @@ Get more details about [adding context to your chat prompt](/docs/copilot/chat/c
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask agent mode to implement it.
 
+> [!TIP]
+> You can drag and drop an image from a web browser onto the Chat view to add it as context.
+
 ## Chat history
 
 The Chat view is designed to be a multi-turn conversation. Copilot uses the history of the conversation as context to your current prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context.
