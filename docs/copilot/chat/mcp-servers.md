@@ -20,7 +20,7 @@ MCP follows a client-server architecture:
 
 - **MCP clients** (like VS Code) connect to MCP servers and request actions on behalf of the AI model
 - **MCP servers** provide one or more tools that expose specific functionalities through a well-defined interface
-- **The MCP protocol** defines the message format for communication between clients and servers, including tool discovery, invocation, and response handling
+- **The Model Context Protocol (MCP)** defines the message format for communication between clients and servers, including tool discovery, invocation, and response handling
 
 For example, a file system MCP server might provide tools for reading, writing, or searching files and directories. GitHub's MCP server offers tools to list repositories, create pull requests, or manage issues. MCP servers can run locally on your machine or be hosted remotely, and VS Code supports both configurations.
 
@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently, servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://github.com/modelcontextprotocol/specification/blob/main/docs/specification/2025-03-26/server/_index.md) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -76,7 +76,7 @@ To add an MCP server to your workspace, follow these steps (see below for how to
     }
     ```
 
-1. Alternatively, specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+1. Optionally, specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
 
     If you use the **MCP: Add Server** command from the Command Palette, choose **User Settings** to add a new MCP server configuration in user settings.
 
@@ -100,7 +100,7 @@ Use the following JSON configuration format to define MCP servers.
     | Field | Description | Examples |
     |-------|-------------|----------|
     | `type` | Server connection type.  | `"stdio"` |
-    | `command` | Command to start the server executable. | `"npx"`, `"python"`, `"docker"` |
+    | `command` | Command to start the server executable. | `"npx"`,`"node"`, `"python"`, `"docker"` |
     | `args` | Array of arguments passed to the command. | `["server.py", "--port", "3000"]` |
     | `env` | Environment variables for the server. | `{"API_KEY": "${input:api-key}"}` |
     | `envFile` | Path to an `.env` from which to load additional environment variables. | `"${workspaceFolder}/.env"` |
