@@ -14,7 +14,7 @@ Containers are pieces of software that package code and all of the dependencies 
 
 A Python dev container would include your Python app along with all the Python runtimes and dependencies already set up for you, no extra downloads necessary:
 =======================
-m1
+m1.com
 =======================
 In your class, you could have a specific container for an assignment. Each student in your class will get the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
