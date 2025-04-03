@@ -70,6 +70,18 @@ For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.co
 > [!TIP]
 > Type `/help` in the chat input field to get help about GitHub Copilot and how to interact with Copilot Chat.
 
+## Open a chat session in the editor
+
+You can open a chat session as a separate editor tab, or even as a separate window. As a side effect, this enables you to have multiple chat sessions open at the same time.
+
+To open a chat session in the editor or a separate window:
+
+1. Select the `...` icon in the top-right corner of the Chat view.
+
+    ![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options.](images/copilot-chat/chat-three-dot-menu.png)
+
+1. Select **Open Chat in Editor** or **Open Chat in New Window**.
+
 ## Change the language model
 
 Copilot offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
@@ -80,6 +92,10 @@ You can also add models from other model providers (preview) and use them in cha
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
+
+## Reference tools in chat
+
+You can directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
 ## Add chat context
 

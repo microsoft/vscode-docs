@@ -38,7 +38,7 @@ In agent mode, you can Copilot operates in an autonomous manner and determines t
     ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
 
     > [!TIP]
-    > You can directly reference a tool in the chat prompt by typing the `#` symbol, and then selecting the tool from the list.
+    > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
 1. Confirm tool invocations and terminal commands.
 

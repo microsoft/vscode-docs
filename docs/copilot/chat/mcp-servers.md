@@ -182,6 +182,9 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
 
     ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
+    > [!TIP]
+    > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
+
 1. You can now enter a prompt in the chat input box and notice how tools are automatically invoked as needed.
 
     By default, when a tool is invoked, you need to confirm the action before it is run. This is because tools might run locally on your machine and might perform actions that modify files or data.
