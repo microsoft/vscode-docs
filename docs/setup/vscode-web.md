@@ -79,10 +79,15 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | MakeCode | `/edu/makecode` | [MakeCode docs](https://arcade.makecode.com/vscode) |
 | VS Code for Education | `/edu` | [VS Code for Education landing page](https://vscodeedu.com/) |
 | Azure Machine Learning (AML) | `/+ms-toolsai.vscode-ai-remote-web` | [AML docs](https://learn.microsoft.com/azure/machine-learning/how-to-launch-vs-code-remote?view=azureml-api-2&tabs=vscode-web) |
+| Azure | `/azure` | [AML docs](https://insiders.vscode.dev/azure) |
 
 Please note that some URLs must be entered in a specific way (for example, `vscode.dev/editor/liveshare` requires an active Live Share session). Please review each service's documentation for specific access and usage information.
 
 There's more information on some of these URLs below.
+
+## VS Code for the Web - Azure
+
+VS Code for the Web's custom URL - https://insiders.vscode.dev/azure, powered by Azure CLoudshell, allows a developer to run, debug and deploy their applications to Azure in seconds. This custom URL comes with all libraries, dependencies and extensions a developer would need to get started with Azure. Additionally, developers who sign into GitHub, can use GitHub Copilot as their peer programmer, leveraging Agent Mode, to help write code.
 
 ### Themes
 
