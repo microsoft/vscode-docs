@@ -1,6 +1,6 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout

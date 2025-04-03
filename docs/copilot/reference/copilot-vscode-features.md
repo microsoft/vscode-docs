@@ -1,6 +1,6 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
