@@ -1,7 +1,7 @@
 ------
 Order: 00
 Area: other
-TOCTitle: Home\Office
+TOCTitle: Category
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
 DateApproved: 04/03/2026
