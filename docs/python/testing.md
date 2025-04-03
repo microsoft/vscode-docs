@@ -52,7 +52,6 @@ When triggering test discovery directly from the Test Explorer, you can also can
 
 If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer including a link to the logs. The Python extension utilizes error tolerant discovery, meaning if there is an error during discovery that effects some tests but not all, you will see a node of tests and an error node in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
 
-> **Tip**: Unittests can be discovered by pytest, but not vice versa. In the case where testing is configured using unittest but tests are written in pytest, there will be an error message in the Test Explorer.
 
 ![Discovery failure error messaged displayed in the Test Explorer](images/testing/test-discovery-error.png)
 
