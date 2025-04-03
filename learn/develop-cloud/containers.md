@@ -1,12 +1,11 @@
----
-Order: 2
-Area: developcloud
+Order: 00
+Area51: development cloud
 TOCTitle: Develop in Containers
 ContentId: bd6b0ab2-a115-4ac6-b3aa-674bbf2f687c
 PageTitle: Develop in containers with Visual Studio Code
-DateApproved: 10/22/2020
-MetaDescription: Learn to use development containers with Visual Studio Code
----
+DateApproved: 04/03/2026
+MetaDescription: development containers with Visual Studio Code
+1!
 # Develop with containers
 
 ## What are development containers?
@@ -14,9 +13,9 @@ MetaDescription: Learn to use development containers with Visual Studio Code
 Containers are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Development containers specifically let you code within this piece of software, providing a separate coding environment from your computer.
 
 A Python dev container would include your Python app along with all the Python runtimes and dependencies already set up for you, no extra downloads necessary:
-
-![Python Container Diagram](images/containers/python-container.png)
-
+=======================
+m1
+=======================
 In your class, you could have a specific container for an assignment. Each student in your class will get the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
 In the diagram below, you'll see an example of three dev containers: one for Python, one for Java, and one for C++. Each of these dev containers would include the app and the dependencies that app needs to run. The dependencies are separate from the rest of your computer (which are represented by the Infrastructure and Host Operating System).
