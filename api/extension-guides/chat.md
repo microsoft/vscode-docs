@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -464,6 +464,71 @@ The following list provides the output types for a chat response in the Chat vie
     ```
 
 > **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editing/editingevolved#outgoing-link-protection).
+
+## Implement tool calling
+
+To respond to a user request, a chat extension can invoke language model tools. Learn more about [language model tools](/api/extension-guides/tools.md) and the [tool-calling flow](/api/extension-guides/tools.md#tool-calling-flow).
+
+You can implement tool calling in two ways:
+
+- By using the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
+- By implementing tool calling yourself, which gives you more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
+
+### Implement tool calling with the chat extension library
+
+You can use the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
+
+Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat participant](/api/extension-guides/chat).
+
+1. Determine the relevant tools for the current chat context. You can access all available tools by using `vscode.lm.tools`.
+
+    The following code snippet shows how to filter the tools to only those that have a specific tag.
+
+    ```ts
+    const tools = request.command === 'all' ?
+        vscode.lm.tools :
+        vscode.lm.tools.filter(tool => tool.tags.includes('chat-tools-sample'));
+    ```
+
+1. Send the request and tool definitions to the LLM by using `sendChatParticipantRequest`.
+
+    ```ts
+    const libResult = chatUtils.sendChatParticipantRequest(
+        request,
+        chatContext,
+        {
+            prompt: 'You are a cat! Answer as a cat.',
+            responseStreamOptions: {
+                stream,
+                references: true,
+                responseText: true
+            },
+            tools
+        },
+        token);
+    ```
+
+    The `ChatHandlerOptions` object has the following properties:
+
+    - `prompt`: (optional) Instructions for the chat participant prompt.
+    - `model`: (optional) The model to use for the request. If not specified, the model from the chat context is used.
+    - `tools`: (optional) The list of tools to consider for the request.
+    - `requestJustification`: (optional) A string that describes why the request is being made.
+    - `responseStreamOptions`: (optional) Enable `sendChatParticipantRequest` to stream the response back to VS Code. Optionally, you can also enable references and/or response text.
+
+1. Return the result from the LLM. This might contain error details or tool-calling metadata.
+
+    ```ts
+    return await libResult.result;
+    ```
+
+The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
+
+### Implement tool calling yourself
+
+For more advanced scenarios, you can also implement tool calling yourself. Optionally, you can use the `@vscode/prompt-tsx` library for crafting the LLM prompts. By implementing tool calling yourself, you have more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
+
+View the full source code for implementing [tool calling by using prompt-tsx](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/toolParticipant.ts) in the VS Code Extension Samples repository.
 
 ## Measuring success
 

@@ -88,7 +88,7 @@
       ["Debugging", "/docs/debugtest/debugging"],
       ["Debug Configuration", "/docs/debugtest/debugging-configuration"],
       ["Testing", "/docs/debugtest/testing"],
-      ["Port Forwarding", "/docs/debugtest/port-forwarding"],
+      ["Port Forwarding", "/docs/debugtest/port-forwarding"]
     ]
   },
 
@@ -120,16 +120,27 @@
     "topics": [
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
-      ["Copilot Quickstart", "/docs/copilot/getting-started"],
-      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
+      ["Quickstart", "/docs/copilot/getting-started"],
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
-      ["Copilot Chat", "/docs/copilot/copilot-chat"],
-      ["Copilot Chat Tutorial", "/docs/copilot/getting-started-chat"],
-      ["Copilot Edits", "/docs/copilot/copilot-edits"],
-      ["Adding Chat Context", "/docs/copilot/copilot-chat-context"],
+      ["", "", {
+        "name": "Chat",
+        "area": "copilot/chat",
+        "topics": [
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
+          ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
+          ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
+          ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
+          ["Inline Chat", "/docs/copilot/chat/inline-chat"],
+          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
+        ]
+      }
+      ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Personalize Copilot", "/docs/copilot/copilot-customization"],
-      ["Prompt Engineering", "/docs/copilot/prompt-crafting"],
-      ["Workspace Context", "/docs/copilot/workspace-context"],
+      ["Language Models", "/docs/copilot/language-models"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
@@ -139,10 +150,19 @@
         ]
       }
       ],
-      ["Copilot Cheat Sheet", "/docs/copilot/copilot-vscode-features"],
-      ["Settings Reference", "/docs/copilot/copilot-settings"],
+      ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
-      ["FAQ", "/docs/copilot/faq"]
+      ["FAQ", "/docs/copilot/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "copilot/reference",
+        "topics": [
+          ["Copilot Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
+          ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
+          ["Workspace Context", "/docs/copilot/reference/workspace-context"]
+        ]
+      }
+      ]
     ]
   },
   {
@@ -330,7 +350,7 @@
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
-      ["Model Conversion", "/docs/intelligentapps/modelconversion"]
+      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["FAQ", "/docs/intelligentapps/faq"]
     ]
   },

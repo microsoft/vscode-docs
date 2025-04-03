@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -157,6 +157,7 @@ Please read the [extension guides telemetry document](/api/extension-guides/tele
 
 ## Next steps
 
+* [Centrally manage telemetry log level](/docs/setup/enterprise.md#configure-telemetry-level) - Learn how to set the telemetry log level for your organization.
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/configure/settings.md) - Read about available options to customize VS Code.
 * [Key Bindings](/docs/configure/keybindings.md) - You can easily modify commonly used keyboard shortcuts.

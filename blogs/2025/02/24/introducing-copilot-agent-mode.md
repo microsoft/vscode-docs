@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 February 24, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
-Copilot agent mode is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — analyzing your codebase, reading relevant files, proposing file edits, and running terminal commands and tests. It responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
+Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md) is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — analyzing your codebase, reading relevant files, proposing file edits, and running terminal commands and tests. It responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
 
 <video src="copilot-agent-mode.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -109,7 +109,7 @@ Next, we plan to work on:
 * Unifying the chat and edits experience
 * In parallel, we are improving the quality and performance with the goal of shipping Copilot agent mode to all VS Code Stable users.
 
-For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/copilot-edits.md#use-agent-mode-preview).
+For a detailed overview of Copilot agent mode please read the [official docs](/docs/copilot/chat/chat-agent-mode.md).
 
 We’re thrilled about Copilot agent mode — try it today and let us know what you think.
 
