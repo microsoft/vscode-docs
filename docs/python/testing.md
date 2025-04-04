@@ -21,7 +21,7 @@ When the Python extension is installed and a Python file is open within the edit
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). Testing can also be configured manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which is done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+Tests can be configured anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette) or by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` in the Settings editor or `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If you enable pytest and it is not currently installed in the activated environment, the Python extension attempts to install it in the background. Furthermore, if both frameworks are enabled, the Python extension only runs `pytest`.
 
@@ -52,11 +52,9 @@ When triggering test discovery directly from the Test Explorer, you can also can
 
 ![Cancel test discovery button in the Test Explorer.](images/testing/test-cancel-button.png)
 
-If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer including a link to the logs. The Python extension utilizes error tolerant discovery, meaning if there is an error during discovery that effects some tests but not all, you will see a node of tests and an error node in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
+If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer including a link to the logs. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
 
 ![Discovery failure error messaged displayed in the Test Explorer](images/testing/test-discovery-error.png)
-
-Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests).
 
 ## Run tests
 
@@ -66,7 +64,7 @@ You can run tests using any of the following actions:
 
   ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
-- From the **Command Palette**, by running any of the following commands:
+- From the Command Palette, by running any of the following commands:
   - **Test: Run All Tests** - Runs all tests that have been discovered.
   - **Test: Run Tests in Current File** - Runs all tests in a file that that is open in the editor.
   - **Test: Run Test at Cursor** - Runs only the test method under your cursor in the editor.
@@ -95,9 +93,7 @@ VS Code also shows test results in the **Test Results** panel.
 
 ## Run tests with coverage
 
-Test coverage measures how much of your code is covered by your tests, which helps identify areas of your code that are not fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#_test-coverage.md).
-
-To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the "Run with coverage" option from any menu you normally trigger test runs from. The Python extension runs coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
+To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the **Run with coverage** option from any menu you normally trigger test runs from. The Python extension runs coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
 
 > [!Note]
 > Before running tests with coverage, make sure to install the correct testing coverage package for your project.
@@ -111,31 +107,13 @@ For finer grain control of your coverage run when using pytest, you can edit the
 > [!Note]
 > Django does not currently support running tests with coverage.
 
+For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#_test-coverage.md).
+
 ## Debug tests
 
-You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/debugtest/debugging.md) articles.
+To debug tests, right-click on the gutter decoration next to the function definition and select **Debug Test**, or select the **Debug Test** icon next to that test in the **Test Explorer**.
 
-For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
-
-1. Set a breakpoint on the first line in the `test_decrement` function.
-
-1. Right-click on the gutter decoration next to the function definition and select **Debug Test**, or select the **Debug Test** icon next to that test in the **Test Explorer**. VS Code starts the debugger and pauses at the breakpoint.
-
-    ![Debug Test icon in the Test Explorer](images/testing/debug-test-in-explorer.png)
-
-1. In the **Debug Console** panel, enter `inc_dec.decrement(3)` to see that the actual result is 2, whereas the expected result specified in the test is the incorrect value of 4.
-
-1. Stop the debugger and correct the faulty code:
-
-    ```python
-    # unittest
-    self.assertEqual(inc_dec.decrement(3), 2)
-
-    # pytest
-    assert inc_dec.decrement(3) == 2
-    ```
-
-1. Save the file and run the tests again to confirm that they pass, and see that the gutter decorations also indicate passing status.
+![Debug Test icon in the Test Explorer](images/testing/debug-test-in-explorer.png)
 
 > [!Note]
 > Running or debugging a test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
@@ -166,6 +144,8 @@ For example, the configuration below in the `launch.json` file disables the `jus
 
 If you have more than one configuration entry with `"purpose": ["debug-test"]`, the first definition will be used since we currently don't support multiple definitions for this request type.
 
+For more information on debugging or to understand how it works in VS Code, read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/debugtest/debugging.md) articles.
+
 ## Run tests in parallel
 
 Support for running tests in parallel with pytest is available through the `pytest-xdist` package. Visit their [documentation](https://pytest-xdist.readthedocs.io/en/stable/), for more information on how to use `pytest-xdist`.
@@ -175,7 +155,6 @@ When `xdist` is enabled and no worker count is specified in the arguments, the n
 ## Django unit tests
 
 The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
-> **Tip**: Django test support is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
 
 1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/configure/settings.md#settingsjson).
 2. Add `MANAGE_PY_PATH` as an environment variable:
@@ -195,9 +174,7 @@ If your Django unit tests are not showing in the Testing view, try the following
 
 - Search for error messages in the **Python** Output panel. They might provide a hint as to why your tests are not being discovered.
 - Try to [run the Django tests in the terminal](https://docs.djangoproject.com/en/dev/topics/testing/overview/#running-tests). Then "translate" the same command into VS Code settings.
-    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code settings.
-
-    Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
+    For example, if you run `python manage.py test --arg` in the terminal, you would add `MANAGE_PY_PATH='./manage.py'` to a `.env` file, and set `"python.testing.unittestArgs": [--arg]` in the VS Code settings. Alternatively, you can also find the commands that are run by the Python extension in the **Python** Output panel.
 - Use the absolute path to the `manage.py` file when setting the `MANAGE_PY_PATH` environment variable, if you initially used the relative path.
 
 ## Test commands
