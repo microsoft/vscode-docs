@@ -13,6 +13,8 @@ Chat in Visual Studio Code lets you use natural language to interact with large 
 
 ## Use ask mode
 
+You can access ask mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)). Follow these steps to get started:
+
 1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
 1. Select **Ask** from the chat mode dropdown in the Chat view.

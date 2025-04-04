@@ -15,11 +15,13 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language defin
 
 In agent mode, you can Copilot operates in an autonomous manner and determines the relevant context for your prompt.
 
+You can access agent mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)). Follow these steps to get started:
+
 1. Make sure that agent mode is enabled by configuring the `setting(chat.agent.enabled)` setting in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings).
 
 1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
-1. Select **Ask** from the chat mode dropdown in the Chat view.
+1. Select **Agent** from the chat mode dropdown in the Chat view.
 
     ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
 

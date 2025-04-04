@@ -26,9 +26,9 @@ Based on your specific needs, you can choose between different modes of chat:
 
 | Mode | Description | Scenario |
 |------|-------------|----------|
-| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask questions about your codebase or technology concepts. | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
-| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Make edits across multiple files in your codebase. | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
-| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Start an agentic coding workflow. | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
+| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask questions about your codebase or technology concepts.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
+| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Make edits across multiple files in your codebase.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
+| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Start an agentic coding workflow.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
 
 Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
 
