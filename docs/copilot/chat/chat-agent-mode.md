@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use agent mode in VS Code
 
-With chat _agent mode_ in Visual Studio Code, you can use natural language define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+With chat _agent mode_ in Visual Studio Code, you can use natural language to define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -58,7 +58,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
+1. Copilot Edits detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
@@ -90,7 +90,7 @@ Based on the outcome of a tool, Copilot might invoke other tools to accomplish t
 
 ## Accept or discard edits
 
-Copilot lists the files that were edited in the changed files list in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
+Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
@@ -108,7 +108,7 @@ When you close VS Code, the status of the pending edits is remembered. When you 
 
 ## Revert edits
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
+As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example, because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
 
 You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
 
@@ -130,7 +130,7 @@ When you cancel a request, Copilot interrupts and ends the active request. You c
 
 The following list contains the settings related to agent mode. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
 
-* `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`)
+* `setting(chat.agent.enabled: true)`: enable or disable agent mode (default: `false`)
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
@@ -142,7 +142,7 @@ The following list contains the settings related to agent mode. You can configur
 Consider the following criteria to choose between edit mode and agent mode:
 
 * **Edit scope**: agent mode autonomously determines the relevant context and files to edit. In edit mode, you need to specify the context yourself.
-* **Task complexity**: agent mode is better suited for complex tasks that require not only code edits, but also the invocation of tools and terminal commands.
+* **Task complexity**: agent mode is better suited for complex tasks that require not only code edits but also the invocation of tools and terminal commands.
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
