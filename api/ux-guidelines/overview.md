@@ -83,7 +83,7 @@ On the left, [Status Bar Items](/api/ux-guidelines/status-bar#status-bar-items) 
 
 Extensions can contribute Commands that appears in the [Command Palette](/api/ux-guidelines/command-palette) to quickly execute some functionality.
 
-[![Overview of the Command Palette element](images/examples/command-palette.png)](images/examples/command-palette.png)
+[![Overview of the Command Palette element](images/examples/command-palette.png)](/assets/api/ux-guidelines/examples/command-palette.png)
 
 ### Quick Pick
 
