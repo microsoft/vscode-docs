@@ -104,8 +104,6 @@ Once the coverage run completes, lines are highlighted in the editor for line le
 
 For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
 
-> [!Note]
-> Django does not currently support running tests with coverage.
 
 For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#_test-coverage.md).
 
