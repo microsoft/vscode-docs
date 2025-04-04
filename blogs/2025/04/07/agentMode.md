@@ -86,6 +86,6 @@ Agent mode is improving every day, and to be among the first to benefit consider
 
 Make sure you are on the latest VS Code Stable, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** from the mode dropdown. Try it out today and let us know what you think! You can find the documentation [here](https://aka.ms/vscode-copilot-agent).
 
-Happy coding!
+Happy vibe coding (now with MCP and extensions)!
 
 Isidor and the VS Code team
