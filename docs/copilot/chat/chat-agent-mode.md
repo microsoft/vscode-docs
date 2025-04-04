@@ -44,7 +44,7 @@ In agent mode, you can Copilot operates in an autonomous manner and determines t
 
     Before running a terminal command or non-builtin tool, Copilot requests for confirmation to continue. This is because tools might run locally on your machine and might perform actions that modify files or data.
 
-    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command.
 
     ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
 
