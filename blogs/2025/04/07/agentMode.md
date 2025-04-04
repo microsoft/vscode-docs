@@ -17,9 +17,14 @@ Agent mode is now available to all VS Code users! The agent acts as an autonomou
 
 ## Available to all users
 
-Agent mode is now available to all users. Open the Chat view, sign-in to GitHub, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** in the Chat mode dropdown. In the following weeks, we are rolling it out by default to everyone - no setting will be required.
+Open the Chat view, sign-in to GitHub, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** in the Chat mode dropdown. In the following weeks, we are rolling it out by default to everyone - no setting will be required.
 
-todo@isidor brief set of examples when to use agent mode
+Use agent mode when:
+* Your taks involves multiple steps - the agent edits code, runs terminal commends, monitors for errors, and iterates to resolve any issues that arise.
+* You are unsure which files or context are relevant - the agent automatically determines what's needed.
+* Your task requires interaction with external apps or data - the agent integrates with MCP servers and VS Code extnesions
+
+On the other hand, use edit mode when the task has a well-defined scope, you want a quick turnaround or you want to preserve your GitHub Copilot quota.
 
 We have created a unified chat experience (combining Chat and Edits view) that brings benefits like session history, moving chat into a separate window, and simplification of the Working Set view. All these benefits are now also available in agent mode.
 
@@ -61,7 +66,7 @@ To give you full control, every tool invocation is transparently displayed in th
 
 ### Get started
 
-To customize the agent to your workflows, click the Tools icon in the Chat input and follow the “Add More Tools…” flow. Alternatively, read our [MCP server docs](https://aka.ms/vscode-add-mcp), which explain the configuration format, how to add an MCP server, or how to import MCP servers from an existing MCP client app (e.g., Claude Desktop). VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport.
+To customize the agent to your workflows, click the **Tools** icon in the Chat input and follow the **Add More Tools…** flow. Alternatively, read our [MCP server docs](https://aka.ms/vscode-add-mcp), which explain the configuration format, how to add an MCP server, or how to import MCP servers from an existing MCP client app (e.g., Claude Desktop). VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport.
 
 MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for official, and community-contributed servers that showcase MCP's versatility. To install extensions that contribute tools, simply open the extensions view and search using the tag `@tag:language-model-tools`.
 
@@ -71,9 +76,7 @@ As a developer you can extend the agent by creating an MCP server, or if you are
 
 ## What’s next
 
-Agent mode is improving every day, and to be among the first to benefit consider installing [VS Code Insiders]( https://code.visualstudio.com/insiders/). Using VS Code Insiders and providing feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/) is the best way to help us improve the product.
-
-Next, we plan to work on:
+Agent mode is improving every day, and to be among the first to benefit consider installing [VS Code Insiders]( https://code.visualstudio.com/insiders/). Using VS Code Insiders and providing feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/) is the best way to help us improve the product. Next, we plan to work on:
 * Support for custom modes with custom toolsets and [instructions]( https://code.visualstudio.com/docs/copilot/copilot-customization)
 * Faster code apply experience
 * Checkpoints to easily go back to a specific step in your agent mode session
