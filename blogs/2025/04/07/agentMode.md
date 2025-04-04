@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 April 4th, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
-Agent mode is now available to all VS Code users! The agent acts as an autonomous pair programmer. It performs multi-step coding tasks at your command — including analyzing your codebase, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. The agent can also use contributed tools, allowing it to interact with external MCP servers or VS Code extensions to perform a wide variety of tasks.
+Agent mode is rolling out to all VS Code users! The agent acts as an autonomous pair programmer. It performs multi-step coding tasks at your command — including analyzing your codebase, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. The agent can also use contributed tools, allowing it to interact with external MCP servers or VS Code extensions to perform a wide variety of tasks.
 
 <video src="agent-mode.mp4" title="Agent mode" autoplay muted controls></video>
 
@@ -22,7 +22,7 @@ Open the Chat view, sign-in to GitHub, set `setting(chat.agent.enabled:true)` in
 Use agent mode when:
 * Your taks involves multiple steps - the agent edits code, runs terminal commends, monitors for errors, and iterates to resolve any issues that arise.
 * You are unsure which files or context are relevant - the agent automatically determines what's needed.
-* Your task requires interaction with external apps or data - the agent integrates with MCP servers and VS Code extnesions
+* Your task requires interaction with external apps or data - the agent integrates with MCP servers and VS Code extensions
 
 On the other hand, use edit mode when the task has a well-defined scope, you want a quick turnaround or you want to preserve your GitHub Copilot quota.
 
