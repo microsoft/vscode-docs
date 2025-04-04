@@ -17,9 +17,11 @@ By selecting specific files and providing clear context, you can guide edit mode
 
 In edit mode, you select which files to edit and provide the relevant context and prompt. Copilot will suggest code edits based on your prompt.
 
+You can access edit mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit)). Follow these steps to get started:
+
 1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
 
-1. Select **Ask** from the chat mode dropdown in the Chat view.
+1. Select **Edit** from the chat mode dropdown in the Chat view.
 
     ![Screenshot showing the Copilot Edits view, highlighting edit mode selected.](images/copilot-chat/chat-mode-dropdown-edit.png)
 
