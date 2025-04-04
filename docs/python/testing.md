@@ -204,22 +204,6 @@ Below are all the supported commands for testing with the Python extension in VS
 |  **Testing: Focus on Test Explorer View** | Open the Test Explorer view. Similar to **Testing: Focus on Python View** on versions prior to 2021.9.
 |  **Test: Stop Refreshing Tests** | Cancel test discovery. |
 
-## IntelliSense for pytest
-
-[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers IntelliSense features that can help you work more efficiently with [pytest fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) and [parameterized tests](https://docs.pytest.org/en/6.2.x/parametrize.html).
-
-As you're typing the parameters for your test function, Pylance will offer you a list of [completions](/docs/python/editing.md#autocomplete-and-intellisense) that includes argument names from `@pytest.mark.parametrize` decorators, as well as existing pytest fixtures defined in your tests file or in `conftest.py`. [Code navigation](/docs/python/editing.md#navigation) features such as **Go to Definition** and **Find All References** and [rename symbol refactoring](/docs/editing/refactoring.md#rename-symbol) are also supported.
-
-![Auto completion suggestion when passing a parameter to a test function in a Python test file. The suggestion is a fixture defined in conftest.py.](images/testing/pytest-fixture-autocomplete.png)
-
-When hovering over a fixture reference or a parameterized argument reference, Pylance will show the inferred type annotation, either based on the return values of the fixture, or based on the inferred types of the arguments passed to the parameterization decorator.
-
-![Pylance type inference based on the types of arguments passed to the parameterization decorator.](images/testing/pytest-inferred-parametrized-argument.png)
-
-Pylance also offers [code actions](/docs/editing/refactoring.md#code-actions--quick-fixes-and-refactorings) to add type annotations to test functions that have fixture parameters.  Inlay hints for inferred fixture parameter types can also be enabled by setting `python.analysis.inlayHints.pytestParameters` to `true` in your User settings.
-
-![Code action to add type annotation when hoving over a test function with a fixture parameter](images/testing/pytest-annotation-code-action.png)
-
 ## Test configuration settings
 
 The behavior of testing with Python is driven by general UI settings provided by VS Code, and settings that are specific to Python and to whichever framework you've enabled.
