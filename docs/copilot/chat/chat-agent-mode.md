@@ -6,14 +6,14 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use agent mode in VS Code
 
-With chat _agent mode_ in Visual Studio Code, you can use natural language define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
+With chat _agent mode_ in Visual Studio Code, you can use natural language to define a high-level task and start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed, determines the relevant files and context, makes edits to your codebase, and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Use agent mode
 
-In agent mode, Copilot operates in an autonomous manner and determines the relevant context for your prompt.
+In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.
 
 You can access agent mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)). Follow these steps to get started:
 
@@ -27,7 +27,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
 1. Enter your prompt for making edits in the chat input field and select **Send** (`kb(workbench.action.edits.submit)`) to submit it.
 
-    You can specify a high-level requirement and you don't have to specify which files to work on. In agent mode, Copilot determines the relevant context and files to edit autonomously.
+    You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, Copilot determines the relevant context and files to edit autonomously.
 
     Experiment with some of these example prompts to get started:
 
@@ -35,7 +35,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
     * `Add social media sharing functionality`
     * `Replace current auth with OAuth`
 
-1. Agent mode might invoke multiple [tools](#agent-mode-tools) to accomplish the different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
+1. Agent mode might invoke multiple [tools](#agent-mode-tools) to accomplish different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
 
     ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
 
@@ -44,7 +44,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
 1. Confirm tool invocations and terminal commands.
 
-    Before running a terminal command or non-builtin tool, Copilot requests for confirmation to continue. This is because tools might run locally on your machine and might perform actions that modify files or data.
+    Before running a terminal command or non-builtin tool, Copilot requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command.
 
@@ -58,7 +58,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot Edits detects issues and problems in code edits and terminal commands, and will iterate and perform additional actions to resolve them.
+1. Copilot Edits detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
@@ -70,7 +70,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
-1. Continue to iterate on the code changes to refine the edits or to implement additional features.
+1. Continue to iterate on the code changes to refine the edits or implement additional features.
 
 ## Agent mode tools
 
@@ -78,7 +78,7 @@ Agent mode uses tools to accomplish specialized tasks while processing a user re
 
 Agent mode can use the following tools:
 
-* Builtin tools
+* Built-in tools
 * [MCP tools](/docs/copilot/chat/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/tools.md)
 
@@ -104,11 +104,11 @@ Use the **Keep** or **Undo** controls in the editor or Chat view to accept or re
 
 With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
 
-When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored and you can still accept or discard the edits.
+When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
 
 ## Revert edits
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
+As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example, because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
 
 You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
 
@@ -128,7 +128,7 @@ When you cancel a request, Copilot interrupts and ends the active request. You c
 
 ## Settings
 
-The following list contains the settings related to agent mode. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
+The following list contains the settings related to agent mode. You can configure settings through the Settings editor (`kb(workbench.action.openSettings)`).
 
 * `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`)
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
@@ -142,7 +142,7 @@ The following list contains the settings related to agent mode. You can configur
 Consider the following criteria to choose between edit mode and agent mode:
 
 * **Edit scope**: agent mode autonomously determines the relevant context and files to edit. In edit mode, you need to specify the context yourself.
-* **Task complexity**: agent mode is better suited for complex tasks that require not only code edits, but also the invocation of tools and terminal commands.
+* **Task complexity**: agent mode is better suited for complex tasks that require not only code edits but also the invocation of tools and terminal commands.
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
