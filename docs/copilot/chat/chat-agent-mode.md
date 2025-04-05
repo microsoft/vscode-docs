@@ -130,7 +130,7 @@ When you cancel a request, Copilot interrupts and ends the active request. You c
 
 The following list contains the settings related to agent mode. You can configure settings through the Setting editor (`kb(workbench.action.openSettings)`).
 
-* `setting(chat.agent.enabled: true)`: enable or disable agent mode (default: `false`)
+* `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`)
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
