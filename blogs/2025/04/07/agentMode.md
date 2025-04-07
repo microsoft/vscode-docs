@@ -17,7 +17,7 @@ Agent mode is rolling out to all VS Code users! The agent acts as an autonomous 
 
 ## Available to all users
 
-Open the Chat view, sign in to GitHub, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** in the Chat mode dropdown. If you do not see the setting, make sure to reload VS Code. In the following weeks, we are rolling it out by default to everyone - no setting will be required.
+Open the Chat view, sign in to GitHub, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** in the Chat mode dropdown. If you do not see the setting, make sure to reload VS Code after updating to the latest version. In the following weeks, we are rolling it out by default to everyone - no setting will be required.
 
 Agent mode is great for scenarios where:
 
@@ -27,7 +27,7 @@ Agent mode is great for scenarios where:
 
 On the other hand, use edit mode when the task has a well-defined scope, you want a quick turnaround, or you want finer control over the number of LLM requests.
 
-We have created a unified chat experience, combining the Chat and Edits view, that brings benefits like session history, moving chat into a separate window, and simplification of the Working Set view. All these benefits are now also available in agent mode.
+We have created a unified chat experience, combining the Chat and Edits view, that brings benefits like session history, moving chat into a separate window, and simplification of the Working Set view. All of these are now also available in agent mode.
 
 ![Agent mode with proposed changes in the editor](agent_full.png)
 
@@ -45,7 +45,7 @@ To learn more about how the agent works, you can read our [previous post]( https
 
 ## Extensible: MCP servers and VS Code extensions
 
-Just as VS Code extensions enable you to customize your specific workflows, agent extensibility allows you to tailor the agent to your unique needs. With extensibility, the agent can perform browser actions (perform AI web debugging), connect to your chat and note-taking apps, interact with your databases, get context from your design system, get issues and repo context from GitHub and integrate with your cloud platforms. The power of agent mode is in the diversity of tools available and the flexibility to add and remove tools as a user. We are launching extensibility in preview and available to all users.
+Just as VS Code extensions enable you to customize your specific workflows, agent extensibility allows you to tailor the agent to your needs. With extensibility, the agent can perform browser actions (perform AI web debugging), connect to your chat and note-taking apps, interact with your databases, get context from your design system, get issues and repo context from GitHub and integrate with your cloud platforms. The power of agent mode is in the diversity of tools available and the flexibility to add and remove tools as a user. We are launching extensibility in preview and available to all users.
 
 Agent mode can use the following tools:
 
@@ -55,7 +55,7 @@ Agent mode can use the following tools:
 
 ![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](diagram.png)
 
-When the VS Code team invented the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) back in [2016](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol#_any-language-any-tool), our goal was to standardize how language servers communicate with development tools. We are proud that LSP has become a widely adopted standard and fulfilled our vision. Recently, the [ideas behind LSP]( https://x.com/dsp_/status/1897821339332882617) inspired a new protocol: the [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP), which standardizes how applications provide context to LLMs. With agent mode in VS Code using tools contributed by MCP servers, we have now come full circle.
+When the VS Code team invented the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) back in [2016](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol), our goal was to standardize how language servers communicate with development tools. We are proud that LSP has become a widely adopted standard and fulfilled our vision. Recently, the [ideas behind LSP]( https://x.com/dsp_/status/1897821339332882617) inspired a new protocol: the [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP), which standardizes how applications provide context to LLMs. With agent mode in VS Code using tools contributed by MCP servers, we have now come full circle back to VS Code.
 
 ### It's about developer control
 
@@ -71,7 +71,7 @@ To give you full control, every tool invocation is transparently displayed in th
 
 To customize the agent for your workflows, select the **Tools** icon in the chat input and follow the **Add More Tools…** flow. Alternatively, read our [MCP server docs](https://aka.ms/vscode-add-mcp), which explain the configuration format, how to add an MCP server, or how to import MCP servers from an existing MCP client app like Claude Desktop. VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport.
 
-MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for official, and community-contributed servers that showcase MCP's versatility. To install extensions that contribute tools, simply open the Extensions view and search using the tag `@tag:language-model-tools`.
+MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for official, and community-contributed servers that showcase MCP's versatility. To install extensions that contribute tools, open the Extensions view and search using the tag `@tag:language-model-tools`.
 
 ![extension search showing extensions that contribute tools](tool-extensions.png)
 
@@ -83,9 +83,9 @@ Agent mode is improving every day, and to be among the first to benefit, conside
 
 * Support for custom modes with custom toolsets and [instructions]( https://code.visualstudio.com/docs/copilot/copilot-customization)
 * A faster code-apply experience
-* Checkpoints to easily go back to a specific step in your agent mode session
-* Expand MCP support from tools to prompts, resources, sampling, and the latest spec updates
+* Expand MCP support from tools to prompts, resources, and the latest spec updates
 * Streaming of edits limited to changed code blocks for improved speed
+* Checkpoints to easily go back to a specific step in your agent mode session
 * Overall performance and service quality improvements
 
 Make sure you are on the latest VS Code Stable, set `setting(chat.agent.enabled:true)` in your settings and select **Agent** from the mode dropdown. Try it out today and let us know what you think! You can find the documentation [here](https://aka.ms/vscode-copilot-agent).
