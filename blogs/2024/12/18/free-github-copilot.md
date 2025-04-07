@@ -3,6 +3,7 @@ Order: 91
 TOCTitle: Announcing Copilot Free in VS Code
 PageTitle: Announcing a free GitHub Copilot for VS Code
 MetaDescription: Announcing a free plan for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: copilot-free.jpg
 Date: 2024-12-18
 Author: Burke Holland
 ---
