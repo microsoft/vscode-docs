@@ -11,7 +11,7 @@ Author: Isidor Nikolic
 
 April 7th, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
-Agent mode is rolling out to all VS Code users! The agent acts as an autonomous pair programmer whereby it performs multi-step coding tasks at your command, such as analyzing your codebase, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. The agent can also use contributed tools, allowing it to interact with external MCP servers or VS Code extensions to perform a wide variety of tasks.
+Agent mode is rolling out to all VS Code users! The agent acts as an autonomous pair programmer that performs multi-step coding tasks at your command, such as analyzing your codebase, proposing file edits, and running terminal commands. It responds to compile and lint errors, monitors terminal output, and auto-corrects in a loop until the task is completed. The agent can also use contributed tools, allowing it to interact with external MCP servers or VS Code extensions to perform a wide variety of tasks.
 
 <video src="agent_mode.mp4" title="Agent mode" autoplay muted controls></video>
 
