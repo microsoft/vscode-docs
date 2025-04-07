@@ -2,12 +2,12 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
 
-This is additional information for Visual Studio Code [tasks](/docs/editor/tasks.md).
+This is additional information for Visual Studio Code [tasks](/docs/debugtest/tasks.md).
 
 ## Schema for tasks.json
 

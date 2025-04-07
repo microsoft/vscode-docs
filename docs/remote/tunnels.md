@@ -5,7 +5,7 @@ TOCTitle: Tunnels
 PageTitle: Remote Tunnels
 ContentId: 5d33c1af-b4e6-4894-aae1-acf95ee3ffa8
 MetaDescription: Using the Visual Studio Code Remote Tunnels extension
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 ---
 # Developing with Remote Tunnels
 
@@ -25,7 +25,7 @@ VS Code can provide a **local-quality development experience** - including full 
 
 You have two paths to work with tunnels:
 
-* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/editor/command-line.md#create-remote-tunnel).
+* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/configure/command-line.md#create-remote-tunnel).
 * Enable tunneling through the VS Code Desktop UI.
 
 Both of these paths result in the same tunneling functionality – you can use whichever tooling works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. Using the VS Code Desktop UI is convenient if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
@@ -34,7 +34,7 @@ We'll describe both paths in the sections below.
 
 ## Using the 'code' CLI
 
-You may create and use tunnels through the `code` [CLI](/docs/editor/command-line.md).
+You may create and use tunnels through the `code` [CLI](/docs/configure/command-line.md).
 
 1. Install the `code` CLI on a remote machine you'd like to develop against from a VS Code client. The CLI establishes a tunnel between a VS Code client and your remote machine. The CLI is automatically built into VS Code Desktop – no additional setup required.
 
@@ -166,7 +166,7 @@ You have a few options:
 * Use the `service` command to run as a service. You can run `code tunnel service install` and `code tunnel service uninstall` to install and remove them.
 * Use the `no-sleep` option, `code tunnel --no-sleep`, to prevent your remote machine from going to sleep.
 
-As mentioned in the [`code` CLI doc](/docs/editor/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
+As mentioned in the [`code` CLI doc](/docs/configure/command-line.md#create-remote-tunnel), you can explore all the possible CLI commands and options through `code tunnel --help`.
 
 ### Can I use other Remote Development Extensions or a dev container while I'm tunneling?
 

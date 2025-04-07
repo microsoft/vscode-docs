@@ -1,6 +1,6 @@
 ---
 ContentId: ee9b8bb7-0e8a-478d-842b-f9691f25e820
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Learn how to personalize VS Code to your likings with themes, icons, keyboard shortcuts, display language, and settings.
 ---
 # Personalize VS Code
@@ -35,7 +35,7 @@ To modify a setting in VS Code with the Settings editor:
     > [!TIP]
     > To show the settings you've modified, select the **modified** filter value in the Settings editor search bar.
 
-Get more details about [configuring settings in VS Code](/docs/editor/settings.md), such as configuring language-specific settings or syncing settings across machines.
+Get more details about [configuring settings in VS Code](/docs/configure/settings.md), such as configuring language-specific settings or syncing settings across machines.
 
 ## Change default keyboard shortcuts
 
@@ -53,7 +53,7 @@ To change a keyboard shortcut in VS Code with the Keyboard Shortcuts editor:
 
 A _keymap extension_ enables you to modify the VS Code shortcuts to match those of your preferred editor. Select the **Preferences: Keymaps** command from the Command Palette to see a list of keymap extensions.
 
-Get more details about [configuring keyboard shortcuts in VS Code](/docs/editor/keybindings.md), such as specifying keyboard rules or running multiple commands.
+Get more details about [configuring keyboard shortcuts in VS Code](/docs/configure/keybindings.md), such as specifying keyboard rules or running multiple commands.
 
 ## Change the look of VS Code with themes
 
@@ -70,7 +70,7 @@ To change the color theme in VS Code:
 1. Use the `kbstyle(Up)` and `kbstyle(Down)` keys to preview color themes and use `kbstyle(Enter)` to select one.
 1. Optionally, select **Browse Additional Color Themes** to browse the [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) for more color themes.
 
-There are more theming options available in VS Code, such as File Icon themes or creating your own themes. Get more details about [themes in VS Code](/docs/editor/themes.md).
+There are more theming options available in VS Code, such as File Icon themes or creating your own themes. Get more details about [themes in VS Code](/docs/configure/themes.md).
 
 ## Change the display language
 
@@ -85,7 +85,7 @@ To change the current display language:
 1. Select your preferred language from the list.
 1. Restart VS Code when prompted.
 
-Get more details about [changing the display language in VS Code](/docs/editor/locales.md).
+Get more details about [changing the display language in VS Code](/docs/configure/locales.md).
 
 ## Next steps
 
@@ -94,4 +94,4 @@ After personalizing VS Code, you can:
 * [Explore key VS Code features with our Quickstart](/docs/getstarted/getting-started.md)
 * [Install extensions to add features for your programming language](/docs/getstarted/extensions.md)
 * [Set up version control with Git](/docs/sourcecontrol/overview.md)
-* [Configure debugging for your project](/docs/editor/debugging.md)
+* [Configure debugging for your project](/docs/debugtest/debugging.md)

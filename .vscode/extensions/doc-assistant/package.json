@@ -38,11 +38,13 @@
     "languageModelTools": [
       {
         "name": "getReleaseFeatures",
-        "displayName": "VS Code release features fetcher",
-        "modelDescription": "Use this tool to get all release features. Returns a list of features with title, body, number, labels, comments and associated issues.",
+        "toolReferenceName": "getReleaseFeatures",
+        "displayName": "VS Code Release Features Fetcher",
+        "modelDescription": "Use this tool to get all features that current user worked on in the current release. Returns a list of features with title, body, number, labels, comments and associated issues.",
         "tags": [
           "vscode-doc"
-        ]
+        ],
+        "canBeReferencedInPrompt": true
       }
     ]
   },

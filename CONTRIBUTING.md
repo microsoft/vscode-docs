@@ -173,7 +173,7 @@ Before moving or renaming content, a redirect should be added in case people hav
 
 It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
 
-For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+For example: `/docs/editor/extension-gallery.md` -> `/docs/configure/extensions/extension-marketplace.md`
 
 ### sitemap
 
@@ -207,7 +207,7 @@ Use '>' to show menu sequence.
 
 ### Links
 
-For links within our own documentation, use a site relative link like `/docs/editor/codebasics.md`.
+For links within our own documentation, use a site relative link like `/docs/editing/codebasics.md`.
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
@@ -219,7 +219,7 @@ To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](pag
 
 Note the subheading title is lowercase and subheading title words are separated by '-' hyphens.
 
->For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
+>For example: `[Keyboard Shortcuts](/docs/editing/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editing/codebasics#_keyboard-shortcuts.
 
 ### Images
 

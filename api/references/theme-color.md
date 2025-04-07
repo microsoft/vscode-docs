@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -589,6 +589,8 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
 - `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
+- `editorGutter.itemGlyphForeground`: Editor gutter decoration color for gutter item glyphs.
+- `editorGutter.itemBackground`: Editor gutter decoration color for gutter item background. This color should be opaque.
 
 The editor comments widget can be seen when reviewing pull requests:
 
@@ -600,16 +602,16 @@ The editor comments widget can be seen when reviewing pull requests:
 
 Editor inline edits can be seen when using Copilot to suggest the next change to make:
 
+  `inlineEdit.gutterIndicator.primaryBorder`: Border color for the primary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.primaryForeground`: Foreground color for the primary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.primaryBackground`: Background color for the primary inline edit gutter indicator.
+  `inlineEdit.gutterIndicator.secondaryBorder`: Border color for the secondary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.secondaryForeground`: Foreground color for the secondary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.secondaryBackground`: Background color for the secondary inline edit gutter indicator.
+  `inlineEdit.gutterIndicator.successfulBorder`: Border color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.successfulForeground`: Foreground color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.successfulBackground`: Background color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.background`: Background color for the inline edit gutter indicator.
-- `inlineEdit.indicator.foreground`: Foreground color for the inline edit indicator.
-- `inlineEdit.indicator.background`: Background color for the inline edit indicator.
-- `inlineEdit.indicator.border`: Border color for the inline edit indicator.
 - `inlineEdit.originalBackground`: Background color for the original text in inline edits.
 - `inlineEdit.modifiedBackground`: Background color for the modified text in inline edits.
 - `inlineEdit.originalChangedLineBackground`: Background color for the changed lines in the original text of inline edits.
@@ -618,8 +620,8 @@ Editor inline edits can be seen when using Copilot to suggest the next change to
 - `inlineEdit.modifiedChangedTextBackground`: Overlay color for the changed text in the modified text of inline edits.
 - `inlineEdit.originalBorder`: Border color for the original text in inline edits.
 - `inlineEdit.modifiedBorder`: Border color for the modified text in inline edits.
-- `inlineEdit.tabWillAcceptBorder`: Border color for the inline edits widget over the original text when tab will accept it.
-- `inlineEdit.wordReplacementView.background`: Background color for the inline edit word replacement view.
+  `inlineEdit.tabWillAcceptModifiedBorder`: Modified border color for the inline edits widget when tab will accept it.
+  `inlineEdit.tabWillAcceptOriginalBorder`: Original border color for the inline edits widget over the original text when tab will accept it.
 
 ## Diff editor colors
 
@@ -923,6 +925,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
 - `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
+- `extensionIcon.privateForeground`: The icon color for private extensions.
 
 ## Quick picker colors
 
@@ -1007,6 +1010,13 @@ The following customizations are available:
 
 - `terminalSymbolIcon.aliasForeground`: The foreground color for an alias icon. These icons will appear in the terminal suggest widget
 - `terminalSymbolIcon.flagForeground`: The foreground color for an flag icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.optionForeground`: The foreground color for an option icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.optionValueForeground`: The foreground color for an enum member icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.methodForeground`: The foreground color for a method icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.argumentForeground`: The foreground color for an argument icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.inlineSuggestionForeground`: The foreground color for an inline suggestion icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.fileForeground`: The foreground color for a file icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.folderForeground`: The foreground color for a folder icon. These icons will appear in the terminal suggest widget.
 
 ## Debug colors
 
@@ -1283,4 +1293,4 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 ## Extension colors
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace#extension-details) tab.

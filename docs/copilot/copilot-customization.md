@@ -1,10 +1,6 @@
 ---
-Order: 11
-Area: copilot
-TOCTitle: Customizing Copilot
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-PageTitle: Customize GitHub Copilot in VS Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Learn how you can customize how GitHub Copilot generates code or tests for your project by defining a set of instructions.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -37,7 +33,7 @@ Copilot can help you generate code, for example as part of a refactoring, genera
 
 ### Use settings
 
-You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/editor/settings.md#language-specific-editor-settings).
+You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level, and you can also specify language-specific instructions. Get more information about [language-specific settings](/docs/configure/settings.md#language-specific-editor-settings).
 
 The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
 
@@ -204,7 +200,7 @@ To enable prompt files, configure the `setting(chat.promptFiles)` VS Code settin
 
 #### Create a user prompt file
 
-User prompt files are stored in your [user profile](/docs/editor/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
+User prompt files are stored in your [user profile](/docs/configure/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
 
 You can add a user prompt file to a chat prompt in the same way as a workspace prompt file.
 
@@ -215,6 +211,8 @@ To create a user prompt file:
 1. Enter a name for your prompt file.
 
 1. Write prompt instructions by using Markdown formatting.
+
+User prompt files can now be synced across multiple devices with [Settings Sync](/docs/configure/settings-sync.md). Make sure to enable support for prompt files in your Settings Sync configuration. Select **Settings Sync: Configure** from the Command Palette, and make sure **Prompts** is selected.
 
 #### Attach a prompt file to a chat request
 
@@ -244,16 +242,19 @@ To create a user prompt file:
 * `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate tests.
 * `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: set of instructions that will be added to Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate commit messages.
+* `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
 
 ### Prompt files (experimental) settings
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable prompt file locations. Use the `{ "/path/to/folder": boolean }` notation to specify a specific path and whether it's enabled or not. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.promptFiles)` _(Experimental)_: enable reusable prompt files.
+
+* `setting(chat.promptFilesLocations)` _(Experimental)_: a list of folders where prompt files are located. You can specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
 
     | Setting value | Description |
     |---------------|-------------|
-    | `{ "/path/to/folder": boolean }` | enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
+    | `["/path/to/folder"]` | Enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
 
 ## Related content
 
-* Start AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
-* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/copilot-edits.md).
+* Start AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
+* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).

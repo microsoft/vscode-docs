@@ -4,7 +4,7 @@ Area: python
 TOCTitle: FastAPI Tutorial
 ContentId: 0d32bced-91aa-5c2e-e569-6fc7995370ae
 PageTitle: Python and FastAPI tutorial in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Python FastAPI tutorial showing IntelliSense and debugging support in Visual Studio Code, the best Python IDE.
 ---
 # FastAPI Tutorial in Visual Studio Code
@@ -44,7 +44,7 @@ Once you're done, you can continue with the [Replace the database](#replace-the-
 To successfully complete this tutorial in [VS Code](https://code.visualstudio.com/), you first need to set up your Python development environment. Specifically, this tutorial requires:
 
 * Python 3 (check the [installation guide](/docs/python/python-tutorial.md#install-a-python-interpreter) if you don't have it installed)
-* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/editor/extension-marketplace.md)).
+* [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (For additional details on installing extensions, you can read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md)).
 
 In this section, we will create a folder to open as a workspace in VS Code, set up a Python virtual environment, and install the project's dependencies.
 
@@ -52,7 +52,7 @@ In this section, we will create a folder to open as a workspace in VS Code, set 
 
 2. Open this new folder in VS Code (**File** > **Open Folder…**).
 
-3. When the [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editor/workspaces/workspace-trust.md).
+3. When the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) prompt shows up, select **Yes, I trust the authors** to allow the workspace to access necessary resources and extensions. You can learn more about Workspace Trust in the [documentation](/docs/editing/workspaces/workspace-trust.md).
 
 Now, let's create a `requirements.txt` file that lists the dependencies we wish to install for the application. The `requirements.txt` file is a common practice in Python development, used to specify the libraries that your project relies on and their versions. This file helps ensure that anyone working on the project can recreate a similar development environment, making it a convenient component for maintaining consistency.
 

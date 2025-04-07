@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -94,7 +94,7 @@ Once you have the Python extension installed and a Python file open within the e
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/editor/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/configure/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If both frameworks are enabled, then the Python extension will only run `pytest`.
 
@@ -149,7 +149,7 @@ By default, the Python extension attempts to discover tests once you enable a fr
 
 `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`. You can refine for which files auto test discovery occurs by specifying a glob pattern in the `python.testing.autoTestDiscoverOnSavePattern` setting. Its default value is `**/*.py`.
 
-You can [configure the settings](/docs/editor/settings.md) in the Settings editor or directly in the `settings.json` file. You need to reload the window for the test discovery setting to take effect.
+You can [configure the settings](/docs/configure/settings.md) in the Settings editor or directly in the `settings.json` file. You need to reload the window for the test discovery setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -240,7 +240,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Run tests with coverage
 
-Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/editor/testing#_test-coverage.md).
+Test coverage is a measure of how much of your code is covered by your tests, which can help you identify areas of your code that are not being fully tested. For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing#_test-coverage.md).
 > **Tip**: Running Python tests with coverage is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
 
 To run tests with coverage enabled, select the coverage run icon in the Test Explorer or the “Run with coverage” option from any menu you normally trigger test runs from. The Python extension will run coverage using the [`pytest-cov`](https://pypi.org/project/pytest-cov/) plugin if you are using pytest, or with [`coverage.py`](https://coverage.readthedocs.io/) for unittest.
@@ -254,7 +254,7 @@ For finer grain control of your coverage run when using pytest, you can edit the
 
 ## Debug tests
 
-You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugging.md) articles.
+You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/debugtest/debugging.md) articles.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 
@@ -336,14 +336,14 @@ Below are all the supported commands for testing with the Python extension in VS
 The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
 > **Tip**: Django test support is currently only supported when `"python.experiments.optInto": ["pythonTestAdapter"]` is added to your User `settings.json`.
 
-1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/editor/settings.md#settingsjson).
+1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/configure/settings.md#settingsjson).
 2. Add `MANAGE_PY_PATH` as an environment variable:
     1. Create a `.env` file at the root of your project.
     2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
-3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/editor/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
+3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/configure/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
 
-> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/editor/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
+> **Note**: By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/configure/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
@@ -361,7 +361,7 @@ If your Django unit tests are not showing in the Testing view, try the following
 
 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers IntelliSense features that can help you work more efficiently with [pytest fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) and [parameterized tests](https://docs.pytest.org/en/6.2.x/parametrize.html).
 
-As you're typing the parameters for your test function, Pylance will offer you a list of [completions](/docs/python/editing.md#autocomplete-and-intellisense) that includes argument names from `@pytest.mark.parametrize` decorators, as well as existing pytest fixtures defined in your tests file or in `conftest.py`. [Code navigation](/docs/python/editing.md#navigation) features such as **Go to Definition** and **Find All References** and [rename symbol refactoring](/docs/editor/refactoring.md#rename-symbol) are also supported.
+As you're typing the parameters for your test function, Pylance will offer you a list of [completions](/docs/python/editing.md#autocomplete-and-intellisense) that includes argument names from `@pytest.mark.parametrize` decorators, as well as existing pytest fixtures defined in your tests file or in `conftest.py`. [Code navigation](/docs/python/editing.md#navigation) features such as **Go to Definition** and **Find All References** and [rename symbol refactoring](/docs/editing/refactoring.md#rename-symbol) are also supported.
 
 ![Auto completion suggestion when passing a parameter to a test function in a Python test file. The suggestion is a fixture defined in conftest.py.](images/testing/pytest-fixture-autocomplete.png)
 
@@ -369,7 +369,7 @@ When hovering over a fixture reference or a parameterized argument reference, Py
 
 ![Pylance type inference based on the types of arguments passed to the parameterization decorator.](images/testing/pytest-inferred-parametrized-argument.png)
 
-Pylance also offers [code actions](/docs/editor/refactoring.md#code-actions--quick-fixes-and-refactorings) to add type annotations to test functions that have fixture parameters.  Inlay hints for inferred fixture parameter types can also be enabled by setting `python.analysis.inlayHints.pytestParameters` to `true` in your User settings.
+Pylance also offers [code actions](/docs/editing/refactoring.md#code-actions--quick-fixes-and-refactorings) to add type annotations to test functions that have fixture parameters.  Inlay hints for inferred fixture parameter types can also be enabled by setting `python.analysis.inlayHints.pytestParameters` to `true` in your User settings.
 
 ![Code action to add type annotation when hoving over a test function with a fixture parameter](images/testing/pytest-annotation-code-action.png)
 
@@ -379,7 +379,7 @@ The behavior of testing with Python is driven by general UI settings provided by
 
 ### General UI settings
 
-The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings editor](/docs/editor/settings.md) when you search for "Testing".
+The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings editor](/docs/configure/settings.md) when you search for "Testing".
 
 ### General Python settings
 

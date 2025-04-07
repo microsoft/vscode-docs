@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 ---
 # Remote Development FAQ
 
@@ -181,7 +181,7 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 
 ## How can I review and configure extension settings?
 
-As with [other parts of Visual Studio Code](/docs/editor/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
+As with [other parts of Visual Studio Code](/docs/configure/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
 
 ![List of settings in Feature Contributions](images/faq/feature-contributions.png)
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
 PageTitle: Rust with Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in Visual Studio Code
@@ -76,7 +76,7 @@ cd hello_world
 code .
 ```
 
->**Note**: Enable [Workspace Trust](/docs/editor/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
+>**Note**: Enable [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) for the new folder as you are the author. You can enable Workspace Trust for your entire project folder parent to avoid being prompted when you create new projects by checking the option to **Trust the authors of all the files in parent folder 'my_projects`**.
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
@@ -131,7 +131,7 @@ When you first open a Rust project, you can watch rust-analyzer's progress in th
 
 ### Inlay hints
 
-One of the first things you may notice is rust-analyzer providing [inlay hints](/docs/editor/editingevolved.md#inlay-hints) to show inferred types, return values, named parameters in light text in the editor.
+One of the first things you may notice is rust-analyzer providing [inlay hints](/docs/editing/editingevolved.md#inlay-hints) to show inferred types, return values, named parameters in light text in the editor.
 
 ![Rust program with inlay hints displayed](images/rust/inlay-hints.png)
 
@@ -157,7 +157,7 @@ rust-analyzer is able to use [semantic syntax highlighting](https://github.com/m
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/editor/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `setting(editor.semanticTokenColorCustomizations)` setting in your user [settings](/docs/configure/settings.md).
 
 In `settings.json`, you would add:
 
@@ -263,7 +263,7 @@ Let's debug the Hello World program, we created earlier. First we will set a bre
 <!--
 ### Using launch.json
 
-For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/editor/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
+For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/debugtest/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
 
 To create a `launch.json` for a Rust program:
 
@@ -284,9 +284,9 @@ If you have any issues or feature requests, feel free to log them in the rust-an
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/configure/extensions/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 
 ## Common questions
 

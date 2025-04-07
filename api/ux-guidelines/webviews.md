@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 1c1f6d51-5914-44fa-ae10-0360be0ae2a3
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for webviews in a Visual Studio Code extension.
@@ -17,7 +17,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Activate your extension only when contextually appropriate
 * Open webviews only for the active window
 * Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
-* Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation)
+* Ensure your views follow [accessibility guidance](/docs/configure/accessibility/accessibility) (color contrast, ARIA labels, keyboard navigation)
 * Use command actions in the toolbar and in the view
 
 ❌ Don't

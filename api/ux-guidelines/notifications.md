@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 92904eb4-6ef0-4801-80d2-6c2c3326ad82
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for notifications in a Visual Studio Code extension.

@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -132,7 +132,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
 - When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
-The Quick Fix feature also supports [accessibility signals](/docs/editor/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
+The Quick Fix feature also supports [accessibility signals](/docs/configure/accessibility/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
 
 ## Run recent command
 
@@ -212,10 +212,10 @@ When experimental IntelliSense is enabled, completions for CLIs `git`, `code`, a
 
 ## Enhanced accessibility
 
-The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/editor/accessibility.md#terminal-accessibility). Some examples of enhancements are:
+The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/configure/accessibility/accessibility.md#terminal-accessibility). Some examples of enhancements are:
 
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
-- An [audio cue](/docs/editor/accessibility.md#accessibility-signals) plays when a command fails.
+- An [audio cue](/docs/configure/accessibility/accessibility.md#accessibility-signals) plays when a command fails.
 - Underlying text box synchronizing such that using the arrow and backspace keys behave more correctly.
 
 ## Supported escape sequences

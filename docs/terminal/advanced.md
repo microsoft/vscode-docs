@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -61,7 +61,7 @@ Chord keyboard shortcuts are made up of two keyboard shortcuts, for example `kbs
 
 ### macOS clear screen
 
-On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/editor/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
+On macOS, `kbstyle(Cmd+K)` is a common keyboard shortcuts in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keyboard shortcut](/docs/configure/keybindings.md#removing-a-specific-keyboard-shortcut-rule):
 
 ```json
 {

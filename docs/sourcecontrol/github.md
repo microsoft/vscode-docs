@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Collaborate on GitHub
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -69,7 +69,7 @@ User suggestions are triggered by the "@" character and issue suggestions are tr
 
 ![User and Issue suggestions](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/editor/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/configure/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
