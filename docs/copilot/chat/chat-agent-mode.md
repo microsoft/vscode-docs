@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use agent mode in VS Code
 
-With chat _agent mode_ in Visual Studio Code, you can use natural language to define a high-level task and start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed, determines the relevant files and context, makes edits to your codebase, and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
+With chat _agent mode_ in Visual Studio Code, you can use natural language to define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -90,7 +90,7 @@ Based on the outcome of a tool, Copilot might invoke other tools to accomplish t
 
 ## Accept or discard edits
 
-Copilot lists the files that were edited in the changed files list in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
+Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
