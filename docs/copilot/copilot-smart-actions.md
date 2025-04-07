@@ -25,7 +25,7 @@ When you rename a symbol in your code, Copilot suggests a new name based on the 
 Use Copilot to generate code documentation for multiple languages.
 
 1. Open your application code file.
-1. Optionally, select the code you want to test.
+1. Optionally, select the code you want to document.
 1. Right-click and select **Copilot** > **Generate Docs**.
 
     ![Inline chat /doc example to generate documentation code comments for a calculator class](images/copilot-smart-actions/inline-chat-doc-example.png)
