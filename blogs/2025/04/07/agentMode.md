@@ -3,6 +3,7 @@ Order: 97
 TOCTitle: Agent mode available to all users
 PageTitle: "Agent mode: available to all users and supports MCP"
 MetaDescription: Agent mode is now available to all users and supports MCP.
+MetaSocialImage: agent-mode.png
 Date: 2025-04-07
 Author: Isidor Nikolic
 ---

@@ -3,6 +3,7 @@ Order: 90
 TOCTitle: GitHub Copilot for Azure
 PageTitle: Introducing GitHub Copilot for Azure
 MetaDescription: Introducing GitHub Copilot for Azure, a chat participant to ask about Azure and help you manage and troubleshoot your Azure resources.
+MetaSocialImage: quickstart-create.png
 Date: 2024-11-15
 Author: Chris Harris
 ---

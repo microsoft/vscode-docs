@@ -3,6 +3,7 @@ Order: 86
 TOCTitle: VS Code Extensions and WebAssembly
 PageTitle: VS Code Extensions and WebAssembly
 MetaDescription: Using WebAssembly for Extension Development.
+MetaSocialImage: resource-memory.png
 Date: 2024-05-08
 Author: Dirk Bäumer
 ---
