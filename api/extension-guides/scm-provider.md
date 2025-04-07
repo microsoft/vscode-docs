@@ -109,9 +109,9 @@ The `scm/title` menu is located to the right of the SCM view title. The menu ite
 
 These three are similar:
 
-- `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#SourceControlResourceGroup) items.
-- `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState) items.
-- `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.
+- `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#contributes.menus) items.
+- `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#contributes.menus) items.
+- `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#contributes.menus)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.
 
 Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
 
