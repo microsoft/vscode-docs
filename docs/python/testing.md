@@ -33,7 +33,7 @@ If you enable pytest and it is not currently installed in the activated environm
 By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
 > [!Tip]
-> `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery occurs automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/personalize-vscode.md#_configure-settings) documentation. You need to reload the window for this setting to take effect. For more control over files included in auto test discovery, adjust the `python.testing.autoTestDiscoverOnSavePattern` setting, which defaults to `**/*.py`.
+> `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery occurs automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/personalize-vscode.md#configure-settings) documentation. You need to reload the window for this setting to take effect. For more control over files included in auto test discovery, adjust the `python.testing.autoTestDiscoverOnSavePattern` setting, which defaults to `**/*.py`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -104,8 +104,7 @@ Once the coverage run completes, lines are highlighted in the editor for line le
 
 For finer grain control of your coverage run when using pytest, you can edit the `python.testing.pytestArgs` setting to include your specifications. When the pytest argument `--cov` exists in `python.testing.pytestArgs`, the Python extension will make no additional edits to coverage args, to allow your customizations to take effect. If there is no `--cov` argument found, the extension will add `--cov=.` to the pytest args prior to run to enable coverage at the workspace root.
 
-
-For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#_test-coverage.md).
+For more information on test coverage, visit VS Code's [Test Coverage documentation](/docs/debugtest/testing.md#test-coverage).
 
 ## Debug tests
 
@@ -154,15 +153,15 @@ When `xdist` is enabled and no worker count is specified in the arguments, the n
 
 The Python extension also offers support for discovering and running Django unit tests! You can get your Django tests discovered with only a few additional setup steps:
 
-1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/configure/settings.md#settingsjson).
+1. Set `"python.testing.unittestEnabled": true,` in your `settings.json` [file](/docs/configure/settings.md).
 2. Add `MANAGE_PY_PATH` as an environment variable:
     1. Create a `.env` file at the root of your project.
     2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
         > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
-3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/configure/settings.md#settingsjson) as needed, and remove any arguments that are not compatible with Django.
+3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/configure/settings.md) as needed, and remove any arguments that are not compatible with Django.
 
 > [!Note]
-> By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/configure/settings.md#settingsjson). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#_environment-variables).
+> By default, the Python extension looks for and loads `.env` files at the project root. If your `.env` file is not at the project root or you are using [VS Code variable substitution](/docs/reference/variables-reference.md), add `"python.envFile": "${workspaceFolder}/<path-to-.env>"` to your `settings.json` [file](/docs/configure/settings.md). This enables the Python extension to load the environment variables from this file when running and discovering tests. Get more info about [Python environment variables](/docs/python/environments.md#environment-variables).
 
 Navigate to the Testing view, and select the **Refresh Tests** button to have your Django tests displayed!
 
@@ -199,7 +198,7 @@ Below are all the supported commands for testing with the Python extension in VS
 |  **Test: Run Test at Cursor** |  Run the test method where you have your cursor focused on the editor.  Similar to **Python: Run Test Method...** on versions prior to 2021.9. |
 |  **Test: Run Test in Current File** | Run tests in the file that is currently in focus on the editor. Equivalent to **Python: Run Current Test File** on versions prior to 2021.9. |
 |  **Test: Show Output** | Open the output with details of all the test runs. Similar to **Python: Show Test Output** on versions prior to 2021.9. |
-|  **Testing: Focus on Test Explorer View** | Open the Test Explorer view. Similar to **Testing: Focus on Python View** on versions prior to 2021.9.
+|  **Testing: Focus on Test Explorer View** | Open the Test Explorer view. Similar to **Testing: Focus on Python View** on versions prior to 2021.9. |
 |  **Test: Stop Refreshing Tests** | Cancel test discovery. |
 
 ## Test configuration settings
