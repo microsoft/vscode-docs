@@ -28,7 +28,7 @@ On the other hand, use edit mode when the task has a well-defined scope, you wan
 
 We have created a unified chat experience (combining Chat and Edits view) that brings benefits like session history, moving chat into a separate window, and simplification of the Working Set view. All these benefits are now also available in agent mode.
 
-<large screenshot of agent mode with applied changes>
+![Agent mode with proposed changes in the editor](agent_full.png)
 
 We continue to receive fantastic user feedback ([please keep it coming!]( http://github.com/microsoft/vscode-copilot-release/issues/)), which has inspired many of the improvements we have made. Most notably:
 * Undo now reverts changes up to the last edit file tool call
