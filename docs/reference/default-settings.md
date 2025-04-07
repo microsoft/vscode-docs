@@ -1,6 +1,6 @@
 ---
 ContentId: 96b20723-ca52-4c3a-8632-6dae669ac7e0
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Reference of default settings in Visual Studio Code.
 ---
 # Default settings reference
@@ -14,6 +14,9 @@ You can also view the default values in the Settings editor or see a read-only v
 ```json
 {
 // Telemetry
+
+    // Enable feedback mechanisms such as the issue reporter, surveys, and feedback options in features like Copilot Chat.
+    "telemetry.feedback.enabled": true,
 
     //  - all: Sends usage data, errors, and crash reports.
     //  - error: Sends general error telemetry and crash reports.
@@ -449,7 +452,7 @@ You can also view the default values in the Settings editor or see a read-only v
     "editor.inlineCompletionsAccessibilityVerbose": false,
 
     // Controls whether showing a suggestion will shift the code to make space for the suggestion inline.
-    "editor.inlineSuggest.edits.codeShifting": true,
+    "editor.inlineSuggest.edits.allowCodeShifting": "always",
 
     // Controls whether larger suggestions can be shown side by side.
     //  - auto: Larger suggestions will show side by side if there is enough space, otherwise they will be shown below.
@@ -475,7 +478,7 @@ You can also view the default values in the Settings editor or see a read-only v
     "editor.inlineSuggest.suppressSuggestions": false,
 
     // Controls whether to show syntax highlighting for inline suggestions in the editor.
-    "editor.inlineSuggest.syntaxHighlightingEnabled": false,
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
 
     // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
     "editor.insertSpaces": true,
@@ -1027,7 +1030,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Whether empty lines show a hint to generate code with inline chat.
     "inlineChat.lineEmptyHint": false,
 
-    // Whether lines that are dominated by natural language or pseudo code show a hint to continue with Inline Chat.
+    // Whether lines that are dominated by natural language or pseudo code show a hint to continue with inline chat.
     "inlineChat.lineNaturalLanguageHint": true,
 
     // Run a series of Code Actions for a notebook on save.
@@ -1252,7 +1255,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // If an editor matching one of the listed types is opened as the first in an editor group and more than one group is open, the group is automatically locked. Locked groups will only be used for opening editors when explicitly chosen by a user gesture (for example drag and drop), but not by default. Consequently, the active editor in a locked group is less likely to be replaced accidentally with a different editor.
     "workbench.editor.autoLockGroups": {
         "default": false,
-        "workbench.editor.chatSession": false,
+        "workbench.editor.chatSession": true,
         "workbench.editorinputs.searchEditorInput": false,
         "jupyter-notebook": false,
         "repl": false,
@@ -1635,9 +1638,6 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether to use the split JSON editor when editing settings as JSON.
     "workbench.settings.useSplitJSON": false,
 
-    // Controls whether to use an experimental ranking algorithm for search results in the Settings editor. The newer algorithm is still in development and aims to show fewer and more relevant results.
-    "workbench.settings.useWeightedKeySearch": false,
-
     // Controls the location of the primary side bar and activity bar. They can either show on the left or right of the workbench. The secondary side bar will show on the opposite side of the workbench.
     "workbench.sideBar.location": "left",
 
@@ -1705,6 +1705,9 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Controls whether a confirmation dialog shows asking to save or discard an opened untitled workspace in the window when switching to another workspace. Disabling the confirmation dialog will always discard the untitled workspace.
     "window.confirmSaveUntitledWorkspace": true,
+
+    // Adjust the appearance of the window controls to be native by the OS, custom drawn or hidden. Changes require a full restart to apply.
+    "window.controlsStyle": "native",
 
     // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
     "window.customMenuBarAltFocus": true,
@@ -1992,6 +1995,12 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - default: Explorer will prompt before destructive undo operations.
     //  - light: Explorer will not prompt before undo operations when focused.
     "explorer.confirmUndo": "default",
+
+    // The path separation character used when copying file paths.
+    //  - /: Use slash as path separation character.
+    //  - \: Use backslash as path separation character.
+    //  - auto: Uses operating system specific path separation character.
+    "explorer.copyPathSeparator": "auto",
 
     // The path separation character used when copying relative file paths.
     //  - /: Use slash as path separation character.
@@ -3098,9 +3107,6 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enable/disable suggestion diagnostics for TypeScript files in the editor.
     "typescript.suggestionActions.enabled": true,
-
-    // Enabled/disable occasional surveys that help us improve VS Code's JavaScript and TypeScript support.
-    "typescript.surveys.enabled": true,
 
     // Controls auto detection of tsc tasks.
     //  - on: Create both build and watch tasks.
@@ -4261,19 +4267,19 @@ You can also view the default values in the Settings editor or see a read-only v
     "terminal.integrated.tabs.defaultIcon": "terminal",
 
     // Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:
-    // - `${cwd}`: the terminal's current working directory
+    // - `${cwd}`: the terminal's current working directory.
     // - `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
-    // - `${workspaceFolder}`: the workspace in which the terminal was launched
-    // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched
-    // - `${local}`: indicates a local terminal in a remote workspace
-    // - `${process}`: the name of the terminal process
-    // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence
-    // - `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
-    // - `${sequence}`: the name provided to the terminal by the process
-    // - `${task}`: indicates this terminal is associated with a task
-    // - `${shellType}`: the detected shell type
-    // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
-    // - `${shellPromptInput}`: the shell's full prompt input according to shell integration
+    // - `${workspaceFolder}`: the workspace in which the terminal was launched.
+    // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.
+    // - `${local}`: indicates a local terminal in a remote workspace.
+    // - `${process}`: the name of the terminal process.
+    // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence.
+    // - `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.
+    // - `${sequence}`: the name provided to the terminal by the process.
+    // - `${task}`: indicates this terminal is associated with a task.
+    // - `${shellType}`: the detected shell type.
+    // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
+    // - `${shellPromptInput}`: the shell's full prompt input according to shell integration.
     "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}${cwdFolder}",
 
     // Controls whether terminal tab statuses support animation (eg. in progress tasks).
@@ -4316,19 +4322,19 @@ You can also view the default values in the Settings editor or see a read-only v
     "terminal.integrated.tabs.showActiveTerminal": "singleTerminalOrNarrow",
 
     // Controls the terminal title. Variables are substituted based on the context:
-    // - `${cwd}`: the terminal's current working directory
+    // - `${cwd}`: the terminal's current working directory.
     // - `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
-    // - `${workspaceFolder}`: the workspace in which the terminal was launched
-    // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched
-    // - `${local}`: indicates a local terminal in a remote workspace
-    // - `${process}`: the name of the terminal process
-    // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence
-    // - `${separator}`: a conditional separator (` - `) that only shows when surrounded by variables with values or static text.
-    // - `${sequence}`: the name provided to the terminal by the process
-    // - `${task}`: indicates this terminal is associated with a task
-    // - `${shellType}`: the detected shell type
-    // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line which may not work in some prompt frameworks.
-    // - `${shellPromptInput}`: the shell's full prompt input according to shell integration
+    // - `${workspaceFolder}`: the workspace in which the terminal was launched.
+    // - `${workspaceFolderName}`: the `name` of the workspace in which the terminal was launched.
+    // - `${local}`: indicates a local terminal in a remote workspace.
+    // - `${process}`: the name of the terminal process.
+    // - `${progress}`: the progress state as reported by the `OSC 9;4` sequence.
+    // - `${separator}`: a conditional separator (` - `) that only shows when it's surrounded by variables with values or static text.
+    // - `${sequence}`: the name provided to the terminal by the process.
+    // - `${task}`: indicates this terminal is associated with a task.
+    // - `${shellType}`: the detected shell type.
+    // - `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
+    // - `${shellPromptInput}`: the shell's full prompt input according to shell integration.
     "terminal.integrated.tabs.title": "${process}",
 
     // The number of cells in a tab stop.
@@ -4788,7 +4794,7 @@ You can also view the default values in the Settings editor or see a read-only v
 
 // Chat
 
-    // Enable agent mode for Copilot Edits. When this is enabled, a dropdown appears in the Copilot Edits view to toggle agent mode.
+    // Enable agent mode for Copilot Chat. When this is enabled, a dropdown appears in the view to toggle agent mode.
     "chat.agent.enabled": true,
 
     // The maximum number of requests to allow Copilot Edits to use in agent mode.
@@ -4797,7 +4803,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether the Command Center shows a menu for actions to control Copilot.
     "chat.commandCenter.enabled": true,
 
-    // Enables chat-participant autodetection for Chat view.
+    // Enables chat participant autodetection for chat.
     "chat.detectParticipant.enabled": true,
 
     // Delay after which changes made by chat are automatically accepted.
@@ -4824,13 +4830,25 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether lines should wrap in chat codeblocks.
     "chat.editor.wordWrap": "off",
 
+    // Enable using tools contributed by third-party extensions in Copilot Chat agent mode.
+    "chat.extensionTools.enabled": true,
+
+    // Controls whether the Copilot window should be focused when a confirmation is needed.
+    "chat.focusWindowOnConfirmation": true,
+
     // Enables automatically using the active editor as chat context for specified chat locations.
     "chat.implicitContext.enabled": {
         "panel": "always",
         "editing-session": "first"
     },
 
-    // Enable reusable prompt files (`*.prompt.md`) in Chat, Edits, and Inline Chat sessions.
+    // Configures discovery of Model Context Protocol servers on the machine.
+    "chat.mcp.discovery.enabled": true,
+
+    // Enables integration with Model Context Protocol servers to provide additional tools and functionality.
+    "chat.mcp.enabled": true,
+
+    // Enable reusable prompt files (`*.prompt.md`) in chat sessions.
     "chat.promptFiles": true,
 
     // Specify location(s) of reusable prompt files (`*.prompt.md`) that can be attached in Chat, Edits, and Inline Chat sessions.
@@ -4840,6 +4858,31 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Controls whether related files should be rendered in the chat input.
     "chat.renderRelatedFiles": false,
+
+    // Controls whether Copilot setup starts from a dialog or from the welcome view.
+    "chat.setupFromDialog": true,
+
+    // Enables the unified view with Ask, Edit, and Agent modes in one view.
+    "chat.unifiedChatView": true,
+
+    // Enables storing chat sessions on disk instead of in the storage service.
+    "chat.useFileStorage": true,
+
+    // Model Context Protocol server configurations
+    "mcp": {
+        "inputs": [],
+        "servers": {
+            "mcp-server-time": {
+                "command": "python",
+                "args": [
+                    "-m",
+                    "mcp_server_time",
+                    "--local-timezone=America/Los_Angeles"
+                ],
+                "env": {}
+            }
+        }
+    },
 
 // Diff editor
 
@@ -4871,6 +4914,13 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - hybrid: Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports will be "un-forwarded" by watching for processes that listen on that port to be terminated.
     "remote.autoForwardPortsSource": "process",
 
+    // List of extensions to install upon connection to a remote when already installed locally.
+    "remote.defaultExtensionsIfInstalledLocally": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.vscode-pull-request-github"
+    ],
+
     // When enabled extensions are downloaded locally and installed on remote.
     "remote.downloadExtensionsLocally": false,
 
@@ -4895,14 +4945,6 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Restores the ports you forwarded in a workspace.
     "remote.restoreForwardedPorts": true,
-
-    // The name under which the remote tunnel access is registered. If not set, the host name is used.
-    "remote.tunnels.access.hostNameOverride": "",
-
-    // Prevent this computer from sleeping when remote tunnel access is turned on.
-    "remote.tunnels.access.preventSleep": false,
-
-// Accessibility
 
     // On keypress, close the Accessible View and focus the element from which it was invoked.
     "accessibility.accessibleView.closeOnKeyPress": true,
@@ -4967,6 +5009,18 @@ You can also view the default values in the Settings editor or see a read-only v
     // Plays a sound / audio cue when the focus moves to an modified line in Accessible Diff Viewer mode or to the next/previous change.
     "accessibility.signals.diffLineModified": {
         "sound": "auto"
+    },
+
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when edits are kept.
+    "accessibility.signals.editsKept": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal - sound (audio cue) and/or announcement (alert) - when edits have been undone.
+    "accessibility.signals.editsUndone": {
+        "sound": "auto",
+        "announcement": "auto"
     },
 
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a file or notebook is formatted.
@@ -5487,6 +5541,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether to show a notification when a push is successful.
     "git.showPushSuccessNotification": false,
 
+    // Controls whether to show the details of the last commit for Git refs in the checkout, branch, and tag pickers.
+    "git.showReferenceDetails": true,
+
     // Controls the threshold of the similarity index (the amount of additions/deletions compared to the file's size) for changes in a pair of added/deleted files to be considered a rename.
     "git.similarityThreshold": 50,
 
@@ -5624,9 +5681,6 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - custom: A custom Microsoft Sovereign Cloud
     "microsoft-sovereign-cloud.environment": "",
 
-    // The version of the Microsoft Account client ID to use for signing in with a Microsoft account.
-    "microsoft-authentication.clientIdVersion": "v1",
-
     // The authentication implementation to use for signing in with a Microsoft account.
     //  - msal: Use the Microsoft Authentication Library (MSAL) to sign in with a Microsoft account.
     //  - classic: (deprecated) Use the classic authentication flow to sign in with a Microsoft account.
@@ -5694,12 +5748,12 @@ You can also view the default values in the Settings editor or see a read-only v
     // Fetch data from https://registry.npmjs.org and https://registry.bower.io to provide auto-completion and information on hover features on npm dependencies.
     "npm.fetchOnlinePackageInfo": true,
 
-    // The package manager used to run scripts.
-    //  - auto: Auto-detect which package manager to use for running scripts based on lock files and installed package managers.
-    //  - npm: Use npm as the package manager for running scripts.
-    //  - yarn: Use yarn as the package manager for running scripts.
-    //  - pnpm: Use pnpm as the package manager for running scripts.
-    //  - bun: Use bun as the package manager for running scripts.
+    // The package manager used to install dependencies.
+    //  - auto: Auto-detect which package manager to use based on lock files and installed package managers.
+    //  - npm: Use npm as the package manager.
+    //  - yarn: Use yarn as the package manager.
+    //  - pnpm: Use pnpm as the package manager.
+    //  - bun: Use bun as the package manager.
     "npm.packageManager": "auto",
 
     // Run npm commands with the `--silent` option.

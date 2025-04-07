@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -169,17 +169,18 @@ This section can either be a single object, representing a single category of se
 {
   "contributes": {
     "configuration": {
-      "title": "TypeScript",
+      "title": "Settings Editor Test Extension",
+      "type": "object",
       "properties": {
-        "typescript.useCodeSnippetsOnMethodSuggest": {
+        "settingsEditorTestExtension.booleanExample": {
           "type": "boolean",
-          "default": false,
-          "description": "Complete functions with their parameter signature."
+          "default": true,
+          "description": "Boolean Example"
         },
-        "typescript.tsdk": {
-          "type": ["string", "null"],
-          "default": null,
-          "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+        "settingsEditorTestExtension.stringExample": {
+          "type": "string",
+          "default": "Hello World",
+          "description": "String Example"
         }
       }
     }
@@ -187,7 +188,7 @@ This section can either be a single object, representing a single category of se
 }
 ```
 
-![configuration extension point example](images/contribution-points/configuration.png)
+![configuration extension point example](images/contribution-points/configuration-2.png)
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 

@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 03/05/2025
+DateApproved: 04/03/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -205,6 +205,10 @@ There is a **Synchronize Changes** action in the Status Bar, next to the branch 
 If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
 
 ![git status bar publish](images/overview/git-status-bar-publish.png)
+
+If your workspace contains multiple Git repositories, the Status Bar will show the current repository. When you select the Status Bar item, you can choose the behavior of which repository should be active.
+
+![git status bar repo name](images/overview/git-status-bar-repository.png)
 
 ## Gutter indicators
 
