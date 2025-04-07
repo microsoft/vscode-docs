@@ -11,6 +11,9 @@ Author: Isidor Nikolic
 
 February 24, 2025 by [Isidor Nikolic](https://github.com/isidorn)
 
+> [!TIP]
+> Agent mode is now available in VS Code Stable and has support for MCP servers. Read more about the [updates to agent mode in our blog post](/blogs/2025/04/07/agentMode.md).
+
 Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md) is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command — analyzing your codebase, reading relevant files, proposing file edits, and running terminal commands and tests. It responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed. Available to all [VS Code Insiders](https://code.visualstudio.com/insiders/) users today, and soon in VS Code Stable.
 
 <video src="copilot-agent-mode.mp4" title="Copilot Edits video" autoplay muted controls></video>
