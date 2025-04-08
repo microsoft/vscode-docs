@@ -44,7 +44,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.editing.confirmEditRequestRemoval)`: Ask for confirmation before undoing an edit (default: `true`)
 * `setting(chat.editing.confirmEditRequestRetry)`: Ask for confirmation before performing a redo of the last edit (default: `true`)
 * `setting(chat.editing.autoAcceptDelay)`: Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept (default: 0)
-* `setting(chat.agent.enabled:true)`: Enable or disable agent mode (default: `false`)
+* `setting(chat.agent.enabled:true)`: Enable or disable agent mode (default: `false`, requires VS Code 1.99 or later)
 * `setting(chat.agent.maxRequests)`: Maximum number of requests that Copilot can make in agent mode (default: 15)
 * `setting(github.copilot.chat.agent.runTasks)`: Run workspace tasks when using agent mode (default: `true`)
 * `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
