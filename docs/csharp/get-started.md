@@ -16,9 +16,9 @@ This getting started guide introduces you to C# and .NET for Visual Studio Code 
 1. Writing and running a simple "Hello World" application using C#.
 1. Introduce you to other learning resources for C# in VS Code.
 
-Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out our C# curriculum.
+Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out the free C# Certificate from freeCodeCamp.
 
-<a class="install-extension-btn" href="https://aka.ms/selfguidedcsharp">Learn C# Curriculum</a>
+<a class="install-extension-btn" href="https://aka.ms/csharp-certification">Learn C#</a>
 
 ## Necessary tools
 
@@ -28,7 +28,17 @@ Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to
 
 ## Install
 
-### Installing VS Code and extensions
+### Windows
+
+This [WinGet configuration file](https://builds.dotnet.microsoft.com/dotnet/install/dotnet_basic_config_docs.winget) installs the latest .NET SDK, Visual Studio Code, and C# DevKit. If you already have any of them installed, WinGet will skip that step.
+
+1. Download the file and double-click to run it.
+1. Read the license agreement, type <kbd>y</kbd>, and select <kbd>Enter</kbd> when prompted to accept.
+1. You may get a flashing User Account Control (UAC) prompt in your Windows Taskbar at the beginning of the installation, select <kbd>Yes</kbd> to continue installation.
+
+If you run into any issues using the WinGet configuration file, you can follow the manual steps from the MacOS and Linux instructions below.
+
+### MacOS and Linux
 
 1. If you haven't already done so, [install VS Code](https://code.visualstudio.com).
 1. Next, install [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) from the Visual Studio Marketplace. For additional details on installing extensions, read [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md). The C# extension is called **C# Dev Kit** and it's published by Microsoft.
