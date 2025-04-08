@@ -26,6 +26,7 @@ Read more about [function calling](https://platform.openai.com/docs/guides/funct
 By implementing a language model tool in your extension, you can:
 
 - **Extend agent mode** with specialized tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying as part of a chat conversation.
+- **Extend ask and edit mode** with specialized tools that users can reference directly in a chat prompt with `#`. For example, to fetch content from the web.
 - **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension.md) to augment a user's debugging experience.
 
 ## Create a language model tool
@@ -50,7 +51,7 @@ The static configuration of the tool is defined in the `package.json` file of yo
     | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines). |
     | `displayName` | The user-friendly name of the tool, used for displaying in the UI. |
 
-1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt, add the following properties:
+1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt with `#`, add the following properties:
 
     Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers.md).
 
