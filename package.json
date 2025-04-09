@@ -24,5 +24,20 @@
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "npm run check-lfs"
     ]
+  },
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "your-extension.participant-name",
+        "fullName": "Your Participant",
+        "name": "participant-name",
+        "description": "What can I help you with?",
+        "isSticky": true
+      }
+    ]
   }
 }
+
+
+
+
