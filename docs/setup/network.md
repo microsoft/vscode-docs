@@ -20,7 +20,6 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `update.code.visualstudio.com` - Visual Studio Code download and update server
 * `code.visualstudio.com` - Visual Studio Code documentation
 * `go.microsoft.com` - Microsoft link forwarding service
-* `vscode.blob.core.windows.net` - Visual Studio Code blob storage, used for remote server
 * `marketplace.visualstudio.com` - Visual Studio Marketplace
 * `*.gallery.vsassets.io` - Visual Studio Marketplace
 * `*.gallerycdn.vsassets.io` - Visual Studio Marketplace
