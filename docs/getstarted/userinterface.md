@@ -39,7 +39,7 @@ You can open as many editors as you like side by side vertically and horizontall
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
 * Select the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to any side of the editor region.
+* Drag and drop a file to any side of the editor region. Hold `kbstyle(Ctrl)` (`kbstyle(Option)` on macOS) while dragging to copy the tab instead of moving it.
 * Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
