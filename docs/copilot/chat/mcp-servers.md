@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://github.com/modelcontextprotocol/specification/blob/main/docs/specification/2025-03-26/server/_index.md) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://github.com/modelcontextprotocol/specification/blob/main/docs/specification/2025-03-26/server/index.mdx) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
