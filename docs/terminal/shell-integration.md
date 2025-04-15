@@ -60,7 +60,7 @@ if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path 
 
 **zsh**
 
-Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
+Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in zsh to open the file in VS Code.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
