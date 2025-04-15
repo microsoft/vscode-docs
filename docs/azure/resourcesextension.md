@@ -21,7 +21,7 @@ Sign out in the Accounts menu located in the bottom left of your VS Code window.
 
 ## Filter Subscriptions
 
-You can filter the displayed subscriptions, by selecting the Filter icon on any subscription.
+You can filter the displayed subscriptions, by selecting the filter icon on any subscription.
 
 ![filterSubscription](images/extensions/filterSub.png)
 
@@ -45,7 +45,7 @@ In the Accounts & Tenants view, users can view all tenants associated with their
 
 ![authenticateTenant](images/extensions/authenticateTenant.png)
 
-Users can authenticate specific tenants by navigating to the Accounts & Tenant’s view and either clicking the sign-in button located to the right of the tenant or by simply checking an unauthenticated tenant.
+Users can authenticate specific tenants by navigating to the Accounts & Tenants view and either clicking the sign-in button located to the right of the tenant or by simply checking an unauthenticated tenant.
 
 ### Multi-Account Support
 
