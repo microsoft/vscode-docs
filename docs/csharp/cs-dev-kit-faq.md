@@ -215,7 +215,7 @@ If you are encountering issues with Test Explorer, you can enable diagnostic log
 
 This information will help in diagnosing and resolving the issue more efficiently.
 
-### Known Issues
+### I'm using xUnit v3 with the Microsoft.Testing.Platform, why aren't my tests being discovered?
 
 - Using xUnit v3 with package Microsoft.Testing.Platform on macOS can cause test discovery and debugging issues in the Test Explorer for C# Devkit and Visual Studio.
 Workaround: Downgraded to xUnit v2 or use VSTest instead.
