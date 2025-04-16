@@ -87,7 +87,9 @@ There's more information on some of these URLs below.
 
 ## VS Code for the Web - Azure
 
-VS Code for the Web's custom URL - https://insiders.vscode.dev/azure, powered by Azure CLoudshell, allows a developer to run, debug and deploy their applications to Azure in seconds. This custom URL comes with all libraries, dependencies and extensions a developer would need to get started with Azure. Additionally, developers who sign into GitHub, can use GitHub Copilot as their peer programmer, leveraging Agent Mode, to help write code.
+VS Code for the Web's custom URL (<https://insiders.vscode.dev/azure>), powered by Azure Cloud Shell, allows a developer to run, debug, and deploy their applications to Azure in seconds. This environment comes with all libraries, dependencies, and extensions a developer would need to get started with Azure.
+
+Developers who sign in to GitHub can use GitHub Copilot as their peer programmer, leveraging [agent mode](/docs/copilot/chat/chat-agent-mode.md) to help write code.
 
 ### Themes
 
