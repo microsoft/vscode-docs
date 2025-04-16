@@ -360,6 +360,7 @@
     "topics": [
       ["Overview", "/docs/azure/overview"],
       ["Getting Started", "/docs/azure/gettingstarted"],
+      ["Resources view", "docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
       ["Docker", "/docs/azure/docker"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
