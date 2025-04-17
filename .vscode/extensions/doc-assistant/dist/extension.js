@@ -118,7 +118,7 @@ exports["default"] = default_1;
 const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const generateReleaseNotes_1 = __webpack_require__(25);
-const tools_1 = __webpack_require__(53);
+const tools_1 = __webpack_require__(54);
 class History extends prompt_tsx_1.PromptElement {
     render() {
         return (vscpp(prompt_tsx_1.PrioritizedList, { priority: this.props.priority, descending: false }, this.props.context.history.map((turn) => {
@@ -5020,8 +5020,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GenerateReleaseNotesPrompt = void 0;
 const prompt_tsx_1 = __webpack_require__(3);
 const getReleaseIssues_1 = __webpack_require__(26);
-const tools_1 = __webpack_require__(53);
-const history_1 = __webpack_require__(54);
+const tools_1 = __webpack_require__(54);
+const history_1 = __webpack_require__(55);
 class GenerateReleaseNotesPrompt extends prompt_tsx_1.PromptElement {
     static ID = 'generate-release-notes';
     render(state, sizing, progress, token) {
@@ -5029,7 +5029,7 @@ class GenerateReleaseNotesPrompt extends prompt_tsx_1.PromptElement {
             vscpp(prompt_tsx_1.UserMessage, null,
                 "# VS Code Release Notes Writing Guide You are a technical writer assistant tasked with generating release notes for all requested VS Code features. You have access to: - A Tool $",
                 getReleaseIssues_1.GetReleaseFeatures.ID,
-                " to retrieve all features to document - Tools to find (copilot_findTextInFiles) files and read (copilot_readFile) files in the workspace. - How to use: If asked to look for a file say `release-notes/v1_93.md` you can find it by constructing an input object with query property set to release-notes/v1_93.md and pass input object to the copilot_findTextInFiles tool. - Tools to write files in the workspace. ## Key Principles 1. Identifying Features to Document: - Use the $",
+                " to retrieve all features to document - Tools to find (copilot_findTextInFiles) files and read (copilot_readFile) files in the workspace. - Tools to write files in the workspace. ## Key Principles 1. Identifying Features to Document: - Use the $",
                 getReleaseIssues_1.GetReleaseFeatures.ID,
                 " tool to retrieve all features and all of them must be documented. - Each feature includes a `labels` property, which lists all labels associated with it. - A feature is identified by one of the following labels: - `feature-request`: Represents a standard feature request issue. Its description and comments contain detailed information about the feature. - `testplan-item`: Represents a structured testing plan for the feature. Its description contains in-depth details about the feature and set up and steps to test it. - Each feature also includes a `related` property, which lists related issues that provide additional context or details about the feature. - Generate release notes for all features. 2. Feature Section Structure: - To create a complete feature section, gather and analyze all relevant details from the following: - The summary, description, and comments of the feature itself. - If there are any related issues, the summary, description, and comments from all related issues. - Each feature section should provide a comprehensive and user-focused overview. - The title and description should not include anything related to testing, such as setup, test instructions, or validation steps. - Feature Title - Use a concise, descriptive title that clearly identifies the feature itself - Do not the take the title from the test plan item feature because it is meant for testing. - Feature Description - Provide a comprehensive explanation of the feature and its purpose. - Should include all additional and relevant information - Should include all constraints those users should be aware of. - Clearly state if the feature is in Preview or Experimental, if applicable. - Do not add Feature Description Header - Related Issues - At the end of the feature section, list the feature and all its related issues in the format [summary](url) to maintain traceability and reference 3. Documentation Style: - Use clear, active voice and present tense - Write in second person (\"You can now...\") - Present features from the user's perspective - Add descriptive alt text to images - Suffix preview/experimental features with \"(Preview)\" or \"(Experimental)\" 4. Formatting Standards: - Use ### for feature heading - Format settings as: `setting(settingName)` - only use actual VS Code settings - Format keyboard shortcuts as: `kb(command.id)` - verify command IDs exist - Include theme attribution in italics below images - Use proper quote formatting for notes/tips ## Important Guidelines 1. Settings and Commands: - Only document settings that actually exist in VS Code - Verify all setting names and values before documenting - Double-check command IDs before referencing them - Use the search tools to confirm setting/command existence 2. Quality Control: - Save changes using provided tools - Verify all links and references - Ensure consistency with existing docs - Fact-check all technical details 3. Write to release notes - Write ONLY the feature documentation sections - DO NOT include version headers, welcome messages, or update summaries - Start directly with ### feature headings - Use the write tools to write to the release notes - Do not ask for user confirmation Follow these guidelines to create accurate, consistent, and helpful feature documentation that matches VS Code's Release Notes documentation standards."),
             vscpp(history_1.History, { context: this.props.context, priority: 10 }),
@@ -5086,12 +5086,16 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetReleaseFeatures = void 0;
 const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(27);
 const queries_1 = __webpack_require__(28);
+const path_1 = __importDefault(__webpack_require__(53));
 function isSuccess(props) {
     return !!props.result;
 }
@@ -5112,7 +5116,11 @@ class GetReleaseFeatures {
         this.logger = logger;
     }
     async invoke(options, token) {
-        const milestoneName = vscode.workspace.getConfiguration().get('doc-assistant.milestone') ?? 'January 2025';
+        const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path_1.default.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
+        const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get('doc-assistant.milestone');
+        if (!milestoneName) {
+            return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetReleaseFeaturesResult, { error: 'No milestone specified' }, options.tokenizationOptions, token));
+        }
         const issues = await (0, queries_1.getReleaseFeatures)(milestoneName);
         this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
         return (0, utils_1.createLanguageModelToolResult)(await (0, prompt_tsx_1.renderElementJSON)(GetReleaseFeaturesResult, { result: { features: issues } }, options.tokenizationOptions, token));
@@ -10338,6 +10346,13 @@ function wrappy (fn, cb) {
 
 /***/ }),
 /* 53 */
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
+
+/***/ }),
+/* 54 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10444,7 +10459,7 @@ exports.ToolResultMetadata = ToolResultMetadata;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";

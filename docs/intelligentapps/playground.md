@@ -1,9 +1,5 @@
 ---
-Order: 3
-Area: intelligentapps
-TOCTitle: Playground
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-PageTitle: AI Model Playground
 DateApproved: 12/11/2024
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---

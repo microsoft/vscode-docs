@@ -1,10 +1,6 @@
 ---
-Order: 5
-Area: copilot
-TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-PageTitle: AI-powered code completions with GitHub Copilot
-DateApproved: 02/06/2025
+DateApproved: 04/03/2025
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -16,7 +12,7 @@ Copilot provides two kinds of suggestions:
 
 * **Code completions** - Start typing in the editor, and Copilot provides code suggestions that match your coding style and take your existing code into account.
 
-* **Next Edit Suggestions (preview)** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Next Edit Suggestions** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 ## Getting started
 
@@ -63,7 +59,7 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Next Edit Suggestions (preview)
+## Next Edit Suggestions
 
 Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (Copilot NES) is this evolution.
 
@@ -71,16 +67,7 @@ Inline suggestions are great at autocompleting a section of code. But since most
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-### Enabling edit suggestions
-
-Copilot NES is currently in preview. You can enable it via the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`:
-
-1. Open the VS Code Settings editor (`kb(workbench.action.openSettings)`)
-1. Search for `github.copilot.nextEditSuggestions.enabled`
-1. Enable the setting
-
-> [!IMPORTANT]
-> If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot Editor Preview Features, in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor. Learn more about [managing policies for Copilot in your organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+To get started with Copilot NES, enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
 ### Navigate and accept edit suggestions
 
@@ -139,16 +126,30 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 
 * **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
 
-### Edit suggestions configuration options
+## Enable or disable code completions
 
-To further configure edit suggestions, configure these settings:
+You can enable or disable code completions either for all languages, or for specific languages only.
 
-* `setting(editor.inlineSuggest.edits.codeShifting)`: disable this setting if you never want Copilot NES to shift your code when showing a suggestion.
+* To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions.
 
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`:
+    ![Screenshot of the Copilot menu in the Status Bar with checkboxes to enabled or disable code completions and NES.](images/inline-suggestions/copilot-menu-status-bar.png)
 
-     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
-     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
+* Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor.
+
+    Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
+
+### Change the AI model
+
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
+
+To change the language model that is used for generating code completions in the editor:
+
+1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+
+1. Select **Change Completions Model...**, and then select one of the models from the list.
+
+> [!NOTE]
+> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 
@@ -156,40 +157,11 @@ To further configure edit suggestions, configure these settings:
 
 To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
 
-### Enable or disable code completions
-
-You can temporarily enable or disable code completions either for all languages, or for specific languages only.
-
-To enable or disable code completions:
-
-1. Select the Copilot menu in the VS Code title bar, and then select **Configure Code Completions...**.
-
-    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
-
-1. To enable or disable completions for all languages, select **Enable Completions** or **Disable Completions** respectively.
-
-1. To enable or disable completions for the language of the current file, select **Enable Completions for \<language\>** or **Disable Completions for \<language\>**.
-
-### Change the AI model
-
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. You can change the language model that is used to generate code completions.
-
-To change the model that is used for code completions:
-
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
-
-    ![Copilot menu in the VS Code title bar](images/inline-suggestions/configure-code-completions.png)
-
-1. Select **Change Completions Model...**, and then select one of the models from the list.
-
-> [!NOTE]
-> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
-
 ## Settings
 
 ### Code completions settings
 
-* `setting(editor.inlineSuggest.enabled)` - enable or disable inline completions.
+* `setting(github.copilot.enable)` - enable or disable inline completions for all or specific languages.
 
 * `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
 
@@ -201,14 +173,17 @@ To change the model that is used for code completions:
 
 * `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
 
-* `setting(editor.inlineSuggest.edits.codeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
 
 * `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 
+     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
+     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
+
 ## Next steps
 
-* Discover the key features with the [Copilot Quickstart](/docs/copilot/getting-started-chat.md).
+* Discover the key features with the [Copilot Quickstart](/docs/copilot/chat/getting-started-chat.md).
 
-* Use AI chat conversations with [Copilot Chat](/docs/copilot/copilot-chat.md).
+* Use AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
 
 * Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

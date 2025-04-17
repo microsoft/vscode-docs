@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Python in the Web
 ContentId: 366e4bbf-fa87-4813-9dfc-6c831b20a4d2
 PageTitle: Run and Debug Python in the Web
-DateApproved: 02/06/2025
+DateApproved: 04/03/2025
 MetaDescription: Run and Debug Python code in the Web.
 ---
 # Run and Debug Python in the Web
@@ -18,9 +18,9 @@ The following prerequisites are needed to use the extension:
 * You need to have the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension installed.
 * You need to authenticate with GitHub.
 * You need to use a browser that supports [cross-origin isolation](https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/). The extension has been tested with the Microsoft Edge and Google Chrome browsers.
-* You need to use the insider version of [VS Code for the Web](/docs/editor/vscode-web.md) (for example `https://insiders.vscode.dev/`)
+* You need to use the insider version of [VS Code for the Web](/docs/setup/vscode-web.md) (for example `https://insiders.vscode.dev/`)
 * Your source code must be hosted either on your local file system or a GitHub repository that is accessed through the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension.
-* When starting [VS Code for the Web](/docs/editor/vscode-web.md), you need to add the following query parameter to the end of the URL: `?vscode-coi=`.
+* When starting [VS Code for the Web](/docs/setup/vscode-web.md), you need to add the following query parameter to the end of the URL: `?vscode-coi=`.
 
 ## Run Hello World
 

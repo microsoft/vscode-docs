@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 04/03/2025
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes-node-social.png
 ---
@@ -53,7 +53,7 @@ var msg = 'Hello World';
 console.log(msg);
 ```
 
-Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you.
+Note that when you typed `console.` [IntelliSense](/docs/editing/intellisense.md) on the `console` object was automatically presented to you.
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 
@@ -200,10 +200,10 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 
-* [Node.js profile template](/docs/editor/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
-* [Settings](/docs/editor/settings.md) - Learn how to customize VS Code for how you like to work.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Node.js profile template](/docs/configure/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets.
+* [Settings](/docs/configure/settings.md) - Learn how to customize VS Code for how you like to work.
+* [Debugging](/docs/debugtest/debugging.md) - This is where VS Code really shines.
 * [Video: Getting started with debugging in VS Code](https://www.youtube.com/watch?v=3HiLLByBWkg) - Learn how to use debugging in VS Code.
 * [Node.js debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
 * [Debugging recipes](/docs/nodejs/debugging-recipes.md) - Examples for scenarios like client-side and container debugging.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.
+* [Tasks](/docs/debugtest/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.

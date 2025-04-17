@@ -9,6 +9,17 @@
   },
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "VS Code Doc Assistant",
+      "properties": {
+        "doc-assistant.milestone": {
+          "type": "string",
+          "default": "",
+          "description": "The milestone to use when generating release notes (e.g., 'v1.95').",
+          "scope": "resource"
+        }
+      }
+    },
     "chatParticipants": [
       {
         "id": "vscode-doc",
@@ -27,11 +38,13 @@
     "languageModelTools": [
       {
         "name": "getReleaseFeatures",
-        "displayName": "VS Code release features fetcher",
-        "modelDescription": "Use this tool to get all release features. Returns a list of features with title, body, number, labels, comments and associated issues.",
+        "toolReferenceName": "getReleaseFeatures",
+        "displayName": "VS Code Release Features Fetcher",
+        "modelDescription": "Use this tool to get all features that current user worked on in the current release. Returns a list of features with title, body, number, labels, comments and associated issues.",
         "tags": [
           "vscode-doc"
-        ]
+        ],
+        "canBeReferencedInPrompt": true
       }
     ]
   },

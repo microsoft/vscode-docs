@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 05d1e8f8-9bc0-45a4-a8c5-348005fd7ca8
-DateApproved: 02/06/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide for how to build language model prompts using the prompt-tsx library
@@ -85,7 +85,6 @@ Next, define a `MyPrompt` component that includes the base instructions, user qu
 
 ```tsx
 import {
-	SystemMessage,
 	UserMessage,
 	PromptElement,
 	BasePromptElementProps,
@@ -100,15 +99,15 @@ export class MyPrompt extends PromptElement<IMyPromptProps> {
 	render() {
 		return (
 			<>
-				<SystemMessage priority={100}>
+				<UserMessage priority={100}>
 					Here are your base instructions. They have the highest priority because you want to make
 					sure they're always included!
-				</SystemMessage>
+				</UserMessage>
 				{/* Older messages in the history have the lowest priority since they're less relevant */}
 				<HistoryMessages history={this.props.history.slice(0, -2)} priority={0} />
 				{/* The last 2 history messages are preferred over any workspace context you have below */}
 				<HistoryMessages history={this.props.history.slice(-2)} priority={80} />
-				{/* The user query is right behind the system message in priority */}
+				{/* The user query is right behind the based instructions in priority */}
 				<UserMessage priority={90}>{this.props.userQuery}</UserMessage>
 				<UserMessage priority={70}>
 					With a slightly lower priority, you can include some contextual data about the workspace
@@ -160,10 +159,10 @@ In this example, you want to include the contents of all files the user is curre
 
 ### Step 1: Define base instructions and user query
 
-First, you define a `SystemMessage` component that includes the base instructions. This component has the highest priority to ensure it is always included.
+First, you define a `UserMessage` component that includes the base instructions.
 
 ```tsx
-<SystemMessage priority={100}>Here are your base instructions.</SystemMessage>
+<UserMessage priority={100}>Here are your base instructions.</UserMessage>
 ```
 
 You then include the user query by using the `UserMessage` component. This component has a high priority to ensure it is included right after the base instructions.
@@ -205,7 +204,6 @@ Now, combine all the elements into the `MyPrompt` component.
 
 ```tsx
 import {
-	SystemMessage,
 	UserMessage,
 	PromptElement,
 	BasePromptElementProps,
@@ -227,7 +225,7 @@ export class MyPrompt extends PromptElement<IMyPromptProps> {
 	render() {
 		return (
 			<>
-				<SystemMessage priority={100}>Here are your base instructions.</SystemMessage>
+				<UserMessage priority={100}>Here are your base instructions.</UserMessage>
 				<History
 					history={this.props.history}
 					passPriority

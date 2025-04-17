@@ -35,7 +35,6 @@ export class GenerateReleaseNotesPrompt extends PromptElement<GenerateReleaseNot
 
 				- A Tool ${GetReleaseFeatures.ID} to retrieve all features to document
 				- Tools to find (copilot_findTextInFiles) files and read (copilot_readFile) files in the workspace.
-					- How to use: If asked to look for a file say `release-notes/v1_93.md` you can find it by constructing an input object with query property set to release-notes/v1_93.md and pass input object to the copilot_findTextInFiles tool.
 				- Tools to write files in the workspace.
 
 				## Key Principles

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 02/06/2025
+DateApproved: 04/03/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -158,7 +158,7 @@ The handler function will be invoked whenever the `myExtension.sayHello` command
 }
 ```
 
-The `commands` contribution tells VS Code that your extension provides a given command and should be activated when that command is invoked, and also lets you control how the command is displayed in the UI. Now our command will show up in the Command Palette:
+The `commands` contribution tells VS Code that your extension provides a given command and should be activated when that command is invoked, and also lets you control how the command is displayed in the UI. Make sure to follow the [command naming conventions](#naming-conventions) when creating commands.
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
@@ -221,3 +221,13 @@ vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
 vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 2);
 ```
+
+## Naming conventions
+
+When creating commands, you should follow these naming conventions:
+
+- Command title
+  - Use title-style capitalization. Don't capitalize prepositions of four or fewer letters (such as on, to, in, of, with, and for) unless the preposition is the first or last word.
+  - Start with a verb to describe the action that will be performed.
+  - Use a noun to describe the target of the action.
+  - Avoid using "command" in the title.
