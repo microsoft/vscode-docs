@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://github.com/modelcontextprotocol/specification/blob/main/docs/specification/2025-03-26/server/_index.md) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -227,8 +227,8 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 VS Code also includes a URL handler that you can use to install an MCP server. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
 
 ```typescript
-// For Insiders, use `code-insiders` instead of `code`
-const link = `code:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
+// For Insiders, use `vscode-insiders` instead of `code`
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.

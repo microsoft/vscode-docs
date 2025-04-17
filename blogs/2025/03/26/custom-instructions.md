@@ -3,6 +3,7 @@ Order: 94
 TOCTitle: Better AI results with custom instructions
 PageTitle: "Context is all you need - Better AI results with custom instructions"
 MetaDescription: Announcing the general availability of custom instructions for VS Code.
+MetaSocialImage: tail-recursion.jpg
 Date: 2025-03-26
 Author: Rob Conery, Harald Kirschner
 ---

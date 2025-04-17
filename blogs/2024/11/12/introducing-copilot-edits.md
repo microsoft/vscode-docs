@@ -3,6 +3,7 @@ Order: 89
 TOCTitle: Introducing Copilot Edits
 PageTitle: Introducing Copilot Edits
 MetaDescription: Copilot Edits allows you to get to the changes you need in your workspace, across multiple files, using a UI designed for fast iteration. You can specify a set of files to be edited, and then use natural language to simply ask Copilot what you need. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
+MetaSocialImage: copilot-edits.png
 Date: 2024-11-12
 Author: Isidor Nikolic
 ---
