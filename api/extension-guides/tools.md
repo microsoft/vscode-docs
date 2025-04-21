@@ -26,6 +26,7 @@ Read more about [function calling](https://platform.openai.com/docs/guides/funct
 By implementing a language model tool in your extension, you can:
 
 - **Extend agent mode** with specialized tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying as part of a chat conversation.
+- **Extend ask and edit mode** with specialized tools that users can reference directly in a chat prompt with `#`. For example, to fetch content from the web.
 - **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension.md) to augment a user's debugging experience.
 
 ## Create a language model tool
@@ -50,9 +51,9 @@ The static configuration of the tool is defined in the `package.json` file of yo
     | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines). |
     | `displayName` | The user-friendly name of the tool, used for displaying in the UI. |
 
-1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt, add the following properties:
+1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt with `#`, add the following properties:
 
-    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers.md).
+    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers).
 
     | Property | Description |
     | -------- | ----------- |
@@ -222,7 +223,7 @@ When a user sends a chat prompt, the following steps occur:
 
 1. Copilot determines the list of available tools based on the user's configuration.
 
-    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers.md). You can contribute to agent mode via extensions or MCP servers (shown in green in the diagram).
+    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers). You can contribute to agent mode via extensions or MCP servers (shown in green in the diagram).
 
 1. Copilot sends the request to the LLM, providing it with the prompt, chat context, and the list of tool definitions to consider.
 
@@ -268,4 +269,4 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 - [Get started with the Language Model API](/api/extension-guides/language-model)
 - [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
-- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers.md)
+- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers)

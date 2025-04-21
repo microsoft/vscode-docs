@@ -9,21 +9,31 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the chat experience in VS Code. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *chat participant*. Chat participants are domain experts that can answer user queries within a specific domain.
 
-Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
+Users can reference chat participants in [ask mode](/docs/copilot/chat/chat-ask-mode.md) by using the `@` symbol in the Chat view.
 
-- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
-- Forward the user request to a backend service
-- Use procedural logic and local resources
+Alternatively, you can also contribute a [language model tool](/api/extension-guides/tools.md) to the chat experience. A language model tool performs a specific task, and can be invoked automatically in [agent mode](/docs/copilot/chat/chat-agent-mode.md), or manually referenced in [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [edit mode](/docs/copilot/chat/copilot-edits.md) by using `#`.
 
-Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+## Overview
+
+The goal of a chat participant is to enable users to prompt the extension by using natural language and to provide domain-specific answers in response.
 
 When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A chat response can contain rich content, such as Markdown, file trees, command buttons, and more. Get more info about the [supported response output types](#supported-chat-response-output-types).
+
+Chat participants can use different approaches to process a user query:
+
+- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model).
+- Forward the user request to a backend service, which processes the request and returns a response.
+- Use procedural logic and local resources to generate a response.
 
 To help the user take the conversation further, participants can provide *follow-ups* for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
+
+### Using the language model
+
+Chat participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
 ## Extending GitHub Copilot via GitHub Apps
 
@@ -593,6 +603,5 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Video: Enhancing VS Code extensions with GitHub Copilot](https://build.microsoft.com/sessions/57efc1aa-83c0-45c5-b8c3-ad095478bb0a?source=sessions)
-- [Use the Language Model API](/api/extension-guides/language-model) in your extension
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Use the Language Model API](/api/extension-guides/language-model)
+- [Contribute a language model tool](/api/extension-guides/tools.md)
