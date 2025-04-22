@@ -88,7 +88,7 @@ Follow these steps to test the MCP server:
 3. Server will be auto-connected to the Agent Builder.
 4. Click `Run` to test the server with the prompt.
 
-![scaffold mcp](./images/promptbuilder/MCPScaffold.gif)
+![debug mcp](./images/promptbuilder/mcp_debug.gif)
 
 ## Structured output
 
