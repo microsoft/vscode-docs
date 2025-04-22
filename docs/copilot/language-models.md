@@ -38,7 +38,6 @@ Using your own language model API key in VS Code has several advantages:
 - **Experimentation**: experiment with new models or features that are not yet available in the built-in models.
 - **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
 - **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
-- **Enhanced observability**: many model providers offer detailed metrics and monitoring capabilities, allowing teams to better track API usage and performance.
 
 > [!IMPORTANT]
 > This feature is currently in preview and is only available for GitHub Copilot Free and GitHub Copilot Pro users.
@@ -109,6 +108,7 @@ There are a number of considerations when using your own language model API key 
 - Embeddings are still sent to Copilot API.
 - Repository indexing is going through the Copilot API.
 - Query refinement, intent detection, and side queries are still going through the Copilot API.
+- When using your own model, there is no guarantee that responsible AI filtering is applied to the model's output.
 
 ## Frequently asked questions
 
