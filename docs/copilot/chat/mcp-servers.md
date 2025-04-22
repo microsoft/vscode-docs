@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -38,13 +38,31 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 
 ## Add an MCP server
 
-To add an MCP server to your workspace, follow these steps (see below for how to add a server to your user settings):
+You have multiple options to add an MCP server in VS Code:
 
-1. Configure an MCP server in the `.vscode/mcp.json` file in your workspace to share configurations with project collaborators. Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
+- **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
+- **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
+- **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
-    Create a `.vscode/mcp.json` file in your workspace and select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
+> [!CAUTION]
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
 
-    Alternatively, run the **MCP: Add Server** command from the Command Palette and provide the server information to add a new MCP server configuration. Choose **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
+To view and manage the list of configured MCP servers, run the **MCP: List Servers** command from the Command Palette.
+
+After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
+
+### Add an MCP server to your workspace
+
+To configure an MCP server for a specific workspace, you can create a `.vscode/mcp.json` file in your workspace folder. This allows you to share the server configuration with project team members.
+
+> [!IMPORTANT]
+> Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
+
+To add an MCP server to your workspace:
+
+1. Create a `.vscode/mcp.json` file in your workspace.
+
+1. Select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
 
     The following example shows how to configure a [Perplexity MCP server](https://github.com/ppl-ai/modelcontextprotocol/), where VS Code prompts you for the API key when the server starts. Learn more about the [Configuration format](#configuration-format).
 
@@ -76,14 +94,36 @@ To add an MCP server to your workspace, follow these steps (see below for how to
     }
     ```
 
-1. Optionally, specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
-    If you use the **MCP: Add Server** command from the Command Palette, choose **User Settings** to add a new MCP server configuration in user settings.
+### Add an MCP server to your user settings
 
-1. VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
-Enable auto-discovery with the `setting(chat.mcp.discovery.enabled)` setting.
+To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
 
-1. Run the **MCP: List Servers** command from the Command Palette to view and manage the configured MCP servers.
+Specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+
+```json
+// settings.json
+{
+    "mcp": {
+        "servers": {
+            "my-mcp-server": {
+                "type": "stdio",
+                "command": "my-command",
+                "args": []
+            }
+        }
+    },
+}
+```
+
+Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **User Settings** to add the server configuration to your user settings.
+
+### Automatic discovery of MCP servers
+
+VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
+
+Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
 
 ## Configuration format
 
@@ -235,7 +275,7 @@ This link can be used in a browser, or opened on the command line, for example v
 
 ## Troubleshooting
 
-When VS Code encounters an issue with an MCP server, it shows a error indicator in the Chat view.
+When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
