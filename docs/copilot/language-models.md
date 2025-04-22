@@ -10,7 +10,9 @@ Copilot in Visual Studio Code offers different built-in language models that are
 
 ## Choose the right model for your task
 
-Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks.
+By default, Copilot Chat uses a base model to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
+
+However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
 | Model type | Models |
 |-----------|--------|
@@ -25,6 +27,21 @@ The list of [models available in Copilot](https://docs.github.com/en/copilot/usi
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+
+## Why use your own language model API key?
+
+Developers can now leverage models directly from Anthropic, Azure, Google, OpenAI, OpenRouter, or Ollama directly by providing a valid API key. Learn how to [use your own API in VS Code](#bring-your-own-language-model-key).
+
+Using your own language model API key in VS Code has several advantages:
+
+- **Model choice**: access hundreds of models from different providers, beyond the built-in models.
+- **Experimentation**: experiment with new models or features that are not yet available in the built-in models.
+- **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
+- **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
+- **Enhanced observability**: many model providers offer detailed metrics and monitoring capabilities, allowing teams to better track API usage and performance.
+
+> [!IMPORTANT]
+> This feature is currently in preview and is only available for GitHub Copilot Free and GitHub Copilot Pro users.
 
 ## Change the model for chat conversations
 
@@ -84,6 +101,12 @@ To update the provider details, such as the API key or endpoint URL:
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
+
+## Frequently asked questions
+
+### Why is bring your own model key only available for Copilot Free and Copilot Pro?
+
+Bringing your own model key is only available for Copilot Free and Copilot Pro because it's mainly meant to allow users experiment with the newest models the moment they are announced, and not yet available as a built-in model in Copilot. Copilot Business and Enterprise users can still use the built-in, managed models.
 
 ## Related resources
 
