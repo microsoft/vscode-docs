@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: azure
 TOCTitle: Azure Kubernetes Service
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
@@ -9,15 +9,15 @@ MetaDescription: Working with AKS tools and diagnostics in Visual Studio Code
 ---
 # AKS tools and diagnostics in VS Code
 
-This document will walk you through some of the ways you can interact with your AKS clusters directly from Visual Studio Code. [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/#overview) is a fully managed [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/#overview) service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, a continuous integration and continuous delivery (CI/CD) experience, with enterprise-grade security and governance. Azure Kubernetes Service (AKS) is an open-source system for automating deployment, scaling, and management of containerized applications. 
+This document will walk you through some of the ways you can interact with your AKS clusters directly from Visual Studio Code. [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/#overview) is a fully managed [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/#overview) service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, a continuous integration and continuous delivery (CI/CD) experience, with enterprise-grade security and governance. Azure Kubernetes Service (AKS) is an open-source system for automating deployment, scaling, and management of containerized applications.
 
 We will show you how to run [diagnostic health-checks](https://learn.microsoft.com/azure/aks/concepts-diagnostics) on your AKS cluster, launch [AKS Periscope](https://github.com/azure/aks-periscope) for more in-depth troubleshooting, deploy [Azure Service Operator](https://github.com/Azure/azure-service-operator), or generate [GitHub Actions Starter Workflows](https://github.com/actions/starter-workflows).
 
 ## Before you begin
 
-The [AKS VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools). 
+The [AKS VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools) has parent dependency on [Kubernetes VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools).
 
-You will need to download the [Kubernetes VS Code extension](https://code.visualstudio.com/docs/azure/kubernetes). 
+You will need to download the [Kubernetes VS Code extension](https://code.visualstudio.com/docs/azure/kubernetes).
 
 You can follow this guide on an existing AKS cluster or you can [create AKS cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal).
 
@@ -101,11 +101,11 @@ For more information, visit [AKS Periscope](https://github.com/Azure/aks-perisco
 
 **Configuring a Storage Account**
 
-Running the AKS Periscope requires you to have a storage account associated with the Diagnostic settings of your AKS cluster. 
+Running the AKS Periscope requires you to have a storage account associated with the Diagnostic settings of your AKS cluster.
 
-If you have only one storage account associated with the Diagnostic settings of your AKS cluster, the collected logs will be stored in the associated storage account by default. 
+If you have only one storage account associated with the Diagnostic settings of your AKS cluster, the collected logs will be stored in the associated storage account by default.
 
-If you have more than one storage account associated with the Diagnostics settings of your AKS cluster, then the extension will prompt you to choose the storage account for saving collected logs. 
+If you have more than one storage account associated with the Diagnostics settings of your AKS cluster, then the extension will prompt you to choose the storage account for saving collected logs.
 
 If you don't have a storage account configured in the Diagnostic settings, you can follow these instructions to enable it:
 

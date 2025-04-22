@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: azure
 TOCTitle: Deployment
 PageTitle: Visual Studio Code Azure Tutorials
