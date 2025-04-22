@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -42,7 +42,7 @@ You have multiple options to add an MCP server in VS Code:
 
 - **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
 - **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
-- **Automatic discovery**: enable auto-discovery of MCP servers defined in other tools, such as Claude Desktop.
+- **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
 > [!CAUTION]
 > MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
@@ -123,7 +123,7 @@ Alternatively, use the **MCP: Add Server** command from the Command Palette, pro
 
 VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
 
-Enable auto-discovery with the `setting(chat.mcp.discovery.enabled)` setting.
+Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
 
 ## Configuration format
 
@@ -275,7 +275,7 @@ This link can be used in a browser, or opened on the command line, for example v
 
 ## Troubleshooting
 
-When VS Code encounters an issue with an MCP server, it shows a error indicator in the Chat view.
+When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
