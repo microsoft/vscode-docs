@@ -102,6 +102,14 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Update the provider details, such as the API key or endpoint URL.
 
+### Considerations
+
+There are a number of considerations when using your own language model API key in VS Code:
+
+- Embeddings are still sent to Copilot API.
+- Repository indexing is going through the Copilot API.
+- Query refinement, intent detection, and side queries are still going through the Copilot API.
+
 ## Frequently asked questions
 
 ### Why is bring your own model key only available for Copilot Free and Copilot Pro?
