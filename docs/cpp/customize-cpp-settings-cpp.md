@@ -1,17 +1,17 @@
 ---
-Order:
+Order: 14
 Area: cpp
-TOCTitle: c_cpp_properties.json
-ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
-PageTitle: c_cpp_properties.json reference
-DateApproved: 10/31/2023
-MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
+TOCTitle: Settings Reference
+ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
+PageTitle: Customize settings in Visual Studio Code C++ projects via the c_cpp_properties.json file
+DateApproved: 4/23/2025
+MetaDescription: How to customize the c_cpp_properties.json file for the C++ extension.
 ---
-# c_cpp_properties.json reference
+# C++ extension settings reference
 
-This article explains the scheme for the `c_cpp_properties.json` settings file.
+The C++ Extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default VS Code Settings](/docs/reference/default-settings.md).
 
-Looking to get started with configuring your project? See [Configure Intellisense](/docs/cpp/configure-intellisense.md). For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md).
+Looking to get started with configuring your C++ project? Being with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 
 ## Example of Variables
 
@@ -64,6 +64,11 @@ Note, this is an example of all fields. You do not need to specify all fields in
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+            },
+            "recursiveIncludes": {
+              "reduce": "never",
+              "priority": "afterSystemIncludes",
+              "order": "breadthFirst"
             }
         },
         {
@@ -87,6 +92,11 @@ Note, this is an example of all fields. You do not need to specify all fields in
                     "${myIncludePath}",
                     "${workspaceFolder}"
                 ]
+            },
+              "recursiveIncludes": {
+              "reduce": "always",
+              "priority": "afterSystemIncludes",
+              "order": "depthFirst"
             }
         },
         {
@@ -108,6 +118,10 @@ Note, this is an example of all fields. You do not need to specify all fields in
                     "${myIncludePath}",
                     "${workspaceFolder}"
                 ]
+            },
+              "recursiveIncludes": {
+              "reduce": "never",
+              "priority": "beforeSystemIncludes",
             }
         }
     ],
@@ -154,7 +168,7 @@ Note, this is an example of all fields. You do not need to specify all fields in
   IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `/**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
@@ -206,6 +220,31 @@ Note, this is an example of all fields. You do not need to specify all fields in
 - `databaseFilename`
   The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (for example `${workspaceFolder}/.vscode/browse.vc.db`)
 
+### Recursive include path properties
+
+  - `reduce`
+  By default, `always` reduces the number of recursive include paths provided to the IntelliSense process to only paths currently referenced by #include statements. This requires first parsing files to determine which headers are included. However, this parsing can add additional overhead. Set to `never` to always provide all recursive include paths to the IntelliSense process. Reducing the number of recursive include paths may improve IntelliSense performance when a very large number of recursive include paths are involved. Not reducing the number of recursive include paths can improve IntelliSense performance by avoiding the need to parse files to determine which include paths to provide.
+
+  - `priority`
+  The priority of recursive include paths. If set to `beforeSystemIncludes`, the recursive include paths will be searched before system include paths. If set to `afterSystemIncludes`, the recursive include paths will be searched after system include paths. `beforeSystemIncludes` would more closely reflect the search order of a compiler leading to more predictability, while `afterSystemIncludes` may result in improved performance.
+
+  - `order`
+  The order in which subdirectories of recursive includes are searched, `breadthFirst` or `depthFirst`.
+
 ## Supported variables
 
 You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a `tasks.json` or `launch.json` script.
+
+### Default VS Code Settings
+
+All default VS Code settings, such as C_Cpp.default.includePath, are supported in c_cpp_properties.json. The only exception is
+
+```json
+C_Cpp.default.systemIncludePath : string[]
+```
+
+This setting allows you to specify the system include path separately from the include path. However, the selected system include path the C++ extension recieves from the compiler will not be passed to the IntelliSense process. This is only used in rare scenarios since it overwrites the standard compiler behavior, for example, if your compiler is not supported. Instead, use the setting `compilerArgs` and using the "-isystem" flag to specify system headers, which will be a better solution in most scenarios.
+
+### Extension logging
+
+If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for information about how to collect logs.
