@@ -1,39 +1,96 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
 DateApproved: 04/03/2025
-MetaDescription: Learn how you can customize how GitHub Copilot generates code or tests for your project by defining a set of instructions.
+MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions and reusable prompt files to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Custom instructions for GitHub Copilot in VS Code
+# Customize chat with instructions and prompt files
 
-You can enhance Copilot's chat responses by providing it with contextual details about your team's workflow, tools, or project specifics. Instead of manually including this context in every chat query, you can create a _custom instructions_ file that automatically incorporates this information with every chat request.
+Customize chat responses to align with your coding practices and project requirements. This article explains two powerful customization approaches: custom instructions that apply guidelines to all your chat interactions, and prompt files that let you create, store, and share reusable AI prompts for specific tasks like generating components, reviewing code, or creating documentation.
 
-Copilot applies these instructions to chat prompts in the Chat view, Quick Chat, or Inline Chat. These instructions are not displayed in the chat, but are passed to Copilot by VS Code.
+[*Custom instructions*](#custom-instructions) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request. VS Code supports custom instructions for different scenarios, such as code generation, commit-message generation, code reviewing, and more.
 
-You can specify custom instructions for specific purposes:
+[*Prompt files*](#reusable-prompt-files-experimental) allow you to craft complete prompts in Markdown files, which you can then reference in chat. Unlike custom instructions that supplement your existing prompts, prompt files are standalone prompts that you can store within your workspace and share with others. With prompt files, you can create reusable templates for common tasks, store domain expertise in your codebase, and standardize AI interactions across your team.
 
-* **Code-generation instructions** - provide context specific for generating code. For example, you can specify that private variables should always be prefixed with an underscore, or that singletons should be implemented a certain way. You can specify code-generation instructions in settings, or in a Markdown file in your workspace.
+## Custom instructions
 
-* **Test-generation instructions** - provide context specific for generating tests. For example, you can specify that all generated tests should use a specific testing framework. You can specify test-generation instructions in settings, or in a Markdown file in your workspace.
+VS Code supports several types of custom instructions, targeted at different scenarios: code generation, test generation, code review, commit message generation, and pull request title and description generation instructions.
 
-* **Code review instructions** - provide context specific for reviewing the current editor selection. For example, you can specify that the reviewer should look for a specific type of error in the code. You can specify review-selection instructions in settings, or in a Markdown file in your workspace.
+You can define custom instructions in two ways:
 
-* **Commit message generation instructions** - provide context specific for generating commit messages. You can specify commit-message-generation instructions in settings, or in a Markdown file in your workspace.
+1. Using a `.github/copilot-instructions.md` file in your workspace
+2. Directly in your VS Code settings through `settings.json`
 
-* **Pull request title and description generation instructions** - provide context specific for generating pull request titles and descriptions. You can specify pull request title and description generation instructions in settings, or in a Markdown file in your workspace.
-
-Custom instructions consist of natural language instructions and should be short, self-contained statements that add context or relevant information to supplement chat questions.
-
-## Define code-generation custom instructions
-
-Copilot can help you generate code, for example as part of a refactoring, generating unit tests, or implementing a feature. You might have specific libraries you want to use in your project, or a particular coding style you want to follow for the code that Copilot generates.
+If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
 
 > [!NOTE]
-> Copilot does not apply code-generation instructions for [code completions](/docs/copilot/ai-powered-suggestions.md).
+> Custom instructions for code generation are not used for [code completions](/docs/copilot/ai-powered-suggestions.md) and are only used in [chat](/docs/copilot/chat/copilot-chat.md).
+
+### Custom instructions example
+
+The following example demonstrates custom instructions for code generation:
+
+```markdown
+# Project coding standards
+
+## TypeScript Guidelines
+- Use TypeScript for all new code
+- Follow functional programming principles where possible
+- Use interfaces for data structures and type definitions
+- Prefer immutable data (const, readonly)
+- Use optional chaining (?.) and nullish coalescing (??) operators
+
+## React Guidelines
+- Use functional components with hooks
+- Follow the React hooks rules (no conditional hooks)
+- Use React.FC type for components with children
+- Keep components small and focused
+- Use CSS modules for component styling
+
+## Naming Conventions
+- Use PascalCase for component names, interfaces, and type aliases
+- Use camelCase for variables, functions, and methods
+- Prefix private class members with underscore (_)
+- Use ALL_CAPS for constants
+
+## Error Handling
+- Use try/catch blocks for async operations
+- Implement proper error boundaries in React components
+- Always log errors with contextual information
+```
+
+### Use a `.github/copilot-instructions.md` file
+
+You can store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and describe your coding practices, preferred technologies, and project requirements by using Markdown.
+
+VS Code automatically includes the instructions from the `.github/copilot-instructions.md` file to every chat request and applies them for generating code.
+
+To use a `.github/copilot-instructions.md` file:
+
+1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct Copilot in VS Code to use the custom instructions file.
+
+1. Create a `.github/copilot-instructions.md` file at the root of your workspace. If needed, create a `.github` directory first.
+
+1. Add natural language instructions to the file. You can use the Markdown format.
+
+    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+> [!NOTE]
+> GitHub Copilot in Visual Studio also detects the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
 
 ### Use settings
 
-You can configure custom code-generation instructions by using the `setting(github.copilot.chat.codeGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
+You can also configure custom code-generation instructions in your user or workspace settings. The following table lists the settings for each type of custom instruction.
+
+| Type of instruction | Setting name |
+|----------------------|--------------|
+| Code generation | `setting(github.copilot.chat.codeGeneration.instructions)` |
+| Test generation | `setting(github.copilot.chat.testGeneration.instructions)` |
+| Code review | `setting(github.copilot.chat.reviewSelection.instructions)` |
+| Commit message generation | `setting(github.copilot.chat.commitMessageGeneration.instructions)` |
+| Pull request title and description generation | `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` |
+
+You can define the custom instructions as text in the settings value or reference an external file in your workspace.
 
 The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
 
@@ -46,88 +103,15 @@ The following code snippet shows how to define a set of instructions in the `set
       "text": "In TypeScript always use underscore for private field names."
     },
     {
-      "file": "code-style.md" // import instructions from file `code-style.md`
+      "file": "general.instructions.md" // import instructions from file `general.instructions.md`
+    },
+    {
+      "file": "db.instructions.md" // import instructions from file `db.instructions.md`
     }
   ],
 ```
 
-An example of the contents of the `code-style.md` file:
-
-```markdown
-Always use React functional components.
-
-Always add comments.
-```
-
-### Use a `.github/copilot-instructions.md` file
-
-You can also store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and have VS Code automatically pick up this file.
-
-If you define custom instructions in both the `.github/copilot-instructions.md` file and in settings, Copilot tries to combine instructions from both sources.
-
-> [!NOTE]
-> GitHub Copilot in Visual Studio also detects the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
-
-1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct Copilot in VS Code to use the custom instructions file.
-
-1. Create a `.github/copilot-instructions.md` file at the root of your workspace. If needed, create a `.github` directory first.
-
-    > [!TIP]
-    > In the Explorer view in VS Code, you can create the folder and directly in one operation by typing the full path as the file name.
-
-1. Add natural language instructions to the file. You can use the Markdown format.
-
-    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
-
-## Define test-generation custom instructions
-
-You can use Copilot to generate tests for your code, for example by using the `@workspace /tests` prompt in the Chat view. You can define custom instructions to help Copilot generate tests that are specific to your project and development workflow.
-
-To configure custom test-generation instructions, use the `setting(github.copilot.chat.testGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
-
-The following code snippet shows how to define a set of instructions in the `settings.json` file. To define instruction directly in settings, configure the `text` property. To reference an external file, configure the `file` property.
-
-```json
-  "github.copilot.chat.testGeneration.instructions": [
-    {
-      "text": "Always use vitest for testing React components."
-    },
-    {
-      "text": "Use Jest for testing JavaScript code."
-    },
-    {
-      "file": "code-style.md" // import instructions from file `code-style.md`
-    }
-  ],
-```
-
-An example of the contents of the `code-style.md` file:
-
-```markdown
-Always add code comments.
-
-Always use React functional components.
-```
-
-## Define code review custom instructions
-
-You can use Copilot to review a selection of code in the editor. You can define custom instructions to help Copilot take into account specific code review criteria that are relevant to your project and development workflow.
-
-To configure custom code review instructions, use the `setting(github.copilot.chat.reviewSelection.instructions)` setting. You can define custom instructions at the User or Workspace level.
-
-## Define commit message generation custom instructions
-
-In the Source Control view, you can use Copilot to generate a commit message for the pending code changes. You can define custom instructions to help Copilot generate a commit message that takes into account specific formatting and structure that are specific to your project and development workflow.
-
-To configure custom commit message generation instructions, use the `setting(github.copilot.chat.commitMessageGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
-
-## Define pull request title and description generation custom instructions
-
-When you have the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension installed, you can use Copilot to generate a title and description for a pull request. You can define custom instructions to help Copilot generate a title and description that take into account specific formatting and structure that are specific to your project and development workflow.
-
-To configure custom pull request title and description generation instructions, use the `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` setting. You can define custom instructions at the User or Workspace level.
-
-## Tips for defining custom instructions
+### Tips for defining custom instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
@@ -135,9 +119,11 @@ To configure custom pull request title and description generation instructions, 
 
 * Make it easy to share custom instructions with your team or across projects by storing your instructions in an external file. You can also version control the file to track changes over time.
 
+* Split instructions into multiple files and add multiple file references to your settings. This approach is useful for organizing instructions by topic or type of task.
+
 ## Reusable prompt files (experimental)
 
-Prompt files (_prompts_) let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file that mimics the existing format of writing prompts in Copilot Chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+Prompt files (_prompts_) let you build and share reusable prompt instructions with extra context. A prompt file is a Markdown file that mimics the existing format of writing prompts in Copilot Chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
 
