@@ -10,7 +10,7 @@ Copilot in Visual Studio Code offers different built-in language models that are
 
 ## Choose the right model for your task
 
-By default, Copilot Chat uses a base model to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
+By default, Copilot Chat uses a base model to provide fast, capable responses for a wide range of tasks, such as coding, summarization, knowledge-based questions, reasoning, and more.
 
 However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
@@ -105,9 +105,9 @@ To update the provider details, such as the API key or endpoint URL:
 
 There are a number of considerations when using your own language model API key in VS Code:
 
-- Embeddings are still sent to Copilot API.
-- Repository indexing is going through the Copilot API.
-- Query refinement, intent detection, and side queries are still going through the Copilot API.
+- Bringing your own model only applies to the chat experience and doesn't impact code completions or other AI-powered features in VS Code, such as commit-message generation.
+- The capabilities of each model might differ from the built-in models and could affect the chat experience. For example, some models might not support vision or tool calling.
+- The Copilot API is still used for some tasks, such as sending embeddings, repository indexing, query refinement, intent detection, and side queries.
 - When using your own model, there is no guarantee that responsible AI filtering is applied to the model's output.
 
 ## Frequently asked questions
@@ -116,6 +116,8 @@ There are a number of considerations when using your own language model API key 
 
 Bringing your own model key is only available for Copilot Free and Copilot Pro because it's mainly meant to allow users experiment with the newest models the moment they are announced, and not yet available as a built-in model in Copilot. Copilot Business and Enterprise users can still use the built-in, managed models.
 
+Bringing your own model key will come to Copilot Business and Enterprise plans later this year, as we better understand the requirements that organizations have for using this functionality at scale.
+
 ## Related resources
 
-* [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
+- [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
