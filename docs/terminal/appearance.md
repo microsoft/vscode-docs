@@ -178,6 +178,18 @@ Below are some examples of these characters with custom line height and letter s
 
 This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
 
+### Rescaling ambiguous width glyphs
+
+Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this occurs, the glyph will be rescaled horizontally in order to fit in the a single cell in order to prevent overlapping.
+
+For example, the below image features roman numeral characters that are squashed into a single cell:
+
+![VIII and XII characters would be rescaled horizontally so as to not overlap with following characters. They feature a thinner stroke width when this happens due to the scaling](images/appearance/rescale-on.png)
+
+This feature can be disabled by setting `"terminal.integrated.rescaleOverlappingGlyphs": false` which would result in the following overlapped rendering:
+
+![When off, the VIII and XII characters may overlap the following characters](images/appearance/rescale-off.png)
+
 ## Customizing your prompt
 
 Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside VS Code, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
