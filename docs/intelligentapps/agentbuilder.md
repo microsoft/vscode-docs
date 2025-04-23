@@ -1,20 +1,20 @@
 ---
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
-DateApproved:
+DateApproved: 04/22/2025
 MetaDescription: Get Started with creating, iterating and optimizing your agents in AI Toolkit.
 ---
 # Build agents and prompts in AI Toolkit
 
-   > [!NOTE]
-   > Agent Builder was previously known as Prompt Builder. The name has been changed to better reflect the feature's capabilities and its focus on building agents.
+> [!NOTE]
+> Agent Builder was previously known as Prompt Builder. The name has been changed to better reflect the feature's capabilities and its focus on building agents.
 
-Agent builder in AI Toolkit streamlines the engineering workflow for building agents, including prompt engineering and integration with tool use such as MCP servers. It helps with common prompt engineering tasks:
+Agent Builder in AI Toolkit streamlines the engineering workflow for building agents, including prompt engineering and integration with tools, such as MCP servers. It helps with common prompt engineering tasks:
 - Generate starter prompts
 - Iterate and refine with each run
 - Break down complex tasks through prompt chaining and structured outputs
 - Provide easy access to code for seamless Large Language Model (LLM) integration via APIs
 
-As well as enhancing the intelligent app's capabilities with tool use, such as:
+Agent Builder also enhances intelligent app's capabilities with tool use:
 - Connect to existing MCP servers
 - Build a new MCP server from scaffold and test in Agent Builder
 
@@ -22,12 +22,12 @@ As well as enhancing the intelligent app's capabilities with tool use, such as:
 
 ## Create, edit, and test prompts
 
-To access the agent builder, use either of these options:
+To access Agent Builder, use either of these options:
 
 - In the AI Toolkit view, select **Agent (Prompt) Builder**
 - Select **Try in Agent (Prompt) Builder** from a model card in the model catalog
 
-To test a prompt in the agent builder, follow these steps:
+To test a prompt in Agent Builder, follow these steps:
 
 1. In **Models**, select a model from the dropdown list, or select **Browse models** to add another model from the model catalog.
 
@@ -38,7 +38,7 @@ To test a prompt in the agent builder, follow these steps:
    The *user prompt* is the input that you want to send to the model. The optional *system prompt* is used to provide instructions with relevant context to guide the model response.
 
    > [!TIP]
-   > If you don't know how to input these prompts, you can describe your project idea in natural language and let the AI-powered feature generate prompts for you to experiment with.
+   > You can describe your project idea by using natural language and let the AI-powered feature generate the prompts for you to experiment with.
    > ![generate prompts with natural language](./images/promptbuilder/generate_prompt_2.gif)
 
 1. Select **Run** to send the prompts to the selected model.
@@ -69,7 +69,7 @@ To build a new MCP server, follow these steps:
 2. Select **MCP server project**
 3. Select a programming language from the dropdown list: **Python** or **TypeScript**
 4. Select a folder to create the new MCP server project in.
-5. Input a name for the MCP server project.
+5. Enter a name for the MCP server project.
 
 ![scaffold mcp](./images/promptbuilder/scaffold_mcp.gif)
 
@@ -78,15 +78,15 @@ After you create the MCP server project, you can customize the implementation to
 You can also use the agent builder to test the MCP server. The agent builder will send the prompts to the MCP server and display the response.
 
 Follow these steps to test the MCP server:
-> Notes
+
+> [!NOTE]
 > To run the MCP Server in your local dev machine, you will need: [Node.js](https://nodejs.org/) or Python installed on your machine.
 
 1. Open VS Code Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
 2. Use AI Toolkit Agent Builder to test the server with the following prompt:
    1. System Prompt: You are a weather forecast professional that can tell weather information based on given location.
-   2. User Prompt: What is the weather in Shanghai?
-3. Server will be auto-connected to the Agent Builder.
-4. Click `Run` to test the server with the prompt.
+3. The server will be automatically connected to Agent Builder.
+4. Select `Run` to test the server with the prompt.
 
 ![debug mcp](./images/promptbuilder/mcp_debug.gif)
 
@@ -96,7 +96,7 @@ Structured output support helps you design prompts to deliver outputs in a struc
 
 ![Use structured output](./images/promptbuilder/structured_output_2.gif)
 
-To test using structured output in the agent builder, follow these steps:
+To test using structured output in Agent Builder, follow these steps:
 
 1. Select the **Structure output** from the left area, and select **json_schema**.
 
