@@ -112,11 +112,11 @@ There are a number of considerations when using your own language model API key 
 
 ## Frequently asked questions
 
-### Why is bring your own model key only available for Copilot Free and Copilot Pro?
+### Why is bring your own model key not available for Copilot Business or Copilot Enterprise?
 
-Bringing your own model key is only available for Copilot Free and Copilot Pro because it's mainly meant to allow users experiment with the newest models the moment they are announced, and not yet available as a built-in model in Copilot. Copilot Business and Enterprise users can still use the built-in, managed models.
+Bringing your own model key is not available for Copilot Business or Copilot Enterprise because it's mainly meant to allow users to experiment with the newest models the moment they are announced, and not yet available as a built-in model in Copilot.
 
-Bringing your own model key will come to Copilot Business and Enterprise plans later this year, as we better understand the requirements that organizations have for using this functionality at scale.
+Bringing your own model key will come to Copilot Business and Enterprise plans later this year, as we better understand the requirements that organizations have for using this functionality at scale. Copilot Business and Enterprise users can still use the built-in, managed models.
 
 ## Related resources
 
