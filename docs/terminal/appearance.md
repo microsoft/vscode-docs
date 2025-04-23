@@ -180,7 +180,7 @@ This feature can be disabled by setting `"terminal.integrated.customGlyphs": fal
 
 ### Rescaling ambiguous width glyphs
 
-Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this occurs, the glyph will be rescaled horizontally in order to fit in the a single cell in order to prevent overlapping.
+Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this ambiguity occurs, the glyph will be rescaled horizontally to fit in a single cell and prevent overlapping.
 
 For example, the below image features roman numeral characters that are squashed into a single cell:
 
