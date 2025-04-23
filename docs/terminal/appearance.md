@@ -186,7 +186,7 @@ For example, the below image features roman numeral characters that are squashed
 
 ![VIII and XII characters would be rescaled horizontally so as to not overlap with following characters. They feature a thinner stroke width when this happens due to the scaling](images/appearance/rescale-on.png)
 
-This feature can be disabled by setting `"terminal.integrated.rescaleOverlappingGlyphs": false` which would result in the following overlapped rendering:
+This feature can be disabled by setting `setting(terminal.integrated.rescaleOverlappingGlyphs)` to `false`, which would result in the following overlapped rendering:
 
 ![When off, the VIII and XII characters may overlap the following characters](images/appearance/rescale-off.png)
 
