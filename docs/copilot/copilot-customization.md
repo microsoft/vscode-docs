@@ -4,15 +4,13 @@ DateApproved: 04/03/2025
 MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions and reusable prompt files to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Customize chat with instructions and prompt files
+# Customize chat responses in VS Code
 
-Customize chat responses to align with your coding practices and project requirements. This article explains two powerful customization approaches: custom instructions that apply guidelines to all your chat interactions, and prompt files that let you create, store, and share reusable AI prompts for specific tasks like generating components, reviewing code, or creating documentation.
-
-[*Custom instructions*](#custom-instructions) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request. VS Code supports custom instructions for different scenarios, such as code generation, commit-message generation, code reviewing, and more.
-
-[*Prompt files*](#reusable-prompt-files-experimental) allow you to craft complete prompts in Markdown files, which you can then reference in chat. Unlike custom instructions that supplement your existing prompts, prompt files are standalone prompts that you can store within your workspace and share with others. With prompt files, you can create reusable templates for common tasks, store domain expertise in your codebase, and standardize AI interactions across your team.
+Copilot can provide you with responses that match your coding practices and project requirements if you give it the right context. Custom instructions enable you to define and automatically apply the guidelines and rules for tasks like generating code, or performing code reviews. Prompt files let you craft complete chat prompts in Markdown files, which you can then reference in chat or share with others. In this article, you will learn how to use custom instructions and prompt files to customize your chat responses in Visual Studio Code.
 
 ## Custom instructions
+
+Custom instructions enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request.
 
 VS Code supports several types of custom instructions, targeted at different scenarios: code generation, test generation, code review, commit message generation, and pull request title and description generation instructions.
 
@@ -123,9 +121,17 @@ The following code snippet shows how to define a set of instructions in the `set
 
 ## Reusable prompt files (experimental)
 
-Prompt files (_prompts_) let you build and share reusable prompt instructions with extra context. A prompt file is a Markdown file that mimics the existing format of writing prompts in Copilot Chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+Prompt files allow you to craft complete prompts in Markdown files, which you can then reference in chat. Unlike custom instructions that supplement your existing prompts, prompt files are standalone prompts that you can store within your workspace and share with others. With prompt files, you can create reusable templates for common tasks, store domain expertise in your codebase, and standardize AI interactions across your team.
 
-While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+A prompt file is a Markdown file that mimics the existing format of writing prompts in chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+
+> [!TIP]
+> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
+
+VS Code supports two types of prompts:
+
+* **Workspace prompt files**: stored in a Markdown file within your workspace and only available in that workspace.
+* **User prompt files**: stored in a Markdown file in your profile folder and available for use across multiple workspaces.
 
 Common use cases include:
 
@@ -136,7 +142,7 @@ Common use cases include:
 
 ### Prompt file examples
 
-* `react-form.prompt.md` - documents a reusable task for generating a form:
+* Document a reusable task for generating a form:
 
     ```markdown
     Your goal is to generate a new React form component.
@@ -155,7 +161,7 @@ Common use cases include:
     * Customize UX-friendly validation rules
     ```
 
-* `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+* Document reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
 
     ```markdown
     Secure REST API review:
@@ -166,58 +172,60 @@ Common use cases include:
     …
     ```
 
-### Usage
+### Create a workspace prompt file
 
-To enable prompt files, configure the `setting(chat.promptFiles)` VS Code setting. By default, prompt files are located in the `.github/prompts` directory of your workspace. You can also [specify additional folders](#prompt-files-experimental-settings) where prompt files are located.
+Workspace prompt files are stored in your workspace and are only available in that workspace. Workspace prompt files are stored in the `.github/prompts` directory of your workspace.
 
-#### Create a prompt file
+To create a workspace prompt file:
 
 1. Set the `setting(chat.promptFiles)` setting to `true` for the `.github/prompts` directory.
 
 1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
 
-    Alternatively, use the **Create Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    By default, prompt files are located in the `.github/prompts` directory of your workspace. You can specify additional prompt file locations with the `setting(chat.promptFilesLocations)` setting.
 
-1. Write prompt instructions by using Markdown formatting.
+    Alternatively, use the **Chat: Create Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) to create a prompt.
+
+1. Author the chat prompt by using Markdown formatting.
 
     Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file.
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
 
-#### Create a user prompt file
+### Create a user prompt file
 
 User prompt files are stored in your [user profile](/docs/configure/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
 
-You can add a user prompt file to a chat prompt in the same way as a workspace prompt file.
-
 To create a user prompt file:
 
-1. Select the **Create User Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select the **Chat: Create User Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Enter a name for your prompt file.
 
-1. Write prompt instructions by using Markdown formatting.
+1. Author the chat prompt by using Markdown formatting.
 
-User prompt files can now be synced across multiple devices with [Settings Sync](/docs/configure/settings-sync.md). Make sure to enable support for prompt files in your Settings Sync configuration. Select **Settings Sync: Configure** from the Command Palette, and make sure **Prompts** is selected.
+    You can also reference other `.prompt.md` user prompt files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
 
-#### Attach a prompt file to a chat request
+> [!TIP]
+> User prompt files can be synced across multiple devices with [Settings Sync](/docs/configure/settings-sync.md). Make sure to enable support for prompt files in your Settings Sync configuration. Select **Settings Sync: Configure** from the Command Palette, and make sure **Prompts** is selected.
 
-1. Select the **Attach Context** <i class="codicon codicon-attach"></i> icon (`kb(workbench.action.chat.attachContext)`), and then select **Prompt...**.
+### Use a prompt file in chat
+
+To use a prompt file as a chat prompt, attach it to your chat request as context:
+
+1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`).
+
+1. Select **Attach Context** in the chat input field, and then select **Prompt...**.
 
     Alternatively, use the **Chat: Use Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose a prompt file from the Quick Pick to attach it to your chat request.
 
-    You can use prompt files in both Copilot Chat and Copilot Edits.
+    You can use prompt files in any of the chat modes (ask, edit, or agent mode).
 
-1. Optionally, attach additional context files required for the task.
+1. Optionally, attach additional context files required for the task or include more instructions in the chat prompt.
 
-    For reusable tasks, send the prompt without any additional instructions.
-
-    To further refine a reusable prompt, include additional instructions to provide more context for the task at hand.
-
-> [!TIP]
-> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
+    To use the prompt file as-is, send the chat prompt without any additional instructions.
 
 ## Settings
 
@@ -242,5 +250,4 @@ User prompt files can now be synced across multiple devices with [Settings Sync]
 
 ## Related content
 
-* Start AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
-* Start an AI-powered editing session with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).
+* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
