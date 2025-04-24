@@ -14,7 +14,7 @@ The C++ Extension settings are highly configurable. This article explains the sc
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 ## Example of Variables
 
-Note, this json is an example of all fields supported in `c_cpp_properties.json`. You don't need to specify all fields in your `c_cpp_properties.json` file. The extension automatically fills in any missing fields with default values.
+Note, this json is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your json file, all missing field will be filled in with default values by the C++ extension.
 
 ```json
 {
@@ -30,8 +30,8 @@ Note, this json is an example of all fields supported in `c_cpp_properties.json`
     },
     "configurations": [
         {
-            "name": "Linux",
-            "compilerPath": "/usr/bin/gcc",
+            "name": "My Sample Configuration",
+            "compilerPath": "/usr/bin/g++",
             "compilerArgs": [
                 "-m32"
             ],
@@ -63,65 +63,6 @@ Note, this json is an example of all fields supported in `c_cpp_properties.json`
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
-            },
-            "recursiveIncludes": {
-              "reduce": "never",
-              "priority": "afterSystemIncludes",
-              "order": "breadthFirst"
-            }
-        },
-        {
-            "name": "Mac",
-            "compilerPath": "/usr/bin/clang",
-            "intelliSenseMode": "macos-clang-x64",
-            "includePath": [
-                "${myIncludePath}"
-            ],
-            "defines": [
-                "${myDefines}"
-            ],
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "macFrameworkPath": [
-                "/System/Library/Frameworks",
-                "/Library/Frameworks"
-            ],
-            "browse": {
-                "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
-                ]
-            },
-              "recursiveIncludes": {
-              "reduce": "always",
-              "priority": "afterSystemIncludes",
-              "order": "depthFirst"
-            }
-        },
-        {
-            "name": "Win32",
-            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
-            "intelliSenseMode": "windows-msvc-x64",
-            "includePath": [
-                "${myIncludePath}"
-            ],
-            "defines": [
-                "${myDefines}",
-                "_WINDOWS"
-            ],
-            "cStandard": "c17",
-            "cppStandard": "c++20",
-            "windowsSdkVersion": "10.0.19041.0",
-            "browse": {
-                "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
-                ]
-            },
-              "recursiveIncludes": {
-              "reduce": "never",
-              "priority": "beforeSystemIncludes",
-              "order": "depthFirst"
             }
         }
     ],
@@ -149,12 +90,12 @@ Note, this json is an example of all fields supported in `c_cpp_properties.json`
 - `name`
   A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that are autoselected on those platforms. The status bar in VS Code shows you which configuration is active. You can also select the label in the status bar to change the active configuration.
 
-- `compilerPath` (optional)
+- `compilerPath`
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension queries the compiler to determine the system include paths and default defines to use for IntelliSense.
 
   Putting `"compilerPath": ""` (empty string) skips querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension defaults to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
 
-- `compilerArgs` (optional)
+- `compilerArgs`
   Compiler arguments to modify the includes paths or defines used, for example `-nostdinc++`, `-m32`, etc. Arguments that take additional space-delimited arguments should be entered as separate arguments in the array, for example, for `--sysroot <arg>` use `\"--sysroot\", \"<arg>\"`.
 
 - `intelliSenseMode`
@@ -190,10 +131,10 @@ Note, this json is an example of all fields supported in `c_cpp_properties.json`
 - `macFrameworkPath`
   A list of paths for the IntelliSense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS.
 
-- `forcedInclude` (optional)
+- `forcedInclude`
   A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
 
-- `compileCommands` (optional)
+- `compileCommands`
   The full path to the `compile_commands.json` file for the workspace. If there is a matching entry in `compile_commands.json` for a file open in the editor, that command line is to configure IntelliSense for that file, instead of the other fields of `c_cpp_properties.json`.
   For more information about the file format, see the [Clang documentation](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Some build systems, such as CMake, [simplify generating this file](https://cmake.org/cmake/help/v3.5/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html).
 
