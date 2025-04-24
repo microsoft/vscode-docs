@@ -30,4 +30,5 @@
     "doc-assistant.milestone": "March 2025",
 
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "files.autoSave": "onWindowChange",
 }
