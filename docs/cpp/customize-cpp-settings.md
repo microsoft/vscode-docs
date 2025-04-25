@@ -1,10 +1,6 @@
 ---
-Order: 14
-Area: cpp
-TOCTitle: Settings Reference
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
-PageTitle: Customize settings in Visual Studio Code C++ projects via the c_cpp_properties.json file
-DateApproved: 4/24/2025
+DateApproved: 4/25/2025
 MetaDescription: How to customize the c_cpp_properties.json file for the C++ extension.
 ---
 # C++ extension settings reference
