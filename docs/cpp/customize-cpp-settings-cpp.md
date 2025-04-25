@@ -14,7 +14,7 @@ The C++ Extension settings are highly configurable. This article explains the sc
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 ## Example of Variables
 
-Note, this json is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your json file, all missing field will be filled in with default values by the C++ extension.
+Note, this json is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your json file, all missing fields will be filled in with default values by the C++ extension.
 
 ```json
 {
@@ -29,19 +29,30 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
         ]
     },
     "configurations": [
-      {
-        "name": "Mac",
-        "compilerPath": "/usr/bin/clang++",
-        "intelliSenseMode": "macos-clang-x64",
-        "includePath": [ "${myIncludePath}"],
-        "defines": [ "${myDefines}"],
-        "cStandard": "c11",
-        "cppStandard": "c++17",
-        "macFrameworkPath": [ "/System/Library/Frameworks","/Library/Frameworks"],
-        "browse": {
-          "path": [ "${myIncludePath}","${workspaceFolder}"]
+        {
+            "name": "Mac",
+            "compilerPath": "/usr/bin/clang++",
+            "intelliSenseMode": "macos-clang-x64",
+            "includePath": [
+                "${myIncludePath}",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "${myDefines}"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "browse": {
+                "path": [
+                    "${myIncludePath}",
+                    "${workspaceFolder}"
+                ]
+            }
         }
-      }
     ],
     "version": 4,
     "enableConfigurationSquiggles": true
@@ -70,7 +81,7 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
 - `compilerPath`
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension queries the compiler to determine the system include paths and default defines to use for IntelliSense.
 
-  Putting `"compilerPath": ""` (empty string) skips querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension defaults to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
+  Putting `"compilerPath": ""` (empty string) skips querying a compiler. This is useful if your preferred compiler doesn't support the arguments that are used for the query, as the extension defaults to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
 
 - `compilerArgs`
   Compiler arguments to modify the includes paths or defines used, for example `-nostdinc++`, `-m32`, etc. Arguments that take additional space-delimited arguments should be entered as separate arguments in the array, for example, for `--sysroot <arg>` use `\"--sysroot\", \"<arg>\"`.
@@ -86,7 +97,7 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
   IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `/**` at the end of the path to indicate recursive search. For example, `${workspaceFolder}/**` searches through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included by a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `/**` at the end of the path to indicate recursive search. For example, `${workspaceFolder}/**` searches through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, the system include paths should not be listed here.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
@@ -102,6 +113,9 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
 
   A `configurationProvider` candidate extension must implement [vscode-cpptools-api](https://github.com/microsoft/vscode-cpptools-api).
 
+- `mergeConfigurations`
+  Set to `true` to merge include paths, defines, and forced includes with those from a configuration provider.
+
 - `windowsSdkVersion`
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.
 
@@ -109,7 +123,7 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
   A list of paths for the IntelliSense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS.
 
 - `forcedInclude`
-  A list of files that should be included before any other characters in the source file are processed. Files are included in the order listed.
+  A list of files that should be included before any text in the source file is processed. Files are included in the order listed.
 
 - `compileCommands`
   The full path to the `compile_commands.json` file for the workspace. If there is a matching entry in `compile_commands.json` for a file open in the editor, that command line is to configure IntelliSense for that file, instead of the other fields of `c_cpp_properties.json`.
@@ -118,14 +132,14 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
 - `dotConfig`
   A path to a .config file created by the Kconfig system. The Kconfig system generates a file with all the defines needed to build a project. Examples of projects that use the Kconfig system are the Linux Kernel and NuttX RTOS.
 
-- `mergeConfigurations`
-  Set to `true` to merge include paths, defines, and forced includes with those from a configuration provider.
-
 - `customConfigurationVariables`
   Custom variables that can be queried through the command `${cpptools:activeConfigCustomVariable}` to use for the input variables in `launch.json` or `tasks.json`.
 
 - `browse`
   The set of properties used when `"C_Cpp.intelliSenseEngine"` is set to `"Tag Parser"` (also referred to as "fuzzy" IntelliSense, or the "browse" engine). These properties are also used by the **Go to Definition/Declaration** features, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
+
+- `recursiveIncludes`
+  A set of properties used to configure how the extension processes an `includePath` entry that specifies a recursive search.
 
 ### Browse properties
 
@@ -138,15 +152,15 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
 - `databaseFilename`
   The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it is made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (for example `${workspaceFolder}/.vscode/browse.vc.db`)
 
-### Recursive include path properties
+### Recursive includes properties
 
-  - `reduce`
-  By default, `always` reduces the number of recursive include paths provided to the IntelliSense process to only paths currently referenced by #include statements. This requires first parsing files to determine which headers are included. However, this parsing can add extra overhead. Set to `never` to always provide all recursive include paths to the IntelliSense process. Reducing the number of recursive include paths might improve IntelliSense performance when a large number of recursive include paths are involved. Not reducing the number of recursive include paths can improve IntelliSense performance by avoiding the need to parse files to determine which include paths to provide.
+- `reduce`
+  When a recursive `includePath` entry is expanded, it can result in a very large set of include paths for IntelliSense to process when resolving `#include` statements in your source files. Sending a large set of include paths to the IntelliSense compiler can have an impact on the performance of IntelliSense on some systems. By default, the extension will reduce the set of include paths to the smallest possible set by first tag parsing the source files to search for `#include` statements and determining which include paths are needed. This is currently the same behavior as the `always` option for this setting. This behavior trades off some initial overhead so that IntelliSense can potentially be faster later on. Setting this property to `never` will provide the full recursive expansion of include paths to the IntelliSense process. By not parsing any files up front, this behavior trades off potential performance later on to ensure IntelliSense can start up more quickly when source files are opened. In general, reducing the number of recursive include paths in your configuration might improve IntelliSense performance when a large number of paths are involved.
 
-  - `priority`
-  The priority of recursive include paths. If set to `beforeSystemIncludes`, the recursive include paths are searched before system include paths. If set to `afterSystemIncludes`, the recursive include paths will be searched after system include paths. `beforeSystemIncludes` would more closely reflect the search order of a compiler leading to more predictability, while `afterSystemIncludes` might result in improved performance.
+- `priority`
+  The priority of recursive include path searches when resolving `#include` statements. If set to `beforeSystemIncludes`, the recursive include paths are searched before system include paths. If set to `afterSystemIncludes`, the recursive include paths will be searched after system include paths. `beforeSystemIncludes` would more closely reflect the search order of a compiler leading to more predictability, while `afterSystemIncludes` might result in improved performance.
 
-  - `order`
+- `order`
   Whether subdirectories of recursive includes are searched `breadthFirst` or `depthFirst`.
 
 ## Supported variables
