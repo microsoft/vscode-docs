@@ -43,30 +43,55 @@ To test a prompt in Agent Builder, follow these steps:
 
 1. Select **Run** to send the prompts to the selected model.
 
-1. Optionally, select **Add Prompt** to add more user and assistant prompts to the conversation, or select **Use Response as Assistant Prompt** as the history and context you send to the model to further guide the model's behavior.
+1. Optionally, select **Add Prompt** to add more user and assistant prompts to the conversation, or select **Add to Prompts** as the history and context you send to the model to further guide the model's behavior.
 
 1. Repeat the previous steps to iterate over your prompts by observing the model response and making changes to the prompts.
 
 ## Use MCP servers
 MCP server is a tool that allows you to connect to external APIs and services, enabling your agent to perform actions beyond just generating text. For example, you can use an MCP server to access databases, call web services, or interact with other applications.
 
-You can use the agent builder to connect to existing MCP servers or build a new MCP server from scaffold.
+You can use the agent builder to discover and configure featured MCP servers, connect to existing MCP servers or build a new MCP server from scaffold.
 
+### Configure MCP server from featured selections
+AI Toolkit provides a list of featured MCP servers that you can use to connect to external APIs and services.
+
+To configure an MCP server from featured selections, follow these steps:
+1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+2. Select **Use Featured MCP Servers** from the dropdown list.
+3. Select a MCP server that fit your needs.
+![connect to MCP server](./images/promptbuilder/Featured_server.png)
+
+For servers that are ready to use, AI Toolkit will prompt you to select tools and add to your agent afterwards.
+
+For servers that are marked with **(Configuration Required)**:
+1. You will be prompted to enter the required configurations in `mcp.json` file.
+   ![config_server](./images/promptbuilder/config_server.png)
+2. Follow the guidelines to configure the server:
+   1. [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx)
+   2. [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/github#npx)
+   3. [Google Maps](https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps#npx)
+   4. [Sqlite](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite#uv-1)
+3. Once completed the configuration, go back to the Agent Builder and select **+ MCP Server** to locate the server you added from the list.
+4. Select the server and proceed to add tools.
+
+### Use an existing MCP server
 To use an existing MCP server, follow these steps:
-1. In the **Tools** section, select **+ MCP Server**.
-2. Select an option from the dropdown list to specify how you want to connect to the MCP server:
+1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+2. Select **Connect to an Existing MCP Server**
+3. Select an option from the dropdown list to specify how you want to connect to the MCP server:
    - **Command (stdio)**: Run a local command that implements the MCP protocol
    - **HTTP (server-sent events)**: Connect to a remote server that implements the MCP protocol
-3. Select tools from the MCP server if there are multiple tools available.
-4. Enter your prompts and select **Run** to test the connection.
+4. Select tools from the MCP server if there are multiple tools available.
+5. Enter your prompts and select **Run** to test the connection.
 
 ![connect to MCP server](./images/promptbuilder/mcp_existing.gif)
 
 AI Toolkit also provides a scaffold to help you build a new MCP server. The scaffold includes a basic implementation of the MCP protocol, which you can customize to suit your needs.
 
+### Build a new MCP server
 To build a new MCP server, follow these steps:
-1. In the **Tools** section, select **+ MCP Server**
-2. Select **MCP server project**
+1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+2. Select **Create a New MCP Server**
 3. Select a programming language from the dropdown list: **Python** or **TypeScript**
 4. Select a folder to create the new MCP server project in.
 5. Enter a name for the MCP server project.
