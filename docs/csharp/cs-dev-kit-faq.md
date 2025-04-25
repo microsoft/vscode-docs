@@ -201,7 +201,7 @@ Build your solution by right-clicking on the solution in the Solution Explorer a
 
 ### Why are my tests not being discovered or run in the Test Explorer?
 
-If you’re using the TUnit test framework, your tests might not be discovered or run in the C# Dev Kit Test Explorer because TUnit is built on the Microsoft Testing Platform (MTP), which differs from the traditional VSTest framework. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with TUnit tests.
+If your test project is using the Microsoft Testing Platform (MTP), either via MSTest, NUnit, xUnit v3, or the TUnit test framework, your tests might not be discovered or run in the Test Explorer because MTP differs from the traditional VSTest platform. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with MTP test projects.
 
 Follow these steps to enable the setting:
 - Open Settings in VS Code: Go to File > Preferences > Settings (or press Ctrl + ,).
