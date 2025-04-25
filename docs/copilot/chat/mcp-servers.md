@@ -303,7 +303,7 @@ Yes, you have several options to control which tools are active:
 - Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
 - For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
 
-### My docker-based MCP server is not starting
+### The MCP server is not starting when using Docker
 
 Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshooting)).
 
