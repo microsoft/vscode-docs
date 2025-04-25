@@ -138,7 +138,7 @@ You can enable or disable code completions either for all languages, or for spec
 
     Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
 
-### Change the AI model
+## Change the AI model for completions
 
 Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
 
