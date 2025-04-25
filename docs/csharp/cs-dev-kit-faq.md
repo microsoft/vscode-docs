@@ -210,7 +210,7 @@ Follow these steps to enable the setting:
 - Check the box to enable it (or toggle it to "On").
 - Reload VS Code to apply the changes: Press Ctrl + Shift + P, type Developer: Reload Window, and run the command.
 
-After enabling this setting, your TUnit tests should be discovered and run properly in the Test Explorer.
+After enabling this setting, your tests should be discovered and run properly in the Test Explorer.
 
 ### How do I collect logs for troubleshooting issues with Test Explorer?
 
