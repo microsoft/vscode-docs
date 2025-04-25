@@ -29,42 +29,19 @@ Note, this json is an example configuration for `c_cpp_properties.json`. You onl
         ]
     },
     "configurations": [
-        {
-            "name": "My Sample Configuration",
-            "compilerPath": "/usr/bin/g++",
-            "compilerArgs": [
-                "-m32"
-            ],
-            "intelliSenseMode": "linux-gcc-x86",
-            "includePath": [
-                "${myIncludePath}",
-                "/usr/include"
-            ],
-            "defines": [
-                "${myDefines}"
-            ],
-            "cStandard": "gnu11",
-            "cppStandard": "gnu++14",
-            "configurationProvider": "ms-vscode.cmake-tools",
-            "forcedInclude": [
-                "${workspaceFolder}/common.h"
-            ],
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
-            "dotConfig": "${workspaceFolder}/.config",
-            "mergeConfigurations": true,
-            "customConfigurationVariables": {
-                "myVar": "myvalue"
-            },
-            "browse": {
-                "path": [
-                    "${myIncludePath}",
-                    "/usr/include",
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
-            }
+      {
+        "name": "Mac",
+        "compilerPath": "/usr/bin/clang++",
+        "intelliSenseMode": "macos-clang-x64",
+        "includePath": [ "${myIncludePath}"],
+        "defines": [ "${myDefines}"],
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "macFrameworkPath": [ "/System/Library/Frameworks","/Library/Frameworks"],
+        "browse": {
+          "path": [ "${myIncludePath}","${workspaceFolder}"]
         }
+      }
     ],
     "version": 4,
     "enableConfigurationSquiggles": true
