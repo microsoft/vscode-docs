@@ -204,11 +204,11 @@ Build your solution by right-clicking on the solution in the Solution Explorer a
 If your test project is using the Microsoft Testing Platform (MTP), either via MSTest, NUnit, xUnit v3, or the TUnit test framework, your tests might not be discovered or run in the Test Explorer because MTP differs from the traditional VSTest platform. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with MTP test projects.
 
 Follow these steps to enable the setting:
-- Open Settings in VS Code: Go to **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`).
-- In the Settings search bar, type "Test Window" to filter results.
-- Find the setting Dotnet > Test Window: Use Testing Platform Protocol under the C# Dev Kit extension settings.
-- Check the box to enable it (or toggle it to "On").
-- Reload VS Code by running the **Reload Window** command in the Command Palette (`kb(workbench.action.showCommands)`).
+1. Open Settings in VS Code: Go to **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`).
+2. In the Settings search bar, type "Test Window" to filter results.
+3. Find the setting Dotnet > Test Window: Use Testing Platform Protocol under the C# Dev Kit extension settings.
+4. Check the box to enable it (or toggle it to "On").
+5. Reload VS Code by running the **Reload Window** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 After enabling this setting, your tests should be discovered and run properly in the Test Explorer.
 
