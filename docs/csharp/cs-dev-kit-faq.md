@@ -208,7 +208,7 @@ Follow these steps to enable the setting:
 - In the Settings search bar, type "Test Window" to filter results.
 - Find the setting Dotnet > Test Window: Use Testing Platform Protocol under the C# Dev Kit extension settings.
 - Check the box to enable it (or toggle it to "On").
-- Reload VS Code to apply the changes: Press Ctrl + Shift + P, type Developer: Reload Window, and run the command.
+- Reload VS Code by running the **Reload Window** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 After enabling this setting, your tests should be discovered and run properly in the Test Explorer.
 
