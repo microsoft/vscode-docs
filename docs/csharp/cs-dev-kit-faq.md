@@ -199,7 +199,7 @@ C# Dev Kit requires that it has built your project successfully before tests wil
 
 Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
-### Why are my TUnit tests not being discovered or run in the C# Dev Kit Test Explorer?
+### Why are my tests not being discovered or run in the Test Explorer?
 
 If you’re using the TUnit test framework, your tests might not be discovered or run in the C# Dev Kit Test Explorer because TUnit is built on the Microsoft Testing Platform (MTP), which differs from the traditional VSTest framework. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with TUnit tests.
 
