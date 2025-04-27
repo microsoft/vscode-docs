@@ -52,31 +52,35 @@ MCP server is a tool that allows you to connect to external APIs and services, e
 
 You can use the agent builder to discover and configure featured MCP servers, connect to existing MCP servers or build a new MCP server from scaffold.
 
-### Configure MCP server from featured selections
+> [!NOTE]
+> Using MCP servers may require either [Node](https://nodejs.org/en/download) or [Python](https://www.python.org/downloads/) environment. AI Toolkit will validate your environment to ensure that the required dependencies are installed.
+> After installing, please use the command `npm install -g npx` to install `npx`. If you prefer Python, we recommend using [`uv`](https://docs.astral.sh/uv/getting-started/installation/)
+
+### Configure a featured MCP server
 AI Toolkit provides a list of featured MCP servers that you can use to connect to external APIs and services.
 
 To configure an MCP server from featured selections, follow these steps:
-1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
 2. Select **Use Featured MCP Servers** from the dropdown list.
-3. Select a MCP server that fit your needs.
+3. Choose an MCP server that meets your needs.
 ![connect to MCP server](./images/promptbuilder/Featured_server.png)
 
 For servers that are ready to use, AI Toolkit will prompt you to select tools and add to your agent afterwards.
 
 For servers that are marked with **(Configuration Required)**:
-1. You will be prompted to enter the required configurations in `mcp.json` file.
+1. You will be prompted to enter the required configurations in the `mcp.json` file.
    ![config_server](./images/promptbuilder/config_server.png)
 2. Follow the guidelines to configure the server:
    1. [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx)
    2. [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/github#npx)
    3. [Google Maps](https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps#npx)
    4. [Sqlite](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite#uv-1)
-3. Once completed the configuration, go back to the Agent Builder and select **+ MCP Server** to locate the server you added from the list.
+3. After finishing the configuration, go back to Agent Builder and select **+ MCP Server** to locate the server you added from the list.
 4. Select the server and proceed to add tools.
 
 ### Use an existing MCP server
 To use an existing MCP server, follow these steps:
-1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
 2. Select **Connect to an Existing MCP Server**
 3. Select an option from the dropdown list to specify how you want to connect to the MCP server:
    - **Command (stdio)**: Run a local command that implements the MCP protocol
@@ -90,7 +94,7 @@ AI Toolkit also provides a scaffold to help you build a new MCP server. The scaf
 
 ### Build a new MCP server
 To build a new MCP server, follow these steps:
-1. In the **Tools** section, select **+ MCP Server** and select **+ Add server** in the quick pick.
+1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
 2. Select **Create a New MCP Server**
 3. Select a programming language from the dropdown list: **Python** or **TypeScript**
 4. Select a folder to create the new MCP server project in.
