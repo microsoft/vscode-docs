@@ -23,7 +23,7 @@ You can define custom instructions in two ways:
 
 The following example demonstrates custom instructions for code generation:
 
-* Define general coding guidelines in a `.github/instructions/general-coding.instructions.md` file:
+* Define general coding guidelines in a `.github/instructions/general-coding.instructions.md` file that apply to all code:
 
     ```markdown
     ---
@@ -43,7 +43,7 @@ The following example demonstrates custom instructions for code generation:
     - Always log errors with contextual information
     ```
 
-* Define TypeScript and React coding guidelines in a `.github/instructions/typescript-react.instructions.md` file and reference general coding guidelines:
+* Define TypeScript and React coding guidelines in a `.github/instructions/typescript-react.instructions.md` file that apply to TypeScript and React code, general coding guidelines are inherited:
 
     ```markdown
     ---
@@ -117,6 +117,15 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
     | Property | Description |
     |----------|-------------|
     | `applyTo` | Specify a glob pattern for files to which the instructions are automatically applied. To always include the custom instructions, use the `**` pattern. |
+
+    For example, the following instructions file is always applied:
+
+    ```markdown
+    ---
+    applyTo: "**"
+    ---
+    Add a comment at the end of the file: 'Contains AI-generated edits.'
+    ```
 
 * Body with the instruction content
 
