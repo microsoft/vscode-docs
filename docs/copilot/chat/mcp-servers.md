@@ -36,6 +36,13 @@ MCP's [official server repository](https://github.com/modelcontextprotocol/serve
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
 
+## Enable MCP support in VS Code
+
+> [!NOTE]
+> MCP support in agent mode in VS Code is currently in preview.
+
+MCP support is available starting in VS Code release 1.99. To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting. This setting is enabled by default.
+
 ## Add an MCP server
 
 You have multiple options to add an MCP server in VS Code:
