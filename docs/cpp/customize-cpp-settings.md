@@ -10,7 +10,7 @@ The C++ Extension settings are highly configurable. This article explains the sc
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 ## Example of variables
 
-Note, this json is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your json file, all missing fields will be filled in with default values by the C++ extension.
+The following JSON snippet is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your JSON file, and any missing fields are filled in with their default values by the C++ extension.
 
 ```json
 {
