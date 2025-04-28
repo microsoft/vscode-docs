@@ -48,6 +48,7 @@ The following example demonstrates custom instructions for code generation:
     ```markdown
     ---
     applyTo: "**/*.ts,**/*.tsx"
+    ---
     # Project coding standards for TypeScript and React
 
     Apply the [general coding guidelines](./general-coding.intructions.md) to all code.
