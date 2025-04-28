@@ -140,7 +140,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 ### Browse properties
 
 - `path`
-  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example: `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` will not.
+  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` is used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate nonrecursive search. For example, `${workspaceFolder}` searches through all subdirectories while `${workspaceFolder}/*` does not.
 
 - `limitSymbolsToIncludedHeaders`
   When true, the Tag Parser only parses code files that are directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser parses all code files found in the paths specified in the `browse.path` list.
