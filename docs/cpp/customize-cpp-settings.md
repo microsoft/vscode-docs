@@ -163,7 +163,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 
 You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a `tasks.json` or `launch.json` script.
 
-### Default VS Code Settings
+### Default VS Code settings
 
 All default VS Code settings, such as C_Cpp.default.includePath, are supported in c_cpp_properties.json. The only exception is
 
