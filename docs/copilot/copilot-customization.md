@@ -108,9 +108,7 @@ VS Code supports two types of scopes for instruction files:
 * **Workspace instructions files**: are only available within the workspace and are stored in the `.github/instructions` folder of the workspace.
 * **User instruction files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
 
-An instructions file is a Markdown file with the `.instructions.md` file suffix. The structure of the file
-
-The instruction file consists of two sections:
+An instructions file is a Markdown file with the `.instructions.md` file suffix. The instruction file consists of two sections:
 
 * (Optional) Header with metadata (frontmatter syntax)
 
@@ -332,7 +330,7 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
 
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`)
+1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Select **Prompts** from the list of settings to sync.
 
