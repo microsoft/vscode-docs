@@ -53,6 +53,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_: Enable the agent mode tool for scaffolding a new workspace in chat.
 * `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_: Suggest related files from git history in Copilot Edits (default: `false`)
+* `setting(chat.tools.autoApprove)` _(Experimental)_: Automatically approve all tools (default: `false`)
 
 ## Inline chat settings
 
