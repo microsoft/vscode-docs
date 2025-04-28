@@ -165,7 +165,7 @@ You can allow `tasks.json` or `launch.json` to query the current active configur
 
 ### Default VS Code settings
 
-All default VS Code settings, such as C_Cpp.default.includePath, are supported in c_cpp_properties.json. The only exception is
+All default VS Code settings, such as `C_Cpp.default.includePath`, are supported in `c_cpp_properties.json`. The only exception is:
 
 ```json
 C_Cpp.default.systemIncludePath : string[]
