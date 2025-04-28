@@ -72,7 +72,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 ## Configuration properties
 
 - `name`
-  A friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that are autoselected on those platforms. The status bar in VS Code shows you which configuration is active. You can also select the label in the status bar to change the active configuration.
+  A user-friendly name that identifies a configuration. `Linux`, `Mac`, and `Win32` are special identifiers for configurations that are autoselected on those platforms. The Status Bar in VS Code shows you which configuration is active. You can also select the label in the Status Bar to change the active configuration.
 
 - `compilerPath`
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension queries the compiler to determine the system include paths and default defines to use for IntelliSense.
