@@ -23,7 +23,7 @@ You can define custom instructions in two ways:
 
 The following example demonstrates custom instructions for code generation:
 
-* Define general coding guidelines in a `.github/general-coding.instructions.md` file:
+* Define general coding guidelines in a `.github/instructions/general-coding.instructions.md` file:
 
     ```markdown
     ---
