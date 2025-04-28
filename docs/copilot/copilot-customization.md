@@ -46,6 +46,8 @@ The following example demonstrates custom instructions for code generation:
 * Define TypeScript and React coding guidelines in a `.github/typescript-react.instructions.md` file and reference general coding guidelines:
 
     ```markdown
+    ---
+    applyTo: "**/*.ts,**/*.tsx"
     # Project coding standards for TypeScript and React
 
     Apply the [general coding guidelines](./general-coding.intructions.md) to all code.
