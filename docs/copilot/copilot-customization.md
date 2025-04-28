@@ -123,15 +123,10 @@ The following code snippet shows how to define a set of instructions in the `set
 
 Prompt files allow you to craft complete prompts in Markdown files, which you can then reference in chat. Unlike custom instructions that supplement your existing prompts, prompt files are standalone prompts that you can store within your workspace and share with others. With prompt files, you can create reusable templates for common tasks, store domain expertise in your codebase, and standardize AI interactions across your team.
 
-A prompt file is a Markdown file that mimics the existing format of writing prompts in chat (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
-
-> [!TIP]
-> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
-
 VS Code supports two types of prompts:
 
-* **Workspace prompt files**: stored in a Markdown file within your workspace and only available in that workspace.
-* **User prompt files**: stored in a Markdown file in your profile folder and available for use across multiple workspaces.
+* **Workspace prompt files**: are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
+* **User prompt files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
 
 Common use cases include:
 
@@ -140,12 +135,44 @@ Common use cases include:
 * **Team collaboration**: document patterns and guidelines with references to specs and documentation.
 * **Onboarding**: create step-by-step guides for complex processes or project-specific patterns.
 
+### Prompt file structure
+
+A prompt file is a Markdown file with the `.prompt.md` file suffix.
+
+The prompt file consists of two sections:
+
+* (Optional) Header with metadata (frontmatter syntax)
+
+    | Property | Description |
+    |----------|-------------|
+    | `mode` | The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default). |
+    | `tools` | The list of tools that can be used in agent mode. Array of tool names, for example `terminalLastCommand` or `githubRepo`. The tool name is shown when you type `#` in the chat input field.<br/>If a given tool is not available, it is ignored when running the prompt. |
+    | `description` | A short description of the prompt. |
+
+* Body with the prompt content
+
+    Prompt files mimic the format of writing prompts in chat. This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies. You can use Markdown formatting to structure the prompt content, including headings, lists, and code blocks.
+
+You can reference other prompt files or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
+
+Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
+
+* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
+* Selection variables - `${selection}`, `${selectedText}`
+* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
+* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+
 ### Prompt file examples
 
-* Document a reusable task for generating a form:
+* Prompt for a reusable task to generate a React form:
 
     ```markdown
-    Your goal is to generate a new React form component.
+    ---
+    mode: 'agent'
+    tools: ['githubRepo', 'codebase']
+    description: 'Generate a new React form component'
+    ---
+    Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
 
     Ask for the form name and fields if not provided.
 
@@ -161,36 +188,47 @@ Common use cases include:
     * Customize UX-friendly validation rules
     ```
 
-* Document reusable security practices for REST APIs, which can be used to do security reviews of REST APIs:
+* Prompt for performing a security review of a REST API:
 
     ```markdown
-    Secure REST API review:
+    ---
+    mode: 'edit'
+    description: 'Perform a REST API security review'
+    ---
+    Perform a REST API security review:
+
     * Ensure all endpoints are protected by authentication and authorization
     * Validate all user inputs and sanitize data
     * Implement rate limiting and throttling
     * Implement logging and monitoring for security events
-    …
     ```
+
+> [!TIP]
+> Reference additional context files like API specs or documentation by using Markdown links to provide Copilot with more complete information.
 
 ### Create a workspace prompt file
 
-Workspace prompt files are stored in your workspace and are only available in that workspace. Workspace prompt files are stored in the `.github/prompts` directory of your workspace.
+Workspace prompt files are stored in your workspace and are only available in that workspace.
+
+By default, prompt files are located in the `.github/prompts` directory of your workspace. You can specify additional prompt file locations with the `setting(chat.promptFilesLocations)` setting.
 
 To create a workspace prompt file:
 
-1. Set the `setting(chat.promptFiles)` setting to `true` for the `.github/prompts` directory.
+1. Run the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
+1. Choose the location where the prompt file should be created.
 
-    By default, prompt files are located in the `.github/prompts` directory of your workspace. You can specify additional prompt file locations with the `setting(chat.promptFilesLocations)` setting.
+    By default, only the `.github/prompts` folder is available. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
 
-    Alternatively, use the **Chat: Create Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) to create a prompt.
+1. Enter a name for your prompt file.
+
+    Alternatively, you can directly create a `.prompt.md` file in the prompts folder of your workspace.
 
 1. Author the chat prompt by using Markdown formatting.
 
     Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file.
 
-    You can also reference other `.prompt.md` files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
+    You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](#custom-instructions) in the same way.
 
 ### Create a user prompt file
 
@@ -198,34 +236,57 @@ User prompt files are stored in your [user profile](/docs/configure/profiles.md)
 
 To create a user prompt file:
 
-1. Select the **Chat: Create User Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Select **User Data Folder** as the location for the prompt file.
+
+    If you use multiple [VS Code profiles](/docs/configure/profiles.md), the prompt file is created in the current profile's user data folder.
 
 1. Enter a name for your prompt file.
 
 1. Author the chat prompt by using Markdown formatting.
 
-    You can also reference other `.prompt.md` user prompt files to create a hierarchy of prompts, with reusable prompts that can be shared across multiple prompt files.
+    You can also reference other user prompt files or user instruction files.
 
-> [!TIP]
-> User prompt files can be synced across multiple devices with [Settings Sync](/docs/configure/settings-sync.md). Make sure to enable support for prompt files in your Settings Sync configuration. Select **Settings Sync: Configure** from the Command Palette, and make sure **Prompts** is selected.
+#### Sync user prompt files across devices
+
+VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+
+To sync your user prompt files, enable Settings Sync for prompt and instruction files:
+
+1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
+
+1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`)
+
+1. Select **Prompts** from the list of settings to sync.
 
 ### Use a prompt file in chat
 
-To use a prompt file as a chat prompt, attach it to your chat request as context:
+You have multiple options to run a prompt file:
 
-1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`).
+* Run the **Chat: Run Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) and select a prompt file from the Quick Pick.
 
-1. Select **Attach Context** in the chat input field, and then select **Prompt...**.
+* In the Chat view, type `/` followed by the prompt file name in the chat input field.
 
-    Alternatively, use the **Chat: Use Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    This option enables you to pass additional information in the chat input field. For example, `/create-react-form` or `/create-react-form: formName=MyForm`.
 
-1. Choose a prompt file from the Quick Pick to attach it to your chat request.
+* Open the prompt file in the editor, and press the play button in the editor title area. You can choose to run the prompt in the current chat session or open a new chat session.
 
-    You can use prompt files in any of the chat modes (ask, edit, or agent mode).
+    This option is useful for quickly testing and iterating on your prompt files.
 
-1. Optionally, attach additional context files required for the task or include more instructions in the chat prompt.
+### Save a chat request as a prompt file
 
-    To use the prompt file as-is, send the chat prompt without any additional instructions.
+You can save the latest chat request as a prompt file. This option is useful for creating reusable prompts based on your recent interactions in chat.
+
+To save a chat request as a prompt file:
+
+1. Enter a chat request in the Chat view.
+
+1. Enter `/save` in the chat input field.
+
+    VS Code generates a prompt file, which contains the latest chat request and its response.
+
+1. Review and edit the generated prompt file and save it in your prompts folder.
 
 ## Settings
 
