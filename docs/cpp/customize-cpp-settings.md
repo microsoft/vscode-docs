@@ -64,7 +64,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   An array of configuration objects that provide the IntelliSense engine with information about your project and your preferences. By default, the extension creates a configuration for you based on your operating system. You can also add more configurations.
 
 - `version`
-  We recommend you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
+  We recommend that you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file, so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
 
 - `enableConfigurationSquiggles`
   Set to `true` to report errors detected in `c_cpp_properties.json` file to the C/C++ Extension.
