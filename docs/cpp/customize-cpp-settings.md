@@ -171,4 +171,4 @@ All default VS Code settings, such as `C_Cpp.default.includePath`, are supported
 C_Cpp.default.systemIncludePath : string[]
 ```
 
-This setting allows you to specify the system include path separately from the include path. However, the selected system include path the C++ extension receives from the compiler is not passed to the IntelliSense process. This is only used in rare scenarios since it overwrites the standard compiler behavior, for example, if your compiler is not supported. Instead, use the setting `compilerArgs` and using the "-isystem" flag to specify system headers, which is a better solution in most scenarios.
+This setting allows you to specify the system include path separately from the include path. However, the selected system include path that the C++ extension receives from the compiler is not passed to the IntelliSense process. This is only used in rare scenarios since it overwrites the standard compiler behavior, for example, if your compiler is not supported. Instead, use the setting `compilerArgs` and using the "-isystem" flag to specify system headers, which is a better solution in most scenarios.
