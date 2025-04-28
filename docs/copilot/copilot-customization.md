@@ -43,7 +43,7 @@ The following example demonstrates custom instructions for code generation:
     - Always log errors with contextual information
     ```
 
-* Define TypeScript and React coding guidelines in a `.github/typescript-react.instructions.md` file and reference general coding guidelines:
+* Define TypeScript and React coding guidelines in a `.github/instructions/typescript-react.instructions.md` file and reference general coding guidelines:
 
     ```markdown
     ---
