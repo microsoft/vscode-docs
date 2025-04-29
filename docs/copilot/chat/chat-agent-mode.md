@@ -46,7 +46,7 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
     Before running a terminal command or non-builtin tool, Copilot requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.
 
-    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command.
+    Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
 
     ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
 
@@ -87,6 +87,18 @@ You can view and manage the tools that can be used for responding to a request. 
 ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
 
 Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
+
+## Manage tool approvals
+
+When a tool is invoked, Copilot requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
+
+In the Chat view, after a tool invocation, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+
+![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+
+You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
+
+In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
 ## Accept or discard edits
 
@@ -134,6 +146,7 @@ The following list contains the settings related to agent mode. You can configur
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
+* `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)
 
 ## Frequently asked questions
 

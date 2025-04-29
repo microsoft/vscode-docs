@@ -47,12 +47,14 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.agent.enabled:true)`: Enable or disable agent mode (default: `false`, requires VS Code 1.99 or later)
 * `setting(chat.agent.maxRequests)`: Maximum number of requests that Copilot can make in agent mode (default: 15)
 * `setting(github.copilot.chat.agent.runTasks)`: Run workspace tasks when using agent mode (default: `true`)
+* `setting(chat.mcp.enabled)` _(Preview)_: Enable Model Context Protocol (MCP) support in VS Code. This enables adding tools from MCP servers in agent mode.
 * `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
 * `setting(chat.implicitContext.enabled)` _(Experimental)_: Configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_: Enable the thinking tool in agent mode.
 * `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_: Enable the agent mode tool for scaffolding a new workspace in chat.
 * `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_: Suggest related files from git history in Copilot Edits (default: `false`)
+* `setting(chat.tools.autoApprove)` _(Experimental)_: Automatically approve all tools (default: `false`)
 
 ## Inline chat settings
 

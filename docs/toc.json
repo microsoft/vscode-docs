@@ -346,7 +346,7 @@
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
-      ["Prompt Builder", "/docs/intelligentapps/promptbuilder"],
+      ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
