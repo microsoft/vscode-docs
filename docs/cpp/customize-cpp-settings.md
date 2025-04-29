@@ -5,7 +5,7 @@ MetaDescription: How to customize the c_cpp_properties.json file for the C++ ext
 ---
 # C++ extension settings reference
 
-The C++ Extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in VS Code, refer to [Configure settings](/docs/getstarted/personalize-vscode.md#configure-settings), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default VS Code Settings](/docs/reference/default-settings.md).
+The C++ extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in VS Code, refer to [Configure settings](/docs/getstarted/personalize-vscode.md#configure-settings), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default VS Code Settings](/docs/reference/default-settings.md).
 
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
 ## Example of variables
@@ -67,7 +67,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   We recommend that you don't edit this field. It tracks the current version of the `c_cpp_properties.json` file, so that the extension knows what properties and settings should be present and how to upgrade this file to the latest version.
 
 - `enableConfigurationSquiggles`
-  Set to `true` to report errors detected in `c_cpp_properties.json` file to the C/C++ Extension.
+  Set to `true` to report errors detected in `c_cpp_properties.json` file to the C/C++ extension.
 
 ## Configuration properties
 
@@ -77,7 +77,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
 - `compilerPath`
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension queries the compiler to determine the system include paths and default defines to use for IntelliSense.
 
-  Putting `"compilerPath": ""` (empty string) skips querying a compiler. This is useful if your preferred compiler doesn't support the arguments that are used for the query, as the extension defaults to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
+  Putting `"compilerPath": ""` (empty string) skips querying a compiler. This is useful if your preferred compiler doesn't support the arguments that are used for the query, as the extension defaults to any supported compilers it can find (like MSVC). Leaving out the `compilerPath` property does not skip the query.
 
 - `compilerArgs`
   Compiler arguments to modify the includes paths or defines used, for example `-nostdinc++`, `-m32`, etc. Arguments that take additional space-delimited arguments should be entered as separate arguments in the array, for example, for `--sysroot <arg>` use `\"--sysroot\", \"<arg>\"`.
@@ -116,7 +116,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.
 
 - `macFrameworkPath`
-  A list of paths for the IntelliSense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS.
+  A list of paths for the IntelliSense engine to use while searching for included headers from Mac frameworks. Only supported on configurations for macOS frameworks.
 
 - `forcedInclude`
   A list of files that should be included before any text in the source file is processed. Files are included in the order listed.
