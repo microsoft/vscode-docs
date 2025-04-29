@@ -70,7 +70,7 @@ To configure an MCP server from featured selections, follow these steps:
 
 ### Use an existing MCP server
 > [!TIP]
-> There are many registry and marketplace for MCP servers, we recommend starting with [Reference Servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
+> There are many registries and marketplaces for MCP servers. We recommend starting with these [reference servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
 
 To use an existing MCP server, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
@@ -81,23 +81,23 @@ To use an existing MCP server, follow these steps:
 4. Select tools from the MCP server if there are multiple tools available.
 5. Enter your prompts and select **Run** to test the connection.
 
-Here is an example of configuring [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in AI Toolkit:
-1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
+Here is an example of configuring the [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in AI Toolkit:
+1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
 2. Select **Connect to an Existing MCP Server**
 3. Select **Command (stdio)**
-> [!Note]
-> Some servers use Python runtime and `uvx` command. The process is the same as using `npx` command.
-4. Navigate to [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate `npx` section.
-5. Copy `command` and `args` into input box in AI Toolkit. In Filesystem server example, it will be `npx -y @modelcontextprotocol/server-filesystem /Users/junjieli/.aitk/examples`
+   > [!NOTE]
+   > Some servers use the Python runtime and the `uvx` command. The process is the same as using the `npx` command.
+4. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
+5. Copy the `command` and `args` into the input box in AI Toolkit. For the Filesystem server example, it will be `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
 6. Input a name for the server.
-> [!Note]
-> Some servers might require additional environment variables such as API keys. In this case, AI Toolkit will fail at the stage of adding tools and a file `mcp.json` will pop up so you enter the required details following the instructions provided by each server.
-> ![Modify args](./images/promptbuilder/modify_args.png)
-> Once completed the configuration:
-> 1. Navigate back to **Tools** section and select **+ MCP Server**
-> 2. Select the server you just configured from the dropdown list
-> 3. Select tools you want to use.
-7. Select tools you want to use.
+7. Optionally, enter additional environment variables.
+   Some servers might require additional environment variables such as API keys. In this case, AI Toolkit will fail at the stage of adding tools and a file `mcp.json` will open, where you can enter the required server details following the instructions provided by each server.
+   ![Modify args](./images/promptbuilder/modify_args.png)
+   Once completed the configuration:
+   1. Navigate back to **Tools** section and select **+ MCP Server**
+   2. Select the server you just configured from the dropdown list
+   3. Select tools you want to use.
+8. Select tools you want to use.
 
 ![connect to MCP server](./images/promptbuilder/mcp_existing.gif)
 
