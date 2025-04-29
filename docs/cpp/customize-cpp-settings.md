@@ -8,6 +8,7 @@ MetaDescription: How to customize the c_cpp_properties.json file for the C++ ext
 The C++ extension settings are highly configurable. This article explains the schema for the `c_cpp_properties.json` file. For general information about settings in VS Code, refer to [Configure settings](/docs/getstarted/personalize-vscode.md#configure-settings), as well as the [Variables reference](/docs/reference/variables-reference.md) and [Default VS Code Settings](/docs/reference/default-settings.md).
 
 Looking to get started with configuring your C++ project? Begin with [configure Intellisense](/docs/cpp/configure-intellisense.md).
+
 ## Example of variables
 
 The following JSON snippet is an example configuration for `c_cpp_properties.json`. You only need to include relevant variables in your JSON file, and any missing fields are filled in with their default values by the C++ extension.
