@@ -63,22 +63,15 @@ To configure an MCP server from featured selections, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
 2. Select **Use Featured MCP Servers** from the dropdown list.
 3. Choose an MCP server that meets your needs.
-![connect to MCP server](./images/promptbuilder/Featured_server.png)
-
-For servers that are ready to use, AI Toolkit will prompt you to select tools and add to your agent afterwards.
-
-For servers that are marked with **(Configuration Required)**:
-1. You will be prompted to enter the required configurations in the `mcp.json` file.
-   ![config_server](./images/promptbuilder/config_server.png)
-2. Follow the guidelines to configure the server:
-   1. [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx)
-   2. [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/github#npx)
-   3. [Google Maps](https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps#npx)
-   4. [Sqlite](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite#uv-1)
-3. After finishing the configuration, go back to Agent Builder and select **+ MCP Server** to locate the server you added from the list.
-4. Select the server and proceed to add tools.
+   ![connect to MCP server](./images/promptbuilder/featured_server_2.png)
+4. Enter a name for the server.
+5. Select tools you want to use.
+   ![select_tools](./images/promptbuilder/select_tools.png)
 
 ### Use an existing MCP server
+> [!TIP]
+> There are many registries and marketplaces for MCP servers. We recommend starting with these [reference servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
+
 To use an existing MCP server, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
 2. Select **Connect to an Existing MCP Server**
@@ -87,6 +80,24 @@ To use an existing MCP server, follow these steps:
    - **HTTP (server-sent events)**: Connect to a remote server that implements the MCP protocol
 4. Select tools from the MCP server if there are multiple tools available.
 5. Enter your prompts and select **Run** to test the connection.
+
+Here is an example of configuring the [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in AI Toolkit:
+1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
+2. Select **Connect to an Existing MCP Server**
+3. Select **Command (stdio)**
+   > [!NOTE]
+   > Some servers use the Python runtime and the `uvx` command. The process is the same as using the `npx` command.
+4. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
+5. Copy the `command` and `args` into the input box in AI Toolkit. For the Filesystem server example, it will be `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
+6. Input a name for the server.
+7. Optionally, enter additional environment variables.
+   Some servers might require additional environment variables such as API keys. In this case, AI Toolkit will fail at the stage of adding tools and a file `mcp.json` will open, where you can enter the required server details following the instructions provided by each server.
+   ![Modify args](./images/promptbuilder/modify_args.png)
+   Once completed the configuration:
+   1. Navigate back to **Tools** section and select **+ MCP Server**
+   2. Select the server you just configured from the dropdown list
+   3. Select tools you want to use.
+8. Select tools you want to use.
 
 ![connect to MCP server](./images/promptbuilder/mcp_existing.gif)
 
