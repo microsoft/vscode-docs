@@ -93,7 +93,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   IntelliSense modes that only specify `<compiler>-<architecture>` variants (for example, `gcc-x64`) are legacy modes and are automatically converted to the `<platform>-<compiler>-<architecture>` variants based on the host platform.
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included by a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `/**` at the end of the path to indicate recursive search. For example, `${workspaceFolder}/**` searches through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, the system include paths should not be listed here.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included by a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `/**` at the end of the path to indicate recursive search. For example, `${workspaceFolder}/**` searches through all subdirectories while `${workspaceFolder}` will not. If you are on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, the system include paths should not be listed here.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
