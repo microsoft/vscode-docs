@@ -85,7 +85,8 @@ Here is an example of configuring [Filesystem](https://github.com/modelcontextpr
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
 2. Select **Connect to an Existing MCP Server**
 3. Select **Command (stdio)**
-> [!Note] Some servers use Python runtime and `uvx` command. The process is the same as using `npx` command.
+> [!Note]
+> Some servers use Python runtime and `uvx` command. The process is the same as using `npx` command.
 4. Navigate to [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate `npx` section.
 5. Copy `command` and `args` into input box in AI Toolkit. In Filesystem server example, it will be `npx -y @modelcontextprotocol/server-filesystem /Users/junjieli/.aitk/examples`
 6. Input a name for the server.
