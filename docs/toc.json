@@ -281,7 +281,7 @@
       ["Debugging", "/docs/cpp/cpp-debug"],
       ["Configure Debugging", "/docs/cpp/launch-json-reference"],
       ["Refactoring", "/docs/cpp/cpp-refactoring"],
-      ["Settings", "/docs/cpp/customize-default-settings-cpp"],
+      ["Settings Reference", "/docs/cpp/customize-cpp-settings"],
       ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
       ["Configure IntelliSense for Cross-Compiling", "/docs/cpp/configure-intellisense-crosscompilation"],
       ["FAQ", "/docs/cpp/faq-cpp"]
