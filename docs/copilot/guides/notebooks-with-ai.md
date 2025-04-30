@@ -1,7 +1,7 @@
 ---
-ContentId: 2f21c45a-8931-4da2-a921-af23a3b92949
+ContentId: 101027aa-e73c-4d1b-a93f-b8ce10e1f946
 DateApproved: 04/03/2025
-MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to set up debugging configurations and fix issues during debugging.
+MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to edit Jupyter notebooks with AI.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Edit Jupyter notebooks with AI in VS Code
