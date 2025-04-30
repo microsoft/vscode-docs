@@ -105,3 +105,4 @@ You can now further edit the notebook manually, or use AI to make inline edits o
 
 - [Learn more about Jupyter notebooks in VS Code](/docs/datascience/jupyter-notebooks.md)
 - [Learn more about the AI features in VS Code](/docs/copilot/overview.md)
+- [Learn more about chat in VS Code](/docs/copilot/chat/copilot-chat.md)
