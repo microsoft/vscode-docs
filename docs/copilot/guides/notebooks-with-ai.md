@@ -20,13 +20,13 @@ With [ask mode](vscode://GitHub.Copilot-Chat/chat?mode=ask) in chat, use the `/n
 
 Example prompts:
 
-- *Create a Jupyter notebook to read data from #file:housing.csv*
-- *Create a Jupyter notebook to read data from #file:housing.csv, add a step to clean the data*
-- *Create a notebook to read data from #file:housing.csv and plot the distribution of prices*
+- *Create a Jupyter notebook to read data from #housing.csv*
+- *Create a Jupyter notebook to read data from #housing.csv, add a step to clean the data*
+- *Create a notebook to read data from #housing.csv and plot the distribution of prices*
 - */newNotebook using pandas and seaborn to read and visualize the titanic dataset. Show key information from the dataset.* (ask mode)
-- *Create a Jupyter notebook to read data from #file:housing.csv. Run all cells.* (agent mode)
+- *Create a Jupyter notebook to read data from #housing.csv. Run all cells.* (agent mode)
 
-The following screenshots shows how the output from agent mode to the prompt *Create a Jupyter notebook to read data from #file:housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
+The following screenshot shows how the output from agent mode to the prompt *Create a Jupyter notebook to read data from #housing.csv* (you can get this dataset from [Kaggle](https://www.kaggle.com/search?q=housing+dataset+in%3Adatasets)):
 
 ![Screenshot that shows a new notebook created by agent mode that reads the 'housing.csv' file in the workspace.](images/notebooks-with-ai/agent-mode-create-new-notebook.png)
 
@@ -91,9 +91,9 @@ For example, to perform a data analysis of the housing dataset:
 
 1. Open [agent mode](vscode://GitHub.Copilot-Chat/chat?mode=agent) in chat.
 
-1. Enter the following prompt in the chat input field: *Perform data analysis of the data in #file:housing.csv*.
+1. Enter the following prompt in the chat input field: *Perform data analysis of the data in #housing.csv*.
 
-1. Notice that agent mode iterates through the different tasks. When needed, approve the tool and command invocations.
+    Notice that agent mode iterates through the different tasks. When needed, approve the tool and command invocations.
 
 1. The result is a new notebook with a complete data analysis of the dataset, including data cleaning, data visualization, and statistical analysis.
 
