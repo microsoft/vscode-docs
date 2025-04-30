@@ -101,6 +101,8 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.secondaryHoverBackground`: Secondary button background color when hovering.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
+- `checkbox.disabled.background`: Background of a disabled checkbox.
+- `checkbox.disabled.foreground`: Foreground of a disabled checkbox.
 - `checkbox.border`: Border color of checkbox widget.
 - `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
 - `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
@@ -583,8 +585,11 @@ The gutter contains the glyph margins and the line numbers:
 
 - `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
+- `editorGutter.modifiedSecondaryBackground`: Editor gutter secondary background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
+- `editorGutter.addedSecondaryBackground`: Editor gutter secondary background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
+- `editorGutter.deletedSecondaryBackground`: Editor gutter secondary background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
 - `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
