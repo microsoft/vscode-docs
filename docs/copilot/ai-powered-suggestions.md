@@ -67,18 +67,28 @@ Inline suggestions are great at autocompleting a section of code. But since most
 
 Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
+To get started with Copilot NES, enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
+
 ### Navigate and accept edit suggestions
 
-You can quickly navigate suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
+You can quickly navigate to suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
 An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+
 ![Copilot NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
 
 If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+
 ![Copilot NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
 
 > [!IMPORTANT]
 > If you are using the VS Code vim extension, you may want to update your `keybindings.json`. Learn more [in the GitHub issue](https://github.com/VSCodeVim/Vim/issues/9459#issuecomment-2648156285).
+
+### Reduce distractions by edit suggestions
+
+By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. If you prefer to reduce distractions, you can disable showing the code changes in the editor until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow.
+
+To disable showing the code changes in the editor, enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting in the Settings editor. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu. To re-enable showing the code changes, disable the setting or select **Show Expanded** from the gutter arrow menu.
 
 ### Use cases for Next Edit Suggestions
 
@@ -136,7 +146,7 @@ You can enable or disable code completions either for all languages, or for spec
 
     Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
 
-### Change the AI model
+## Change the AI model for completions
 
 Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
 

@@ -97,8 +97,9 @@ To run tests with coverage enabled, select the coverage run icon in the Test Exp
 
 > [!Note]
 > Before running tests with coverage, make sure to install the correct testing coverage package for your project.
+> Branch coverage is only supported on coverage versions >= 7.7.
 
-Once the coverage run completes, lines are highlighted in the editor for line level coverage. Test coverage results appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`F1)`). On this panel you can view line coverage metrics for each file and folder in your workspace.
+Once the coverage run completes, lines are highlighted in the editor for line-level coverage. Test coverage results appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in the Command Palette (`kb(workbench.action.showCommands)`). On this panel, you can view line coverage metrics for each file and folder in your workspace, as well as branch coverage, if relevant.
 
 ![Gif showing running Python tests with coverage.](images/testing/python-coverage.gif)
 
