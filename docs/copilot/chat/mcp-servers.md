@@ -36,6 +36,13 @@ MCP's [official server repository](https://github.com/modelcontextprotocol/serve
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
 
+## Enable MCP support in VS Code
+
+> [!NOTE]
+> MCP support in agent mode in VS Code is currently in preview.
+
+MCP support is available starting in VS Code release 1.99. To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting. This setting is enabled by default.
+
 ## Add an MCP server
 
 You have multiple options to add an MCP server in VS Code:
@@ -140,7 +147,7 @@ Use the following JSON configuration format to define MCP servers.
     | Field | Description | Examples |
     |-------|-------------|----------|
     | `type` | Server connection type.  | `"stdio"` |
-    | `command` | Command to start the server executable. | `"npx"`,`"node"`, `"python"`, `"docker"` |
+    | `command` | Command to start the server executable. The command needs to be available on your system path or contain its full path.<br/>If you use docker, don't use the detach option. | `"npx"`,`"node"`, `"python"`, `"docker"` |
     | `args` | Array of arguments passed to the command. | `["server.py", "--port", "3000"]` |
     | `env` | Environment variables for the server. | `{"API_KEY": "${input:api-key}"}` |
     | `envFile` | Path to an `.env` from which to load additional environment variables. | `"${workspaceFolder}/.env"` |
@@ -302,6 +309,10 @@ Yes, you have several options to control which tools are active:
 - Select the **Tools** button in the Chat view when in agent mode, and toggle specific tools on/off as needed.
 - Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
 - For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
+
+### The MCP server is not starting when using Docker
+
+Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshooting)).
 
 ## Related resources
 

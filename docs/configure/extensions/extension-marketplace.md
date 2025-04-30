@@ -339,6 +339,8 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 
 You can change the location by launching VS Code with the `--extensions-dir <dir>` command-line [option](/docs/configure/command-line.md).
 
+Alternatively, you can set the `VSCODE_EXTENSIONS` environment variable to a location where you want to install extensions. This is useful in an enterprise environment where you want to centrally manage where extensions are installed on user machines.
+
 ### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
 You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in the setup topic for details.
