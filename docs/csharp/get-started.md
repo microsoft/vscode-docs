@@ -18,7 +18,7 @@ This getting started guide introduces you to C# and .NET for Visual Studio Code 
 
 Keep in mind, that this guide won't teach you C#. Instead, it teaches you how to get set up for C# development in VS Code. If you're looking for resources to learn C#, check out the free C# Certificate from freeCodeCamp.
 
-<a class="install-extension-btn" href="https://aka.ms/csharp-certification">Earn C# Cert</a>
+<a class="install-extension-btn" href="https://aka.ms/csharp-certification">Earn C# Certification</a>
 
 ## Necessary tools
 
