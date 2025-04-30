@@ -269,17 +269,35 @@
     "area": "cpp",
     "topics": [
       ["Intro Videos", "/docs/cpp/introvideos-cpp"],
-      ["GCC on Linux", "/docs/cpp/config-linux"],
-      ["GCC on Windows", "/docs/cpp/config-mingw"],
-      ["GCC on Windows Subsystem for Linux", "/docs/cpp/config-wsl"],
-      ["Clang on macOS", "/docs/cpp/config-clang-mac"],
-      ["Microsoft C++ on Windows", "/docs/cpp/config-msvc"],
-      ["Build with CMake", "/docs/cpp/build-with-cmake"],
-      ["CMake Tools on Linux", "/docs/cpp/cmake-linux"],
-      ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
+      ["", "", {
+        "name": "Getting Started",
+        "area": "cpp",
+        "topics": [
+          ["GCC on Linux", "/docs/cpp/config-linux"],
+        ["GCC on Windows", "/docs/cpp/config-mingw"],
+        ["GCC on Windows Subsystem for Linux", "/docs/cpp/config-wsl"],
+        ["Clang on macOS", "/docs/cpp/config-clang-mac"],
+        ["Microsoft C++ on Windows", "/docs/cpp/config-msvc"]
+        ]
+      }],
+      ["", "", {
+        "name": "Build with CMake",
+        "area": "cpp",
+        "topics": [
+          ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
+          ["Build with CMake", "/docs/cpp/build-with-cmake"],
+          ["CMake Tools on Linux", "/docs/cpp/cmake-linux"]
+        ]
+      }],
       ["Editing and Navigating", "/docs/cpp/cpp-ide"],
-      ["Debugging", "/docs/cpp/cpp-debug"],
-      ["Configure Debugging", "/docs/cpp/launch-json-reference"],
+      ["", "", {
+        "name": "Debugging",
+        "area": "cpp",
+        "topics": [
+          ["Debugging", "/docs/cpp/cpp-debug"],
+          ["Configure Debugging", "/docs/cpp/launch-json-reference"],
+        ]
+      }],
       ["Refactoring", "/docs/cpp/cpp-refactoring"],
       ["Settings", "/docs/cpp/customize-default-settings-cpp"],
       ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
