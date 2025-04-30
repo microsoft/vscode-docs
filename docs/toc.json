@@ -145,8 +145,9 @@
         "name": "Guides",
         "area": "copilot/guides",
         "topics": [
-          ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
-          ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ["Edit notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
+          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
+          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"]
         ]
       }
       ],
