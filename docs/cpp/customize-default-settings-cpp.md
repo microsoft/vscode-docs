@@ -87,7 +87,7 @@ Note that for the properties that accept string[], the syntax proposed above all
 
 If a property is missing from `c_cpp_properties.json`, the extension will use the value in the VS Code setting. If a developer assigns values to all of the settings that apply for a given folder, then `c_cpp_properties.json` could be removed from the .vscode folder as it will no longer be needed.
 
-For in-depth information about the c_cpp_properties.json settings file, See [c_cpp_properties.json reference](/docs/cpp/c-cpp-properties-schema-reference.md).
+For in-depth information about the c_cpp_properties.json settings file, See [c_cpp_properties.json reference](/docs/cpp/customize-cpp-settings.md).
 
 ### System includes
 

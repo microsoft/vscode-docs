@@ -271,31 +271,31 @@
       ["Intro Videos", "/docs/cpp/introvideos-cpp"],
       ["", "", {
         "name": "Getting Started",
-        "area": "cpp",
+        "area": "gettingstarted",
         "topics": [
-          ["GCC on Linux", "/docs/cpp/config-linux"],
-        ["GCC on Windows", "/docs/cpp/config-mingw"],
-        ["GCC on Windows Subsystem for Linux", "/docs/cpp/config-wsl"],
-        ["Clang on macOS", "/docs/cpp/config-clang-mac"],
-        ["Microsoft C++ on Windows", "/docs/cpp/config-msvc"]
+          ["GCC on Linux", "/docs/cpp/gettingstarted/config-linux"],
+        ["GCC on Windows", "/docs/cpp/gettingstarted/config-mingw"],
+        ["GCC on Windows Subsystem for Linux", "/docs/cpp/gettingstarted/config-wsl"],
+        ["Clang on macOS", "/docs/cpp/gettingstarted/config-clang-mac"],
+        ["Microsoft C++ on Windows", "/docs/cpp/gettingstarted/config-msvc"]
         ]
       }],
       ["", "", {
         "name": "Build with CMake",
-        "area": "cpp",
+        "area": "cmake",
         "topics": [
-          ["CMake Quick Start", "/docs/cpp/cmake-quickstart"],
-          ["Build with CMake", "/docs/cpp/build-with-cmake"],
-          ["CMake Tools on Linux", "/docs/cpp/cmake-linux"]
+          ["CMake Quick Start", "/docs/cpp/cmake/cmake-quickstart"],
+          ["Build with CMake", "/docs/cpp/cmake/build-with-cmake"],
+          ["CMake Tools on Linux", "/docs/cmake/cpp/cmake-linux"]
         ]
       }],
       ["Editing and Navigating", "/docs/cpp/cpp-ide"],
       ["", "", {
         "name": "Debugging",
-        "area": "cpp",
+        "area": "debugging",
         "topics": [
-          ["Debugging", "/docs/cpp/cpp-debug"],
-          ["Configure Debugging", "/docs/cpp/launch-json-reference"],
+          ["Debugging", "/docs/cpp/debugging/cpp-debug"],
+          ["Configure Debugging", "/docs/cpp/debugging/launch-json-reference"],
         ]
       }],
       ["Refactoring", "/docs/cpp/cpp-refactoring"],
