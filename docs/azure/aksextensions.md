@@ -172,7 +172,7 @@ Congratulations! You now know how to navigate through this VS Code extension.
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Azure Kubernetes Service Diagnostics (preview) overview](https://learn.microsoft.com/azure/aks/concepts-diagnostics)
 * [Azure Service Operator](https://azure.github.io/azure-service-operator/#azure-service-operator-v2) - Learn about Azure Service Operator.
 * [AKS Periscope](https://github.com/azure/aks-periscope)
