@@ -10,19 +10,19 @@ MetaDescription: Configuring C# debugging
 
 You can configure the C# debugger in Visual Studio Code with a `launch.json`, `launchSettings.json`, or your user `settings.json` file.
 
-## Walkthrough: setting command line arguments
+## Walkthrough: setting command-line arguments
 
-Before we get into the details of all the possible options, lets walkthrough a basic scenario -- setting command line arguments to your program. These steps will also work for updating other basic options like environment variables or the current working directory.
+Before we get into the details of all the possible options, let's walk through a basic scenario: setting command-line arguments to your program. These steps also work for updating other basic options like environment variables or the current working directory.
 
 ### Approach 1: `launchSettings.json`
 
-For C# Dev Kit, the recommended way to debug is to let C# Dev Kit automatically figure out how to debug from settings in the project file. This means you either don't have a `<workspace_root>/.vscode/launch.json` file, or if you have one you have `"type": "dotnet"` set for the active configuration. For command line arguments, "figure out from the project file" means to pull the value from `<Project-Directory>/Propeties/launchSettings.json`. The advantage of `launchSettings.json` is that it allows settings to be shared between Visual Studio Code, full Visual Studio, and `dotnet run`.
+For C# Dev Kit, the recommended way to debug is to let C# Dev Kit automatically figure out how to debug from settings in the project file. This means that you either don't have a `<workspace_root>/.vscode/launch.json` file, or if you have one, you have `"type": "dotnet"` set for the active configuration. For command-line arguments, "figure out from the project file" means to pull the value from `<Project-Directory>/Propeties/launchSettings.json`. The advantage of `launchSettings.json` is that it allows settings to be shared between Visual Studio Code, full Visual Studio, and `dotnet run`.
 
-For this case, here are the steps to set the command line arguments:
-1. In workspace explorer view, navigate to the directory of the project (.csproj file) you want to launch
+For this case, here are the steps to set the command-line arguments:
+1. In workspace Explorer view, navigate to the directory of the project (.csproj file) you want to launch
 2. If there isn't a `Properties` directory already, create it
 3. If there isn't a `launchSettings.json` file already, create one, you can use the below text as an example
-4. Change the `commandLineArgs` property to what you would like the command line arguments to be
+4. Change the `commandLineArgs` property to what you would like the command-line arguments to be
 
 **Example `launchSettings.json` file**:
 ```json
@@ -38,7 +38,7 @@ For this case, here are the steps to set the command line arguments:
 
 ### Approach 2: `launch.json`
 
-If you are using the `coreclr` or `clr` debug adapter type in VS Code, command line arguments are stored in your `<workspace_root>/.vscode/launch.json`. To edit them in this case:
+If you are using the `coreclr` or `clr` debug adapter type in VS Code, command-line arguments are stored in your `<workspace_root>/.vscode/launch.json`. To edit them in this case:
 
 1. Open up `<workspace_root>/.vscode/launch.json`
 2. Find the `coreclr` or `clr` launch configuration you want to launch
@@ -101,12 +101,12 @@ Example:
 }
 ```
 
-## Profile Properties
+## Profile properties
 
 * `commandLineArgs` - The arguments to pass to the target being run.
 * `executablePath` - An absolute or relative path to the executable.
 * `workingDirectory` - Sets the working directory of the command.
-* `launchBrowser` - Set to true if the browser should be launched.
+* `launchBrowser` - Set to `true` if the browser should be launched.
 * `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
 * `sslPort` - The SSL port to use for the web site.
 * `httpPort` - The HTTP port to use for the web site.
