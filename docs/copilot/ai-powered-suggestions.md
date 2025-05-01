@@ -161,7 +161,7 @@ To change the language model that is used for generating code completions in the
 Alternatively, if Command Center is enabled, you can click the Copilot menu in the VS Code title bar, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model...** in the dropdown menu and select the model you want to use.
 
 > [!NOTE]
-> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> The list of available models might vary and change over time. The model picker may not always show more than one model, and preview models and additional code completion models will become available there if/when we release them. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 
