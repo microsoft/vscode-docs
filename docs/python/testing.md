@@ -14,7 +14,7 @@ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-py
 
 ## Configure tests
 
-When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the VS Code Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Tests** button if a test framework is not enabled. Selecting **Configure Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
+When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the VS Code Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Python Tests** button if a test framework is not enabled. Selecting **Configure Python Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
 
  > [!Note]
  > A file glob pattern is a defined string pattern that matches file or folder names based on wildcards to include or not include files.
