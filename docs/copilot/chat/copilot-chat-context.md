@@ -80,7 +80,7 @@ When you encounter issues in your code, or have failures when running tests, you
 
 ## Chat context types
 
-Copilot supports the following context types:
+Copilot supports the following chat context types:
 
 * Files - include specific files from your workspace in the prompt
 * Folders - add a folder to include the files in that folder in the prompt
@@ -90,6 +90,8 @@ Copilot supports the following context types:
 * Terminal command output - include the output of the last command run in the terminal
 * Problems - include a specific code issue from the Problems panel to the prompt
 * Test failures - include details from test failures in the prompt
+* Search results - include the results from the Search view in the prompt
+* Tools - include tools in the prompt, for example the `#fetch` tool or tools from extensions or MCP servers
 
 ## Related resources
 
