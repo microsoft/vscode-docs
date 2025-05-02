@@ -152,7 +152,7 @@ Follow these steps to configure your environment for this workaround:
     ```sh
     mkdir toolchain-dir
     cd toolchain-dir
-    cp <path-to-config-file> > .config
+    cp <path-to-config-file> .config
     ct-ng build
     ```
 
