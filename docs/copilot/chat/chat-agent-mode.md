@@ -58,7 +58,9 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot Edits detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+1. Copilot detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+
+    Enable the `setting(github.copilot.chat.agent.autoFix)` setting to automatically diagnose and fix issues in the generated code changes. This setting is enabled by default.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
@@ -146,6 +148,7 @@ The following list contains the settings related to agent mode. You can configur
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
+* `setting(github.copilot.chat.agent.autoFix)`: automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)
 
 ## Frequently asked questions
