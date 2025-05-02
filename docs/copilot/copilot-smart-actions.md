@@ -20,6 +20,18 @@ When you rename a symbol in your code, Copilot suggests a new name based on the 
 
 ![Inline chat suggesting a new name for a symbol in a Python file](images/copilot-smart-actions/copilot-inline-chat-rename-suggestion.png)
 
+## Generate alt text for images in Markdown
+
+Use AI to generate or update alt text for images in Markdown files. To generate alt text:
+
+1. Open a Markdown file.
+1. Put the cursor on an image link.
+1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
+
+    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](images/copilot-smart-actions/generate-alt-text.png)
+
+1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
+
 ## Generate documentation
 
 Use Copilot to generate code documentation for multiple languages.

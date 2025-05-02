@@ -115,6 +115,20 @@ You can even use simple regular expressions to transform variables in a [similar
 
 When a new file is pasted into `/docs/api/readme.md`, the image is now created under `/docs/api/images/r/image.png`.
 
+### Generating alt text for images
+
+You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
+
+1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+
+1. Open a Markdown file.
+1. Put the cursor on an image link.
+1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
+
+    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](../copilot/images/copilot-smart-actions/generate-alt-text.png)
+
+1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
+
 ### Smart selection
 
 Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as code blocks or tables) and to select the entire contents of a header section in the Markdown file.
