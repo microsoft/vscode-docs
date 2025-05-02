@@ -28,7 +28,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -152,13 +152,13 @@ Use the following JSON configuration format to define MCP servers.
     | `env` | Environment variables for the server. | `{"API_KEY": "${input:api-key}"}` |
     | `envFile` | Path to an `.env` from which to load additional environment variables. | `"${workspaceFolder}/.env"` |
 
-    **Connect with `sse`:**
+    **Connect with `sse` or `http`:**
 
     | Field | Description | Examples |
     |-------|-------------|----------|
-    | `type` | Server connection type.  | `"sse"` |
-    | `url` | URL of the server (for `"type": "sse"`). | `"http://localhost:3000"` |
-    | `headers` | HTTP headers for the server (for `"type": "sse"`). | `{"API_KEY": "${input:api-key}"}` |
+    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"sse"`, `"http"` |
+    | `url` | URL of the server. | `"http://localhost:3000"` |
+    | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
 - The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
