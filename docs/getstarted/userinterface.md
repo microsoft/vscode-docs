@@ -11,18 +11,16 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 ## Basic layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into five main areas:
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into six main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
 * **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the Chat view. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
-![Screenshot of the VS Code user interface, highlighting the five main areas.](images/userinterface/hero.png)
-
-> [!TIP]
-> A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
+![Screenshot of the VS Code user interface, highlighting the main areas.](images/userinterface/hero.png)
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
@@ -30,6 +28,8 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 > [!TIP]
 > You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+
+Learn more about using [Primary and Secondary Side Bar](/docs/configure/custom-layout.md#workbench).
 
 ## Side by side editing
 

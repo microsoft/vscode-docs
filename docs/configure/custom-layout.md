@@ -48,6 +48,8 @@ Alternatively, you can also open the Secondary Side Bar as follows:
 * Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
 * Use the **View** > **Appearance** > **Secondary Side Bar** menu item
 
+If you want to automatically show the Secondary Side Bar when you open a new window or a workspace, you can configure this with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
+
 At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
 
 ![Drag and drop views and panels between the Primary and Secondary Side Bar](images/custom-layout/drag-and-drop-views.gif)
