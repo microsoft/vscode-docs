@@ -74,14 +74,15 @@ Use chat variables in your chat prompt to reference context that is relevant to 
 |--------|-------------|
 | `#changes` | The list of source control changes. |
 | `#codebase` | Add relevant workspace content as context to your prompt. |
+| `#extensions` | Tool to find and ask questions about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a web page - provide the URL. |
-| `#file` | Open a Quick Pick to select a file from your workspace and add it as context for your prompt. |
-| `#<filename>` | Type `#`, followed by a filename, to get filename suggestions for workspace files and attach as context. |
-| `#folder` | Type `#folder:`, followed by a folder name to select a folder from your workspace and add it as context for your prompt. Adding a folder adds all files within it as context. |
+| `#<file or folder name>` | Type `#`, followed by a file or folder name, to add it as chat context. |
+| `#githubRepo` | Perform a code search for a GitHub repo to gather context for your prompt. For example, "what is a global snippet #githubRepo microsoft/vscode." |
+| `#new` | Tool to scaffold a new VS Code workspace. |
+| `#newJupyterNotebook` | Tool to scaffold a new Jupyter notebook. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
 | `#searchResults` | Add the results from the Search view as context to your prompt. |
 | `#selection` | Add the current editor selection as context to your prompt. |
-| `#sym` | Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt. |
 | `#<symbol>` | Type `#`, followed by a symbol name, to get symbol suggestions for workspace files and attach as context. |
 | `#terminalSelection` | Add the current terminal selection as context to your chat prompt. |
 | `#terminalLastCommand` | Add the last run terminal command as context to your chat prompt. |
