@@ -130,6 +130,12 @@ The Search view lists exact text matches across your files, in addition to match
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
+## Settings suggestions (Experimental)
+
+In the Settings editor, you can get AI-generated suggestions for settings based on your search query. Enable this functionality by enabling the `setting(github.copilot.suggestSettings)` setting.
+
+![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
+
 ## Related content
 
 * [Get started with the Copilot Quickstart](/docs/copilot/getting-started.md).

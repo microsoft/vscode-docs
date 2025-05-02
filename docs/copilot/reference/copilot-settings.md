@@ -26,6 +26,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
 * `setting(chat.setupFromDialog)` _(Experimental)_: Controls whether to show the Copilot setup dialog when starting a chat session.
+* `setting(github.copilot.suggestSettings)`: Controls whether to show suggestions in the Settings editor.
 
 ## Chat settings
 
