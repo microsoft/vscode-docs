@@ -82,6 +82,20 @@ To open a chat session in the editor or a separate window:
 
 1. Select **Open Chat in Editor** or **Open Chat in New Window**.
 
+## Open a chat session in a floating window
+
+VS Code supports floating windows, which is useful for keeping the Chat view open in a separate window on your screen or even on a different monitor. You can open multiple chat sessions in floating windows at the same time.
+
+To open a chat session in a floating window, select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in New Window**.
+
+![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options. The desktop shows a floating window with a chat session.](images/copilot-chat/chat-open-in-new-window.png)
+
+By default, the chat session opens in compact mode, which hides the title bar and other UI elements. Select the compact mode icon in the floating window title bar to toggle between compact and normal mode.
+
+Optionally, enable the **Always on Top** mode to always keep the Chat view on top of other windows.
+
+Learn more about [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
+
 ## Change the language model
 
 Copilot offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
