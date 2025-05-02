@@ -83,7 +83,7 @@ In your prompt, you can use special keywords to get more relevant responses:
 
 * _Slash commands_ provide a shortcut to commonly used instructions, such as `/fix` to propose a fix for a problem, or `/explain` to explain how the selected code works. Type `/` in the chat input field to view a list of available slash commands.
 
-* _Chat variables_ let you reference specific context in your prompt text. For example, use `#file` to reference a workspace file, or `#codebase` to let Copilot find the relevant files to add as context. Type `#` in the chat input field to view a list of available variables.
+* _Chat variables_ let you reference specific context in your prompt text. For example, use `#` followed by a file name to reference a workspace file, or `#codebase` to let Copilot find the relevant files to add as context. Type `#` in the chat input field to view the list of available variables.
 
 ## Related resources
 

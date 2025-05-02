@@ -99,7 +99,7 @@ To create an instructions file:
 
 1. Author the custom instructions by using Markdown formatting.
 
-    Within a workspace instruction file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the instruction file.
+    Within a workspace instruction file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#index.ts` references within the instruction file.
 
 To use an instructions file for a chat prompt, you can either:
 
@@ -312,7 +312,7 @@ To create a workspace prompt file:
 
 1. Author the chat prompt by using Markdown formatting.
 
-    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file.
+    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#index.ts` references within the prompt file.
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](#custom-instructions) in the same way.
 

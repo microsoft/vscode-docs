@@ -33,12 +33,9 @@ There are several ways to add context to your chat prompt:
 
 * Type the `#` character in your chat prompt to reference context by using chat variables.
 
-    For example, use `#selection` to add the current editor selection to your chat prompt, `#file` to add a workspace file, or `#sym` to add a symbol from the workspace.
+    For example, use `#selection` to add the current editor selection to your chat prompt, or `#<file name>` to add a workspace file from the workspace.
 
     ![Screenshot of VS Code Copilot Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
-
-    > [!TIP]
-    > Type `#` and use it as an IntelliSense trigger for selecting files or symbols.
 
 * Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Chat view.
 

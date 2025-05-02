@@ -56,7 +56,7 @@ Finally, this context is used by GitHub Copilot to answer your question. If the 
 | `/new`         | <ul><li>Only the chat prompt is used as context.</li></ul> |
 | `/newNotebook` | <ul><li>Only the chat prompt is used as context.</li></ul> |
 
-You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#file` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #file:form.ts`.
+You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#codebase` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #form.ts`.
 
 ## Managing the workspace index
 
@@ -111,7 +111,7 @@ The way you phrase your question can significantly influence the quality of the 
 - Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (where "this" could be interpreted as the last answer, current file, or whole project, etc.).
 - Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
 - Review the *used references* in the response to ensure that the files are relevant. Iterate on your question if necessary.
-- Explicitly include relevant context by selecting code or mentioning chat variables such as `#editor`, `#selection`, or `#file`.
+- Explicitly include relevant context by selecting code or mentioning chat variables such as `#editor`, `#selection`, or `#<file name>`.
 - Responses can draw from multiple references, such as "find exceptions without a catch block" or "provide examples of how handleError is called". However, don't anticipate a comprehensive code analysis across your codebase, such as "how many times is this function invoked?" or "rectify all bugs in this project".
 - Avoid assuming information beyond the code (for now), such as "who contributed to this file?" or "summarize review comments for this folder".
 

@@ -122,7 +122,7 @@ Enrich your prompts with relevant context to get more accurate and relevant resp
 
 * Use the `#codebase` variable to let Copilot find the right files automatically.
 * Use the `#fetch` variable to fetch content from a web page.
-* Reference files or symbols in your prompt by using `#file` or `#sym` chat variables.
+* Reference files or symbols in your prompt by using `#<file name>` or `#<symbol>` chat variables.
 * Drag and drop files, folders, or editor tabs onto the chat prompt.
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
