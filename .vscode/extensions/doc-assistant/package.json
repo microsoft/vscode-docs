@@ -20,30 +20,28 @@
         }
       }
     },
-    "chatParticipants": [
-      {
-        "id": "vscode-doc",
-        "fullName": "VS Code Doc Assistant",
-        "name": "vscode-doc",
-        "description": "Assistant for VS Code Doc",
-        "isSticky": true,
-        "commands": [
-          {
-            "name": "generate-release-notes",
-            "description": "Generate release notes for the features you want to include in the current release."
-          }
-        ]
-      }
-    ],
     "languageModelTools": [
+      {
+        "name": "getCurrentMilestone",
+        "toolReferenceName": "getCurrentMilestone",
+        "displayName": "VS Code Current Milestone Fetcher",
+        "modelDescription": "Use this tool to get the current milestone for the VS Code repository. Returns the current milestone name. Example: 'April 2024'.",
+        "canBeReferencedInPrompt": true
+      },
       {
         "name": "getReleaseFeatures",
         "toolReferenceName": "getReleaseFeatures",
         "displayName": "VS Code Release Features Fetcher",
         "modelDescription": "Use this tool to get all features that current user worked on in the current release. Returns a list of features with title, body, number, labels, comments and associated issues.",
-        "tags": [
-          "vscode-doc"
-        ],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "milestoneName": {
+              "type": "string",
+              "description": "The name of the milestone to fetch features for. Example: 'April 2024'."
+            }
+          }
+        },
         "canBeReferencedInPrompt": true
       }
     ]
