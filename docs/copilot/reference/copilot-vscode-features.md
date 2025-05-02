@@ -80,6 +80,7 @@ Use chat variables in your chat prompt to reference context that is relevant to 
 | `#githubRepo` | Perform a code search for a GitHub repo to gather context for your prompt. For example, "what is a global snippet #githubRepo microsoft/vscode." |
 | `#new` | Tool to scaffold a new VS Code workspace. |
 | `#newJupyterNotebook` | Tool to scaffold a new Jupyter notebook. |
+| `#openSimpleBrowser` | Tool to open the built-in Simple Browser and preview a locally-deployed web app. |
 | `#problems` | Add workspace issues and problems from the **Problems** panel as context. Useful while fixing code or debugging. |
 | `#searchResults` | Add the results from the Search view as context to your prompt. |
 | `#selection` | Add the current editor selection as context to your prompt. |
