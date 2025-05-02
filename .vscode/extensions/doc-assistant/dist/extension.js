@@ -47,7 +47,7 @@ exports.activate = activate;
 exports.deactivate = deactivate;
 const vscode = __importStar(__webpack_require__(1));
 const getReleaseIssues_1 = __webpack_require__(2);
-const getCurrentMilestone_1 = __webpack_require__(52);
+const getCurrentMilestone_1 = __webpack_require__(51);
 function activate(context) {
     const logger = vscode.window.createOutputChannel('VS Code Doc Writer', { log: true });
     context.subscriptions.push(vscode.lm.registerTool(getReleaseIssues_1.GetReleaseFeatures.ID, new getReleaseIssues_1.GetReleaseFeatures(logger)));
@@ -10132,13 +10132,6 @@ function wrappy (fn, cb) {
 
 /***/ }),
 /* 51 */
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");
-
-/***/ }),
-/* 52 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -10188,7 +10181,7 @@ exports.GetCurrentMilestoneName = void 0;
 const vscode = __importStar(__webpack_require__(1));
 const prompt_tsx_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(25);
-const path_1 = __importDefault(__webpack_require__(51));
+const path_1 = __importDefault(__webpack_require__(52));
 function isSuccess(props) {
     return !!props.result;
 }
@@ -10220,6 +10213,13 @@ class GetCurrentMilestoneName {
 }
 exports.GetCurrentMilestoneName = GetCurrentMilestoneName;
 
+
+/***/ }),
+/* 52 */
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
 
 /***/ })
 /******/ 	]);
