@@ -49,7 +49,7 @@ If you have already installed VS Code and want to add Java support to it, we rec
 
 Alternatively, you can add Java language support to VS Code by installing the popular Java extensions by yourself.
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
+> [Download VS Code](https://code.visualstudio.com/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
 There are also other popular Java extensions you can pick for your own needs, including:
 

@@ -19,7 +19,7 @@ If you have trouble, feel free to file an issue for this tutorial in the [VS Cod
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install [Visual Studio Code](/download).
+1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)

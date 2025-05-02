@@ -98,7 +98,7 @@ The Azure extensions for Visual Studio Code provide seamless integration with Az
 * The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides a rich set of extensions that makes it easy to discover and interact with Azure services to power your applications.
 * The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
 
-Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
+Visit [Azure Extensions](/docs/azure/overview.md) to find more Azure extensions.
 
 ## Search for other Java extensions
 

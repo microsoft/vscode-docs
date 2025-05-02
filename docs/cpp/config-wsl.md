@@ -23,7 +23,7 @@ If you have any problems, feel free to file an issue for this tutorial in the [V
 
 To successfully complete this tutorial, you must do the following steps:
 
-1. Install [Visual Studio Code](/download).
+1. Install [Visual Studio Code](https://code.visualstudio.com/download).
 
 1. Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
 

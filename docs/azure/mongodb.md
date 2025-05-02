@@ -83,6 +83,6 @@ Choose **Create a New Cluster** from the dashboard and choose **Azure** as the C
 
 ## Next steps
 
-* [Azure Extensions](/docs/azure/extensions.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/overview.md) - The Visual Studio Marketplace has hundreds of VS Code extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
 * [Working with Docker](/docs/azure/docker.md) - Put your application in a Docker container for easy reuse and deployment.
