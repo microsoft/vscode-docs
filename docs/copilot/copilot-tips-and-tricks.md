@@ -116,16 +116,18 @@ Get more details about [prompt engineering](/docs/copilot/chat/prompt-crafting.m
 
 Find practical [examples of prompts to use with Copilot](https://docs.github.com/en/copilot/copilot-chat-cookbook) in the GitHub Copilot documentation.
 
-## Provide the right context
+## Provide the right context and tools
 
-Enrich your prompts with relevant context to get more accurate and relevant response from Copilot.
+Enrich your prompts with relevant context to get more accurate and relevant responses in chat. Withe the right tools, you can boost your developer productivity.
 
-* Use the `#codebase` variable to let Copilot find the right files automatically.
-* Use the `#fetch` variable to fetch content from a web page.
-* Reference files or symbols in your prompt by using `#<file name>` or `#<symbol>` chat variables.
+* In [agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools), select the tools button to configure the tools you want to use or explicitly add then to your prompt.
+* Use `#codebase` to let Copilot find the right files automatically by performing a code search.
+* Use the `#fetch` tool to fetch content from a web page or use `#githubRepo` to perform a code search on a GitHub repository.
+* Reference files, folders, or symbols in your prompt by using `#<file name>`, `#<folder name>`, or `#<symbol>`.
 * Drag and drop files, folders, or editor tabs onto the chat prompt.
 * Add problems, test failures, or terminal output to your chat prompt for scenario-specific context.
 * Add images or screenshots to your prompt to let Copilot analyze the image.
+* In agent mode, prompt to preview your app to directly open it with the built-in simple browser.
 
 When you use [agent mode](/docs/copilot/chat/chat-agent-mode.md), Copilot autonomously finds the relevant files and context for you.
 
