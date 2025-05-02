@@ -271,7 +271,7 @@
       ["Intro Videos", "/docs/cpp/introvideos-cpp"],
       ["", "", {
         "name": "Getting Started",
-        "area": "gettingstarted",
+        "area": "cpp/gettingstarted",
         "topics": [
           ["GCC on Linux", "/docs/cpp/gettingstarted/config-linux"],
         ["GCC on Windows", "/docs/cpp/gettingstarted/config-mingw"],
@@ -282,7 +282,7 @@
       }],
       ["", "", {
         "name": "Build with CMake",
-        "area": "cmake",
+        "area": "cpp/cmake",
         "topics": [
           ["CMake Quick Start", "/docs/cpp/cmake/cmake-quickstart"],
           ["Build with CMake", "/docs/cpp/cmake/build-with-cmake"],
@@ -292,7 +292,7 @@
       ["Editing and Navigating", "/docs/cpp/cpp-ide"],
       ["", "", {
         "name": "Debugging",
-        "area": "debugging",
+        "area": "cpp/debugging",
         "topics": [
           ["Debugging", "/docs/cpp/debugging/cpp-debug"],
           ["Configure Debugging", "/docs/cpp/debugging/launch-json-reference"],
