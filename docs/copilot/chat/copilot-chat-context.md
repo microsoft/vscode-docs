@@ -78,6 +78,27 @@ When you encounter issues in your code, or have failures when running tests, you
 
 * Select **Terminal Last Command** from the list of context types or type `#terminalLastCommand` to attach the output of the last command run in the terminal.
 
+## Add elements from the VS Code simple browser (Experimental)
+
+VS Code has a built-in simple browser that you can use to view and interact with a locally-hosted web application, for example to do quick testing and debugging of your web application.
+
+You can add elements from the Simple Browser window as context to your chat prompt. To do this:
+
+1. Make sure to enable selecting elements from the Simple Browser with the `setting(chat.sendElementsToChat.enabled)` setting.
+1. Run your web application locally.
+1. Open the Simple Browser view by running the **Simple Browser: Show** command from the Command Palette.
+1. Select the **Start** button to start selecting elements from the current page.
+1. Hover over the elements of the web page and click to add them to the chat prompt.
+
+    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Adding elements from the Simple Browser to the chat prompt" autoplay loop controls muted></video>
+
+    Notice that the selected element is added as context to the current chat prompt.
+
+You can configure which information is included in the context:
+
+* Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
+* Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
+
 ## Chat context types
 
 Copilot supports the following chat context types:
