@@ -72,7 +72,15 @@ You can split the current editor without creating a new editor group with the **
 
 ### Floating windows
 
-You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-editor-windows) article.
+You can move editors, the terminal, or specific views into their own floating windows. This is useful if you have a multi-monitor setup and want to keep a file open on a different monitor.
+
+![Screenshot that shows the OS desktop with VS Code window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+
+Drag an editor tab out of the current VS Code window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
+
+To pin a floating window to the top of the screen, select the **Set Always on Top** option (pin icon) from its title bar.
+
+To learn more about floating windows, read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-windows) article.
 
 ## Minimap
 
