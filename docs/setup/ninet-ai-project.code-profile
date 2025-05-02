@@ -1,0 +1,41 @@
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+import json
+
+# ផ្ទុកម៉ូដែល AI
+model = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-50")
+tokenizer = MBart50TokenizerFast.from_pretrained("facebook/mbart-large-50")
+
+# វប្បធម៌ (Cultural Knowledge Base)
+with open("cultural_kb.json", "r", encoding="utf-8") as f:
+    cultural_kb = json.load(f)
+
+# មុខងារគោរពវប្បធម៌
+def apply_cultural_rules(text, country):
+    unethical_phrases = {
+        "ខ្មែរ": ["ខ្មែរក្រហម", "រំលោភ", "បង្ក្រាប"],
+        "អាមេរិក": ["racism", "violence", "discrimination"],
+        "អង់គ្លេស": ["xenophobia", "hate speech", "slavery"]
+    }
+    for phrase in unethical_phrases.get(country, []):
+        if phrase in text.lower():
+            return f"សូមអភ័យទោស ខ្ញុំមិនអាចឆ្លើយតបលើប្រធានបទនេះបាន។ (វប្បធម៌ {country})"
+    return text
+
+# មុខងារសន្ទនា
+def chat(query, country="ខ្មែរ"):
+    # ការបកប្រែភាសា
+    try:
+        tokenizer.src_lang = "km_KH"
+        encoded = tokenizer(query, return_tensors="pt")
+        generated_tokens = model.generate(
+            **encoded,
+            forced_bos_token_id=tokenizer.lang_code_to_id["km_KH"]
+        )
+        response = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
+    except Exception as e:
+        response = "កំហុស: " + str(e)
+
+    # គោរពវប្បធម៌
+    response = apply_cultural_rules(response, country)
+    return response
+    
