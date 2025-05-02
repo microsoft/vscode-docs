@@ -102,7 +102,7 @@ Copilot offers different built-in language models to choose from. Some models ar
 
 ![Screenshot of the Copilot Chat model picker](images/copilot-chat/chat-model-picker.png)
 
-You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md).
+You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).

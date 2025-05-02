@@ -50,6 +50,8 @@ Use the language model picker in the chat input field to change the model that i
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
+If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
+
 ## Change the model for code completions
 
 To change the language model that is used for generating code completions in the editor:
