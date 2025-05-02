@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="vscode logo" src="images/logo-stable.png" width="100px" />
+  <img alt="vscode logo" square="images/logo-stable.png" width="120px" />
   <h1 align="center">Visual Studio Code Documentation</h1>
 </p>
 
