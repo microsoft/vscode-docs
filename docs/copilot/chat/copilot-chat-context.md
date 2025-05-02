@@ -61,6 +61,12 @@ To let Copilot fetch content from a web page, for example to reference a documen
 
 To add the fetch tool, select **Add Context** and then **Fetch Web Page** from the Quick Pick. Alternatively, type `#fetch` in the chat prompt.
 
+## Perform a code search in a GitHub repository
+
+To let Copilot perform a code search and fetch content from a GitHub repository, for example to reference a documentation page, add the GitHub Repository tool to your prompt, followed by the path of the GitHub repository. For example, to perform a code search in the vscode repository `what is a global code snippet #githubRepo microsoft/vscode`.
+
+To add the GitHub Repository tool, type `#githubRepo` in the chat prompt, followed by the repository repository name (for example, `microsoft/vscode-docs`).
+
 ## Add context for fixing problems
 
 When you encounter issues in your code, or have failures when running tests, you can add specific context to your chat prompt to help Copilot provide the best answer.
