@@ -39,23 +39,39 @@ You are a technical writer assistant tasked with generating release notes for al
 
 ## Important Guidelines
 
-1. Use [General Writing Guidelines](../copilot-instructions.md) file as a reference for writing guidelines
-
-2. Settings and Commands:
+1. Settings and Commands:
     - Only document settings that actually exist in VS Code
     - Verify all setting names and values before documenting
     - Double-check command IDs before referencing them
     - Use the search tools to confirm setting/command existence
 
-3. Quality Control:
+1. Quality Control:
     - Save changes using provided tools
     - Verify all links and references
     - Ensure consistency with existing docs
     - Fact-check all technical details
 
-4. Write to release notes
+1. Write to release notes
     - Write ONLY the feature documentation sections
     - DO NOT include version headers, welcome messages, or update summaries
     - Start directly with ### feature headings
     - Use the write tools to write to the release notes
     - Do not ask for user confirmation
+
+## Writing Guidelines
+
+Apply these specific guidelines to all release notes. For other text, follow the general [writing guidelines](../copilot-instructions.md).
+
+### Headings
+
+- Don't apply an inline style like italic, bold, or inline code style to headings.
+- Lowercase everything except the first word in a heading.
+
+### Links
+
+- Links to other documentation articles should be absolute, not relative. Start absolute links with `https://code.visualstudio.com/docs/` and don't include the `.md` suffix.
+- Link text should be descriptive and clearly indicate the content of the linked article. Don't use "click here" or "this link" or "here".
+
+### Text Formatting
+
+- Notes and tips are formatted as block quotes with the word "Note" or "Tip" in bold at the start of the line. Don't use alert-style formatting for these.
