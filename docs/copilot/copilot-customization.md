@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 Copilot can provide you with responses that match your coding practices and project requirements if you give it the right context. Custom instructions enable you to define and automatically apply the guidelines and rules for tasks like generating code, or performing code reviews. Prompt files let you craft complete chat prompts in Markdown files, which you can then reference in chat or share with others. In this article, you will learn how to use custom instructions and prompt files to customize your chat responses in Visual Studio Code.
 
-## Custom instructions
+## Instruction files
 
 Custom instructions enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request.
 
@@ -91,7 +91,7 @@ To create an instructions file:
 
 1. Choose the location where the instruction file should be created.
 
-    User instruction files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instruction files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md). Make sure to configure the **Prompts** setting in the **Settings Sync: Configure** command.
+    User instruction files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instruction files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md). Make sure to configure the **Prompts and Instructions** setting in the **Settings Sync: Configure** command.
 
     Workspace instruction files are, by default, stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
@@ -205,7 +205,7 @@ The following example demonstrates custom instructions for code generation:
 
 * Reference custom instructions in your prompt files to keep your prompts clean and focused, and to avoid duplicating instructions for different tasks.
 
-## Reusable prompt files (experimental)
+## Prompt files (experimental)
 
 Prompt files allow you to craft complete prompts in Markdown files, which you can then reference in chat. Unlike custom instructions that supplement your existing prompts, prompt files are standalone prompts that you can store within your workspace and share with others. With prompt files, you can create reusable templates for common tasks, store domain expertise in your codebase, and standardize AI interactions across your team.
 
@@ -344,7 +344,7 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Select **Prompts** from the list of settings to sync.
+1. Select **Prompts and Instructions** from the list of settings to sync.
 
 ### Use a prompt file in chat
 
