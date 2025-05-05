@@ -18,6 +18,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable feedback mechanisms such as the issue reporter, surveys, and feedback options in features like Copilot Chat.
     "telemetry.feedback.enabled": true,
 
+    // Controls Visual Studio Code telemetry
     //  - all: Sends usage data, errors, and crash reports.
     //  - error: Sends general error telemetry and crash reports.
     //  - crash: Sends OS level crash reports.
@@ -1257,6 +1258,7 @@ You can also view the default values in the Settings editor or see a read-only v
         "default": false,
         "workbench.editor.chatSession": true,
         "workbench.editorinputs.searchEditorInput": false,
+        "notebookOutputEditor": false,
         "jupyter-notebook": false,
         "repl": false,
         "workbench.editors.gettingStartedInput": false,
@@ -1610,13 +1612,19 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls the feedback area size in pixels of the dragging area in between views/editors. Set it to a larger value if you feel it's hard to resize views using the mouse.
     "workbench.sash.size": 4,
 
-    // Controls whether activity items in the secondary sidebar title are shown as label or icon. This setting only has an effect when `workbench.activityBar.location` is not set to `top`.
+    // Controls the default visibility of the secondary side bar in workspaces or empty windows opened for the first time.
+    //  - hidden: The secondary side bar is hidden by default.
+    //  - visibleInWorkspace: The secondary side bar is visible by default if a workspace is opened.
+    //  - visible: The secondary side bar is visible by default.
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+
+    // Controls whether activity items in the secondary side bar title are shown as label or icon. This setting only has an effect when `workbench.activityBar.location` is not set to `top`.
     "workbench.secondarySideBar.showLabels": true,
 
     // Configure settings to be applied for all profiles.
     "workbench.settings.applyToAllProfiles": [],
 
-    // Determines which settings editor to use by default.
+    // Determines which Settings editor to use by default.
     //  - ui: Use the settings UI editor.
     //  - json: Use the JSON file editor.
     "workbench.settings.editor": "ui",
@@ -1634,6 +1642,9 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - hide: Hide the Table of Contents while searching.
     //  - filter: Filter the Table of Contents to just categories that have matching settings. Clicking on a category will filter the results to that category.
     "workbench.settings.settingsSearchTocBehavior": "filter",
+
+    // Controls whether setting suggestions are shown below the search bar in the Settings editor.
+    "workbench.settings.showSuggestions": false,
 
     // Controls whether to use the split JSON editor when editing settings as JSON.
     "workbench.settings.useSplitJSON": false,
@@ -2703,132 +2714,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable automatic closing of JSX tags.
     "javascript.autoClosingTags": true,
 
-    // Enable/disable default JavaScript formatter.
-    "javascript.format.enable": true,
-
-    // Indent case clauses in switch statements.
-    "javascript.format.indentSwitchCase": true,
-
-    // Defines space handling after a comma delimiter.
-    "javascript.format.insertSpaceAfterCommaDelimiter": true,
-
-    // Defines space handling after the constructor keyword.
-    "javascript.format.insertSpaceAfterConstructor": false,
-
-    // Defines space handling after function keyword for anonymous functions.
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
-
-    // Defines space handling after keywords in a control flow statement.
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-
-    // Defines space handling after opening and before closing empty braces.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
-
-    // Defines space handling after opening and before closing JSX expression braces.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
-
-    // Defines space handling after opening and before closing non-empty braces.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-
-    // Defines space handling after opening and before closing non-empty brackets.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-
-    // Defines space handling after opening and before closing non-empty parenthesis.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-
-    // Defines space handling after opening and before closing template string braces.
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
-
-    // Defines space handling after a semicolon in a for statement.
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
-
-    // Defines space handling after a binary operator.
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-
-    // Defines space handling before function argument parentheses.
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-
-    // Defines whether an open brace is put onto a new line for control blocks or not.
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
-
-    // Defines whether an open brace is put onto a new line for functions or not.
-    "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
-
-    // Defines handling of optional semicolons.
-    //  - ignore: Don't insert or remove any semicolons.
-    //  - insert: Insert semicolons at statement ends.
-    //  - remove: Remove unnecessary semicolons.
-    "javascript.format.semicolons": "ignore",
-
-
-    // Enable/disable inlay hints for implicit return types on function signatures:
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
-
-    // Enable/disable inlay hints for parameter names:
-    //  - none: Disable parameter name hints.
-    //  - literals: Enable parameter name hints only for literal arguments.
-    //  - all: Enable parameter name hints for literal and non-literal arguments.
-    "javascript.inlayHints.parameterNames.enabled": "none",
-
-    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
-    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
-
-    // Enable/disable inlay hints for implicit parameter types:
-    "javascript.inlayHints.parameterTypes.enabled": false,
-
-    // Enable/disable inlay hints for implicit types on property declarations:
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": false,
-
-    // Enable/disable inlay hints for implicit variable types:
-    "javascript.inlayHints.variableTypes.enabled": false,
-
-    // Suppress type hints on variables whose name is identical to the type name.
-    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
-
-    // Specify glob patterns of files to exclude from auto imports.
-    "javascript.preferences.autoImportFileExcludePatterns": [],
-
-    // Specify regular expressions to exclude auto imports with matching import specifiers.
-    "javascript.preferences.autoImportSpecifierExcludeRegexes": [],
-
-    // Preferred path style for auto imports.
-    //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
-    //  - relative: Prefers a relative path to the imported file location.
-    //  - non-relative: Prefers a non-relative import based on the `baseUrl` or `paths` configured in your `jsconfig.json` / `tsconfig.json`.
-    //  - project-relative: Prefers a non-relative import only if the relative import path would leave the package or project directory.
-    "javascript.preferences.importModuleSpecifier": "shortest",
-
-    // Preferred path ending for auto imports.
-    //  - auto: Use project settings to select a default.
-    //  - minimal: Shorten `./component/index.js` to `./component`.
-    //  - index: Shorten `./component/index.js` to `./component/index`.
-    //  - js: Do not shorten path endings; include the `.js` or `.ts` extension.
-    "javascript.preferences.importModuleSpecifierEnding": "auto",
-
-    // Preferred style for JSX attribute completions.
-    //  - auto: Insert `={}` or `=""` after attribute names based on the prop type. See `javascript.preferences.quoteStyle` to control the type of quotes used for string attributes.
-    //  - braces: Insert `={}` after attribute names.
-    //  - none: Only insert attribute names.
-    "javascript.preferences.jsxAttributeCompletionStyle": "auto",
-
-    // Advanced preferences that control how imports are ordered.
-    "javascript.preferences.organizeImports": {},
-
-    // Preferred quote style to use for Quick Fixes.
-    //  - auto: Infer quote type from existing code
-    //  - single: Always use single quotes: `'`
-    //  - double: Always use double quotes: `"`
-    "javascript.preferences.quoteStyle": "auto",
-
-    // When on a JSX tag, try to rename the matching tag instead of renaming the symbol.
-    "javascript.preferences.renameMatchingJsxTags": true,
-
-    // The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'
-    // Enable/disable introducing aliases for object shorthand properties during renames.
-    "javascript.preferences.renameShorthandProperties": true,
-
-    // Enable/disable introducing aliases for object shorthand properties during renames.
-    "javascript.preferences.useAliasesForRenames": true,
+    "javascript.implicitProjectConfig.checkJs": false,
 
     // Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.
     "javascript.preferGoToSourceDefinition": false,
@@ -2838,36 +2724,6 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enable/disable references CodeLens on all functions in JavaScript files.
     "javascript.referencesCodeLens.showOnAllFunctions": false,
-
-    // Enable/disable auto import suggestions.
-    "javascript.suggest.autoImports": true,
-
-    // Enable/disable snippet completions for class members.
-    "javascript.suggest.classMemberSnippets.enabled": true,
-
-    // Complete functions with their parameter signature.
-    "javascript.suggest.completeFunctionCalls": false,
-
-    // Enable/disable suggestion to complete JSDoc comments.
-    "javascript.suggest.completeJSDocs": true,
-
-    // Enabled/disable autocomplete suggestions.
-    "javascript.suggest.enabled": true,
-
-    // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.
-    "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
-
-    // Enable/disable auto-import-style completions on partially-typed import statements.
-    "javascript.suggest.includeCompletionsForImportStatements": true,
-
-    // Enable/disable generating `@returns` annotations for JSDoc templates.
-    "javascript.suggest.jsdoc.generateReturns": true,
-
-    // Enable/disable including unique names from the file in JavaScript suggestions. Note that name suggestions are always disabled in JavaScript code that is semantically checked using `@ts-check` or `checkJs`.
-    "javascript.suggest.names": true,
-
-    // Enable/disable suggestions for paths in import statements and require calls.
-    "javascript.suggest.paths": true,
 
     // Enable/disable suggestion diagnostics for JavaScript files in the editor.
     "javascript.suggestionActions.enabled": true,
@@ -2905,74 +2761,11 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
 
-    // Check if npm is installed for Automatic Type Acquisition.
-    "typescript.check.npmIsInstalled": true,
-
     // Disables automatic type acquisition. Automatic type acquisition fetches `@types` packages from npm to improve IntelliSense for external libraries.
     "typescript.disableAutomaticTypeAcquisition": false,
 
     // Enables prompting of users to use the TypeScript version configured in the workspace for Intellisense.
     "typescript.enablePromptUseWorkspaceTsdk": false,
-
-    // Enable/disable default TypeScript formatter.
-    "typescript.format.enable": true,
-
-    // Indent case clauses in switch statements.
-    "typescript.format.indentSwitchCase": true,
-
-    // Defines space handling after a comma delimiter.
-    "typescript.format.insertSpaceAfterCommaDelimiter": true,
-
-    // Defines space handling after the constructor keyword.
-    "typescript.format.insertSpaceAfterConstructor": false,
-
-    // Defines space handling after function keyword for anonymous functions.
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
-
-    // Defines space handling after keywords in a control flow statement.
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
-
-    // Defines space handling after opening and before closing empty braces.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
-
-    // Defines space handling after opening and before closing JSX expression braces.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
-
-    // Defines space handling after opening and before closing non-empty braces.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-
-    // Defines space handling after opening and before closing non-empty brackets.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
-
-    // Defines space handling after opening and before closing non-empty parenthesis.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-
-    // Defines space handling after opening and before closing template string braces.
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
-
-    // Defines space handling after a semicolon in a for statement.
-    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
-
-    // Defines space handling after type assertions in TypeScript.
-    "typescript.format.insertSpaceAfterTypeAssertion": false,
-
-    // Defines space handling after a binary operator.
-    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
-
-    // Defines space handling before function argument parentheses.
-    "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
-
-    // Defines whether an open brace is put onto a new line for control blocks or not.
-    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
-
-    // Defines whether an open brace is put onto a new line for functions or not.
-    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
-
-    // Defines handling of optional semicolons.
-    //  - ignore: Don't insert or remove any semicolons.
-    //  - insert: Insert semicolons at statement ends.
-    //  - remove: Remove unnecessary semicolons.
-    "typescript.format.semicolons": "ignore",
 
     // Enable/disable implementations CodeLens. This CodeLens shows the implementers of an interface.
     "typescript.implementationsCodeLens.enabled": false,
@@ -2980,38 +2773,71 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable implementations CodeLens on interface methods.
     "typescript.implementationsCodeLens.showOnInterfaceMethods": false,
 
-    // Enable/disable inlay hints for member values in enum declarations:
-    "typescript.inlayHints.enumMemberValues.enabled": false,
-
-    // Enable/disable inlay hints for implicit return types on function signatures:
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
-
-    // Enable/disable inlay hints for parameter names:
-    //  - none: Disable parameter name hints.
-    //  - literals: Enable parameter name hints only for literal arguments.
-    //  - all: Enable parameter name hints for literal and non-literal arguments.
-    "typescript.inlayHints.parameterNames.enabled": "none",
-
-    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
-    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
-
-    // Enable/disable inlay hints for implicit parameter types:
-    "typescript.inlayHints.parameterTypes.enabled": false,
-
-    // Enable/disable inlay hints for implicit types on property declarations:
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
-
-    // Enable/disable inlay hints for implicit variable types:
-    "typescript.inlayHints.variableTypes.enabled": false,
-
-    // Suppress type hints on variables whose name is identical to the type name.
-    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
-
     // Sets the locale used to report JavaScript and TypeScript errors. Defaults to use VS Code's locale.
     "typescript.locale": "auto",
 
-    // Specifies the path to the npm executable used for Automatic Type Acquisition.
-    "typescript.npm": "",
+    // Enable/disable references CodeLens in TypeScript files.
+    "typescript.referencesCodeLens.enabled": false,
+
+    // Enable/disable references CodeLens on all functions in TypeScript files.
+    "typescript.referencesCodeLens.showOnAllFunctions": false,
+
+    // Report style checks as warnings.
+    "typescript.reportStyleChecksAsWarnings": true,
+
+    // Enable/disable suggestion diagnostics for TypeScript files in the editor.
+    "typescript.suggestionActions.enabled": true,
+
+    // Controls auto detection of tsc tasks.
+    "typescript.tsc.autoDetect": "on",
+
+    // Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense.
+    "typescript.tsdk": "",
+
+    // Enables region-based diagnostics in TypeScript.
+    "typescript.tsserver.enableRegionDiagnostics": true,
+
+    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+
+    // Automatically update imports when pasting code.
+    "typescript.updateImportsOnPaste.enabled": true,
+
+    // Enable/disable TypeScript validation.
+    "typescript.validate.enable": true,
+
+    // Exclude symbols that come from library files in Go to Symbol in Workspace results.
+    "typescript.workspaceSymbols.excludeLibrarySymbols": true,
+
+    // Controls which files are searched by Go to Symbol in Workspace.
+    "typescript.workspaceSymbols.scope": "allOpenProjects",
+
+    // Specify glob patterns of files to exclude from auto imports.
+    "javascript.preferences.autoImportFileExcludePatterns": [],
+
+    // Specify regular expressions to exclude auto imports with matching import specifiers.
+    "javascript.preferences.autoImportSpecifierExcludeRegexes": [],
+
+    // Preferred path style for auto imports.
+    "javascript.preferences.importModuleSpecifier": "shortest",
+
+    // Preferred path ending for auto imports.
+    "javascript.preferences.importModuleSpecifierEnding": "auto",
+
+    // Preferred style for JSX attribute completions.
+    "javascript.preferences.jsxAttributeCompletionStyle": "auto",
+
+    // Advanced preferences that control how imports are ordered.
+    "javascript.preferences.organizeImports": {},
+
+    // Preferred quote style to use for Quick Fixes.
+    "javascript.preferences.quoteStyle": "auto",
+
+    // When on a JSX tag, try to rename the matching tag instead of renaming the symbol.
+    "javascript.preferences.renameMatchingJsxTags": true,
+
+    // Enable/disable introducing aliases for object shorthand properties during renames.
+    "javascript.preferences.useAliasesForRenames": true,
 
     // Specify glob patterns of files to exclude from auto imports.
     "typescript.preferences.autoImportFileExcludePatterns": [],
@@ -3063,17 +2889,35 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable introducing aliases for object shorthand properties during renames.
     "typescript.preferences.useAliasesForRenames": true,
 
-    // Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.
-    "typescript.preferGoToSourceDefinition": false,
+    // Enable/disable auto import suggestions.
+    "javascript.suggest.autoImports": true,
 
-    // Enable/disable references CodeLens in TypeScript files.
-    "typescript.referencesCodeLens.enabled": false,
+    // Enable/disable snippet completions for class members.
+    "javascript.suggest.classMemberSnippets.enabled": true,
 
-    // Enable/disable references CodeLens on all functions in TypeScript files.
-    "typescript.referencesCodeLens.showOnAllFunctions": false,
+    // Complete functions with their parameter signature.
+    "javascript.suggest.completeFunctionCalls": false,
 
-    // Report style checks as warnings.
-    "typescript.reportStyleChecksAsWarnings": true,
+    // Enable/disable suggestion to complete JSDoc comments.
+    "javascript.suggest.completeJSDocs": true,
+
+    // Enable/disable autocomplete suggestions.
+    "javascript.suggest.enabled": true,
+
+    // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.
+    "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+
+    // Enable/disable auto-import-style completions on partially-typed import statements.
+    "javascript.suggest.includeCompletionsForImportStatements": true,
+
+    // Enable/disable generating `@returns` annotations for JSDoc templates.
+    "javascript.suggest.jsdoc.generateReturns": true,
+
+    // Enable/disable including unique names from the file in JavaScript suggestions. Note that name suggestions are always disabled in JavaScript code that is semantically checked using `@ts-check` or `checkJs`.
+    "javascript.suggest.names": true,
+
+    // Enable/disable suggestions for paths in import statements and require calls.
+    "javascript.suggest.paths": true,
 
     // Enable/disable auto import suggestions.
     "typescript.suggest.autoImports": true,
@@ -3087,7 +2931,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable suggestion to complete JSDoc comments.
     "typescript.suggest.completeJSDocs": true,
 
-    // Enabled/disable autocomplete suggestions.
+    // Enable/disable autocomplete suggestions.
     "typescript.suggest.enabled": true,
 
     // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires strict null checks to be enabled.
@@ -3104,79 +2948,6 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enable/disable suggestions for paths in import statements and require calls.
     "typescript.suggest.paths": true,
-
-    // Enable/disable suggestion diagnostics for TypeScript files in the editor.
-    "typescript.suggestionActions.enabled": true,
-
-    // Controls auto detection of tsc tasks.
-    //  - on: Create both build and watch tasks.
-    //  - off: Disable this feature.
-    //  - build: Only create single run compile tasks.
-    //  - watch: Only create compile and watch tasks.
-    "typescript.tsc.autoDetect": "on",
-
-    // Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
-    // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
-    // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
-    "typescript.tsdk": "",
-
-    // Enables region-based diagnostics in TypeScript.
-    "typescript.tsserver.enableRegionDiagnostics": true,
-
-    // Enables tracing TS server performance to a directory. These trace files can be used to diagnose TS Server performance issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
-    "typescript.tsserver.enableTracing": false,
-
-    // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
-    "typescript.tsserver.log": "off",
-
-    // The maximum amount of memory (in MB) to allocate to the TypeScript server process.
-    "typescript.tsserver.maxTsServerMemory": 3072,
-
-    // Run TS Server on a custom Node installation. This can be a path to a Node executable, or 'node' if you want VS Code to detect a Node installation.
-    "typescript.tsserver.nodePath": "",
-
-    // Additional paths to discover TypeScript Language Service plugins.
-    "typescript.tsserver.pluginPaths": [],
-
-    // Controls if TypeScript launches a dedicated server to more quickly handle syntax related operations, such as computing code folding.
-    //  - always: Use a lighter weight syntax server to handle all IntelliSense operations. This syntax server can only provide IntelliSense for opened files.
-    //  - never: Don't use a dedicated syntax server. Use a single server to handle all IntelliSense operations.
-    //  - auto: Spawn both a full server and a lighter weight server dedicated to syntax operations. The syntax server is used to speed up syntax operations and provide IntelliSense while projects are loading.
-    "typescript.tsserver.useSyntaxServer": "auto",
-
-    // Configure which watching strategies should be used to keep track of files and directories.
-    "typescript.tsserver.watchOptions": "vscode",
-
-    // Enable/disable project-wide IntelliSense on web.
-    "typescript.tsserver.web.projectWideIntellisense.enabled": true,
-
-    // Suppresses semantic errors on web, even when project-wide IntelliSense is enabled.
-    "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": false,
-
-    // Enable/disable package acquisition on the web. This enables IntelliSense for imported packages.
-    "typescript.tsserver.web.typeAcquisition.enabled": true,
-
-    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
-    //  - prompt: Prompt on each rename.
-    //  - always: Always update paths automatically.
-    //  - never: Never rename paths and don't prompt.
-    "typescript.updateImportsOnFileMove.enabled": "prompt",
-
-    // Enable updating imports when pasting code.
-    "typescript.updateImportsOnPaste.enabled": true,
-
-    // Enable/disable TypeScript validation.
-    "typescript.validate.enable": true,
-
-    // Exclude symbols that come from library files in Go to Symbol in Workspace results.
-    "typescript.workspaceSymbols.excludeLibrarySymbols": true,
-
-    // Controls which files are searched by Go to Symbol in Workspace.
-    //  - allOpenProjects: Search all open JavaScript or TypeScript projects for symbols.
-    //  - currentProject: Only search for symbols in the current JavaScript or TypeScript project.
-    "typescript.workspaceSymbols.scope": "allOpenProjects",
-
-// Testing
 
     // Always reveal the executed test when `testing.followRunningTest` is on. If this setting is turned off, only failed tests will be revealed.
     "testing.alwaysRevealTestOnStateChange": false,
@@ -3348,6 +3119,123 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enables or disables all validations.
     "css.validate": true,
 
+    // Enable/disable default JavaScript formatter.
+    "javascript.format.enable": true,
+
+    // Indent case clauses in switch statements.
+    "javascript.format.indentSwitchCase": true,
+
+    // Defines space handling after a comma delimiter.
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+
+    // Defines space handling after the constructor keyword.
+    "javascript.format.insertSpaceAfterConstructor": false,
+
+    // Defines space handling after function keyword for anonymous functions.
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+    // Defines space handling after keywords in a control flow statement.
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+    // Defines space handling after opening and before closing empty braces.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+
+    // Defines space handling after opening and before closing JSX expression braces.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+
+    // Defines space handling after opening and before closing non-empty braces.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+
+    // Defines space handling after opening and before closing non-empty brackets.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+    // Defines space handling after opening and before closing non-empty parenthesis.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+    // Defines space handling after opening and before closing template string braces.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+
+    // Defines space handling after a semicolon in a for statement.
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+    // Defines space handling after a binary operator.
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+    // Defines space handling before function argument parentheses.
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+
+    // Defines whether an open brace is put onto a new line for control blocks or not.
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not.
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+    // Defines handling of optional semicolons.
+    //  - ignore: Don't insert or remove any semicolons.
+    //  - insert: Insert semicolons at statement ends.
+    //  - remove: Remove unnecessary semicolons.
+    "javascript.format.semicolons": "ignore",
+
+    // Enable/disable default TypeScript formatter.
+    "typescript.format.enable": true,
+
+    // Indent case clauses in switch statements.
+    "typescript.format.indentSwitchCase": true,
+
+    // Defines space handling after a comma delimiter.
+    "typescript.format.insertSpaceAfterCommaDelimiter": true,
+
+    // Defines space handling after the constructor keyword.
+    "typescript.format.insertSpaceAfterConstructor": false,
+
+    // Defines space handling after function keyword for anonymous functions.
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+    // Defines space handling after keywords in a control flow statement.
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+    // Defines space handling after opening and before closing empty braces.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+
+    // Defines space handling after opening and before closing JSX expression braces.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+
+    // Defines space handling after opening and before closing non-empty braces.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+
+    // Defines space handling after opening and before closing non-empty brackets.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+    // Defines space handling after opening and before closing non-empty parenthesis.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+    // Defines space handling after opening and before closing template string braces.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+
+    // Defines space handling after a semicolon in a for statement.
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+    // Defines space handling after type assertions in TypeScript.
+    "typescript.format.insertSpaceAfterTypeAssertion": false,
+
+    // Defines space handling after a binary operator.
+    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+    // Defines space handling before function argument parentheses.
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
+
+    // Defines whether an open brace is put onto a new line for control blocks or not.
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not.
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+    // Defines handling of optional semicolons.
+    //  - ignore: Don't insert or remove any semicolons.
+    //  - insert: Insert semicolons at statement ends.
+    //  - remove: Remove unnecessary semicolons.
+    "typescript.format.semicolons": "ignore",
+
 // LESS
 
     // Insert semicolon at end of line when completing CSS properties.
@@ -3446,7 +3334,52 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enables or disables all validations.
     "less.validate": true,
 
-// SCSS (Sass)
+    // Enable/disable inlay hints for implicit return types on function signatures.
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+
+    // Enable/disable inlay hints for parameter names.
+    "javascript.inlayHints.parameterNames.enabled": "none",
+
+    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+
+    // Enable/disable inlay hints for implicit parameter types.
+    "javascript.inlayHints.parameterTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit types on property declarations.
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit variable types.
+    "javascript.inlayHints.variableTypes.enabled": false,
+
+    // Suppress type hints on variables whose name is identical to the type name.
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+
+    // Enable/disable inlay hints for member values in enum declarations.
+    "typescript.inlayHints.enumMemberValues.enabled": false,
+
+    // Enable/disable inlay hints for implicit return types on function signatures.
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+
+    // Enable/disable inlay hints for parameter names.
+    "typescript.inlayHints.parameterNames.enabled": "none",
+
+    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+
+    // Enable/disable inlay hints for implicit parameter types.
+    "typescript.inlayHints.parameterTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit types on property declarations.
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit variable types.
+    "typescript.inlayHints.variableTypes.enabled": false,
+
+    // Suppress type hints on variables whose name is identical to the type name.
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+
+// SCSS
 
     // Insert semicolon at end of line when completing CSS properties.
     "scss.completion.completePropertyWithSemicolon": true,
@@ -3543,6 +3476,45 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enables or disables all validations.
     "scss.validate": true,
+
+    // Check if npm is installed for Automatic Type Acquisition.
+    "typescript.check.npmIsInstalled": true,
+
+    // Specifies the path to the npm executable used for Automatic Type Acquisition.
+    "typescript.npm": "",
+
+    // Enables tracing TS server performance to a directory.
+    "typescript.tsserver.enableTracing": false,
+
+    // Enables project wide error reporting.
+    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+
+    // Enables logging of the TS server to a file.
+    "typescript.tsserver.log": "off",
+
+    // The maximum amount of memory (in MB) to allocate to the TypeScript server process.
+    "typescript.tsserver.maxTsServerMemory": 3072,
+
+    // Run TS Server on a custom Node installation.
+    "typescript.tsserver.nodePath": "",
+
+    // Additional paths to discover TypeScript Language Service plugins.
+    "typescript.tsserver.pluginPaths": [],
+
+    // Controls if TypeScript launches a dedicated server to more quickly handle syntax related operations, such as computing code folding.
+    "typescript.tsserver.useSyntaxServer": "auto",
+
+    // Configure which watching strategies should be used to keep track of files and directories.
+    "typescript.tsserver.watchOptions": "vscode",
+
+    // Enable/disable project-wide IntelliSense on web.
+    "typescript.tsserver.web.projectWideIntellisense.enabled": true,
+
+    // Suppresses semantic errors on web even when project wide IntelliSense is enabled. This is always on when project wide IntelliSense is not enabled or available.
+    "typescript.tsserver.web.projectWideIntellisense.suppressSemanticErrors": false,
+
+    // Enable/disable package acquisition on the web. This enables IntelliSense for imported packages.
+    "typescript.tsserver.web.typeAcquisition.enabled": true,
 
 // Extensions
 
@@ -3690,7 +3662,7 @@ You can also view the default values in the Settings editor or see a read-only v
     // Format a notebook cell upon execution. A formatter must be available.
     "notebook.formatOnCellExecution": false,
 
-    // Format a notebook on save. A formatter must be available, `files.autoSave` must not be set to `afterDelay`, and the editor must not be shutting down when formatting.
+    // Format a notebook on save. A formatter must be available and the editor must not be shutting down. When `files.autoSave` is set to `afterDelay`, the file will only be formatted when saved explicitly.
     "notebook.formatOnSave.enabled": false,
 
     // Control whether to render a global toolbar inside the notebook editor.
@@ -3702,7 +3674,10 @@ You can also view the default values in the Settings editor or see a read-only v
     // When enabled, the Go to Symbol Quick Pick will display full code symbols from the notebook, as well as Markdown headers.
     "notebook.gotoSymbols.showAllSymbols": true,
 
-    // Control whether to show inline values within notebook code cells after cell execution.
+    // Control whether to show inline values within notebook code cells after cell execution. Values will remain until the cell is edited, re-executed, or explicitly cleared via the Clear All Outputs toolbar button or the `Notebook: Clear Inline Values` command.
+    //  - on: Always show inline values, with a regex fallback if no inline value provider is registered. Note: There may be a performance impact in larger cells if the fallback is used.
+    //  - auto: Show inline values only when an inline value provider is registered.
+    //  - off: Never show inline values.
     "notebook.inlineValues": "off",
 
     // When enabled, insert a final new line into the end of code cells when saving a notebook.
@@ -4257,6 +4232,9 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether suggestions should automatically show up when typing trigger characters.
     "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
 
+    // Determines whether the up arrow key navigates the command history when focus is on the first suggestion and navigation has not yet occurred. When set to false, the up arrow will move focus to the last suggestion instead.
+    "terminal.integrated.suggest.upArrowNavigatesHistory": true,
+
     // Windows command executable extensions that are included as suggestions in the terminal. To exclude an extension, set it to `false`.
     "terminal.integrated.suggest.windowsExecutableExtensions": {},
 
@@ -4789,7 +4767,10 @@ You can also view the default values in the Settings editor or see a read-only v
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
         "diffEditor.ignoreTrimWhitespace": false,
-        "editor.defaultColorDecorators": "never"
+        "editor.defaultColorDecorators": "never",
+        "editor.quickSuggestions": {
+                "strings": "on"
+        }
     },
 
 // Chat
@@ -4838,8 +4819,13 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enables automatically using the active editor as chat context for specified chat locations.
     "chat.implicitContext.enabled": {
-        "panel": "always",
-        "editing-session": "first"
+        "panel": "always"
+    },
+
+    // Specify location(s) of instructions files.
+    // Relative paths are resolved from the root folder(s) of your workspace.
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true
     },
 
     // Configures discovery of Model Context Protocol servers on the machine.
@@ -4848,10 +4834,11 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enables integration with Model Context Protocol servers to provide additional tools and functionality.
     "chat.mcp.enabled": true,
 
-    // Enable reusable prompt files (`*.prompt.md`) in chat sessions.
+    // Enable reusable prompt (`*.prompt.md`) and instruction files in Chat, Edits, and Inline Chat sessions.
     "chat.promptFiles": true,
 
-    // Specify location(s) of reusable prompt files (`*.prompt.md`) that can be attached in Chat, Edits, and Inline Chat sessions.
+    // Specify location(s) of reusable prompt files (`*.prompt.md`) that can be run in Chat, Edits, and Inline Chat sessions.
+    // Relative paths are resolved from the root folder(s) of your workspace.
     "chat.promptFilesLocations": {
         ".github/prompts": true
     },
@@ -4859,11 +4846,17 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether related files should be rendered in the chat input.
     "chat.renderRelatedFiles": false,
 
-    // Controls whether Copilot setup starts from a dialog or from the welcome view.
-    "chat.setupFromDialog": true,
+    // Controls whether CSS of the selected element will be added to the chat.
+    "chat.sendElementsToChat.attachCSS": true,
 
-    // Enables the unified view with Ask, Edit, and Agent modes in one view.
-    "chat.unifiedChatView": true,
+    // Controls whether a screenshot of the selected element will be added to the chat.
+    "chat.sendElementsToChat.attachImages": true,
+
+    // Controls whether elements can be sent to chat from the Simple Browser.
+    "chat.sendElementsToChat.enabled": true,
+
+    // Controls whether tool use should be automatically approved.
+    "chat.tools.autoApprove": false,
 
     // Enables storing chat sessions on disk instead of in the storage service.
     "chat.useFileStorage": true,
@@ -5054,6 +5047,12 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when the active line has a warning.
     "accessibility.signals.lineHasWarning": {
+        "sound": "auto",
+        "announcement": "auto"
+    },
+
+    // Plays a signal - sound / audio cue and/or announcement (alert) when there is a next edit suggestion.
+    "accessibility.signals.nextEditSuggestion": {
         "sound": "auto",
         "announcement": "auto"
     },
@@ -5389,10 +5388,10 @@ You can also view the default values in the Settings editor or see a read-only v
     "git.detectSubmodulesLimit": 10,
 
     // Controls whether to check for unresolved diagnostics before committing.
-    "git.diagnosticsCommitHook.Enabled": false,
+    "git.diagnosticsCommitHook.enabled": false,
 
     // Controls the list of sources (**Item**) and the minimum severity (**Value**) to be considered before committing.
-    "git.diagnosticsCommitHook.Sources": {
+    "git.diagnosticsCommitHook.sources": {
         "*": "error"
     },
 
