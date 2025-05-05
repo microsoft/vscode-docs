@@ -64,7 +64,7 @@ VS Code supports two types of scopes for instruction files:
 
 An instructions file is a Markdown file with the `.instructions.md` file suffix. The instruction file consists of two sections:
 
-* (Optional) Header with metadata (frontmatter syntax)
+* (Optional) Header with metadata (Front Matter syntax)
 
     | Property | Description |
     |----------|-------------|
@@ -227,7 +227,7 @@ A prompt file is a Markdown file with the `.prompt.md` file suffix.
 
 The prompt file consists of two sections:
 
-* (Optional) Header with metadata (frontmatter syntax)
+* (Optional) Header with metadata (Front Matter syntax)
 
     | Property | Description |
     |----------|-------------|
