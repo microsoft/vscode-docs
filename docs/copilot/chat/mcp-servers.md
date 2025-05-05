@@ -91,7 +91,7 @@ To add an MCP server to your workspace:
                 "command": "npx",
                 "args": [
                     "-y",
-                    "@modelcontextprotocol/server-perplexity-ask"
+                    "server-perplexity-ask"
                 ],
                 "env": {
                     "PERPLEXITY_API_KEY": "${input:perplexity-key}"
