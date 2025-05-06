@@ -111,24 +111,24 @@ As you're coding in the editor, you can use Copilot to generate code completions
 
 ## Customize AI code generation
 
-Define [custom instructions](/docs/copilot/copilot-customization.md) to help Copilot generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
+Define [custom instructions](/docs/copilot/copilot-customization.md#instruction-files) to help AI generate code or review code that matches the coding style, tools, and developer workflow of your team or project.
 
-With reusable prompt files, you can specify common prompt instructions and relevant content in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts.
+With reusable [prompt files](/docs/copilot/copilot-customization.md#prompt-files-experimental), you can specify common prompt instructions and relevant content in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts.
 
 | Action | Description |
 |--------|-------------|
-| File-based instructions | Define shared instructions for code generation in a `.github/copilot-instructions.md` file in your workspace. These common instructions supplement your own personal code-generation instructions.  |
+| Instructions files | Define shared instructions for code generation in `*.instructions.md` Markdown files in your workspace or user data folder. These common instructions supplement your own personal code-generation instructions.  |
 | Code-review instructions _(Preview)_ | Define instructions for using Copilot to review an editor selection in settings or import from a file. You can define language-specific instructions. |
 | Code-generation instructions _(Experimental)_ | Define instructions for code generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Test-generation instructions _(Experimental)_ | Define instructions for test generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Commit-message generation instructions _(Experimental)_ | Define instructions for commit message generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
 | Pull request title and description generation instructions _(Experimental)_ | Define instructions for pull request title and description generation with GitHub Copilot in settings or import from a file. You can define language-specific instructions. |
-| Reusable prompt files _(Experimental)_ | [Define reusable prompt instructions](/docs/copilot/copilot-customization.md#reusable-prompt-files-experimental) for repeatable tasks with additional context in Markdown files and use them in chat prompts.  |
+| Reusable prompt files _(Experimental)_ | [Define reusable prompt files](/docs/copilot/copilot-customization.md#prompt-files-experimental) for repeatable tasks with additional context in `*.prompt.md` Markdown files and run them in chat. |
 
 > **Tips**
 >
 > - Define language-specific instructions to get more accurate generated code for each language.
-> - Store your instructions in a file to easily share them with your team and across projects.
+> - Store your instructions in your workspace to easily share them with your team.
 
 ## Review code (experimental)
 
