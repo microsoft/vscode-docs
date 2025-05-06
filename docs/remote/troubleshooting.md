@@ -17,6 +17,12 @@ For tips and questions about [GitHub Codespaces](https://github.com/features/cod
 
 SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
 
+## Customize AI Chat Responses
+
+[Custom instructions](/docs/copilot/copilot-customization.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+
+You can use custom instructions to give Copilot more information about the type of remote environment you're connected to (like what kind of languages or toolchains are installed). You can use a `copilot-instructions.md` file just as you would locally.
+
 ### Configuring the $EDITOR variable
 
 For macOS / linux remote hosts, add this snippet to your shell configuration file (like `.bashrc` or `.zshrc`)

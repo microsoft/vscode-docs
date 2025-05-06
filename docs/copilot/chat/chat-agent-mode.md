@@ -100,6 +100,8 @@ You can reset the tool confirmations by using the **Chat: Reset Tool Confirmatio
 
 In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
+As an enhanced boundary, you may choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). Please note that remote environments part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
+
 ## Accept or discard edits
 
 Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
