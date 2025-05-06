@@ -56,13 +56,17 @@ Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(prev
 
 To let Copilot fetch content from a web page, for example to reference a documentation page, add the fetch tool to your prompt, followed by the URL of the page you want to fetch.
 
-To add the fetch tool, select **Add Context** and then **Fetch Web Page** from the Quick Pick. Alternatively, type `#fetch` in the chat prompt.
+To add the fetch tool, select **Add Context** > **Tools...** > **Fetch Web Page**. Alternatively, type `#fetch` in the chat prompt.
+
+![Screenshot of the Copilot Chat view, showing the fetch tool used to summarize the web page.](./images/copilot-chat/chat-fetch-web-page.png)
 
 ## Perform a code search in a GitHub repository
 
 To let Copilot perform a code search and fetch content from a GitHub repository, for example to reference a documentation page, add the GitHub Repository tool to your prompt, followed by the path of the GitHub repository. For example, to perform a code search in the vscode repository `what is a global code snippet #githubRepo microsoft/vscode`.
 
 To add the GitHub Repository tool, type `#githubRepo` in the chat prompt, followed by the repository repository name (for example, `microsoft/vscode-docs`).
+
+![Screenshot of the Copilot Chat view, showing the GitHub Repository tool used to search for a code.](./images/copilot-chat/chat-fetch-github-repo.png)
 
 ## Add context for fixing problems
 
