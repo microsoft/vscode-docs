@@ -1,15 +1,15 @@
 ---
 Order: 3
 Area: azure
-TOCTitle: Resource View
+TOCTitle: Resources View
 PageTitle: Azure Resources for Visual Studio Code
 ContentId: fc1e60f9-86a6-47c2-beb6-5289d21f48d1
-MetaDescription: Azure Resouces for Visual Studio Code
+MetaDescription: Azure Resources for Visual Studio Code
 DateApproved: 5/5/2025
 ---
 # Azure Resources for Visual Studio Code
 
-The [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) Extension allows you to seamlessly view and manage your Azure resources directly within VS Code. It also provides the ability to authenticate and manage your Azure accounts and tenants.
+The [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension allows you to seamlessly view and manage your Azure resources directly within VS Code. It also provides the ability to authenticate and manage your Azure accounts and tenants.
 
 ## How to sign in to your Azure account
 
@@ -66,7 +66,7 @@ With the Accounts & Tenants view, you can sign into a new account by selecting t
 
 To connect to a sovereign cloud, you can select the gear icon on the right side of the Accounts & Tenants view.
 
-<img width = "400" alt = "Sovereign Clouds" src = "https://github.com/user-attachments/assets/d07af7a8-eab9-46db-8ab5-f386c5c78b57">
+<img width = "474" alt = "Sovereign Clouds" src = "https://github.com/user-attachments/assets/d07af7a8-eab9-46db-8ab5-f386c5c78b57">
 
 This brings up a list of sovereign clouds to choose from.
 
