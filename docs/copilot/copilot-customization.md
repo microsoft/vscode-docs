@@ -360,20 +360,6 @@ You have multiple options to run a prompt file:
 
     This option is useful for quickly testing and iterating on your prompt files.
 
-### Save a chat request as a prompt file
-
-You can save the latest chat request as a prompt file. This option is useful for creating reusable prompts based on your recent interactions in chat.
-
-To save a chat request as a prompt file:
-
-1. Enter a chat request in the Chat view.
-
-1. Enter `/save` in the chat input field.
-
-    VS Code generates a prompt file, which contains the latest chat request and its response.
-
-1. Review and edit the generated prompt file and save it in your prompts folder.
-
 ## Settings
 
 ### Custom instructions settings
