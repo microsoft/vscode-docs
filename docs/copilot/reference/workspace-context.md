@@ -4,9 +4,33 @@ DateApproved: 04/03/2025
 MetaDescription: How to use Copilot's @workspace chat to ask questions against your entire codebase.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Making Copilot Chat an expert in your workspace
+# Making chat an expert in your workspace
 
-Referencing `@workspace` in Copilot Chat lets you ask questions about your entire codebase. Based on the question, Copilot intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples. Grounded in `@workspace` references, Copilot Chat becomes a domain expert for tasks like:
+To ask questions in chat about your entire codebase, you can reference `@workspace` or `#codebase` in your chat prompt. Based on the question, chat intelligently retrieves relevant files and symbols, which it then references in its answer as links and code examples.
+
+## What is the difference between `@workspace` and `#codebase`?
+
+Conceptually, both `@workspace` and `#codebase` enable you to ask questions about your entire codebase. However, there are some differences in how you can use them:
+
+- `@workspace`
+  - Chat participant, dedicated to answering questions about your codebase.
+  - Takes control of the user prompt and uses the codebase to provide an answer.
+  - Can't invoke other tools.
+  - Can only be used in ask mode.
+  - Example: `"@workspace how can I validate a date?"`
+
+- `#codebase`
+  - Tool that performs a codebase search based on the user prompt and adds the relevant code as context to the chat prompt.
+  - The LLM remains in control and can combine it with other tools for editing scenarios.
+  - Can be used in all chat modes (ask, edit, and agent).
+  - Examples: `"add a tooltip to this button, consistent with other button #codebase"`, `"add unit tests and run them #codebase"`
+
+It's recommended to use `#codebase` in your chat prompts, as it provides more flexibility.
+
+> [!TIP]
+> Enable the `setting(github.copilot.chat.codesearch.enabled)` to make `#codebase` more effective in finding relevant code snippets. This setting is enabled by default.
+
+## Prompt examples
 
 - Finding existing code in your codebase:
   - `"@workspace where is database connecting string configured?"` - Explains where and how the database connection is configured
@@ -21,9 +45,9 @@ Referencing `@workspace` in Copilot Chat lets you ask questions about your entir
   - `"@workspace which API routes depend on this service?"` - Lists the routes that use the service in the selected code
   - `"How do I build this #codebase?"` - List the steps to build the project based on documentation, scripts, and configurations
 
-## What sources does `@workspace` use for context?
+## What sources are used for context?
 
-To answer your question, `@workspace` searches through the same sources a developer would use when navigating a codebase in VS Code:
+To answer your question, workspace context searches through the same sources a developer would use when navigating a codebase in VS Code:
 
 - All [indexable files](#what-content-is-included-in-the-workspace-index) in the workspace, except for files that are ignored by a `.gitignore` file
 - Directory structure with nested folder and file names
@@ -44,57 +68,48 @@ Next, it collects the context using different approaches, such as finding releva
 
 Finally, this context is used by GitHub Copilot to answer your question. If the context is too large, only the most relevant parts of the context are used. The response is marked up with references to files, file ranges, and symbols. This enables you to link directly from the chat response to the corresponding information in your codebase. The code snippets that were provided to Copilot are listed as references in the response.
 
-## Context for `@workspace` slash commands
-
-`@workspace` provides several *slash commands* as shorthand for commonly used tasks, saving you time and typing effort. Each command defines its own optimized context, often eliminating the need for additional prompting or chat variables. Here are the available slash commands and their contexts:
-
-| Command        | Context |
-| -------------- | ------- |
-| `/explain`     | <ul><li>Starts with the text selection in the active editor (`#selection`). To optimize the Copilot chat responses, make sure to expand the text selection to include any relevant information to help Copilot provide a useful response.</li><li>Looks up the implementations of referenced symbols such as functions and classes, leading to more accurate and useful explanations.</li></ul> |
-| `/tests`       | <ul><li>Current text selection in the active editor. If no text is selected, use the contents of the currently active file.</li><li>Related existing test files, to understand existing tests and best practices.</li></ul> |
-| `/fix`         | <ul><li>Current text selection in the active editor. If no text is selected, use the currently visible text in the editor.</li><li>Errors and referenced symbols to understand what needs to be fixed and how.</li></ul> |
-| `/new`         | <ul><li>Only the chat prompt is used as context.</li></ul> |
-| `/newNotebook` | <ul><li>Only the chat prompt is used as context.</li></ul> |
-
-You can explicitly expand the context by using chat variables, such as `#editor`, `#selection`, or `#codebase` in your chat prompt. For example, to fix an error in the current file based on a pattern from another file, use this chat prompt: `@workspace /fix linting error in the style of #form.ts`.
-
 ## Managing the workspace index
 
-Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine. This section covers the different types of indices that Copilot can use ([remote](#remote-index), [local](#local-index), and [basic](#basic-index)), and explains when each one is used and how you can switch between them.
+Copilot uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
 
-To see the type of index that Copilot is currently using, select the Copilot icon in the Status Bar. The Copilot workspace index entry shows both the index type along with any relevant information about this index, such as the number of files being reindexed.
+You can view the type of index and its status in the Copilot status dashboard in the Status Bar.
 
 ![Screenshot showing the workspace index status in the Copilot status menu.](images/workspace-context/workspace-index-status.png)
 
 ### Remote index
 
-For GitHub repositories, Copilot can use [GitHub code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-exploratory-questions-about-a-repository) to build a remote index of your codebase. This allows Copilot to search your entire codebase very quickly, even if the codebase is very large.
+If your code is hosted in a GitHub repository, you can build a remote index with [GitHub code search](https://docs.github.com/en/search-github/github-code-search/about-github-code-search) to enable AI to search your codebase quickly, even for large codebases.
 
-To use a remote index:
+To build a remote index for your workspace:
 
-- Sign in with your GitHub account in VS Code.
+1. Sign in with your GitHub account in VS Code.
 
-- Open a project with a GitHub git remote. Make sure that you have pushed your code to GitHub too.
+1. Run the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands))`.
 
-    The remote index works best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
+    It may take some time for the remote index to be built, especially for large codebases. You can monitor the status of the remote index in the Copilot status dashboard in the Status Bar.
 
-- Build the remote index by running the **Build remote workspace index** command or by selecting the Build Index button in the workspace index status UI.
+    You only need to build the remote index once. GitHub automatically keeps it up-to-date whenever you push code changes.
 
-    It may take some time for the remote index to be built, especially for large codebases. You can monitor the status of the remote index in the workspace index status UI.
-
-    Once the remote index has been built, GitHub automatically keeps it up-to-date whenever you push code changes. You only need to run the **Build remote workspace index** command once per repository.
+> [!IMPORTANT]
+> Remote indexing requires a project with a git remote on GitHub. Make sure that you have pushed your code to GitHub too. The remote index works best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
 ### Local index
 
-For cases where you can't use a [remote index](#remote-index), Copilot can instead use an advanced semantic index that is stored on your local machine. This index can also provide fast, high quality search results. However it is currently limited to 2500 indexable files. Unlike the remote index, the local index must be built once per user per machine. With the remote index, all users of a given repo can all use the same index.
+If you can't use a [remote index](#remote-index), Copilot can use an advanced semantic index that is stored on your local machine to provide fast, high quality search results. Currently, local indexes are limited to 2500 indexable files.
 
-Copilot automatically builds an advanced local index if your project has under 750 indexable files. For projects with between 750 and 2500 files, you can run the **Build local workspace index** command to start indexing. This command only needs to be run once.
+To build a local index:
 
-It may take some time to build the initial local index or update the index if many files have changed (such as when switching git branches). You can monitor the current local index status in the  workspace index status UI.
+- The project has less than 750 indexable files: Copilot automatically builds an advanced local index.
+
+- The project has between 750 and 2500 indexable files: run the **Build local workspace index** command in the Command Palette (`kb(workbench.action.showCommands))`. This command only needs to be run once.
+
+- The project has more than 2500 indexable files: see the [basic index](#basic-index) section below.
+
+It may take some time to build the initial local index or update the index if many files have changed (such as when switching git branches). You can monitor the current local index status in the Copilot status dashboard in the Status Bar.
 
 ### Basic index
 
-If your project does not have a [remote index](#remote-index) and also has more than 2500 [indexable files](#what-content-is-included-in-the-workspace-index), Copilot falls back to using a basic index to search your codebase. This index uses simpler algorithms to search your codebase and has been optimized to work locally for larger codebases.
+If your project does not have a [remote index](#remote-index) and has more than 2500 [indexable files](#what-content-is-included-in-the-workspace-index), Copilot falls back to using a basic index to search your codebase. This index uses simpler algorithms to search your codebase and has been optimized to work locally for larger codebases.
 
 The basic index should work just fine for many questions. However, if you find that Copilot is struggling to answer questions about your codebase, try upgrading to a [remote index](#remote-index).
 
@@ -104,9 +119,9 @@ Copilot indexes relevant text files that are part of your current project. This 
 
 Copilot also currently does not index binary files, such as images or PDFs.
 
-## Tips for using `@workspace`
+## Tips for using workspace context
 
-The way you phrase your question can significantly influence the quality of the references `@workspace` provides and the accuracy of the response. To optimize results, consider the following tips:
+The way you phrase your question can significantly influence the quality of the context and the accuracy of the response. To optimize results, consider the following tips:
 
 - Be specific and detailed in your question, avoiding vague or ambiguous terms like "what does this do" (where "this" could be interpreted as the last answer, current file, or whole project, etc.).
 - Incorporate terms and concepts in your prompt that are likely to appear in your code or its documentation.
@@ -117,5 +132,6 @@ The way you phrase your question can significantly influence the quality of the 
 
 ## Related resources
 
+- Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
 - Get started with the [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md)
-- [Use the Chat Participant API to build a chat extension](/api/extension-guides/chat.md)
+- Learn more about [Copilot Chat](/docs/copilot/chat/copilot-chat.md)
