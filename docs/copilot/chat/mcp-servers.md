@@ -12,6 +12,11 @@ Model Context Protocol (MCP) is an open standard that enables AI models to inter
 > [!NOTE]
 > MCP support in agent mode in VS Code is currently in preview.
 
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
+
 ## What is MCP?
 
 Model Context Protocol (MCP) provides a standardized way for AI models to discover and interact with external tools, applications, and data sources. When you enter a chat prompt to a language model with agent mode in VS Code, the model can invoke various tools to perform tasks like file operations, accessing databases, or calling APIs in response to your request.
@@ -91,7 +96,7 @@ To add an MCP server to your workspace:
                 "command": "npx",
                 "args": [
                     "-y",
-                    "@modelcontextprotocol/server-perplexity-ask"
+                    "server-perplexity-ask"
                 ],
                 "env": {
                     "PERPLEXITY_API_KEY": "${input:perplexity-key}"

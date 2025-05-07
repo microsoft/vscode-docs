@@ -15,18 +15,21 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## General settings
 
-* `setting(github.copilot.editor.enableAutoCompletions)`: Automatically show inline completions.
 * `setting(github.copilot.enable)`: Enable or disable Copilot completions for specified [languages](/docs/languages/identifiers.md).
 * `setting(github.copilot.editor.enableCodeActions)`: Controls if Copilot commands are shown as Code Actions when available.
 * `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
 * `setting(chat.commandCenter.enabled)`: Controls whether to show the Copilot menu in the VS Code title bar (default: `true`).
-* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot Next Edit Suggestions (Copilot NES).
-* `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
 * `setting(chat.setupFromDialog)` _(Experimental)_: Controls whether to show the Copilot setup dialog when starting a chat session.
 * `setting(github.copilot.suggestSettings)`: Controls whether to show suggestions in the Settings editor.
+
+## Code completion settings
+
+* `setting(github.copilot.editor.enableAutoCompletions)`: Automatically show inline completions.
+* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot Next Edit Suggestions (Copilot NES).
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 
 ## Chat settings
 
@@ -57,6 +60,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.chat.edits.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with requests in Copilot Edits.
 * `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_: Suggest related files from git history in Copilot Edits (default: `false`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: Automatically approve all tools (default: `false`)
+* `setting(chat.sendElementsToChat.enabled)` _(Experimental)_: Enable sending elements from the Simple Browser to the chat view as context (default: `true`).
 
 ## Inline chat settings
 
@@ -80,6 +84,7 @@ Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
 * `setting(chat.promptFiles)` _(Experimental)_: Enable or disable reusable prompt files.
 * `setting(chat.promptFilesLocations)` _(Experimental)_: Specify the location of prompt files. Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.instructionsFilesLocations)` _(Experimental)_: Specify the location of instructions files. Set to `true` to use the default location (`.github/instructions`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
 
 ## Debugging settings
 
