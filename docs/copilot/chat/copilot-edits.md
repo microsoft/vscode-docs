@@ -13,6 +13,11 @@ By selecting specific files and providing clear context, you can guide edit mode
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
+
 ## Use edit mode
 
 In edit mode, you select which files to edit and provide the relevant context and prompt. Copilot will suggest code edits based on your prompt.
