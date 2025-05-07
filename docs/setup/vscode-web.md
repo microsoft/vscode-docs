@@ -71,6 +71,7 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 | --- | --- | --- |
 | GitHub | `/github/<org>/<repo>` | [More info above](#github-repos) |
 | Azure Repos | `/azurerepos/<org>/<project>/<repo>` | [More info above](#azure-repos) |
+| Azure Development Environment | `/azure` | [Azure]](https://insiders.vscode.dev/azure) |
 | Visual Studio Live Share | `/editor/liveshare/<sessionId>` | [More info below](#visual-studio-live-share) |
 | Visual Studio Marketplace | `/editor/marketplace/<marketplacePublisher>`<br>`/<extensionId>/<extensionVersion>` | [Example route](https://insiders.vscode.dev/editor/marketplace/Brigit/devcontainer-image-convert/0.0.1) to edit [this extension](https://marketplace.visualstudio.com/items?itemName=Brigit.devcontainer-image-convert) |
 | Power Pages | `/power/pages` | [Power Pages docs](https://learn.microsoft.com/power-pages/configure/visual-studio-code-editor) |
@@ -83,6 +84,12 @@ We've explored a couple of URLs already (`vscode.dev/github` and `vscode.dev/azu
 Please note that some URLs must be entered in a specific way (for example, `vscode.dev/editor/liveshare` requires an active Live Share session). Please review each service's documentation for specific access and usage information.
 
 There's more information on some of these URLs below.
+
+## VS Code for the Web - Azure
+
+VS Code for the Web's custom URL (<https://insiders.vscode.dev/azure>), powered by Azure Cloud Shell, allows a developer to run, debug, and deploy their applications to Azure in seconds. This environment comes with all libraries, dependencies, and extensions a developer would need to get started with Azure.
+
+Developers who sign in to GitHub can use GitHub Copilot as their peer programmer, leveraging [agent mode](/docs/copilot/chat/chat-agent-mode.md) to help write code.
 
 ### Themes
 
