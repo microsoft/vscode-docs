@@ -15,7 +15,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## General settings
 
-* `setting(github.copilot.enable)`: Enable or disable Copilot completions for specified [languages](/docs/languages/identifiers.md).
 * `setting(github.copilot.editor.enableCodeActions)`: Controls if Copilot commands are shown as Code Actions when available.
 * `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
 * `setting(chat.commandCenter.enabled)`: Controls whether to show the Copilot menu in the VS Code title bar (default: `true`).
@@ -26,7 +25,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 
 ## Code completion settings
 
-* `setting(github.copilot.editor.enableAutoCompletions)`: Automatically show inline completions.
+* `setting(github.copilot.enable)`: Enable or disable Copilot completions for specified [languages](/docs/languages/identifiers.md).
 * `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot Next Edit Suggestions (Copilot NES).
 * `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
 * `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
