@@ -5,7 +5,7 @@ TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # Visual Studio Code Server
 

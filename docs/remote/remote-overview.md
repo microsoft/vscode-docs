@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # VS Code Remote Development
 

@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
 PageTitle: Introduction to Git in Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
 # Introduction to Git in VS Code

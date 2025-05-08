@@ -1,6 +1,6 @@
 ---
 ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions and reusable prompt files to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

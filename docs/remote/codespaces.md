@@ -5,7 +5,7 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # GitHub Codespaces
 

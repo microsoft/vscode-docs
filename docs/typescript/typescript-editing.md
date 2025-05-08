@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Editing
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
 PageTitle: TypeScript editing with Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
