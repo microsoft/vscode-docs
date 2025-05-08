@@ -217,7 +217,7 @@ if (true) {
   console.log();
 ```
 
-In addition to `increaseIndentPattern` and `decreaseIndentPatter`, there are two other indentation rules:
+In addition to `increaseIndentPattern` and `decreaseIndentPattern`, there are two other indentation rules:
 
 - `indentNextLinePattern` - If a line matches this pattern, then **only the next line** after it should be indented once.
 - `unIndentedLinePattern` - If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.
