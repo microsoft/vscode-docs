@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -101,6 +101,8 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.secondaryHoverBackground`: Secondary button background color when hovering.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
+- `checkbox.disabled.background`: Background of a disabled checkbox.
+- `checkbox.disabled.foreground`: Foreground of a disabled checkbox.
 - `checkbox.border`: Border color of checkbox widget.
 - `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
 - `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
@@ -583,8 +585,11 @@ The gutter contains the glyph margins and the line numbers:
 
 - `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
+- `editorGutter.modifiedSecondaryBackground`: Editor gutter secondary background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
+- `editorGutter.addedSecondaryBackground`: Editor gutter secondary background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
+- `editorGutter.deletedSecondaryBackground`: Editor gutter secondary background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
 - `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
@@ -602,13 +607,13 @@ The editor comments widget can be seen when reviewing pull requests:
 
 Editor inline edits can be seen when using Copilot to suggest the next change to make:
 
-  `inlineEdit.gutterIndicator.primaryBorder`: Border color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.primaryBorder`: Border color for the primary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.primaryForeground`: Foreground color for the primary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.primaryBackground`: Background color for the primary inline edit gutter indicator.
-  `inlineEdit.gutterIndicator.secondaryBorder`: Border color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryBorder`: Border color for the secondary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.secondaryForeground`: Foreground color for the secondary inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.secondaryBackground`: Background color for the secondary inline edit gutter indicator.
-  `inlineEdit.gutterIndicator.successfulBorder`: Border color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulBorder`: Border color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.successfulForeground`: Foreground color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.successfulBackground`: Background color for the successful inline edit gutter indicator.
 - `inlineEdit.gutterIndicator.background`: Background color for the inline edit gutter indicator.
@@ -620,8 +625,8 @@ Editor inline edits can be seen when using Copilot to suggest the next change to
 - `inlineEdit.modifiedChangedTextBackground`: Overlay color for the changed text in the modified text of inline edits.
 - `inlineEdit.originalBorder`: Border color for the original text in inline edits.
 - `inlineEdit.modifiedBorder`: Border color for the modified text in inline edits.
-  `inlineEdit.tabWillAcceptModifiedBorder`: Modified border color for the inline edits widget when tab will accept it.
-  `inlineEdit.tabWillAcceptOriginalBorder`: Original border color for the inline edits widget over the original text when tab will accept it.
+- `inlineEdit.tabWillAcceptModifiedBorder`: Modified border color for the inline edits widget when tab will accept it.
+- `inlineEdit.tabWillAcceptOriginalBorder`: Original border color for the inline edits widget over the original text when tab will accept it.
 
 ## Diff editor colors
 
@@ -658,6 +663,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
 - `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
+- `prompt.frontMatter.background`: Background color of a Front Matter header block.
+- `prompt.frontMatter.inactiveBackground`: Background color of an inactive Front Matter header block.
 
 ## Inline Chat colors
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
 PageTitle: Visual Studio Code enterprise support
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---

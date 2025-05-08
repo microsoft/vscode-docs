@@ -1,6 +1,6 @@
 ---
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -19,6 +19,11 @@ You might want to use chat in VS Code when you need to:
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
 
 ## Chat mode
 
@@ -82,13 +87,27 @@ To open a chat session in the editor or a separate window:
 
 1. Select **Open Chat in Editor** or **Open Chat in New Window**.
 
+## Open a chat session in a floating window
+
+VS Code supports floating windows, which is useful for keeping the Chat view open in a separate window on your screen or even on a different monitor. You can open multiple chat sessions in floating windows at the same time.
+
+To open a chat session in a floating window, select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in New Window**.
+
+![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options. The desktop shows a floating window with a chat session.](images/copilot-chat/chat-open-in-new-window.png)
+
+By default, the chat session opens in compact mode, which hides the title bar and other UI elements. Select the compact mode icon in the floating window title bar to toggle between compact and normal mode.
+
+Optionally, enable the **Always on Top** mode to always keep the Chat view on top of other windows.
+
+Learn more about [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
+
 ## Change the language model
 
 Copilot offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
 
 ![Screenshot of the Copilot Chat model picker](images/copilot-chat/chat-model-picker.png)
 
-You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md).
+You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).

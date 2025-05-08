@@ -1,27 +1,32 @@
 ---
 ContentId: 57754e12-a134-41cc-9693-fb187729c49f
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use agent mode in VS Code
 
-With chat _agent mode_ in Visual Studio Code, you can use natural language to define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
+With chat _agent mode_ in Visual Studio Code, you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
 
 ## Use agent mode
 
 In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.
 
-You can access agent mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent)). Follow these steps to get started:
+Follow these steps to get started:
 
 1. Make sure that agent mode is enabled by configuring the `setting(chat.agent.enabled)` setting in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings) (requires VS Code 1.99 or later).
 
-1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
+1. Open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
 
-1. Select **Agent** from the chat mode dropdown in the Chat view.
+    Alternatively, open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the chat mode selector.
 
     ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
 
@@ -58,7 +63,9 @@ You can access agent mode from the chat mode dropdown in the Chat view (open in 
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot Edits detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+1. Copilot detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+
+    Enable the `setting(github.copilot.chat.agent.autoFix)` setting to automatically diagnose and fix issues in the generated code changes. This setting is enabled by default.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
@@ -146,6 +153,7 @@ The following list contains the settings related to agent mode. You can configur
 * `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
 * `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
+* `setting(github.copilot.chat.agent.autoFix)`: automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)
 
 ## Frequently asked questions

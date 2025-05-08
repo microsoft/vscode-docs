@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Custom Layout
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
 PageTitle: Custom layout of Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
@@ -47,6 +47,8 @@ Alternatively, you can also open the Secondary Side Bar as follows:
 
 * Run the **View: Toggle Secondary Side Bar Visibility** command (or press `kb(workbench.action.toggleAuxiliaryBar)`)
 * Use the **View** > **Appearance** > **Secondary Side Bar** menu item
+
+If you want to automatically show the Secondary Side Bar when you open a new window or a workspace, you can configure this with the `setting(workbench.secondarySideBar.defaultVisibility)` setting.
 
 At any time, you can drag and drop views and panels into the Primary or Secondary Side Bar. VS Code will remember the layout of views and panels across your sessions.
 
@@ -204,21 +206,33 @@ If you'd like more control over the editor group layout, you can use the [grid l
 
 ![Editor Grid 2x2 layout with the sash highlighted](images/custom-layout/grid-editor-layout.png)
 
-### Floating editor windows
+### Floating windows
 
-You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+You can open an editor, the terminal, or specific views in a floating window. This is useful in a multi-monitor setup, where you can move the editor to another monitor or even to a different location on the same monitor.
 
-To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window:
+To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window.
 
-<video src="images/custom-layout/floating-windows.mp4" autoplay loop controls muted></video>
+<video src="images/custom-layout/floating-windows.mp4" title="Video showing dragging an editor tab outside the VS Code window to open the file in a floating window." autoplay loop controls muted></video>
 
-Floating editor windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
+Floating windows are capable of opening as many editors as you like in a grid layout. The windows will restore at their location after restart and reopen all the editors within.
 
 Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
 
 ![Floating windows from editor tab menu](images/custom-layout/floating-windows.png)
 
-If you want to move an entire editor group, select **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`).
+To move an entire editor group, use the **Move Editor Group into New Window** (`kb(workbench.action.moveEditorGroupToNewWindow)`) or **Copy Editor Group into New Window** (`kb(workbench.action.copyEditorGroupToNewWindow)`) commands.
+
+#### Compact mode
+
+To remove unnecessary UI elements from a floating window and make more room for the content, select the **Set Compact Mode** option the floating window title bar. Select it again to restore the floating window to its original mode.
+
+![Floating window title bar with Compact Mode option highlighted](images/custom-layout/compact-mode.png)
+
+#### Pin to top
+
+You can pin a floating window to the top of the screen by selecting the **Set Always on Top** option in the floating window title bar. This can be useful to keep a terminal or preview window always visible while you work in the main VS Code window. Select it again to unpin the floating window.
+
+![Floating window title bar with Always on Top option highlighted](images/custom-layout/always-on-top.png)
 
 ### Pinned tabs
 
