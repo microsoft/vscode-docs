@@ -118,31 +118,25 @@ See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/mic
 
 [Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
 
-### How do I find the license for an extension?
-
-Most extensions link to their license on their Marketplace page or in the overview section, when you select an extension in the Extensions view.
-
-For example:
-
-![Extensions view details license link](images/faq/extensions-view-license-link.png)
-
-If you don't find a link to the license, you may find a license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
-
 ## Extensions
 
 ### Are all VS Code extensions open source?
 
 Extension authors are free to choose a license that fits their business needs. While many extension authors have opted to release their source code under an open-source license, some extensions like [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode), [Google Cloud Code](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode), and the [VS Code Remote Development extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) use proprietary licenses.
 
-At Microsoft, we have a mix of open and closed source extensions. Reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (e.g., the C# DevKit extension uses the Visual Studio subscription license model, see [License](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)), and business model differences across the entirety of Microsoft will result in extensions choosing a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their source code licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
+At Microsoft, we have a mix of open and closed source extensions. Reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (e.g., the C# DevKit extension uses the Visual Studio subscription license model, see [License](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)), and business model differences across the entirety of Microsoft may result in extensions choosing a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their source code licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
 
-### Can I use a Microsoft extension in a derivative (fork) of VS Code?
+### How do I find the license for an extension?
 
-No. While the source code for an extension from Microsoft may be open source, we do not allow extensions from Microsoft or its affiliates, which are published to and acquired from the Visual Studio Marketplace, to be used outside of the Visual Studio family of products. We build, test, deploy, and support these extensions and services only in the products we ship. We cannot guarantee the security and functionality of these extensions in a derivative of VS Code (for example, but not only, forks of the [Code - OSS Repository](https://github.com/microsoft/vscode)). Please see _Conditions: Use Rights for Marketplace/NuGet Offerings_ in the  [Visual Studio Marketplace Terms of Service](https://aka.ms/vsmarketplace-ToU) for more information.
+Most extensions will have a link to their license on the Marketplace page (their "Read Me" document), found on the right column under **Resources**. If you don't find a link, you may find the license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
 
-### I can't access the Visual Studio Marketplace with a derivative (fork) of VS Code
+### Can I use a Microsoft extension outside of VS Code?
 
-We license the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). Therefore, derivatives of VS Code (for example, but not only, forks of the [Code - OSS Repository](https://github.com/microsoft/vscode)) are not permitted to access the Visual Studio Marketplace. We do this for several reasons:
+No. While the source code for an extension from Microsoft may be open source, we do not allow extensions from Microsoft or its affiliates that are published to and acquired from the Visual Studio Marketplace to be used outside of the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). We build, test, deploy, and support these extensions and services only in these products. We cannot guarantee the security and functionality of the extensions elsewhere, including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode). Please see _Conditions: Use Rights for Marketplace/NuGet Offerings_ in the Visual Studio Marketplace [Terms of Service](https://aka.ms/vsmarketplace-ToU) for more information.
+
+### I can't access the Visual Studio Marketplace from product << fill in the blank >>, why not?
+
+We license the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). Therefore, alternative products including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode), are not permitted to access the Visual Studio Marketplace. We do this for several reasons:
 
 * Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/editor/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, we can ensure that the extension is safe to run in that context.
 
@@ -152,7 +146,7 @@ We license the Visual Studio Marketplace for use only by the Visual Studio famil
 
 * Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across version updates.
 
-See [issue #31168](https://github.com/microsoft/vscode/issues/31168#issuecomment-2810912914) for additional details on this topic.
+See [#31168](https://github.com/microsoft/vscode/issues/31168#issuecomment-2810912914) for additional details on this topic.
 
 ### Why should I install extensions from the Visual Studio Marketplace?
 
@@ -165,8 +159,6 @@ Installing extensions from the Visual Studio Marketplace has many advantages ove
 * The Marketplace enables you to easily find, install, and update extensions. When an update is available, for example because of a security fix, VS Code automatically installs the updated version.
 
 * Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across version updates.
-
-
 
 ### Report an issue with a VS Code extension
 
@@ -182,7 +174,7 @@ On macOS, go to **Code** > **About Visual Studio Code**.
 
 On Windows and Linux, go to **Help** > **About**.
 
-The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.27.0'.
+The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.100.0'.
 
 ### Previous release versions
 
