@@ -332,6 +332,7 @@ See [Linux Prerequisites](/docs/remote/linux.md) for details.
 Installation of VS Code Server requires that your local machine has outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
+- `vscode.download.prss.microsoft.com`
 - `vscode.blob.core.windows.net`
 - `*.vo.msecnd.net` (Azure CDN)
 
