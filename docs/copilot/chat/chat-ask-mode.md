@@ -1,23 +1,28 @@
 ---
 ContentId: 9c7d2fe3-ed18-4370-9d59-dfd34a039091
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Use ask mode for chat in VS Code to ask questions about your codebase, coding, and general technology concepts by using natural language.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use ask mode in VS Code
 
-Chat in Visual Studio Code lets you use natural language to interact with large language models (LLMs) to get help with your code. _Ask mode_ for chat  is optimized for asking questions about your codebase, coding, and general technology concepts by using natural language. Ask mode is particularly useful for getting a better understanding of your codebase, brainstorming ideas, and getting help with coding tasks.
+Chat in Visual Studio Code lets you use natural language to interact with large language models (LLMs) to get help with your code. _Ask mode_ for chat  is optimized for asking questions about your codebase, coding, and general technology concepts. Ask mode is particularly useful for getting a better understanding of your codebase, brainstorming ideas, and getting help with coding tasks.
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
+
 ## Use ask mode
 
-You can access ask mode from the chat mode dropdown in the Chat view (open in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask)). Follow these steps to get started:
+Follow these steps to get started:
 
-1. Open the Chat view by selecting **Open Chat** from the Copilot menu in the VS Code title bar, or use the `kb(workbench.action.chat.open)` keyboard shortcut.
+1. Open ask mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask).
 
-1. Select **Ask** from the chat mode dropdown in the Chat view.
+    Alternatively, open the Chat view (`kb(workbench.action.chat.open)`) and select **Ask** from the chat mode selector.
 
     ![Screenshot showing the Copilot Chat view, highlighting the Ask button.](images/copilot-chat/chat-mode-dropdown.png)
 
@@ -83,7 +88,7 @@ In your prompt, you can use special keywords to get more relevant responses:
 
 * _Slash commands_ provide a shortcut to commonly used instructions, such as `/fix` to propose a fix for a problem, or `/explain` to explain how the selected code works. Type `/` in the chat input field to view a list of available slash commands.
 
-* _Chat variables_ let you reference specific context in your prompt text. For example, use `#file` to reference a workspace file, or `#codebase` to let Copilot find the relevant files to add as context. Type `#` in the chat input field to view a list of available variables.
+* _Chat variables_ let you reference specific context in your prompt text. For example, use `#` followed by a file name to reference a workspace file, or `#codebase` to let Copilot find the relevant files to add as context. Type `#` in the chat input field to view the list of available variables.
 
 ## Related resources
 

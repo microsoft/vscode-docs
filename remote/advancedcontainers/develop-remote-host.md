@@ -5,7 +5,7 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # Develop on a remote Docker host
 

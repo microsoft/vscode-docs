@@ -1,12 +1,17 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Inline chat
 
 With Copilot inline chat in Visual Studio Code, you can ask questions and get suggestions directly in the editor or get help with shell commands within the integrated terminal. Inline chat allows you to stay in the flow of your work without having to switch to a separate Chat view.
+
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
 
 ## Use editor inline chat
 

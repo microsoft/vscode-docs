@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -114,6 +114,20 @@ You can even use simple regular expressions to transform variables in a [similar
 ```
 
 When a new file is pasted into `/docs/api/readme.md`, the image is now created under `/docs/api/images/r/image.png`.
+
+### Generating alt text for images
+
+You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
+
+1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+
+1. Open a Markdown file.
+1. Put the cursor on an image link.
+1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
+
+    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](../copilot/images/copilot-smart-actions/generate-alt-text.png)
+
+1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
 
 ### Smart selection
 

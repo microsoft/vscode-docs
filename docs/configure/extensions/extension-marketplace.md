@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -375,11 +375,28 @@ Get more information about [extension runtime security](/docs/configure/extensio
 
 The Visual Studio Marketplace signs all extensions when they are published. VS Code verifies this signature when you install an extension to check the integrity and the source of the extension package.
 
-When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`.
+> [!IMPORTANT]
+> When you install an extension, you might see the following error message: `Cannot install extension because Visual Studio Code cannot verify the extension signature`. This error can be caused by a variety of reasons and should you encounter this error, exercise caution before deciding to install anyway. Disable extension signature verification with the `setting(extensions.verifySignature)` setting.
 
-This error can be caused by a variety of reasons, such as an unsupported environment or even (unlikely) package integrity issues. Should you encounter this error, exercise caution before deciding to install anyway.
+#### Package integrity issues
+For package integrity issues, it's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. The following list provides error codes related to package integrity issues:
 
-It's recommended that you contact the [Visual Studio Marketplace team](mailto:vsmarketplace@microsoft.com?subject=Extension%20Signature%20Verification%20Issue) to report the issue. Make sure to include the extension ID. If you want to disable extension signature verification, you can use the `setting(extensions.verifySignature)` setting.
+```
+PackageIntegrityCheckFailed
+SignatureIsInvalid
+SignatureManifestIsInvalid
+SignatureIntegrityCheckFailed
+EntryIsMissing
+EntryIsTampered
+Untrusted
+CertificateRevoked
+SignatureIsNotValid
+SignatureArchiveHasTooManyEntries
+NotSigned
+```
+
+#### Other issues
+For other issues like an unsupported environment or unknown reasons, it's recommended that you [report an issue](https://github.com/microsoft/vscode/issues/new) with VS Code by providing all necessary information and including the shared log: `kb(workbench.action.showCommands)` > **Open View...** > **Shared**.
 
 ### My extensions don't synchronize when connected to a remote window
 
