@@ -134,13 +134,15 @@ If you don't find a link to the license, you may find a license in the extension
 
 Extension authors are free to choose a license that fits their business needs. While many extension authors have opted to release their source code under an open-source license, some extensions like [Wallaby.js](https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode), [Google Cloud Code](https://marketplace.visualstudio.com/items?itemName=GoogleCloudTools.cloudcode), and the [VS Code Remote Development extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) use proprietary licenses.
 
-At Microsoft, we open source our extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
+At Microsoft, we have a mix of open and closed source extensions. Reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (e.g., the C# DevKit extension uses the Visual Studio subscription license model, see [License](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)), and business model differences across the entirety of Microsoft will result in extensions choosing a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their source code licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
 
-### I can't access the Extension Marketplace with product X?
+### Can I use a Microsoft extension in a derivative (fork) of VS Code?
 
-We license the Visual Studio Marketplace for use by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”).
+No. While the source code for an extension from Microsoft may be open source, we do not allow extensions from Microsoft or its affiliates, which are published to and acquired from the Visual Studio Marketplace, to be used outside of the Visual Studio family of products. We build, test, deploy, and support these extensions and services only in the products we ship. We cannot guarantee the security and functionality of these extensions in a derivative of VS Code (forks of the [Code - OSS Repository](https://github.com/microsoft/vscode)). Please see _Conditions: Use Rights for Marketplace/NuGet Offerings_ in the  [Visual Studio Marketplace Terms of Service](https://aka.ms/vsmarketplace-ToU) for more information.
 
-This is important for several reasons:
+### I can't access the Visual Studio Marketplace with a derivative (fork) of VS Code
+
+We license the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). Therefore, derivatives of VS Code (forks of the [Code - OSS Repository](https://github.com/microsoft/vscode)) are not permitted to access the Visual Studio Marketplace. We do this for several reasons:
 
 * Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/editor/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, we can ensure that the extension is safe to run in that context.
 
@@ -148,7 +150,9 @@ This is important for several reasons:
 
 * Microsoft spends considerable resources in running, maintaining, and securing this global online service. Products in the Visual Studio family are guaranteed to access the Marketplace in a secure and reliable manner, ensuring that the Marketplace is available when you need it.
 
-* Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across product version updates.
+* Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across version updates.
+
+See [issue #31168](https://github.com/microsoft/vscode/issues/31168#issuecomment-2810912914) for additional details on this topic.
 
 ### Why should I install extensions from the Visual Studio Marketplace?
 
@@ -160,11 +164,9 @@ Installing extensions from the Visual Studio Marketplace has many advantages ove
 
 * The Marketplace enables you to easily find, install, and update extensions. When an update is available, for example because of a security fix, VS Code automatically installs the updated version.
 
-* Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across product version updates.
+* Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across version updates.
 
-### I can't use a Microsoft extension with product X?
 
-We test the Microsoft extensions with the official open source Microsoft distribution of VS Code. We can't guarantee that they will work correctly with distributions from other parties. Make sure to check the extensions' license for specific terms and conditions about in which products they can be used.
 
 ### Report an issue with a VS Code extension
 
