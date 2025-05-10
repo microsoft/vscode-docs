@@ -72,5 +72,5 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 ## Next steps
 
 * [Overview of Bridge to Kubernetes](https://learn.microsoft.com/visualstudio/bridge/overview-bridge-to-kubernetes) - Learn more about Bridge to Kubernetes, a rapid, iterative Kubernetes development experience for teams.
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/overview.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

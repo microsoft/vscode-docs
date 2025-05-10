@@ -21,7 +21,7 @@ If you have any trouble, please file an issue for this tutorial in the [VS Code 
 
 To complete this tutorial on Ubuntu, install the following:
 
-1. [Visual Studio Code](/download).
+1. [Visual Studio Code](https://code.visualstudio.com/download).
 1. [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Install the C/C++ extension by searching for 'c++' in the **Extensions** view (`kb(workbench.view.extensions)`).
 
     ![C/C++ extension](images/cpp/cpp-extension.png)

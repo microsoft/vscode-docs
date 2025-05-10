@@ -127,7 +127,7 @@ Example `launch.json` configuration for debugging a .NET application using `Dock
 
 ### node object properties
 
-> These properties are the same as those described in the [VS Code documentation](/docs/nodejs/nodejs-debugging-configuration.md#launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
+> These properties are the same as those described in the [VS Code documentation](/docs/nodejs/nodejs-debugging.md#launch-configuration-attributes) for attaching a debugger to Node.js applications. All properties passed in the `node` object will be passed on to the Node.js debug adaptor, even if not specifically listed below.
 
 | Property | Description | Default |
 | --- | --- | --- |

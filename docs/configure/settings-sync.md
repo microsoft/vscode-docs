@@ -53,7 +53,7 @@ If you already synced from a machine and turning on sync from another machine, y
 
 ## Configuring synced data
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
+Machine settings (with `machine` or `machine-overridable` [scopes](/release-notes/v1_34.md#Machine-specific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `setting(settingsSync.ignoredSettings)`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
 

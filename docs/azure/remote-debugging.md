@@ -50,5 +50,5 @@ When you're ready to end your remote debugging session, disconnect from the debu
 ## Next steps
 
 * [Logpoints](/docs/debugtest/debugging.md#logpoints) - Use Logpoints to log to the console without "breaking" in the debugger.
-* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Azure Extensions](/docs/azure/overview.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
