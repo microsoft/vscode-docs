@@ -16,7 +16,7 @@ Before we get into the details of all the possible options, let's walk through a
 
 ### Approach 1: `launchSettings.json`
 
-For C# Dev Kit, the recommended way to debug is to let C# Dev Kit automatically figure out how to debug from settings in the project file. This means that you either don't have a `<workspace_root>/.vscode/launch.json` file, or if you have one, you have `"type": "dotnet"` set for the active configuration. For command-line arguments, "figure out from the project file" means to pull the value from `<Project-Directory>/Propeties/launchSettings.json`. The advantage of `launchSettings.json` is that it allows settings to be shared between Visual Studio Code, full Visual Studio, and `dotnet run`.
+For C# Dev Kit, the recommended way to debug is to let C# Dev Kit automatically figure out how to debug from settings in the project file. This means that you either don't have a `<workspace_root>/.vscode/launch.json` file, or if you have one, you have `"type": "dotnet"` set for the active configuration. For command-line arguments, "figure out from the project file" means to pull the value from `<Project-Directory>/Properties/launchSettings.json`. The advantage of `launchSettings.json` is that it allows settings to be shared between Visual Studio Code, full Visual Studio, and `dotnet run`.
 
 For this case, here are the steps to set the command-line arguments:
 1. In workspace Explorer view, navigate to the directory of the project (.csproj file) you want to launch
