@@ -22,6 +22,16 @@ You can use Docker with the Dev Containers extension in a few ways, including:
 
 You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
 
+## Customize AI Chat Responses
+
+[Custom instructions](/docs/copilot/copilot-customization.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+
+You can use custom instructions with dev containers to give Copilot more information about the type of dev container you're connected to (like what kind of languages or toolchains are installed). You can achieve this in a few ways:
+* Add `"github.copilot.chat.codeGeneration.instructions"` directly in your `devcontainer.json`
+    * We publish dev container resources (like [images](https://github.com/devcontainers/images) and [Features](https://github.com/devcontainers/features)) to make the process of creating and connecting to dev containers even easier, and we now include custom instructions in these files.
+    * [Here](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80) is an example of custom instructions in the Python Feature.
+* Use a `copilot-instructions.md` file just as you would locally
+
 ## Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
