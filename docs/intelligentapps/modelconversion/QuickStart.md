@@ -199,9 +199,9 @@ The default runtime is: `C:\Users<your name>.aitk\bin\model_lab_runtime\Python-C
   - Note that the default runtime contains everything needed, otherwise, manually install the requirements.txt
 - The sample will launch in a Jupyter Notebook. You can customize the input data or parameters to test different scenarios.
 
-    > [!TIP]
-    > - **Model Compatibility:** Ensure the converted model supports the specified EPs in the inference samples
-    > - **Sample Location:** Inference samples are stored alongside the run artifacts in the history folder.
+> [!TIP]
+> - **Model Compatibility:** Ensure the converted model supports the specified EPs in the inference samples
+> - **Sample Location:** Inference samples are stored alongside the run artifacts in the history folder.
 
 ## Step 5 : Export and share with others
 Go to the History board. Click `Export` to share the model project with others. This only copy the model project without history folder. If you want to share models with others, please select the corresponding jobs, This will copy the selected history folder conaining the model and its configuration.
