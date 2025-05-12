@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
 PageTitle: Introduction to Git in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
 # Introduction to Git in VS Code
@@ -20,7 +20,7 @@ With GitHub Copilot in VS Code, you can get suggestions for commit messages, pul
 
 To use Git and GitHub in VS Code, first make sure you [have Git installed on your computer](https://git-scm.com/downloads). If Git is missing, the **Source Control** view shows instructions on how to install it. Make sure to restart VS Code afterwards.
 
-Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/editor/settings-sync.md), but also cloning and publishing repositories from GitHub.
+Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/configure/settings-sync.md), but also cloning and publishing repositories from GitHub.
 
 ![Screenshot of the Accounts menu in VS Code](images/intro/vscode-accounts-menu.png)
 
@@ -144,7 +144,7 @@ Once you have made commits to your local Git repository, you can push them to th
 ![Sync button with one change to push](images/intro/sync.png)
 
 > [!TIP]
-> You can enable the **Git: Autofetch** [setting](/docs/getstarted/settings.md) to always get an up-to-date remote commit indicator.
+> You can enable the **Git: Autofetch** [setting](/docs/configure/settings.md) to always get an up-to-date remote commit indicator.
 
 Push and pull can also be performed individually by using their respective commands. You can access these commands from the Source Control menu.
 

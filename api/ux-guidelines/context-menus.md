@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: fdd5476c-13e2-4f78-9dd3-0157eed36a29
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for using context menus in a Visual Studio Code extension.

@@ -4,18 +4,13 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import createChatParticipant from './docParticipant';
 import { GetReleaseFeatures } from './tools/getReleaseIssues';
+import { GetCurrentMilestoneName } from './tools/getCurrentMilestone';
 
 export function activate(context: vscode.ExtensionContext) {
-    const chatContext: { prompt: string } = { prompt: '' };
-
     const logger = vscode.window.createOutputChannel('VS Code Doc Writer', { log: true });
-
-    context.subscriptions.push(vscode.chat.createChatParticipant('vscode-doc', createChatParticipant(chatContext, logger)));
-
-    // Register the release features tool
     context.subscriptions.push(vscode.lm.registerTool(GetReleaseFeatures.ID, new GetReleaseFeatures(logger)));
+    context.subscriptions.push(vscode.lm.registerTool(GetCurrentMilestoneName.ID, new GetCurrentMilestoneName(logger)));
 }
 
 export function deactivate() {

@@ -32,5 +32,5 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Extension Marketplace Documentation](/docs/editor/extension-marketplace.md) - Official documentation for the VS Code Extension Marketplace.
+* [Extension Marketplace Documentation](/docs/configure/extensions/extension-marketplace.md) - Official documentation for the VS Code Extension Marketplace.
 * [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.

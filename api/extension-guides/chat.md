@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ac3f00c8-78a8-408c-8af6-3e997a482972
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating an AI extension in Visual Studio Code
@@ -9,21 +9,31 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 # Chat extensions
 
-Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) experience. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *Chat participant*.
+Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the chat experience in VS Code. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *chat participant*. Chat participants are domain experts that can answer user queries within a specific domain.
 
-Chat participants are domain experts that can answer user queries within a specific domain. Participants can use different approaches to process a user query:
+Users can reference chat participants in [ask mode](/docs/copilot/chat/chat-ask-mode.md) by using the `@` symbol in the Chat view.
 
-- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model)
-- Forward the user request to a backend service
-- Use procedural logic and local resources
+Alternatively, you can also contribute a [language model tool](/api/extension-guides/tools.md) to the chat experience. A language model tool performs a specific task, and can be invoked automatically in [agent mode](/docs/copilot/chat/chat-agent-mode.md), or manually referenced in [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [edit mode](/docs/copilot/chat/copilot-edits.md) by using `#`.
 
-Participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
+## Overview
+
+The goal of a chat participant is to enable users to prompt the extension by using natural language and to provide domain-specific answers in response.
 
 When a user explicitly mentions a `@participant` in their chat prompt, that prompt is forwarded to the extension that contributed that specific chat participant. The participant then uses a `ResponseStream` to respond to the request. To provide a smooth user experience, the Chat API is streaming-based. A chat response can contain rich content, such as Markdown, file trees, command buttons, and more. Get more info about the [supported response output types](#supported-chat-response-output-types).
+
+Chat participants can use different approaches to process a user query:
+
+- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model).
+- Forward the user request to a backend service, which processes the request and returns a response.
+- Use procedural logic and local resources to generate a response.
 
 To help the user take the conversation further, participants can provide *follow-ups* for each response. Follow-up questions are suggestions that are presented in the chat user interface and might give the user inspiration about the chat extension's capabilities.
 
 Participants can also contribute *commands*, which are a shorthand notation for common user intents, and are indicated by the `/` symbol. The extension can then use the command to prompt the language model accordingly. For example, `/explain` is a command for the `@workspace` participant that corresponds with the intent that the language model should explain some code.
+
+### Using the language model
+
+Chat participants can use the language model in a wide range of ways. Some participants only make use of the language model to get answers to custom prompts, for example the [sample chat participant](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). Other participants are more advanced and act like autonomous agents that invoke multiple tools with the help of the language model. An example of such an advanced participant is the built-in `@workspace` that knows about your workspace and can answer questions about it. Internally, `@workspace` is powered by multiple tools: GitHub's knowledge graph, combined with semantic search, local code indexes, and VS Code's language services.
 
 ## Extending GitHub Copilot via GitHub Apps
 
@@ -463,7 +473,72 @@ The following list provides the output types for a chat response in the Chat vie
     stream.anchor(symbolLocation, 'MySymbol');
     ```
 
-> **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editor/editingevolved#outgoing-link-protection).
+> **Important**: Images and links are only available when they originate from a domain that is in the trusted domain list. Get more info about [link protection in VS Code](/docs/editing/editingevolved#outgoing-link-protection).
+
+## Implement tool calling
+
+To respond to a user request, a chat extension can invoke language model tools. Learn more about [language model tools](/api/extension-guides/tools.md) and the [tool-calling flow](/api/extension-guides/tools.md#tool-calling-flow).
+
+You can implement tool calling in two ways:
+
+- By using the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
+- By implementing tool calling yourself, which gives you more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
+
+### Implement tool calling with the chat extension library
+
+You can use the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
+
+Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat participant](/api/extension-guides/chat).
+
+1. Determine the relevant tools for the current chat context. You can access all available tools by using `vscode.lm.tools`.
+
+    The following code snippet shows how to filter the tools to only those that have a specific tag.
+
+    ```ts
+    const tools = request.command === 'all' ?
+        vscode.lm.tools :
+        vscode.lm.tools.filter(tool => tool.tags.includes('chat-tools-sample'));
+    ```
+
+1. Send the request and tool definitions to the LLM by using `sendChatParticipantRequest`.
+
+    ```ts
+    const libResult = chatUtils.sendChatParticipantRequest(
+        request,
+        chatContext,
+        {
+            prompt: 'You are a cat! Answer as a cat.',
+            responseStreamOptions: {
+                stream,
+                references: true,
+                responseText: true
+            },
+            tools
+        },
+        token);
+    ```
+
+    The `ChatHandlerOptions` object has the following properties:
+
+    - `prompt`: (optional) Instructions for the chat participant prompt.
+    - `model`: (optional) The model to use for the request. If not specified, the model from the chat context is used.
+    - `tools`: (optional) The list of tools to consider for the request.
+    - `requestJustification`: (optional) A string that describes why the request is being made.
+    - `responseStreamOptions`: (optional) Enable `sendChatParticipantRequest` to stream the response back to VS Code. Optionally, you can also enable references and/or response text.
+
+1. Return the result from the LLM. This might contain error details or tool-calling metadata.
+
+    ```ts
+    return await libResult.result;
+    ```
+
+The full source code of this [tool-calling sample](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/chatUtilsSample.ts) is available in the VS Code Extension Samples repository.
+
+### Implement tool calling yourself
+
+For more advanced scenarios, you can also implement tool calling yourself. Optionally, you can use the `@vscode/prompt-tsx` library for crafting the LLM prompts. By implementing tool calling yourself, you have more control over the tool-calling process. For example, to perform additional validation or to handle tool responses in a specific way before sending them to the LLM.
+
+View the full source code for implementing [tool calling by using prompt-tsx](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-sample/src/toolParticipant.ts) in the VS Code Extension Samples repository.
 
 ## Measuring success
 
@@ -528,6 +603,5 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Video: Enhancing VS Code extensions with GitHub Copilot](https://build.microsoft.com/sessions/57efc1aa-83c0-45c5-b8c3-ad095478bb0a?source=sessions)
-- [Use the Language Model API](/api/extension-guides/language-model) in your extension
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Use the Language Model API](/api/extension-guides/language-model)
+- [Contribute a language model tool](/api/extension-guides/tools.md)

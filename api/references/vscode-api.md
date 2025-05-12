@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -786,7 +786,7 @@ installed, uninstalled, enabled or disabled.</p>
 
 
 
-<div class="comment"><p>Namespace for participating in language-specific editor <a href="https://code.visualstudio.com/docs/editor/editingevolved">features</a>,
+<div class="comment"><p>Namespace for participating in language-specific editor <a href="https://code.visualstudio.com/docs/editing/editingevolved">features</a>,
 like IntelliSense, code actions, diagnostics etc.</p>
 <p>Many programming languages exist and there is huge variety in syntaxes, semantics, and paradigms. Despite that, features
 like automatic word-completion, code navigation, or code checking have become popular across different tools for different
@@ -4247,13 +4247,13 @@ current cursor position.</p>
 <div class="details collapse" id="details-593">
 <div class="comment"><p>Marks that the code action cannot currently be applied.</p>
 <ul>
-<li><p>Disabled code actions are not shown in automatic <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a>
+<li><p>Disabled code actions are not shown in automatic <a href="https://code.visualstudio.com/docs/editing/editingevolved#_code-action">lightbulb</a>
 code action menu.</p>
 </li>
 <li><p>Disabled actions are shown as faded out in the code action menu when the user request a more specific type
 of code action, such as refactorings.</p>
 </li>
-<li><p>If the user has a <a href="https://code.visualstudio.com/docs/editor/refactoring#_keybindings-for-code-actions">keybinding</a>
+<li><p>If the user has a <a href="https://code.visualstudio.com/docs/editing/refactoring#_keybindings-for-code-actions">keybinding</a>
 that auto applies a code action and only a disabled code actions are returned, VS Code will show the user an
 error message with <code>reason</code> in the editor.</p>
 </li>
@@ -4320,7 +4320,7 @@ a <a href="#CodeActionProvider.provideCodeActions">code action</a> is run.</p>
 <a name="CodeActionContext.only"></a><span class="ts" id=585 data-target="#details-585" data-toggle="collapse"><span class="ident">only</span><span>?</span><span>: </span><a class="type-ref" href="#CodeActionKind">CodeActionKind</a></span>
 <div class="details collapse" id="details-585">
 <div class="comment"><p>Requested kind of actions to return.</p>
-<p>Actions not of this kind are filtered out before being shown by the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a>.</p>
+<p>Actions not of this kind are filtered out before being shown by the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_code-action">lightbulb</a>.</p>
 </div>
 </div>
 
@@ -4416,7 +4416,7 @@ can also trigger code actions with a specific kind with the <code>editor.action.
 <div class="details collapse" id="details-567">
 <div class="comment"><p>Base kind for source actions: <code>source</code></p>
 <p>Source code actions apply to the entire file. They must be explicitly requested and will not show in the
-normal <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a> menu. Source actions
+normal <a href="https://code.visualstudio.com/docs/editing/editingevolved#_code-action">lightbulb</a> menu. Source actions
 can be run on save using <code>editor.codeActionsOnSave</code> and are also shown in the <code>source</code> context menu.</p>
 </div>
 </div>
@@ -4528,7 +4528,7 @@ but not <code>&quot;unicorn.refactor.extract&quot;</code>, or <code>&quot;refact
 
 
 <div class="comment"><p>The code action interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-action">lightbulb</a> feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_code-action">lightbulb</a> feature.</p>
 <p>A code action can be any command that is <a href="#commands.getCommands">known</a> to the system.</p>
 </div>
 
@@ -5935,7 +5935,7 @@ line completions were <a href="#CompletionItemProvider.provideCompletionItems">r
 
 
 <div class="comment"><p>The completion item provider interface defines the contract between extensions and
-<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>.</p>
+<a href="https://code.visualstudio.com/docs/editing/intellisense">IntelliSense</a>.</p>
 <p>Providers can delay the computation of the <a href="#CompletionItem.detail"><code>detail</code></a>
 and <a href="#CompletionItem.documentation"><code>documentation</code></a> properties by implementing the
 <a href="#CompletionItemProvider.resolveCompletionItem"><code>resolveCompletionItem</code></a>-function. However, properties that
@@ -8005,7 +8005,7 @@ the defining symbol</p>
 
 
 <div class="comment"><p>The definition provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition">go to definition</a>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_go-to-definition">go to definition</a>
 and peek definition features.</p>
 </div>
 
@@ -8162,7 +8162,7 @@ diagnostics collection and a resource.</p>
 <div class="details collapse" id="details-1411">
 <div class="comment"><p>The name of this diagnostic collection, for instance <code>typescript</code>. Every diagnostic
 from this collection will be associated with this name. Also, the task framework uses this
-name when defining <a href="https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
+name when defining <a href="https://code.visualstudio.com/docs/debugtest/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
 </div>
 </div>
 
@@ -9158,7 +9158,7 @@ Must be contained by the <a href="#DocumentSymbol.range"><code>range</code></a>.
 
 
 <div class="comment"><p>The document symbol provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_go-to-symbol">go to symbol</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_go-to-symbol">go to symbol</a>-feature.</p>
 </div>
 
 #### Methods
@@ -11238,7 +11238,7 @@ If the kind is not set on the range, the range originated from a syntax element 
 
 
 <div class="comment"><p>The folding range provider interface defines the contract between extensions and
-<a href="https://code.visualstudio.com/docs/editor/codebasics#_folding">Folding</a> in the editor.</p>
+<a href="https://code.visualstudio.com/docs/editing/codebasics#_folding">Folding</a> in the editor.</p>
 </div>
 
 #### Methods
@@ -11448,7 +11448,7 @@ current position itself.</p>
 
 
 <div class="comment"><p>The hover provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/intellisense">hover</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/intellisense">hover</a>-feature.</p>
 </div>
 
 #### Methods
@@ -14150,7 +14150,7 @@ requesting references.</p>
 
 
 <div class="comment"><p>The reference provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">find references</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_peek">find references</a>-feature.</p>
 </div>
 
 #### Methods
@@ -14237,7 +14237,7 @@ the file glob pattern will match on <code>index.js</code>.</p>
 
 
 <div class="comment"><p>The rename provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_rename-symbol">rename</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_rename-symbol">rename</a>-feature.</p>
 </div>
 
 #### Methods
@@ -15280,7 +15280,7 @@ signature help or when moving the cursor.</p>
 
 
 <div class="comment"><p>The signature help provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/intellisense">parameter hints</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/intellisense">parameter hints</a>-feature.</p>
 </div>
 
 #### Methods
@@ -15444,7 +15444,7 @@ and to control the editor cursor when insertion happens.</p>
 and <code>${3:foo}</code>. <code>$0</code> defines the final tab stop, it defaults to
 the end of the snippet. Variables are defined with <code>$name</code> and
 <code>${name:default value}</code>. The full snippet syntax is documented
-<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets">here</a>.</p>
+<a href="https://code.visualstudio.com/docs/editing/userdefinedsnippets#_creating-your-own-snippets">here</a>.</p>
 </div>
 
 #### Constructors
@@ -21332,7 +21332,7 @@ workspace folders that are not stored on the local disk, e.g. <code>ftp://server
 
 
 <div class="comment"><p>The workspace symbol provider interface defines the contract between extensions and
-the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name">symbol search</a>-feature.</p>
+the <a href="https://code.visualstudio.com/docs/editing/editingevolved#_open-symbol-by-name">symbol search</a>-feature.</p>
 </div>
 
 #### Methods

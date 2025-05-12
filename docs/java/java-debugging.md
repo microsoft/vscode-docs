@@ -52,7 +52,7 @@ If you would like to customize and persist your launch configuration, you can se
 
 The `launch.json` file is located in a `.vscode` folder in your workspace (project root folder).
 
-For more details on how to create the `launch.json`, read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
+For more details on how to create the `launch.json`, read [Launch configurations](/docs/debugtest/debugging-configuration.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
 
 ## Run and Debug
 
@@ -72,7 +72,7 @@ Another way to start debugging is to select **Run Java** or **Debug Java** menu 
 
 ### Run from pressing F5
 
-Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
 
 ## Debugging single files
 
@@ -158,7 +158,7 @@ Consult the documentation for the [Language Support for Java™ by Red Hat](http
 
 For many commonly used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with the main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
 
-Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/editor/debugging.md).
+Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/debugtest/debugging.md).
 
 ### Launch
 
@@ -274,7 +274,7 @@ You can find the full list of issues at the [vscode-java-debug](https://github.c
 
 Read on to find out about:
 
-- [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+- [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
 
 And for Java:
 

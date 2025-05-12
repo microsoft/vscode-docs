@@ -1,10 +1,6 @@
 ---
-Order: 15
-Area: copilot
-TOCTitle: FAQ
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-PageTitle: GitHub Copilot frequently asked questions
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -22,6 +18,17 @@ There are different ways to get access to GitHub Copilot:
 |--------------------------------|-------------|
 | Individual                     | <ul><li>Set up [GitHub Copilot Free](https://github.com/github-copilot/signup) to get a limited experience of Copilot without a subscription. See [About GitHub Copilot Free](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid GitHub Copilot subscription to get unlimited completions and chat interactions. You can [try GitHub Copilot for free](https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs) with a one-time 30-day trial.</li><li>See [Setting up GitHub Copilot for yourself](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options. </li></ul> |
 | Organization/Enterprise member | <ul><li>If you are a member of an organization or enterprise that has a subscription to GitHub Copilot, you can request access to Copilot by going to <https://github.com/settings/copilot> and requesting access under "Get Copilot from an organization."</li><li>See [Setting up GitHub Copilot for your organization](https://docs.github.com/en/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable Copilot for your organization.</li></ul> |
+
+### How can I monitor my Copilot usage?
+
+You can view the current Copilot usage in the Copilot status dashboard, available through the VS Code Status Bar. The dashboard shows the following information:
+
+- **Completions**: The percentage of code completions quota you have used in the current month.
+- **Chat messages**: The percentage of chat requests quota you have used in the current month.
+- **Premium requests**: The percentage of premium requests quota you have used in the current month.
+- **Premium requests overage**: The number of overage premium requests you have used in the current month.
+
+Visit the GitHub Copilot documentation for more information about [monitoring usage and entitlements](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
 
 ### I reached my completions or chat interactions limit
 
@@ -41,26 +48,33 @@ If only the code completions are reaching the limit, you can still use Copilot f
 
 ### How can I switch accounts for Copilot
 
-To switch to another GitHub account for using Copilot:
+If your Copilot subscription is associated with another GitHub account, sign out of your GitHub account in VS Code, and sign in with another account.
 
-1. Open the Extensions view from the Activity Bar ( or use `kb(workbench.view.extensions)`) and enter *GitHub Copilot* in the search box.
+1. Select the **Accounts** menu in the Activity Bar, and then select **Sign out** for the account you're currently signed in with for Copilot.
 
-    ![Extensions view in VS Code, showing the GitHub Copilot extension.](images/faq/copilot-extensions.png)
+    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/setup/vscode-accounts-menu-signout.png)
 
-    > [!NOTE]
-    > There are two Copilot extensions: GitHub Copilot and GitHub Copilot Chat.
+1. Sign in to your GitHub account using any of the following methods:
 
-1. For the **GitHub Copilot** extension, select the gear icon, and then select **Account Preferences**.
+    - Select **Sign in to use Copilot** from the Copilot status menu.
 
-    ![Accounts menu in VS Code, showing the option to sign out of the current GitHub account.](images/faq/extension-account-preferences.png)
+        ![Sign in to use Copilot from the Copilot status menu.](images/setup/copilot-signedout-sign-in.png)
 
-1. From the Account Preferences Quick Pick, choose an existing account or select **Use a new account...** to sign in with a different GitHub account.
+    - Select the **Accounts** menu in the Activity Bar, and then select **Sign in with GitHub to use GitHub Copilot**.
 
-    ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/faq/account-preferences-quick-pick.png)
+        ![Accounts menu in VS Code, showing the option to sign in with GitHub to use GitHub Copilot.](images/setup/vscode-accounts-menu.png)
 
-1. Repeat these steps for the **GitHub Copilot Chat** extension.
+    - Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## General
+
+### How can I hide Copilot from the VS Code user interface?
+
+To remove the Copilot from the VS Code user interface, select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
+
+If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions from the Extensions view. After that, you can hide the Copilot menu.
+
+To restore the Copilot functionality, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ### Network and firewall configuration for Copilot
 
@@ -70,9 +84,7 @@ To switch to another GitHub account for using Copilot:
 
 ### How can I provide feedback on Copilot?
 
-You can give feedback on Copilot inline suggestions and responses in the [GitHub Copilot Discussions](https://github.com/orgs/community/discussions/categories/copilot).
-
-If you would like to provide feedback on the Copilot Chat features, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
+If you would like to provide feedback on the Copilot features including inline suggestions and chat, you can create issues in the [vscode-copilot-release](https://github.com/microsoft/vscode-copilot-release/issues) repository.
 
 It can be helpful to include information from the [GitHub Copilot logs](#view-logs-for-github-copilot-in-vs-code) if you're reporting an issue.
 

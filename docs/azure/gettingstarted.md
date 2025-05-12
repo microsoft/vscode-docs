@@ -31,7 +31,7 @@ In the Command Palette, type `Azure` to list the commands that are specific to A
 
 **Review settings.** To edit or review your current settings in VS Code, use (`kb(workbench.action.openSettings)`), to open the Settings editor. It is helpful to review settings that any of the extensions may contribute.
 
-**Identify and customize keyboard shortcuts.** You can use the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to find and configure keyboard shortcuts in VS Code. Get more info about [Keyboard Shortcuts editor](/docs/getstarted/keybindings.md#keyboard-shortcuts-editor).
+**Identify and customize keyboard shortcuts.** You can use the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to find and configure keyboard shortcuts in VS Code. Get more info about [Keyboard Shortcuts editor](/docs/configure/keybindings.md#keyboard-shortcuts-editor).
 
 **Redisplay notifications.** You can right-click the bell icon in the bottom right of the Status Bar in VS Code to see missed notifications.
 

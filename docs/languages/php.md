@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
 
-Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-marketplace.md).
+Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/configure/extensions/extension-marketplace.md).
 
 ## Linting
 
@@ -17,7 +17,7 @@ VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. Th
 
 > Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries.
 
-There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
+There are three [settings](/docs/configure/settings.md) to control the PHP linter:
 
 * `setting(php.validate.enable)`: controls whether to enable PHP linting at all. Enabled by default.
 * `setting(php.validate.executablePath)`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
@@ -75,5 +75,5 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 
 Read on to find out about:
 
-* [Extension Marketplace](/docs/editor/extension-marketplace.md) - Browse the extensions others have shared
-* [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging
+* [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) - Browse the extensions others have shared
+* [Debugging](/docs/debugtest/debugging.md) - Learn more about VS Code debugging

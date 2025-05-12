@@ -15,7 +15,7 @@ At its core, Visual Studio Code is a code editor, and it integrates with other e
 
 ![Spectrum of remote development options](tunneling-blog-remote-spectrum.png)
 
-You may not think about it, but VS Code has a built-in [command-line interface](https://code.visualstudio.com/docs/editor/command-line) (CLI) that lets you control how you launch and manage the editor - you can open files, install extensions, and output diagnostics through command-line options:
+You may not think about it, but VS Code has a built-in [command-line interface](https://code.visualstudio.com/docs/configure/command-line) (CLI) that lets you control how you launch and manage the editor - you can open files, install extensions, and output diagnostics through command-line options:
 
 ![Output of code CLI](tunneling-blog-code-help-new.png)
 
@@ -44,7 +44,7 @@ We'll explore both options in the following sections.
 
 ### Enhanced `code` CLI
 
-When we released the VS Code Server, we [mentioned](https://code.visualstudio.com/blogs/2022/07/07/vscode-server#_a-preview-of-a-larger-journey) our long-term vision to integrate it into the `code` [CLI](https://code.visualstudio.com/docs/editor/command-line). We've now achieved this, and we've also made it available for standalone install, in case you're working on a VM or locked down machine where you can't install VS Code Desktop.
+When we released the VS Code Server, we [mentioned](https://code.visualstudio.com/blogs/2022/07/07/vscode-server#_a-preview-of-a-larger-journey) our long-term vision to integrate it into the `code` [CLI](https://code.visualstudio.com/docs/configure/command-line). We've now achieved this, and we've also made it available for standalone install, in case you're working on a VM or locked down machine where you can't install VS Code Desktop.
 
 Below are the steps to install the `code` CLI and create a secure tunnel with it. If you tried the private preview of the VS Code Server, the steps will be very similar.
 
@@ -144,7 +144,7 @@ As described above, you can use the [Remote - Tunnels](https://marketplace.visua
 
 We've heard your feedback over the years on our remote experiences and most recently on the VS Code Server – we can't thank you enough for sharing the thoughts that continue to shape our product experiences. We're excited to see how you use our latest remote features and for your feedback!
 
-If you'd like a more in-depth look at the tools described in this blog, we created a [topic](https://aka.ms/remote-tunnels-doc) on the Remote - Tunnels extension, along with updating the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) and [`code` CLI](https://code.visualstudio.com/docs/editor/command-line) documentation to reflect the latest changes.
+If you'd like a more in-depth look at the tools described in this blog, we created a [topic](https://aka.ms/remote-tunnels-doc) on the Remote - Tunnels extension, along with updating the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) and [`code` CLI](https://code.visualstudio.com/docs/configure/command-line) documentation to reflect the latest changes.
 
 Please feel free to file feature requests or bugs in our [vscode-remote-release](https://github.com/microsoft/vscode-remote-release/issues) GitHub repository, or you can Tweet us your thoughts [@code](https://twitter.com/code).
 

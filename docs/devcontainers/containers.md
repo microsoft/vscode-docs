@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 ---
 # Developing inside a Container
 
@@ -233,7 +233,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 ## Trusting your Workspace
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editing/workspaces/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
 The Dev Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
@@ -260,7 +260,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 ### Inspect volume
 
-[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspaces/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
+[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
 ### Docker daemon running remotely
 
@@ -324,7 +324,7 @@ The Features sourced in VS Code UI now come from a central index, which you can 
 
 ### "Always installed" Features
 
-Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/getstarted/settings.md) to set Features you'd always like installed:
+Similar to how you can [set extensions to always be installed](#always-installed-extensions) in your dev container, you can use the `setting(dev.containers.defaultFeatures)` User [setting](/docs/configure/settings.md) to set Features you'd always like installed:
 
 ```json
 "dev.containers.defaultFeatures": {
@@ -446,7 +446,7 @@ If a base image or Feature configures an extension that you do not want installe
 
 ### "Always installed" extensions
 
-If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like always installed in any container, you can update the `setting(dev.containers.defaultExtensions)` User [setting](/docs/configure/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
 "dev.containers.defaultExtensions": [
@@ -532,7 +532,7 @@ You can also use the `code` command line from this same terminal window to perfo
 
 Once you've opened a folder in a container, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on the remote host and attach the debugger to it.
 
-See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## Container specific settings
 

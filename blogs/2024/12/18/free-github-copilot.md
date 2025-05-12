@@ -3,6 +3,7 @@ Order: 91
 TOCTitle: Announcing Copilot Free in VS Code
 PageTitle: Announcing a free GitHub Copilot for VS Code
 MetaDescription: Announcing a free plan for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: copilot-free.jpg
 Date: 2024-12-18
 Author: Burke Holland
 ---
@@ -17,7 +18,7 @@ We're excited to announce an all new **free plan for GitHub Copilot**, available
 
 You can click on the link above or just enable GitHub Copilot right from within VS Code like so...
 
-<video src="blog-video-v2.mp4" title="Copilot Edits video" controls poster="/assets/blogs/2024/12/18/copilot-free.jpg"></video>
+<video src="blog-video-v2.mp4" title="Copilot Edits video" controls poster="copilot-free.jpg"></video>
 
 With GitHub Copilot Free you get **2000 code completions/month**. That's about 80 per working day - which is a lot. You also get **50 chat requests/month**, as well as **access to both GPT-4o and Claude 3.5 Sonnet models**.
 

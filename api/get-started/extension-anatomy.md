@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -45,8 +45,8 @@ Let's take a closer look at `Hello World` sample's source code and see how these
 
 You can read more about the configuration files:
 
-- `launch.json` used to configure VS Code [Debugging](/docs/editor/debugging)
-- `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks)
+- `launch.json` used to configure VS Code [Debugging](/docs/debugtest/debugging)
+- `tasks.json` for defining VS Code [Tasks](/docs/debugtest/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
 However, let's focus on `package.json` and `extension.ts`, which are essential to understanding the `Hello World` extension.
