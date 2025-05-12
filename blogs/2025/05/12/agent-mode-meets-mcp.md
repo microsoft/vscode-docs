@@ -1,6 +1,6 @@
 ---
 Order: 98
-TOCTitle: Agent Mode Meets MCP
+TOCTitle: Agent mode meets MCP
 PageTitle: "Agent mode meets MCP: bring your own tools"
 MetaDescription: Bring your own tools to VS Code's agent mode with MCP.
 MetaSocialImage: agent_full.png
