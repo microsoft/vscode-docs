@@ -1,9 +1,3 @@
----
-ContentId: d32ac103-3830-4694-a68f-933ea9f0beba
-DateApproved: 03/17/2025
-MetaDescription: Learn how to convert your models to ONNX format for use in AI Toolkit.
----
-
 # Convert models to ONNX format
 
 The AI Toolkit supports the [Open Neural Network Exchange](https://onnx.ai) (ONNX) format for running models locally. ONNX is an open standard for representing machine learning models, defining a common set of operators and a file format that enables models to run across various hardware platforms.

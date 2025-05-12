@@ -351,7 +351,27 @@
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
-      ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["", "", {
+        "name": "Model Conversion",
+        "area": "intelligentapps/modelconversion",
+        "topics": [
+          ["Quickstart", "/docs/intelligentapps/modelconversion/QuickStart"],
+          ["", "", {
+            "name": "Reference",
+            "area": "intelligentapps/modelconversion/reference",
+            "topics": [
+              ["File Structure", "/docs/intelligentapps/modelconversion/reference/FileStructure"],
+              ["Manual Model Conversion", "/docs/intelligentapps/modelconversion/reference/ManualModelConversion"],
+              ["Manual Model Conversion On GPU", "/docs/intelligentapps/modelconversion/reference/ManualConversionOnGPU"],
+              ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/modelconversion/reference/SetupWithoutAITK"],
+              ["Template Project", "/docs/intelligentapps/modelconversion/reference/TemplateProject"],
+            ]
+          }
+          ]
+        ]
+      }
+      ],
+      ["Model Conversion", "/docs/intelligentapps/modelconversion/reference/ManualModelConversion"],
       ["FAQ", "/docs/intelligentapps/faq"]
     ]
   },
