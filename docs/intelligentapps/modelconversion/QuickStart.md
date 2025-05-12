@@ -110,7 +110,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 - Navigate to primary sider bar `Models`-> `Conversion`
 - Click the workflow template to view the conversion recipe.
 
-    ![Run Panel](./Images/Run.png)
+    ![Run Panel](./images/Run.png)
 
     #### Conversion
     The workflow will always execute the conversion step, which transforms the model into ONNX format. This step cannot be disabled.
@@ -124,14 +124,14 @@ Running a workflow in model conversion is the core step that transform the pre-b
         >
         > **Hugging Face Compliance Alerts**:
         > - During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
-        > ![disclaimer](./Images/run_disclaimer.png)
+        > ![disclaimer](./images/run_disclaimer.png)
         > - If your workflow uses a dataset that requires license agreement approval on Hugging Face (e.g., ImageNet-1k), you’ll be prompted to accept the terms on the dataset page before proceeding. This is required for legal compliance.
         > 1. To get your Hugging Face Access Token, click button on poped out window.
-        > ![token_1](./Images/run_token_1.png)
+        > ![token_1](./images/run_token_1.png)
         > 2. Click open.
-        > ![token_2](./Images/run_token_2.png)
+        > ![token_2](./images/run_token_2.png)
         > 3. Get token on Hugging Face portal. Paste on the top window. Press `Enter`.
-        > ![token_3](./Images/run_token_3.png)
+        > ![token_3](./images/run_token_3.png)
 
     - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
@@ -161,7 +161,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > - **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The `Quantization` configuration is optimized for NPU only. It's recommaneded to uncheck this step if target system is not NPU.
 > - **LLM model Quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
 >
->   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](./Reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+>   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](./reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
 > [!TIP]
 > Tips for Re-evaluation
@@ -170,7 +170,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > - Go to the History board and find the model run job.
 > - Click the three-dot menu under `Actions` to `Re-evluate` the model.
 > - You can choose the different EPs or datasets for re-evaluation
-> ![Re-evaluate Panel](./Images/Re-evaluate.png)
+> ![Re-evaluate Panel](./images/Re-evaluate.png)
 
 > [!TIP]
 > Tips for failed job
@@ -184,14 +184,14 @@ The History Board in `Conversion` is your central dashboard for tracking, review
 - Click on the run name to view the conversion configurations
 - Click on the `logs` under Status indicator to to view logs and detailed execution results
 - Once the model converted successfully, you can view the evaluation results under Metrics. Metrics such as accuracy, latency and throughput are displayed alongside each run
-![History](./Images/history.png)
+![History](./images/history.png)
 
 ## Step 4 : Use sample notebook for model inference
 - Go to the History board. Click the three-dot menu under `Actions`.
 
     Select `Inference in Samples` from the dropdown.
 
-    ![Action](./Images/historyaction.png)
+    ![Action](./images/historyaction.png)
 
 - Choose the Python Environment
   - You'll be prompted to select a Python virtual environment.
@@ -207,7 +207,7 @@ The default runtime is: `C:\Users<your name>.aitk\bin\model_lab_runtime\Python-C
 Go to the History board. Click `Export` to share the model project with others. This only copy the model project without history folder. If you want to share models with others, please select the corresponding jobs, This will copy the selected history folder conaining the model and its configuration.
 
 # See Also
-- [How to manually setup GPU conversion](./Reference/ManualConversionOnGPU.md)
-- [How to manually setup environment](./Reference/SetupWithoutAITK.md)
-- [How to customize model template](./Reference/TemplateProject.md)
-- [Conversion file structure](./Reference/FileStructure.md)
+- [How to manually setup GPU conversion](./reference/ManualConversionOnGPU.md)
+- [How to manually setup environment](./reference/SetupWithoutAITK.md)
+- [How to customize model template](./reference/TemplateProject.md)
+- [Conversion file structure](./reference/FileStructure.md)
