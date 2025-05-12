@@ -47,7 +47,7 @@ You can access chat in VS Code in several ways:
 
 * **Inline chat** (`kb(inlineChat.start)`): start a chat conversation directly from the editor (_editor inline chat_) or integrated terminal (_terminal inline chat_) to get suggestions in-place.
 
-* **Quick Chat** (`kb(workbench.action.openQuickChat)`): ask a quick question and get back into what you were doing.
+* **Quick Chat** (`kb(workbench.action.quickchat.toggle)`): ask a quick question and get back into what you were doing.
 
 Quickly access chat by using the corresponding keyboard shortcuts or via the Copilot menu in the VS Code title bar.
 
