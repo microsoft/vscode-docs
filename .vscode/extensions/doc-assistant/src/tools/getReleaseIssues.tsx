@@ -36,7 +36,7 @@ class GetReleaseFeaturesResult extends PromptElement<GetReleaseFeaturesResultPro
 	}
 }
 
-export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
+export class GetReleaseFeatures implements vscode.LanguageModelTool<{ milestoneName: string }> {
 
 	static readonly ID = 'getReleaseFeatures';
 
@@ -45,9 +45,8 @@ export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
 	) {
 	}
 
-	async invoke(options: vscode.LanguageModelToolInvocationOptions<void>, token: vscode.CancellationToken) {
-		const wsFolder = vscode.workspace.workspaceFolders?.find(wsf => path.basename(wsf.uri.fsPath).toLowerCase() === 'vscode-docs');
-		const milestoneName = vscode.workspace.getConfiguration(undefined, wsFolder?.uri).get<string>('doc-assistant.milestone');
+	async invoke(options: vscode.LanguageModelToolInvocationOptions<{ milestoneName: string }>, token: vscode.CancellationToken) {
+		const milestoneName = options.input?.milestoneName;
 		if (!milestoneName) {
 			return createLanguageModelToolResult(
 				await renderElementJSON(GetReleaseFeaturesResult, { error: 'No milestone specified' }, options.tokenizationOptions, token),

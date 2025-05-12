@@ -1,6 +1,6 @@
 ---
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -71,16 +71,24 @@ To get started with Copilot NES, enable the VS Code setting `setting(github.copi
 
 ### Navigate and accept edit suggestions
 
-You can quickly navigate suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
+You can quickly navigate to suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
 An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+
 ![Copilot NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
 
 If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+
 ![Copilot NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
 
 > [!IMPORTANT]
 > If you are using the VS Code vim extension, you may want to update your `keybindings.json`. Learn more [in the GitHub issue](https://github.com/VSCodeVim/Vim/issues/9459#issuecomment-2648156285).
+
+### Reduce distractions by edit suggestions
+
+By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. If you prefer to reduce distractions, you can disable showing the code changes in the editor until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow.
+
+To disable showing the code changes in the editor, enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting in the Settings editor. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu. To re-enable showing the code changes, disable the setting or select **Show Expanded** from the gutter arrow menu.
 
 ### Use cases for Next Edit Suggestions
 
@@ -138,18 +146,22 @@ You can enable or disable code completions either for all languages, or for spec
 
     Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
 
-### Change the AI model
+## Change the AI model for completions
 
 Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
 
 To change the language model that is used for generating code completions in the editor:
 
-1. Select **Configure Code Completions...** from the Copilot menu in the VS Code title bar.
+1. Open the Command Palette (`kbstyle(F1)`).
 
-1. Select **Change Completions Model...**, and then select one of the models from the list.
+1. Type **change completions model** and select the **GitHub Copilot: Change Completions Model** command.
+
+1. In the dropdown menu, select the model you want to use.
+
+Alternatively, if Command Center is enabled, you can click the Copilot menu in the VS Code title bar, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model...** in the dropdown menu and select the model you want to use.
 
 > [!NOTE]
-> The list of available models might vary and change over time. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
+> The list of available models might vary and change over time. The model picker may not always show more than one model, and preview models and additional code completion models will become available there if/when we release them. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 

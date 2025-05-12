@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -14,7 +14,7 @@ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-py
 
 ## Configure tests
 
-When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the VS Code Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Tests** button if a test framework is not enabled. Selecting **Configure Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
+When the Python extension is installed and a Python file is open within the editor, a test beaker icon displays on the VS Code Activity Bar representing the **Test Explorer** view. Opening the Test Explorer shows a **Configure Python Tests** button if a test framework is not enabled. Selecting **Configure Python Tests** prompts you to select a test framework and a folder containing the tests. If you use unittest, you also select the file glob pattern used to identify your test files.
 
  > [!Note]
  > A file glob pattern is a defined string pattern that matches file or folder names based on wildcards to include or not include files.
@@ -97,8 +97,9 @@ To run tests with coverage enabled, select the coverage run icon in the Test Exp
 
 > [!Note]
 > Before running tests with coverage, make sure to install the correct testing coverage package for your project.
+> Branch coverage is only supported on coverage versions >= 7.7.
 
-Once the coverage run completes, lines are highlighted in the editor for line level coverage. Test coverage results appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in Command Palette (`F1)`). On this panel you can view line coverage metrics for each file and folder in your workspace.
+Once the coverage run completes, lines are highlighted in the editor for line-level coverage. Test coverage results appear as a "Test Coverage" sub-tab in the Test Explorer, which you can also navigate to with **Testing: Focus on Test Coverage View** in the Command Palette (`kb(workbench.action.showCommands)`). On this panel, you can view line coverage metrics for each file and folder in your workspace, as well as branch coverage, if relevant.
 
 ![Gif showing running Python tests with coverage.](images/testing/python-coverage.gif)
 

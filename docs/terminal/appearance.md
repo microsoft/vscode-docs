@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -60,7 +60,7 @@ Terminal tabs appear on the right of the terminal view when there are two or mor
 
 The default visibility is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
 
-- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `"never"` to always show them.
+- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `never` to always show them.
 - `setting(terminal.integrated.tabs.showActiveTerminal)`: When to show the active terminal in the terminal view header.
 - `setting(terminal.integrated.tabs.showActions)`: When to show the active terminal's actions in the view header.
 - `setting(terminal.integrated.tabs.location)`: Whether the tabs should be shown on the left or right of the terminal.
@@ -166,7 +166,7 @@ The terminal features two different renderers, each of which have different trad
 
 GPU acceleration driven by the WebGL renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
-The default `setting(terminal.integrated.gpuAcceleration)` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
+The default `setting(terminal.integrated.gpuAcceleration)` value of `auto` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
 
 ### Custom glyphs
 
@@ -176,7 +176,19 @@ Below are some examples of these characters with custom line height and letter s
 
 ![Box drawing, block characters and some Powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 
-This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
+This feature can be disabled by setting `setting(terminal.integrated.customGlyphs)` to `false`.
+
+### Rescaling ambiguous width glyphs
+
+Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this ambiguity occurs, the glyph will be rescaled horizontally to fit in a single cell and prevent overlapping.
+
+For example, the below image features roman numeral characters that are squashed into a single cell:
+
+![VIII and XII characters would be rescaled horizontally so as to not overlap with following characters. They feature a thinner stroke width when this happens due to the scaling](images/appearance/rescale-on.png)
+
+This feature can be disabled by setting `setting(terminal.integrated.rescaleOverlappingGlyphs)` to `false`, which would result in the following overlapped rendering:
+
+![When off, the VIII and XII characters may overlap the following characters](images/appearance/rescale-off.png)
 
 ## Customizing your prompt
 
@@ -188,7 +200,7 @@ Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmy
 
 ### Why is my terminal showing a multi-colored triangle or a black rectangle?
 
-The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
+The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by setting `setting(terminal.integrated.gpuAcceleration)` to `off` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
 
 ### Why are the colors in the terminal not correct?
 

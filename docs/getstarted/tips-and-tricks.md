@@ -1,6 +1,6 @@
 ---
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code tips and tricks
@@ -60,13 +60,13 @@ Download the keyboard shortcut reference sheet for your platform ([macOS](https:
 
 ### Floating windows
 
-You can open an editor in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
+You can open an editor, the terminal, or specific views in a floating window, for example to move the editor to another place on your monitor or even to another monitor.
 
-To open an editor in a floating window, drag it out of the main window and drop it anywhere outside of the current VS Code window. Another way to detach an editor is to right-click on an editor tab, and select the option **Move into New Window** (`workbench.action.moveEditorToNewWindow`) or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`).
+![Screenshot that shows the OS desktop with VS Code window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
 
-<video src="images/tips-and-tricks/floating-windows.mp4" autoplay loop controls muted></video>
+Drag an editor tab out of the current VS Code window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
 
-### Integrated Terminal
+### Integrated terminal
 
 Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
