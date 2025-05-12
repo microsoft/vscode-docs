@@ -8,7 +8,7 @@ Date: 2025-05-12
 Author: Harald Kirschner
 ---
 
-# Agent Mode Meets MCP: Bring Your Own Tools
+# Agent mode meets MCP: bring your own tools
 
 May 12th, 2025 by [Harald Kirschner](https://github.com/digitarald)
 
