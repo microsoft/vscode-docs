@@ -30,29 +30,29 @@ Select `Models` on the primary sider bar. Click `Conversion`.
 
 ### 2. Start a New Project
 Click on `New Model Project`.
-![](Images/create_project_default.png)
+![](./images/create_project_default.png)
 
 ### 3. Choose a Base Model
 - `Hugging Face Model`: choose the base model with predefined recipes from the supported model list.
 - Or `Model Template` : For advanced users. Model is not included in the base model, select empty template for your customized recipes.
 
-![](Images/create_project_model_list.png)
+![](./images/create_project_model_list.png)
 
 ### 4. Enter Project Details
 Entering a unique Project Localtion and a Project Name. A new folder with the specified project name will be created in the location you selected to store the project files.
 
 - Select or create a folder as model project folder.
 
-![](Images/create_project_select_folder.png)
+![](./images/create_project_select_folder.png)
 
 - Enter model project name. Press `Enter`.
 
-![](Images/create_project_input_name.png)
+![](./images/create_project_input_name.png)
 
 > Note:
 > - When first time you create a model project, it will take a while to setup environment.
 > - **ReadMe Access**: A README file is included in each project. If you close it, you can reopen it via the workspace.
-> ![](Images/create_project_readme.png)
+> ![](./images/create_project_readme.png)
 
 ### **Supported Models**
 Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format.
@@ -81,7 +81,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 ### (Optional) Add Model into existing project
 - If you already opened the model project, click `Models` -> `Conversion`. Click `Add models` on right pannel. Or you need to open the model project and then click `Add modle` on the right panel
 
-    ![](Images/create_project_add_models.png)
+    ![](./images/create_project_add_models.png)
 
 - Choose a base model or template . Click `Add`.
 - A folder contains new model files will be created in current project folder.
@@ -89,15 +89,15 @@ Model Conversion currently supports a growing list of models, including top Hugg
 ### (Optional) Create a new model project
 - If you already opened the model project, click `Models` -> `Conversion`. On right panel, Click `New Project`.
 
-    ![](Images/create_project_add_models.png)
+    ![](./images/create_project_add_models.png)
 - Alternatively, you can close model project and [create project](#step-1-create-project) from beginning.
 Select or create a folder as model project folder.
 
     Enter model project name. Press `Enter`.
 
-    ![](Images/create_project_select_folder.png)
+    ![](./images/create_project_select_folder.png)
 
-    ![](Images/create_project_input_name.png)
+    ![](./images/create_project_input_name.png)
 
 
 ## Step 2 : Run workflow
