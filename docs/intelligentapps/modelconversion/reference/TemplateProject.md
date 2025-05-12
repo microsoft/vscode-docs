@@ -2,7 +2,7 @@
 
 After creating the template project, you could see the following files are created. To make the template project work, you could follow the readme of the project to update the parameters based on your need.
 
-![Template project files](../Images/TemplateFiles.png)
+![Template project files](../images/TemplateFiles.png)
 
 ## Update sample.json
 
