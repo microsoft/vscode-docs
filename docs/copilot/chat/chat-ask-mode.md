@@ -74,7 +74,7 @@ If a code block contains a shell command, you can run it directly in the integra
 
 ## Quick chat
 
-To ask a quick question without starting a full chat session, you can open Quick Chat. Select **Quick Chat** from the Copilot menu in the title bar, or use the `kb(workbench.action.openQuickChat)` keyboard shortcut.
+To ask a quick question without starting a full chat session, you can open Quick Chat. Select **Quick Chat** from the Copilot menu in the title bar, or use the `kb(workbench.action.quickchat.toggle)` keyboard shortcut.
 
 You can ask a question in Quick Chat, and if you want to keep the conversation going, promote it to a full chat session with the **Open in Chat View** button.
 
