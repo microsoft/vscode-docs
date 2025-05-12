@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Formatting
 ContentId: c5039182-eee4-47ff-a2a8-dc28f4bc2cbc
 PageTitle: Formatting Python in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Formatting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -119,6 +119,6 @@ If formatting fails, check the following possible causes:
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.

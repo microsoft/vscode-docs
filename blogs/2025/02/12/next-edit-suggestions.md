@@ -3,6 +3,7 @@ Order: 92
 TOCTitle: Copilot Next Edit Suggestions (preview)
 PageTitle: Copilot Next Edit Suggestions (preview)
 MetaDescription: Announcing the Next Edit Suggestions and Agent Mode for GitHub Copilot in Visual Studio Code.
+MetaSocialImage: nes-gutter-cover.png
 Date: 2025-02-12
 Author: Brigit Murtaugh, Burke Holland
 ---
@@ -23,9 +24,9 @@ In this post, we're going to dive into Next Edit Suggestions and take a look at 
 
 GitHub Copilot code completions - which are also called _ghost text_ - are really good at autocomplete. One of the most incredible feelings you can have working with GitHub Copilot is when it suggests the code that was in your head without you even having to ask for it. But most coding activity involves editing _existing code_ as much as it does writing new lines. It's a natural next step for completions to work on existing code as well.
 
-We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronymn.
+We call this _Next Edit Suggestions_, or _NES_ for short. And yes - we also feel the game console nostalgia when we see that acronym.
 
-<video src="nes-video.mp4" title="Copilot NES video" controls poster="/assets/blogs/2025/02/12/nes-video-cover.png"></video>
+<video src="nes-video.mp4" title="Copilot NES video" controls poster="nes-video-cover.png"></video>
 
 ### Getting started with NES
 
@@ -43,10 +44,10 @@ Scrolled all the way past that edit suggestion? The arrow hints you at the locat
 
 ![NES with arrow directions changing](nes-arrow-directions.gif)
 
-Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+Suggestions can span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
 > [!NOTE]
-> You may need to reload VS Code for your updated settings to take effect.
+> Reload VS Code for your updated settings to take effect.
 >
 > If you are a Copilot Business or Enterprise user, an administrator of your organization must opt in to the use of Copilot "Editor Preview Features," in addition to you setting `setting(github.copilot.nextEditSuggestions.enabled)` in your editor.
 >
@@ -54,35 +55,35 @@ Suggestions may span a single symbol, an entire line, or multiple lines, dependi
 
 ### Example scenarios
 
-Copilot NES is your AI companion as you make changes that may cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
+Copilot NES is your AI companion as you make changes that can cascade throughout your file or project, and you'll see it shine in a variety of scenarios.
 
 **Catching and correcting mistakes:** Mistakes are a natural part of writing code, and Copilot NES is there to help catch them (sometimes before you even realize the mistake was there!).
 
-NES helps with small mistakes like typos - maybe you were coding quickly in the zone, and you wrote `conts` instead of `const`:
+NES helps with small mistakes like typos - maybe you were coding quickly and in the zone, and you wrote `conts` instead of `const`:
 
-<video src="nes-typo.mp4" title="NES fixing a typo" controls poster="/assets/blogs/2025/02/12/nes-typo-cover.png"></video>
+<video src="nes-typo.mp4" title="NES fixing a typo" controls poster="nes-typo-cover.png"></video>
 
 NES can also help with more challenging mistakes in logic, like an inverted ternary expression:
 
-<video src="nes-fib-logic.mp4" title="NES fixing a fibonacci logic mistake" controls poster="/assets/blogs/2025/02/12/nes-fib-logic-cover.png"></video>
+<video src="nes-fib-logic.mp4" title="NES fixing a fibonacci logic mistake" controls poster="nes-fib-logic-cover.png"></video>
 
 Our development team has been self-hosting on NES, and one of our engineers remembered one of his first "aha!" moments with NES as we were putting this blog together. He was writing a condition along the lines of `if (something !== 'a' || something !== 'b')`. NES caught that this statement would always evaluate to true (thanks De Morgan's Law!) and suggested replacing `||` with `&&` to make the code valid:
 
-<video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="/assets/blogs/2025/02/12/nes-de-morgan-cover.png"></video>
+<video src="nes-de-morgan.mp4" title="NES fixing an if statement mistake" controls poster="nes-de-morgan-cover.png"></video>
 
-**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` will lead to a suggestion to add a `z` variable to the class definition and to the distance calculation:
+**Changing intent:** Copilot NES suggests changes that match a change in intent. For example, changing a class from `Point` to `Point3D` leads to a suggestion to add a `z` variable to the class definition and to the distance calculation:
 
-<video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="/assets/blogs/2025/02/12/nes-point-cover.png"></video>
+<video src="nes-point.mp4" title="NES updating Point to Point3D" controls poster="nes-point-cover.png"></video>
 
-**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+**Using newly added variables or logic:** Copilot NES helps you use new code you just added. This could be a small change, like calling a new method parameter in the actual method.
 
-It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
+It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, NES will first suggest cleaning up the command in `extension.ts`. Then when you open `package.json`, NES suggests registering that command as well:
 
-<video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="/assets/blogs/2025/02/12/nes-extension-and-package-cover.png"></video>
+<video src="nes-extension-and-package.mp4" title="NES updating extension project with new command" controls poster="nes-extension-and-package-cover.png"></video>
 
-**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests to update subsequent code similarly:
+**Refactoring:** If you use a new name or naming pattern, Copilot NES suggests updating subsequent code similarly:
 
-<video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="/assets/blogs/2025/02/12/nes-gutter-cover.png"></video>
+<video src="nes-gutter.mp4" title="NES suggesting change after updating function name" controls poster="nes-gutter-cover.png"></video>
 
 Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios, as we expand the NES experience.
 
@@ -90,7 +91,7 @@ Read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more informatio
 
 Copilot NES is rapidly evolving, and we can't wait to get your feedback via issues in [our repo](https://github.com/microsoft/vscode-copilot-release) – this will be instrumental to improving the experience.
 
-Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes.
+Please be sure to use [VS Code Insiders](https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) to get all of the latest features and fixes. Get more details on how to [install an extension pre-release version](/docs/configure/extensions/extension-marketplace.md#install-a-pre-release-extension-version).
 
 You can read our [full NES docs](https://aka.ms/gh-copilot-nes-docs) for more information and scenarios as we expand the NES experience.
 
@@ -102,7 +103,7 @@ As of last week's [VS Code Insiders](https://code.visualstudio.com/insiders/) re
 
 Agent mode in Copilot Edits is capable of iterating on its own code - recognizing errors and fixing them automatically, executing any terminal commands required to complete the requested task, as well as resolving runtime errors with self-healing capabilities. Instead of performing just the task that the user requests, GitHub Copilot can now infer all of the other tasks that were not specified and also need to be completed in order for the primary request to work.
 
-<video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="/assets/blogs/2025/02/12/Agent-Sunrise-1.webp"></video>
+<video src="agent-mode-blog-video.mp4" title="Copilot agent mode video" controls poster="Agent-Sunrise-1.webp"></video>
 
 We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode-copilot-release) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
 

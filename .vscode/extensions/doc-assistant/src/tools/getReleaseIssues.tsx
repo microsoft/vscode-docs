@@ -7,6 +7,7 @@ import * as vscode from 'vscode';
 import { BasePromptElementProps, PromptElement, renderElementJSON } from '@vscode/prompt-tsx';
 import { createLanguageModelToolResult } from './utils';
 import { getReleaseFeatures, ReleaseFeature } from './queries';
+import path from 'path';
 
 interface GetReleaseFeaturesResultSuccessProps extends BasePromptElementProps {
 	readonly result: {
@@ -35,7 +36,7 @@ class GetReleaseFeaturesResult extends PromptElement<GetReleaseFeaturesResultPro
 	}
 }
 
-export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
+export class GetReleaseFeatures implements vscode.LanguageModelTool<{ milestoneName: string }> {
 
 	static readonly ID = 'getReleaseFeatures';
 
@@ -44,8 +45,14 @@ export class GetReleaseFeatures implements vscode.LanguageModelTool<void> {
 	) {
 	}
 
-	async invoke(options: vscode.LanguageModelToolInvocationOptions<void>, token: vscode.CancellationToken) {
-		const milestoneName = vscode.workspace.getConfiguration().get<string>('doc-assistant.milestone') ?? 'January 2025';
+	async invoke(options: vscode.LanguageModelToolInvocationOptions<{ milestoneName: string }>, token: vscode.CancellationToken) {
+		const milestoneName = options.input?.milestoneName;
+		if (!milestoneName) {
+			return createLanguageModelToolResult(
+				await renderElementJSON(GetReleaseFeaturesResult, { error: 'No milestone specified' }, options.tokenizationOptions, token),
+			);
+		}
+
 		const issues = await getReleaseFeatures(milestoneName);
 		this.logger.debug('getReleaseFeatures', issues.map(i => i.url));
 		return createLanguageModelToolResult(

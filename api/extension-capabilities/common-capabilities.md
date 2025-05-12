@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -48,7 +48,7 @@ The extension context is available to the `activate` function in the [Extension 
 
 ### setKeysForSync example
 
-If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
+If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/configure/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
 
 You can use the following pattern:
 

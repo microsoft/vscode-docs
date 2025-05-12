@@ -4,15 +4,15 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---
 # Editing Python in Visual Studio Code
 
-Visual Studio Code is a powerful editing tool for Python source code. The editor includes various features to help you be productive when writing code. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
+Visual Studio Code is a powerful editing tool for Python source code. The editor includes various features to help you be productive when writing code. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editing/codebasics.md) and [Code Navigation](/docs/editing/editingevolved.md).
 
-In this overview, we will describe the specific editing features provided by the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), including steps on how to customize these features via user and workspace [settings](/docs/getstarted/settings.md).
+In this overview, we will describe the specific editing features provided by the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), including steps on how to customize these features via user and workspace [settings](/docs/configure/settings.md).
 
 ## Autocomplete and IntelliSense
 
@@ -26,7 +26,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 Pylance is based on Microsoft’s [Pyright](https://github.com/microsoft/pyright) static type checking tool, leveraging [type stubs](https://typing.readthedocs.io/en/latest/source/stubs.html) (`.pyi` files) and lazy type inferencing to provide a highly-performant development experience.
 
-For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
+For more on IntelliSense generally, see [IntelliSense](/docs/editing/intellisense.md).
 
 > **Tip**: Check out the [IntelliCode extension for VS Code](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
 
@@ -64,7 +64,7 @@ To enable IntelliSense for packages that are installed in non-standard locations
 
 For the full list of available IntelliSense controls, you can reference the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 
-You can also customize the general behavior of autocomplete and IntelliSense, even disable the features completely. You can learn more in [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
+You can also customize the general behavior of autocomplete and IntelliSense, even disable the features completely. You can learn more in [Customizing IntelliSense](/docs/editing/intellisense.md#customizing-intellisense).
 
 ## Enhance completions with AI
 
@@ -232,8 +232,8 @@ The severity of Pylance's diagnostics can be customized through the `python.anal
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply various Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-- [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
+- [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
+- [IntelliSense](/docs/editing/intellisense.md) - Learn about IntelliSense features.
 - [Jupyter Support](/docs/datascience/jupyter-notebooks.md) - Learn how to get started with Jupyter Notebooks.
 - [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite Python tools.

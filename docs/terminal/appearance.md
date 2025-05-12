@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
-DateApproved: 02/06/2025
+DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code's integrated terminal allows customizing its appearance in various ways.
 ---
 # Terminal Appearance
@@ -25,6 +25,7 @@ Text in the terminal can be customized with the following settings:
 - `setting(terminal.integrated.lineHeight)`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
 - `setting(terminal.integrated.fontWeight)`: Configures the font weight of "normal" text.
 - `setting(terminal.integrated.fontWeightBold)`: Configures the font weight of "bold" text.
+- `terminal.integrated.fontLigatures.*`: [Configure ligatures](#ligatures).
 
 ### Powerline symbols and Nerd Fonts
 
@@ -59,7 +60,7 @@ Terminal tabs appear on the right of the terminal view when there are two or mor
 
 The default visibility is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
 
-- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `"never"` to always show them.
+- `setting(terminal.integrated.tabs.hideCondition)`: When to hide the tabs to the right, set to `never` to always show them.
 - `setting(terminal.integrated.tabs.showActiveTerminal)`: When to show the active terminal in the terminal view header.
 - `setting(terminal.integrated.tabs.showActions)`: When to show the active terminal's actions in the view header.
 - `setting(terminal.integrated.tabs.location)`: Whether the tabs should be shown on the left or right of the terminal.
@@ -81,6 +82,22 @@ Other terminals often display the escape sequence sent by the shell as the title
 "terminal.integrated.tabs.title": "${sequence}"
 ```
 
+Here are all variables available for use:
+
+- `${cwd}`: the terminal's current working directory.
+- `${cwdFolder}`: the terminal's current working directory, displayed for multi-root workspaces or in a single root workspace when the value differs from the initial working directory. On Windows, this will only be displayed when shell integration is enabled.
+- `${workspaceFolder}`: the workspace in which the terminal was launched.
+- `${workspaceFolderName}`: the name of the workspace in which the terminal was launched.
+- `${local}`: indicates a local terminal in a remote workspace.
+- `${process}`: the name of the terminal process.
+- `${progress}`: the progress state as reported by the OSC `9;4` sequence.
+- `${separator}`: a conditional separator (-) that only shows when it's surrounded by variables with values or static text.
+- `${sequence}`: the name provided to the terminal by the process.
+- `${task}`: indicates this terminal is associated with a task.
+- `${shellType}`: the detected shell type.
+- `${shellCommand}`: the command being executed according to shell integration. This also requires high confidence in the detected command line, which may not work in some prompt frameworks.
+- `${shellPromptInput}`: the shell's full prompt input according to shell integration.
+
 ### Icons
 
 Each terminal has an associated icon that is determined by its [terminal profile](/docs/terminal/profiles.md). The default icon and its color, which will be used if not defined in a profile, can be configured with the `setting(terminal.integrated.tabs.defaultIcon)` and `setting(terminal.integrated.tabs.defaultColor)` settings.
@@ -99,7 +116,7 @@ When the terminal's bell is triggered, a yellow bell icon is briefly shown. This
 
 ## Terminal colors
 
-While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](/docs/getstarted/themes.md), but they can also be configured independently from the theme with the [workbench.colorCustomizations](/docs/getstarted/themes.md#workbench-colors) setting.
+While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](/docs/configure/themes.md), but they can also be configured independently from the theme with the [workbench.colorCustomizations](/docs/configure/themes.md#workbench-colors) setting.
 
 Whether bold text uses the normal ANSI colors or the bright variant can be configured with the `setting(terminal.integrated.drawBoldTextInBrightColors)` setting.
 
@@ -149,7 +166,7 @@ The terminal features two different renderers, each of which have different trad
 
 GPU acceleration driven by the WebGL renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
-The default `setting(terminal.integrated.gpuAcceleration)` value of `"auto"` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
+The default `setting(terminal.integrated.gpuAcceleration)` value of `auto` tries the WebGL renderer and if it failed will fall back to the DOM renderer. When on Linux VMs, browsers that don't support WebGL, or machines with outdated drivers, WebGL may not work properly.
 
 ### Custom glyphs
 
@@ -159,7 +176,19 @@ Below are some examples of these characters with custom line height and letter s
 
 ![Box drawing, block characters and some Powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 
-This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
+This feature can be disabled by setting `setting(terminal.integrated.customGlyphs)` to `false`.
+
+### Rescaling ambiguous width glyphs
+
+Some unicode characters have an ambiguous width where the backend and frontend of the terminal may not agree on the size. When [GPU acceleration](#gpu-acceleration) is enabled and this ambiguity occurs, the glyph will be rescaled horizontally to fit in a single cell and prevent overlapping.
+
+For example, the below image features roman numeral characters that are squashed into a single cell:
+
+![VIII and XII characters would be rescaled horizontally so as to not overlap with following characters. They feature a thinner stroke width when this happens due to the scaling](images/appearance/rescale-on.png)
+
+This feature can be disabled by setting `setting(terminal.integrated.rescaleOverlappingGlyphs)` to `false`, which would result in the following overlapped rendering:
+
+![When off, the VIII and XII characters may overlap the following characters](images/appearance/rescale-off.png)
 
 ## Customizing your prompt
 
@@ -171,7 +200,7 @@ Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmy
 
 ### Why is my terminal showing a multi-colored triangle or a black rectangle?
 
-The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
+The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by setting `setting(terminal.integrated.gpuAcceleration)` to `off` to avoid using the canvas in the terminal. See the [GPU acceleration](#gpu-acceleration) section for more information.
 
 ### Why are the colors in the terminal not correct?
 

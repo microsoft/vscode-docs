@@ -3,6 +3,7 @@ Order: 89
 TOCTitle: Introducing Copilot Edits
 PageTitle: Introducing Copilot Edits
 MetaDescription: Copilot Edits allows you to get to the changes you need in your workspace, across multiple files, using a UI designed for fast iteration. You can specify a set of files to be edited, and then use natural language to simply ask Copilot what you need. You stay in the flow of your code while reviewing the suggested changes, accepting what works, and iterating with follow-up asks.
+MetaSocialImage: copilot-edits.png
 Date: 2024-11-12
 Author: Isidor Nikolic
 ---
@@ -33,9 +34,9 @@ Working Sets, together with the Undo and Redo functionality, gives you precise c
 
 ![Screenshot of the inline changes, showing the Accept / Discard widget](changes.png)
 
-Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/editor/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
+Copilot Edits is in the Secondary Side Bar (default on the right) so that you can interact with views in the Primary Side Bar, such as the Explorer, Debug, or Source Control view, while you’re reviewing proposed changes. For example, you can have unit tests running in the [Testing](https://code.visualstudio.com/docs/debugtest/testing) view on the left, while using the Copilot Edits view on the right, so that in every iteration you can verify if the changes Copilot Edits proposed are passing the unit tests.
 
-Using your [voice](https://code.visualstudio.com/docs/editor/voice) is a natural experience while using Copilot Edits. Just talking to Copilot makes the back-and-forth smooth and conversational. It almost feels like interacting with a colleague that is an area expert, using the same kind of iterative flow that you would use in real life pair programming.
+Using your [voice](https://code.visualstudio.com/docs/configure/accessibility/voice) is a natural experience while using Copilot Edits. Just talking to Copilot makes the back-and-forth smooth and conversational. It almost feels like interacting with a colleague that is an area expert, using the same kind of iterative flow that you would use in real life pair programming.
 
 Copilot Edits makes code editing with AI accessible to users with varying skills. As a product manager at Microsoft, I can quickly iterate on early ideas with Copilot Edits without much coding. For my VS Code engineering colleagues, Copilot Edits helps them to easily create complex refactorings across multiple files in the [vscode repo](https://github.com/microsoft/vscode). For example, one team member who had zero Swift experience, created a custom macOS app from scratch using Copilot Edits – after each iteration they ran the app, identified what was not working, and gave Copilot Edits appropriate follow-up instructions.
 

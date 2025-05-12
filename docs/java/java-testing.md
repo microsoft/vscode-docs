@@ -150,7 +150,7 @@ The Testing Explorer is a tree view to show all the test cases in your workspace
 
 ### Customize test configurations
 
-Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace [settings](/docs/getstarted/settings.md) under the section: `java.test.config`.
+Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace [settings](/docs/configure/settings.md) under the section: `java.test.config`.
 
 ![Customize test configurations](images/java-testing/configuration.png)
 
