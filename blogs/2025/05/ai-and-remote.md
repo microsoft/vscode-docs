@@ -31,6 +31,8 @@ When we describe VS Code Remote Development, we refer to 5 main experiences:
 * [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
 * [GitHub Codespaces](/docs/remote/codespaces.md) - Remote environments that are managed for you.
 
+![Remote architecture](/docs/remote/images/remote-overview/architecture.png)
+
 ### How can I use AI in a remote environment?
 
 We aim to make AI-enhanced coding as seamless as possible. AI in VS Code is powered by GitHub Copilot and will just work when you use it in a VS Code remote environment. We've aimed to remove additional install steps: Copilot will be installed automatically remotely, if you already have it installed locally. It’s also built into GitHub Codespaces, no extra install required.
@@ -59,20 +61,20 @@ Our team has taken steps to preconfigure custom instructions to make your life e
 
 * Create a new dev container configuration using one of our images or Features. You could do this by hand, or via the **Dev Containers: Add Dev Container Configuration Files...** command supplied by the [Dev Containers extension](https://marketplace.visualstudio.com/search?term=dev%20containers&target=VSCode&category=All%20categories&sortBy=Relevance):
 
-TODO: Add image
+![Dev Containers: Add Dev Container Configuration Files command in VS Code Command Palette](add-dev-container-config-command.png)
 
 * Follow the steps in the quick pick. For this example, we'll select the Python Template:
 
-TODO: Add image
+![Select Python 3 dev container config in VS Code Command Palette](python-container.png)
 
 * Build and connect to your dev container in VS Code:
 
-TODO: Add image
+![VS Code notification to reopen project in dev container](reopen-container-notif.png)
 
 * The environment you've selected and are now connected to is based on [this Python Template](https://github.com/devcontainers/templates/tree/main/src/python). The Template uses [this Python image](https://github.com/devcontainers/features/tree/main/src/python), which [includes custom instructions](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80)
 * Try chatting with Copilot within your dev container. Copilot automatically pulls the custom instructions from the Python image!
 
-TODO: Add image
+![AI chat using custom instructions](chat-using-instructions.png)
 
 In addition to using the custom instructions we've added to images and Features, you can add additional custom instructions to the `devcontainer.json` in your projects - we've made it so that custom instructions can merge successfully across images and Templates. You can use the `"github.copilot.chat.codeGeneration.instructions"` setting, just like what we did in the Python dev container config described above.
 
