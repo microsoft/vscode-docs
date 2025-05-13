@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: azure
 TOCTitle: Remote Debugging for Node.js
 PageTitle: Azure Remote Debugging for Node.js with Visual Studio Code

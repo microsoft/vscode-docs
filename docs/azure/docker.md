@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
