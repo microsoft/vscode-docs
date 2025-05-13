@@ -650,6 +650,17 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
 
+## Troubleshooting
+
+### Unable to write file (NoPermissions (FileSystemError))
+
+You might encounter this issue when you run dev containers in the following configuration:
+
+* Docker Desktop running with Windows Subsystem for Linux (WSL) backend
+* [Enhanced Container Isolation](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/) (ECI) enabled
+
+Check [issue #8278](https://github.com/microsoft/vscode-docs/issues/8278) for a potential workaround.
+
 ## Next steps
 
 * [Attach to a Running Container](/docs/devcontainers/attach-container.md) - Attach to an already running Docker container.
