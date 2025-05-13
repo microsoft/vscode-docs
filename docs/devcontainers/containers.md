@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # Developing inside a Container
 
@@ -649,6 +649,17 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 * Review and provide feedback on the [Development Containers Specification](https://containers.dev/).
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+
+## Troubleshooting
+
+### Unable to write file (NoPermissions (FileSystemError))
+
+You might encounter this issue when you run dev containers in the following configuration:
+
+* Docker Desktop running with Windows Subsystem for Linux (WSL) backend
+* [Enhanced Container Isolation](https://docs.docker.com/security/for-admins/hardened-desktop/enhanced-container-isolation/) (ECI) enabled
+
+Check [issue #8278](https://github.com/microsoft/vscode-docs/issues/8278) for a potential workaround.
 
 ## Next steps
 

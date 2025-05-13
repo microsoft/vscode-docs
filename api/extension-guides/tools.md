@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: aa6d312f-cbac-4633-8579-64d3cb4d17be
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension
@@ -53,7 +53,7 @@ The static configuration of the tool is defined in the `package.json` file of yo
 
 1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt with `#`, add the following properties:
 
-    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers.md).
+    Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers).
 
     | Property | Description |
     | -------- | ----------- |
@@ -223,7 +223,7 @@ When a user sends a chat prompt, the following steps occur:
 
 1. Copilot determines the list of available tools based on the user's configuration.
 
-    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers.md). You can contribute to agent mode via extensions or MCP servers (shown in green in the diagram).
+    The list of tools consists of built-in tools, tools registered by extensions, and tools from [MCP servers](/docs/copilot/chat/mcp-servers). You can contribute to agent mode via extensions or MCP servers (shown in green in the diagram).
 
 1. Copilot sends the request to the LLM, providing it with the prompt, chat context, and the list of tool definitions to consider.
 
@@ -269,4 +269,4 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 - [Get started with the Language Model API](/api/extension-guides/language-model)
 - [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
-- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers.md)
+- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers)
