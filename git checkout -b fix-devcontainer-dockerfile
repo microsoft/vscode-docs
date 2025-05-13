@@ -1,0 +1,13 @@
+git checkout -b fix-devcontainer-dockerfile
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-debian-10
+
+# Metadane obrazu (opcjonalnie)
+LABEL maintainer="Thenomad123 <your-email@example.com>"
+LABEL description="Devcontainer for VS Code with Git LFS support"
+LABEL version="1.0.0"
+
+# Instalacja Git LFS i czyszczenie niepotrzebnych plików
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
+    && apt-get install -yq --no-install-recommends git-lfs \
+    && git lfs install \
+    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
