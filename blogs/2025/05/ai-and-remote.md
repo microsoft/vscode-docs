@@ -92,33 +92,33 @@ If you [publish](https://containers.dev/collections) any dev container configura
 
 _Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask and Edit modes. There are several built-in chat participants like `@workspace`, `@vscode`, `@terminal`, and `@github`. Extensions can also contribute chat participants.
 
-The Remote - SSH extension includes a Copilot chat participant. Ask `@remote-ssh` for help configuring or troubleshooting elements of your remote environment.
+The Remote - SSH extension includes a Copilot chat participant. Ask `@remote-ssh` for help configuring or troubleshooting elements of your remote environment:
 
-TODO: Add image
+![Using Remote - SSH participant in VS Code chat panel](remote-ssh-intro.png)
 
-The participant is also knowledgeable about general SSH and remote development topics.
+The participant is also knowledgeable about general SSH and remote development topics:
 
-TODO: Add image
+![Asking Remote - SSH participant about remote auth](remote-ssh-auth.png)
 
 If a connection failure occurs, the **Diagnose with Copilot** feature provides a quick way to understand the problem:
 
-TODO: Add image
+![Diagnose with Copilot option in notification](ssh-diagnose.png)
 
 Copilot will investigate the issue and provide actionable insights:
 
-TODO: Add gif
+<video src="analyzing.mp4" title="Copilot diagnosing connection issue" autoplay muted controls></video>
 
 ## Manage tool approvals: Auto-approve agent mode tools
 
 As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. This is powerful but potentially comes with risks. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
-TODO: Add image
+![Agent mode tool approval options dropdown](/release-notes/images/1_99/chat-tool-approval.png)
 
 In case you want to auto-approve _all_ tools, you can now use the experimental `chat.tools.autoApprove` setting. This will auto-approve all tools, and VS Code will not ask for confirmation when a language model wishes to run tools. This can help save time by giving more autonomy to agent mode, but bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
 You may want to take advantage of the benefits of more autonomous agent mode only in certain more isolated environments. To achieve this, you can choose to set `chat.tools.autoApprove` only when connected to a remote environment in VS Code:
 
-TODO: Add image
+![Auto Approve tool setting in VS Code remote settings](auto-approval.png)
 
 Please note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will pose different levels of risk.
 
