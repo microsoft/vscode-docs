@@ -307,7 +307,7 @@
     ]
   },
   {
-    "name": "Docker",
+    "name": "Container Tools",
     "area": "containers",
     "topics": [
       ["Overview", "/docs/containers/overview"],
@@ -363,7 +363,7 @@
       ["Getting Started", "/docs/azure/gettingstarted"],
       ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
-      ["Docker", "/docs/azure/docker"],
+      ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
       ["MongoDB", "/docs/azure/mongodb"],
