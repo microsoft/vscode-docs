@@ -88,7 +88,7 @@ If you [publish](https://containers.dev/collections) any dev container configura
 ],
 ```
 
-## Remote - SSH participant
+### Remote - SSH participant
 
 _Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask and Edit modes. There are several built-in chat participants like `@workspace`, `@vscode`, `@terminal`, and `@github`. Extensions can also contribute chat participants.
 
@@ -108,7 +108,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 <video src="analyzing.mp4" title="Copilot diagnosing connection issue" autoplay muted controls></video>
 
-## Manage tool approvals: Auto-approve agent mode tools
+### Manage tool approvals: Auto-approve agent mode tools
 
 As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. This is powerful but potentially comes with risks. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
