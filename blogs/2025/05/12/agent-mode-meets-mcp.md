@@ -30,7 +30,7 @@ Security was another major focus. Managing secrets for MCP servers should not me
 
 ![GitHub MCP Server with safely stored secrets using input variables](agent-mcp-tools.png)
 
-User control is central to the experience. With the [tool picker](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_use-mcp-tools-in-agent-mode), users choose which tools an agent can access in a given session, and see clear descriptions and controls. For those developing or debugging servers, VS Code surfaces logs and makes it simple to start, stop, and restart servers. These touches make MCP not just powerful, but approachable for both end users and server developers.
+User control is central to the experience. With the [tool picker](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_use-mcp-tools-in-agent-mode), you decide which tools an agent can access in a given session and see clear descriptions and controls. For those developing or debugging servers, VS Code surfaces logs and makes it simple to start, stop, and restart servers. These touches make MCP not just powerful, but approachable for both end users and server developers.
 
 ## Beyond the basics: richer MCP capabilities
 
