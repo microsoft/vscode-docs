@@ -57,3 +57,5 @@ If you’re building developer tools or infrastructure, MCP is now a practical a
 To get started, check out [ModelContextProtocol.io](https://modelcontextprotocol.io/), [VS Code MCP Docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), or [reference servers on GitHub](https://github.com/modelcontextprotocol/servers).
 
 We’re excited to see what you’ll build—and how agent workflows will evolve as the ecosystem expands.
+
+Happy Coding!
