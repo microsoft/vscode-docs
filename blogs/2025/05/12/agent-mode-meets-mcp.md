@@ -22,7 +22,7 @@ This shift to MCP unlocked a wider ecosystem almost overnight. Now, VS Code use
 
 ## Making MCP work for everyone: applying VS Code's design principles
 
-VS Code's design philosophy has always focused on making powerful features easy to use, safe by default, and giving users clear control. Those same principles guided our MCP integration.
+VS Code's design philosophy was always focused on making powerful features easy to use, safe by default, and giving users clear control. Those same principles guided our MCP integration.
 
 Getting started with MCP servers previously meant copying JSON blocks into a config file and managing command-line flags. We wanted to simplify this: with the **MCP: Add Server** command, you can set up a server from a package manager (NPM, PyPI, Docker) and have VS Code handle the rest. Websites can even offer an *'Install in VS Code'* button to streamline onboarding further, and VS Code auto-discovers configurations from other clients like Claude Desktop when possible.
 
