@@ -42,7 +42,9 @@ For example, [**roots**](https://modelcontextprotocol.io/docs/concepts/roots) su
 
 The last release also added support for [**tool annotations**](https://modelcontextprotocol.io/docs/concepts/tools#tool-annotations), which help servers provide helpful metadata for tools, such as human-readable names or hints about whether a tool should be run in read-only mode. These details improve both the agent’s behavior and the user’s understanding.
 
-Finally, [**streamable HTTP**](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) is now supported as the latest transport in the MCP spec. This makes remote server integration smoother and more scalable, especially for cloud-hosted or serverless tool providers. Developers can adopt the latest MCP features with confidence that VS Code will keep up.
+Finally, [**streamable HTTP**](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) is now supported as the latest transport in the MCP spec. This makes remote server integration smoother and more scalable, especially for cloud-hosted or serverless tool providers. 
+
+Our goal is to support the latest MCP features in VS Code, so users can benefit from a rich AI experience and server developers can implement those features with confidence.
 
 ## Growing the ecosystem: collaboration and what's next
 
