@@ -34,7 +34,7 @@ User control is central to the experience. With the [tool picker](https://code.v
 
 ## Beyond the basics: richer MCP capabilities
 
-The journey didn’t stop at implementing baseline compatibility for tools. Much of the value in MCP comes from the deeper features in its specification—capabilities that, when fully supported, make tools more contextual, adaptive, and robust.
+The journey didn’t stop at implementing baseline compatibility for tools. Much of the value of MCP comes from the deeper features in its specification. Capabilities that, when fully supported, make tools more contextual, adaptive, and robust.
 
 For example, [**roots**](https://modelcontextprotocol.io/docs/concepts/roots) support lets MCP servers understand the structure of your workspace. Instead of having to ask the user for folder paths or rely on configuration, servers receive a list of workspace folders up front, allowing them to tailor tools to the project at hand. This enables use cases like finding all TODOs across a monorepo, or activating deployment tools based on detected infrastructure files.
 
