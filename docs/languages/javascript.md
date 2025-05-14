@@ -361,7 +361,7 @@ Click on the reference count to quickly browse a list of references:
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linters [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
