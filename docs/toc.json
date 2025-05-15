@@ -363,6 +363,7 @@
       ["Getting Started", "/docs/azure/gettingstarted"],
       ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
+      ["VS Code for the Web - Azure","docs/azure/vscodeforweb"],
       ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
