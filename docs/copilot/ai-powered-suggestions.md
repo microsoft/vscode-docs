@@ -82,7 +82,7 @@ If an edit suggestion is below the current editor view, the arrow will point dow
 ![Copilot NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
 
 > [!IMPORTANT]
-> If you are using the VS Code vim extension, you may want to update your `keybindings.json`. Learn more [in the GitHub issue](https://github.com/VSCodeVim/Vim/issues/9459#issuecomment-2648156285).
+> If you are a [VS Code vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) user, please use the latest version of the extension to avoid any conflicts in keybindings with NES.
 
 ### Reduce distractions by edit suggestions
 
