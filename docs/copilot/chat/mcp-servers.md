@@ -108,6 +108,9 @@ To add an MCP server to your workspace:
 
 1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
+> [!IMPORTANT]
+> Follow the naming conventions for the server, as specified in the [Configuration format](#configuration-format) section.
+
 ### Add an MCP server to your user settings
 
 To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
@@ -141,9 +144,14 @@ Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
 
 Use the following JSON configuration format to define MCP servers.
 
-- The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
+* The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
 
-    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list.
+    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list. Follow these naming conventions for the server name:
+
+    * Use camelCase for the server name, such as "uiTesting".
+    * Avoid using whitespace or special characters.
+    * Use a unique name for each server to avoid conflicts.
+    * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database".
 
     Provide the following fields in the server configuration. You can use [predefined variables](/docs/reference/variables-reference.md) in the server configuration, for example to refer to the workspace folder (`${workspaceFolder}`).
 
@@ -165,7 +173,7 @@ Use the following JSON configuration format to define MCP servers.
     | `url` | URL of the server. | `"http://localhost:3000"` |
     | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
-- The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
+* The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
     VS Code prompts you for these values when the server starts for the first time, and securely stores them for subsequent use. To avoid showing the typed value, set the `password` field to `true`.
 
