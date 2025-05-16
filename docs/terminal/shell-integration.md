@@ -254,6 +254,8 @@ These sequences should be ignored by other terminals, but unless other terminals
 
   - `Cwd` - Reports the current working directory to the terminal.
   - `IsWindows` - Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
+  - `HasRichCommandDetection` - Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the full VS Code shell integration script is active, providing high-fidelity command detection. For terminals with only basic shell integration (using Final Term or iTerm2 sequences), this property will not be set or will be `False`.
+
 
 ### Final Term shell integration
 
@@ -305,3 +307,13 @@ Alternatively, you could remove the shell integration script from your shell rc/
 ### Why does the command decoration jump around on Windows?
 
 Windows uses an emulated pseudoterminal (pty) backend called ConPTY. It works a little differently to a regular pty because it needs to maintain compatibility with the Windows Console API. One of the impacts of this is the pty handles rendering specially in such a way that the shell integration sequences that identify the commands in the terminal buffer may be misplaced. When the command jumps around it's typically after a command has run, and VS Code's heuristics have kicked in to improve the position of the command decorations.
+
+### What are difference Rich Shell Integration between Basic Shell Integration?
+
+VS Code supports two levels of shell integration:
+
+1. **Rich Shell Integration**: Provides the full feature set with high-fidelity command detection, working directory tracking, and all advanced features. Rich integration is achieved through VS Code's custom shell integration script that gets injected into the shell. When active, this sets the `HasRichCommandDetection` property to `True`.
+
+2. **Basic Shell Integration**: A more limited feature set that relies on detecting common terminal sequences used by other terminals (such as Final Term and iTerm2).
+
+When developing extensions or scripts that interact with the terminal, you can check if a terminal has rich integration by examining the `HasRichCommandDetection` property through the VS Code API. This allows you to provide different experiences based on the level of integration available.
