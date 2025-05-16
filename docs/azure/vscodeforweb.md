@@ -181,7 +181,7 @@ The extension logs will help us diagnose any issues with vscode.dev/azure. You c
 
 ## 🚀 Next steps / related resources
 
-Keep them learning and exploring.
+Keep learning and exploring with the following resources:
 
 * [Azure Developer CLI documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/)
 * [GitHub Copilot](https://github.com/features/copilot)
