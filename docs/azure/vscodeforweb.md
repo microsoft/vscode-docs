@@ -36,7 +36,7 @@ All major runtimes are pre-installed:
 
 ### GitHub repositories
 
-Seamlessly commit your changes directly to your GitHub repository using the [GitHub Repository Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub). GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories guide](https://code.visualstudio.com/docs/sourcecontrol/github#_github-repositories-extension).
+Seamlessly commit your changes directly to your GitHub repository using the [GitHub Repository extension](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub). GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories guide](https://code.visualstudio.com/docs/sourcecontrol/github#_github-repositories-extension).
 
 ### Continue Working in VS Code Desktop
 
