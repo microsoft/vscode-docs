@@ -164,7 +164,7 @@ Open Cloud Shell in the Azure Portal using the button in the top right corner.
 
 ![Screenshot that shows Azure Portal ](images/vscodeforweb/tbs2.png)
 
-Next, in the Settings dropdown, select Reset User Settings.
+Next, in the Settings dropdown, select **Reset User Settings**.
 
 ![Screenshot that shows Settings](images/vscodeforweb/tbs3.png)
 
