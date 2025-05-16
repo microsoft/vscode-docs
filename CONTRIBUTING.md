@@ -43,22 +43,18 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
+This repository contains the following top-level folders:
 
-This repository contains the following folders:
-
-* \setup
-* \introvideos
-* \getstarted
-* \editor
-* \languages
-* \nodejs
-* \typescript
-* \python
-* \java
-* \azure
-* \other
-* \supporting
+* \api - content for the API documentation at <https://code.visualstudio.com/api>
+* \blogs - content for the blog at <https://code.visualstudio.com/blogs>
+* \build - content for the documentation build process, such as the keybinding mappings and sitemap
+* \docs - content for the documentation at <https://code.visualstudio.com/docs> - the content in this folder follows the organization of the documentation table of contents
+* \images - images used in the documentation
+* \learn - (deprecated) content for the education content at <https://code.visualstudio.com/learn>
+* \release-notes - content for the release notes at <https://code.visualstudio.com/updates>
+* \remote - content for the remote development tools documentation at <https://code.visualstudio.com/docs/remote>
+* \remote-release-notes - content for the remote development tools release notes
+* \wiki - content for the repository wiki
 
 Within these folders, you'll find the Markdown files used for the content. Each of these folders also contains an `\images` folder that references the images (such as screenshots) used in the topics.
 
@@ -82,17 +78,70 @@ The topics in this repository use Markdown.  Here is a good overview of [Markdow
 
 ## Topic Metadata
 
-Topic metadata enables certain functionalities for the topics such as table of contents order, topic descriptions, and online search optimization as well as aiding Microsoft in evaluating the effectiveness of the content.
+Topic metadata enables certain functionalities for the topics such as topic description and online search optimization.
 
-* **Order** - This is the order that is used in the left rail TOC, the page is left out of the TOC if this is blank.
-* **Area** - General area within VS Code. Corresponds to the high-level Table of Contents (TOC) node.
-* **TOCTitle** - The title used in the left rail Table of Contents for this page.
-* **PageTitle** - The title used in the HTML title for the page and in search results.
+The page title is taken from the first H1 heading in the topic.
+
 * **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
 * **DateApproved** - The date of the most recent update or review. It is displayed at the bottom of an article to indicate freshness. The date should be updated in a significant PR.
 * **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
+
+## Table of contents
+
+The table of contents (TOC) is defined in the `/docs/toc.yml` file. The TOC is used to generate the left rail navigation for the documentation. If a topic is not listed in the `/docs/toc.yml` file, it will not be included in the left rail navigation.
+
+To add a new topic to the TOC, add a new entry in the `topics` attribute of the appropriate section in the `/docs/toc.yml` file. The TOC is organized into sections, each with a name and an area. The area is used to group related topics together.
+
+The order in which the topics are listed in the `/docs/toc.yml` file determines the order in which they are displayed in the left rail navigation.
+
+Each topic in the TOC has two attributes:
+
+* TOC title: the title that is displayed in the left rail navigation.
+* File name: the relative path to the topic file in the format `/docs/<subfolder>/<filename-without-md>`.
+
+The following example shows a `Getting Started` section that has two topics.
+
+```yaml
+    {
+      "name": "Getting Started",
+      "area": "getstarted",
+      "topics": [
+        ["VS Code Tutorial", "/docs/getstarted/getting-started"],
+        ["Copilot Quickstart", "/docs/getstarted/copilot-quickstart"]
+      ]
+    },
+```
+
+To create a subsection within a section, add a subsection entry to the `topics` attribute. A subsection entry has the following attributes:
+
+* TOC Title: empty string
+* File name: empty string
+* Subsection: a subsection entry with the same format as a section entry. It has a `name` attribute, an `area` attribute, and a `topics` attribute.
+
+The following example shows a `Guides` subsection with two topics, within the `GitHub Copilot` section.
+
+```yaml
+    {
+      "name": "GitHub Copilot",
+      "area": "copilot",
+      "topics": [
+        ["Overview", "/docs/copilot/overview"],
+        ["Setup", "/docs/copilot/setup"],
+        ["", "", {
+          "name": "Guides",
+          "area": "copilot/guides",
+          "topics": [
+            ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
+            ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ]
+        }
+        ],
+        ["FAQ", "/docs/copilot/faq"]
+      ]
+    },
+```
 
 ## Product name
 
@@ -124,7 +173,7 @@ Before moving or renaming content, a redirect should be added in case people hav
 
 It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
 
-For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+For example: `/docs/editor/extension-gallery.md` -> `/docs/configure/extensions/extension-marketplace.md`
 
 ### sitemap
 
@@ -158,7 +207,7 @@ Use '>' to show menu sequence.
 
 ### Links
 
-For links within our own documentation, use a site relative link like `/docs/editor/codebasics.md`.
+For links within our own documentation, use a site relative link like `/docs/editing/codebasics.md`.
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
@@ -170,7 +219,7 @@ To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](pag
 
 Note the subheading title is lowercase and subheading title words are separated by '-' hyphens.
 
->For example: `[Keyboard Shortcuts](/docs/editor/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editor/codebasics#_keyboard-shortcuts.
+>For example: `[Keyboard Shortcuts](/docs/editing/codebasics.md#keyboard-shortcuts)` - links to https://code.visualstudio.com/docs/editing/codebasics#_keyboard-shortcuts.
 
 ### Images
 

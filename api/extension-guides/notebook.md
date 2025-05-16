@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 535b4d05-c2c8-424a-b075-2cd91566b8da
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Notebook API to create rich Notebook experiences within Visual Studio Code.
@@ -174,6 +174,7 @@ class Controller {
 ```
 
 If you're publishing a `NotebookController`-providing extension separately from its serializer, then add an entry like `notebookKernel<ViewTypeUpperCamelCased>` to the `keywords` in its `package.json`. For example, if you published an alternative kernel for the `github-issues` notebook type, you should add a keyword `notebookKernelGithubIssues` keyword to your extension.
+This improves the discoverability of the extension when opening notebooks of the type `<ViewTypeUpperCamelCased>` from within Visual Studio Code.
 
 Samples:
 

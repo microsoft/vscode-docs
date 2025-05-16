@@ -23,9 +23,9 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
     * **Linux:** `ssh-agent` is present by default. Do `ssh-add <keyfile>`. Ubuntu was tested; you might have different results on other distributions.
 
-    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `terminal.integrated.profiles.osx` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
+    * **macOS:** `ssh-agent` is present by default, but `ssh-add` does not persist across logins. Do `ssh-add <keyfile>`. We recommend configuring VS Code to run this command on terminal startup with `setting(terminal.integrated.profiles.osx)` `args` value or otherwise configuring a startup script. You can also manually run that command each login.
 
-1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. The Docker CLI working does not mean that the Explorer window will work. The Explorer window uses [dockerode](https://www.npmjs.com/package/dockerode) (which in turn uses [ssh2](https://www.npmjs.com/package/ssh2)), whereas the Docker CLI uses the `ssh` command, and benefits from an automatically inferred configuration.
+1. Verify that your identity is available to the agent with `ssh-add -l`. It should list one or more identities that look something like `2048 SHA256:abcdefghijk somethingsomething (RSA)`. If it does not list any identity, you will not be able to connect. Also, it needs to have the right identity. If the Docker CLI is working, the Container Explorer should work. The Container Explorer window uses the Docker CLI, which in turn uses the `ssh` command, and benefits from an automatically inferred configuration.
 
 1. Create a [Docker context](https://docs.docker.com/engine/context/working-with-contexts/) that points to the remote machine running Docker. Use `ssh://username@host:port` as the Docker endpoint (replace "host" with your remote machine name, or the remote machine IP address). Issue the following command from terminal window:
 
@@ -37,11 +37,13 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
 1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Contexts: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
 
-1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
+    If you don't have this command, make sure to install the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers).
+
+1. It is recommended to change the refresh rate to something longer than the default with the `containers.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
 
 ## Tips
 
-* The "host" part in the Docker endpoint string (`ssh://username@host:port`) must be either a globally-resolvable DNS machine name, or an IP address. Docker extension will not be able to use host aliases defined in the [SSH configuration file](https://www.ssh.com/ssh/config/).
+* The "host" part in the Docker endpoint string (`ssh://username@host:port`) must be either a globally-resolvable DNS machine name, or an IP address. The Container Tools extension will not be able to use host aliases defined in the [SSH configuration file](https://www.ssh.com/ssh/config/).
 
 * Make sure the remote machine host key is already memorized [in the known_hosts file](https://www.ssh.com/ssh/key/#known-host-keys). The simplest way to ensure this is to connect to the machine via `ssh` client program (run `ssh username@host:port` from the command line). Upon first-time connection, the `ssh` program will display the host key and let you approve it, updating the `known_hosts` file automatically.
 

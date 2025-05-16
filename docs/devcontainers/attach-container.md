@@ -5,7 +5,7 @@ TOCTitle: Attach to Container
 PageTitle: Attach to a running container using Visual Studio Code Remote Development
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
 MetaDescription: Attach to a running container using Visual Studio Code Remote Development
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 ---
 # Attach to a running container
 
@@ -90,7 +90,7 @@ Variables can be referenced in certain string values in attached configuration f
 
 ## Attach to a container in a Kubernetes cluster
 
-To attach to a container in a Kubernetes cluster, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Dev Containers extension. Then select the Kubernetes explorer from the Activity bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach Visual Studio Code** from context menu.
+To attach to a container in a Kubernetes cluster, select **Dev Containers: Attach to Running Kubernetes Container...** from the Command Palette (`kb(workbench.action.showCommands)`). Alternatively, first install the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) and `kubectl` along with the Dev Containers extension. Then select the Kubernetes explorer from the Activity Bar and expand the cluster and Pod where the container you want to attach to resides. Finally, right-click on the container and select **Attach Visual Studio Code** from the context menu.
 
 > **Note:** Attached container configuration files are not yet supported for containers in a Kubernetes cluster.
 

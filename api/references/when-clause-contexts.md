@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -257,10 +257,10 @@ Context name | True when
 
 You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
-Context name | True when
------------- | ------------
+Context name  | True when
+------------- | ----------
 `view.${viewId}.visible` | True when specific view is visible.<br>Example: `"view.workbench.explorer.fileView.visible"`
-focusedView | True when specific view is focused.<br>Example: `"focusedView == 'workbench.explorer.fileView'"`
+`focusedView` | True when specific view is focused.<br>Example: `"focusedView == 'workbench.explorer.fileView'"`
 
 View identifiers:
 
@@ -288,11 +288,11 @@ View identifiers:
 
 You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
 
-Context key     | True when
---------------- | ------------
-activeViewlet   | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel     | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
-activeAuxiliary | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
+Context name      | True when
+----------------- | ----------
+`activeViewlet`   | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
+`activePanel`     | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
+`activeAuxiliary` | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
 
 View container identifiers:
 

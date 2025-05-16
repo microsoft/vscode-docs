@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 7/24/2023
+DateApproved: 05/08/2025
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages-cpp-social.png
 ---
@@ -74,7 +74,7 @@ If you don't have a compiler installed, you can follow one of our installation t
 
 To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2.org/). Mingw-w64 is a popular, free toolset on Windows. It provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.
 
-1. Download using [**this direct link to the MinGW installer**](https://github.com/msys2/msys2-installer/releases/download/2023-05-26/msys2-x86_64-20230526.exe).
+1. Download using [**this direct link to the MinGW installer**](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe).
 
 1. Run the installer and follow the steps of the installation wizard. Note, MSYS2 requires 64 bit Windows 8.1 or newer.
 
@@ -86,18 +86,21 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
     pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
     ```
 
-1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
+1. A list of available packages will be displayed
 
     ![MYSS2 Installer](images/cpp/cpp-install-msys2-toolchain.png)
 
+1. Accept the default number of packages in the `toolchain` group by pressing `kbstyle(Enter)`.
+
 1. Enter `Y` when prompted whether to proceed with the installation.
 
-1. Add the path to your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
+1. Add the path of your MinGW-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type **Settings** to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. In your **User variables**, select the `Path` variable and then select **Edit**.
    1. Select **New** and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you selected the default installation steps, the path is: `C:\msys64\ucrt64\bin`.
-   1. Select **OK** to save the updated PATH. For the new `PATH` to be available, reopen your console windows.
+   1. Select **OK**, and then select **OK** again in the **Environment Variables** window to update the `PATH` environment variable.
+      You have to reopen any console windows for the updated `PATH` environment variable to be available.
 1. Check that your MinGW-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
 ```bash
@@ -125,7 +128,7 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editing/workspaces/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 Now create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 
@@ -144,7 +147,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editor/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 ## Run helloworld.cpp
 

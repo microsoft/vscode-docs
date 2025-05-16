@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Polyglot
 ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
 PageTitle: Polyglot Programming with Notebooks in Visual Studio Code
-DateApproved: 3/15/2022
+DateApproved: 05/08/2025
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
 # Polyglot Notebooks in VS Code
@@ -55,11 +55,11 @@ To learn about all the features, visit the VS Code Marketplace [Polyglot Noteboo
 To use Polyglot Notebooks in VS Code, you will need:
 
 - [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension
-- [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 ### Why do I need the .NET SDK?
 
-The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
+The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 9 SDK is required.
 
 ## Getting started
 

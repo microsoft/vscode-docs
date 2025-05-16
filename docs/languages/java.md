@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 1/4/2022
+DateApproved: 05/08/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -68,7 +68,7 @@ Thanks to the great Java community around VS Code, the list doesn't end there. Y
 
 This document describes some of the key features included in those Java extensions.
 
->**Note**: To help get you started with Java development, you can use the [Java General profile template](/docs/editor/profiles.md#java-general-profile-template) to install useful extensions. You can learn more about profiles and how they let you quickly reconfigure your editor for different programming languages and workflows at [Profiles in VS Code](/docs/editor/profiles.md).
+>**Note**: To help get you started with Java development, you can use the [Java General profile template](/docs/configure/profiles.md#java-general-profile-template) to install useful extensions. You can learn more about profiles and how they let you quickly reconfigure your editor for different programming languages and workflows at [Profiles in VS Code](/docs/configure/profiles.md).
 
 ## Getting started
 
@@ -76,7 +76,7 @@ This document describes some of the key features included in those Java extensio
 
 ### Install a Java Development Kit (JDK)
 
-A Java Development Kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
+A Java Development Kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.8 or above.
 
 We recommend you to consider installing the JDK from one of these sources:
 
@@ -115,7 +115,7 @@ In Visual Studio Code, a "Workspace" means a collection of one or more filesyste
 
 A "folder workspace" is presented by VS Code when you open a filesystem folder (directory) in VS Code.
 
-A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editor/multi-root-workspaces.md).
+A "multi-root workspace" can refer to multiple folders (directories) from disparate parts of the file system and VS Code displays the contents of the folder(s) of the workspace together in the [File Explorer](/docs/getstarted/userinterface.md#basic-layout). To learn more, see [Multi-root Workspaces](/docs/editing/workspaces/multi-root-workspaces.md).
 
 ### Java projects in VS Code
 
@@ -147,7 +147,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 
 ### Code Completion
 
-[IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
+[IntelliSense](/docs/editing/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
 <video autoplay loop muted playsinline controls title="Java inline code completions and hovers">
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
@@ -221,7 +221,7 @@ Learn more about Java in VS Code:
 
 Read on to find out more about Visual Studio Code:
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
+* [Tasks](/docs/debugtest/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/debugtest/debugging.md) - find out how to use the debugger with your project

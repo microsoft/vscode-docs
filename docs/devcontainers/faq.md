@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Dev Containers Frequently Asked Questions
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code troubleshooting tips and tricks for Dev Containers
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 ---
 # Dev Containers FAQ
 
@@ -41,7 +41,7 @@ Yes, see the sections on [opening a folder on a remote SSH host](/docs/remote/ss
 
 ## How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 
-You can build images and deploy containers by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose), and [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) dev container definitions for details.
+You can build images and deploy containers by forwarding the Docker socket and installing the Docker CLI (and kubectl for Kubernetes) in the container. See the [Docker outside of Docker](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker), [Docker outside of Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose), and [Kubernetes-Helm](https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm) dev container definitions for details.
 
 ## What are the connectivity requirements for the VS Code Server when it is running in a container?
 

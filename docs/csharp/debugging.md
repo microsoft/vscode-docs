@@ -23,7 +23,7 @@ To run and debug without C# Dev Kit, see [Microsoft C# extension's GitHub page](
 
 With the C# Dev Kit extension installed and no debug configurations available to select in the Debug view, you can start debugging your project by having a `.cs` file opened and then pressing `kb(workbench.action.debug.start)`. The debugger will automatically find your project and start debugging. If you have multiple projects, it will prompt for which project you would like to start debugging.
 
-You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
 
 ![Debugging using Run and Debug](images/debugging/run-and-debug.gif)
 
@@ -71,6 +71,16 @@ In the dropdown, it lists all your existing debug configurations. If you hover o
 
 ![Remove dynamic configuration](images/debugging/delete-dynamic-config.gif)
 
+### Debug with editor debug/run buttons
+
+When a `.cs` file is open in the editor, run and debug options are accessible via the buttons located in the upper-right corner of the editor window. These actions will use the current file to query the project system and determine the associated project to launch.
+
+The two options are:
+- <span class="codicon codicon-debug-start"></span> `Run project associated with this file`: This will launch your program with `noDebug: true` with the debug adapter.
+- <span class="codicon codicon-debug-alt"></span> `Debug project associated with this file`: This will launch your program under the debugger.
+
+![Editor Run or Debug](images/debugging/editor-run-debug.png)
+
 ### Debug with launch.json
 
 If you are using the C# Dev Kit, we recommend not using this option. However, if you have the need to modify the debug configuration directly, see [Configuring launch.json for C# debugging](/docs/csharp/debugger-settings.md).
@@ -83,7 +93,7 @@ You can attach to a C# process using with the Command Palette `kb(workbench.acti
 
 ## Configuration options
 
-There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/getstarted/settings) to modify your debug options, or directly modify your `launch.json`.
+There are many options and settings available to configure the debugger. You can use `launchSettings.json`, VS Code [User Settings](/docs/configure/settings) to modify your debug options, or directly modify your `launch.json`.
 
 ### launchSettings.json
 
@@ -141,6 +151,12 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ![Conditional Breakpoints](images/debugging/conditional-breakpoint.gif)
 
+### Breakpoint - Function Breakpoint
+
+The debugger also supports functional breakpoints. You can set your breakpoint to break on the specific function by clicking on the `+` in the Breakpoints section of the Debug pane.
+
+![Function Breakpoints](images/debugging/function-breakpoint.gif)
+
 ### Breakpoint - Logpoints
 
 Logpoints (also known as Tracepoints in Visual Studio) allow you to send output to Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
@@ -167,7 +183,7 @@ The following tokens are also supported in the log message:
 
 ### Breakpoint - Triggered breakpoints
 
-A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
@@ -245,4 +261,4 @@ Once a Hot Reload session starts and new changes are made, you can apply these c
 
 Read on to find out about:
 
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+* [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.

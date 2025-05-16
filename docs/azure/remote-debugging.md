@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 9
 Area: azure
 TOCTitle: Remote Debugging for Node.js
 PageTitle: Azure Remote Debugging for Node.js with Visual Studio Code
@@ -49,6 +49,6 @@ When you're ready to end your remote debugging session, disconnect from the debu
 
 ## Next steps
 
-* [Logpoints](/docs/editor/debugging.md#logpoints) - Use Logpoints to log to the console without "breaking" in the debugger.
+* [Logpoints](/docs/debugtest/debugging.md#logpoints) - Use Logpoints to log to the console without "breaking" in the debugger.
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.

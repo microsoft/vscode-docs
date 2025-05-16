@@ -4,18 +4,23 @@ Area: sourcecontrol
 TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
 PageTitle: Introduction to Git in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
 # Introduction to Git in VS Code
 
 Want to easily manage your source code and collaborate with others? Git and GitHub are the tools you need! And with Visual Studio Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface guides you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Git command line. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
 
+With GitHub Copilot in VS Code, you can get suggestions for commit messages, pull requests, and review code changes before committing them. Learn more about [GitHub Copilot in VS Code](/docs/copilot/overview.md).
+
+> [!TIP]
+> If you don't have a Copilot subscription yet, use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup). You'll get a monthly limit of completions and chat interactions.
+
 ## Set up Git in VS Code
 
 To use Git and GitHub in VS Code, first make sure you [have Git installed on your computer](https://git-scm.com/downloads). If Git is missing, the **Source Control** view shows instructions on how to install it. Make sure to restart VS Code afterwards.
 
-Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/editor/settings-sync.md), but also cloning and publishing repositories from GitHub.
+Additionally you can sign into VS Code with your GitHub account in the **Accounts** menu in the lower right of the Activity bar to enable additional features like [Settings Sync](/docs/configure/settings-sync.md), but also cloning and publishing repositories from GitHub.
 
 ![Screenshot of the Accounts menu in VS Code](images/intro/vscode-accounts-menu.png)
 
@@ -51,7 +56,7 @@ To initialize a new local Git repository:
 
 #### Publish local repository to GitHub
 
-You can also initialize and local repository and publish it directly to GitHub. This creates a new repository on your GitHub account, and pushes your local code changes to the remote repository. Having your source code on a remote repository is a great way to back up your code, collaborate with others, and automate your workflow with [GitHub Actions](https://github.com/features/actions).
+You can also initialize a local repository and publish it directly to GitHub. This creates a new repository on your GitHub account, and pushes your local code changes to the remote repository. Having your source code on a remote repository is a great way to back up your code, collaborate with others, and automate your workflow with [GitHub Actions](https://github.com/features/actions).
 
 Use the **Publish to GitHub** command button in the **Source Control** view. You can then choose a name and description for the repository, and whether to make it public or private.
 
@@ -95,13 +100,15 @@ VS Code's remote repository support allows you to browse and edit a GitHub repos
 
     ![Remote Repositories opening a remote GitHub repo, pull request or Azure repo](images/intro/remote-repo.png)
 
-> **Tip:** If you need to execute code or run terminal commands, you can seamlessly switch from a remote repository to a codespace with the command **Continue Working on**.
+> [!TIP]
+> If you need to execute code or run terminal commands, you can seamlessly switch from a remote repository to a codespace with the command **Continue Working on**.
 
 ## Staging and committing code changes
 
 Once you have a Git repository set up, you can start tracking code changes by [staging and committing](https://git-scm.com/about/staging-area) your newly created and edited code.
 
-> **Tip**: Commit your changes early and often. This makes it easier to revert back to previous versions of your code if needed.
+> [!TIP]
+> Commit your changes early and often. This makes it easier to revert back to previous versions of your code if needed.
 
 You can access the **Source Control** view from the Activity Bar to list all changed files in your workspace. You can toggle between a tree view or list view by using the tree/list icon in the Source Control view header.
 
@@ -123,7 +130,8 @@ Staged changes can also be discarded by selecting the **−** (minus) icon next 
 
 To commit your staged changes, type a commit message in the upper text box, and then select the **Commit** button. This saves your changes to the local Git repository, allowing you to revert to previous versions of your code if needed.
 
-> **Tip**: If you have a GitHub Copilot subscription, and installed the Github Copilot extension, you can use the *sparkle* icon to [generate a commit message](/docs/copilot/overview.md#productivity-improvements).
+> [!TIP]
+> With GitHub Copilot in VS Code, you can [generate a commit message](/docs/copilot/overview.md#productivity-improvements) based on your code changes. Learn more about [generating commit messages with AI](/docs/sourcecontrol/overview.md#generate-a-commit-message-with-ai). Before you commit your changes, you can also let Copilot do a [code review of the uncommitted changes](/docs/sourcecontrol/overview.md#review-uncommitted-code-changes-with-ai).
 
 You can navigate through and review all local file changes and commits in the **Timeline** view available in the bottom of the Explorer view.
 
@@ -135,7 +143,8 @@ Once you have made commits to your local Git repository, you can push them to th
 
 ![Sync button with one change to push](images/intro/sync.png)
 
-> **Tip:** You can enable the **Git: Autofetch** [setting](/docs/getstarted/settings.md) to always get an up-to-date remote commit indicator.
+> [!TIP]
+> You can enable the **Git: Autofetch** [setting](/docs/configure/settings.md) to always get an up-to-date remote commit indicator.
 
 Push and pull can also be performed individually by using their respective commands. You can access these commands from the Source Control menu.
 
@@ -153,7 +162,8 @@ To create a new branch, select the branch indicator and choose to create it from
 
 ![Create branch quick prompt that shows when selecting the branch indicator](images/intro/scm-create-branch.png)
 
-> **Tip:** If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
+> [!TIP]
+> If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
 
 After you create a local branch, you can push the branch to the remote repository by selecting **Publish Branch** in the **Source Control** view. This creates a new branch on the remote repository, allowing you to collaborate with others in that branch.
 
@@ -167,7 +177,8 @@ To create a PR, make sure you are on a separate branch from the main branch, and
 
 ![Source Control view, highlighting the 'Create pull request' button](images/intro/scm-create-pull-request.png)
 
-To review a PR, select the **Review Pull Request** button in the **Source Control** view, and select the PR you want to review. This opens the PR in a new editor window, where you can review the code changes and leave comments. Once you are satisfied with the code changes, you can select the **Merge** button to merge the PR into the targeted branch.
+> [!TIP]
+> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also [let Copilot perform a code review of the PR]() before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
 
 Learn more about pull requests in [VS Code's GitHub documentation](/docs/sourcecontrol/github.md).
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -20,7 +20,6 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `update.code.visualstudio.com` - Visual Studio Code download and update server
 * `code.visualstudio.com` - Visual Studio Code documentation
 * `go.microsoft.com` - Microsoft link forwarding service
-* `vscode.blob.core.windows.net` - Visual Studio Code blob storage, used for remote server
 * `marketplace.visualstudio.com` - Visual Studio Marketplace
 * `*.gallery.vsassets.io` - Visual Studio Marketplace
 * `*.gallerycdn.vsassets.io` - Visual Studio Marketplace
@@ -29,7 +28,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode.search.windows.net` - In-product settings search
 * `raw.githubusercontent.com` - GitHub repository raw file access
 * `vsmarketplacebadges.dev` - Visual Studio Marketplace badge service
-* `az764295.vo.msecnd.net` - Visual Studio Code download CDN (deprecated)
+* `*.vscode-cdn.net` - Visual Studio Code CDN
 * `vscode.download.prss.microsoft.com` - Visual Studio Code download CDN
 * `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
 * `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
@@ -104,7 +103,7 @@ Extensions don't benefit yet from the same proxy support that VS Code supports. 
 
 Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
 
-Due to both of these constraints, the `http.proxy`, `http.proxyStrictSSL` and `http.proxyAuthorization` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
+Due to both of these constraints, the `setting(http.proxy)`, `setting(http.proxyStrictSSL)` and `setting(http.proxyAuthorization)` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
 
 ## Troubleshooting
 

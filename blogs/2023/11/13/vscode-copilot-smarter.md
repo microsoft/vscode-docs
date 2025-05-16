@@ -6,7 +6,7 @@ MetaDescription: Smart artificial intelligence features in Visual Studio Code wi
 Date: 2023-11-13
 Author: Chris Dias
 ---
-# Pursuit of "wicked smartness" in VS Code
+# Pursuit of wicked smartness in VS Code
 
 November 13, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 

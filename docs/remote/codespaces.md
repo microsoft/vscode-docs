@@ -5,7 +5,7 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 ---
 # GitHub Codespaces
 
@@ -64,20 +64,20 @@ Limitation: You may not be able to use the web-based editor if you are running y
 
 While working with Codespaces and specifically VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent development experience.
 
-For several issues (especially keybindings or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://learn.microsoft.com/microsoft-edge/progressive-web-apps-chromium) (PWA).
+For several issues (especially keyboard shortcuts or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://learn.microsoft.com/microsoft-edge/progressive-web-apps-chromium) (PWA).
 
 ![Installing Codespaces as PWA in Microsoft Edge](images/codespaces/PWA-edge-install.png)
 
 | Issue | Reason | Workaround |
 |-|-|-|
 | `kbstyle(Ctrl+Shift+P)` won't launch the Command Palette in Firefox. | `kbstyle(Ctrl+Shift+P)` is reserved in Firefox. | Use `kbstyle(F1)` to launch the Command Palette. |
-| Certain default keybindings (for debugging) are different in the web. | Since the browser may already have an action registered for those keybindings, we adjust the default for VS Code in the web. | Use the adjusted defaults. They appear on tooltip hovers over the debug actions. <ul><li> Step over is `kbstyle(Alt+F10)` (instead of `kbstyle(F10)`) on all browsers.</li><li> Step into in the web is `kbstyle(Alt+F11)` (instead of `kbstyle(F11)`) on Windows browsers.</li></ul> |
+| Certain default keyboard shortcuts (for debugging) are different in the web. | Since the browser may already have an action registered for those keyboard shortcuts, we adjust the default for VS Code in the web. | Use the adjusted defaults. They appear on tooltip hovers over the debug actions. <ul><li> Step over is `kbstyle(Alt+F10)` (instead of `kbstyle(F10)`) on all browsers.</li><li> Step into in the web is `kbstyle(Alt+F11)` (instead of `kbstyle(F11)`) on Windows browsers.</li></ul> |
 | `kbstyle(F11)` for debugging does not work on macOS in web or desktop.  | This is a known, non-browser specific limitation. More information can be found in [issue #5102](https://github.com/microsoft/vscode/issues/5102). | Disable `kbstyle(F11)` to show desktop on macOS.<ul><li> Go to: **System Preferences** > **Keyboard** > **Shortcuts** </li><li> Uncheck the **Show Desktop F11** option </li></ul> |
 | `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. | `kbstyle(Ctrl+N)` for new file works in the desktop. |
 | `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. | `kbstyle(Ctrl+W)` works in the desktop. |
 | `kbstyle(Ctrl+Shift+B)` will not toggle the favorites bar in the browser. | Codespaces overrides this and redirects to the "Build" menu in the Command Palette. | No current workarounds. |
 | Dragging and dropping files from VS Code to a Codespace (and vice versa) does not work. | You can see more context in [issue #115535](https://github.com/microsoft/vscode/issues/115535). | There are a couple of options: <ul><li> You can right-click the file in your Codespace to download it to your local machine. </li><li> You can drag files to your Codespace from the File Explorer. </li></ul> |
-| Angular app debugging isn't supported in the web. | Code running in a browser cannot launch another browser instance in debug mode for security reasons. | You have a few options: <ul><li>Debug Node.js/service-side js normally.</li><li>Open the Codespace in desktop, in which case the [companion](https://github.com/microsoft/vscode-js-debug-companion) will be used to launch your local Edge or Chrome install.</li><ul> |
+| Angular app debugging isn't supported in the web. | Code running in a browser cannot launch another browser instance in debug mode for security reasons. | You have a few options: <ul><li>Debug Node.js/service-side js normally.</li><li>Open the Codespace in desktop, in which case the [companion](https://github.com/microsoft/vscode-js-debug-companion) will be used to launch your local Edge or Chrome install.</li></ul> |
 | Downloading a file with no extension from the browser automatically adds ".txt" | This is how Chrome and Edge behave. | Context and potential future solutions in [issue #118436](https://github.com/microsoft/vscode/issues/118436). |
 | When you download a file from a remote (including Codespaces), attributes such as the executable bit are removed. | Context and potential future solutions can be found in [issue #112099](https://github.com/microsoft/vscode/issues/112099). | No current workarounds. |
 | You may see the prompt, "`Your_codespace_name` can't open this folder because it contains system files" when trying to download certain folders from a Codespace. | A user agent is free to impose the level of restrictions on sensitive directories. More information in [this spec](https://wicg.github.io/file-system-access/#privacy-wide-access) and [Chromium's blocklist](https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/file_system_access/chrome_file_system_access_permission_context.cc;l=140-208). | No additional workarounds beyond the spec and blocklist. |

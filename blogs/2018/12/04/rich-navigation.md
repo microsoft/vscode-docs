@@ -15,7 +15,7 @@ Pull requests are a critical collaboration tool for millions of developers every
 
 In September, along with GitHub, [we announced the GitHub Pull Requests extension](https://code.visualstudio.com/blogs/2018/09/10/introducing-github-pullrequests), which enabled developers to review source code in the same place they write it: inside their familiar and highly-customized editor. Today, we're excited to share a sneak peek of a new experience that will further enhance in-editor PR reviews with support for **rich, multi-repository code navigations**.
 
-<iframe src="https://www.youtube.com/embed/DAqDEi0fGco?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="First look at a rich code navigation experience"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/DAqDEi0fGco?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="First look at a rich code navigation experience"></iframe>
 
 ## Say goodbye to superficial reviews
 

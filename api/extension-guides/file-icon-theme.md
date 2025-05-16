@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating a File Icon Theme in Visual Studio Code
@@ -197,7 +197,9 @@ Language contributors can define an icon for the language.
           "dark": "./icons/latex-dark.png"
         }
       }
-  ]
+    ]
+  }
+}
 ```
 
 The icon is used if a file icon theme only has a generic file icon for the language.

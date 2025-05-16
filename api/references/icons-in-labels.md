@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -402,6 +402,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-compass"></i>|compass|
 |<i class="codicon codicon-console"></i>|console|
 |<i class="codicon codicon-copilot"></i>|copilot|
+|<i class="codicon codicon-copy"></i>|copy|
 |<i class="codicon codicon-credit-card"></i>|credit-card|
 |<i class="codicon codicon-dash"></i>|dash|
 |<i class="codicon codicon-dashboard"></i>|dashboard|
@@ -716,6 +717,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-sign-in"></i>|sign-in|
 |<i class="codicon codicon-sign-out"></i>|sign-out|
 |<i class="codicon codicon-smiley"></i>|smiley|
+|<i class="codicon codicon-snake"></i>|snake|
 |<i class="codicon codicon-sparkle"></i>|sparkle|
 |<i class="codicon codicon-sort-precedence"></i>|sort-precedence|
 |<i class="codicon codicon-source-control"></i>|source-control|
@@ -760,7 +762,6 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-symbol-property"></i>|symbol-property|
 |<i class="codicon codicon-symbol-reference"></i>|symbol-reference|
 |<i class="codicon codicon-symbol-ruler"></i>|symbol-ruler|
-|<i class="codicon codicon-snake"></i>|snake|
 |<i class="codicon codicon-symbol-snippet"></i>|symbol-snippet|
 |<i class="codicon codicon-symbol-string"></i>|symbol-string|
 |<i class="codicon codicon-symbol-struct"></i>|symbol-struct|

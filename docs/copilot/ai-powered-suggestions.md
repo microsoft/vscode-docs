@@ -1,10 +1,6 @@
 ---
-Order: 5
-Area: copilot
-TOCTitle: Code Completions
 ContentId: 7ab2cd6c-45fd-4278-a6e8-1c9e060593ea
-PageTitle: AI-powered code completions with GitHub Copilot
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 MetaDescription: Enhance your coding with AI-powered code completions from GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -12,15 +8,24 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 GitHub Copilot acts as an AI-powered pair programmer, automatically offering suggestions to complete your code, comments, tests, and more. It provides these suggestions directly in the editor while you write your code, and it can work with a broad range of programming languages and frameworks.
 
+Copilot provides two kinds of suggestions:
+
+* **Code completions** - Start typing in the editor, and Copilot provides code suggestions that match your coding style and take your existing code into account.
+
+* **Next Edit Suggestions** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
+
 ## Getting started
 
-> **Note**: After reviewing this topic, you can get started with the introductory [Copilot getting started tutorial](/docs/copilot/getting-started.md) to get set up and take a hands-on tour of Copilot in VS Code.
+1. Install the GitHub Copilot extensions.
 
-* To use GitHub Copilot, you must have an active subscription for GitHub Copilot in your personal account, or you need to be assigned a seat by your organization.
+    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-ai-powered-suggestions">Install the GitHub Copilot extensions</a>
 
-* To use GitHub Copilot in VS Code, you must have the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension. When you install this extension, the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension is also installed.
+1. Sign in with your GitHub account to use Copilot.
 
-Follow these steps to [set up GitHub Copilot in VS Code](/docs/copilot/setup.md) by signing up for a subscription and installing the Copilot extension in VS Code.
+    > [!TIP]
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
+1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
 
 ## Inline suggestions
 
@@ -54,41 +59,143 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ![Use code comments to let Copilot generate a Student class in TypeScript with properties and methods.](images/inline-suggestions/ts-suggest-code-comment.png)
 
-## Enable or disable inline suggestions
+## Next Edit Suggestions
 
-You can temporarily enable or disable code completions either for all languages, or for specific languages only.
+Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (Copilot NES) is this evolution.
 
-1. The GitHub Copilot status icon in the VS Code Status Bar indicates whether GitHub Copilot is enabled or disabled.
+<video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
 
-    ![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/inline-suggestions/vscode-status-bar-copilot-active.jpg)
+Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be. Copilot NES helps you stay in the flow, suggesting future changes relevant to your current work, and you can simply `kbstyle(Tab)` to quickly navigate and accept Copilot's suggestions. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
 
-1. To enable or disable Copilot completions, first select the GitHub Copilot icon in the Status Bar.
+To get started with Copilot NES, enable the VS Code setting `setting(github.copilot.nextEditSuggestions.enabled)`.
 
-1. If you are disabling GitHub Copilot, you are asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
+### Navigate and accept edit suggestions
 
-    * To disable suggestions from GitHub Copilot globally, select **Disable Globally**.
-    * To disable suggestions from GitHub Copilot for the specified language, select **Disable for \<language\>**.
+You can quickly navigate to suggested code changes with the `kbstyle(Tab)` key, saving you time to find the next relevant edit (no manual searching through files or references required). You can then accept a suggestion with the `kbstyle(Tab)` key again.
 
-    ![Screenshot showing the VS Code command menu for Copilot, highlighting the options to disable completions.](./images/inline-suggestions/copilot-disable-completions.png)
+An arrow in the gutter indicates if there is an edit suggestion available. You can hover over the arrow to explore the edit suggestion menu, which includes keyboard shortcuts and settings configuration:
+
+![Copilot NES gutter menu expanded](./images/inline-suggestions/gutter-menu-highlighted-updated.png)
+
+If an edit suggestion is below the current editor view, the arrow will point down instead of right:
+
+![Copilot NES with arrow directions changing](./images/inline-suggestions/nes-arrow-directions.gif)
+
+> [!IMPORTANT]
+> If you are using the VS Code vim extension, you may want to update your `keybindings.json`. Learn more [in the GitHub issue](https://github.com/VSCodeVim/Vim/issues/9459#issuecomment-2648156285).
+
+### Reduce distractions by edit suggestions
+
+By default, edit suggestions are indicated by the gutter arrow and the code changes are shown in the editor. If you prefer to reduce distractions, you can disable showing the code changes in the editor until you press the `kbstyle(Tab)` key to navigate to the suggestion or until you hover over the gutter arrow.
+
+To disable showing the code changes in the editor, enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting in the Settings editor. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu. To re-enable showing the code changes, disable the setting or select **Show Expanded** from the gutter arrow menu.
+
+### Use cases for Next Edit Suggestions
+
+**Catching and correcting mistakes**
+
+* **Copilot helps with simple mistakes like typos.** It'll suggest fixes where letters are missing or swapped, like `cont x = 5` or `conts x = 5`, which should've been `const x = 5`.
+
+    ![Copilot NES fixing a typo from "conts" to "const"](./images/inline-suggestions/nes-typo.gif)
+
+* **Copilot can also help with more challenging mistakes in logic**, like an inverted ternary expression:
+
+    ![Copilot NES fixing a fibonacci logic mistake](./images/inline-suggestions/nes-fib-logic.gif)
+
+    Or a comparison that should've used `&&` instead of `||`:
+
+    ![Copilot NES fixing an if statement mistake](./images/inline-suggestions/nes-de-morgan.gif)
+
+**Changing intent**
+
+* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition. After accepting the change, Copilot NES next recommends adding `z` to the distance calculation:
+
+    ![Copilot NES gif for updating Point to Point3D](./images/inline-suggestions/nes-point.gif)
+    <!-- ![Copilot NES for updating Point to Point3D](./images/inline-suggestions/point3d.png)
+
+    ![Copilot NES for adding z to distance calculation of Point3D](./images/inline-suggestions/point3d-distance.png) -->
+
+**Adding new variables or logic**
+
+* **Using newly added arguments, variables, or functions**. Copilot helps you use new code you just added. This may be a small change, like calling a new method parameter in the actual method.
+
+    It could also be more complex: if you added a new command to your VS Code extension's `extension.ts`, Copilot will first suggest to clean up the command in `extension.ts`. Then when you open `package.json`, Copilot suggests registering that command as well:
+
+    ![Updating extension.ts and package.json with a new command](./images/inline-suggestions/nes-extension-and-package.gif)
+
+    <!-- ![Add command in package.json](./images/inline-suggestions/add-disposable.png)
+    ![Add command in package.json](./images/inline-suggestions/call-disposable-full.png) -->
+
+**Refactoring**
+
+* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
+
+    ![Copilot NES suggesting change after updating function name](./images/inline-suggestions/nes-gutter.gif)
+
+* **Matching code style**. After copy-pasting some code, Copilot will suggest how to adjust it to match the current code where the paste happened.
+
+## Enable or disable code completions
+
+You can enable or disable code completions either for all languages, or for specific languages only.
+
+* To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions.
+
+    ![Screenshot of the Copilot menu in the Status Bar with checkboxes to enabled or disable code completions and NES.](images/inline-suggestions/copilot-menu-status-bar.png)
+
+* Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor.
+
+    Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
+
+## Change the AI model for completions
+
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
+
+To change the language model that is used for generating code completions in the editor:
+
+1. Open the Command Palette (`kbstyle(F1)`).
+
+1. Type **change completions model** and select the **GitHub Copilot: Change Completions Model** command.
+
+1. In the dropdown menu, select the model you want to use.
+
+Alternatively, if Command Center is enabled, you can click the Copilot menu in the VS Code title bar, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model...** in the dropdown menu and select the model you want to use.
+
+> [!NOTE]
+> The list of available models might vary and change over time. The model picker may not always show more than one model, and preview models and additional code completion models will become available there if/when we release them. If you are a Copilot Business or Enterprise user, your Administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
 
 ## Tips & tricks
 
 ### Context
 
-To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets the Copilot see a bigger picture of your project.
+To give you relevant inline suggestions, Copilot looks at the current and open files in your editor to analyze the context and create appropriate suggestions. Having related files open in VS Code while using Copilot helps set this context and lets Copilot get a bigger picture of your project.
 
-### Settings
+## Settings
 
-You can configure the font for the inline suggestions with the `editor.inlineSuggest.fontFamily` setting.
+### Code completions settings
+
+* `setting(github.copilot.enable)` - enable or disable inline completions for all or specific languages.
+
+* `setting(editor.inlineSuggest.fontFamily)` - configure the font for the inline completions.
+
+* `setting(editor.inlineSuggest.showToolbar)` - enable or disable the toolbar that appears for inline completions.
+
+* `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
+
+### Next Edit Suggestions settings
+
+* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
+
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
+
+* `setting(editor.inlineSuggest.edits.renderSideBySide)` - configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
+
+     * **auto (default)**: show larger edit suggestions side-by-side if there is enough space in the viewport, otherwise the suggestions are shown below the relevant code.
+     * **never**: never show suggestions side-by-side, always show suggestions below the relevant code.
 
 ## Next steps
 
-* Get started with the introductory [Copilot tutorial](/docs/copilot/getting-started-chat.md) to get set up with Copilot in VS Code and experience Copilot hands-on.
+* Discover the key features with the [Copilot Quickstart](/docs/copilot/chat/getting-started-chat.md).
 
-* Learn how you can use AI chat conversations with [GitHub Copilot Chat](/docs/copilot/copilot-chat.md).
+* Use AI chat conversations with [Copilot Chat](/docs/copilot/chat/copilot-chat.md).
 
-## Additional resources
-
-You can read more about [Copilot](https://github.com/features/copilot) and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
-
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), and more.
+* Watch the videos in our [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube.

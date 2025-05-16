@@ -3,6 +3,7 @@ Order: 85
 TOCTitle: VS Code Day 2024
 PageTitle: Visual Studio Code Day 2024
 MetaDescription: Learn about the latest Visual Studio Code features and extensions during VS Code Day 2024 on April 24, 2024
+MetaSocialImage: vscodeday-promo.png
 Date: 2024-04-15
 Author: Reynald Adolphe
 ---
@@ -44,20 +45,19 @@ VS Code Day will be a 2-day event full of fun and learning. On the first day, jo
 - **Time**: 1pm EST
 - **Where to watch**: [VS Code on YouTube](https://www.youtube.com/@code)
 
-| Session  | Speaker   |
-|-------------- | -------------- |
-| **Keynote**: View Source: What gets into VS Code and why    | [Burke Holland](https://twitter.com/burkeholland) |
-| JavaScript developers: Build fast and have fun with VS Code and Azure AI CLI   | [Natalia Venditto](https://twitter.com/AnfibiaCreativa)    |
-| Generating Synthetic Datasets with GitHub Copilot   | [Alfredo Deza](https://www.linkedin.com/in/alfredodeza/) |
-| Real World Development with VS Code and C#   | [Leslie Richardson](https://twitter.com/lyrichardson01) & [Scott Hanselman](https://twitter.com/shanselman) |
-| Building a RAG-powered AI chat app with Python and VS Code   | [Pamela Fox](https://twitter.com/pamelafox) |
-| Beyond the Editor: Tips to get the Most out of GitHub Copilot   | [Kedasha Kerr](https://twitter.com/itsthatladydev)  |
-| LangChain Examples with Azure OpenAI Service + VS Code   | [Rishab Kumar](https://twitter.com/rishabincloud) |
-| AI Made Clear: Practical AI Coding Sessions in VS Code | [Bruno Capuano](https://twitter.com/elbruno) |
-| Asking Copilot about your workspace | [Matt Bierner](https://twitter.com/mattbierner) |
-| Aw, CRUD: Building a Django app with persistent storage | [Dawn Wages](http://@BajoranEngineer) |
-| Build games with GitHub Copilot | [Chris Noring](https://twitter.com/chris_noring) |
-| What's New with C++ in VS Code  | [Alexandra Kemper](https://twitter.com/AlexandraKemper) & [Sinem Akinci](https://twitter.com/sinem__akinci) |
+| Session       | Speaker   |
+|-------------- | --------- |
+| [**Keynote**: View Source: What gets into VS Code and why](https://aka.ms/vscd-holland)    | [Burke Holland](https://twitter.com/burkeholland) |
+| [Aw, CRUD: Building a Django app with persistent storage](https://aka.ms/vscd-wages) | [Dawn Wages](http://@BajoranEngineer) |
+| [Generating Synthetic Datasets with GitHub Copilot](https://aka.ms/vscd-deza)   | [Alfredo Deza](https://www.linkedin.com/in/alfredodeza/) |
+| [Real World Development with VS Code and C#](https://aka.ms/Vscd-hr)   | [Leslie Richardson](https://twitter.com/lyrichardson01) & [Scott Hanselman](https://twitter.com/shanselman) |
+| [Building a RAG-powered AI chat app with Python and VS Code](https://aka.ms/Vscd-fox)   | [Pamela Fox](https://twitter.com/pamelafox) |
+| [Beyond the Editor: Tips to get the Most out of GitHub Copilot](https://aka.ms/vscd-kerr)   | [Kedasha Kerr](https://twitter.com/itsthatladydev)  |
+| [LangChain Examples with Azure OpenAI Service + VS Code](https://aka.ms/vscd-kumar)   | [Rishab Kumar](https://twitter.com/rishabincloud) |
+| [AI Made Clear: Practical AI Coding Sessions in VS Code](https://aka.ms/vscd-capuano) | [Bruno Capuano](https://twitter.com/elbruno) |
+| [Asking Copilot about your workspace](https://aka.ms/vscd-bierner) | [Matt Bierner](https://twitter.com/mattbierner) |
+| [Build games with GitHub Copilot](https://aka.ms/vscd-noring) | [Chris Noring](https://twitter.com/chris_noring) |
+| [What's New with C++ in VS Code](https://aka.ms/vscd-ka)  | [Alexandra Kemper](https://twitter.com/AlexandraKemper) & [Sinem Akinci](https://twitter.com/sinem__akinci) |
 
 ## About the hosts
 

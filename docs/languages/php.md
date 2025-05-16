@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
 
-Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-marketplace.md).
+Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/configure/extensions/extension-marketplace.md).
 
 ## Linting
 
@@ -17,17 +17,17 @@ VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. Th
 
 > Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries.
 
-There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
+There are three [settings](/docs/configure/settings.md) to control the PHP linter:
 
-* `php.validate.enable`: controls whether to enable PHP linting at all. Enabled by default.
-* `php.validate.executablePath`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
-* `php.validate.run`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
+* `setting(php.validate.enable)`: controls whether to enable PHP linting at all. Enabled by default.
+* `setting(php.validate.executablePath)`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
+* `setting(php.validate.run)`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
 
 To change the PHP settings, open your **User or Workspace Settings** (`kb(workbench.action.openSettings)`) and type 'php' to filter the list of available settings.
 
 ![show PHP settings](images/php/php-settings.png)
 
-To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `php.validate.executablePath` setting with the path to your PHP installation:
+To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `setting(php.validate.executablePath)` setting with the path to your PHP installation:
 
 ### Windows
 
@@ -65,7 +65,7 @@ There are many PHP language extensions available on the [VS Code Marketplace](ht
 
 ### Disable built-in PHP support
 
-To disable the built-in PHP smart completions in favor of suggestions from an installed PHP extension, uncheck **PHP > Suggest: Basic**, which sets `php.suggest.basic` to false in your `settings.json` file.
+To disable the built-in PHP smart completions in favor of suggestions from an installed PHP extension, uncheck **PHP > Suggest: Basic**, which sets `setting(php.suggest.basic)` to false in your `settings.json` file.
 
 ## Debugging
 
@@ -75,5 +75,5 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 
 Read on to find out about:
 
-* [Extension Marketplace](/docs/editor/extension-marketplace.md) - Browse the extensions others have shared
-* [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging
+* [Extension Marketplace](/docs/configure/extensions/extension-marketplace.md) - Browse the extensions others have shared
+* [Debugging](/docs/debugtest/debugging.md) - Learn more about VS Code debugging

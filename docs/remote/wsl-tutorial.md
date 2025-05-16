@@ -5,7 +5,7 @@ TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 ---
 # Remote development in WSL
 

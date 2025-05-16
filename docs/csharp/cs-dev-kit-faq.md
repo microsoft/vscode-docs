@@ -4,7 +4,7 @@ Area: csharp
 TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
 PageTitle: C# Dev Kit extension FAQ
-DateApproved: 10/3/2023
+DateApproved: 5/3/2024
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
 
@@ -16,7 +16,7 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 ### What is C# Dev Kit?
 
-[C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is an extension created to enhance your C# development experience in Visual Studio Code. It aims to bring a more expansive, productive, and reliable C# experience to VS Code. The Dev Kit does not replace the [existing C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) but adds on top of the great language service features it provides. Developers can choose to continue using the updated version of the existing C# extension or enhance their experience by adding the C# Dev Kit.
+[C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) is an extension created to enhance your C# development experience in Visual Studio Code. It aims to bring a more expansive, productive, and reliable C# experience to VS Code. C# Dev Kit does not replace the [existing C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) but adds on top of the great language service features it provides. Developers can choose to continue using the updated version of the existing C# extension or enhance their experience by adding C# Dev Kit.
 
 ### What project types are currently supported?
 
@@ -33,13 +33,25 @@ Today the extensions included in the C# Dev Kit family are:
 
 Use of these extensions are governed under the [EULA for the C# Dev Kit family of extensions](https://aka.ms/vs/csdevkit/license).
 
-These extensions also have dependencies that carry their own licensing – for example, the C# Dev Kit extension depends on the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+These extensions also have dependencies that carry their own licensing – for example, C# Dev Kit depends on the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) and [.NET Install Tool](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-runtime).
+
+### Why isn't C# Dev Kit activating / C# Dev Kit commands are not found?
+
+There are a few reasons why C# Dev Kit doesn't activate when you attempt to edit a C# file.
+
+1. **version 2.0+ of the C# extension is not installed**. C# Dev Kit requires version 2.0 or higher of the C# extension. Check to make sure you have the C# extension installed and that you have a version 2.0 or higher.
+1. **workspace prefers C# extension**. C# Dev Kit does not support .NET Framework projects and if you have set the `dotnet.preferCSharpExtension` setting to true, C# Dev Kit will be disabled for that workspace. If the project is not a .NET Framework project, make sure to disable this setting.
+1. **using a readonly OS**. C# Dev Kit requires write access to its own extension folder and to the VS Code-provided folder for extensions to write arbitrary state within the operating system, so if you are using an OS that is completely readonly, C# Dev Kit will not work.
+
+If you have checked these and the C# Dev Kit commands are still not found, please report an issue and provide the information in the Output window for C# Dev Kit.
+
+## Licensing and Contributing
 
 ### Who can use C# Dev Kit?
 
 C# Dev Kit is available via a Community License for those who qualify and is also included as another addition to existing [Visual Studio Subscriptions](https://visualstudio.microsoft.com/subscriptions). This means that C# Dev Kit is available to use today for developers with active Visual Studio subscriptions.
 
-For personal, academic, and open-source projects, the C# Dev Kit can be used at no cost. For commercial purposes, teams of up to 5 can also use the C# Dev Kit at no cost. For 6+ developers, those users will need a Visual Studio Professional (or higher) subscription. The C# Dev Kit is also included in GitHub Codespaces and Microsoft Dev Box, so users of those products have access to the C# Dev Kit at no additional charge.
+For personal, academic, and open-source projects, C# Dev Kit can be used at no cost. For commercial purposes, teams of up to 5 can also use the C# Dev Kit at no cost. For 6+ developers, those users will need a Visual Studio Professional (or higher) subscription. C# Dev Kit is also included in GitHub Codespaces and Microsoft Dev Box, so users of those products have access to C# Dev Kit at no additional charge.
 
 ### Where do I submit feedback and suggestions?
 
@@ -63,7 +75,7 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 Note that, depending on your network speed, installing the .NET Core runtime might take some time. By default, the installation terminates unsuccessfully if it takes longer than 4.5 minutes to finish. If you believe this is too little (or too much) time to allow for the download, you can change the timeout value by setting `dotnetAcquisitionExtension.installTimeoutValue` to a custom value.
 
-[Learn more about configuring VS Code settings](/docs/getstarted/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
+[Learn more about configuring VS Code settings](/docs/configure/settings.md) and see below for an example of a custom timeout in a `settings.json` file. In this example, the custom timeout value is 180 seconds, or 3 minutes:
 
 ```json
 {
@@ -71,19 +83,19 @@ Note that, depending on your network speed, installing the .NET Core runtime mig
 }
 ```
 
-### Error acquiring .NET 7
+### Error acquiring .NET SDK
 
-![Error acquiring .NET 7](images/faq/error-acquiring-dotnet-7.png)
+![Error acquiring .NET SDK](images/faq/error-acquiring-dotnet-7.png)
 
-Note: If you are located in China, your .NET download may be blocked and cause a timeout.
+Note: If you are located in China, your .NET SDK download may be blocked and cause a timeout.
 
-You will need to make sure you have .NET 7 installed. As a workaround, you can point the .NET runtime acquisition extension to an existing .NET 7 install:
+You will need to make sure you have .NET SDK installed. As a workaround, you can point the .NET runtime acquisition extension to an existing .NET install:
 
-![Point the .NET runtime acquisition extension to an existing .NET 7 install](images/faq/point-dotnet-runtime-to-existing-dotnet-install.png)
+![Point the .NET runtime acquisition extension to an existing .NET SDK install](images/faq/point-dotnet-runtime-to-existing-dotnet-install.png)
 
 ### How do I manually install .NET?
 
-If .NET installation is failing or you want to reuse an existing installation of .NET, you can use the `dotnetAcquisitionExtension.existingDotnetPath` setting. .NET can be manually installed from the [.NET website](https://dotnet.microsoft.com/download). To direct the extension to that installation, update your settings with the extension ID and the path as illustrated below:
+If .NET installation is failing or you want to reuse an existing installation of .NET, you can use the `dotnetAcquisitionExtension.existingDotnetPath` setting. .NET can be manually installed from the **C# Dev Kit Walkthrough** or the [.NET website](https://dotnet.microsoft.com/download). To direct the extension to that installation, update your settings with the extension ID and the path as illustrated below:
 
 #### Windows
 
@@ -171,6 +183,12 @@ C# Dev Kit also requires that it has built your project successfully before test
 
 Once you have validated that your test project is part of the solution, build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or use `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
 
+If your tests are still not appearing, consider the following additional checks:
+- **Supported .NET Core SDK**: Ensure you are using a supported .NET Core SDK for your platform and machine. Some SDKs do not work on specific operating systems or architectures. For more information, check the official .NET download page: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download).
+- **Valid SDK installation**: Verify that a valid SDK installation is detected. You can [enable diagnostic logging](#how-do-i-collect-logs-for-troubleshooting-issues-with-test-explorer) to check which SDK is detected for your .NET project. Note that .NET SDKs installed via unsupported tools like ASDF or [Mise](https://mise.jdx.dev/) may not be detected, as they deviate from Microsoft’s official installation methods. We recommend following the [official instructions](https://dotnet.microsoft.com/en-us/download).
+- **Build output**: Confirm that the build is complete and has generated the corresponding output binaries, such as `.dll` or `.exe` files.
+- **Project loading**: Ensure all projects have finished loading. In the Solution Explorer, look for a test icon next to test projects to confirm they are detected.
+
 ### My tests appear in the Test Explorer panel, but I cannot debug them
 
 Make sure that your tests are targeting NET Core. C# Dev Kit does not support .NET Framework projects, although .NET Framework projects may load and appear to work. The debugger in VS Code does not support .NET Framework.
@@ -180,6 +198,35 @@ Make sure that your tests are targeting NET Core. C# Dev Kit does not support .N
 C# Dev Kit requires that it has built your project successfully before tests will appear in the Test Explorer panel.
 
 Build your solution by right-clicking on the solution in the Solution Explorer and select **Build** or `kb(workbench.action.tasks.build)`. Once the build has been completed, your tests will appear in the Test Explorer panel.
+
+### Why are my tests not being discovered or run in the Test Explorer?
+
+If your test project is using the Microsoft Testing Platform (MTP), either via MSTest, NUnit, xUnit v3, or the TUnit test framework, your tests might not be discovered or run in the Test Explorer because MTP differs from the traditional VSTest platform. To resolve this, you need to enable the "Use Testing Platform Protocol" setting in Visual Studio Code to allow the C# Dev Kit to communicate with MTP test projects.
+
+Follow these steps to enable the setting:
+1. Open Settings in VS Code: Go to **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`).
+2. In the Settings search bar, type "Test Window" to filter results.
+3. Find the setting Dotnet > Test Window: Use Testing Platform Protocol under the C# Dev Kit extension settings.
+4. Check the box to enable it (or toggle it to "On").
+5. Reload VS Code by running the **Reload Window** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+After enabling this setting, your tests should be discovered and run properly in the Test Explorer.
+
+### How do I collect logs for troubleshooting issues with Test Explorer?
+
+If you are encountering issues with Test Explorer, you can enable diagnostic logging to gather more information for troubleshooting:
+
+1. Increase Test Explorer verbosity:
+    Navigate to the C# Dev Kit settings and increase the Test Explorer Verbosity setting from `minimal` to `diagnostic`. This will generate more detailed logs.
+2. Check the Output Window:
+    Open the Output window in Visual Studio Code, and select **C# Dev Kit - Test Explorer** from the dropdown. Diagnostic messages will appear with a `[dev]` prefix.
+3. Collect the following information:
+   When reporting an issue, ensure you include:
+   - The diagnostic logs from the Output window.
+   - Your operating system and version (for example, Windows 10, macOS 13).
+   - The version of the C# Dev Kit extension you are using. Go to the Extensions view, and hover over the extension to view the version information.
+
+This information will help in diagnosing and resolving the issue more efficiently.
 
 ## Debugger
 

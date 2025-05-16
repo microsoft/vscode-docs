@@ -59,7 +59,7 @@ To fit more workflows, there are several options you can configure. If your flow
 
 You can watch this **What every GitHub user should know about VS Code** talk from [GitHub Satellite](https://githubsatellite.com) by Sana Ajani, [@sana_ajani](https://twitter.com/sana_ajani), and Burke Holland, [@burkeholland](https://twitter.com/burkeholland).
 
-<iframe src="https://www.youtube.com/embed/T6sW1Dk9B4E?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
 
 ---
 

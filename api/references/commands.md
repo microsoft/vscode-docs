@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -252,9 +252,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - An InlineValueContext
 * _(returns)_ - A promise that resolves to an array of InlineValue objects
 
-`vscode.open` - Opens the provided resource in the editor.
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use `vscode.window.showTextDocument` instead.
 
-* _Uri_ -
+* _uri_ - Uri of a text or binary file, or an http(s) URL
+* _columnOrOptions_ - (optional) Either the column in which to open, or editor options, see `vscode.TextDocumentShowOptions`
+* _label_ - Editor label (optional)
+* _(returns)_ - no result
 
 `vscode.openWith` - Opens the provided resource with a specific editor.
 
@@ -268,6 +271,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
 * _title_ - Human readable title for the diff editor
+* _options_ - (optional) Either the column in which to open, or editor options (see vscode.TextDocumentShowOptions)
+
+`vscode.changes` - Opens a list of resources in the changes editor to compare their contents.
+
+* _title_ - Human readable title for the changes editor
+* _resourceList_ - List of resources to compare
 
 `vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
 
@@ -358,6 +367,8 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
   * 'direction': If 'up', folds given number of levels up otherwise folds down.
   * 'selectionLines': Array of the start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
   If no levels or direction is set, folds the region at the locations or if already collapsed, the first uncollapsed parent instead.
+
+`editor.toggleFold` - Folds or unfolds the content in the editor depending on its current state
 
 `editor.actions.findWithArgs` - Open a new In-Editor Find Widget with specific options.
 

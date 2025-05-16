@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 05/02/2024
+DateApproved: 05/08/2025
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -35,7 +35,7 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 > **Tip:** You can trigger between different color modes by clicking on the color string at the top of the picker.
 
-You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
+You can hide VS Code's color previews by setting the following [setting](/docs/configure/settings.md):
 
 ```json
 "editor.colorDecorators": false
@@ -67,17 +67,17 @@ If you prefer to switch to indentation based folding for CSS, Less and SCSS, use
 
 ## Emmet snippets
 
-[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
+[Emmet abbreviation support](/docs/languages/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
+VS Code also supports [User Defined Snippets](/docs/editing/userdefinedsnippets.md).
 
 ## Syntax Verification & Linting
 
 There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/configure/settings.md) to false.
 >```json
 >"css.validate": false
 >```
@@ -100,7 +100,7 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 
 ## CSS custom data
 
-You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
+You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `setting(css.customData)` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
@@ -108,16 +108,16 @@ You can read more about using custom data in the [vscode-custom-data](https://gi
 
 The CSS Languages Features extension also provides a formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
 
-* `css.format.enable` - Enable/disable default CSS formatter.
-* `css.format.newlineBetweenRules` - Separate rulesets by a blank line.
-* `css.format.newlineBetweenSelectors` - Separate selectors with a new line.
-* `css.format.spaceAroundSelectorSeparator` - Ensure a space character around selector separators '>', '+', '~' (for example, `a > b`).
+* `setting(css.format.enable)` - Enable/disable default CSS formatter.
+* `setting(css.format.newlineBetweenRules)` - Separate rulesets by a blank line.
+* `setting(css.format.newlineBetweenSelectors)` - Separate selectors with a new line.
+* `setting(css.format.spaceAroundSelectorSeparator)` - Ensure a space character around selector separators '>', '+', '~' (for example, `a > b`).
 
 The same settings also exist for `less` and `scss`.
 
 ## Transpiling Sass and Less into CSS
 
-VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
+VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
 
 ### Step 1: Install a Sass or Less transpiler
 
@@ -283,7 +283,7 @@ What is happening here?
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to make things even more streamlined.
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list.
 
@@ -293,7 +293,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 ## Customizing CSS, SCSS and Less Settings
 
-You can configure the following lint warnings as [User and Workspace Settings](/docs/getstarted/settings.md).
+You can configure the following lint warnings as [User and Workspace Settings](/docs/configure/settings.md).
 
 The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
 
@@ -333,9 +333,9 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 
 Read on to find out about:
 
-* [Configure Tasks](/docs/editor/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Configure Tasks](/docs/debugtest/tasks.md) - Dig into Tasks to help you transpile your SCSS and Less to CSS.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
 
 ## Common questions
