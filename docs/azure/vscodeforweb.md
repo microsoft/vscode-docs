@@ -3,7 +3,7 @@ Order: 5
 Area: azure
 TOCTitle: VS Code for the Web - Azure
 PageTitle: Develop and Deploy Azure Applications with VS Code for the Web
-ContentId:
+ContentId: 442dd725-5d6c-4b88-9696-95d5ddf5b2b8
 MetaDescription: VS Code for the Web - Azure
 DateApproved: 05/12/2025
 ---
