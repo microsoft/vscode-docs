@@ -10,7 +10,7 @@ DateApproved: 05/12/2025
 
 # VS Code for the Web - Azure
 
-VS Code for the Web is a zero-install and browser-based version of Visual Studio Code. The `/azure` (for short) environment—accessible via <https://insiders.vscode.dev/azure> is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
+VS Code for the Web is a zero-install and browser-based version of Visual Studio Code. The `/azure` (for short) environment, accessible via <https://insiders.vscode.dev/azure>, is a dedicated space for Azure development, allowing you to run, debug, and deploy applications to Azure in seconds.
 
 Powered by [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), this environment offers up to **4 hours of compute time**, eliminating the need to manually configure dev environments or install dependencies. `/azure` comes preloaded with the latest libraries, extensions, and tools to get you coding instantly.
 
