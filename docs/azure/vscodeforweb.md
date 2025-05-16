@@ -190,4 +190,4 @@ Keep learning and exploring with the following resources:
 
 🤝 Feedback and Support
 
-Please create issues in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure) as you find them while using vscode.dev/azure. The more detail the better. If possible, please include logs from the "VS Code for the Web - Azure" output channel.
+Create issues in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure) as you find them while using vscode.dev/azure. The more detail the better. If possible, include logs from the "VS Code for the Web - Azure" output channel.
