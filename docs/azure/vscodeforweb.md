@@ -173,7 +173,7 @@ Once finished you should see this screen.
 ![Screenshot that shows Azure Cloudshell](images/vscodeforweb/tbs4.png)
 
 ### Gathering logs
-The extension logs will help us diagnose any issues with vscode.dev/azure. You can access them by going to the Output view, then selecting the "VS Code for the Web - Azure" output channel.
+The extension logs will help us diagnose any issues with vscode.dev/azure. You can access them by going to the Output view, then selecting the **VS Code for the Web - Azure** output channel.
 
 ![Screenshot that shows Logs](images/vscodeforweb/tbs5.png)
 
