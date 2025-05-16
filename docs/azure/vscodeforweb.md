@@ -14,7 +14,7 @@ VS Code for the Web is a zero-install and browser-based version of Visual Studio
 
 Powered by [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview), this environment offers up to **4 hours of compute time**, eliminating the need to manually configure dev environments or install dependencies. `/azure` comes preloaded with the latest libraries, extensions, and tools to get you coding instantly.
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qmJigVn8gcg&themeRefresh=1" title="Announcing VS Code for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qmJigVn8gcg?si=1NTRy3uSohVrqY1e" title="Announcing VS Code for the Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting started
 
