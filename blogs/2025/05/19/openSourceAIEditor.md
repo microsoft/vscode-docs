@@ -12,9 +12,9 @@ Author: The VS Code team
 
 May 19th, 2025 by the VS Code team
 
-We believe that future of code editors should be open and powered by AI. For the last decade, VS Code has been one of the [most successful OSS projects on GitHub](https://github.blog/news-insights/octoverse/octoverse-2024/). We are grateful for our vibrant community of contributors and users who choose VS Code because it is open source. As AI has become core to the developer experience in VS Code, we intend to stay true to our founding development principles: open, collaborative, and community-driven.
+We believe that future of code editors should be open and powered by AI. For the last decade, VS Code has been one of the [most successful OSS projects on GitHub](https://github.blog/news-insights/octoverse/octoverse-2024/#the-state-of-open-source). We are grateful for our vibrant community of contributors and users who choose VS Code because it is open source. As AI has become core to the developer experience in VS Code, we intend to stay true to our founding development principles: open, collaborative, and community-driven.
 
-We will open source the code of the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) under the MIT license, then carefully refactor the relevant components of the extension into VS Code core. It’s the next step towards making **VS Code an open source AI editor**. This is a logical step for us: it’s a reflection that AI-powered tools are core to how we write code and a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
+We will open source the code in the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) under the MIT license, then carefully refactor the relevant components of the extension into VS Code core. It’s the next step towards making **VS Code an open source AI editor**. This is a logical step for us: it’s a reflection that AI-powered tools are core to how we write code and a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
 
 ## Why open source now?
 
@@ -28,7 +28,7 @@ Over the last few months, we’ve observed shifts in AI development that motivat
 
 ## Next steps
 
-In the coming weeks, we will work to open source the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and refactor AI features from the extension into VS Code core. Our core priorities remain intact: delivering great performance, powerful extensibility, and an intuitive, beautiful user interface.
+In the coming weeks, we will work to open source the code in the [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) and refactor AI features from the extension into VS Code core. Our core priorities remain intact: delivering great performance, powerful extensibility, and an intuitive, beautiful user interface.
 
 Open source works best when communities build around a stable, shared foundation. Thus, our goal is to make contributing AI features as simple as contributing to any part of VS Code. The stochastic nature of large language models makes it especially challenging to test AI features and prompt changes. To ease this, we will also make our prompt test infrastructure open source to ensure that community PRs can build and pass tests.
 
