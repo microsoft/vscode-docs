@@ -48,7 +48,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. If you created a python app with `hello.py` according to the [Getting Started with Python](/docs/python/python-tutorial) tutorial, choose that.
 
-   **Django**: Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project).
+   **Django**: Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-project).
 
    **Flask**: Choose the path to where you create your Flask instance. See the [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/).
 
