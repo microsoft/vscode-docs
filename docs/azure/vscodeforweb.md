@@ -116,7 +116,7 @@ In the bottom right corner, you’ll see that the API key is set in the terminal
 
 ![Screenshot that shows azd up](images/vscodeforweb/fifteenth.png)
 
-10. Continue in VS Code Desktop or GitHub Desktop by clicking on “Continue on Desktop” in the bottom left corner. This button allows you to move your workspace to your local environment with one-click. If you have a dev container attached to an existing application, you have the choice to move using that container or to move local.
+10. Continue in VS Code on the desktop or GitHub Desktop by selecting “Continue on Desktop” in the bottom left corner. This button allows you to move your workspace to your local environment in one operation. If you have a dev container attached to an existing application, you have the choice to move using that container or to your local environment.
 
 ![Screenshot that shows Continue On button](images/vscodeforweb/sixteenth.png)
 
