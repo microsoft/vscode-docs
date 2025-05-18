@@ -158,7 +158,7 @@ If you see a prompt asking "What type of account did you use to start this tunne
 ![Screenshot that shows Account Type](images/vscodeforweb/tbs1.png)
 
 ### Connection issue
-If you're unable to connect to insiders.vscode.dev/azure, you can usually fix it by resetting your Azure Cloud Shell. This can be done from the Azure Portal.
+If you're unable to connect to <https://insiders.vscode.dev/azure>, you can usually fix it by resetting your Azure Cloud Shell. This can be done from the Azure Portal.
 
 Open Cloud Shell in the Azure Portal using the button in the top right corner.
 
