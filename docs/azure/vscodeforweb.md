@@ -38,7 +38,7 @@ All major runtimes are pre-installed:
 
 Seamlessly commit your changes directly to your GitHub repository using the [GitHub Repository extension](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub). GitHub Repositories allows you to remotely browse and edit a repository from within the editor, without needing to pull code onto your local machine. You can learn more about the extension and how it works in our [GitHub Repositories guide](https://code.visualstudio.com/docs/sourcecontrol/github#_github-repositories-extension).
 
-### Continue Working in VS Code Desktop
+### Continue working in VS Code on the desktop
 
 After the Azure Cloudshell container time is up, you may want to continue your work in VS Code Desktop. Use the Continue Working on button, located in the status bar of VS Code for the Web, to commit your code to a chosen repository in GitHub, and move over to your local environment.
 
