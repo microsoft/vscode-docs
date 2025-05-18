@@ -46,7 +46,7 @@ Within this experience, you have two options for local continuation:
 * **Using Docker**: Launch a pre-configured development container.
 * **Using VS Code Locally**: Clone the repo and configure your environment using a README.
 
-## Azure Entry Points
+## Azure entry points
 
 The `/azure` experience integrates with Azure AI Foundry to bring code closer to developers. Buttons like **“Open in VS Code for the Web”** are available directly within environments like the **Chat Playground** and **Agent Playground**. See more in the Sample use cases or scenarios section.
 
