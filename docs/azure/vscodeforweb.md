@@ -96,7 +96,7 @@ There, you can see multi-lingual code samples in Python, C#, and JavaScript for 
 
 ![Screenshot that shows Open in VS Code button](images/vscodeforweb/sixth.png)
 
-You’ll notice that as the environment is set-up, the code sample, API endpoint, and key are automatically imported into a new VS Code for Web workspace.
+You’ll notice that as the environment is set up, the code sample, API endpoint, and key are automatically imported into a new VS Code for the Web workspace.
 
 ![Screenshot that shows loading dial](images/vscodeforweb/seventh.png)
 
