@@ -112,7 +112,7 @@ In the bottom right corner, you’ll see that the API key is set in the terminal
 
 ![Screenshot that shows azd init](images/vscodeforweb/fourteenth.png)
 
-9. `azd up` provisions the web app in creating the relevant Azure resources. Once done, you can see your application running in the browser by clicking the link provided in the terminal
+9. `azd up` provisions the web app in creating the relevant Azure resources. Once done, you can see your application running in the browser by selecting the link provided in the terminal
 
 ![Screenshot that shows azd up](images/vscodeforweb/fifteenth.png)
 
