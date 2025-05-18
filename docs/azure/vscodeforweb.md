@@ -142,7 +142,7 @@ Key features:
 
 ## 🔧 Limitations
 
-Although VS Code for the Web is almost at parity with VS Code Desktop, there are some limitations to the development environment:
+Although VS Code for the Web is almost at parity with VS Code on the desktop, there are some limitations to the development environment:
 
 * No terminal access beyond Cloud Shell
 * Limited support for some native extensions or language features
