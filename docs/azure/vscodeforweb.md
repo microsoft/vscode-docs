@@ -84,7 +84,7 @@ The following are commonly used scenarios for the `\azure` environment.
 
 4. Iterate on your sample prompt and continue experimentation in the agents playground.
 
-5. Once happy, click the View Code button to see the contextual code sample for your interaction with the agent in the agents playground.
+5. Once happy, select the **View Code** button to see the contextual code sample for your interaction with the agent in the agents playground.
 
 ![Screenshot that shows view code button](images/vscodeforweb/fourth.png)
 
