@@ -92,7 +92,7 @@ There, you can see multi-lingual code samples in Python, C#, and JavaScript for 
 
 ![Screenshot that shows EntraID auth](images/vscodeforweb/fifth.png)
 
-6. When ready, click Open in VS Code and be redirected to the /azure environment of VS Code for Web.
+6. When ready, select **Open in VS Code** and be redirected to the /azure environment of VS Code for the Web.
 
 ![Screenshot that shows Open in VS Code button](images/vscodeforweb/sixth.png)
 
