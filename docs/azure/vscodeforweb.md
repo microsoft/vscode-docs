@@ -56,7 +56,7 @@ To get started:
 3. Select **View Code**, and then select your programming language and SDK.
 4. Launch directly into VS Code using the **Open in VS Code** button for the Web with **one click**.
 
-Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and click on **Open in VS Code** to launch their template in one-click to the `/azure` environment.
+Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and select **Open in VS Code** to launch their template in one operation to the `/azure` environment.
 
 To get started:
 1. Navigate to the AI App Gallery(https://aka.ms/aiapps)
