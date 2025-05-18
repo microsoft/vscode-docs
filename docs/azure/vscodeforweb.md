@@ -61,7 +61,7 @@ Additionally, developers can get started with templates using the AI App Gallery
 To get started:
 1. Navigate to the AI App Gallery(https://aka.ms/aiapps)
 2. Choose a template or search for a template you'd like to run
-3. Click **Open in VS Code** from the drop down menu
+3. Select **Open in VS Code** from the dropdown menu
 4. Launch directly into VS Code and use GitHub Copilot to answer any questions you might have.
 
 ## 🧪 Sample use cases or scenarios
