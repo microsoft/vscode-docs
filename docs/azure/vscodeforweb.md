@@ -150,7 +150,7 @@ Although VS Code for the Web is almost at parity with VS Code Desktop, there are
 
 ## 🛠️ Troubleshooting
 
-If you encounter any issues with VS Code for the Web – Azure, please log an issue at in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure)
+If you encounter any issues with VS Code for the Web – Azure, please log an issue in our [GitHub repository](https://github.com/microsoft/vscode-dev-azure)
 
 ### Account type prompt issue
 If you see a prompt asking "What type of account did you use to start this tunnel?" then it's likely that you're on vscode.dev/azure and not insiders.vscode.dev/azure. Currently this product is only available on Insiders. To fix this, navigate to <https://insiders.vscode.dev/azure>.
