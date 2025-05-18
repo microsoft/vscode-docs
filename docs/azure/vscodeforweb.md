@@ -125,7 +125,7 @@ In the bottom right corner, you’ll see that the API key is set in the terminal
 The above quick start is applicable to vscode.dev/azure since vscode.dev/azure covers all of the prerequisites:
 - Python installed
 - Azure Functions Core Tools installed
-- Users will need to install these themselves:
+- You need to install these yourself:
 - Azure Functions extension
 
 * [Building and testing an AI agent using the Azure AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/overview)
