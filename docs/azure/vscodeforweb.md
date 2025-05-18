@@ -40,7 +40,7 @@ Seamlessly commit your changes directly to your GitHub repository using the [Git
 
 ### Continue working in VS Code on the desktop
 
-After the Azure Cloudshell container time is up, you may want to continue your work in VS Code Desktop. Use the Continue Working on button, located in the status bar of VS Code for the Web, to commit your code to a chosen repository in GitHub, and move over to your local environment.
+After the Azure Cloud Shell container time is up, you may want to continue your work in VS Code on the desktop. Use the **Continue Working on** button, located in the Status Bar of VS Code for the Web, to commit your code to a chosen repository in GitHub, and move over to your local environment.
 
 Within this experience, you have two options for local continuation:
 * **Using Docker**: Launch a pre-configured development container.
