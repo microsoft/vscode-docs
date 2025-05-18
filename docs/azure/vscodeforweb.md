@@ -53,7 +53,7 @@ The `/azure` experience integrates with Azure AI Foundry to bring code closer to
 To get started:
 1. Choose a model.
 2. Build and test your agent.
-3. Click **View Code**, select your programming language and SDK.
+3. Select **View Code**, and then select your programming language and SDK.
 4. Launch directly into VS Code using the **Open in VS Code** button for the Web with **one click**.
 
 Additionally, developers can get started with templates using the AI App Gallery(https://aka.ms/aiapps) and click on **Open in VS Code** to launch their template in one-click to the `/azure` environment.
