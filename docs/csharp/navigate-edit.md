@@ -54,3 +54,11 @@ With [smart selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 * To expand the selection, use `kb(editor.action.smartSelect.expand)`
 * To shrink the selection, use `kb(editor.action.smartSelect.shrink)`
+
+## Inlay hints
+
+Inlay hints are subtle annotations that appear inline in your code to provide additional context about your code elements. In C#, these hints can show parameter names at call sites, type information for variables, and other helpful details that make your code more readable without having to navigate to the definition. These hints can be particularly helpful when working with methods that have multiple parameters or when type inference makes it less obvious what type a variable is.
+
+![Inlay hints examples](images/navigate-edit/inlay-hints.png)
+
+To change which inlay hints you want to enable or disable view the `setting(csharp.inlayHints)` settings.
