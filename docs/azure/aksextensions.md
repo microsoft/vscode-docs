@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: azure
 TOCTitle: Azure Kubernetes Service
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
