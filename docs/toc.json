@@ -352,7 +352,19 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
-      ["FAQ", "/docs/intelligentapps/faq"]
+      ["FAQ", "/docs/intelligentapps/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "intelligentapps/reference",
+        "topics": [
+          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
+          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
+          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+        ]
+      }
+      ]
     ]
   },
   {
