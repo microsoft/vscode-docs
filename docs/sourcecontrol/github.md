@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Collaborate on GitHub
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -239,7 +239,7 @@ Sometimes you'll want to switch to working on a repository in a development envi
 
 * Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
 * Clone the repository locally.
-* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed).
 
 To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
 

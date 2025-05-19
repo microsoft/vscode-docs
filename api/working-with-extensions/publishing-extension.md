@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -104,7 +104,7 @@ To create a publisher:
     - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
     - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
 
-    Below is an example of publisher identifier and name for the Docker extension:
+    Below is an example of publisher identifier and name for the Python extension:
 
     ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
 

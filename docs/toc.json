@@ -145,8 +145,9 @@
         "name": "Guides",
         "area": "copilot/guides",
         "topics": [
-          ["Test with Copilot", "/docs/copilot/guides/test-with-copilot"],
-          ["Debug with Copilot", "/docs/copilot/guides/debug-with-copilot"]
+          ["Edit notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
+          ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
+          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"]
         ]
       }
       ],
@@ -281,7 +282,7 @@
       ["Debugging", "/docs/cpp/cpp-debug"],
       ["Configure Debugging", "/docs/cpp/launch-json-reference"],
       ["Refactoring", "/docs/cpp/cpp-refactoring"],
-      ["Settings", "/docs/cpp/customize-default-settings-cpp"],
+      ["Settings Reference", "/docs/cpp/customize-cpp-settings"],
       ["Configure IntelliSense", "/docs/cpp/configure-intellisense"],
       ["Configure IntelliSense for Cross-Compiling", "/docs/cpp/configure-intellisense-crosscompilation"],
       ["FAQ", "/docs/cpp/faq-cpp"]
@@ -306,7 +307,7 @@
     ]
   },
   {
-    "name": "Docker",
+    "name": "Container Tools",
     "area": "containers",
     "topics": [
       ["Overview", "/docs/containers/overview"],
@@ -346,7 +347,7 @@
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
-      ["Prompt Builder", "/docs/intelligentapps/promptbuilder"],
+      ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
@@ -360,8 +361,10 @@
     "topics": [
       ["Overview", "/docs/azure/overview"],
       ["Getting Started", "/docs/azure/gettingstarted"],
+      ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
-      ["Docker", "/docs/azure/docker"],
+      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
+      ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
       ["MongoDB", "/docs/azure/mongodb"],

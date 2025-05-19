@@ -1,6 +1,6 @@
 ---
 ContentId: 7c550054-4ade-4665-b368-215798c48673
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -11,6 +11,11 @@ Model Context Protocol (MCP) is an open standard that enables AI models to inter
 
 > [!NOTE]
 > MCP support in agent mode in VS Code is currently in preview.
+
+## Prerequisites
+
+* Install the latest version of [Visual Studio Code](/download)
+* Access to [Copilot](/docs/copilot/setup.md)
 
 ## What is MCP?
 
@@ -28,7 +33,7 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`) and server-sent events (`sse`) for MCP server transport. Currently of the [3 primitives](https://github.com/modelcontextprotocol/specification/blob/main/docs/specification/2025-03-26/server/_index.md) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -36,15 +41,40 @@ MCP's [official server repository](https://github.com/modelcontextprotocol/serve
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
 
+## Enable MCP support in VS Code
+
+> [!NOTE]
+> MCP support in agent mode in VS Code is currently in preview.
+
+MCP support is available starting in VS Code release 1.99. To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting. This setting is enabled by default.
+
 ## Add an MCP server
 
-To add an MCP server to your workspace, follow these steps (see below for how to add a server to your user settings):
+You have multiple options to add an MCP server in VS Code:
 
-1. Configure an MCP server in the `.vscode/mcp.json` file in your workspace to share configurations with project collaborators. Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
+- **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
+- **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
+- **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
-    Create a `.vscode/mcp.json` file in your workspace and select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
+> [!CAUTION]
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
 
-    Alternatively, run the **MCP: Add Server** command from the Command Palette and provide the server information to add a new MCP server configuration. Choose **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
+To view and manage the list of configured MCP servers, run the **MCP: List Servers** command from the Command Palette.
+
+After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
+
+### Add an MCP server to your workspace
+
+To configure an MCP server for a specific workspace, you can create a `.vscode/mcp.json` file in your workspace folder. This allows you to share the server configuration with project team members.
+
+> [!IMPORTANT]
+> Make sure to avoid hardcoding sensitive information like API keys and other credentials by using input variables or environment files.
+
+To add an MCP server to your workspace:
+
+1. Create a `.vscode/mcp.json` file in your workspace.
+
+1. Select the **Add Server** button to add a template for a new server. VS Code provides IntelliSense for the MCP server configuration file.
 
     The following example shows how to configure a [Perplexity MCP server](https://github.com/ppl-ai/modelcontextprotocol/), where VS Code prompts you for the API key when the server starts. Learn more about the [Configuration format](#configuration-format).
 
@@ -66,7 +96,7 @@ To add an MCP server to your workspace, follow these steps (see below for how to
                 "command": "npx",
                 "args": [
                     "-y",
-                    "@modelcontextprotocol/server-perplexity-ask"
+                    "server-perplexity-ask"
                 ],
                 "env": {
                     "PERPLEXITY_API_KEY": "${input:perplexity-key}"
@@ -76,22 +106,52 @@ To add an MCP server to your workspace, follow these steps (see below for how to
     }
     ```
 
-1. Optionally, specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
-    If you use the **MCP: Add Server** command from the Command Palette, choose **User Settings** to add a new MCP server configuration in user settings.
+> [!IMPORTANT]
+> Follow the naming conventions for the server, as specified in the [Configuration format](#configuration-format) section.
 
-1. VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
-Enable auto-discovery with the `setting(chat.mcp.discovery.enabled)` setting.
+### Add an MCP server to your user settings
 
-1. Run the **MCP: List Servers** command from the Command Palette to view and manage the configured MCP servers.
+To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
+
+Specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+
+```json
+// settings.json
+{
+    "mcp": {
+        "servers": {
+            "my-mcp-server": {
+                "type": "stdio",
+                "command": "my-command",
+                "args": []
+            }
+        }
+    },
+}
+```
+
+Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **User Settings** to add the server configuration to your user settings.
+
+### Automatic discovery of MCP servers
+
+VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
+
+Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
 
 ## Configuration format
 
 Use the following JSON configuration format to define MCP servers.
 
-- The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
+* The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
 
-    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list.
+    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list. Follow these naming conventions for the server name:
+
+    * Use camelCase for the server name, such as "uiTesting".
+    * Avoid using whitespace or special characters.
+    * Use a unique name for each server to avoid conflicts.
+    * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database".
 
     Provide the following fields in the server configuration. You can use [predefined variables](/docs/reference/variables-reference.md) in the server configuration, for example to refer to the workspace folder (`${workspaceFolder}`).
 
@@ -100,20 +160,20 @@ Use the following JSON configuration format to define MCP servers.
     | Field | Description | Examples |
     |-------|-------------|----------|
     | `type` | Server connection type.  | `"stdio"` |
-    | `command` | Command to start the server executable. | `"npx"`,`"node"`, `"python"`, `"docker"` |
+    | `command` | Command to start the server executable. The command needs to be available on your system path or contain its full path.<br/>If you use docker, don't use the detach option. | `"npx"`,`"node"`, `"python"`, `"docker"` |
     | `args` | Array of arguments passed to the command. | `["server.py", "--port", "3000"]` |
     | `env` | Environment variables for the server. | `{"API_KEY": "${input:api-key}"}` |
     | `envFile` | Path to an `.env` from which to load additional environment variables. | `"${workspaceFolder}/.env"` |
 
-    **Connect with `sse`:**
+    **Connect with `sse` or `http`:**
 
     | Field | Description | Examples |
     |-------|-------------|----------|
-    | `type` | Server connection type.  | `"sse"` |
-    | `url` | URL of the server (for `"type": "sse"`). | `"http://localhost:3000"` |
-    | `headers` | HTTP headers for the server (for `"type": "sse"`). | `{"API_KEY": "${input:api-key}"}` |
+    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"sse"`, `"http"` |
+    | `url` | URL of the server. | `"http://localhost:3000"` |
+    | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
-- The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
+* The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
     VS Code prompts you for these values when the server starts for the first time, and securely stores them for subsequent use. To avoid showing the typed value, set the `password` field to `true`.
 
@@ -227,15 +287,15 @@ code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-se
 VS Code also includes a URL handler that you can use to install an MCP server. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
 
 ```typescript
-// For Insiders, use `code-insiders` instead of `code`
-const link = `code:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
+// For Insiders, use `vscode-insiders` instead of `code`
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## Troubleshooting
 
-When VS Code encounters an issue with an MCP server, it shows a error indicator in the Chat view.
+When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
 ![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
 
@@ -262,6 +322,10 @@ Yes, you have several options to control which tools are active:
 - Select the **Tools** button in the Chat view when in agent mode, and toggle specific tools on/off as needed.
 - Add specific tools to your prompt by using the **Add Context** button or by typing `#`.
 - For more advanced control, you can use `.github/copilot-instructions.md` to fine-tune tool usage.
+
+### The MCP server is not starting when using Docker
+
+Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshooting)).
 
 ## Related resources
 

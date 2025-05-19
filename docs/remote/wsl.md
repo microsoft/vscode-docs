@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # Developing in WSL
 
@@ -203,9 +203,9 @@ Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://githu
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
-### Docker Extension limitations
+### Container Tools Extension limitations
 
-While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
+While the Container Tools extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
 
 ### Extension limitations
 
@@ -271,11 +271,11 @@ Once the server is up and running the proxy settings on the *Remote* tab are use
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
+For example, the setting below will force the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-docker": [ "ui" ],
+    "ms-azuretools.vscode-containers": [ "ui" ],
     "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```

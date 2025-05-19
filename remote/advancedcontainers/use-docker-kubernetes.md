@@ -5,13 +5,13 @@ TOCTitle: Use Docker or Kubernetes
 PageTitle: Use Docker or Kubernetes from a container
 ContentId: d324a29d-3f64-4331-9c34-a283719e9d7b
 MetaDescription: Use Docker or Kubernetes from a container
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 ---
 # Use Docker or Kubernetes from a container
 
 While you can build, deploy, and debug your application inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs and mounting your local Docker socket, you can build and deploy your app's container images from inside your dev container.
 
-Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
+Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
 See the following example Dev Container Templates for additional information on a specific scenario. To add them to your project, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 

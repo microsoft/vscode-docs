@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
 PageTitle: Visual Studio Code enterprise support
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---
@@ -49,8 +49,8 @@ The following JSON snippet shows examples of the different `extensions.allowed` 
     // Allow prettier extension
     "esbenp.prettier-vscode": true,
 
-    // Do not allow docker extension
-    "ms-azuretools.vscode-docker": false,
+    // Do not allow container tools extension
+    "ms-azuretools.vscode-containers": false,
 
     // Allow only version 3.0.0 of the eslint extension
     "dbaeumer.vscode-eslint": ["3.0.0"],
@@ -139,6 +139,7 @@ VS Code currently supports the following admin-controlled features:
 | `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` | 1.67 |
 | `TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` | 1.99 |
 | `EnableFeedback` | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` | 1.99 |
+| `ChatAgentMode` | Boolean that controls if chat agent is enabled or not | `chat.agent.enabled` | 1.99 |
 
 ### Group Policy on Windows
 

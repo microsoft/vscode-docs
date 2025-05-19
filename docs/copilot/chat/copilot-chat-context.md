@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -33,12 +33,9 @@ There are several ways to add context to your chat prompt:
 
 * Type the `#` character in your chat prompt to reference context by using chat variables.
 
-    For example, use `#selection` to add the current editor selection to your chat prompt, `#file` to add a workspace file, or `#sym` to add a symbol from the workspace.
+    For example, use `#selection` to add the current editor selection to your chat prompt, or `#<file name>` to add a workspace file from the workspace.
 
     ![Screenshot of VS Code Copilot Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
-
-    > [!TIP]
-    > Type `#` and use it as an IntelliSense trigger for selecting files or symbols.
 
 * Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Chat view.
 
@@ -59,7 +56,17 @@ Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(prev
 
 To let Copilot fetch content from a web page, for example to reference a documentation page, add the fetch tool to your prompt, followed by the URL of the page you want to fetch.
 
-To add the fetch tool, select **Add Context** and then **Fetch Web Page** from the Quick Pick. Alternatively, type `#fetch` in the chat prompt.
+To add the fetch tool, select **Add Context** > **Tools...** > **Fetch Web Page**. Alternatively, type `#fetch` in the chat prompt.
+
+![Screenshot of the Copilot Chat view, showing the fetch tool used to summarize the web page.](./images/copilot-chat/chat-fetch-web-page.png)
+
+## Perform a code search in a GitHub repository
+
+To let Copilot perform a code search and fetch content from a GitHub repository, for example to reference a documentation page, add the GitHub Repository tool to your prompt, followed by the path of the GitHub repository. For example, to perform a code search in the vscode repository `what is a global code snippet #githubRepo microsoft/vscode`.
+
+To add the GitHub Repository tool, type `#githubRepo` in the chat prompt, followed by the repository repository name (for example, `microsoft/vscode-docs`).
+
+![Screenshot of the Copilot Chat view, showing the GitHub Repository tool used to search for a code.](./images/copilot-chat/chat-fetch-github-repo.png)
 
 ## Add context for fixing problems
 
@@ -75,9 +82,30 @@ When you encounter issues in your code, or have failures when running tests, you
 
 * Select **Terminal Last Command** from the list of context types or type `#terminalLastCommand` to attach the output of the last command run in the terminal.
 
+## Add elements from the VS Code simple browser (Experimental)
+
+VS Code has a built-in simple browser that you can use to view and interact with a locally-hosted web application, for example to do quick testing and debugging of your web application.
+
+You can add elements from the Simple Browser window as context to your chat prompt. To do this:
+
+1. Make sure to enable selecting elements from the Simple Browser with the `setting(chat.sendElementsToChat.enabled)` setting.
+1. Run your web application locally.
+1. Open the Simple Browser view by running the **Simple Browser: Show** command from the Command Palette.
+1. Select the **Start** button to start selecting elements from the current page.
+1. Hover over the elements of the web page and click to add them to the chat prompt.
+
+    <video src="images/copilot-chat/simple-browser-select-element.mp4" title="Adding elements from the Simple Browser to the chat prompt" autoplay loop controls muted></video>
+
+    Notice that the selected element is added as context to the current chat prompt.
+
+You can configure which information is included in the context:
+
+* Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
+* Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
+
 ## Chat context types
 
-Copilot supports the following context types:
+Copilot supports the following chat context types:
 
 * Files - include specific files from your workspace in the prompt
 * Folders - add a folder to include the files in that folder in the prompt
@@ -87,6 +115,8 @@ Copilot supports the following context types:
 * Terminal command output - include the output of the last command run in the terminal
 * Problems - include a specific code issue from the Problems panel to the prompt
 * Test failures - include details from test failures in the prompt
+* Search results - include the results from the Search view in the prompt
+* Tools - include tools in the prompt, for example the `#fetch` tool or tools from extensions or MCP servers
 
 ## Related resources
 

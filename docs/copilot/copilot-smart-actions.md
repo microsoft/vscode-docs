@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 04/03/2025
+DateApproved: 05/08/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -19,6 +19,18 @@ Copilot can help generate commit messages and the PR title and description based
 When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
 
 ![Inline chat suggesting a new name for a symbol in a Python file](images/copilot-smart-actions/copilot-inline-chat-rename-suggestion.png)
+
+## Generate alt text for images in Markdown
+
+Use AI to generate or update alt text for images in Markdown files. To generate alt text:
+
+1. Open a Markdown file.
+1. Put the cursor on an image link.
+1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
+
+    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](images/copilot-smart-actions/generate-alt-text.png)
+
+1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
 
 ## Generate documentation
 
@@ -117,6 +129,12 @@ The Search view lists exact text matches across your files, in addition to match
 ![Search view showing semantic search results that are not an exact match for the search criteria.](images/copilot-smart-actions/semantic-search-results.png)
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
+
+## Settings suggestions (Experimental)
+
+In the Settings editor, you can get AI-generated suggestions for settings based on your search query. Enable this functionality by enabling the `setting(github.copilot.suggestSettings)` setting.
+
+![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
 
 ## Related content
 
