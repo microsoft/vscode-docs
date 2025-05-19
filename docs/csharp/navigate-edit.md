@@ -61,4 +61,4 @@ Inlay hints are subtle annotations that appear inline in your code to provide ad
 
 ![Inlay hints examples](images/navigate-edit/inlay-hints.png)
 
-To change which inlay hints you want to enable or disable view the `setting(csharp.inlayHints)` settings.
+To change which inlay hints you want to enable or disable, view the `setting(csharp.inlayHints)` settings.
