@@ -5,13 +5,16 @@ MetaDescription: Model Conversion Quickstart in AI Toolkit.
 ---
 
 # Convert a model with AI Toolkit for VS Code (Preview)
+
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
 ## Prerequisites
+
 - VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 - AI Toolkit extension must be installed. For more information, see [install AI Toolkit](./overview.md#install-and-setup)
 
 ## Create project
+
 Creating a project in model conversion is the first step toward converting, optimizing, quantizing and evaluating machine learning models.
 
 1. Launch model conversion
@@ -21,7 +24,7 @@ Creating a project in model conversion is the first step toward converting, opti
 2. Start a new project
 
     Select **New Model Project**.
-    ![Screenshot that shows view for creating model project, including primary sider bar and create project button.](./images/modelconversion/create_project_default.png)
+    ![Screenshot that shows view for creating model project, including Primary Side Bar and create project button.](./images/modelconversion/create_project_default.png)
 
 3. Choose a base model
     - `Hugging Face Model`: choose the base model with predefined recipes from the supported model list.
@@ -32,10 +35,10 @@ Creating a project in model conversion is the first step toward converting, opti
     Enter a unique **Project Location** and a **Project Name**. A new folder with the specified project name is created in the location you selected for storing the project files.
 
     - Select or create a folder as model project folder.
-    ![Screenshot that shows how to select workspace folder. It conatins a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
+    ![Screenshot that shows how to select workspace folder. It contains a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
 
-    - Enter model project name. Press `Enter`.
-    ![Screenshot that shows how to input project name. It conatins a input textbox.](./images/modelconversion/create_project_input_name.png)
+    - Enter model project name. Press `kbstyle(Enter)`.
+    ![Screenshot that shows how to input project name. It contains a input textbox.](./images/modelconversion/create_project_input_name.png)
 
 > Note:
 > - The first time you create a model project, it might take a while to set up the environment.
@@ -43,9 +46,11 @@ Creating a project in model conversion is the first step toward converting, opti
 > ![Screenshot that shows model readme.](./images/modelconversion/create_project_readme.png)
 
 ### Supported models
+
 Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format.
 
 #### LLM models
+
 | Model Name                             | Hugging Face Path                               |
 |----------------------------------------|-------------------------------------------------|
 | Qwen2.5 1.5B Instruct                  | `Qwen/Qwen2.5-1.5B-Instruct`                    |
@@ -54,17 +59,19 @@ Model Conversion currently supports a growing list of models, including top Hugg
 | Phi-3.5 Mini Instruct                  | `Phi-3.5-mini-instruct`                         |
 
 #### Non-LLM models
+
 | Model Name                             | Hugging Face Path                               |
 |----------------------------------------|-------------------------------------------------|
 | Intel BERT Base Uncased (MRPC)         | `Intel/bert-base-uncased-mrpc`                  |
 | BERT Multilingual Cased                | `google-bert/bert-base-multilingual-cased`      |
 | ViT Base Patch16-224                   | `google/vit-base-patch16-224`                   |
 | ResNet-50                              | `resnet-50`                                     |
-| CLIP ViT-B-32 (laion)                  | `laion/CLIP-ViT-B-32-laion2B-s34B-b79K`         |
+| CLIP ViT-B-32 (LAION)                  | `laion/CLIP-ViT-B-32-laion2B-s34B-b79K`         |
 | CLIP ViT Base Patch16                  | `clip-vit-base-patch16`                         |
 | CLIP ViT Base Patch32                  | `clip-vit-base-patch32`                         |
 
 ### (Optional) Add model into existing project
+
 - If you already opened the model project, select **Models** -> **Conversion**. Select **Add Models** on right panel. Or you need to open the model project and then select **Add Models** on the right panel.
 
     ![Screenshot that shows how to add model. It contains a button to add models.](./images/modelconversion/create_project_add_models.png)
@@ -73,6 +80,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 - A folder contains new model files will be created in current project folder.
 
 ### (Optional) Create a new model project
+
 - If you already opened the model project, select **Models** -> **Conversion**. On right panel, Select **New Project**.
 
   ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create_project_add_models.png)
@@ -81,21 +89,21 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
     Select or create a folder as model project folder.
 
-    Enter model project name. Press `Enter`.
+    Enter model project name. Press `kbstyle(Enter)`.
 
-    ![Screenshot that shows how to select project folder. It conatins a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
+    ![Screenshot that shows how to select project folder. It contains a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
 
-    ![Screenshot that shows how to input project name. It conatins a input textbox.](./images/modelconversion/create_project_input_name.png)
-
+    ![Screenshot that shows how to input project name. It contains a input textbox.](./images/modelconversion/create_project_input_name.png)
 
 ## Run workflow
-Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized onnx model.
+
+Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
 
 1. Open model project
     - Ensure that the model project is open. If it isn't, navigate to File -> Open Folder in VS Code to open the model project.
 
 2. Review workflow configuration
-    - Navigate to primary sider bar **Models**-> **Conversion**
+    - Navigate to Primary Side Bar **Models**-> **Conversion**
     - Select the workflow template to view the conversion recipe.
 
     ![Screenshot that shows running a workflow. There is a workflow configuration section containing Conversion, Quantization and Evaluation.](./images/modelconversion/Run.png)
@@ -118,15 +126,15 @@ Running a workflow in model conversion is the core step that transform the pre-b
       > Note:
       >
       > If your workflow uses a dataset that requires license agreement approval on Hugging Face (e.g., ImageNet-1k), you’ll be prompted to accept the terms on the dataset page before proceeding. This is required for legal compliance.
-      > 1. To get your Hugging Face Access Token, select button on poped out window.
+      > 1. Select the **HuggingFace Access Token** button to get your Hugging Face Access Token.
       >
-      >     ![Screenshot that shows input token step 1: start to get Huggingface Access Token.](./images/modelconversion/run_token_1.png)
+      >     ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run_token_1.png)
       >
-      > 2. Select open.
+      > 2. Select **Open** to open the Hugging Face website.
       >
-      >     ![Screenshot that shows input token step 2: open huggingface websites.](./images/modelconversion/run_token_2.png)
+      >     ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run_token_2.png)
       >
-      > 3. Get token on Hugging Face portal. Paste on the top window. Press `Enter`.
+      > 3. Get your token on Hugging Face portal and paste it Quick Pick. Press `kbstyle(Enter)`.
       >
       >     ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run_token_3.png)
 
@@ -155,10 +163,10 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - If the workflow configuration meet your needs, select **Run** to begin the job.
     - A default job name will be generated using the workflow name and timestamp (e.g., `bert_qdq_2025-05-06_20-45-00`) for easy tracking.
     - During the job running, you can **Cancel** the job by selecting on the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
-    -  **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+    - **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
 
 > Note:
-> - **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommaneded to uncheck this step if target system is not NPU.
+> - **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 > - **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
 >
 >   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](./reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
@@ -180,15 +188,18 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
 
 ## View results
+
 The History Board in **Conversion** is your central dashboard for tracking, reviewing, and managing all workflow runs. Each time you run a model conversion and evaluation, a new entry is created in the History Board—ensuring full traceability and reproducibility.
 
 - Find the workflow run that you want to review. Each run is listed with a status indicator (e.g. Succeeded, Cancelled)
 - Select the run name to view the conversion configurations
-- Select the **logs** under Status indicator to to view logs and detailed execution results
+- Select the **logs** under Status indicator to view logs and detailed execution results
 - Once the model converted successfully, you can view the evaluation results under Metrics. Metrics such as accuracy, latency and throughput are displayed alongside each run
+
 ![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
 
 ## Use sample notebook for model inference
+
 - Go to the History board. Select the three-dot menu under **Action**.
 
     Select **Inference in Samples** from the dropdown.
@@ -202,15 +213,16 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 - The sample will launch in a Jupyter Notebook. You can customize the input data or parameters to test different scenarios.
 
 > [!TIP]
->
 > **Model compatibility:** Ensure the converted model supports the specified EPs in the inference samples
 >
 > **Sample location:** Inference samples are stored alongside the run artifacts in the history folder.
 
 ## Export and share with others
-Go to the History board. Select **Export** to share the model project with others. This only copy the model project without history folder. If you want to share models with others, please select the corresponding jobs, This will copy the selected history folder conaining the model and its configuration.
+
+Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
 ## See also
+
 - [How to manually setup GPU conversion](./reference/ManualConversionOnGPU.md)
 - [How to manually setup environment](./reference/SetupWithoutAITK.md)
 - [How to customize model template](./reference/TemplateProject.md)
