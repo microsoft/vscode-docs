@@ -169,7 +169,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > - **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 > - **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
 >
->   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](./reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+>   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
 
 > [!TIP]
 > Tips for Re-evaluation
@@ -223,7 +223,7 @@ Go to the History board. Select **Export** to share the model project with other
 
 ## See also
 
-- [How to manually setup GPU conversion](./reference/ManualConversionOnGPU.md)
-- [How to manually setup environment](./reference/SetupWithoutAITK.md)
-- [How to customize model template](./reference/TemplateProject.md)
-- [Conversion file structure](./reference/FileStructure.md)
+- [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
+- [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
+- [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
+- [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)
