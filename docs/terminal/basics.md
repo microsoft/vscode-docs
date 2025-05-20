@@ -331,7 +331,7 @@ Start an inline chat directly in the terminal to get help with shell commands:
 
 When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
 
-For more information about using GitHub Copilot with the terminal, see [Inline Chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
+For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
 
 ### Terminal chat participant
 
