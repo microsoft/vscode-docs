@@ -316,7 +316,7 @@ You can also right-click on a terminal tab and select **Toggle Size to Content W
 
 If you have access to [GitHub Copilot](/docs/copilot/setup.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
 
-### Terminal Inline Chat
+### Terminal inline chat
 
 Start an inline chat directly in the terminal to get help with shell commands:
 
@@ -331,9 +331,11 @@ Start an inline chat directly in the terminal to get help with shell commands:
 
 When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
 
-### Terminal Chat Participant
+For more information about using GitHub Copilot with the terminal, see [Inline Chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
 
-Use the dedicated terminal participant in the Chat view:
+### Terminal chat participant
+
+Use the dedicated `@terminal` chat participant in ask mode in the Chat view:
 
 1. Open the Chat view (`kb(workbench.action.chat.open)`)
 2. Start your question with `@terminal` to direct it to the terminal participant
@@ -344,14 +346,12 @@ Examples:
 * `@terminal /explain top shell command`
 * `@terminal how to grep for patterns recursively`
 
-### Terminal Context in Chat
+### Reference terminal context in chat
 
-You can include terminal information as context in your Chat prompts:
+You can include terminal information as context in your chat prompts:
 
 * Use `#terminalSelection` to add selected text from the terminal to your chat prompt
 * Use `#terminalLastCommand` to include the last command you ran in the terminal
-
-For more information about using GitHub Copilot with the terminal, see [Inline Chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
 
 ## Next steps
 
