@@ -47,6 +47,10 @@ You can continue to use these extensions in VS Code!
 We love that the community is building extensions to make the developer experience in VS Code better.
 To improve the experience for other AI extensions, we're constantly adding APIs like the [Language Model](https://code.visualstudio.com/api/references/vscode-api#lm) API for directly calling language models from an extension, the [Tools](https://code.visualstudio.com/api/references/vscode-api#LanguageModelChatTool) API for interacting with language model tools and integrating with the built-in or your own agents, or the [Shell Execution](https://code.visualstudio.com/api/references/vscode-api#ShellExecution) API for running and interacting with terminal commands (particularly useful for agentic experiences). Going forward, we are planning to add even more APIs to meet the needs of extension authors.
 
+### Will this change anything about how you collect data?
+
+No, nothing is changing. By open sourcing GitHub Copilot Chat, we are making it fully transparent how we collect data and enable you to verify this in the source code. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
 ### How will the VS Code team prioritize between AI features and non-AI features in future releases?
 
 We believe that AI-powered tools are core to how we write code. We invest in both AI features and improving the core editor experience. This is also reflected in a 50/50% split of the team working on AI versus other features.
