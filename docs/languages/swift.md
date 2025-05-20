@@ -25,7 +25,7 @@ The Swift extension is designed to support the following projects:
 - Swift Package Manager projects (e.g. using a `Package.swift`)
 - Projects that can generate a `compile_commands.json` (e.g. using CMake)
 
-## Install the Extension
+## Install the extension
 
 1. First, install Swift. If you do not already have Swift installed on your system, see the
    [Getting Started Guide on Swift.org](https://www.swift.org/getting-started/).
@@ -36,7 +36,7 @@ The Swift extension is designed to support the following projects:
 
 ![Installing the swift-vscode extension from the extensions pane](images/swift/installation.png)
 
-## Creating a new Swift project
+## Create a new Swift project
 
 To create a new Swift project, you can use the `Swift: Create New Project...` command in
 the Swift extension to guide you through the process. You can find this command by opening
@@ -52,21 +52,21 @@ the Command Palette and following the instructions below.
 3. Give your project a name.
 4. Open the newly created project. You will be prompted to open the project in
    the current window, a new window, or add it to the current workspace. The
-   default behaviour can be configured by using the
+   default behavior can be configured by using the
    `swift.openAfterCreateNewProject` setting.
 
-## Language Features
+## Language features
 
 The Swift extension uses [SourceKit LSP](https://github.com/apple/sourcekit-lsp)
 to power language features. SourceKit LSP provides the following features in the
 editor. Use these links to see the VS Code documentation for each topic:
 
-- [Code completion](/docs/editor/intellisense.md)
-- [Go to definition](/docs/editor/editingevolved.md#go-to-definition)
-- [Find all references](/docs/editor/editingevolved.md#peek)
-- [Rename refactoring](/docs/editor/refactoring.md#rename-symbol)
-- [Diagnostics](/docs/editor/editingevolved.md#errors-warnings)
-- [Quick Fixes](/docs/editor/editingevolved.md#code-action)
+- [Code completion](/docs/editing/intellisense.md)
+- [Go to definition](/docs/editing/editingevolved.md#go-to-definition)
+- [Find all references](/docs/editing/editingevolved.md#peek)
+- [Rename refactoring](/docs/editing/refactoring.md#rename-symbol)
+- [Diagnostics](/docs/editing/editingevolved.md#errors--warnings)
+- [Quick Fixes](/docs/editing/editingevolved.md#code-action)
 
 SourceKit LSP also provides code actions to automate common tasks. Code actions in VS Code
 appear as a light bulb near the editor margin (see the below screenshot for an
@@ -79,15 +79,14 @@ which can include:
 
 ![Package swift actions](images/swift/package_actions.png)
 
-<div class="warning" markdown="1">
-Before language features can be used you must perform a `swift build` command on your
+> [!IMPORTANT]
+> Before language features can be used you must perform a `swift build` command on your
 project either on the command line or using a task in VS Code. This populates the index in sourcekit-lsp.
-</div>
 
-## Swift Tasks
+## Swift tasks
 
 Visual Studio Code provides tasks as a way to run external tools. See the
-[Integrate with External Tools via Tasks](/docs/editor/tasks.md)
+[Integrate with External Tools via Tasks](/docs/debugtest/tasks.md)
 documentation to learn more.
 
 The Swift extension provides some built-in tasks that you can use to build via
@@ -125,22 +124,20 @@ diagnostics from the previous build task.
 ## Debugging
 
 Visual Studio Code provides a rich debugging experience. See the
-[Debugging](/docs/editor/debugging.md) documentation for
+[Debugging](/docs/debugtest/debugging.md) documentation for
 more information.
 
 The Swift extension relies on the
 [Code-LLDB extension](https://github.com/vadimcn/vscode-lldb) to enable
 debugging support.
 
-<div class="warning" markdown="1">
-The Swift extension will prompt you to configure settings for LLDB the first
-time you launch VS Code. You will need to either apply the configuration
-globally (user settings) or to your workspace (workspace settings) for the
-debugger to work properly.
+> [!IMPORTANT]
+> The Swift extension will prompt you to configure settings for LLDB the first
+> time you launch VS Code. You will need to either apply the configuration
+> globally (user settings) or to your workspace (workspace settings) for the
+> debugger to work properly.
 
 ![Configure the Debugger](images/swift/configure-lldb.png)
-
-</div>
 
 By default, the extension creates a launch configuration for each executable
 target in your Swift package. You may configure these yourself by adding a
@@ -211,21 +208,19 @@ Swift Testing tests annotated with
 can be filtered in the Test Explorer using `@TestTarget:tagName`. You can then
 run or debug the filtered list of tests.
 
-<div class="warning" markdown="1">
-The Swift VS Code extension does not support running Swift Testing tests in Swift 5.10 or earlier.
-</div>
+> [!IMPORTANT]
+> The Swift VS Code extension does not support running Swift Testing tests in Swift 5.10 or earlier.
 
-## Advanced Toolchain Selection
+## Advanced toolchain selection
 
 The Swift extension automatically detects your installed Swift toolchain.
-However, it also provides a command called `Swift: Select Tooclhain...` which
+However, it also provides a command called `Swift: Select Toolchain...` which
 can be used to select between toolchains if you have multiple installed.
 
-<div class="warning" markdown="1">
-This is an advanced feature used to configure VS Code with a toolchain other
-than the default on your machine. It is recommended to use `xcode-select` on
-macOS or `swiftly` on Linux to switch between toolchains globally.
-</div>
+> [!IMPORTANT]
+> This is an advanced feature used to configure VS Code with a toolchain other
+> than the default on your machine. It is recommended to use `xcode-select` on
+> macOS or `swiftly` on Linux to switch between toolchains globally.
 
 You may be prompted to select where to configure this new path. Your options are
 to:

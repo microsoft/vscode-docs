@@ -191,7 +191,8 @@
       ["T-SQL", "/docs/languages/tsql"],
       ["C#", "/docs/languages/csharp"],
       [".NET", "/docs/languages/dotnet"],
-      ["Polyglot", "/docs/languages/polyglot"]
+      ["Polyglot", "/docs/languages/polyglot"],
+      ["Swift", "/docs/languages/swift"]
     ]
   },
   {
