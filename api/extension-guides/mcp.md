@@ -24,6 +24,8 @@ Instead of using MCP servers to extend the chat functionality, you can also [con
 
 To register an MCP server in your extension, use the `vscode.lm.registerMcpServerDefinitionProvider` API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers.md#configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
+Before calling this method, extensions must register the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider.
+
 The `McpServerDefinitionProvider` object has two properties:
 
 - `onDidChangeMcpServerDefinitions`: event that is triggered when the MCP server configurations change.
@@ -42,7 +44,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
     const didChangeEmitter = new vscode.EventEmitter<void>();
 
-    context.subscriptions.push(vscode.lm.registerMcpServerDefinitionProvider('exampleGist', {
+    context.subscriptions.push(vscode.lm.registerMcpServerDefinitionProvider('exampleProvider', {
         onDidChangeMcpServerDefinitions: didChangeEmitter.event,
         provideMcpServerDefinitions: async () => {
             let servers: vscode.McpServerDefinition[] = [];
@@ -76,6 +78,23 @@ export function activate(context: vscode.ExtensionContext) {
             return servers;
         }
     }));
+}
+```
+
+The `package.json` file should include the corresponding `contributes/mcpServerDefinitionProviders` section:
+
+```json
+{
+    ...
+    "contributes": {
+        "mcpServerDefinitionProviders": [
+            {
+                "id": "exampleProvider",
+                "label": "Example MCP Server Provider"
+            }
+        ]
+    }
+    ...
 }
 ```
 
