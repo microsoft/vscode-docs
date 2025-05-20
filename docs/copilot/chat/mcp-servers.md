@@ -41,7 +41,7 @@ MCP's [official server repository](https://github.com/modelcontextprotocol/serve
 
 In addition to the official repository, several community-maintained directories can help you discover a wider range of MCP servers:
 
-- [Glama MCP Servers Directory](https://glama.ai/mcp/servers) - A curated collection of MCP servers organized by functionality and use case
+- [Glama MCP Server Directory](https://glama.ai/mcp/servers) - A curated collection of MCP servers organized by functionality and use case
 - [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers/) - A GitHub repository listing community-contributed MCP servers with descriptions and examples
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
