@@ -327,7 +327,7 @@ Start an inline chat directly in the terminal to get help with shell commands:
    * "Show me how to undo the last git commit"
    * "Create a bash script to analyze log files"
 
-![Terminal inline chat helps you quickly get and run shell commands](/docs/copilot/chat/images/copilot-chat/terminal-chat-2.png)
+![Terminal inline chat helps you quickly get and run shell commands](../copilot/chat/images/copilot-chat/terminal-chat-2.png)
 
 When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
 
