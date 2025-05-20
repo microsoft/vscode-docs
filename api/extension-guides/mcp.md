@@ -11,7 +11,7 @@ MetaDescription: A guide to registering an MCP server in a VS Code extension.
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. Visual Studio Code can act as an MCP client, which enables users to [access MCP tools in agent mode](/docs/copilot/chat/mcp-servers.md). This article guides you through registering an MCP server in a VS Code extension.
 
-VS Code retrieves MCP server configurations from an `.vscode/mcp.json` file in the workspace, user settings, or can automatically discover them from other tools like Claude Desktop.
+VS Code retrieves MCP server configurations from `.vscode/mcp.json` files in workspace folders and the `mcp` section of workspace, remote, and user settings. It can also automatically discover them from other tools' configuration, including Claude Desktop.
 
 VS Code extensions can also register MCP server configurations programmatically to avoid that users need to manually configure them. This is useful if you already have an MCP server and want to register it as part of your extension activation, or if your extension has a dependency on an MCP server.
 
