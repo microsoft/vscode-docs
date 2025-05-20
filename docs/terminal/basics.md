@@ -312,7 +312,7 @@ The **Terminal: Set Fixed Dimensions** command allows changing the number of col
 
 You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
-## GitHub Copilot in the Terminal
+## GitHub Copilot in the terminal
 
 If you have access to [GitHub Copilot](/docs/copilot/setup.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
 
@@ -327,7 +327,7 @@ Start an inline chat directly in the terminal to get help with shell commands:
    * "Show me how to undo the last git commit"
    * "Create a bash script to analyze log files"
 
-![Terminal inline chat helps you quickly get and run shell commands](../copilot/chat/images/copilot-chat/terminal-chat-2.png)
+![Terminal inline chat helps you quickly get and run shell commands](./images/basics/terminal-chat-2.png)
 
 When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
 
