@@ -11,38 +11,32 @@ Model conversion is an integrated development environment designed to help devel
 ## Prerequisites
 
 - VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
-- AI Toolkit extension must be installed. For more information, see [install AI Toolkit](./overview.md#install-and-setup)
+- AI Toolkit extension must be installed. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
 ## Create project
 
 Creating a project in model conversion is the first step toward converting, optimizing, quantizing and evaluating machine learning models.
 
-1. Launch model conversion
+1. Open the AI Toolkit view, and select **Models** > **Conversion** to launch model conversion
 
-    Select **Models** in the AI Toolkit view, and then select **Conversion**.
+2. Start a new project by selecting **New Model Project**
 
-2. Start a new project
-
-    Select **New Model Project**.
     ![Screenshot that shows view for creating model project, including Primary Side Bar and create project button.](./images/modelconversion/create_project_default.png)
 
 3. Choose a base model
     - `Hugging Face Model`: choose the base model with predefined recipes from the supported model list.
-    - Or `Model Template` : if the model is not included in the base model, select an empty template for your customized recipes (advanced scenario).
+    - `Model Template` : if the model is not included in the base model, select an empty template for your customized recipes (advanced scenario).
+
     ![Screenshot that shows model list, such as bert, resnet, llama and so on.](./images/modelconversion/create_project_model_list.png)
 
-4. Enter project details
-    Enter a unique **Project Location** and a **Project Name**. A new folder with the specified project name is created in the location you selected for storing the project files.
+4. Enter project details: a unique **Project Folder** and a **Project Name**.
 
-    - Select or create a folder as model project folder.
-    ![Screenshot that shows how to select workspace folder. It contains a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
+    A new folder with the specified project name is created in the location you selected for storing the project files.
 
-    - Enter model project name. Press `kbstyle(Enter)`.
-    ![Screenshot that shows how to input project name. It contains a input textbox.](./images/modelconversion/create_project_input_name.png)
-
-> Note:
-> - The first time you create a model project, it might take a while to set up the environment.
-> - **ReadMe Access**: A README file is included in each project. If you close it, you can reopen it via the workspace.
+> [!NOTE]
+> The first time you create a model project, it might take a while to set up the environment.
+>
+> A `README.md` file is included in each project. If you close it, you can reopen it via the workspace.
 > ![Screenshot that shows model readme.](./images/modelconversion/create_project_readme.png)
 
 ### Supported models
@@ -72,39 +66,36 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 ### (Optional) Add model into existing project
 
-- If you already opened the model project, select **Models** -> **Conversion**. Select **Add Models** on right panel. Or you need to open the model project and then select **Add Models** on the right panel.
+1. Open the model project
+
+1. Select **Models** > **Conversion**, and then select **Add Models** on the right panel.
 
     ![Screenshot that shows how to add model. It contains a button to add models.](./images/modelconversion/create_project_add_models.png)
 
-- Choose a base model or template . Select **Add**.
-- A folder contains new model files will be created in current project folder.
+1. Choose a base model or template, and then select **Add**.
+
+    A folder containing the new model files is created in the current project folder.
 
 ### (Optional) Create a new model project
 
-- If you already opened the model project, select **Models** -> **Conversion**. On right panel, Select **New Project**.
+1. Open the model project
 
-  ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create_project_add_models.png)
+1. Select **Models** > **Conversion**, and then select **New Project** on the right panel.
 
-- Alternatively, you can close model project and [create project](#create-project) from beginning.
+    ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create_project_add_models.png)
 
-    Select or create a folder as model project folder.
-
-    Enter model project name. Press `kbstyle(Enter)`.
-
-    ![Screenshot that shows how to select project folder. It contains a dropdown window with selection.](./images/modelconversion/create_project_select_folder.png)
-
-    ![Screenshot that shows how to input project name. It contains a input textbox.](./images/modelconversion/create_project_input_name.png)
+1. Alternatively, close the current model project and [create a new project](#create-project) from the start.
 
 ## Run workflow
 
 Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
 
-1. Open model project
-    - Ensure that the model project is open. If it isn't, navigate to File -> Open Folder in VS Code to open the model project.
+1. Select **File** > **Open Folder** in VS Code to open the model project folder.
 
-2. Review workflow configuration
-    - Navigate to Primary Side Bar **Models**-> **Conversion**
-    - Select the workflow template to view the conversion recipe.
+2. Review the workflow configuration
+
+    1. Select **Models** > **Conversion**
+    1. Select the workflow template to view the conversion recipe.
 
     ![Screenshot that shows running a workflow. There is a workflow configuration section containing Conversion, Quantization and Evaluation.](./images/modelconversion/Run.png)
 
@@ -114,7 +105,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     **Quantization**
 
-    In this section, you could configure the parameters for quantization.
+    This section enables you to configure the parameters for quantization.
 
     > [!Important]
     > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are **enabled** and that you accept the required licenses.
@@ -123,20 +114,19 @@ Running a workflow in model conversion is the core step that transform the pre-b
     - **Activation Type**: this is the data type used to represent the intermediate outputs (activations) of each layer in the neural network.
     - **Weight Type**: this is the data type used to represent the learned parameters (weights) of the model.
     - **Quantization Dataset**: calibration dataset used for quantization.
-      > Note:
-      >
-      > If your workflow uses a dataset that requires license agreement approval on Hugging Face (e.g., ImageNet-1k), you’ll be prompted to accept the terms on the dataset page before proceeding. This is required for legal compliance.
-      > 1. Select the **HuggingFace Access Token** button to get your Hugging Face Access Token.
-      >
-      >     ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run_token_1.png)
-      >
-      > 2. Select **Open** to open the Hugging Face website.
-      >
-      >     ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run_token_2.png)
-      >
-      > 3. Get your token on Hugging Face portal and paste it Quick Pick. Press `kbstyle(Enter)`.
-      >
-      >     ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run_token_3.png)
+
+      If your workflow uses a dataset that requires license agreement approval on Hugging Face (e.g., ImageNet-1k), you’ll be prompted to accept the terms on the dataset page before proceeding. This is required for legal compliance.
+
+      1. Select the **HuggingFace Access Token** button to get your Hugging Face Access Token.
+
+          ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run_token_1.png)
+      2. Select **Open** to open the Hugging Face website.
+
+          ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run_token_2.png)
+
+      3. Get your token on Hugging Face portal and paste it Quick Pick. Press `kbstyle(Enter)`.
+
+          ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run_token_3.png)
 
     - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
@@ -159,33 +149,34 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
 
-3. Run the workflow
-    - If the workflow configuration meet your needs, select **Run** to begin the job.
-    - A default job name will be generated using the workflow name and timestamp (e.g., `bert_qdq_2025-05-06_20-45-00`) for easy tracking.
-    - During the job running, you can **Cancel** the job by selecting on the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
-    - **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+3. Run the workflow by selecting **Run**
 
-> Note:
-> - **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
-> - **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
->
->   If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+    A default job name is generated using the workflow name and timestamp (e.g., `bert_qdq_2025-05-06_20-45-00`) for easy tracking.
 
-> [!TIP]
-> Tips for Re-evaluation
->
-> After a model has been successfully converted, you could use the re-evaluate function to perform evaluation again without the model conversion.
->
-> Go to the History board and find the model run job. Select the three-dot menu under **Action** to **Re-evaluate** the model.
->
-> You can choose the different EPs or datasets for re-evaluation
->
-> ![Screenshot that shows re-evaluation. It contains configurations such as name, system and datasets settings.](./images/modelconversion/Re-evaluate.png)
+    During the job running, you can **Cancel** the job by selecting the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
 
-> [!TIP]
-> Tips for failed job
+    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+
+> [!NOTE]
+> **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
-> If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
+> **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
+>
+> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+
+### Tips for re-evaluation
+
+After a model has been successfully converted, you could use the re-evaluate function to perform evaluation again without the model conversion.
+
+Go to the History board and find the model run job. Select the three-dot menu under **Action** to **Re-evaluate** the model.
+
+You can choose the different EPs or datasets for re-evaluation
+
+![Screenshot that shows re-evaluation. It contains configurations such as name, system and datasets settings.](./images/modelconversion/Re-evaluate.png)
+
+### Tips for failed jobs
+
+If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
 
 ## View results
 
