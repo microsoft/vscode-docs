@@ -44,9 +44,11 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 ## Enable MCP support in VS Code
 
 > [!NOTE]
-> MCP support in agent mode in VS Code is currently in preview.
+> MCP support in agent mode in VS Code is available starting from VS Code 1.99 and is currently in preview.
 
-MCP support is available starting in VS Code release 1.99. To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting. This setting is enabled by default.
+To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting.
+
+To centrally enable or disable MCP support within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
 ## Add an MCP server
 
