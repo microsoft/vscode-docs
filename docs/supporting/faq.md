@@ -34,7 +34,9 @@ Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRI
 
 ### Why integrate GitHub Copilot into the core VS Code repository?
 
-In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code, and making that a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
+In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code. From usage telemetry, we can see that more users are actually using AI features in VS Code than some other features like debugging or testing.
+
+Making AI functionality a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
 
 ### I'm an extension author. How am I affected?
 
