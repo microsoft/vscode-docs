@@ -133,13 +133,17 @@ You can control specific features of VS Code through device management solutions
 
 VS Code currently supports the following admin-controlled features:
 
-| Policy | Description | VS Code setting | Available since |
-| ------ | ----------- | --------------- | --------------- |
-| `AllowedExtensions` | Controls which extensions can be installed. | `extensions.allowed` | 1.96 |
-| `UpdateMode` | Controls whether VS Code automatically updates when a new version is released. | `update.mode` | 1.67 |
-| `TelemetryLevel` | Controls the level of telemetry data | `telemetry.telemetryLevel` | 1.99 |
-| `EnableFeedback` | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` | 1.99 |
-| `ChatAgentMode` | Boolean that controls if chat agent is enabled or not | `chat.agent.enabled` | 1.99 |
+| Policy                       | Description                                                      | VS Code setting                  | Available since |
+|------------------------------|------------------------------------------------------------------|----------------------------------|-----------------|
+| `AllowedExtensions`          | Controls which extensions can be installed.                      | `extensions.allowed`             | 1.96            |
+| `UpdateMode`                 | Controls whether VS Code automatically updates when a new version is released. | `update.mode`      | 1.67            |
+| `TelemetryLevel`             | Controls the level of telemetry data                             | `telemetry.telemetryLevel`       | 1.99            |
+| `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` | 1.99            |
+| `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat           | `chat.agent.enabled`             | 1.99            |
+| `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.agent.extensionTools.enabled` | 1.99        |
+| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat      | `chat.promptFiles`               | 1.99            |
+| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md)   | `chat.mcp.enabled`               | 1.99            |
+| `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools                        | `chat.tools.autoApprove`         | 1.99            |
 
 ### Group Policy on Windows
 
