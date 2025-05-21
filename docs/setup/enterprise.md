@@ -20,12 +20,17 @@ Refer to the [network common hostnames list](/docs/setup/network.md#common-hostn
 
 ## Configure allowed extensions
 
-Configure the `extensions.allowed` application-wide setting in VS Code to control which extensions can be installed. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
-
-To centrally manage allowed extensions for your organization, use [device management](#centrally-manage-allowed-extensions) like Windows group policies, to create a policy that overrides the VS Code setting on individual devices.
-
 > [!NOTE]
 > Support for allowed extensions is available starting from VS Code version 1.96.
+
+The `extensions.allowed` application-wide setting in VS Code enables you to control which extensions can be installed on the user's machine. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
+
+To [centrally manage](#centrally-manage-vs-code-settings) allowed extensions for your organization, configure the `AllowedExtensions` policy using your device management solution. This policy overrides the `extensions.allowed` setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
+
+> [!IMPORTANT]
+> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
+
+### Allowed extensions setting values
 
 The `extensions.allowed` setting contains a list of extension selectors that determine which extensions are allowed or blocked. You can specify the following types of extension selectors:
 
@@ -82,15 +87,6 @@ Duplicate key values are not supported. For example, including both `"microsoft"
 
 If you want to learn more about extensions in VS Code, refer to the [extensions documentation](/docs/configure/extensions/extension-marketplace.md).
 
-### Centrally manage allowed extensions
-
-Use [device management](#device-management) to centrally control which extensions are allowed to be installed in your organization. Configure the `AllowedExtensions` VS Code policy to override the corresponding `extensions.allowed` VS Code setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
-
-![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
-
-> [!IMPORTANT]
-> If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
-
 ## Configure automatic updates
 
 The `update.mode` VS Code setting controls whether VS Code automatically updates when a new version is released. The updates are fetched from a Microsoft online service.
@@ -102,9 +98,7 @@ The setting has the following options:
 * `start` - only check for updates when VS Code starts, automatic checking for updates is disabled
 * `default` - automatic checking for updates is enabled and runs in the background periodically
 
-### Centrally manage automatic updates
-
-Use [device management](#device-management) to centrally control how VS Code manages updates across devices in your organization. Configure the `UpdateMode` VS Code policy, which overrides the corresponding `update.mode` VS Code setting on users's devices. The value of this policy is a string that contains the update mode.
+To [centrally manage](#centrally-manage-vs-code-settings) automatic updates for your organization, configure the `UpdateMode` policy using your device management solution. This policy overrides the `update.mode` setting on users' devices. The value of this policy is a string that contains the update mode.
 
 ## Configure telemetry level
 
@@ -115,35 +109,27 @@ The `setting(telemetry.telemetryLevel)` VS Code setting controls VS Code telemet
 * `crash` - sends OS level crash reports
 * `off` - disables all product telemetry
 
-### Centrally manage telemetry level
+To [centrally manage](#centrally-manage-vs-code-settings) telemetry for your organization, configure the `TelemetryLevel` policy using your device management solution. This policy overrides the `telemetry.telemetryLevel` setting on users' devices. The value of this policy is a string that contains the telemetry level.
 
-Use [device management](#device-management) to centrally control the telemetry level across devices in your organization. Configure the `TelemetryLevel` VS Code policy, which overrides the corresponding `telemetry.telemetryLevel` VS Code setting on user devices. The value of this policy is a string that contains the telemetry level.
+## Centrally manage VS Code settings
 
-## Configure feedback mechanisms
+You can centrally manage specific features of VS Code through device management solutions to ensure it meets the needs of your organization. When you specify a VS Code policy, its value overrides the corresponding VS Code setting on users' devices.
 
-The `telemetry.feedback.enabled` VS Code setting is a boolean value that controls whether feedback mechanisms, such as the issue reporter and surveys, are enabled.
+![Settings editor showing that the 'Extensions: Allowed' setting is managed by the organization.](images/enterprise/allowed-extensions-managed-by-organization.png)
 
-### Centrally manage feedback mechanisms
-
-Use [device management](#device-management) to centrally control the feedback mechanisms across devices in your organization. Configure the `EnableFeedback` VS Code policy, which overrides the corresponding `telemetry.feedback.enabled` VS Code setting on users's devices. The value of this policy is a boolean that indicates whether feedback mechanisms are enabled or disabled.
-
-## Device management
-
-You can control specific features of VS Code through device management solutions to ensure it meets the needs of your organization.
-
-VS Code currently supports the following admin-controlled features:
+VS Code currently provides policies to control the following admin-controlled features:
 
 | Policy                       | Description                                                      | VS Code setting                  | Available since |
 |------------------------------|------------------------------------------------------------------|----------------------------------|-----------------|
 | `AllowedExtensions`          | Controls which extensions can be installed.                      | `extensions.allowed`             | 1.96            |
 | `UpdateMode`                 | Controls whether VS Code automatically updates when a new version is released. | `update.mode`      | 1.67            |
-| `TelemetryLevel`             | Controls the level of telemetry data                             | `telemetry.telemetryLevel`       | 1.99            |
-| `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys | `telemetry.feedback.enabled` | 1.99            |
-| `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat           | `chat.agent.enabled`             | 1.99            |
+| `TelemetryLevel`             | Controls the level of telemetry data.                             | `telemetry.telemetryLevel`       | 1.99            |
+| `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys. | `telemetry.feedback.enabled` | 1.99            |
+| `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat.           | `chat.agent.enabled`             | 1.99            |
 | `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.agent.extensionTools.enabled` | 1.99        |
-| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat      | `chat.promptFiles`               | 1.99            |
-| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md)   | `chat.mcp.enabled`               | 1.99            |
-| `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools                        | `chat.tools.autoApprove`         | 1.99            |
+| `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat.      | `chat.promptFiles`               | 1.99            |
+| `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md).   | `chat.mcp.enabled`               | 1.99            |
+| `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools.                       | `chat.tools.autoApprove`         | 1.99            |
 
 ### Group Policy on Windows
 
