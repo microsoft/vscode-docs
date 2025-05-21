@@ -26,17 +26,18 @@ To register an MCP server in your extension, use the `vscode.lm.registerMcpServe
 
 Before calling this method, extensions must register the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider.
 
-The `McpServerDefinitionProvider` object has two properties:
+The `McpServerDefinitionProvider` object has three properties:
 
 - `onDidChangeMcpServerDefinitions`: event that is triggered when the MCP server configurations change.
 - `provideMcpServerDefinitions`: function that returns an array of MCP server configurations (`vscode.McpServerDefinition[]`).
+- `resolveMcpServerDefinition`: function that the editor calls when the MCP server needs to be started. Use this function to perform additional actions that may require user interaction, such as authentication.
 
 An `McpServerDefinition` object can be one of the following types:
 
 - `vscode.McpStdioServerDefinition`: represents an MCP server available by running a local process and operating on its stdin and stdout streams.
 - `vscode.McpHttpServerDefinition`: represents an MCP server available using the Streamable HTTP transport.
 
-The following example demonstrates how to register an MCP server in an extension.
+The following example demonstrates how to register MCP servers in an extension and prompt the user for an API key when starting the server.
 
 ```ts
 import * as vscode from 'vscode';
@@ -49,17 +50,15 @@ export function activate(context: vscode.ExtensionContext) {
         provideMcpServerDefinitions: async () => {
             let servers: vscode.McpServerDefinition[] = [];
 
-            let apiKey = vscode.workspace.getConfiguration().get<string>('apikey') || '';
-
             // Example of a simple stdio server definition
             servers.push(new vscode.McpStdioServerDefinition(
             {
-                label: 'my-server',
+                label: 'myServer',
                 command: 'node',
                 args: ['server.js'],
                 cwd: vscode.Uri.file('/path/to/server'),
                 env: {
-                    API_KEY: apiKey
+                    API_KEY: ''
                 },
                 version: '1.0.0'
             });
@@ -67,15 +66,27 @@ export function activate(context: vscode.ExtensionContext) {
             // Example of an HTTP server definition
             servers.push(new vscode.McpHttpServerDefinition(
             {
-                label: 'my-http-server',
+                label: 'myRemoteServer',
                 uri: 'http://localhost:3000',
                 headers: {
-                    Authorization: `Bearer ${apiKey}`
+                    'API_VERSION': '1.0.0'
                 },
                 version: '1.0.0'
             }));
 
             return servers;
+        },
+        resolveMcpServerDefinition: async (server: vscode.McpServerDefinition) => {
+
+            if (server.label === 'myServer') {
+                // Get the API key from the user, e.g. using vscode.window.showInputBox
+                // Update the server definition with the API key
+            }
+
+            // Return undefined to indicate that the server should not be started or throw an error
+            // If there is a pending tool call, the editor will cancel it and return an error message
+            // to the language model.
+            return server;
         }
     }));
 }
