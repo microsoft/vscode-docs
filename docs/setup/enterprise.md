@@ -126,7 +126,7 @@ VS Code currently provides policies to control the following admin-controlled fe
 | `TelemetryLevel`             | Controls the level of telemetry data.                             | `telemetry.telemetryLevel`       | 1.99            |
 | `EnableFeedback`             | Controls feedback mechanisms, such as the issue reporter and surveys. | `telemetry.feedback.enabled` | 1.99            |
 | `ChatAgentMode`              | Controls if [agent mode](/docs/copilot/chat/copilot-chat.md#chat-mode) is enabled in chat.           | `chat.agent.enabled`             | 1.99            |
-| `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.agent.extensionTools.enabled` | 1.99        |
+| `ChatAgentExtensionTools`    | Enable using tools contributed by third-party extensions.        | `chat.extensionTools.enabled` | 1.99        |
 | `ChatPromptFiles`            | Enable [reusable prompt and instruction files](/docs/copilot/copilot-customization.md) in chat.      | `chat.promptFiles`               | 1.99            |
 | `ChatMCP`                    | Enable integration with [Model Context Protocol (MCP) servers](/docs/copilot/chat/mcp-servers.md).   | `chat.mcp.enabled`               | 1.99            |
 | `ChatToolsAutoApprove`       | Enable auto-approval for agent mode tools.                       | `chat.tools.autoApprove`         | 1.99            |

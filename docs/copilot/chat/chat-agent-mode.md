@@ -16,13 +16,22 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language to sp
 * Install the latest version of [Visual Studio Code](/download)
 * Access to [Copilot](/docs/copilot/setup.md)
 
+## Enable agent mode in VS Code
+
+> [!NOTE]
+> Agent mode is available starting from VS Code 1.99.
+
+To enable agent mode in VS Code, enable the `setting(chat.agent.enabled)` setting.
+
+To centrally enable or disable agent mode within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+
 ## Use agent mode
 
 In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.
 
 Follow these steps to get started:
 
-1. Make sure that agent mode is enabled by configuring the `setting(chat.agent.enabled)` setting in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings) (requires VS Code 1.99 or later).
+1. [Enable agent mode](#enable-agent-mode-in-vs-code) in VS Code.
 
 1. Open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
 
@@ -95,6 +104,8 @@ You can view and manage the tools that can be used for responding to a request. 
 
 Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
 
+You can enable or disable the use of agent tools by configuring the `setting(chat.extensionTools.enabled)` setting. Learn how to centrally manage this setting in your organization by checking [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+
 ## Manage tool approvals
 
 When a tool is invoked, Copilot requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
@@ -108,6 +119,8 @@ You can reset the tool confirmations by using the **Chat: Reset Tool Confirmatio
 In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
 As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
+
+Learn how to centrally manage the auto-approve tools setting in your organization by checking [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
 ## Accept or discard edits
 
