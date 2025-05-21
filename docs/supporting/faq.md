@@ -34,7 +34,9 @@ Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRI
 
 ### Why integrate GitHub Copilot into the core VS Code repository?
 
-In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code, and making that a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
+In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code. From usage telemetry, we can see that more users are actually using AI features in VS Code than some other features like debugging or testing.
+
+Making AI functionality a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
 
 ### I'm an extension author. How am I affected?
 
@@ -56,9 +58,17 @@ No, nothing is changing. By open sourcing GitHub Copilot Chat, we are making it 
 We believe that AI-powered tools are core to how we write code. We invest in both AI features and improving the core editor experience. This is also reflected in a 50/50% split of the team working on AI versus other features.
 Many of the non-AI features might not always be as visible to the user, such as performance, security, accessibility, Electron updates, and more.
 
+### Will bringing AI features into the core VS Code repository affect the (startup) performance of VS Code?
+
+Performance is our core priority and we are committed to maintaining the performance of VS Code as we integrate AI features. In addition, if you don't enable AI functionality in VS Code, no associated background processes will run that could affect performance.
+
 ### Can I disable AI functionality in VS Code?
 
 You can disable the built-in AI functionality in VS Code by selecting **Hide Copilot** in the Command Palette or selecting **Hide Copilot** from the Copilot menu in the VS Code title bar.
+
+### If I disable AI functionality in VS Code, is my data still sent to Microsoft?
+
+No, if you disable AI functionality in VS Code or if you don't login to your Copilot subscription from VS Code, your data is not sent to the Copilot backend services. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
 
 ### Are the models that VS Code uses in the Copilot extension open source (OSS)?
 
