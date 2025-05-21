@@ -8,6 +8,12 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 Copilot can provide you with responses that match your coding practices and project requirements if you give it the right context. Custom instructions enable you to define and automatically apply the guidelines and rules for tasks like generating code, or performing code reviews. Prompt files let you craft complete chat prompts in Markdown files, which you can then reference in chat or share with others. In this article, you will learn how to use custom instructions and prompt files to customize your chat responses in Visual Studio Code.
 
+## Enable instructions and prompt files in VS Code
+
+To enable instructions and prompt files in VS Code, enable the `setting(chat.promptFiles)` setting.
+
+To centrally enable or disable this setting within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+
 ## Instruction files
 
 Custom instructions enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request.
