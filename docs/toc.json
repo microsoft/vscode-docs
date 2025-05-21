@@ -127,13 +127,13 @@
         "area": "copilot/chat",
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
           ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
         ]
       }
