@@ -51,7 +51,7 @@ In our team's recent self-hosting, we found it helpful to use custom instruction
 
 Here's an example instruction our team found helpful:
 
-```json
+```markdown
 This is a dev container that includes `python3` and `pip3` pre-installed and available on the `PATH`, along with the Python language extensions for Python development.
 ```
 
