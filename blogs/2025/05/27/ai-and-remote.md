@@ -36,7 +36,7 @@ When we describe VS Code Remote Development, we refer to five main experiences:
 We want to make the AI coding experience in VS Code as seamless as possible, whether you're working on your local machine or connected to a remote environment. If you're already using GitHub Copilot locally, we'll automatically install it remotely. And GitHub Codespaces has it configured too!
 
 While using AI in a remote environment will just work, there are additional AI features that can make your remote workflow even more powerful:
-* Custom instructions - Tailor your AI experience for your remote environment with custom instructions
+* Custom instructions - Tailor your AI experience for your remote environment
 * Chat participants - Set up and troubleshoot your remote environment
 * Manage tool approvals - Auto-approve agent mode tools in remote environments
 
