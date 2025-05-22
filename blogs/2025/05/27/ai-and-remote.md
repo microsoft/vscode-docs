@@ -31,7 +31,7 @@ When we describe VS Code Remote Development, we refer to five main experiences:
 
 ![Remote architecture](/docs/remote/images/remote-overview/architecture.png)
 
-## How can I use AI in a remote environment?
+## How can you use AI in a remote environment?
 
 We aim to make AI-enhanced coding as seamless as possible. AI in VS Code is powered by GitHub Copilot and will just work when you use it in a VS Code remote environment. We've aimed to remove additional install steps: Copilot will be installed automatically remotely, if you already have it installed locally. It's also built into GitHub Codespaces, no extra install required.
 
@@ -123,7 +123,7 @@ In case you want to auto-approve _all_ tools, you can now use the experimental `
 
 This will auto-approve all tools, and VS Code will not ask for confirmation when a language model wishes to run tools. This can help save time by giving more autonomy to agent mode, but bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
-Please note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will pose different levels of risk.
+Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will pose different levels of risk.
 
 ## What's Next
 
