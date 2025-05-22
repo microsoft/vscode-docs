@@ -49,6 +49,12 @@ In our team's recent self-hosting, we found it helpful to use custom instruction
 * What languages or toolchains are installed? What's their purpose?
 * Where are toolchains installed (i.e. are they available on the `PATH`)?
 
+Here's an example instruction our team found helpful:
+
+```json
+This is a dev container that includes `jekyll` (with `github-pages` and `jekyll-sass-converter`) and bundler (`bundle`) pre-installed and available on the `PATH`.
+```
+
 To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/copilot-customization.md) remotely that you were already using locally.
 
 ## Configure AI for your dev container
