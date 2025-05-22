@@ -1,109 +1,220 @@
 ---
-ContentId: d32ac103-3830-4694-a68f-933ea9f0beba
-DateApproved: 03/17/2025
-MetaDescription: Learn how to convert your models to ONNX format for use in AI Toolkit.
+ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
+DateApproved: 05/13/2025
+MetaDescription: Model Conversion Quickstart in AI Toolkit.
 ---
 
-# Convert models to ONNX format
+# Convert a model with AI Toolkit for VS Code (Preview)
 
-The AI Toolkit supports the [Open Neural Network Exchange](https://onnx.ai) (ONNX) format for running models locally. ONNX is an open standard for representing machine learning models, defining a common set of operators and a file format that enables models to run across various hardware platforms.
+Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.
 
-To use models from other catalogs, such as Azure AI Foundry or Hugging Face, in the AI Toolkit, you must first convert them to ONNX format.
+## Prerequisites
 
-This tutorial guides you through converting Hugging Face models to ONNX format and loading them into the AI Toolkit.
+- VS Code must be installed. Follow these steps to [set up VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
+- AI Toolkit extension must be installed. For more information, see [install AI Toolkit](/docs/intelligentapps/overview.md#install-and-setup).
 
-## Set up the environment
+## Create project
 
-To convert models from Hugging Face or Azure AI Foundry, you need the [Model Builder](https://onnxruntime.ai/docs/genai/howto/build-model.html) tool.
+Creating a project in model conversion is the first step toward converting, optimizing, quantizing and evaluating machine learning models.
 
-Follow these steps to set up your environment:
+1. Open the AI Toolkit view, and select **Models** > **Conversion** to launch model conversion
 
-1. Ensure you have either [Anaconda](https://www.anaconda.com/download) or [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) installed on your device.
+2. Start a new project by selecting **New Model Project**
 
-2. Create a dedicated conda environment for Model Builder and install the necessary dependencies (`onnx`, `torch`, `onnxruntime_genai`, and `transformers`):
+    ![Screenshot that shows view for creating model project, including Primary Side Bar and create project button.](./images/modelconversion/create_project_default.png)
 
-    ```powershell
-    conda create -n model_builder python==3.11 -y
-    conda activate model_builder
-    pip install onnx torch onnxruntime_genai==0.6.0 transformers
-    ```
+3. Choose a base model
+    - `Hugging Face Model`: choose the base model with predefined recipes from the supported model list.
+    - `Model Template` : if the model is not included in the base model, select an empty template for your customized recipes (advanced scenario).
 
-    > Note: For certain newer models, such as Phi-4-mini, you may need to install the latest development version of transformers directly from GitHub:
+    ![Screenshot that shows model list, such as bert, resnet, llama and so on.](./images/modelconversion/create_project_model_list.png)
 
-    ```powershell
-    pip install git+https://github.com/huggingface/transformers
-    ```
+4. Enter project details: a unique **Project Folder** and a **Project Name**.
 
-## Access Hugging Face models
+    A new folder with the specified project name is created in the location you selected for storing the project files.
 
-There are multiple ways to access Hugging Face models. In this tutorial, we use the `huggingface_hub` CLI as an example to demonstrate managing a model repository.
+> [!NOTE]
+> The first time you create a model project, it might take a while to set up the environment.
+>
+> A `README.md` file is included in each project. If you close it, you can reopen it via the workspace.
+> ![Screenshot that shows model readme.](./images/modelconversion/create_project_readme.png)
 
-> Note: Ensure your Python environment is properly set up before proceeding.
+### Supported models
 
-To download models from Hugging Face:
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format.
 
-1. [Install the CLI](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli#getting-started):
+#### LLM models
 
-    ```powershell
-    pip install -U "huggingface_hub[cli]"
-    ```
+| Model Name                             | Hugging Face Path                               |
+|----------------------------------------|-------------------------------------------------|
+| Qwen2.5 1.5B Instruct                  | `Qwen/Qwen2.5-1.5B-Instruct`                    |
+| DeepSeek R1 Distill Qwen 1.5B          | `deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B`     |
+| Meta LLaMA 3.2 1B Instruct             | `meta-llama/Llama-3.2-1B-Instruct`              |
+| Phi-3.5 Mini Instruct                  | `Phi-3.5-mini-instruct`                         |
 
-2. [Download the model repository](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli#download-an-entire-repository).
+#### Non-LLM models
 
-3. All files in the downloaded repository will be used during conversion.
+| Model Name                             | Hugging Face Path                               |
+|----------------------------------------|-------------------------------------------------|
+| Intel BERT Base Uncased (MRPC)         | `Intel/bert-base-uncased-mrpc`                  |
+| BERT Multilingual Cased                | `google-bert/bert-base-multilingual-cased`      |
+| ViT Base Patch16-224                   | `google/vit-base-patch16-224`                   |
+| ResNet-50                              | `resnet-50`                                     |
+| CLIP ViT-B-32 (LAION)                  | `laion/CLIP-ViT-B-32-laion2B-s34B-b79K`         |
+| CLIP ViT Base Patch16                  | `clip-vit-base-patch16`                         |
+| CLIP ViT Base Patch32                  | `clip-vit-base-patch32`                         |
 
-## Create the directory structure
+### (Optional) Add model into existing project
 
-The AI Toolkit loads ONNX models from its working directory:
+1. Open the model project
 
-* Windows: `%USERPROFILE%\.aitk\models`
-* Unix-like systems (macOS): `$HOME/.aitk/models`
+1. Select **Models** > **Conversion**, and then select **Add Models** on the right panel.
 
-To ensure your models load correctly, create the required four-layer directory structure within the AI Toolkit's working directory. For example:
+    ![Screenshot that shows how to add model. It contains a button to add models.](./images/modelconversion/create_project_add_models.png)
 
-```powershell
-mkdir C:\Users\Administrator\.aitk\models\microsoft\Phi-3.5-vision-instruct-onnx\cpu\phi3.5-cpu-int4-rtn-block-32
-```
+1. Choose a base model or template, and then select **Add**.
 
-In this example, the four-layer directory structure is `microsoft\Phi-3.5-vision-instruct-onnx\cpu\phi3.5-cpu-int4-rtn-block-32`.
+    A folder containing the new model files is created in the current project folder.
 
-> [!IMPORTANT]
-> The naming of the four-layer directory structure is important. Each directory layer corresponds with a specific system parameter: `$publisherName\$modelName\$runtime\$displayName`. The `$displayName` appears in the local model tree view at the top-left side of the extension. Use distinct `displayName` values for different models to avoid confusion.
+### (Optional) Create a new model project
 
-## Convert models to ONNX format
+1. Open the model project
 
-Run the following command to convert your model to ONNX format:
+1. Select **Models** > **Conversion**, and then select **New Project** on the right panel.
 
-```powershell
-python -m onnxruntime_genai.models.builder -m $modelPath -p $precision -e $executionProvider -o $outputModelPath -c $cachePath --extra_options include_prompt_templates=1
-```
+    ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create_project_add_models.png)
+
+1. Alternatively, close the current model project and [create a new project](#create-project) from the start.
+
+## Run workflow
+
+Running a workflow in model conversion is the core step that transform the pre-built ML model into an optimized and quantized ONNX model.
+
+1. Select **File** > **Open Folder** in VS Code to open the model project folder.
+
+2. Review the workflow configuration
+
+    1. Select **Models** > **Conversion**
+    1. Select the workflow template to view the conversion recipe.
+
+    ![Screenshot that shows running a workflow. There is a workflow configuration section containing Conversion, Quantization and Evaluation.](./images/modelconversion/Run.png)
+
+    **Conversion**
+
+    The workflow will always execute the conversion step, which transforms the model into ONNX format. This step cannot be disabled.
+
+    **Quantization**
+
+    This section enables you to configure the parameters for quantization.
+
+    > [!Important]
+    > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are **enabled** and that you accept the required licenses.
+    > ![Screenshot that shows disclaimer.](./images/modelconversion/run_disclaimer.png)
+
+    - **Activation Type**: this is the data type used to represent the intermediate outputs (activations) of each layer in the neural network.
+    - **Weight Type**: this is the data type used to represent the learned parameters (weights) of the model.
+    - **Quantization Dataset**: calibration dataset used for quantization.
+
+      If your workflow uses a dataset that requires license agreement approval on Hugging Face (e.g., ImageNet-1k), you’ll be prompted to accept the terms on the dataset page before proceeding. This is required for legal compliance.
+
+      1. Select the **HuggingFace Access Token** button to get your Hugging Face Access Token.
+
+          ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run_token_1.png)
+      2. Select **Open** to open the Hugging Face website.
+
+          ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run_token_2.png)
+
+      3. Get your token on Hugging Face portal and paste it Quick Pick. Press `kbstyle(Enter)`.
+
+          ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run_token_3.png)
+
+    - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Quantization Dataset Size**: the number of data used to quantize the model.
+
+    For more information about activation and weight type, please see [Data type selection](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#data-type-selection).
+
+    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not quantize the model.
+
+    **Evaluation**
+
+    In this section, you need to select the Execution Provider (EP) you want to use for evaluation, regardless of the platform on which the model was converted.
+    - **Evaluate on**: the target device that you want to evaluate the model. Possible values are:
+      - **Qualcomm NPU**: to use this, you need a compatible Qualcomm device.
+      - **AMD NPU**: to use this, you need a device with a supported AMD NPU.
+      - **Intel NPU**: to use this, you need a device with a supported Intel NPU.
+      - **CPU**: any CPU could work.
+    - **Evaluation Dataset**: dataset used for evaluation.
+    - **Evaluation Dataset Split**: dataset could have different splits like validation, train and test.
+    - **Evaluation Dataset Size**: the number of data used to evaluate the model.
+
+    You could also disable this section. In this case, the workflow will only convert the model to ONNX format but do not evaluate the model.
+
+3. Run the workflow by selecting **Run**
+
+    A default job name is generated using the workflow name and timestamp (e.g., `bert_qdq_2025-05-06_20-45-00`) for easy tracking.
+
+    During the job running, you can **Cancel** the job by selecting the status indicator or the three-dot menu under **Action** in History board and select **Stop Running**.
+
+    **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
+
+> [!NOTE]
+> **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
+>
+> **LLM model quantization**: If you want to quantize the [LLM models](#llm-models), a Nvidia GPU is required.
+>
+> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, please refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Please note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+
+### Tips for re-evaluation
+
+After a model has been successfully converted, you could use the re-evaluate function to perform evaluation again without the model conversion.
+
+Go to the History board and find the model run job. Select the three-dot menu under **Action** to **Re-evaluate** the model.
+
+You can choose the different EPs or datasets for re-evaluation
+
+![Screenshot that shows re-evaluation. It contains configurations such as name, system and datasets settings.](./images/modelconversion/Re-evaluate.png)
+
+### Tips for failed jobs
+
+If your job is canceled or failed, you can select job name to adjust the workflow and run job again. To avoid accidental overwrites, each execution creates a new history folder with its own configuration and results.
+
+## View results
+
+The History Board in **Conversion** is your central dashboard for tracking, reviewing, and managing all workflow runs. Each time you run a model conversion and evaluation, a new entry is created in the History Board—ensuring full traceability and reproducibility.
+
+- Find the workflow run that you want to review. Each run is listed with a status indicator (e.g. Succeeded, Cancelled)
+- Select the run name to view the conversion configurations
+- Select the **logs** under Status indicator to view logs and detailed execution results
+- Once the model converted successfully, you can view the evaluation results under Metrics. Metrics such as accuracy, latency and throughput are displayed alongside each run
+
+![Screenshot that shows history, including name, time, parameters and so on.](./images/modelconversion/history.png)
+
+## Use sample notebook for model inference
+
+- Go to the History board. Select the three-dot menu under **Action**.
+
+    Select **Inference in Samples** from the dropdown.
+
+    ![Screenshot that shows actions, including inference, copy model path and re-evaluate.](./images/modelconversion/historyaction.png)
+
+- Choose the Python environment
+  - You'll be prompted to select a Python virtual environment.
+The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python-WCR-win32-x64-3.12.9`.
+  - Note that the default runtime contains everything needed, otherwise, manually install the requirements.txt
+- The sample will launch in a Jupyter Notebook. You can customize the input data or parameters to test different scenarios.
 
 > [!TIP]
-> Common precision and execution provider combinations include: `FP32 CPU`, `FP32 CUDA`, `FP16 CUDA`, `FP16 DML`, `INT4 CPU`, `INT4 CUDA`, and `INT4 DML`.
+> **Model compatibility:** Ensure the converted model supports the specified EPs in the inference samples
+>
+> **Sample location:** Inference samples are stored alongside the run artifacts in the history folder.
 
-Here is a complete example command for converting a model to ONNX format:
+## Export and share with others
 
-```powershell
-python -m onnxruntime_genai.models.builder -m C:\hfmodel\phi3 -p fp16 -e cpu -o C:\Users\Administrator\.aitk\models\microsoft\Phi-3-mini-4k-instruct\cpu\phi3-cpu-int4-rtn-block-32-acc-level-4 -c C:\temp --extra_options include_prompt_templates=1
-```
+Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
-For more details on precision and execution providers, refer to these tutorials:
+## See also
 
-- [Precision basics](https://huggingface.co/docs/optimum/en/concept_guides/quantization)
-- [Execution provider basics](https://onnxruntime.ai/docs/execution-providers)
-
-## Load models into AI Toolkit
-
-After conversion, move your ONNX model file into the newly created directory. The AI Toolkit automatically loads ONNX models from this directory upon activation.
-
-You can find your models in the `MY MODELS` view. To use a model, double-click its name or open `TOOLS` > `Playground` and select the model from the dropdown list to start interacting with it.
-
-> Note: The AI Toolkit does not support deleting manually added models directly. To remove a model, delete its directory manually.
-
-## Supported models for conversion
-
-The following table lists models supported for conversion to ONNX format in the AI Toolkit:
-
-| Support Matrix | Supported now | Under development | On the roadmap |
-| :------------: | :-----------: | :---------------: | :------------: |
-| Model architectures | `DeepSeek`, `Gemma`, `Llama`, `Mistral`, `Phi (Language + Vision)`, `Qwen`, `Nemotron`, `Granite`, `AMD OLMo` | `Whisper` | `Stable Diffusion` |
+- [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
+- [How to manually setup environment](/docs/intelligentapps/reference/SetupWithoutAITK.md)
+- [How to customize model template](/docs/intelligentapps/reference/TemplateProject.md)
+- [Conversion file structure](/docs/intelligentapps/reference/FileStructure.md)

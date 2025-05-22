@@ -312,11 +312,52 @@ The **Terminal: Set Fixed Dimensions** command allows changing the number of col
 
 You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
+## GitHub Copilot in the terminal
+
+If you have access to [GitHub Copilot](/docs/copilot/setup.md), you can use it to get AI-powered help with terminal commands and shell scripting. There are several ways to use Copilot with the terminal:
+
+### Terminal inline chat
+
+Start an inline chat directly in the terminal to get help with shell commands:
+
+1. Open the terminal (`kb(workbench.action.terminal.toggleTerminal)`)
+2. Press `kb(workbench.action.terminal.chat.start)` or run the **Terminal Inline Chat** command from the Command Palette
+3. Enter your question or request in natural language, such as:
+   * "How do I find the largest files in this directory?"
+   * "Show me how to undo the last git commit"
+   * "Create a bash script to analyze log files"
+
+![Terminal inline chat helps you quickly get and run shell commands](./images/basics/terminal-chat-2.png)
+
+When Copilot provides a response, you can select **Run** to execute the command directly or **Insert** to add it to the terminal for further editing.
+
+For more information about using GitHub Copilot with the terminal, see [Use terminal inline chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat).
+
+### Terminal chat participant
+
+Use the dedicated `@terminal` chat participant in ask mode in the Chat view:
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`)
+2. Start your question with `@terminal` to direct it to the terminal participant
+3. Ask about terminal commands, shell scripting, or explaining terminal output
+
+Examples:
+* `@terminal list the 5 largest files in this workspace`
+* `@terminal /explain top shell command`
+* `@terminal how to grep for patterns recursively`
+
+### Reference terminal context in chat
+
+You can include terminal information as context in your chat prompts:
+
+* Use `#terminalSelection` to add selected text from the terminal to your chat prompt
+* Use `#terminalLastCommand` to include the last command you ran in the terminal
+
 ## Next steps
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
 
-* [Terminal Inline Chat](/docs/copilot/copilot-chat#terminal-inline-chat) - AI-powered suggestions right in your terminal.
+* [Terminal inline chat](/docs/copilot/chat/inline-chat.md#use-terminal-inline-chat) - AI-powered suggestions right in your terminal.
 * [Tasks](/docs/debugtest/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').

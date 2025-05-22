@@ -11,6 +11,69 @@ Our docs contain a **Common questions** section as needed for specific topics. W
 
 If you don't see an answer to your question here, check our previously [reported issues on GitHub](https://github.com/microsoft/vscode/issues) and our [release notes](/updates).
 
+## Open sourcing AI in VS Code
+
+We've announced that we are open sourcing the GitHub Copilot Chat extension under the MIT license and then bringing relevant components into VS Code core. Read all details about this announcement in our [blog post](https://aka.ms/vscode-copilot-oss-blog).
+
+### Does this affect my current GitHub Copilot subscription? Is GitHub Copilot free now?
+
+This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
+
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](https://code.visualstudio.com/docs/copilot/language-models#_bring-your-own-language-model-key).
+
+### Will the GitHub Copilot backend services also be open sourced?
+
+The GitHub Copilot services are not affected and will remain closed source.
+
+### What is the timeline? When can I provide a contribution to the AI experience in VS Code?
+
+We plan to implement these changes over the next couple of months. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
+
+Our goal is to make the experience for contributing to our AI features as simple as contributing to any part of VS Code. As part of this, we want to make it possible to use the Copilot backend services for debugging and testing purposes when contributing.
+Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md) file for details on how to contribute to VS Code.
+
+### Why integrate GitHub Copilot into the core VS Code repository?
+
+In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code. From usage telemetry, we can see that more users are actually using AI features in VS Code than some other features like debugging or testing.
+
+Making AI functionality a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
+
+### I'm an extension author. How am I affected?
+
+We maintain backwards compatibility for stable APIs. You should not expect any impact on your extension.
+We're continuously evolving and expanding the VS Code extension APIs based on feedback from extension authors. If you need additional APIs to make your extension successful, we would love to hear from you – please file an API request in the [microsoft/vscode repo](https://github.com/microsoft/vscode/issues).
+
+### I already use other AI coding extensions in VS Code (Cline, Roo Code, ...). How does this affect me?
+
+You can continue to use these extensions in VS Code!
+We love that the community is building extensions to make the developer experience in VS Code better.
+To improve the experience for other AI extensions, we're constantly adding APIs like the [Language Model](https://code.visualstudio.com/api/references/vscode-api#lm) API for directly calling language models from an extension, the [Tools](https://code.visualstudio.com/api/references/vscode-api#LanguageModelChatTool) API for interacting with language model tools and integrating with the built-in or your own agents, or the [Shell Execution](https://code.visualstudio.com/api/references/vscode-api#ShellExecution) API for running and interacting with terminal commands (particularly useful for agentic experiences). Going forward, we are planning to add even more APIs to meet the needs of extension authors.
+
+### Will this change anything about how you collect data?
+
+No, nothing is changing. By open sourcing GitHub Copilot Chat, we are making it fully transparent how we collect data and enable you to verify this in the source code. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
+### How will the VS Code team prioritize between AI features and non-AI features in future releases?
+
+We believe that AI-powered tools are core to how we write code. We invest in both AI features and improving the core editor experience. This is also reflected in a 50/50% split of the team working on AI versus other features.
+Many of the non-AI features might not always be as visible to the user, such as performance, security, accessibility, Electron updates, and more.
+
+### Will bringing AI features into the core VS Code repository affect the (startup) performance of VS Code?
+
+Performance is our core priority and we are committed to maintaining the performance of VS Code as we integrate AI features. In addition, if you don't enable AI functionality in VS Code, no associated background processes will run that could affect performance.
+
+### Can I disable AI functionality in VS Code?
+
+You can disable the built-in AI functionality in VS Code by selecting **Hide Copilot** in the Command Palette or selecting **Hide Copilot** from the Copilot menu in the VS Code title bar.
+
+### If I disable AI functionality in VS Code, is my data still sent to Microsoft?
+
+No, if you disable AI functionality in VS Code or if you don't login to your Copilot subscription from VS Code, your data is not sent to the Copilot backend services. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
+### Are the models that VS Code uses in the Copilot extension open source (OSS)?
+
+No. The models used by GitHub Copilot are licensed separately, and that does not change. In fact, most of those models are from third parties such as OpenAI, Anthropic and Google...
+
 ## What is the difference between Visual Studio Code and Visual Studio IDE?
 
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running, and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs, such as [Visual Studio IDE](https://visualstudio.microsoft.com).

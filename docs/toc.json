@@ -191,7 +191,8 @@
       ["T-SQL", "/docs/languages/tsql"],
       ["C#", "/docs/languages/csharp"],
       [".NET", "/docs/languages/dotnet"],
-      ["Polyglot", "/docs/languages/polyglot"]
+      ["Polyglot", "/docs/languages/polyglot"],
+      ["Swift", "/docs/languages/swift"]
     ]
   },
   {
@@ -352,7 +353,19 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
-      ["FAQ", "/docs/intelligentapps/faq"]
+      ["FAQ", "/docs/intelligentapps/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "intelligentapps/reference",
+        "topics": [
+          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
+          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
+          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+        ]
+      }
+      ]
     ]
   },
   {
@@ -363,6 +376,7 @@
       ["Getting Started", "/docs/azure/gettingstarted"],
       ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
+      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
       ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
