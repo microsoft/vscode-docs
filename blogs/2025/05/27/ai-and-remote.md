@@ -52,12 +52,14 @@ In our team's recent self-hosting, we found it helpful to use custom instruction
 Here's an example instruction our team found helpful:
 
 ```json
-This is a dev container that includes `jekyll` (with `github-pages` and `jekyll-sass-converter`) and bundler (`bundle`) pre-installed and available on the `PATH`.
+This is a dev container that includes `python3` and `pip3` pre-installed and available on the `PATH`, along with the Python language extensions for Python development.
 ```
 
 To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/copilot-customization.md) remotely that you were already using locally.
 
 ## Configure AI for your dev container
+
+Dev containers remove the barrier to get started a project by having all tools and dependencies preconfigured. By adding custom instructions, you can make sure that the LLM is tailored to that environment instead of providing generic answers. For example, a dev container for Python coding might have custom instructions about which tools are installed, or which coding guidelines to follow (as shared in the example above).
 
 Our team has taken steps to preconfigure custom instructions to make your life even easier when using dev containers. We publish dev container resources (like images and Features) to ease the process of creating and connecting to dev containers, and we now include custom instructions in these files. Here’s an example of how you can use the custom dev container instructions our team added:
 
@@ -73,8 +75,7 @@ Our team has taken steps to preconfigure custom instructions to make your life e
 
     ![VS Code notification to reopen project in dev container](reopen-container-notif.png)
 
-* The environment you've selected and are now connected to is based on [this Python Template](https://github.com/devcontainers/templates/tree/main/src/python). The Template uses [this Python image](https://github.com/devcontainers/features/tree/main/src/python), which [includes custom instructions](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80)
-* Try chatting with Copilot within your dev container. Copilot automatically pulls the custom instructions from the Python image!
+* The environment you've selected and are now connected to is based on [our Python Template](https://github.com/devcontainers/templates/tree/main/src/python), which [includes custom instructions via the Python Feature](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80). Try chatting with Copilot within your dev container - Copilot automatically pulls the custom instructions from the Python image!
 
     ![AI chat using custom instructions](chat-using-instructions.png)
 
