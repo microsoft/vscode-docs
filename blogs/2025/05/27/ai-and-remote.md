@@ -91,7 +91,7 @@ If you [publish](https://containers.dev/collections) any dev container configura
 ],
 ```
 
-## Get help with Remote - SSH in chat
+## Use chat to set up and troubleshoot your remote environment
 
 _Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask mode. There are several built-in chat participants like `@workspace`, `@vscode`, and `@terminal`. Extensions can also contribute chat participants.
 
@@ -111,7 +111,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 <video src="analyzing.mp4" title="Copilot diagnosing connection issue" autoplay muted controls></video>
 
-## Manage tool approvals: Auto-approve agent mode tools
+## Run autonomous coding sessions safely in remote environments
 
 As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
