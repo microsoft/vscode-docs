@@ -22,7 +22,7 @@ TODO: Add video
 
 ### What is Remote Development?
 
-When we describe VS Code Remote Development, we refer to 5 main experiences:
+When we describe VS Code Remote Development, we refer to five main experiences:
 * [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
 * [Dev Containers](/docs/devcontainers/containers.md) - Work with a separate toolchain or container-based application inside (or mounted into) a container.
 * [WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
