@@ -84,7 +84,7 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 ## Switching Accounts
 
-If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
+If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account. The command to turn off sync is **Settings Sync: Turn off**.
 
 ## Syncing Stable versus Insiders
 
