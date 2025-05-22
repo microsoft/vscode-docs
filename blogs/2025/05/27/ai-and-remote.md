@@ -115,7 +115,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
-![Agent mode tool approval options dropdown](/release-notes/images/1_99/chat-tool-approval.png)
+![Agent mode tool approval options dropdown](chat-tool-approval.png)
 
 In case you want to auto-approve _all_ tools, you can now use the experimental `chat.tools.autoApprove` setting. To give you some level of protection against inadvertent terminal commands or tool calls, you can choose to only set this in a dev container or remote machine to prevent your local dev machine from getting affected:
 
