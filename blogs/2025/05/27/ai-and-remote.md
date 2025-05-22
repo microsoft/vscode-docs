@@ -86,7 +86,7 @@ If you [publish](https://containers.dev/collections) any dev container configura
 
 ## Get help with Remote - SSH in chat
 
-_Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask and Edit modes. There are several built-in chat participants like `@workspace`, `@vscode`, `@terminal`, and `@github`. Extensions can also contribute chat participants.
+_Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask mode. There are several built-in chat participants like `@workspace`, `@vscode`, and `@terminal`. Extensions can also contribute chat participants.
 
 The Remote - SSH extension includes a Copilot chat participant. Ask `@remote-ssh` for help configuring or troubleshooting elements of your remote environment:
 
