@@ -37,7 +37,7 @@ We want to make the AI coding experience in VS Code as seamless as possible, whe
 
 While using AI in a remote environment will just work, there are additional AI features that can make your remote workflow even more powerful:
 * Custom instructions - Tailor your AI experience for your remote environment
-* Chat participants - Set up and troubleshoot your remote environment
+* Chat participants - Use chat to set up and troubleshoot your remote environment
 * Manage tool approvals - Auto-approve agent mode tools in remote environments
 
 ## Tailor your AI experience for your remote environment
