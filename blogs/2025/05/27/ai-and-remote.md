@@ -20,7 +20,7 @@ In this blog, we'll explore how your existing remote setups can be enhanced to "
 
 TODO: Add video
 
-### What is Remote Development?
+## What is Remote Development?
 
 When we describe VS Code Remote Development, we refer to five main experiences:
 * [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
@@ -31,7 +31,7 @@ When we describe VS Code Remote Development, we refer to five main experiences:
 
 ![Remote architecture](/docs/remote/images/remote-overview/architecture.png)
 
-### How can I use AI in a remote environment?
+## How can I use AI in a remote environment?
 
 We aim to make AI-enhanced coding as seamless as possible. AI in VS Code is powered by GitHub Copilot and will just work when you use it in a VS Code remote environment. We've aimed to remove additional install steps: Copilot will be installed automatically remotely, if you already have it installed locally. It's also built into GitHub Codespaces, no extra install required.
 
@@ -40,7 +40,7 @@ While using AI in a remote environment will just work, there are additional AI f
 * Chat participants - Set up and troubleshoot your remote environment
 * Manage tool approvals - Auto-approve agent mode tools in remote environments
 
-### Tailor your AI experience for your remote environment
+## Tailor your AI experience for your remote environment
 
 One of the top requests we hear from users when working with an LLM is: How can I help the LLM better understand my code and coding practices? You can achieve this via **custom instructions**, which describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every AI chat query, custom instructions automatically incorporate this information with every chat request (learn more in our [recent blog post](/blogs/2025/03/26/custom-instructions.md)).
 
@@ -111,7 +111,7 @@ Copilot will investigate the issue and provide actionable insights:
 
 <video src="analyzing.mp4" title="Copilot diagnosing connection issue" autoplay muted controls></video>
 
-### Manage tool approvals: Auto-approve agent mode tools
+## Manage tool approvals: Auto-approve agent mode tools
 
 As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
