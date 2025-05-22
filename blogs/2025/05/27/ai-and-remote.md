@@ -51,26 +51,26 @@ In our team's recent self-hosting, we found it helpful to use custom instruction
 
 To get started with custom instructions in a remote environment, you can use the same [instruction files](/docs/copilot/copilot-customization.md) remotely that you were already using locally.
 
-### Dev containers + custom instructions
+## Configure AI for your dev container
 
 Our team has taken steps to preconfigure custom instructions to make your life even easier when using dev containers. We publish dev container resources (like images and Features) to ease the process of creating and connecting to dev containers, and we now include custom instructions in these files. Here’s an example of how you can use the custom dev container instructions our team added:
 
 * Create a new dev container configuration using one of our images or Features. You could do this by hand, or via the **Dev Containers: Add Dev Container Configuration Files...** command supplied by the [Dev Containers extension](https://marketplace.visualstudio.com/search?term=dev%20containers&target=VSCode&category=All%20categories&sortBy=Relevance):
 
-![Dev Containers: Add Dev Container Configuration Files command in VS Code Command Palette](add-dev-container-config-command.png)
+    ![Dev Containers: Add Dev Container Configuration Files command in VS Code Command Palette](add-dev-container-config-command.png)
 
 * Follow the steps in the quick pick. For this example, we'll select the Python Template:
 
-![Select Python 3 dev container config in VS Code Command Palette](python-container.png)
+    ![Select Python 3 dev container config in VS Code Command Palette](python-container.png)
 
 * Build and connect to your dev container in VS Code:
 
-![VS Code notification to reopen project in dev container](reopen-container-notif.png)
+    ![VS Code notification to reopen project in dev container](reopen-container-notif.png)
 
 * The environment you've selected and are now connected to is based on [this Python Template](https://github.com/devcontainers/templates/tree/main/src/python). The Template uses [this Python image](https://github.com/devcontainers/features/tree/main/src/python), which [includes custom instructions](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80)
 * Try chatting with Copilot within your dev container. Copilot automatically pulls the custom instructions from the Python image!
 
-![AI chat using custom instructions](chat-using-instructions.png)
+    ![AI chat using custom instructions](chat-using-instructions.png)
 
 In addition to using the custom instructions we've added to images and Features, you can add additional custom instructions to the `devcontainer.json` in your projects - we've made it so that custom instructions can merge successfully across images and Templates. You can use the `"github.copilot.chat.codeGeneration.instructions"` setting, just like what we did in the Python dev container config described above.
 
@@ -84,7 +84,7 @@ If you [publish](https://containers.dev/collections) any dev container configura
 ],
 ```
 
-### Remote - SSH participant
+## Get help with Remote - SSH in chat
 
 _Chat participants_ enhance your chat experience by providing domain-specific knowledge, such as how to interact with a database or a specific API. Type `@` in the chat input field to view and select from the list of available participants - they'll be available in Ask and Edit modes. There are several built-in chat participants like `@workspace`, `@vscode`, `@terminal`, and `@github`. Extensions can also contribute chat participants.
 
