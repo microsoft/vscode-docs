@@ -59,7 +59,7 @@ To get started with custom instructions in a remote environment, you can use the
 
 ## Configure AI for your dev container
 
-Dev containers remove the barrier to get started a project by having all tools and dependencies preconfigured. By adding custom instructions, you can make sure that the LLM is tailored to that environment instead of providing generic answers. For example, a dev container for Python coding might have custom instructions about which tools are installed, or which coding guidelines to follow (as shared in the example above).
+Dev containers make it easier to get started with a project by having all tools and dependencies preconfigured. By adding custom instructions, you can make sure that the LLM is tailored to that environment instead of providing generic answers. For example, a dev container for Python coding might have custom instructions about which tools are installed, or which coding guidelines to follow (as shared in the example above).
 
 Our team has taken steps to preconfigure custom instructions to make your life even easier when using dev containers. We publish dev container resources (like images and Features) to ease the process of creating and connecting to dev containers, and we now include custom instructions in these files. Here’s an example of how you can use the custom dev container instructions our team added:
 
