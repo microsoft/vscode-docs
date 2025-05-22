@@ -106,15 +106,15 @@ Copilot will investigate the issue and provide actionable insights:
 
 ### Manage tool approvals: Auto-approve agent mode tools
 
-As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. This is powerful but potentially comes with risks. Therefore, you need to approve the use of tools and terminal commands in agent mode.
+As part of completing the tasks for a user prompt, [agent mode](/docs/copilot/chat/chat-agent-mode.md) can run tools and terminal commands. Agent mode is powerful because it not only proposes code changes but can also run terminal commands and tools. For example, it can install project dependencies or run tests. However, some of these actions might be destructive, such as deleting files, modifying local configuration, and more. Therefore, you need to approve the use of tools and terminal commands in agent mode.
 
 ![Agent mode tool approval options dropdown](/release-notes/images/1_99/chat-tool-approval.png)
 
-In case you want to auto-approve _all_ tools, you can now use the experimental `chat.tools.autoApprove` setting. This will auto-approve all tools, and VS Code will not ask for confirmation when a language model wishes to run tools. This can help save time by giving more autonomy to agent mode, but bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
-
-You may want to take advantage of the benefits of more autonomous agent mode only in certain more isolated environments. To achieve this, you can choose to set `chat.tools.autoApprove` only when connected to a remote environment in VS Code:
+In case you want to auto-approve _all_ tools, you can now use the experimental `chat.tools.autoApprove` setting. To give you some level of protection against inadvertent terminal commands or tool calls, you can choose to only set this in a dev container or remote machine to prevent your local dev machine from getting affected:
 
 ![Auto Approve tool setting in VS Code remote settings](auto-approval.png)
+
+This will auto-approve all tools, and VS Code will not ask for confirmation when a language model wishes to run tools. This can help save time by giving more autonomy to agent mode, but bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
 Please note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will pose different levels of risk.
 
