@@ -3,7 +3,7 @@ Order: 100
 TOCTitle: Enhance productivity with AI + Remote Dev
 PageTitle: "Enhance productivity with AI + Remote Dev"
 MetaDescription: Enhance your developer productivity with AI and Remote Development.
-MetaSocialImage: TBD.png
+MetaSocialImage: ai-remote-development-social.png
 Date: 2025-05-27
 Author: Brigit Murtaugh, Christof Marti, Josh Spicer, Olivia Guzzardo McVicker
 ---
@@ -18,7 +18,8 @@ Now combine those capabilities with the flexibility and power of AI in VS Code, 
 
 In this blog, we'll explore how your existing remote setups can be enhanced to "just work" with AI, along with some more customized AI + remote workflows that include custom instructions, chat participants, and agent auto-approvals.
 
-TODO: Add video
+TODO: update with actual video link when published
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/VePxCcF99w4?si=vY-f4CKc0rrl5fDa&start=165" title="AI and Remote Development in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What is Remote Development?
 
