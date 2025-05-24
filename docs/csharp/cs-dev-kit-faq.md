@@ -22,6 +22,27 @@ Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev K
 
 C# Dev Kit supports building web apps, console apps, class library projects, and test projects for .NET Core, often also called .NET. The [.NET MAUI extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-maui) and the [Unity extension](https://marketplace.visualstudio.com/items?itemName=visualstudiotoolsforunity.vstuc) are built on top of C# Dev Kit and provide additional support for building [.NET Multi-platform App UI (MAUI)](https://dotnet.microsoft.com/apps/maui) apps and Unity apps. These extensions support the modern .NET project format, also known as "sdk-style" projects. If you are building non-SDK-format projects such as [.NET Framework](https://learn.microsoft.com/dotnet/standard/choosing-core-framework-server) apps and Xamarin apps, see the [Project System](#project-system) section.
 
+### Licensing and usage
+
+Using C# Dev Kit requires a free Microsoft account. _Don't have one? [Create a free account](https://go.microsoft.com/fwlink/?linkid=2301270)._ Read below to learn if you should use C# Dev Kit with a free Community License or a Visual Studio subscription.
+
+**Community License:**
+
+- C# Dev Kit is **free** for personal, academic, open-source projects.
+- C# Dev Kit is **free** for commercial use for small teams up to 5 developers, provided the organization's annual revenue is less than $1M or the organization is not an enterprise.
+
+When prompted, simply sign in with your free Microsoft account.
+
+**Visual Studio Subscription:**
+
+- C# Dev Kit requires a [Visual Studio Subscription](https://visualstudio.microsoft.com/subscriptions/) for teams of 6+ developers, enterprises, or organizations with annual revenue equal to or over $1M.
+
+When prompted, sign in with the same Microsoft account used for your Visual Studio subscription.
+
+To see more details about individual, organizational, and/or enterprise usage of C# Dev Kit, please refer to the [EULA for C# Dev Kit documentation](https://aka.ms/vs/csdevkit-license).
+
+>**Note**: C# Dev Kit is also included in GitHub Codespaces and Microsoft Dev Box, so users of those products have access to C# Dev Kit at no additional charge.
+
 ### What extensions are included in C# Dev Kit?
 
 Today the extensions included in the C# Dev Kit family are:
@@ -45,13 +66,7 @@ There are a few reasons why C# Dev Kit doesn't activate when you attempt to edit
 
 If you have checked these and the C# Dev Kit commands are still not found, please report an issue and provide the information in the Output window for C# Dev Kit.
 
-## Licensing and Contributing
-
-### Who can use C# Dev Kit?
-
-C# Dev Kit is available via a Community License for those who qualify and is also included as another addition to existing [Visual Studio Subscriptions](https://visualstudio.microsoft.com/subscriptions). This means that C# Dev Kit is available to use today for developers with active Visual Studio subscriptions.
-
-For personal, academic, and open-source projects, C# Dev Kit can be used at no cost. For commercial purposes, teams of up to 5 can also use the C# Dev Kit at no cost. For 6+ developers, those users will need a Visual Studio Professional (or higher) subscription. C# Dev Kit is also included in GitHub Codespaces and Microsoft Dev Box, so users of those products have access to C# Dev Kit at no additional charge.
+## Contributing
 
 ### Where do I submit feedback and suggestions?
 
