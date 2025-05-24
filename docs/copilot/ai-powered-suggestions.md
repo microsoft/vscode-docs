@@ -12,7 +12,7 @@ Copilot provides two kinds of suggestions:
 
 * **Code completions** - Start typing in the editor, and Copilot provides code suggestions that match your coding style and take your existing code into account.
 
-* **Next Edit Suggestions** - Predict your next code edit with Copilot Next Edit Suggestions, aka Copilot NES. Based on the edits you're making, Copilot NES both predicts the location of the next edit you'll want to make and what that edit should be.
+* **Next edit suggestions** - Predict your next code edit with Copilot next edit suggestions, aka Copilot NES. Based on the edits you're making, NES both predicts the location of the next edit you'll want to make and what that edit should be.
 
 ## Getting started
 
@@ -61,7 +61,7 @@ The following example shows how to instruct Copilot to create a class in TypeScr
 
 ## Next Edit Suggestions
 
-Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot Next Edit Suggestions (Copilot NES) is this evolution.
+Inline suggestions are great at autocompleting a section of code. But since most coding activity is editing existing code, it's a natural evolution of Copilot code completions to also help with edits, both at the cursor and further away. Edits are often not made in isolation - there's a logical flow of what edits need to be made in different scenarios. Copilot next edit suggestions (Copilot NES) is this evolution.
 
 <video src="./images/inline-suggestions/nes-video.mp4" title="Copilot NES video" controls poster="./images/inline-suggestions/point3d.png"></video>
 
@@ -90,7 +90,7 @@ By default, edit suggestions are indicated by the gutter arrow and the code chan
 
 To disable showing the code changes in the editor, enable the `setting(editor.inlineSuggest.edits.showCollapsed)` setting in the Settings editor. Alternatively, hover over the gutter arrow and select the **Show Collapsed** option from the menu. To re-enable showing the code changes, disable the setting or select **Show Expanded** from the gutter arrow menu.
 
-### Use cases for Next Edit Suggestions
+### Use cases for next edit suggestions
 
 **Catching and correcting mistakes**
 
@@ -181,9 +181,9 @@ To give you relevant inline suggestions, Copilot looks at the current and open f
 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)` - enable or disable syntax highlighting for inline completions.
 
-### Next Edit Suggestions settings
+### Next edit suggestions settings
 
-* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot Next Edit Suggestions (Copilot NES).
+* `setting(github.copilot.nextEditSuggestions.enabled)` - enable Copilot next edit suggestions (Copilot NES).
 
 * `setting(editor.inlineSuggest.edits.allowCodeShifting)` - configure if Copilot NES is able to shift your code to show a suggestion.
 
