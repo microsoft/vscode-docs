@@ -18,8 +18,7 @@ Now combine those capabilities with the flexibility and power of AI in VS Code, 
 
 In this blog, we'll explore how your existing remote setups can be enhanced to "just work" with AI, along with some more customized AI + remote workflows that include custom instructions, chat participants, and agent auto-approvals.
 
-TODO: update with actual video link when published
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/VePxCcF99w4?si=vY-f4CKc0rrl5fDa&start=165" title="AI and Remote Development in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com//embed/ErYP9LRo7e0?si=1zYHow_2ivCc0jzd" title="AI and Remote Development in VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What is Remote Development?
 
