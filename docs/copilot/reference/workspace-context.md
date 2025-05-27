@@ -38,7 +38,6 @@ It's recommended to use `#codebase` in your chat prompts, as it provides more fl
   - `"@workspace where are tests defined?"` - Provides the location of test suites, cases, and related references and configurations
 - Making plans for complex code edits:
   - `"@workspace how can I add a rich tooltip to a button?"` - Provides a plan for using the existing tooltip component with button elements
-  - `"@workspace add date validation to #selection"` - Plans how to apply the existing date validation to the selected code
   - `"@workspace add a new API route for the forgot password form"` - Outlines where to add the new route and how to connect it to the existing code
 - Explaining higher-level concepts in a codebase:
   - `"@workspace how is authentication implemented?"` - Overview of the authentication flow and references to the relevant code
