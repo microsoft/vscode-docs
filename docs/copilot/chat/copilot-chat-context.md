@@ -50,40 +50,52 @@ The following examples show how to use #-mentions in your chat prompts:
 
 <details>
 <summary>Reference your pending source control changes</summary>
+
 * `"Summarize the #changes"`
 * `"Generate release notes based on the #changes"`
+
 </details>
 
 <details>
 <summary>Understand the codebase</summary>
+
 * `"Explain how authentication works in #codebase"`
 * `"Where is the database connecting string configured? #codebase"`
 * `"How do I build this #codebase?"`
 * `"Where is #getUser used? #usages"`
+
 </details>
 
 <details>
 <summary>Generate code that is consistent with your codebase</summary>
+
 * `"Create an about page and include it in the nav bar #codebase"`
 * `"Add a new API route for updating the address info #codebase"`
 * `"Add a login button and style it based on #styles.css"`
+
 </details>
 
 <details>
 <summary>Fix issues in the workspace</summary>
+
 * `"Fix the issues in #problems"`
 * `"Fix the failing tests #testFailure"`
+
 </details>
 
 <details>
 <summary>Get information about extensions</summary>
+
 * `"What are the top #extensions for this workspace?"`
+
 </details>
 
 <details>
 <summary>Reference content from the web</summary>
+
 * `"How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage"`
 * `"Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates"`
+
 </details>
 
 ## Add files as context
