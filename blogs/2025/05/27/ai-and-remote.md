@@ -29,7 +29,7 @@ When we describe VS Code Remote Development, we refer to five main experiences:
 * [Remote - Tunnels](/docs/remote/tunnels.md) - Connect to a remote machine via a secure tunnel, without configuring SSH.
 * [GitHub Codespaces](/docs/remote/codespaces.md) - Remote environments that are managed for you.
 
-![Remote architecture](/docs/remote/images/remote-overview/architecture.png)
+![Remote architecture](architecture.png)
 
 ## How can you use AI in a remote environment?
 
