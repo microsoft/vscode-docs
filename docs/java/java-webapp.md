@@ -1,12 +1,8 @@
 ---
-Area: java
-TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
-PageTitle: Build and Deploy Java Web Apps to the cloud with Visual Studio Code
 DateApproved: 3/2/2023
 MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with Visual Studio Code
 ---
-
 # Java Web Apps with Visual Studio Code
 
 This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to deploy a Java web application to a Linux Tomcat server in Azure App Service.

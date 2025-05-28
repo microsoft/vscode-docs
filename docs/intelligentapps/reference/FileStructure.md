@@ -3,7 +3,6 @@ ContentId: fea54c41-e5bb-49e2-89bd-518af096ba8e
 DateApproved: 05/13/2025
 MetaDescription: Model Conversion reference about project structure.
 ---
-
 # Model conversion file structure
 This article explains the file structure generated during model conversion workflows and the purpose of each folder and file, including cache handling, history tracking, inference and so on.
 

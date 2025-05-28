@@ -1,9 +1,5 @@
 ---
-Order: 9
-Area: containers
-TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
-PageTitle: Choosing an environment for container development
 DateApproved: 1/18/2023
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---

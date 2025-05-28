@@ -1,9 +1,5 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
-PageTitle: Enhanced colorization in Visual Studio Code C++ projects
 DateApproved: 2/23/2023
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---

@@ -1,13 +1,8 @@
 ---
-Order: 2
-Area: csharp
-TOCTitle: Get Started
 ContentId: cdf9809e-0569-4aaf-937e-e247507d9609
-PageTitle: Get started with C# and .NET in Visual Studio Code
 DateApproved: 5/3/2024
 MetaDescription: Getting Started with C# and .NET Development in Visual Studio Code
 ---
-
 # Getting Started with C# in VS Code
 
 This getting started guide introduces you to C# and .NET for Visual Studio Code through the following tasks:

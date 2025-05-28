@@ -1,7 +1,5 @@
 ---
-Area: containers
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
-PageTitle: Debug a .NET app running in a container
 DateApproved: 12/14/2023
 MetaDescription: Debug a .NET app running in a container, using Visual Studio Code.
 ---

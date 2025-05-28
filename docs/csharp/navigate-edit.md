@@ -1,13 +1,8 @@
 ---
-Order: 3
-Area: csharp
-TOCTitle: Navigate and Edit
 ContentId: 2061194e-c34d-4ab0-a135-088bee575314
-PageTitle: C# language features in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: C# language features such as Go to Definition and Smart selection in Visual Studio Code
 ---
-
 # Navigate and Edit
 
 The navigation and editing tools described in this overview are enabled by the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension, a lightweight extension to enhance your C# development experience in Visual Studio Code.

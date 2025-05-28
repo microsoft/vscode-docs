@@ -1,8 +1,4 @@
 ---
-Order: 4
-Area: remote
-TOCTitle: Windows Subsystem for Linux
-PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
 DateApproved: 05/08/2025
