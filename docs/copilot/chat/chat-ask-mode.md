@@ -59,9 +59,9 @@ Follow these steps to get started with ask mode in VS Code:
 
 ## Apply a code block from chat
 
-When your chat response contains code blocks, you can apply them individually to the corresponding file in your workspace. Copilot performs a smart apply and inserts the changes in the right location within the file.
+When your chat response contains code blocks, you can apply them individually to the corresponding file in your workspace. VS Code performs a smart apply and inserts the changes in the right location within the file.
 
-To apply a code block to your codebase, hover over the code block and select the **Apply in Editor** button. Copilot tries to apply the proposed changes to your existing code.
+To apply a code block to your codebase, hover over the code block and select the **Apply in Editor** button. VS Code tries to apply the proposed changes to your existing code.
 
 ![Screenshot of a chat code block response, highlighting the actions to apply changes.](images/ask-mode/copilot-chat-view-code-block-actions.png)
 
@@ -71,7 +71,7 @@ Depending on the language extension, code blocks in chat responses might support
 
 If a code block contains a shell command, you can run it directly in the integrated terminal with the **Insert into Terminal** (`kb(workbench.action.chat.runInTerminal)`) action.
 
-![Copilot Chat code block to list files with Insert into Terminal option visible](images/ask-mode/run-in-terminal.png)
+![Chat code block to list files with Insert into Terminal option visible](images/ask-mode/run-in-terminal.png)
 
 > [!TIP]
 > Navigate between code blocks with the **Chat: Next Code Block** (`kb(workbench.action.chat.nextCodeBlock)`) and **Chat Previous Code Block** (`kb(workbench.action.chat.previousCodeBlock)`) commands.
