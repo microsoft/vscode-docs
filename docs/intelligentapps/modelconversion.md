@@ -3,7 +3,6 @@ ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
 DateApproved: 05/13/2025
 MetaDescription: Model Conversion Quickstart in AI Toolkit.
 ---
-
 # Convert a model with AI Toolkit for VS Code (Preview)
 
 Model conversion is an integrated development environment designed to help developers and AI engineers to convert, quantize, optimize and evaluate the pre-built machine learning models on your local Windows platform. It offers a streamlined, end-to-end experience for models converted from sources like Hugging Face, optimizing them and enabling inference on local devices powered by NPUs, GPUs, and CPUs.

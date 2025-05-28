@@ -1,9 +1,5 @@
 ---
-Order: 13
-Area: java
-TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
-PageTitle: Java extensions for Visual Studio Code
 DateApproved: 1/4/2022
 MetaDescription: Popular Java extensions for Visual Studio Code
 ---

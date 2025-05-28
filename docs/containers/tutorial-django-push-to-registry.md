@@ -1,13 +1,9 @@
 ---
-Area: containers
-TOCTitle: Push Django Images to a Registry
 ContentId: 4eb2543d-84a7-4e11-b835-0d238ce7ed7a
-PageTitle: Push Django images to a registry in Visual Studio Code
 DateApproved: 1/17/2023
 MetaDescription: How to push a Django image to a container registry using the VS Code Container Tools extension
 MetaSocialImage: ../python/images/tutorial/python-social.png
 ---
-
 # Push Django images to a registry
 
 In this tutorial, you take a container image of a Python Django app you built locally and deploy it to Azure Container Registry (ACR) or Docker Hub.

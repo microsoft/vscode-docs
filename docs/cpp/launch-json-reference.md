@@ -1,9 +1,5 @@
 ---
-Order: 13
-Area: cpp
-TOCTitle: Configure debugging
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
-PageTitle: Configure launch.json for C/C++ debugging in Visual Studio Code
 DateApproved: 6/10/2021
 MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 ---

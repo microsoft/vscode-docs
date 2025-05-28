@@ -1,9 +1,5 @@
 ---
-Order: 2
-Area: containers
-TOCTitle: Node.js
 ContentId: A963901F-BF3F-455F-AD75-AB54EAE72BEF
-PageTitle: Build and run a Node.js app in a container
 DateApproved: 12/13/2022
 MetaDescription: Develop, build, and debug a Node.js app in a container, using Visual Studio Code.
 ---

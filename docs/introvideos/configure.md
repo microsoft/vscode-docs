@@ -1,9 +1,5 @@
 ---
-Order:
-Area: introvideos
-TOCTitle: Personalize
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
-PageTitle: Personalize Visual Studio Code
 DateApproved: 10/5/2021
 MetaDescription: Learn how to personalize Visual Studio Code with themes.
 MetaSocialImage: images/opengraph/introvideos-social.png

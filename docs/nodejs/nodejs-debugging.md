@@ -1,9 +1,5 @@
 ---
-Order: 3
-Area: nodejs
-TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-PageTitle: Debug Node.js Apps using Visual Studio Code
 DateApproved: 05/08/2025
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: ../editor/images/debugging/debugging-social.png
