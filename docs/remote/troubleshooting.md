@@ -29,9 +29,9 @@ if [ "$VSCODE_INJECTION" = "1" ]; then
 fi
 ```
 
-For Windows hosts, here is the equivalent Powershell:
+For Windows hosts, here is the equivalent PowerShell:
 
-```pwsh
+```powershell
 if ($env:VSCODE_INJECTION -eq "1") {
     $env:EDITOR = "code --wait"  # or 'code-insiders' for VS Code Insiders
 }
