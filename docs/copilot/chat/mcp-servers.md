@@ -172,7 +172,7 @@ Use the following JSON configuration format to define MCP servers.
     |-------|-------------|----------|
     | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"sse"`, `"http"` |
     | `url` | URL of the server. | `"http://localhost:3000"` |
-    | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
+    | `headers` | HTTP headers for the server. | `{"Authorization": "Bearer ${input:api-key}"}` |
 
 * The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
