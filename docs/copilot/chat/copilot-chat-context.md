@@ -35,6 +35,7 @@ VS Code supports the following context items:
 | #fetch | Get the contents of a web page. |
 | #githubRepo | Perform a web search within a GitHub repo. |
 | #problems | Get the list of problems for the current workspace. |
+| #selection | Get the text selection for the active editor. |
 | #searchResults | Get the results from the Search view. |
 | #terminalLastCommand | Get the last run terminal command and its status. |
 | #terminalSelection | Get the terminal text selection. |
