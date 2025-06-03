@@ -1,14 +1,9 @@
 ---
-Order: 10
-Area: csharp
-TOCTitle: Run and Debug
 ContentId: f4507411-1780-4b80-8816-657c09585c19
-PageTitle: Debugging C# in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: See how you can run and debug your C# source code
 MetaSocialImage:
 ---
-
 # Debugging
 
 You can debug C# applications in Visual Studio Code using the [Microsoft C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.

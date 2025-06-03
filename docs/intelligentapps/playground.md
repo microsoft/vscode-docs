@@ -3,7 +3,6 @@ ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
 DateApproved: 12/11/2024
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
-
 # AI Toolkit playground
 
 The AI Toolkit playground enables you to interact with your AI models and try different prompts with different model parameter settings. You can also use the playground to interact with multi-modal models that support attachment of different input formats.

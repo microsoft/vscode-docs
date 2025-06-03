@@ -1,8 +1,4 @@
 ---
-Order: 12
-Area: containers
-TOCTitle: Tips and Tricks
-PageTitle: Visual Studio Code container development troubleshooting Tips and Tricks
 ContentId: 79bb60fd-5248-43d2-8801-34b9fc2ec543
 MetaDescription: Visual Studio Code container development troubleshooting tips and tricks
 DateApproved: 12/21/2022

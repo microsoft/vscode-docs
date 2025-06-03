@@ -1,9 +1,5 @@
 ---
-Order: 11
-Area: editor
-TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
-PageTitle: Visual Studio Code for the Web
 DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---

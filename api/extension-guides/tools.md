@@ -173,7 +173,7 @@ The following example shows how to define a tool that counts the number of activ
 
 1. Define an interface that describes the tool input parameters.
 
-    The interface is used in the `invoke` method. The input parameters are validated against the JSON schema defined in `inutSchema` in `package.json`.
+    The interface is used in the `invoke` method. The input parameters are validated against the JSON schema defined in `inputSchema` in `package.json`.
 
     The following example shows the interface for the tab count tool.
 

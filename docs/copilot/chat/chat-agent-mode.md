@@ -8,13 +8,22 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 With chat _agent mode_ in Visual Studio Code, you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
 ## Prerequisites
 
 * Install the latest version of [Visual Studio Code](/download)
-* Access to [Copilot](/docs/copilot/setup.md)
+* Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
+## Why use agent mode?
+
+Agent mode is optimized for making autonomous edits across multiple files in your project. It is particularly useful for complex tasks that require not only code edits but also the invocation of tools and terminal commands. You can use agent mode to:
+
+* Refactor parts of your codebase, such as "refactor the app to use a Redis cache".
+* Plan and implement new features, such as "add a login form to the app using OAuth for authentication".
+* Migrate your codebase to a new framework, such as "migrate the app from React to Vue.js".
+* Generate an implementation plan for a complex task, such as "create a meal-planning web app using a Swift front-end and a Node.js back-end".
+* Define a high-level requirement, such as "add social media sharing functionality".
+
+Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
 
 ## Enable agent mode in VS Code
 
@@ -27,21 +36,19 @@ To centrally enable or disable agent mode within your organization, check [Centr
 
 ## Use agent mode
 
-In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.
+In agent mode, the AI operates autonomously and determines the relevant context for your prompt.
 
 Follow these steps to get started:
 
-1. [Enable agent mode](#enable-agent-mode-in-vs-code) in VS Code.
+1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the chat mode selector.
 
-1. Open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
+    ![Screenshot showing the Chat view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
 
-    Alternatively, open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the chat mode selector.
-
-    ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
+    Directly open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
 
 1. Enter your prompt for making edits in the chat input field and select **Send** (`kb(workbench.action.edits.submit)`) to submit it.
 
-    You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, Copilot determines the relevant context and files to edit autonomously.
+    You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, the AI determines the relevant context and files to edit autonomously.
 
     Experiment with some of these example prompts to get started:
 
@@ -159,6 +166,34 @@ To interrupt an ongoing request, you can either **Pause** it or **Cancel** it. W
 When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.
 
 When you cancel a request, Copilot interrupts and ends the active request. You can still [review and accept or reject](#accept-or-discard-edits) the changes that were made up to that point.
+
+## Use instructions to get AI edits that follow your coding style
+
+To get AI-generated code edits that follow your coding style, preferred frameworks, and other preferences, you can use instruction files. Instruction files enable you to describe your coding style and preferences in Markdown files, which the AI uses to generate code edits that match your requirements.
+
+You can manually attach instruction files as context to your chat prompt, or you can configure the instruction files to be automatically applied.
+
+The following code snippet shows an example of an instruction file that describes your coding style and preferences:
+
+```markdown
+---
+applyTo: "**"
+---
+# Project general coding standards
+
+## Naming Conventions
+- Use PascalCase for component names, interfaces, and type aliases
+- Use camelCase for variables, functions, and methods
+- Prefix private class members with underscore (_)
+- Use ALL_CAPS for constants
+
+## Error Handling
+- Use try/catch blocks for async operations
+- Implement proper error boundaries in React components
+- Always log errors with contextual information
+```
+
+Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
 
 ## Settings
 

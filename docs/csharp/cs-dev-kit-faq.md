@@ -1,13 +1,8 @@
 ---
-Order: 12
-Area: csharp
-TOCTitle: FAQ
 ContentId: edd2c270-152c-419d-b5d9-06f2f95979cd
-PageTitle: C# Dev Kit extension FAQ
 DateApproved: 5/3/2024
 MetaDescription: C# Dev Kit extension Frequently Asked Questions (FAQ)
 ---
-
 # C# Dev Kit FAQ
 
 Use this FAQ (Frequently Asked Questions) topic to learn more about the C# Dev Kit extension and troubleshoot issues you may be experiencing.

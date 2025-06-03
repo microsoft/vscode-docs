@@ -3,7 +3,6 @@ ContentId: 8dfdd336-fbbf-440c-9bc1-3f98a1787dfc
 DateApproved: 05/13/2025
 MetaDescription: Model Conversion reference about setup template project.
 ---
-
 # Set up a template project in model conversion
 This article introduces how to set up and customize a template project in model conversion, guiding you through editing configuration files like sample.json, model_project.config, and others to suit your specific model, dataset, and workflow needs.
 
