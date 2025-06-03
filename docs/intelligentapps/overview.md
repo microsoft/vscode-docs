@@ -13,13 +13,13 @@ The toolkit offers seamless integration with popular AI models from providers li
 
 | Feature | Description | Screenshot |
 |---------|-------------|------------|
-| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![catalog](./images/overview/catalog.png) |
-| [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![playground](./images/overview/Playground.png) |
-| [Agent (Prompt) Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![agentBuilder](./images/overview/AgentBuilder.png) |
-| [Bulk Run](/docs/intelligentapps/bulkrun) | Execute batch prompt testing across multiple models simultaneously. Ideal for comparing model performance and testing at scale with various input scenarios. | ![bulkrun](./images/overview/BulkRun.png) |
-| [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![evaluate](./images/overview/Eval.png) |
-| [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or leverage Azure Container Apps for cloud-based fine-tuning. | ![fine-tune](./images/overview/Fine-tune.png) |
-| [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![conversion](./images/overview/Conversion.png) |
+| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the AI Toolkit Model Catalog interface with various AI model options](./images/overview/catalog.png) |
+| [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the AI Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/Playground.png) |
+| [Agent (Prompt) Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent (Prompt) Builder interface for creating and managing AI agents](./images/overview/AgentBuilder.png) |
+| [Bulk Run](/docs/intelligentapps/bulkrun) | Execute batch prompt testing across multiple models simultaneously. Ideal for comparing model performance and testing at scale with various input scenarios. | ![Screenshot showing the Bulk Run interface for batch testing prompts across multiple AI models](./images/overview/BulkRun.png) |
+| [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![Screenshot showing the Model Evaluation interface with metrics and performance analysis tools](./images/overview/Eval.png) |
+| [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or leverage Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/Fine-tune.png) |
+| [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/Conversion.png) |
 
 ## Who is AI Toolkit for?
 
@@ -53,22 +53,25 @@ The fastest way to get started is by installing the extension through the Visual
 
 > <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the AI Toolkit for VS Code</a>
 
+After successful installation, the AI Toolkit icon appears in the Activity Bar.
+
+
 ### Manual installation
 
 You can also install the AI Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace#_install-an-extension).
 
 > [!TIP]
-> Choose between the **Release** version for stable features or the **Pre-Release** version for early access to new capabilities. You can [switch between versions](/docs/configure/extensions/extension-marketplace#_install-a-prerelease-extension-version) anytime after installation. Note that pre-release versions may contain experimental features and could be less stable than the main release.
+   Alternatively, select the Extensions icon in the Activity Bar.
 
 * Search for **AI Toolkit for Visual Studio Code** and select **Install** from search results.
 
-   ![install](./images/overview/install_2.png)
+   ![Screenshot showing the AI Toolkit extension in the VS Code Marketplace with the install button](./images/overview/install_2.png)
 
 > [!TIP]
 > Check the **What's New** page after installation to see detailed features for each version.
-* After successful installation, the AI Toolkit icon appears in the VS Code Activity Bar.
+* After successful installation, the AI Toolkit icon appears in the Activity Bar.
 
-   ![install](./images/overview/install_4.png)
+   ![Screenshot showing the AI Toolkit icon in the VS Code Activity Bar after installation](./images/overview/install_4.png)
 
 ## Get started with AI Toolkit
 
