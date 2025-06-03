@@ -1,9 +1,5 @@
 ---
-Order: 5
-Area: introvideos
-TOCTitle: Extend
 ContentId: c720387b-e6db-4b40-865f-0c0a814b0b12
-PageTitle: Extensions in Visual Studio Code
 DateApproved: 10/5/2021
 MetaDescription: Use extensions in Visual Studio Code to add new features, themes, and more.
 MetaSocialImage: images/opengraph/introvideos-social.png

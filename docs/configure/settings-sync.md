@@ -1,9 +1,5 @@
 ---
-Order: 16
-Area: editor
-TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
-PageTitle: Settings Sync in Visual Studio Code
 DateApproved: 05/08/2025
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---

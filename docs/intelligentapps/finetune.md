@@ -3,7 +3,6 @@ ContentId: 5b6626b8-98a9-497e-bbc6-e2274885be56
 DateApproved: 12/11/2024
 MetaDescription: Use custom dataset to fine-tune a generative AI model in the Azure cloud or locally with GPUs. Deploy the fine-tuned model to the Azure cloud or download incremental files from fine-tuned model.
 ---
-
 # Fine-tune models
 
 Fine-tune AI model is a common practice that allows you to use your custom dataset to run **fine-tune** jobs on a pre-trained model in a computing environment with GPUs. AI Toolkit currently supports fine-tuning SLMs on local machine with GPU or in the cloud (Azure Container App) with GPU.

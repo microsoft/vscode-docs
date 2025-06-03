@@ -1,8 +1,4 @@
 ---
-Order: 22
-Area: languages
-TOCTitle: Swift
-PageTitle: Swift with Visual Studio Code
 DateApproved: 2/19/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, testing) for Swift.
 ---

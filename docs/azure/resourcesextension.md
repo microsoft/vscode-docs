@@ -1,8 +1,4 @@
 ---
-Order: 3
-Area: azure
-TOCTitle: Resources View
-PageTitle: Azure Resources for Visual Studio Code
 ContentId: fc1e60f9-86a6-47c2-beb6-5289d21f48d1
 MetaDescription: Azure Resources for Visual Studio Code
 DateApproved: 5/5/2025

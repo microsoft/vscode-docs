@@ -3,7 +3,6 @@ ContentId: 1124d141-e893-4780-aba7-b6ca13628bc5
 DateApproved: 12/11/2024
 MetaDescription: Run a set of prompts in an imported dataset, individually or in a full batch towards the selected genAI models and parameters.
 ---
-
 # Run multiple prompts in bulk
 
 The bulk run feature in AI Toolkit enables you to run multiple prompts in batch. When you use the playground, you can only run one prompt manually at a time, in the order they're listed.

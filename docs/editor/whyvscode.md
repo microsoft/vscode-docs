@@ -1,9 +1,5 @@
 ---
-Order:
-Area: editor
-TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
-PageTitle: Why Visual Studio Code?
 DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
 ---

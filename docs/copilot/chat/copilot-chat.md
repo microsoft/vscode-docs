@@ -17,23 +17,20 @@ You might want to use chat in VS Code when you need to:
 * Learn best practices - "What's the recommended way to handle errors in async functions?"
 * Get VS Code tips - "How do I customize keyboard shortcuts?"
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
 ## Prerequisites
 
 * Install the latest version of [Visual Studio Code](/download)
-* Access to [Copilot](/docs/copilot/setup.md)
+* Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Chat mode
 
-Based on your specific needs, you can choose between different modes of chat:
+Chat in VS Code can operate in different modes, each optimized for a specific use case. You can change between the different chat modes at any time in the Chat view.
 
-| Mode | Description | Scenario |
-|------|-------------|----------|
-| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask questions about your codebase or technology concepts.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). | Understand how a piece of code works, brainstorm software design ideas, or explore new technologies. |
-| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Make edits across multiple files in your codebase.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). | Apply code edits directly in your project for implementing a new feature, fixing a bug, or refactoring code. |
-| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Start an agentic coding workflow.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). | Autonomously implement high-level requirements for a new feature or project with minimal guidance, invoking tools for specialized tasks, iterating to resolve issues as they occur. |
+| Mode | Description |
+|------|-------------|
+| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts.<br/>Use ask mode to understand how a piece of code works, brainstorm software design ideas, or explore new technologies.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). |
+| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Edit mode is optimized for making code edits across multiple files in your project. VS Code directly applies the code changes in the editor, where you can review them in-place. Use edit mode for coding tasks when you have a good understanding of the changes that you want to make, and which files you want to edit.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). |
+| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Agent mode is optimized for making autonomous edits across multiple files in your project. Use agent mode for coding tasks when you have a less well-defined task that might also require running terminal commands and tools.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). |
 
 Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
 
@@ -75,32 +72,6 @@ For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.co
 > [!TIP]
 > Type `/help` in the chat input field to get help about GitHub Copilot and how to interact with Copilot Chat.
 
-## Open a chat session in the editor
-
-You can open a chat session as a separate editor tab, or even as a separate window. As a side effect, this enables you to have multiple chat sessions open at the same time.
-
-To open a chat session in the editor or a separate window:
-
-1. Select the `...` icon in the top-right corner of the Chat view.
-
-    ![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options.](images/copilot-chat/chat-three-dot-menu.png)
-
-1. Select **Open Chat in Editor** or **Open Chat in New Window**.
-
-## Open a chat session in a floating window
-
-VS Code supports floating windows, which is useful for keeping the Chat view open in a separate window on your screen or even on a different monitor. You can open multiple chat sessions in floating windows at the same time.
-
-To open a chat session in a floating window, select the `...` icon in the top-right corner of the Chat view, and then select **Open Chat in New Window**.
-
-![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options. The desktop shows a floating window with a chat session.](images/copilot-chat/chat-open-in-new-window.png)
-
-By default, the chat session opens in compact mode, which hides the title bar and other UI elements. Select the compact mode icon in the floating window title bar to toggle between compact and normal mode.
-
-Optionally, enable the **Always on Top** mode to always keep the Chat view on top of other windows.
-
-Learn more about [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
-
 ## Change the language model
 
 Copilot offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
@@ -112,20 +83,17 @@ You can also add models from other model providers (preview) and use them in cha
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
 
-## Reference tools in chat
-
-You can directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
-
 ## Add chat context
 
-Copilot tries to determine the intent and scope of your question based on your natural language chat prompt. To help get more relevant responses, provide additional context in your chat prompt. For example, add files, test results, terminal output, or other types of context that might be relevant to your question.
+VS Code tries to determine the intent and scope of your chat request based on your natural language prompt. To help get more relevant responses, provide additional context in your chat prompt, such as files, test results, terminal output, and more.
 
-![Screenshot of the Copilot Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
+Use the **Add Context** button in the Chat view or type #-mentions to add context to your chat prompt. For example, `#codebase` to refer to the entire codebase, or `#<file | folder | symbol>` to refer to a specific file, folder, or symbol in your workspace. Type `#` in the chat input field to view the list of context items. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+
+![Screenshot of the Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
+
+You can also directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode). For example, use the `#fetch` tool to add the content of a web page as context to your chat prompt, or use `#githubRepo` to perform a code search in a GitHub repository.
 
 Get more details about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
-
-> [!TIP]
-> Let Copilot find the right files automatically by adding `#codebase` in your prompt. Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
 ## Vision (Preview)
 
@@ -151,6 +119,24 @@ You can export all prompts and responses for a chat session in a JSON file with 
 Within a chat session, you can remove a specific prompt and the corresponding response from the conversation history of that session. Hover over the prompt and select the **x** control. Removing a request might be useful if you notice that the language model is not providing relevant responses or is taking an unwanted direction.
 
 ![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
+
+## Open chat in an editor tab or separate window
+
+You can open a chat session as a separate editor tab, or even as a separate, floating window. This functionality enables you to have multiple chat sessions open at the same time.
+
+In the Chat view, select the `...` icon in the top-right corner, and then select **Open Chat in Editor** or **Open Chat in New Window**.
+
+![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options.](images/copilot-chat/chat-three-dot-menu.png)
+
+The following screenshot shows the Chat view running in a floating window:
+
+![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options. The desktop shows a floating window with a chat session.](images/copilot-chat/chat-open-in-new-window.png)
+
+By default, the chat session opens in compact mode, which hides the title bar and other UI elements. Select the compact mode icon in the floating window title bar to toggle between compact and normal mode.
+
+Optionally, enable the **Always on Top** mode to always keep the Chat view on top of other windows.
+
+Learn more about [floating windows](/docs/configure/custom-layout.md#floating-windows) in VS Code.
 
 ## Use voice interactions
 
@@ -193,5 +179,6 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 ## Next steps
 
 * Get started with the introductory [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md).
-
-* Make edits across multiple files with [Copilot Edits](/docs/copilot/chat/copilot-edits.md).
+* [Use ask mode to ask questions about your code](/docs/copilot/chat/chat-ask-mode.md)
+* [Use agent mode to start an autonomous coding session](/docs/copilot/chat/chat-agent-mode.md)
+* [Use edit mode to make code edits across multiple files](/docs/copilot/chat/copilot-edits.md)

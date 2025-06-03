@@ -1,9 +1,5 @@
 ---
-Order: 3
-Area: setup
-TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-PageTitle: Running Visual Studio Code on macOS
 DateApproved: 05/08/2025
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---

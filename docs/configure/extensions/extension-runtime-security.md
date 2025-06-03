@@ -1,13 +1,8 @@
 ---
-Order: 4
-Area: editor
-TOCTitle: Extension Runtime Security
 ContentId: b921a11a-ed69-4716-bc93-589ba8e01e22
-PageTitle: Visual Studio Code Extension Runtime Security
 DateApproved: 05/08/2025
 MetaDescription: Learn about the security measures in place for Visual Studio Code extensions, including permissions, user reliability checks, and Marketplace protections.
 ---
-
 # Extension runtime security
 
 [Extensions](/docs/configure/extensions/extension-marketplace.md) greatly enhance the functionality of Visual Studio Code. They can also introduce risks, such as malicious code execution and data privacy concerns. The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) has many ways to protect you from bad extensions. In addition, VS Code gives you several indicators of an extension's reliability.

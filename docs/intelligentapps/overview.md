@@ -3,7 +3,6 @@ ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
 DateApproved: 12/11/2024
 MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
-
 # AI Toolkit for Visual Studio Code
 
 AI Toolkit for Visual Studio Code is a comprehensive extension that empowers developers and AI engineers to build, test, and deploy intelligent applications using generative AI models. Whether you're working locally or in the cloud, AI Toolkit provides an integrated development environment for the complete AI application lifecycle.
