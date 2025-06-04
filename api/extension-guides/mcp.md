@@ -22,7 +22,7 @@ Instead of using MCP servers to extend the chat functionality, you can also [con
 
 ## Register an MCP server
 
-To register an MCP server in your extension, use the `vscode.lm.registerMcpServerDefinitionProvider` API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+To register an MCP server in your extension, use the `vscode.lm.registerMcpServerDefinitionProvider` API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
 Before calling this method, extensions must contribute the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider.
 
@@ -120,4 +120,4 @@ Get started with a full example of how to register an MCP server in a VS Code ex
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
 - [Contribute a language model tool](/api/extension-guides/tools)
-- [Language Model API reference](/api/references/vscode-api#lm)
+- [Language Model API reference](/api/references/vscode-api#_lm)
