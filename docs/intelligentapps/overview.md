@@ -1,34 +1,77 @@
 ---
 ContentId: 164299e8-d27d-40b9-8b8d-a6e05df8ac69
-DateApproved: 12/11/2024
-MetaDescription: Develop and test AI apps with AI Toolkit for Visual Studio Code. Inference test, batch run, evaluate, fine-tune and deploy LLMs and SLMs.
+DateApproved: 06/04/2025
+MetaDescription: Build, test, and deploy AI applications with AI Toolkit for Visual Studio Code. Features model playground, prompt engineering, batch evaluation, fine-tuning, and multi-modal support for LLMs and SLMs.
 ---
 # AI Toolkit for Visual Studio Code
 
-AI Toolkit for Visual Studio Code is an extension to help developers and AI engineers to easily build AI apps through developing and testing with generative AI models locally or in the cloud. AI Toolkit supports most genAI models on the market.
+AI Toolkit for Visual Studio Code is a comprehensive extension that empowers developers and AI engineers to build, test, and deploy intelligent applications using generative AI models. Whether you're working locally or in the cloud, AI Toolkit provides an integrated development environment for the complete AI application lifecycle.
 
-AI engineers can use AI Toolkit to discover and try popular AI models easily with playground that has attachment support, run multiple prompts in batch mode, evaluate the prompts in a dataset to AI models for the popular evaluators, and fine-tune/deploy AI models.
+The toolkit offers seamless integration with popular AI models from providers like OpenAI, Anthropic, Google, and GitHub, while also supporting local models through ONNX and Ollama. From model discovery and experimentation to prompt engineering and deployment, AI Toolkit streamlines your AI development workflow within VS Code.
 
 ## Key features
 
-- [Model catalog](/docs/intelligentapps/models.md) with rich generative AI models sources (GitHub, ONNX, OpenAI, Anthropic, Google, ...)
-- [Bring Your Own Models](/docs/intelligentapps/models.md#bring-your-own-models) from remotely hosted model, or Ollama models that are running locally
-- [Playground](/docs/intelligentapps/playground.md) for model inference or testing via chat
-- [Attachment support](/docs/intelligentapps/playground.md#add-attachments-for-multi-modal-models) for multi-modal language models
-- [Batch run prompts](/docs/intelligentapps/bulkrun.md) for selected AI models
-- [Evaluate an AI model with a dataset](/docs/intelligentapps/evaluation.md) for supported popular evaluators like F1 score, relevance, similarity, coherence, and more
+| Feature | Description | Screenshot |
+|---------|-------------|------------|
+| [Model Catalog](/docs/intelligentapps/models.md) | Discover and access AI models from multiple sources including GitHub, ONNX, Ollama, OpenAI, Anthropic, and Google. Compare models side-by-side and find the perfect fit for your use case. | ![Screenshot showing the AI Toolkit Model Catalog interface with various AI model options](./images/overview/catalog.png) |
+| [Playground](/docs/intelligentapps/playground.md) | Interactive chat environment for real-time model testing. Experiment with different prompts, parameters, and multi-modal inputs including images and attachments. | ![Screenshot showing the AI Toolkit Playground interface with chat messaging and model parameter controls](./images/overview/playground.png) |
+| [Agent (Prompt) Builder](/docs/intelligentapps/agentbuilder) | Streamlined prompt engineering and agent development workflow. Create sophisticated prompts, integrate MCP tools, and generate production-ready code with structured outputs. | ![Screenshot showing the Agent (Prompt) Builder interface for creating and managing AI agents](./images/overview/agent_builder.png) |
+| [Bulk Run](/docs/intelligentapps/bulkrun) | Execute batch prompt testing across multiple models simultaneously. Ideal for comparing model performance and testing at scale with various input scenarios. | ![Screenshot showing the Bulk Run interface for batch testing prompts across multiple AI models](./images/overview/bulk_run.png) |
+| [Model Evaluation](/docs/intelligentapps/evaluation) | Comprehensive model assessment using datasets and standard metrics. Measure performance with built-in evaluators (F1 score, relevance, similarity, coherence) or create custom evaluation criteria. | ![Screenshot showing the Model Evaluation interface with metrics and performance analysis tools](./images/overview/eval.png) |
+| [Fine-tuning](/docs/intelligentapps/finetune) | Customize and adapt models for specific domains and requirements. Train models locally with GPU support or leverage Azure Container Apps for cloud-based fine-tuning. | ![Screenshot showing the Fine-tuning interface with model adaptation and training controls](./images/overview/fine-tune.png) |
+| [Model Conversion](/docs/intelligentapps/modelconversion) | Convert, quantize, and optimize machine learning models for local deployment. Transform models from Hugging Face and other sources to run efficiently on Windows with CPU, GPU, or NPU acceleration. | ![Screenshot showing the Model Conversion interface with tools for optimizing and transforming AI models](./images/overview/conversion.png) |
 
 ## Who is AI Toolkit for?
 
-Any developer who wants to explore, test, evaluate, and fine-tune generative AI models when building AI apps.
+AI Toolkit is designed for anyone working with generative AI, from beginners to experts:
+
+### Developers
+* **App developers** building AI-powered applications who need to integrate language models
+* **Full-stack developers** looking to add intelligent features to web and desktop applications
+* **Mobile developers** prototyping AI functionality before production deployment
+
+### AI engineers & data scientists
+* **AI engineers** fine-tuning models for specific domains and deploying to production
+* **Data scientists** evaluating model performance and comparing different approaches
+* **ML engineers** converting and optimizing models for efficient local deployment
+
+### Researchers and educators
+* **AI researchers** experimenting with different models and prompt engineering techniques
+* **Educators** teaching AI concepts and demonstrating model capabilities
+* **Students** learning about generative AI and hands-on model interaction
+
+### Key use cases
+* Explore and evaluate models from providers like Anthropic, OpenAI, and GitHub
+* Run models locally using ONNX and Ollama for privacy and cost control
+* Build and test agents with prompt generation and MCP tool integrations
+* Convert and optimize models for deployment across different hardware configurations
 
 ## Install and setup
 
-You can install the AI Toolkit from the Extensions view in VS Code:
+### Quick installation
+The fastest way to get started is by installing the extension through the Visual Studio Marketplace:
 
 > <a class="install-extension-btn" href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">Install the AI Toolkit for VS Code</a>
 
-You can switch the installation between the formal released version for stable features and pre-released version for early access of new features. Check What's New during the installation for detailed feature list of each version.
+After successful installation, the AI Toolkit icon appears in the Activity Bar.
+
+
+### Manual installation
+
+You can also install the AI Toolkit extension manually from the Visual Studio Code Marketplace. Follow the steps detailed in [Install an extension](/docs/configure/extensions/extension-marketplace#_install-an-extension).
+
+> [!TIP]
+   Alternatively, select the Extensions icon in the Activity Bar.
+
+* Search for **AI Toolkit for Visual Studio Code** and select **Install** from search results.
+
+   ![Screenshot showing the AI Toolkit extension in the VS Code Marketplace with the install button](./images/overview/install_2.png)
+
+> [!TIP]
+> Check the **What's New** page after installation to see detailed features for each version.
+* After successful installation, the AI Toolkit icon appears in the Activity Bar.
+
+   ![Screenshot showing the AI Toolkit icon in the VS Code Activity Bar after installation](./images/overview/install_4.png)
 
 ## Get started with AI Toolkit
 
