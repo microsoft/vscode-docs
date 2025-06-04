@@ -1,86 +1,180 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
 DateApproved: 05/08/2025
-MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
+MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Copilot chat context
+# Manage context for AI
 
-This article describes how to add context to your Copilot chat prompt in Visual Studio Code to help Copilot give you the best and most relevant answers. Copilot supports different [types of context](#chat-context-types), including files, symbols, terminal command output, and more.
+By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
 
-Copilot tries to determine the intent and scope of your question based on your natural language chat prompt. To help Copilot give you the best and most relevant answers, [add context to your chat prompt](#add-context-to-your-chat-prompt) or [let Copilot find the right files automatically](#let-copilot-find-the-right-files-automatically).
+## #-mentions
 
-## Add context to your chat prompt
+In chat, you can explicitly refer to context by typing `#` followed by the context item you want to mention. This enables the AI to provide more relevant responses based on the specific context you are referring to.
 
-There are several ways to add context to your chat prompt:
+Type the `#` symbol in the chat input field to see a list of available context items.
 
-* VS Code automatically adds the currently active editor as context. If you selected a code block in the editor, only that selection is added as context.
+![Screenshot of VS Code Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-    You can disable adding the active editor for the current request by selecting the disable (_eye_) icon next to the context item. Use the `setting(chat.implicitContext.enabled)` setting to configure if the active editor should be added automatically for all requests.
+To reference a specific workspace file, folder, or code symbol, type `#` followed by the file name, folder name, or symbol name. Learn more about [referencing files and folders in chat](#add-files-as-context).
 
-    ![Screenshot of VS Code Copilot Chat view, showing the current editor selection as context.](./images/copilot-chat/copilot-chat-view-selection-context.png)
+Alternatively, choose from the list of available predefined context items like `#changes` to get the diffs of changed files, or `#codebase` to perform a codebase search for your workspace.
 
-* Select the **Attach Context** (paperclip) icon (Copilot Chat) or **Add Files** button (Copilot Edits) and then select a type of context from the Quick Pick.
+Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-    ![Screenshot of VS Code Copilot Chat view, showing the Attach context button and context Quick Pick.](./images/copilot-chat/copilot-chat-view-attach-context.png)
+<details>
+<summary>Supported context items</summary>
 
-    You can attach predefined context types, such as **Codebase**, or **Terminal Selection**, or choose files, folders, or symbols from the workspace.
+VS Code supports the following context items:
 
-    > [!TIP]
-    > To quickly add multiple items from the attachment Quick Pick, use the `kbstyle(Up)` and `kbstyle(Down)` keys to navigate the list, use the `kbstyle(Right)` key to add the item as context, and then repeat this for other items.
+| Context item | Description |
+| ------------- | ----------- |
+| #changes | Get the diffs of changed files in source control. |
+| #codebase | Perform a codebase search across the current workspace. |
+| #extensions | Search across VS Code extensions. |
+| #fetch | Get the contents of a web page. |
+| #githubRepo | Perform a web search within a GitHub repo. |
+| #problems | Get the list of problems for the current workspace. |
+| #selection | Get the text selection for the active editor. |
+| #searchResults | Get the results from the Search view. |
+| #terminalLastCommand | Get the last run terminal command and its status. |
+| #terminalSelection | Get the terminal text selection. |
+| #testFailure | Get the list of test failures. |
+| #usages | Get symbol references across the workspace. |
+| #vscodeAPI | Perform a search across the VS Code extension API. |
 
-* Use the context menu **Copilot** > **Add File to Chat** on a file in the Explorer or Search view, or **Add Selection to Chat** for a text selection in the editor.
+</details>
 
-* Type the `#` character in your chat prompt to reference context by using chat variables.
+### Prompt examples
 
-    For example, use `#selection` to add the current editor selection to your chat prompt, or `#<file name>` to add a workspace file from the workspace.
+The following examples show how to use #-mentions in your chat prompts:
 
-    ![Screenshot of VS Code Copilot Chat view, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
+<details>
+<summary>Reference your pending source control changes</summary>
 
-* Drag and drop editor tabs, or files or folders from the Explorer view, Search view, or editor breadcrumb onto the Chat view.
+* `"Summarize the #changes"`
+* `"Generate release notes based on the #changes"`
 
-    <video src="images/copilot-chat/copilot-attach-dnd.mp4" title="Dragging files and editors into chat" autoplay loop controls muted></video>
+</details>
+
+<details>
+<summary>Understand the codebase</summary>
+
+* `"Explain how authentication works in #codebase"`
+* `"Where is the database connecting string configured? #codebase"`
+* `"How do I build this #codebase?"`
+* `"Where is #getUser used? #usages"`
+
+</details>
+
+<details>
+<summary>Generate code that is consistent with your codebase</summary>
+
+* `"Create an about page and include it in the nav bar #codebase"`
+* `"Add a new API route for updating the address info #codebase"`
+* `"Add a login button and style it based on #styles.css"`
+
+</details>
+
+<details>
+<summary>Fix issues in the workspace</summary>
+
+* `"Fix the issues in #problems"`
+* `"Fix the failing tests #testFailure"`
+
+</details>
+
+<details>
+<summary>Get information about extensions</summary>
+
+* `"What are the top #extensions for this workspace?"`
+
+</details>
+
+<details>
+<summary>Reference content from the web</summary>
+
+* `"How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage"`
+* `"Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates"`
+
+</details>
+
+## Add files as context
+
+To let the AI automatically find relevant files and symbols in your workspace, you can use `#codebase`. To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
+
+![Screenshot of the Chat view, showing a prompt that references a file from the workspace.](./images/copilot-chat/chat-reference-file.png)
+
+* #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
+    To reference a symbol, make sure to open the file containing the symbol in the editor first.
+
+* Drag and drop files or folders from the Explorer view or editor tabs onto the Chat view to add them as context.
+
+* Use the **Add Context** button in the Chat view and select **Files & Folders** or **Symbols**.
 
 > [!NOTE]
 > If possible, the full contents of the file will be included when you attach a file. If that is too large to fit into the context window, an outline of the file will be included that includes functions and their descriptions without implementations. If the outline is also too large, then the file won't be part of the prompt.
 
-## Let Copilot find the right files automatically
+## Perform a codebase search
 
-Instead of adding individual files manually, you can let Copilot find the right files from your codebase automatically. This can be useful when you don't know which files are relevant to your question.
+Instead of adding individual files manually, you can let VS Code find the right files from your codebase automatically. This can be useful when you don't know which files are relevant to your question.
 
-To let Copilot find the right files automatically, add `#codebase` in your prompt or select **Codebase** from the list of context types.
+Add `#codebase` in your prompt or select **Add Context** > **Tools** > **codebase** to enable code search for your workspace.
+
+The following prompt examples show how to use codebase search:
+
+* `"Explain how authentication works in #codebase"`
+* `"Where is the database connecting string configured? #codebase"`
+* `"Add a new API route for updating the address #codebase"`
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-## Fetch content from the web
+## Reference web content
 
-To let Copilot fetch content from a web page, for example to reference a documentation page, add the fetch tool to your prompt, followed by the URL of the page you want to fetch.
+You can reference content from the web in your chat prompts, for example to get the latest API reference or code examples.
 
-To add the fetch tool, select **Add Context** > **Tools...** > **Fetch Web Page**. Alternatively, type `#fetch` in the chat prompt.
+* `#fetch`: use this tool to retrieve content from a specific web page, such as a version-specific documentation page of a framework. To use this tool, type `#fetch` followed by the URL of the page you want to reference.
 
-![Screenshot of the Copilot Chat view, showing the fetch tool used to summarize the web page.](./images/copilot-chat/chat-fetch-web-page.png)
+    * `"What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100"`
+    * `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
 
-## Perform a code search in a GitHub repository
+* `#githubRepo`: use this tool to perform a code search within a GitHub repository, for example to reference code patterns or examples from another project. Type `#githubRepo` followed by the repository name (for example, `microsoft/vscode-docs`).
 
-To let Copilot perform a code search and fetch content from a GitHub repository, for example to reference a documentation page, add the GitHub Repository tool to your prompt, followed by the path of the GitHub repository. For example, to perform a code search in the vscode repository `what is a global code snippet #githubRepo microsoft/vscode`.
+    * `"How does routing work in next.js #githubRepo vercel/next.js"`
+    * `"Perform a code review to validate it's consistent with #githubRepo microsoft/typescript"`
+    * `"Add unit tests for my app. Use the same test setup and structure as #githubRepo rust-lang/rust"`
 
-To add the GitHub Repository tool, type `#githubRepo` in the chat prompt, followed by the repository repository name (for example, `microsoft/vscode-docs`).
+## Reference tools
 
-![Screenshot of the Copilot Chat view, showing the GitHub Repository tool used to search for a code.](./images/copilot-chat/chat-fetch-github-repo.png)
+Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page.
 
-## Add context for fixing problems
+To reference a tool directly in your chat prompt, type `#` followed by the tool name and optional tool parameters. The following prompt examples show how to use tools:
 
-When you encounter issues in your code, or have failures when running tests, you can add specific context to your chat prompt to help Copilot provide the best answer.
+* Use the [GitHub MCP server](https://github.com/github/github-mcp-server) tool (configured as `github-mcp` in your `mcp.json`):
 
-* Drag and drop items from the **Problems** panel to attach the corresponding issue as context to your prompt.
+    * `"what are my open issues #github-mcp"`
+    * `"Implement a fix for issue #123 in contoso/tailwindtraders #github-mcp"`
+    * `"What is PR 8407 in microsoft/vscode-docs about? #github-mcp"`
 
-    Alternatively, select the **Problem...** from the list of context types, and then select a specific problem from the Quick Pick.
+* Use the `#postgres` MCP server to query a PostgreSQL database:
 
-    ![Screenshot of the Chat view with a problem attached to the chat input field, the result of doing drag and drop of that problem from the Problems panel.](./images/copilot-chat/copilot-chat-attach-problem.png)
+    * `"Generate an API endpoint and data access layer for getting weather data from #postgres"`
+    * `"What is the max length of the company name from #postgres"`
 
-* Select the **Test Failure** context type to add the test failure details as context to your prompt.
+## @-mentions
 
-* Select **Terminal Last Command** from the list of context types or type `#terminalLastCommand` to attach the output of the last command run in the terminal.
+When you use [ask mode](/docs/copilot/chat/chat-ask-mode.md) in chat, you can use the `@` symbol to pass the chat prompt to a chat participant. A chat participant is a domain expert that has context and knowledge about a specific topic. For example, the built-in `@vscode` participant is an expert on VS Code and the extension API, or `@terminal` can help with shell commands.
+
+To use a chat participant, start your prompt with `@` followed by the participant name, and then continue with your question.
+
+The following examples show how to use @-mentions in your chat prompts:
+
+* `"@vscode how to enable word wrapping"`
+* `"@terminal what are the top 5 largest files in the current directory"`
+
+Type `@` in the chat input field to see a list of available chat participants.
+
+Extensions can also contribute their own [chat participants](/api/extension-guides/chat.md).
 
 ## Add elements from the VS Code simple browser (Experimental)
 
@@ -103,22 +197,37 @@ You can configure which information is included in the context:
 * Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
 * Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
 
-## Chat context types
+## Chat history
 
-Copilot supports the following chat context types:
+Chat in VS Code is designed to be a multi-turn conversation. Within a chat session, VS Code uses the history of the conversation as context to your current prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context.
 
-* Files - include specific files from your workspace in the prompt
-* Folders - add a folder to include the files in that folder in the prompt
-* Symbols - add a symbol from your workspace to the prompt
-* Codebase - let Copilot find the right files automatically
-* Editor or terminal selection - include a selection of text from the editor or terminal in the prompt
-* Terminal command output - include the output of the last command run in the terminal
-* Problems - include a specific code issue from the Problems panel to the prompt
-* Test failures - include details from test failures in the prompt
-* Search results - include the results from the Search view in the prompt
-* Tools - include tools in the prompt, for example the `#fetch` tool or tools from extensions or MCP servers
+To start over with a new chat session and discard the current context, select the **New Chat** (`+`) button (`kb(workbench.action.chat.newChat)`) in the Chat view. This can be useful if you want to move to a different topic and avoid the previous context and history.
+
+Learn more about [chat history and context management](/docs/copilot/chat/copilot-chat.md#chat-history).
+
+## Custom instructions
+
+With instruction files, you can provide the AI with common guidelines and rules for generating responses that match your coding style and preferences. Instruction files are Markdown files that you can create in your workspace or in your current profile.
+
+By using instruction files, you can avoid having to repeatedly add common instructions in your chat prompts, and instead have the AI automatically apply these instructions to your chat interactions.
+
+Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+
+## Workspace indexing
+
+VS Code uses an index to quickly and accurately search your codebase for relevant code snippets. This index can either be maintained by GitHub or stored locally on your machine.
+
+The following workspace indexing options are available:
+
+* **Remote index**: if your code is hosted in a GitHub repository, you can build a remote index search your codebase quickly, even for large codebases.
+* **Local index**: use an advanced semantic index that is stored on your local machine to provide fast and accurate search results for your codebase.
+* **Basic index**: if local indexing is not available, you can use simpler algorithms that are optimized to work locally for larger codebases.
+
+Learn more about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
 
 ## Related resources
 
-* Use [Copilot Chat](/docs/copilot/chat/copilot-chat.md) to interact with Copilot.
-* Use [Copilot Edits](/docs/copilot/chat/copilot-edits.md) to make edits across multiple files.
+* Learn about [tools in agent mode](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools).
+* Customize AI with [instruction files](/docs/copilot/copilot-customization.md).
+* Learn about [workspace indexing](/docs/copilot/reference/workspace-context.md#managing-the-workspace-index).
+* Get started with [chat in VS Code](/docs/copilot/chat/copilot-chat.md).

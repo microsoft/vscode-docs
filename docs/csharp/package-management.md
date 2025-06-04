@@ -1,13 +1,8 @@
 ---
-Order: 9
-Area: csharp
-TOCTitle: Package Management
 ContentId: 6e7d5ecf-d7aa-44b5-abc0-2257a2075906
-PageTitle: C# package management with NuGet in Visual Studio Code
 DateApproved: 12/13/2024
 MetaDescription: C# package management with NuGet in Visual Studio Code
 ---
-
 # NuGet in Visual Studio Code
 
 NuGet is the package manager for .NET. It defines how packages for .NET are created, hosted, and consumed, while providing the tools for each of those functions. NuGet also manages the dependency tree on behalf of a project, so you only need to focus on the packages that you're directly using in a project.

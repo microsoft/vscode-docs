@@ -1,9 +1,5 @@
 ---
-Order: 6
-Area: cpp
-TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
-PageTitle: Configure Visual Studio Code for Microsoft C++
 DateApproved: 3/7/2023
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
@@ -37,7 +33,7 @@ To successfully complete this tutorial, you must do the following:
 
    ![Cpp build tools workload](images/msvc/desktop_development_with_cpp-2022.png)
 
->**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to develop, build, and test any C++ code as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
 
 ### Check your Microsoft Visual C++ installation
 

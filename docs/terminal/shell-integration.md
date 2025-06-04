@@ -1,13 +1,8 @@
 ---
-Order: 4
-Area: terminal
-TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-PageTitle: Terminal Shell Integration in Visual Studio Code
 DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
-
 # Terminal Shell Integration
 
 Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful features such as [working directory detection](#current-working-directory-detection) and command detection, [decorations](#command-decorations-and-the-overview-ruler), and [navigation](#command-navigation).

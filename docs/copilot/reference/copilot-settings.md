@@ -26,7 +26,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 ## Code completion settings
 
 * `setting(github.copilot.enable)`: Enable or disable Copilot completions for specified [languages](/docs/languages/identifiers.md).
-* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot Next Edit Suggestions (Copilot NES).
+* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot next edit suggestions (Copilot NES).
 * `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
 * `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 

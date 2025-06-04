@@ -4,7 +4,6 @@ DateApproved: 05/08/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-
 # Test with GitHub Copilot
 
 Writing and maintaining tests is a crucial but often time-consuming part of software development. GitHub Copilot streamlines this process by helping you write, debug, and fix tests more efficiently in Visual Studio Code. This article shows you how to leverage Copilot's testing capabilities to improve your testing workflow and increase test coverage in your projects.

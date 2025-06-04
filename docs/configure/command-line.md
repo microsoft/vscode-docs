@@ -1,9 +1,5 @@
 ---
-Order: 19
-Area: editor
-TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-PageTitle: The Visual Studio Code command-line interface
 DateApproved: 05/08/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
@@ -87,10 +83,10 @@ You can install and manage VS Code [extensions](/docs/configure/extensions/exten
 
 Argument|Description
 ------------------|-----------
-`--install-extension <extension-id> \| <extension-vsix-path>` | Install or update an extension. Provide either the full extension name `publisher.extension` or the path to a VSIX file as an argument. To install a specific version provide append `@{version}`. For example: `vscode.csharp@1.2.3`. Use `--force` argument to avoid prompts.
-`--uninstall-extension <extension-id>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
+`--install-extension <extension-id> \| <extension-vsix-path>` | Install or update an extension. Provide either the full extension name `publisher.extension` or the path to a VSIX file as an argument. To install a specific version provide append `@{version}`. For example: `vscode.csharp@1.2.3`. Use `--force` argument to avoid prompts. Use `--profile` argument to install for a certain profile.
+`--uninstall-extension <extension-id>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument. Use `--profile` argument to uninstall for a certain profile.
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the **Disabled** section of the Extensions view but they will never be activated.
-`--list-extensions` | List the installed extensions.
+`--list-extensions` | List the installed extensions. `--profile` argument can be used to list for a certain profile.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
 `--update-extensions` | Update installed extensions and exit.

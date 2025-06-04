@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: remote
-TOCTitle: SSH
-PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
 DateApproved: 05/08/2025
@@ -197,11 +193,11 @@ If there are extensions that you would like to always have installed on any SSH 
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
+For example, the setting below will force the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-docker": [ "ui" ],
+    "ms-azuretools.vscode-containers": [ "ui" ],
     "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
@@ -293,9 +289,9 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
-### Docker Extension limitations
+### Container Tools Extension limitations
 
-If you are using the Docker or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Docker or Kubernetes views will ask to pick from the available containers a second time.
+If you are using the Container Tools or Kubernetes extension from a WSL, Remote - Tunnels or Remote - SSH window, using the **Attach Visual Studio Code** context menu action in the Container Explorer or Kubernetes view will ask to pick from the available containers a second time.
 
 ### Extension limitations
 

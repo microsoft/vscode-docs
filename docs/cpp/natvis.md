@@ -1,9 +1,5 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
-PageTitle: The Natvis framework provides custom views for native C++ objects
 DateApproved: 7/25/2019
 MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in Visual Studio Code
 ---

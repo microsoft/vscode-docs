@@ -1,8 +1,4 @@
 ---
-Order: 17
-Area: remote
-TOCTitle: FAQ
-PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
 DateApproved: 05/08/2025
@@ -83,9 +79,9 @@ All other communication between the server and the VS Code client is accomplishe
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
-### Why can't I see my local containers in the Docker extension when using the Remote - extensions?
+### Why can't I see my local containers in the Container Tools extension when using the Remote - extensions?
 
-By default, the Docker extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
+By default, the Container Tools extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
 
 You can use one of the following solutions to resolve this problem:
 

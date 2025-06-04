@@ -7,7 +7,7 @@ DateApproved: 05/08/2025
 MetaDescription: A guide to creating a language model tool and how to implement tool calling in a chat extension
 ---
 
-# LanguageModelTool API
+# Language Model Tool API
 
 Language model tools enable you to extend the functionality of a large language model (LLM). VS Code surfaces tools contributed by extensions in Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md). By contributing a tool in a VS Code extension, you can combine the power of agentic coding with deep VS Code integration via its extension APIs.
 
@@ -173,7 +173,7 @@ The following example shows how to define a tool that counts the number of activ
 
 1. Define an interface that describes the tool input parameters.
 
-    The interface is used in the `invoke` method. The input parameters are validated against the JSON schema defined in `inutSchema` in `package.json`.
+    The interface is used in the `invoke` method. The input parameters are validated against the JSON schema defined in `inputSchema` in `package.json`.
 
     The following example shows the interface for the tab count tool.
 
@@ -267,6 +267,6 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 ## Related content
 
-- [Get started with the Language Model API](/api/extension-guides/language-model)
-- [Use Prompt-tsx](/api/extension-guides/prompt-tsx)
-- [Add MCP servers to chat](/docs/copilot/chat/mcp-servers)
+- [Language Model API reference](/api/references/vscode-api.md#lm)
+- [Register an MCP server in a VS Code extension](/api/extension-guides/mcp.md)
+- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers.md)

@@ -1,11 +1,8 @@
 ---
-Area: csharp
 ContentId: 44aa6759-14dd-41ba-b48c-dc5ba3a6e8de
-PageTitle: Signing in to C# Dev Kit
 DateApproved: 6/6/2023
 MetaDescription: Signing in to C# Dev Kit
 ---
-
 # Signing in to C# Dev Kit
 
 In this article, you'll learn:

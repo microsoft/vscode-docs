@@ -1,8 +1,4 @@
 ---
-Order: 15
-Area: devcontainers
-TOCTitle: Tips and Tricks
-PageTitle: Visual Studio Code Dev Containers Tips and Tricks
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
 DateApproved: 05/08/2025
@@ -21,6 +17,16 @@ You can use Docker with the Dev Containers extension in a few ways, including:
   * While other CLIs may work, they are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/devcontainers/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [kubectl CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
+
+## Customize AI Chat Responses
+
+[Custom instructions](/docs/copilot/copilot-customization.md) enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack.
+
+You can use custom instructions with dev containers to give Copilot more information about the type of dev container you're connected to (like what kind of languages or toolchains are installed). You can achieve this in a few ways:
+* Add `"github.copilot.chat.codeGeneration.instructions"` directly in your `devcontainer.json`
+    * We publish dev container resources (like [images](https://github.com/devcontainers/images) and [Features](https://github.com/devcontainers/features)) to make the process of creating and connecting to dev containers even easier, and we now include custom instructions in these files.
+    * [Here](https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json#L80) is an example of custom instructions in the Python Feature.
+* Use a `copilot-instructions.md` file just as you would locally
 
 ## Docker Desktop for Windows tips
 
@@ -141,15 +147,15 @@ You can delete containers by selecting the **Remote Explorer**, right-click on t
 
 However, this does not clean up any images you may have downloaded, which can clutter up your system.
 
-### Option 2: Use the Docker extension
+### Option 2: Use the Container Tools extension
 
 1. Open a **local** window in VS Code (**File > New Window**).
 
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
+2. Install the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) from the Extensions view if not already present.
 
-3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
+3. You can then go to the Container Explorer and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
 
-     ![Docker Explorer screenshot](images/tips-and-tricks/docker-remove.png)
+     ![Container Explorer screenshot](images/tips-and-tricks/docker-remove.png)
 
 ### Option 3: Use the Docker CLI to pick containers to delete
 
@@ -211,7 +217,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ## Using an SSH tunnel to connect to a remote Docker host
 
-The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
@@ -223,10 +229,10 @@ Follow these steps:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
 
-2. Update the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)  `docker.environment` property in your user or workspace `settings.json` as follows:
+2. Update the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers)  `containers.environment` property in your user or workspace `settings.json` as follows:
 
     ```json
-    "docker.environment": {
+    "containers.environment": {
         "DOCKER_HOST": "tcp://localhost:23750"
     }
     ```

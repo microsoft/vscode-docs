@@ -14,9 +14,9 @@ Use the following checklist to get the most out of Copilot:
 
 1. [Choose the right tool](#choose-the-right-copilot-tool). _Use the tool that's optimized for editing, asking questions, or staying in the flow of writing code._
 
-1. [Personalize Copilot](#personalize-copilot-with-custom-instructions). _Use custom instructions to get code suggestions that match your style and coding practices._
+1. [Personalize Copilot](#personalize-copilot-with-instructions-files). _Use custom instructions to get code suggestions that match your style and coding practices._
 
-1. [Write effective prompts](#prompt-engineering) and provide [context](#provide-the-right-context). _Get the most relevant responses._
+1. [Write effective prompts](#prompt-engineering) and provide [context](#provide-the-right-context-and-tools). _Get the most relevant responses._
 
 1. [Index your workspace](#workspace-indexing). _Receive accurate responses to questions about your codebase._
 

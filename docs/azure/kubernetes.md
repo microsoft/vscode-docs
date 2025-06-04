@@ -1,9 +1,5 @@
 ---
-Order: 7
-Area: azure
-TOCTitle: Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e
-PageTitle: Working with Kubernetes in Visual Studio Code
 DateApproved: 5/4/2022
 MetaDescription: Working with Kubernetes in Visual Studio Code
 ---
@@ -29,7 +25,7 @@ To install the Kubernetes extension, open the Extensions view (`kb(workbench.vie
 
 ## Containerize and publish the application
 
-You can follow the [Working with Docker](/docs/azure/docker.md) tutorial to build your project, generate a Docker image, and push it to a public or private container registry through the Microsoft [Docker Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
+You can follow the [Working with Docker](/docs/azure/docker.md) tutorial to build your project, generate a Docker image, and push it to a public or private container registry through the Microsoft [Container Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers).
 
 ## Create and config a Kubernetes cluster
 

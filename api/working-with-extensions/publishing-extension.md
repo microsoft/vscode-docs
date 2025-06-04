@@ -104,7 +104,7 @@ To create a publisher:
     - **ID**: the **unique** identifier for your publisher in Marketplace that will be used in your extension URLs. ID cannot be changed once created.
     - **Name**: the **unique** name of your publisher that will be displayed in Marketplace with your extensions. This can be your company or brand name.
 
-    Below is an example of publisher identifier and name for the Docker extension:
+    Below is an example of publisher identifier and name for the Python extension:
 
     ![Example of publisher identifier and name](images/publishing-extension/publisher-id-and-name.png)
 
@@ -305,7 +305,7 @@ Here are some tips for making your extension look great on the Marketplace:
 - Add a `CHANGELOG.md` file to the root of your extension with the information about the history of the changes for your extension.
 - Add a `SUPPORT.md` file to the root of your extension with the information about how to get support for your extension.
 - Set the banner background color on the Marketplace page by specifying the corresponding hex value via the `galleryBanner.color` property in `package.json`.
-- Set an icon by specifying a relative path to a 128x128px PNG file included in your extension via the `icon` property in `package.json`.
+- Set an icon by specifying a relative path to a PNG file of at least 128x128px included in your extension via the `icon` property in `package.json`.
 
 See more information in [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
@@ -502,9 +502,9 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ## Common questions
 
-### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+### I get a "You exceeded the number of allowed tags of 30" error when I try to publish my extension?
 
-The Visual Studio Marketplace does not allow an extension package to have more than 10 `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
+The Visual Studio Marketplace does not allow an extension package to have more than 30 `keywords` in the `package.json`. Limit the number of keywords/tags to maximum 30 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 

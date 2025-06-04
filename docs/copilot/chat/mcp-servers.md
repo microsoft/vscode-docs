@@ -4,7 +4,6 @@ DateApproved: 05/08/2025
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-
 # Use MCP servers in VS Code (Preview)
 
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface. In VS Code, MCP support enhances GitHub Copilot's agent mode by allowing you to connect any MCP-compatible server to your agentic coding workflow. This article guides you through setting up MCP servers and using tools with agent mode in Visual Studio Code.
@@ -44,9 +43,11 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 ## Enable MCP support in VS Code
 
 > [!NOTE]
-> MCP support in agent mode in VS Code is currently in preview.
+> MCP support in agent mode in VS Code is available starting from VS Code 1.99 and is currently in preview.
 
-MCP support is available starting in VS Code release 1.99. To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting. This setting is enabled by default.
+To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting.
+
+To centrally enable or disable MCP support within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
 ## Add an MCP server
 
@@ -108,6 +109,9 @@ To add an MCP server to your workspace:
 
 1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
+> [!IMPORTANT]
+> Follow the naming conventions for the server, as specified in the [Configuration format](#configuration-format) section.
+
 ### Add an MCP server to your user settings
 
 To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
@@ -141,9 +145,14 @@ Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
 
 Use the following JSON configuration format to define MCP servers.
 
-- The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
+* The `"servers": {}` field holds the list of MCP servers, and follows Claude Desktop's configuration format.
 
-    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list.
+    Specify the server name as the key and provide the server configuration as the value. VS Code shows the server name in the MCP server list. Follow these naming conventions for the server name:
+
+    * Use camelCase for the server name, such as "uiTesting".
+    * Avoid using whitespace or special characters.
+    * Use a unique name for each server to avoid conflicts.
+    * Use a descriptive name that reflects the server's functionality or brand, such as "github" or "database".
 
     Provide the following fields in the server configuration. You can use [predefined variables](/docs/reference/variables-reference.md) in the server configuration, for example to refer to the workspace folder (`${workspaceFolder}`).
 
@@ -165,7 +174,7 @@ Use the following JSON configuration format to define MCP servers.
     | `url` | URL of the server. | `"http://localhost:3000"` |
     | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
-- The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
+* The `"inputs": []` field lets you define custom placeholders for configuration values, avoiding hardcoding sensitive information.
 
     VS Code prompts you for these values when the server starts for the first time, and securely stores them for subsequent use. To avoid showing the typed value, set the `password` field to `true`.
 

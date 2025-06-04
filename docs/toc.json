@@ -127,13 +127,13 @@
         "area": "copilot/chat",
         "topics": [
           ["Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
+          ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
           ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Chat Context", "/docs/copilot/chat/copilot-chat-context"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
         ]
       }
@@ -152,7 +152,7 @@
       }
       ],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
-      ["Copilot Extensibility", "/docs/copilot/copilot-extensibility-overview"],
+      ["AI Extensibility", "/docs/copilot/copilot-extensibility-overview"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
         "name": "Reference",
@@ -191,7 +191,8 @@
       ["T-SQL", "/docs/languages/tsql"],
       ["C#", "/docs/languages/csharp"],
       [".NET", "/docs/languages/dotnet"],
-      ["Polyglot", "/docs/languages/polyglot"]
+      ["Polyglot", "/docs/languages/polyglot"],
+      ["Swift", "/docs/languages/swift"]
     ]
   },
   {
@@ -307,7 +308,7 @@
     ]
   },
   {
-    "name": "Docker",
+    "name": "Container Tools",
     "area": "containers",
     "topics": [
       ["Overview", "/docs/containers/overview"],
@@ -352,7 +353,19 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
-      ["FAQ", "/docs/intelligentapps/faq"]
+      ["FAQ", "/docs/intelligentapps/faq"],
+      ["", "", {
+        "name": "Reference",
+        "area": "intelligentapps/reference",
+        "topics": [
+          ["File Structure", "/docs/intelligentapps/reference/FileStructure"],
+          ["Manual Model Conversion", "/docs/intelligentapps/reference/ManualModelConversion"],
+          ["Manual Model Conversion On GPU", "/docs/intelligentapps/reference/ManualConversionOnGPU"],
+          ["Setup Environment Without AI Toolkit", "/docs/intelligentapps/reference/SetupWithoutAITK"],
+          ["Template Project", "/docs/intelligentapps/reference/TemplateProject"]
+        ]
+      }
+      ]
     ]
   },
   {
@@ -363,7 +376,8 @@
       ["Getting Started", "/docs/azure/gettingstarted"],
       ["Resources View", "/docs/azure/resourcesextension"],
       ["Deployment", "/docs/azure/deployment"],
-      ["Docker", "/docs/azure/docker"],
+      ["VS Code for the Web - Azure","/docs/azure/vscodeforweb"],
+      ["Containers", "/docs/azure/containers"],
       ["Azure Kubernetes Service", "/docs/azure/aksextensions"],
       ["Kubernetes", "/docs/azure/kubernetes"],
       ["MongoDB", "/docs/azure/mongodb"],

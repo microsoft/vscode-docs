@@ -1,14 +1,9 @@
 ---
-Order: 6
-Area: java
-TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
-PageTitle: Maven and Gradle support for Java in Visual Studio Code
 DateApproved: 12/10/2021
 MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
-
 # Java build tools in VS Code
 
 This document is an overview of how to work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extensions as well as other tools.

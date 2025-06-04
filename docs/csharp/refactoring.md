@@ -1,13 +1,8 @@
 ---
-Order: 5
-Area: csharp
-TOCTitle: Refactoring
 ContentId: 76b55a1a-9666-417b-8f13-1de3fd6f36e9
-PageTitle: C# Quick Actions and Refactorings in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: C# Quick Actions and Refactorings in Visual Studio Code
 ---
-
 # C# Quick Actions and Refactorings
 
 Visual Studio Code gives you many ways to refactor your source code as well as Quick Fixes to generate code and fix issues while you're coding. To access them, click on the 'light bulb' icon that appears or use the command **Quick Fix** command `kb(editor.action.quickFix)` to display a list of Quick Fixes and refactoring options.  You can also right-click the editor and select **Refactor** `kb(editor.action.refactor)` to only display refactoring options.

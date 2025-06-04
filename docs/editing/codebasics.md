@@ -1,9 +1,5 @@
 ---
-Order: 2
-Area: editor
-TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-PageTitle: Basic editing in Visual Studio Code
 DateApproved: 05/08/2025
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png

@@ -1,13 +1,8 @@
 ---
-Order: 4
-Area: csharp
-TOCTitle: IntelliCode
 ContentId: 0a0fd079-c56b-413c-8394-b166cd76be38
-PageTitle: IntelliCode for C# in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: IntelliCode for C# in Visual Studio Code
 ---
-
 # IntelliCode for C# Dev Kit
 
 For users of the [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extension in Visual Studio Code, the [IntelliCode for C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscodeintellicode-csharp) extension is available to provide IntelliCode support. Predictions of up to a whole-line of code, along with ranking methods and properties in the IntelliSense list are available for C# Dev Kit users.

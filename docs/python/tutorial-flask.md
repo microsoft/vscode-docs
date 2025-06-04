@@ -1,9 +1,5 @@
 ---
-Order: 13
-Area: python
-TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
-PageTitle: Python and Flask Tutorial in Visual Studio Code
 DateApproved: 05/08/2025
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
 MetaSocialImage: images/tutorial/python-social.png
@@ -637,9 +633,9 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `$env:FLASK_APP=webapp` if you're using PowerShell, or `set FLASK_APP=webapp` if you're using Command Prompt.
     1. Navigate into the `hello_app` folder, then launch the program using `python -m flask run`.
 
-### Create a container for a Flask app using the Docker extension
+### Create a container for a Flask app using the Container Tools extension
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Flask app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+The [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Flask app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
 - Build, run, and verify the functionality of a [Flask](https://flask.palletsprojects.com) app.
