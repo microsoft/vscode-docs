@@ -14,7 +14,7 @@ This article starts by discussing [Workbench](#workbench) customizations to rear
 
 ## Workbench
 
-### Primary side bar
+### Primary Side Bar
 
 By default, the Primary Side Bar is located on the left of the workbench and shows views such as the Explorer, Search, and Source Control views. You can quickly switch between views by selecting the icons in the Activity Bar.
 
@@ -23,11 +23,11 @@ By default, the Primary Side Bar is located on the left of the workbench and sho
 To change the position of the Primary Side Bar, you can:
 
 * Right-click the Activity Bar and select **Move Primary Side Bar Right**
-* Run **View: Toggle Primary Side Bar Position** to switch the Primary side bar right and left
+* Run **View: Toggle Primary Side Bar Position** to switch the Primary Side Bar right and left
 * Use the **View** > **Appearance** > **Move Primary Side Bar Right** menu item
 * Set the **Workbench > Side Bar: Location** (`setting(workbench.sideBar.location)`) setting to `right` in the [Settings editor](/docs/configure/settings.md)
 
-### Secondary side bar
+### Secondary Side Bar
 
 By default, VS Code shows views in the Primary Side Bar located to the left of the editor region. It can be useful to see two views open at the same time. To do this, you can use the **Secondary Side Bar** to show views opposite the Primary Side Bar. The Secondary Side Bar is always positioned opposite the Primary Side Bar, regardless if you switched the position of the Primary Side Bar.
 
@@ -69,7 +69,43 @@ When the Activity Bar is in the top or bottom position, the **Account** and **Ma
 
 ![Activity Bar in top position with Account and Manage buttons on the right of the title bar](images/custom-layout/activity-bar-top.png)
 
-### Panel
+### Customize Layout control
+
+The VS Code title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
+
+![Title bar buttons to toggle main UI elements, with hover on Toggle Panel](images/custom-layout/toggle-UI-visibility.png)
+
+The rightmost button brings up the **Customize Layout** dropdown, where you can further change the visibility and layout of various UI elements and includes several layout modes:
+
+![Customize Layout dropdown shown via the Customize Layout button in the title bar](images/custom-layout/customize-layout-dropdown.png)
+
+The layout modes are:
+
+* **Full Screen** - Set the editor to fill the full display screen. **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
+* **Zen Mode** - Hide all UI except for the editor area. **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
+* **Centered Layout** - Centers the editor inside the editor region. **View: Toggle Centered Layout**.
+
+### Window and menu style
+
+You can customize the appearance of the VS Code window and menu bar with the following settings:
+
+* `setting(window.titleBarStyle)`: adjust the appearance of the VS Code window title bar to be native by the OS or custom. Changes require a full restart to apply.
+
+* `setting(window.title)`: configure the VS Code window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context. For example, `${activeEditorShort}` will show the file name of the currently active editor. You can combine multiple variables, for example, `${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}`.
+
+* `setting(window.titleSeparator)`: the separator character that is used in the `setting(window.title)` setting.
+
+* `setting(window.menuStyle)`: adjust the menu style to either be native by the OS, custom, or inherited from the title bar style (defined in `setting(window.titleBarStyle)`). This also affects the context menu appearance. Changes require a full restart to apply.
+
+* `setting(window.menuBarVisibility)`: configure the visibility of the menu bar.
+
+    * `classic`: the menu bar is shown at the top of the window, and only hidden when the window is in full screen mode.
+    * `visible`: the menu bar is always visible, also when the window is in full screen mode.
+    * `toggle`: the menu bar is hidden and a single press of the Alt key makes it visible.
+    * `compact`: the menu is moved into the Side Bar.
+    * `hidden`: the menu bar is always hidden.
+
+## Panel
 
 The Panel region displays UI elements such as the Problems, Terminal, and Output panels and by default is located under the editor region.
 
@@ -110,22 +146,6 @@ When the Panel alignment is **Center**, you can quickly toggle the Panel region 
 You can also maximize the Panel region via the **View: Toggle Maximized Panel** command.
 
 > **Note**: Besides customizing the overall Panel region display, individual panels may have their own layout customizations. For example, the Terminal lets you have [multiple open tabs](/docs/terminal/basics.md#managing-terminals) and [split existing terminals](/docs/terminal/basics.md#groups-split-panes).
-
-### Customize Layout control
-
-The VS Code title bar also has buttons to toggle the visibility of the main UI elements (Side bars and Panel region).
-
-![Title bar buttons to toggle main UI elements, with hover on Toggle Panel](images/custom-layout/toggle-UI-visibility.png)
-
-The rightmost button brings up the **Customize Layout** dropdown, where you can further change the visibility and layout of various UI elements and includes several layout modes:
-
-![Customize Layout dropdown shown via the Customize Layout button in the title bar](images/custom-layout/customize-layout-dropdown.png)
-
-The layout modes are:
-
-* **Full Screen** - Set the editor to fill the full display screen. **View: Toggle Full Screen** (`kb(workbench.action.toggleFullScreen)`).
-* **Zen Mode** - Hide all UI except for the editor area. **View: Toggle Zen Mode** (`kb(workbench.action.toggleZenMode)`).
-* **Centered Layout** - Centers the editor inside the editor region. **View: Toggle Centered Layout**.
 
 ### Drag and drop views and panels
 
