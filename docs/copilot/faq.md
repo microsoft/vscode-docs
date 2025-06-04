@@ -68,9 +68,9 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
 ## General
 
-### How can I hide Copilot from the VS Code user interface?
+### How can I remove Copilot from VS Code?
 
-To remove the Copilot from the VS Code user interface, select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
+To remove Copilot from VS Code, select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
 
 If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions from the Extensions view. After that, you can hide the Copilot menu.
 
@@ -106,11 +106,11 @@ You can tell if you're running a pre-release version by the "Pre-release" badge 
 
 ## Copilot code completions
 
-### How do I enable/disable Copilot?
+### How do I enable or disable code completions?
 
-You can temporarily deactivate Copilot completions from the Status Bar. You're prompted whether you want to disable Copilot for all code (globally) or just the programming language detected in the active editor (for example, Python).
+You can enable or disable code completions in VS Code by using the checkboxes in the Copilot status dashboard from the VS Code Status Bar. You can enable or disable code completions globally or for the file type of the active editor.
 
-![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/vscode-status-bar-copilot-active.jpg)
+![Screenshot showing the VS Code status bar, highlighting the Copilot icon that indicates Copilot is active.](./images/faq/copilot-disable-completions.png)
 
 ### Inline completions are not working in the editor
 
