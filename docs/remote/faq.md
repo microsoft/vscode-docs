@@ -111,7 +111,7 @@ VS Code will still allow users to connect to an OS that is not supported by VS C
 
 | VS Code version | Base Requirements | Notes |
 |--------------|-------------------|-------|
-| 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+| >= 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
 
 > [!IMPORTANT]
 > This approach is a technical workaround and is not an officially supported usage scenario.
