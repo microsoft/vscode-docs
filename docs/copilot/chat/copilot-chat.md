@@ -104,21 +104,32 @@ Chat supports vision capabilities, which means you can attach an image as contex
 
 ## Chat history
 
-The Chat view is designed to be a multi-turn conversation. Copilot uses the history of the conversation as context to your current prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context.
+As you iterate and send multiple chat prompts in a chat session, VS Code uses the history of chat prompts and responses as context for your current chat prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context. For example, you can ask "How does *this*
+differ from ...", "Now add a test case", "explain in more detail", and more.
 
 At any time, you can create a new chat session by using the **New Chat** (`+`) button (`kb(workbench.action.chat.newChat)`) in the Chat view. This can be useful if you want to move to a different topic and avoid the previous context and history.
 
-You can access the previous chat sessions by using the **Show Chats...** button in the Chat view or by using the **Chat: Show Chats...** command in the Command Palette. Select an entry to open that chat session in the Chat view.
+To view the history of chat sessions, select the **Show Chats...** button in the Chat view or by using the **Chat: Show Chats...** command in the Command Palette. Select a history entry to open that chat session in the Chat view and continue the conversation.
 
 ![Screenshot of the Chat view with the Show Chats... button highlighted](images/copilot-chat/copilot-chat-view-show-chats.png)
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
 
-### Revert previous requests
+### Revert chat requests
 
-Within a chat session, you can remove a specific prompt and the corresponding response from the conversation history of that session. Hover over the prompt and select the **x** control. Removing a request might be useful if you notice that the language model is not providing relevant responses or is taking an unwanted direction.
+You can revert (undo) chat requests in the active chat session. When you revert a chat request, you also remove the corresponding response from the conversation history.
 
-![Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and response.](images/copilot-chat/copilot-chat-delete-prompt.png)
+Reverting a request is useful if you want to remove a specific prompt and response from the conversation history of that session. For example, if you notice that the language model is not providing relevant responses or is taking an unwanted direction.
+
+You have two options to revert a chat request:
+
+* Undo the last chat request: use the **Undo Last Request** button in the Chat view toolbar.
+
+    ![Screenshot of the Chat view with the Undo Last Request button highlighted.](images/copilot-chat/chat-undo-last-request.png)
+
+* Undo a specific chat request: hover over a chat request in the Chat view and select the **Undo Request (Delete)** (`x`) button next to the request. When you undo a request, it also undoes all subsequent requests and responses in the chat session.
+
+    ![Screenshot of the Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and its response.](images/copilot-chat/copilot-chat-delete-prompt.png)
 
 ## Open chat in an editor tab or separate window
 
