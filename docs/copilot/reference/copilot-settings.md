@@ -19,7 +19,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
 * `setting(chat.commandCenter.enabled)`: Controls whether to show the Copilot menu in the VS Code title bar (default: `true`).
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
-* `setting(github.copilot.chat.search.semanticTextResults)` _(Experimental)_: Enables semantic search results in the Search view.
+* `setting(search.searchView.semanticSearchBehavior)` _(Preview)_: Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always.
+* `setting(search.searchView.keywordSuggestions)` _(Preview)_: Controls whether to show keyword suggestions in the Search view. This setting is disabled by default.
 * `setting(chat.setupFromDialog)` _(Experimental)_: Controls whether to show the Copilot setup dialog when starting a chat session.
 * `setting(github.copilot.suggestSettings)`: Controls whether to show suggestions in the Settings editor.
 

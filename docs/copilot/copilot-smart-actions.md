@@ -122,11 +122,17 @@ To review all changes in a pull request:
 
     Copilot creates review comments in the **Comments** panel and also shows them inline in the editor.
 
-## Semantic search results
+## Semantic search results (Preview)
 
-The Search view lists exact text matches across your files, in addition to matches that are semantically relevant based on your search text.
+The Search view in VS Code enables you to search for text across your files. Semantic search enables you to find results that are semantically relevant to your search query, even if they don't match the text exactly. This is particularly useful when you're looking for code snippets or documentation that relate to a concept rather than a specific term, or when you don't know the exact terms to search for.
 
 ![Search view showing semantic search results that are not an exact match for the search criteria.](images/copilot-smart-actions/semantic-search-results.png)
+
+Configure semantic search in the Search view with the `setting(search.searchView.semanticSearchBehavior)` setting. You can choose to run semantic search automatically, or only when you explicitly request it.
+
+You can also get AI-generated keyword suggestions in the Search view to provide relevant alternative search terms. Enable search keyword suggestions with the `setting(search.searchView.keywordSuggestions)` setting.
+
+![Search view showing keyword suggestions based on the search query.](images/copilot-smart-actions/search-keyword-suggestions.png)
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
