@@ -8,6 +8,17 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
 
+## Implicit context
+
+VS Code automatically provides context to the chat prompt based on your current activity. The following information is implicitly included in the chat context:
+
+* The currently selected text in the active editor.
+* The file name or notebook name of the active editor.
+
+The actual contents of the active file are not included in the context, but are shown as a suggested context item in the chat input box (indicated with italic text and a dotted outline). Depending on your prompt, VS Code might decide to read the contents of the active file. To explicitly include the contents of the active file in the chat context, select the suggested file in the chat input box.
+
+![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
+
 ## #-mentions
 
 In chat, you can explicitly refer to context by typing `#` followed by the context item you want to mention. This enables the AI to provide more relevant responses based on the specific context you are referring to.
