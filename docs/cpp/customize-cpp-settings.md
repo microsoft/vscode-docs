@@ -133,7 +133,7 @@ The following JSON snippet is an example configuration for `c_cpp_properties.jso
   Custom variables that can be queried through the command `${cpptools:activeConfigCustomVariable}` to use for the input variables in `launch.json` or `tasks.json`.
 
 - `browse`:
-  The set of properties used in conjunction with IntelliSense to identify all symbols in your code base. These properties are used by features such as **Go to Definition/Declaration**, gloabl symbol search, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
+  The set of properties used in conjunction with IntelliSense to identify all symbols in your code base. These properties are used by features such as **Go to Definition/Declaration**, global symbol search, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
 
 - `recursiveIncludes`:
   A set of properties used to configure how the extension processes an `includePath` entry that specifies a recursive search.

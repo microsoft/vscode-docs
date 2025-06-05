@@ -27,7 +27,7 @@ You could also adjust other parameters to suit your need:
 - `max_length: 128` / `batch_size: 1`: For static quantization, the input size should be fixed. Adjust these to match `FIXED_VALUES`
 - `max_samples: 100`: The number of samples used.
 
-## Update model_project.comfig (optional)
+## Update model_project.config (optional)
 Update workflows's `name` to reflect what you want to do. So it is more easy to pick from the workflow list.
 
 Update modelInfo's `displayName` and `modelLink` to the one you used. So it is more easy to pick from the model list.
