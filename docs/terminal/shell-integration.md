@@ -81,6 +81,16 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 ```
 
+## Shell integration quality
+
+When using shell integration, it has a "quality" associated with it that declares the capabilities of it. These qualities are determined by how the shell integration script behaves.
+
+- **None**: No shell integration is active
+- **Rich**: Shell integration is active and command detection is working in an ideal way.
+- **Basic**: Shell integration is active but command detection may not be ideal. This typically means the shell has very basic command detection that knows where a command was run but not what it is or what the exit status was.
+
+To view the shell integration quality, hover the terminal tab. Optionally click "Show Details" on the hover to view more detailed information.
+
 ## Command decorations and the overview ruler
 
 One of the things that shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
@@ -302,13 +312,3 @@ Alternatively, you could remove the shell integration script from your shell rc/
 ### Why does the command decoration jump around on Windows?
 
 Windows uses an emulated pseudoterminal (pty) backend called ConPTY. It works a little differently to a regular pty because it needs to maintain compatibility with the Windows Console API. One of the impacts of this is the pty handles rendering specially in such a way that the shell integration sequences that identify the commands in the terminal buffer may be misplaced. When the command jumps around it's typically after a command has run, and VS Code's heuristics have kicked in to improve the position of the command decorations.
-
-### What are difference Rich Shell Integration between Basic Shell Integration?
-
-VS Code supports two levels of shell integration:
-
-1. **Rich Shell Integration**: Provides the full feature set with high-fidelity command detection, working directory tracking, and all advanced features. Rich integration is achieved through VS Code's custom shell integration script that gets injected into the shell. When active, this sets the `HasRichCommandDetection` property to `True`.
-
-2. **Basic Shell Integration**: A more limited feature set that relies on detecting common terminal sequences used by other terminals (such as Final Term and iTerm2).
-
-When developing extensions or scripts that interact with the terminal, you can check if a terminal has rich integration by examining the `HasRichCommandDetection` property through the VS Code API. This allows you to provide different experiences based on the level of integration available.
