@@ -89,7 +89,7 @@ When using shell integration, it has a "quality" associated with it that declare
 - **Rich**: Shell integration is active and command detection is working in an ideal way.
 - **Basic**: Shell integration is active but command detection may not be ideal. This typically means the shell has very basic command detection that knows where a command was run but not what it is or what the exit status was.
 
-To view the shell integration quality, hover the terminal tab. Optionally click "Show Details" on the hover to view more detailed information.
+To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
 ## Command decorations and the overview ruler
 
