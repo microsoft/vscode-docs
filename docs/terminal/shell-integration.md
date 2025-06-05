@@ -249,7 +249,7 @@ These sequences should be ignored by other terminals, but unless other terminals
 
   - `Cwd` - Reports the current working directory to the terminal.
   - `IsWindows` - Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
-  - `HasRichCommandDetection` - Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the full VS Code shell integration script is active, providing high-fidelity command detection. For terminals with only basic shell integration (using Final Term or iTerm2 sequences), this property will not be set or will be `False`.
+  - `HasRichCommandDetection` - Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as VS Code expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
 
 
 ### Final Term shell integration
