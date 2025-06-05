@@ -21,8 +21,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(workbench.commandPalette.experimental.askChatLocation)` _(Experimental)_: Controls where the Command Palette should ask chat questions.
 * `setting(search.searchView.semanticSearchBehavior)` _(Preview)_: Configure when to run semantic search in the Search view: manually (default), when no text search results are found, or always.
 * `setting(search.searchView.keywordSuggestions)` _(Preview)_: Controls whether to show keyword suggestions in the Search view. This setting is disabled by default.
-* `setting(chat.setupFromDialog)` _(Experimental)_: Controls whether to show the Copilot setup dialog when starting a chat session.
-* `setting(github.copilot.suggestSettings)`: Controls whether to show suggestions in the Settings editor.
+* `setting(workbench.settings.showAISearchToggle)` _(Experimental)_: Enable searching settings with AI in the Settings editor. This setting is enabled by default.
 
 ## Code completion settings
 

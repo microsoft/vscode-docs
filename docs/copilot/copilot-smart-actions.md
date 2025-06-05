@@ -136,9 +136,11 @@ You can also get AI-generated keyword suggestions in the Search view to provide 
 
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
-## Settings suggestions (Experimental)
+## Search settings with AI (Experimental)
 
-In the Settings editor, you can get AI-generated suggestions for settings based on your search query. Enable this functionality by enabling the `setting(github.copilot.suggestSettings)` setting.
+If you don't know the exact name of a setting you want to change, you can use AI to help find the relevant settings based on your search query. For example, you can search for "increase text size" to find the setting that controls the editor font size.
+
+Enable this functionality with the `setting(workbench.settings.showAISearchToggle)` setting. In the Settings editor, you can then toggle the AI search results on or off with the **Search Settings with AI** button.
 
 ![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
 
