@@ -233,11 +233,11 @@ VS Code has a set of custom escape sequences designed to enable the shell integr
 
 These sequences should be ignored by other terminals, but unless other terminals end up adopting the sequences more widely, it's recommended to check that `$TERM_PROGRAM` is `vscode` before writing them.
 
-- `OSC 633 ; A ST` - Mark prompt start.
-- `OSC 633 ; B ST` - Mark prompt end.
-- `OSC 633 ; C ST` - Mark pre-execution.
-- `OSC 633 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
-- `OSC 633 ; E ; <commandline> [; <nonce] ST` - Explicitly set the command line with an optional nonce.
+- `OSC 633 ; A ST`: Mark prompt start.
+- `OSC 633 ; B ST`: Mark prompt end.
+- `OSC 633 ; C ST`: Mark pre-execution.
+- `OSC 633 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
+- `OSC 633 ; E ; <commandline> [; <nonce] ST`: Explicitly set the command line with an optional nonce.
 
   The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
 
@@ -253,30 +253,30 @@ These sequences should be ignored by other terminals, but unless other terminals
   ";"  -> "\x3b"
   ```
 
-- `OSC 633 ; P ; <Property>=<Value> ST` - Set a property on the terminal, only known properties will be handled.
+- `OSC 633 ; P ; <Property>=<Value> ST`: Set a property on the terminal, only known properties will be handled.
 
   Known properties:
 
-  - `Cwd` - Reports the current working directory to the terminal.
-  - `IsWindows` - Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
-  - `HasRichCommandDetection` - Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as VS Code expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
+  - `Cwd`: Reports the current working directory to the terminal.
+  - `IsWindows`: Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values are `True` and `False`.
+  - `HasRichCommandDetection`: Indicates whether the terminal has rich command detection capabilities. This property is set to `True` when the shell integration script acts ideally as VS Code expects it, specifically sequences should come in the expected positions in the order `A, B, E, C, D`.
 
 
 ### Final Term shell integration
 
 VS Code supports Final Term's shell integration sequences, which allow non-VS Code shell integration scripts to work in VS Code. This results in a somewhat degraded experience as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
 
-- `OSC 133 ; A ST` - Mark prompt start.
-- `OSC 133 ; B ST` - Mark prompt end.
-- `OSC 133 ; C ST` - Mark pre-execution.
-- `OSC 133 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code.
+- `OSC 133 ; A ST`: Mark prompt start.
+- `OSC 133 ; B ST`: Mark prompt end.
+- `OSC 133 ; C ST`: Mark pre-execution.
+- `OSC 133 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
 
 ### iTerm2 shell integration
 
 The following sequences that iTerm2 pioneered are supported:
 
-- `OSC 1337 ; CurrentDir=<Cwd> S` - Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
-- `OSC 1337 ; SetMark ST` - Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
+- `OSC 1337 ; CurrentDir=<Cwd> S`: Sets the current working directory of the terminal, similar to `OSC 633 ; P ; Cwd=<Cwd> ST`.
+- `OSC 1337 ; SetMark ST`: Adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
     ![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
 
