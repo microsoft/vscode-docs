@@ -197,6 +197,9 @@ You can configure which information is included in the context:
 * Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
 * Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
 
+> [!TIP]
+> This functionality is also available in the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension (pre-release).
+
 ## Chat history
 
 Chat in VS Code is designed to be a multi-turn conversation. Within a chat session, VS Code uses the history of the conversation as context to your current prompt. This means that you can ask follow-up questions or clarify your previous question without having to repeat the context.
