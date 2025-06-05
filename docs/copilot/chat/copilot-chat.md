@@ -127,7 +127,7 @@ You have two options to revert a chat request:
 
     ![Screenshot of the Chat view with the Undo Last Request button highlighted.](images/copilot-chat/chat-undo-last-request.png)
 
-* Undo a specific chat request: hover over a chat request in the Chat view and select the **Undo Request (Delete)** (`x`) button next to the request. When you undo a request, it also undoes all subsequent requests and responses in the chat session.
+* Undo a specific chat request: hover over a chat request in the Chat view and select the **Undo Request (Delete)** (`x`) button next to the request (or press `kb(workbench.action.chat.undoEdits)`). When you undo a request, it also undoes all subsequent requests and responses in the chat session.
 
     ![Screenshot of the Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and its response.](images/copilot-chat/copilot-chat-delete-prompt.png)
 
