@@ -663,8 +663,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
 - `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
-  `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
-  `chat.requestBubbleBackground`: Background color of the chat request bubble.
+- `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
+- `chat.requestBubbleBackground`: Background color of the chat request bubble.
 
 ## Inline Chat colors
 
