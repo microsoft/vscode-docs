@@ -99,7 +99,7 @@ The build script does the following:
 esbuild can work directly with TypeScript files. However, esbuild simply strips off all type declarations without doing any type checks.
 Only syntax errors are reported and can cause esbuild to fail.
 
-For that reason, we separatly run the TypeScript compiler (`tsc`) to check the types, but without emmiting any code (flag `--noEmit`).
+For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
 
 The `scripts` section in `package.json` now looks like that
 
