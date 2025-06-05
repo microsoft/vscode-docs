@@ -85,7 +85,7 @@ code --locate-shell-integration-path bash
 
 When using shell integration, it has a "quality" associated with it that declares the capabilities of it. These qualities are determined by how the shell integration script behaves.
 
-- **None**: No shell integration is active
+- **None**: No shell integration is active.
 - **Rich**: Shell integration is active and command detection is working in an ideal way.
 - **Basic**: Shell integration is active but command detection may not be ideal. This typically means the shell has very basic command detection that knows where a command was run but not what it is or what the exit status was.
 
