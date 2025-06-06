@@ -6,7 +6,7 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Use chat in VS Code
 
-Use chat in Visual Studio Code to ask about your codebase or make edits across your project by using natural language. Chat can operate in different modes, optimized for your use case, from asking questions to making multi-file edits or starting an agentic coding workflow.
+Use chat in Visual Studio Code to ask about your codebase or make edits across your project by using natural language. Chat can operate in different modes, optimized for your use case, from asking questions to making multi-file edits or starting an autonomous coding workflow.
 
 You might want to use chat in VS Code when you need to:
 
@@ -22,78 +22,112 @@ You might want to use chat in VS Code when you need to:
 * Install the latest version of [Visual Studio Code](/download)
 * Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-## Chat mode
-
-Chat in VS Code can operate in different modes, each optimized for a specific use case. You can change between the different chat modes at any time in the Chat view.
-
-| Mode | Description |
-|------|-------------|
-| [**Ask**](/docs/copilot/chat/chat-ask-mode.md) | Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts.<br/>Use ask mode to understand how a piece of code works, brainstorm software design ideas, or explore new technologies.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). |
-| [**Edit**](/docs/copilot/chat/copilot-edits.md) | Edit mode is optimized for making code edits across multiple files in your project. VS Code directly applies the code changes in the editor, where you can review them in-place. Use edit mode for coding tasks when you have a good understanding of the changes that you want to make, and which files you want to edit.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). |
-| [**Agent**](/docs/copilot/chat/chat-agent-mode.md) | Agent mode is optimized for making autonomous edits across multiple files in your project. Use agent mode for coding tasks when you have a less well-defined task that might also require running terminal commands and tools.<br/>Open in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). |
-
-Switch between the different chat modes by using the **Mode** dropdown in the Chat view.
-
-![Screenshot showing the Copilot Chat view, highlighting the mode dropdown.](images/copilot-chat/chat-mode-dropdown.png)
-
 ## Access chat in VS Code
 
-You can access chat in VS Code in several ways:
+You can use natural language chat in different ways in VS Code, each optimized for a specific use case and task.
 
-* **Chat view** (`kb(workbench.action.chat.open)`): have an ongoing, multi-turn chat conversation in a dedicated view. Switch between different [chat modes](#chat-mode) at any time. By default, the Chat view is located in the [Secondary Side Bar](/docs/configure/custom-layout.md#secondary-side-bar) in VS Code.
+| Experience| Use case | User experience |
+|-----------|----------|-----------------|
+| **Chat view**<br/>`kb(workbench.action.chat.open)` | Have an ongoing, multi-turn chat conversation in a dedicated view on the side. Switch between different [chat modes](#choose-a-chat-mode) to ask questions, make code edits across files, or start an autonomous coding workflow. | ![Screenshot of the Chat view](images/copilot-chat/chat-view.png) |
+| **Inline chat**<br/>`kb(inlineChat.start)` | Start a chat conversation directly from the editor (_editor inline chat_) or integrated terminal (_terminal inline chat_) to get suggestions in-place. | ![Screenshot of the Inline chat](images/copilot-chat/inline-chat.png) |
+| **Quick Chat**<br/>`kb(workbench.action.quickchat.toggle)` | Ask a quick question and get back into what you were doing. | ![Screenshot of the Quick Chat](images/copilot-chat/quick-chat.png) |
 
-* **Inline chat** (`kb(inlineChat.start)`): start a chat conversation directly from the editor (_editor inline chat_) or integrated terminal (_terminal inline chat_) to get suggestions in-place.
-
-* **Quick Chat** (`kb(workbench.action.quickchat.toggle)`): ask a quick question and get back into what you were doing.
-
-Quickly access chat by using the corresponding keyboard shortcuts or via the Copilot menu in the VS Code title bar.
+Access each chat experience by using the corresponding keyboard shortcuts or via the Copilot menu in the VS Code title bar.
 
 ![Screenshot of the Copilot Chat menu in the VS Code Command Center](images/copilot-chat/copilot-chat-menu-command-center.png)
 
-## Submit a chat prompt
+## Choose a chat mode
 
-You can use natural language to make chat requests. You can ask questions about your codebase, get code suggestions, or brainstorm ideas.
+Chat modes are predefined configurations to customize chat in VS Code for specific tasks, such as asking questions, making code edits, or performing autonomous coding tasks. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can also define your own chat modes for specific scenarios, such as planning a new feature, or researching implementation options.
 
-Open the Chat view (`kb(workbench.action.chat.open)`) and enter your prompt in the chat input field. Notice that the response might rich content such as Markdown text, code blocks, buttons, file trees, and more.
+To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
-![Copilot Chat view in the Secondary Side Bar and Explorer view in the Primary Side Bar.](images/copilot-chat/copilot-chat-view.png)
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
 
-Here are some example prompts you can experiment with:
-
-* Ask questions about coding and technology concepts (_"What is a linked list?"_, _"top 10 popular web frameworks"_)
-* Brainstorm ideas on how to best solve a coding problem (_"How to add auth to my project?"_)
-* Explain a block of code (_"@workspace /explain"_, _"What does this code do?"_)
-* Propose code fixes (_"@workspace /fix"_, _"This method gives a FileNotFoundException"_)
-* Generate unit test cases or code documentation (_"@workspace /tests"_, _"@workspace /doc"_)
-* Ask about VS Code settings (_@vscode how do I disable the minimap?_)
-
-For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat) in the GitHub documentation.
-
-> [!TIP]
-> Type `/help` in the chat input field to get help about GitHub Copilot and how to interact with Copilot Chat.
+Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-modes.md).
 
 ## Change the language model
 
-Copilot offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
+VS Code offers different built-in language models to choose from. Some models are optimized for fast coding tasks, while others are better suited for slower planning and reasoning tasks. Use the model picker in the chat input field to change the model that Copilot uses for generating a response.
 
-![Screenshot of the Copilot Chat model picker](images/copilot-chat/chat-model-picker.png)
+![Screenshot of the chat model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
 You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
 
+## Submit a chat prompt
+
+Use natural language to make chat requests in VS Code. Depending on the chat mode, you can ask questions about your codebase, get code suggestions, or make code edits across multiple files in your project and invoke specialized tools.
+
+A chat response might contain a combination of rich content such as Markdown text, code blocks, buttons, file trees, and more.
+
+![Copilot Chat view in the Secondary Side Bar and Explorer view in the Primary Side Bar.](images/copilot-chat/copilot-chat-view.png)
+
+To get more relevant responses or reference specific files or artifacts in your workspace, such as test failures or terminal output, [add context](#add-chat-context) to your chat prompt by #-mentioning relevant context items.
+
 ## Add chat context
 
 VS Code tries to determine the intent and scope of your chat request based on your natural language prompt. To help get more relevant responses, provide additional context in your chat prompt, such as files, test results, terminal output, and more.
 
-Use the **Add Context** button in the Chat view or type #-mentions to add context to your chat prompt. For example, `#codebase` to refer to the entire codebase, or `#<file | folder | symbol>` to refer to a specific file, folder, or symbol in your workspace. Type `#` in the chat input field to view the list of context items. Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+Use the **Add Context** button in the Chat view or type #-mentions to add context to your chat prompt. For example, `#codebase` to refer to the entire codebase, or `#<file | folder | symbol>` to refer to a specific file, folder, or symbol in your workspace. Type `#` in the chat input field to view the list of context items.
 
 ![Screenshot of the Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
 
 You can also directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode). For example, use the `#fetch` tool to add the content of a web page as context to your chat prompt, or use `#githubRepo` to perform a code search in a GitHub repository.
 
 Get more details about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md).
+
+## Prompt examples
+
+<details>
+<summary>Ask about general technology topics</summary>
+
+* `"What is a linked list?"`
+* `"top 10 popular web frameworks"`
+
+</details>
+
+<details>
+<summary>Understand the codebase</summary>
+
+* `"Explain how authentication works in #codebase"`
+* `"Where is the database connecting string configured? #codebase"`
+* `"How do I build this #codebase?"`
+* `"Where is #getUser used? #usages"`
+
+</details>
+
+<details>
+<summary>Add new features to your app</summary>
+
+* `"Create an about page and include it in the nav bar #codebase"`
+* `"Add a new API route for updating the address info #codebase"`
+* `"Add a login button and style it based on #styles.css"`
+
+</details>
+
+<details>
+<summary>Fix issues in the workspace</summary>
+
+* `"Fix the issues in #problems"`
+* `"Fix the failing tests #testFailure"`
+
+</details>
+
+<details>
+<summary>Reference content from the web</summary>
+
+* `"How do I use the 'useState' hook in react 18? #fetch https://18.react.dev/reference/react/useState#usage"`
+* `"Build an API endpoint to fetch address info, use the template from #githubRepo contoso/api-templates"`
+
+</details>
+
+For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.com/en/copilot/example-prompts-for-github-copilot-chat) in the GitHub documentation.
+
+> [!TIP]
+> Type `/help` in the chat input field to get help about Copilot and how to interact with chat.
 
 ## Vision (Preview)
 

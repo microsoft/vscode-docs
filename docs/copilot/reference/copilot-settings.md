@@ -71,7 +71,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(editor.inlineSuggest.syntaxHighlightingEnabled)`: Controls whether to show syntax highlighting for inline suggestions.
 * `setting(github.copilot.chat.editor.temporalContext.enabled)` _(Experimental)_: Whether to include recently viewed and edited files with Copilot requests in Inline Chat.
 
-## Customize Copilot prompts
+## Customize chat
 
 * `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 * `setting(github.copilot.chat.reviewSelection.enabled)` _(Preview)_: Enable code review for an editor text selection.
@@ -82,8 +82,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
 * `setting(chat.promptFiles)` _(Experimental)_: Enable or disable reusable prompt files.
-* `setting(chat.promptFilesLocations)` _(Experimental)_: Specify the location of prompt files. Set to `true` to use the default location (`.github/prompts`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
-* `setting(chat.instructionsFilesLocations)` _(Experimental)_: Specify the location of instructions files. Set to `true` to use the default location (`.github/instructions`), or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace.
+* `setting(chat.promptFilesLocations)` _(Experimental)_: A list of folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.instructionsFilesLocations)` _(Experimental)_: A list of folders where instruction files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.modeFilesLocations)` _(Experimental)_: A list of folders where chat mode files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
 
 ## Debugging settings
 

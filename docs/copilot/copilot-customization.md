@@ -398,4 +398,5 @@ You have multiple options to run a prompt file:
 
 ## Related content
 
+* [Create custom chat modes](/docs/copilot/chat/chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)

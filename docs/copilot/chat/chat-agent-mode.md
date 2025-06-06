@@ -220,7 +220,5 @@ Consider the following criteria to choose between edit mode and agent mode:
 
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
-* [Use Copilot Chat for AI chat conversations](/docs/copilot/chat/copilot-chat.md)
 * [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
-* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
+* [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
