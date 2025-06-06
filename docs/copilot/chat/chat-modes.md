@@ -46,16 +46,20 @@ You can reference instructions files and tools in your custom chat mode file.
 
 ### Chat mode file structure
 
-A `.chatmode.md` Markdown file consists of two main sections: Front Matter metadata and chat mode instructions.
+A chat mode file is a Markdown file with the `.chatmode.md` suffix. It has the following two main sections:
 
-The Front Matter metadata fields consist of the following fields:
+* Front Matter metadata header
 
-* `description`: A brief description of the chat mode. This description is displayed when you hover the chat mode in the chat mode dropdown list in the Chat view.
-* `tools`: A list of tool names that are available for this chat mode. This can include built-in tools, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
+    * `description`: A brief description of the chat mode. This description is displayed when you hover the chat mode in the chat mode dropdown list in the Chat view.
+    * `tools`: A list of tool names that are available for this chat mode. This can include built-in tools, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
 
-The body of the file contains the chat mode instructions. This is where you can provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode.
+* Body with chat mode instructions
 
-The following code snippet shows an example of a custom chat mode file:
+    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode. You can also reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
+
+### Chat mode file example
+
+The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits.
 
 ```markdown
 ---
@@ -64,11 +68,14 @@ tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
 ---
 # Planning mode instructions
 You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.
-Create a Markdown document that describes the implementation plan, including the following sections:
-* **Overview**: A brief description of the feature or refactoring task.
-* **Requirements**: A list of requirements for the feature or refactoring task.
-* **Implementation Steps**: A detailed list of steps to implement the feature or refactoring task.
-* **Testing**: A list of tests that need to be implemented to verify the feature or refactoring task.
+Don't make any code edits, just generate a plan.
+
+The plan consists of a Markdown document that describes the implementation plan, including the following sections:
+
+* Overview: A brief description of the feature or refactoring task.
+* Requirements: A list of requirements for the feature or refactoring task.
+* Implementation Steps: A detailed list of steps to implement the feature or refactoring task.
+* Testing: A list of tests that need to be implemented to verify the feature or refactoring task.
 ```
 
 ### Create a chat mode
