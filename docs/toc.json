@@ -126,10 +126,10 @@
         "name": "Chat",
         "area": "copilot/chat",
         "topics": [
-          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
-          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
           ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
