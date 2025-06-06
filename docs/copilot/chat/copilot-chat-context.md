@@ -119,7 +119,7 @@ To let the AI automatically find relevant files and symbols in your workspace, y
 * #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
     To reference a symbol, make sure to open the file containing the symbol in the editor first.
 
-* Drag and drop files or folders from the Explorer view or editor tabs onto the Chat view to add them as context.
+* Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the Chat view to add them as context.
 
 * Use the **Add Context** button in the Chat view and select **Files & Folders** or **Symbols**.
 
