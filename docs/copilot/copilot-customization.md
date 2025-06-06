@@ -72,18 +72,17 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
 
 * (Optional) Header with metadata (Front Matter syntax)
 
-    | Property | Description |
-    |----------|-------------|
-    | `applyTo` | Specify a glob pattern for files to which the instructions are automatically applied. To always include the custom instructions, use the `**` pattern. |
+    * `description`: A brief description of the instructions file. This description is displayed when you hover the instructions file in the Chat view.
+    * `applyTo`: Specify a glob pattern for files to which the instructions are automatically applied. To always include the custom instructions, use the `**` pattern.
 
-    For example, the following instructions file is always applied:
+        For example, the following instructions file is always applied:
 
-    ```markdown
-    ---
-    applyTo: "**"
-    ---
-    Add a comment at the end of the file: 'Contains AI-generated edits.'
-    ```
+        ```markdown
+        ---
+        applyTo: "**"
+        ---
+        Add a comment at the end of the file: 'Contains AI-generated edits.'
+        ```
 
 * Body with the instruction content
 
@@ -93,7 +92,7 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
 
 To create an instructions file:
 
-1. Run the **Chat: New Instruction File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Run the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the instruction file should be created.
 
@@ -112,6 +111,8 @@ To use an instructions file for a chat prompt, you can either:
 * In the Chat view, select **Add Context** > **Instructions** and select the instruction file from the Quick Pick.
 * Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instruction file from the Quick Pick.
 * Configure the `applyTo` property in the instruction file header to automatically apply the instructions to specific files or folders.
+
+Use the **Chat: Configure Instructions** command from the Command Palette to select and edit an existing instruction file. This command opens the instruction file in the editor, where you can edit the instructions and metadata. Hover over an instructions file in the list and choose from the available actions: copy or move, edit the name, or delete the instructions file.
 
 ### Specify custom instructions in settings
 
@@ -229,17 +230,13 @@ Common use cases include:
 
 ### Prompt file structure
 
-A prompt file is a Markdown file with the `.prompt.md` file suffix.
-
-The prompt file consists of two sections:
+A prompt file is a Markdown file with the `.prompt.md` file suffix. It has the following two main sections:
 
 * (Optional) Header with metadata (Front Matter syntax)
 
-    | Property | Description |
-    |----------|-------------|
-    | `mode` | The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default). |
-    | `tools` | The list of tools that can be used in agent mode. Array of tool names, for example `terminalLastCommand` or `githubRepo`. The tool name is shown when you type `#` in the chat input field.<br/>If a given tool is not available, it is ignored when running the prompt. |
-    | `description` | A short description of the prompt. |
+    * `mode`: The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default).
+    * `tools`: Array of tool (set) names to indicate which tools (sets) can be used in agent mode. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
+    * `description`: A short description of the prompt.
 
 * Body with the prompt content
 
@@ -400,3 +397,4 @@ You have multiple options to run a prompt file:
 
 * [Create custom chat modes](/docs/copilot/chat/chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)

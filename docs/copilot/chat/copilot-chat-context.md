@@ -157,9 +157,9 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ## Reference tools
 
-Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page.
+Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
 
-To reference a tool directly in your chat prompt, type `#` followed by the tool name and optional tool parameters. The following prompt examples show how to use tools:
+To reference a tool or tool set directly in your chat prompt, type `#` followed by the tool (set) name and optional tool parameters. The following prompt examples show how to use tools:
 
 * Use the [GitHub MCP server](https://github.com/github/github-mcp-server) tool (configured as `github-mcp` in your `mcp.json`):
 

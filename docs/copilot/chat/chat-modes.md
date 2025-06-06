@@ -42,7 +42,7 @@ Custom chat modes consist of a set of instructions and tools that are applied wh
 
 Custom chat modes are defined in a `.chatmode.md` Markdown file, and can be stored in your workspace for others to use, or in your user profile, where you can reuse them across different workspaces.
 
-You can reference instructions files and tools in your custom chat mode file.
+You can reference instructions files and tools (sets) in your custom chat mode file.
 
 ### Chat mode file structure
 
@@ -51,7 +51,7 @@ A chat mode file is a Markdown file with the `.chatmode.md` suffix. It has the f
 * Front Matter metadata header
 
     * `description`: A brief description of the chat mode. This description is displayed when you hover the chat mode in the chat mode dropdown list in the Chat view.
-    * `tools`: A list of tool names that are available for this chat mode. This can include built-in tools, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
+    * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
 
 * Body with chat mode instructions
 
@@ -90,14 +90,14 @@ You can create a chat mode file in your workspace or user profile.
 
 1. Provide the details for the chat mode in the newly created `.chatmode.md` file.
 
-    * Provide the description and configure the list of available tools in the Front Matter metadata.
+    * Provide the description and configure the list of available tools or tool sets in the Front Matter metadata.
     * Add instructions for the chat mode in the body of the file.
 
 By default, VS Code looks for workspace chat mode files in the `.github/chatmodes` folder. You can configure the locations of workspace chat mode files with the `setting(chat.modeFilesLocations)` setting.
 
 ### Manage existing chat modes
 
-To edit and manage existing chat modes, select the **Chat: Configure Chat Modes** command in the Command Palette (`kb(workbench.action.chat.configureChatModes)`). Select a chat mode from the list to open it in the editor, where you can edit the instructions and tools.
+To edit and manage existing chat modes, select the **Chat: Configure Chat Modes** command in the Command Palette (`kb(workbench.action.chat.configureChatModes)`). Select a chat mode from the list to open it in the editor, where you can edit the instructions and tools (sets).
 
 Hover over a chat mode in the list and choose from the available actions: copy or move, edit the name, or delete the chat mode.
 
