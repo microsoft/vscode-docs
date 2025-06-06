@@ -15,7 +15,7 @@ These are our documentation writing style guidelines.
 ## Grammar
 
 * Use present tense verbs (is, open) instead of past tense (was, opened).
-* Write factual statements and direct commands. Avoid hypotheticals.
+* Write factual statements and direct commands. Avoid hypotheticals like "could" or "would".
 * Use active voice where the subject performs the action.
 * Write in second person (you) to speak directly to readers.
 * Use gender-neutral language.
@@ -96,4 +96,7 @@ These are our documentation writing style guidelines.
 ## Terminology
 
 * Use "Select" instead of "Click" for UI elements like buttons, menu items, links, dropdowns, and checkboxes.
+* Use "might" instead of "may" for conditional statements.
+* Avoid latin abbreviations like "e.g.". Use "for example" instead.
+* Use the verb "to enable" instead "to allow" unless you're referring to permissions.
 * Follow the terms and capitalization guidelines in #fetch [VS Code docs wiki](https://github.com/microsoft/vscode-docs/wiki/VS-Code-glossary)
