@@ -121,7 +121,6 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
@@ -139,8 +138,9 @@
         ]
       }
       ],
+      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Personalize Copilot", "/docs/copilot/copilot-customization"],
+      ["Customize Copilot", "/docs/copilot/copilot-customization"],
       ["Language Models", "/docs/copilot/language-models"],
       ["", "", {
         "name": "Guides",
