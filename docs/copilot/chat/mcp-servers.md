@@ -22,9 +22,9 @@ Model Context Protocol (MCP) provides a standardized way for AI models to discov
 
 MCP follows a client-server architecture:
 
-- **MCP clients** (like VS Code) connect to MCP servers and request actions on behalf of the AI model
-- **MCP servers** provide one or more tools that expose specific functionalities through a well-defined interface
-- **The Model Context Protocol (MCP)** defines the message format for communication between clients and servers, including tool discovery, invocation, and response handling
+* **MCP clients** (like VS Code) connect to MCP servers and request actions on behalf of the AI model
+* **MCP servers** provide one or more tools that expose specific functionalities through a well-defined interface
+* **The Model Context Protocol (MCP)** defines the message format for communication between clients and servers, including tool discovery, invocation, and response handling
 
 For example, a file system MCP server might provide tools for reading, writing, or searching files and directories. GitHub's MCP server offers tools to list repositories, create pull requests, or manage issues. MCP servers can run locally on your machine or be hosted remotely, and VS Code supports both configurations.
 
@@ -32,7 +32,11 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 ### Supported MCP capabilities
 
-VS Code supports local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport. Currently of the [three primitives](https://modelcontextprotocol.io/specification/2025-03-26#features) (`tools`, `prompts`, `resources`), servers can only provide `tools` to Copilot's agent mode. The list and descriptions of tools can be updated dynamically using *list changed* events. VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
+VS Code supports the following MCP capabilities:
+
+* MCP Server transport: local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport.
+* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, and sampling.
+* VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 ### Finding MCP servers
 
@@ -53,9 +57,9 @@ To centrally enable or disable MCP support within your organization, check [Cent
 
 You have multiple options to add an MCP server in VS Code:
 
-- **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
-- **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
-- **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
+* **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
+* **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
+* **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
 > [!CAUTION]
 > MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
@@ -246,6 +250,10 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
     > [!TIP]
     > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
+1. Select **Add Context** > **MCP Resources** to add resources from the MCP server to your chat context.
+
+    For example, a database MCP server might provide access to database tables, or a file system MCP server might provide access to files and directories.
+
 1. You can now enter a prompt in the chat input box and notice how tools are automatically invoked as needed.
 
     By default, when a tool is invoked, you need to confirm the action before it is run. This is because tools might run locally on your machine and might perform actions that modify files or data.
@@ -259,6 +267,10 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
     Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
+
+1. Type `/` to access prompts provided by the MCP server.
+
+    MCP Servers can provide preconfigured prompts for interacting with their tools, without having to type an extensive chat prompt message.
 
 ## Managing tools
 
