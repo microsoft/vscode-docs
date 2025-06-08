@@ -9,7 +9,7 @@ MetaDescription: A guide to creating a language model tool and how to implement 
 
 # Language Model Tool API
 
-Language model tools enable you to extend the functionality of a large language model (LLM). VS Code surfaces tools contributed by extensions in Copilot [agent mode](/docs/copilot/chat/chat-agent-mode.md). By contributing a tool in a VS Code extension, you can combine the power of agentic coding with deep VS Code integration via its extension APIs.
+Language model tools enable you to extend the functionality of a large language model (LLM). VS Code surfaces tools contributed by extensions in Copilot [agent mode](/docs/copilot/chat/chat-agent-mode). By contributing a tool in a VS Code extension, you can combine the power of agentic coding with deep VS Code integration via its extension APIs.
 
 In this extension guide, you'll learn how to create a language model tool and how to implement tool calling in a chat extension.
 
@@ -27,7 +27,7 @@ By implementing a language model tool in your extension, you can:
 
 - **Extend agent mode** with specialized tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying as part of a chat conversation.
 - **Extend ask and edit mode** with specialized tools that users can reference directly in a chat prompt with `#`. For example, to fetch content from the web.
-- **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension.md) to augment a user's debugging experience.
+- **Deeply integrate with VS Code** by using the broad set of extension APIs. For example, use the [debug APIs](/api/extension-guides/debugger-extension) to augment a user's debugging experience.
 
 ## Create a language model tool
 
@@ -51,13 +51,13 @@ The static configuration of the tool is defined in the `package.json` file of yo
     | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines). |
     | `displayName` | The user-friendly name of the tool, used for displaying in the UI. |
 
-1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in a chat prompt with `#`, add the following properties:
+1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode) or referenced in a chat prompt with `#`, add the following properties:
 
     Users can enable or disable the tool in the Chat view, similar to how this is done for [Model Context Protocol (MCP) tools](/docs/copilot/chat/mcp-servers).
 
     | Property | Description |
     | -------- | ----------- |
-    | `canBeReferencedInPrompt` | Set to `true` if the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md) or referenced in chat. |
+    | `canBeReferencedInPrompt` | Set to `true` if the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode) or referenced in chat. |
     | `toolReferenceName` | The name for users to reference the tool in a chat prompt via `#`. |
     | `icon` | The icon to display for the tool in the UI. |
     | `userDescription` | User-friendly description of the tool, used for displaying in the UI. |
@@ -267,6 +267,6 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 ## Related content
 
-- [Language Model API reference](/api/references/vscode-api.md#lm)
-- [Register an MCP server in a VS Code extension](/api/extension-guides/mcp.md)
-- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers.md)
+- [Language Model API reference](/api/references/vscode-api#_lm)
+- [Register an MCP server in a VS Code extension](/api/extension-guides/mcp)
+- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
