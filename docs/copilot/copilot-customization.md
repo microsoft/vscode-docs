@@ -93,7 +93,7 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
 
 To create an instructions file:
 
-1. Run the **Chat: New Instruction File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Run the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the instruction file should be created.
 
