@@ -16,6 +16,24 @@ There are two main ways to customize AI responses in Visual Studio Code:
 
 If you want to change the way in which chat operates, which tools it can use, you can [create custom chat modes](/docs/copilot/chat/chat-modes.md). For example, if you want chat to work in a read-only, planning mode, you can create a custom "Plan" mode that disables code generation and only allows reading and analyzing code.
 
+## Scenarios for using custom instructions and prompt files
+
+You can use custom instructions and prompt files in various scenarios to improve the quality of AI responses and align them with your coding practices. Here are some common scenarios:
+
+* **Custom instructions**
+    * Specify coding practices, preferred technologies, or project requirements.
+    * Define guidelines for code generation, such as naming conventions, error handling, or code structure.
+    * Set rules for code reviews, such as checking for security vulnerabilities or performance issues.
+    * Provide instructions for generating commit messages or pull request titles and descriptions.
+
+* **Prompt files**
+    * Create reusable prompts for common coding tasks, such as scaffolding a new component, API route, or generating tests.
+    * Define prompts for performing code reviews, such as checking for code quality, security vulnerabilities, or performance issues.
+    * Create step-by-step guides for complex processes or project-specific patterns.
+    * Define prompts for generating implementation plans, architectural designs, or migration strategies.
+
+Prompt files can take advantage of custom instructions to reuse common guidelines and have task-specific instructions included in the prompt. For example, a security review prompt file can reference a custom instructions that describe general security practices, while also including specific instructions on how to report the findings of the review.
+
 ## Enable instructions and prompt files in VS Code
 
 To enable instructions and prompt files in VS Code, enable the `setting(chat.promptFiles)` setting.
