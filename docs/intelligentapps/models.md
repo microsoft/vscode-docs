@@ -1,43 +1,67 @@
 ---
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-DateApproved: 12/11/2024
+DateApproved: 06/14/2025
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
-# Models in AI Toolkit
+# Explore models in AI Toolkit
 
-AI Toolkit supports a broad range of generative AI models. Both Small Language Models (SLM) and Large Language Models (LLM) are supported.
+AI Toolkit provides comprehensive support for a wide variety of generative AI models, including both Small Language Models (SLMs) and Large Language Models (LLMs).
 
-In the model catalog, you can access models from various sources:
+Within the model catalog, you can explore and utilize models from multiple hosting sources:
 
-- GitHub-hosted models (Llama3, Phi-3, Mistral models)
-- Publisher-hosted models (OpenAI ChatGPT models, Anthropic Claude, Google Gemini)
-- Locally downloaded models, for example from HuggingFace
-- Locally running Ollama models
-- Connect to Bring-Your-Own-Models
+- Models hosted on GitHub, such as Llama3, Phi-3, and Mistral.
+- Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
+- Models downloaded locally from repositories like Ollama and ONNX.
+- Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
+
+![AI Toolkit model catalog displaying various generative AI models](./images/models/models.png)
 
 ## Find a model
 
 To find a model in the model catalog:
 
 1. Select the AI Toolkit view in the Activity Bar
-
-1. Select **CATALOG** > **Models** to open the model catalog
-
-    ![Select model in model catalog](./images/models/model_catalog.png)
-
-    Select a model card in the model catalog to view more details of the selected model.
-
+1. Select **MODELS** > **Catalog** to open the model catalog
 1. Use the filters to reduce the list of available models
 
     - **Hosted by**: AI Toolkit supports GitHub, ONNX, OpenAI, Anthropic, Google as model hosting sources.
 
     - **Publisher**: The publisher for AI models, such as Microsoft, Meta, Google, OpenAI, Anthropic, Mistral AI, and more.
 
-    - **Tasks**: Currently, only `Text Generation` is supported.
+    - **Feature**: Supported features of the model, such as `Text Attachment`, `Image Attachment`, `Web Search`, `Structured Outputs`, and more.
 
     - **Model type**: Filter models that can run remotely or locally on CPU, GPU, or NPU. This filter depends on the local availability.
 
     - **Fine-tuning Support**: Show models that can be used to run fine-tuning.
+1. Browse the models in different categories, such as:
+    - **Popular Models** is a curated list of widely used models across various tasks and domains.
+    - **GitHub Models** provide easy access to popular models hosted on GitHub. It's best for fast prototyping and experimentation.
+    - **ONNX Models** are optimized for local execution and can run on CPU, GPU, or NPU.
+    - **Ollama Models** are popular models that can run locally with Ollama, supporting CPU via GGUF quantization.
+1. Alternatively, use the search box to find a specific model by name or description
+
+## Add a model from the catalog
+To add a model from the model catalog:
+1. Locate the model you want to add in the model catalog
+1. Select the **Add** button on the model card
+1. The flow for adding models will be slightly different based on the providers:
+
+    - **GitHub**: AI Toolkit will ask for your GitHub credentials to access the model repository. Once authenticated, the model will be added directly into AI Toolkit.
+    - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
+    - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
+
+    > [!TIP]
+    > You can edit the API key later by right clicking the model and selecting **Edit** and view the excrypted value in `${HOME}/.aikt/models/my-models/yml` file.
+
+    ![AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model_operation.png)
+
+    - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit will prompt you to enter the API Key.
+    - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
+
+Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agent-builder.md).
+
+## Add a custom model
+You can also add your own models that are hosted externally or run locally.
 
 To reference a self-hosted model or locally-running Ollama model:
 
