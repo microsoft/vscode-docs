@@ -61,53 +61,33 @@ To add a model from the model catalog:
 Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agent-builder.md).
 
 ## Add a custom model
-You can also add your own models that are hosted externally or run locally.
+You can also add your own models that are hosted externally or run locally. There are several options available:
+- Add Ollama models from the Ollama library or custom Ollama endpoints.
+- Add custom models that has an OpenAI compatible endpoint, such as a self-hosted model or a model running on a cloud service.
+- Add custom ONNX models, such as those from Hugging Face, using AI Toolkit's [model conversion tool](/docs/intelligentapps/modelconversion.md).
 
-To reference a self-hosted model or locally-running Ollama model:
+There are several entrypoints to add models to AI Toolkit:
+- From **MY MODELS** in the tree view, hover over it and select the `+` icon.
+![AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can click to add a new custom model.](./images/models/custom_1.png)
 
-1. Select **+ Add model** in the model catalog
+- From the **Model Catalog**, select the **+ Add model** button from the tool bar.
+![AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted. The toolbar is located at the top of the catalog view, and the + Add model button is emphasized to indicate where users can click to add a new custom model.](./images/models/custom_2.png)
 
-1. Choose between Ollama or a custom model in the model Quick Pick
+- From the **Add Custom Models** section in the model catalog, select **+ Add Your Own Model**.
+![AI Toolkit interface showing the Custom Models section in the model catalog. The + Add model button is highlighted, indicating where users can click to add a new custom model.](./images/models/custom_3.png)
 
-1. Provide details to add the model
-
-## License and sign-in
-
-Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
-
-## Select a model for testing
-
-AI Toolkit enables you to test run a model in the playground for chat completions. You have different options, available through the actions on the model card in the model catalog.
-
-- **Try in Playground**: load the selected model for testing in the playground without downloading it
-- **Download**: download the model from a source like Hugging Face
-- **Load in Playground**: load a downloaded model into the playground for chat
-
-## Bring your own models
-
-AI Toolkit's playground also supports remote models. If you have a self-hosted or deployed model that is accessible from the internet, you can add it to AI Toolkit and use it in the playground.
-
-1. Hover over **MY MODELS** in the tree view, and select the `+` icon to add a remote model into AI Toolkit.
-1. Fill in the requested information, such as model name, display name, model hosting URL, and optional auth string.
-
-![Bring Your Own Models](./images/models/byom.png)
-
-## Add Ollama models
+### Add Ollama models
 
 Ollama enables many popular genAI models to run locally with CPU via GGUF quantization. If you have Ollama installed on your local machine with downloaded Ollama models, you can add them to AI Toolkit for use in the model playground.
 
-### Prerequisites
+Prerequisites for using Ollama models in AI Toolkit:
 
 - AI Toolkit v0.6.2 or newer.
 - [Ollama](https://ollama.com/download) (Tested on Ollama v0.4.1)
 
-### Add local Ollama into AI Toolkit
+To add local Ollama into AI Toolkit
 
-1. Hover over **MY MODELS** in the tree view and select the "+" icon to add a model
-
-    Alternatively, select the **+ Add model** button in the model catalog or playground.
-
-1. Select **Add an Ollama model**
+1. From one of the entrypoints mentioned above, select **Add Ollama Model**.
 
     ![Select model type to add](./images/models/select-type.png)
 
@@ -124,3 +104,36 @@ Ollama enables many popular genAI models to run locally with CPU via GGUF quanti
 
     > [!NOTE]
     > Attachment is not support yet for Ollama models. Since we connect to Ollama using its [OpenAI compatible endpoint](https://github.com/ollama/ollama/blob/main/docs/openai.md) and it doesn't support attachments yet.
+
+### Add a custom model with OpenAI compatible endpoint
+
+If you have a self-hosted or deployed model that is accessible from the internet with an OpenAI compatible endpoint, you can add it to AI Toolkit and use it in the playground.
+
+1. From one of the entrypoints mentioned above, select **Add Custom Model**.
+1. Fill in the OpenAI compatible endpoint URL and the required information.
+
+To reference a self-hosted model or locally-running Ollama model:
+
+1. Select **+ Add model** in the model catalog
+
+1. Choose between Ollama or a custom model in the model Quick Pick
+
+1. Provide details to add the model
+
+### Add a custom ONNX model
+
+Follow the documentation on converting ONNX models to AI Toolkit's model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). Once converted, you can add the model to AI Toolkit.
+
+## Select a model for testing
+
+AI Toolkit enables you to test run a model in the playground for chat completions.
+
+You have different options, available through the actions on the model card in the model catalog:
+
+- **Try in Playground**: load the selected model for testing in the playground.
+- **Try in Agent Builder**: load a downloaded model into the playground for chat
+
+## License and sign-in
+
+Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
+
