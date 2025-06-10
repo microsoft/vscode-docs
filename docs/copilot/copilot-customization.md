@@ -4,9 +4,17 @@ DateApproved: 05/08/2025
 MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions and reusable prompt files to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Customize chat responses in VS Code
+# Customize AI responses in VS Code
 
-Copilot can provide you with responses that match your coding practices and project requirements if you give it the right context. Custom instructions enable you to define and automatically apply the guidelines and rules for tasks like generating code, or performing code reviews. Prompt files let you craft complete chat prompts in Markdown files, which you can then reference in chat or share with others. In this article, you will learn how to use custom instructions and prompt files to customize your chat responses in Visual Studio Code.
+Chat in Visual Studio Code can give you responses and generate code that matches your coding practices and project requirements, if you give it the right context. Instead of repeatedly adding this information in every chat prompt, you can store this context in files and automatically include it in every chat request. In this article, you learn how to use custom instructions and prompt files to customize AI responses in VS Code.
+
+There are two main ways to customize AI responses in Visual Studio Code:
+
+* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done). For example, you'd typically use custom instructions to specify your coding practices, preferred technologies, or project structure.
+
+* **Prompt files**: Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done). Optionally, you can also include guidelines about how the task should be performed, or you can reference custom instructions in the prompt file. For example, you can create a prompt file to scaffold a new React component, and include instructions on how to structure the component, which libraries to use, or how to handle state management.
+
+If you want to change the way in which chat operates, which tools it can use, you can [create custom chat modes](/docs/copilot/chat/chat-modes.md). For example, if you want chat to work in a read-only, planning mode, you can create a custom "Plan" mode that disables code generation and only allows reading and analyzing code.
 
 ## Enable instructions and prompt files in VS Code
 
