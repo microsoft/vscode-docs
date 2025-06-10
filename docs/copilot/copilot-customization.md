@@ -57,17 +57,6 @@ To enable instructions and prompt files in VS Code, enable the `setting(chat.pro
 
 To centrally enable or disable this setting within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
-## Instruction files
-
-Custom instructions enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request.
-
-VS Code supports several types of custom instructions, targeted at different scenarios: code generation, test generation, code review, commit message generation, and pull request title and description generation instructions.
-
-You can define custom instructions in two ways:
-
-1. **Instruction files**: specify code-generation instructions in Markdown files for your workspace or [VS Code profile](/docs/configure/profiles.md).
-1. **Settings**: specify instructions in VS Code user or workspace settings.
-
 ### Use instruction files
 
 Instruction files enable you to specify custom instructions in Markdown files. You can use these files to define your coding practices, preferred technologies, and project requirements.
