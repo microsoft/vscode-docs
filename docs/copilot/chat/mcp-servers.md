@@ -207,15 +207,12 @@ Use the following JSON configuration format to define MCP servers.
 
     Learn more about how to configure [input variables](/docs/reference/variables-reference.md#input-variables) in VS Code.
 
-<details>
-<summary>Configuration example</summary>
-
 ### Configuration example
 
 The following code snippet shows an example MCP server configuration that specifies three servers and defines an input placeholder for the API key.
 
 <details>
-<summary>Example .vscode/mcp.json</summary>
+<summary>View `.vscode/mcp.json`</summary>
 
 ```json
 // Example .vscode/mcp.json
@@ -297,7 +294,7 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-## Use MCP resources in chat
+## Use MCP resources
 
 In addition to tools, MCP servers can also provide resources that you can use as context in your chat prompts. For example, a file system MCP server might provide access to files and directories, or a database MCP server might provide access to database tables.
 
@@ -365,7 +362,7 @@ const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
-## Troubleshooting and debugging MCP servers
+## Troubleshoot and debug MCP servers
 
 ### MCP output log
 
@@ -421,7 +418,7 @@ Yes, you have several options to control which tools are active:
 
 ### The MCP server is not starting when using Docker
 
-Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshooting-and-debugging-mcp-servers)).
+Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshoot-and-debug-mcp-servers)).
 
 ## Related resources
 
