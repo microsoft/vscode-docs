@@ -272,7 +272,15 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
 
     MCP Servers can provide preconfigured prompts for interacting with their tools, without having to type an extensive chat prompt message.
 
-## Managing tools
+## Group related tools in a tool set
+
+As you add more MCP servers, the list of tools can become long. This can make it tedious to manage individual tools, for example when you want to define a [reusable prompt file](/docs/copilot/copilot-customization.md#prompt-files-experimental) or a [custom chat mode](/docs/copilot/chat/chat-modes.md).
+
+To help you manage tools, you can group related tools into a tool set. A tool set is a collection of individual tools that you can refer to as a single entity. A tool set can contain built-in tools, MCP tools, or tools provided by extensions.
+
+Learn more about how to [create and use tool sets in VS Code](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets).
+
+## Manage MCP servers
 
 Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers.
 
@@ -295,7 +303,7 @@ To add an MCP server to your user profile, use the `--add-mcp` command line opti
 code --add-mcp "{\"name\":\"my-server\",\"command\": \"uvx\",\"args\": [\"mcp-server-fetch\"]}"
 ```
 
-#### URL handler
+### URL handler
 
 VS Code also includes a URL handler that you can use to install an MCP server. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
 
@@ -306,7 +314,7 @@ const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
-## Troubleshooting
+## Troubleshooting and debugging MCP servers
 
 When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
