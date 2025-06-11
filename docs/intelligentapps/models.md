@@ -10,6 +10,7 @@ AI Toolkit provides comprehensive support for a wide variety of generative AI mo
 Within the model catalog, you can explore and utilize models from multiple hosting sources:
 
 - Models hosted on GitHub, such as Llama3, Phi-3, and Mistral.
+- Models from Azure AI Foundry, such as OpenAI's GPT-4, Grok by xAI, and many open-source models.
 - Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
 - Models downloaded locally from repositories like Ollama and ONNX.
 - Custom self-hosted or externally deployed models accessible via Bring-Your-Own-Model (BYOM) integration.
@@ -35,6 +36,7 @@ To find a model in the model catalog:
     - **Fine-tuning Support**: Show models that can be used to run fine-tuning.
 1. Browse the models in different categories, such as:
     - **Popular Models** is a curated list of widely used models across various tasks and domains.
+    - **Azure AI Foundry Hosted Models** includes models hosted on Azure AI Foundry, such as OpenAI's GPT-4, Grok by xAI, and many open-source models.
     - **GitHub Models** provide easy access to popular models hosted on GitHub. It's best for fast prototyping and experimentation.
     - **ONNX Models** are optimized for local execution and can run on CPU, GPU, or NPU.
     - **Ollama Models** are popular models that can run locally with Ollama, supporting CPU via GGUF quantization.
@@ -47,6 +49,7 @@ To add a model from the model catalog:
 1. The flow for adding models will be slightly different based on the providers:
 
     - **GitHub**: AI Toolkit will ask for your GitHub credentials to access the model repository. Once authenticated, the model will be added directly into AI Toolkit.
+    - **Azure AI Foundry**: AI Toolkit will prompt you to sign in with your Azure account and set a default project in Azure AI Foundry. Once authenticated, you can deploy a model to your Azure AI Foundry project and use it in AI Toolkit.
     - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
@@ -58,7 +61,17 @@ To add a model from the model catalog:
     - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit will prompt you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
 
-Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agent-builder.md).
+Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
+
+## Deploy a model to Azure AI Foundry
+If you want to deploy a model to Azure AI Foundry, you can do so directly from the model catalog. This allows you to run the model in your Azure AI Foundry project and use it in AI Toolkit.
+1. Locate the model you want to deploy in the model catalog
+1. Select the **Deploy to Azure** button on the model card
+1. AI Toolkit will prompt you to sign in with your Azure account and set a default project in Azure AI Foundry
+1. Once authenticated, you can deploy the model to your Azure AI Foundry project
+1. After deployment, the model will be available in your Azure AI Foundry project and can be used in AI Toolkit
+
+![AI Toolkit interface showing a model card with options Deploy to Azure, Try in Playground, and Load in Playground.](./images/models/foundry_models.png)
 
 ## Add a custom model
 You can also add your own models that are hosted externally or run locally. There are several options available:
@@ -109,29 +122,27 @@ To add local Ollama into AI Toolkit
 
 If you have a self-hosted or deployed model that is accessible from the internet with an OpenAI compatible endpoint, you can add it to AI Toolkit and use it in the playground.
 
-1. From one of the entrypoints mentioned above, select **Add Custom Model**.
-1. Fill in the OpenAI compatible endpoint URL and the required information.
+1. From one of the entry points above, select **Add Custom Model**.
+1. Enter the OpenAI compatible endpoint URL and the required information.
 
-To reference a self-hosted model or locally-running Ollama model:
+To add a self-hosted or locally running Ollama model:
 
-1. Select **+ Add model** in the model catalog
-
-1. Choose between Ollama or a custom model in the model Quick Pick
-
-1. Provide details to add the model
+1. Select **+ Add model** in the model catalog.
+1. In the model Quick Pick, choose **Ollama** or **Custom model**.
+1. Enter the required details to add the model.
 
 ### Add a custom ONNX model
 
-Follow the documentation on converting ONNX models to AI Toolkit's model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). Once converted, you can add the model to AI Toolkit.
+To add a custom ONNX model, first convert it to the AI Toolkit model format using the [model conversion tool](/docs/intelligentapps/modelconversion.md). After conversion, add the model to AI Toolkit.
 
 ## Select a model for testing
 
-AI Toolkit enables you to test run a model in the playground for chat completions.
+You can test a model in the playground for chat completions.
 
-You have different options, available through the actions on the model card in the model catalog:
+Use the actions on the model card in the model catalog:
 
-- **Try in Playground**: load the selected model for testing in the playground.
-- **Try in Agent Builder**: load a downloaded model into the playground for chat
+- **Try in Playground**: Load the selected model for testing in the [Playground](/docs/intelligentapps/playground.md).
+- **Try in Agent Builder**: Load the selected model in the [Agent Builder](/docs/intelligentapps/agentbuilder.md) to build AI agents.
 
 ## License and sign-in
 
