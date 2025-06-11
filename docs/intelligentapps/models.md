@@ -144,6 +144,22 @@ Use the actions on the model card in the model catalog:
 - **Try in Playground**: Load the selected model for testing in the [Playground](/docs/intelligentapps/playground.md).
 - **Try in Agent Builder**: Load the selected model in the [Agent Builder](/docs/intelligentapps/agentbuilder.md) to build AI agents.
 
+## Manage models
+You can manage your models in the **MY MODELS** section of the AI Toolkit view. Here you can:
+- View the list of models you have added to AI Toolkit.
+- Right-click on a model to access options such as:
+    - **Load in Playground**: Load the model in the [Playground](/docs/intelligentapps/playground.md) for testing.
+    - **Copy Model Name**: Copy the model name to the clipboard for use in other contexts, such as your code integration.
+    - **Refresh**: Refresh the model configuration to ensure you have the latest settings.
+    - **Edit**: Modify the model settings, such as the API key or endpoint.
+    - **Delete**: Remove the model from AI Toolkit.
+    - **About this Model**: View detailed information about the model, including its publisher, source, and supported features.
+
+- Right-click on `ONNX` section title to access options such as:
+    - **Start Server**: Start the ONNX server to run ONNX models locally.
+    - **Stop Server**: Stop the ONNX server if it is running.
+    - **Copy Endpoint**: Copy the ONNX server endpoint to the clipboard for use in other contexts, such as your code integration.
+
 ## License and sign-in
 
 Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
