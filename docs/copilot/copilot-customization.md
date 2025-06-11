@@ -10,19 +10,18 @@ Chat in Visual Studio Code can give you responses and generate code that matches
 
 There are three main ways to customize AI responses in Visual Studio Code:
 
-* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done). For example, you'd typically use custom instructions to specify your coding practices, preferred technologies, or project structure.
+* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done). Learn how to [define custom instructions](#custom-instructions).
 
     <details>
     <summary>Example scenarios</summary>
 
-    * Specify coding practices, preferred technologies, or project requirements.
-    * Define guidelines for code generation, such as naming conventions, error handling, or code structure.
+    * Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards.
     * Set rules for code reviews, such as checking for security vulnerabilities or performance issues.
     * Provide instructions for generating commit messages or pull request titles and descriptions.
 
     </details>
 
-* **Prompt files**: Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done). Optionally, you can also include guidelines about how the task should be performed, or you can reference custom instructions in the prompt file. For example, you can create a prompt file to scaffold a new React component, and include instructions on how to structure the component, which libraries to use, or how to handle state management.
+* **Prompt files**: Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done). Optionally, you can include tasks-specific guidelines about how the task should be performed, or you can reference custom instructions in the prompt file. Learn how to [create prompt files](#prompt-files-experimental).
 
     <details>
     <summary>Example scenarios</summary>
@@ -34,7 +33,7 @@ There are three main ways to customize AI responses in Visual Studio Code:
 
     </details>
 
-* **Custom chat modes**: Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request. For example, you can create a custom "Plan" mode that disables code changes and only allows reading and analyzing your codebase and generating implementation plans. Learn how to [create a custom chat mode](/docs/copilot/chat/chat-modes.md).
+* **Custom chat modes**: Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
 
     <details>
     <summary>Example scenarios</summary>
@@ -58,9 +57,9 @@ VS Code supports multiple ways to define custom instructions:
 
 | Custom instructions type | Description |
 |--------------------------|-------------|
-| `.github/copilot-instructions.md` file | <ul><li>Describe code-generation instructions in Markdown.</li><li>All instructions are combined in a single file, stored within the workspace.</li><li>Instructions are automatically included in every chat request.</li><li>Supported across all editors and IDEs that support Copilot.</li><li>Use this file to define general coding practices, preferred technologies, and project requirements that apply to all code-generation tasks.</li></ul> |
-| `.instructions.md` files | <ul><li>Describe code-generation instructions in Markdown.</li><li>Create one or more instructions files, stored in the workspace or your user profile.</li><li>Use glob patterns to automatically include instructions for all requests or for specific files.</li><li>Supported in VS Code.</li><li>Use these files if you want to have task-specific code-generation instructions, and to have more control over when to include instructions with your chat prompt.</li></ul> |
-| VS Code settings | <ul><li>Specify instructions in VS Code user or workspace settings.</li><li>Define instructions in settings values or in one or more files.</li><li>Supported in VS Code.</li><li>Supports instructions for code generation, test generation, commit messages, code review, and PR titles and descriptions.</li><li>Use this option to define instructions for tasks other than code-generation.</li></ul> |
+| [`.github/copilot-instructions.md` file](#use-a-githubcopilot-instructionsmd-file) | <ul><li>Describe code-generation instructions in Markdown.</li><li>All instructions are combined in a single file, stored within the workspace.</li><li>Instructions are automatically included in every chat request.</li><li>Supported across all editors and IDEs that support Copilot.</li><li>Use this file to define general coding practices, preferred technologies, and project requirements that apply to all code-generation tasks.</li></ul> |
+| [`.instructions.md` files](#use-instructionsmd-files) | <ul><li>Describe code-generation instructions in Markdown.</li><li>Create one or more instructions files, stored in the workspace or your user profile.</li><li>Use glob patterns to automatically include instructions for all requests or for specific files.</li><li>Supported in VS Code.</li><li>Use these files if you want to have task-specific code-generation instructions, and to have more control over when to include instructions with your chat prompt.</li></ul> |
+| [VS Code settings](#specify-custom-instructions-in-settings) | <ul><li>Specify instructions in VS Code user or workspace settings.</li><li>Define instructions in settings values or in one or more files.</li><li>Supported in VS Code.</li><li>Supports instructions for code generation, test generation, commit messages, code review, and PR titles and descriptions.</li><li>Use this option to define instructions for tasks other than code-generation.</li></ul> |
 
 You can use a combination of these approaches to define custom instructions and the instructions are all included in the chat request. No particular order or priority is applied to the instructions, so make sure to avoid conflicting instructions in the files.
 
