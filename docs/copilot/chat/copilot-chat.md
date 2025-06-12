@@ -129,7 +129,7 @@ For more prompt examples, see the [Copilot Chat Cookbook](https://docs.github.co
 > [!TIP]
 > Type `/help` in the chat input field to get help about Copilot and how to interact with chat.
 
-## Vision (Preview)
+## Vision
 
 Chat supports vision capabilities, which means you can attach an image as context to your chat prompt and ask questions about it. For example, attach a screenshot of a block of code and ask to explain it, or attach a sketch of a UI and ask agent mode to implement it.
 
