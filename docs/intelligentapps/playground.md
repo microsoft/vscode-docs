@@ -18,10 +18,10 @@ To access the playground:
 
 To test a model in the playground, follow these steps:
 
-1. In **Model Preferences**, select a model from the dropdown list
-1. Optionally, add **Systems Prompt** to guide the model response
-1. Optionally, configure the model parameters, available for the selected model:
-1. Enter a chat prompt in the chat input box
+1. In **Model Preferences**, select a model from the dropdown list.
+2. Optionally, add a **System Prompt** to guide the model response.
+3. Optionally, configure the model parameters available for the selected model.
+4. Enter a chat prompt in the chat input box
 
 ## Model preferences
 ![Model Preferences panel displaying adjustable parameters for generative AI models](./images/playground/parameters.png)
@@ -89,16 +89,16 @@ The tool bar in the playground provides quick access to various actions and feat
 - **View Code**: View the generated code for the chat prompt from LLM integration.
 
 ### Compare model responses
-![![Compare model responses in AI Toolkit playground showing side by side comparison of responses from different models.](./images/playground/compare.png)](./images/playground/compare.png)
+![Screenshot showing side by side comparison of responses from different models in the AI Toolkit playground.](./images/playground/compare.png)
 
 The **Compare** feature allows you to compare responses from different models side by side. This is useful for evaluating the performance of different models on the same prompt.
 
 To compare model responses:
 1. Select the **Compare** button in the tool bar.
 2. Choose the models you want to compare from the dropdown list.
-3. Enter the same chat prompt from one of the input boxes, your prompt will be copied to the other input boxes.
-4. Click **Send** to submit the prompt to all selected models.
-5. The responses from each model will be displayed side by side for easy comparison.
+3. Enter the same chat prompt in one of the input boxes. Your prompt will be copied to the other input boxes.
+4. Select **Send** to submit the prompt to all selected models.
+5. The responses from each model appear side by side for easy comparison.
 
 For each model you are comparing, you can:
 - Copy the response text to the clipboard.
@@ -113,8 +113,8 @@ AI Toolkit allows you to deploy models to Azure AI Foundry when you hit errors w
 This allows you to experiment with larger inputs and take advantage of the cloud-based capabilities of Azure AI Foundry.
 
 To deploy a model to Azure AI Foundry:
-1. Click the **Deploy to Azure AI Foundry** button in the warning message.
+1. Select the **Deploy to Azure AI Foundry** button in the warning message.
 2. In the dialog that appears, enter the required information, such as deployment name, deployment type, and deployment details.
-3. Click **Deploy** to start the deployment process.
-4. A pop up will appear to confirm the deployment and charges will be applied to your Azure subscription, click **Deploy** to confirm.
-5. Once the deployment is complete, you can access the deployed model in AI Toolkit **My Models** and use it in the playground.
+3. Select **Deploy** to start the deployment process.
+4. A pop-up appears to confirm the deployment and charges will be applied to your Azure subscription. Select **Deploy** to confirm.
+5. When the deployment is complete, you can access the deployed model in **My Models** and use it in the playground.
