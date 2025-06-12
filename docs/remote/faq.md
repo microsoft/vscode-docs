@@ -1,7 +1,7 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 ---
 # Remote Development FAQ
 

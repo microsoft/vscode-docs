@@ -1,6 +1,6 @@
 ---
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages

@@ -1,6 +1,6 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Learn how to use chat modes in VS Code to use chat for different tasks, such as asking questions, making code edits, and autonomous coding tasks. Define custom chat modes to chat for your usage scenario or project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
