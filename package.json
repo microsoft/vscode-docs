@@ -24,5 +24,8 @@
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "npm run check-lfs"
     ]
+  },
+  "dependencies": {
+    "eslint": "^9.28.0"
   }
 }
