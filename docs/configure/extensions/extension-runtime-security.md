@@ -63,6 +63,8 @@ The Visual Studio Marketplace employs several mechanisms to protect you from mal
 
 * **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
 
+Learn about these measures in the [Security and Trust in Visual Studio Marketplace blog post](https://devblogs.microsoft.com/blog/security-and-trust-in-visual-studio-marketplace).
+
 ## Report suspicious extensions
 
 If you do see an extension that looks suspicious, report the extension to the Marketplace team. The Marketplace team provides an initial response within one business day.
