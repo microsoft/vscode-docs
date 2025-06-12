@@ -32,7 +32,7 @@ VS Code and agent mode can autonomously plan and execute complex development tas
 
 Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
 
-<video src="images/overview/agent_mode.mp4" title="Agent mode video" autoplay loop controls muted></video>
+<video src="images/overview/agent-mode-short.mp4" title="Agent mode video" autoplay loop controls muted></video>
 
 **Example tasks:**
 
