@@ -1,7 +1,7 @@
 ---
 ContentId: 856a4a73-a4b4-4418-b88d-1f65d0ba7824
 MetaDescription: Node.js Deployment to Azure with Visual Studio Code
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 ---
 # Deploy Node.js Web Apps
 

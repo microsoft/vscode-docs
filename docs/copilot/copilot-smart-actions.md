@@ -1,6 +1,6 @@
 ---
 ContentId: f0f31de2-a344-4ee6-8d5b-d3ac4e11e149
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -122,17 +122,25 @@ To review all changes in a pull request:
 
     Copilot creates review comments in the **Comments** panel and also shows them inline in the editor.
 
-## Semantic search results
+## Semantic search results (Preview)
 
-The Search view lists exact text matches across your files, in addition to matches that are semantically relevant based on your search text.
+The Search view in VS Code enables you to search for text across your files. Semantic search enables you to find results that are semantically relevant to your search query, even if they don't match the text exactly. This is particularly useful when you're looking for code snippets or documentation that relate to a concept rather than a specific term, or when you don't know the exact terms to search for.
 
 ![Search view showing semantic search results that are not an exact match for the search criteria.](images/copilot-smart-actions/semantic-search-results.png)
 
+Configure semantic search in the Search view with the `setting(search.searchView.semanticSearchBehavior)` setting. You can choose to run semantic search automatically, or only when you explicitly request it.
+
+You can also get AI-generated keyword suggestions in the Search view to provide relevant alternative search terms. Enable search keyword suggestions with the `setting(search.searchView.keywordSuggestions)` setting.
+
+![Search view showing keyword suggestions based on the search query.](images/copilot-smart-actions/search-keyword-suggestions.png)
+
 You can reference search results in your chat prompt by selecting **Get results from the search view** from the **Add Context** Quick Pick. Alternatively, type `#searchResults` in the chat prompt.
 
-## Settings suggestions (Experimental)
+## Search settings with AI (Experimental)
 
-In the Settings editor, you can get AI-generated suggestions for settings based on your search query. Enable this functionality by enabling the `setting(github.copilot.suggestSettings)` setting.
+If you don't know the exact name of a setting you want to change, you can use AI to help find the relevant settings based on your search query. For example, you can search for "increase text size" to find the setting that controls the editor font size.
+
+Enable this functionality with the `setting(workbench.settings.showAISearchToggle)` setting. In the Settings editor, you can then toggle the AI search results on or off with the **Search Settings with AI** button.
 
 ![Screenshot that shows the Settings editor showing AI-generated suggestions for settings.](images/copilot-smart-actions/settings-suggestions.png)
 

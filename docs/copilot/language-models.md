@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---

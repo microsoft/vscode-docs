@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 4b24790b-781a-43cc-afe6-58b1d57d6163
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to bundle snippets into an extension (plug-in) for Visual Studio Code

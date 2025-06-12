@@ -1,7 +1,7 @@
 ---
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 ---
 # Remote Development FAQ
 
@@ -111,7 +111,7 @@ VS Code will still allow users to connect to an OS that is not supported by VS C
 
 | VS Code version | Base Requirements | Notes |
 |--------------|-------------------|-------|
-| 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
+| >= 1.99.x |  kernel >= 4.18, glibc >=2.28, libstdc++ >= 3.4.25, binutils >= 2.29 | &lt;none&gt; |
 
 > [!IMPORTANT]
 > This approach is a technical workaround and is not an officially supported usage scenario.
