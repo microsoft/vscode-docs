@@ -187,22 +187,7 @@ Learn more about using [language models in VS Code](/docs/copilot/language-model
 
 The chat experience in VS Code can operate in different modes to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom chat modes that fit your workflow. For example, create a chat mode that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
 
-```markdown
----
-description: Generate an implementation plan for new features or refactoring existing code.
-tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
----
-# Planning mode instructions
-You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.
-Don't make any code edits, just generate a plan.
-
-The plan consists of a Markdown document that describes the implementation plan, including the following sections:
-
-* Overview: A brief description of the feature or refactoring task.
-* Requirements: A list of requirements for the feature or refactoring task.
-* Implementation Steps: A detailed list of steps to implement the feature or refactoring task.
-* Testing: A list of tests that need to be implemented to verify the feature or refactoring task.
-```
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
 
 Learn more about [creating your own chat modes](/docs/copilot/chat/chat-modes.md).
 
