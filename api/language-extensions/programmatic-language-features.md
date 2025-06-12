@@ -53,6 +53,7 @@ This listing includes the following items for each language feature:
 | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`createDiagnosticCollection`](/api/references/vscode-api#languages.createDiagnosticCollection)                                   | [PublishDiagnostics](https://microsoft.github.io/language-server-protocol/specification#textDocument_publishDiagnostics)                                                                                                                 |
 | [`registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider)                           | [Completion](https://microsoft.github.io/language-server-protocol/specification#textDocument_completion) & [Completion Resolve](https://microsoft.github.io/language-server-protocol/specification#completionItem_resolve)               |
+| [`registerInlineCompletionItemProvider`](/api/references/vscode-api#languages.registerInlineCompletionItemProvider)               | N/A (VS Code specific)                                                                                                                                                                                                                   |
 | [`registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider)                                             | [Hover](https://microsoft.github.io/language-server-protocol/specification#textDocument_hover)                                                                                                                                           |
 | [`registerSignatureHelpProvider`](/api/references/vscode-api#languages.registerSignatureHelpProvider)                             | [SignatureHelp](https://microsoft.github.io/language-server-protocol/specification#textDocument_signatureHelp)                                                                                                                           |
 | [`registerDefinitionProvider`](/api/references/vscode-api#languages.registerDefinitionProvider)                                   | [Definition](https://microsoft.github.io/language-server-protocol/specification#textDocument_definition)                                                                                                                                 |
@@ -175,6 +176,53 @@ export function activate(ctx: vscode.ExtensionContext): void {
 > **Advanced**
 >
 > You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+
+## Show Inline Completions
+
+Inline completions provide suggestions that are rendered inline with the text as the user types, appearing as ghost text that can be accepted with the `Tab` key.
+
+![Inline completions showing suggested code that can be accepted with Tab](../../release-notes/images/1_58/inline-suggestions.gif)
+
+#### Language Server Protocol
+
+Inline completions are a VS Code-specific feature and do not have a direct Language Server Protocol equivalent.
+
+#### Direct Implementation
+
+```typescript
+class MyInlineCompletionProvider implements vscode.InlineCompletionItemProvider {
+    public provideInlineCompletionItems(
+        document: vscode.TextDocument, 
+        position: vscode.Position, 
+        context: vscode.InlineCompletionContext, 
+        token: vscode.CancellationToken
+    ): vscode.ProviderResult<vscode.InlineCompletionItem[] | vscode.InlineCompletionList> {
+        // Provide inline completion suggestions
+        return [
+            {
+                insertText: "console.log('Hello, World!');",
+                range: new vscode.Range(position, position)
+            }
+        ];
+    }
+}
+
+export function activate(ctx: vscode.ExtensionContext): void {
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerInlineCompletionItemProvider(
+            { pattern: '**' }, new MyInlineCompletionProvider()));
+    ...
+}
+```
+
+> **Basic**
+>
+> Provide simple inline text completions that appear as ghost text.
+
+> **Advanced**
+>
+> Support multiple completion items, complex insertion logic, and integration with the existing completion widget.
 
 ## Show Hovers
 
