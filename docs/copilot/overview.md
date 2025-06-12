@@ -211,6 +211,8 @@ Learn more about [using MCP servers and tools](/docs/copilot/chat/mcp-servers.md
 
 - Choose a language model that is optimized for your task. Use fast models for quick code suggestions, reasoning models for more complex requests.
 
+Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md).
+
 ## Pricing
 
 You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
