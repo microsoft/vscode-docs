@@ -14,6 +14,10 @@ June 12, 2025 by [Harald Kirschner](https://github.com/digitarald), [Connor Peet
 
 VS Code now supports the complete [Model Context Protocol specification](https://modelcontextprotocol.io/).
 
+MCP co-creator [David Soria Parra](https://github.com/dsp) reflects on this milestone:
+
+> I am excited to see what developers will build with MCP and VS Code now that they can use the full spectrum of MCP features with VS Code. The community has always surprised me with their creativity and exploration in what is possible.
+
 Beyond the initial tools and workspace awareness we [introduced in May](https://code.visualstudio.com/blogs/2025/05/12/agent-mode-meets-mcp), you can now use authorization, prompts, resources, and sampling. These additions transform MCP from a set of individual tools into a comprehensive standard for AI agent integrations.
 
 ## Security-First: The New Authorization Foundation
