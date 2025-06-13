@@ -1,6 +1,6 @@
 ---
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
-DateApproved: 04/22/2025
+DateApproved: 06/16/2025
 MetaDescription: Get Started with creating, iterating and optimizing your agents in AI Toolkit.
 ---
 # Build agents and prompts in AI Toolkit
@@ -16,9 +16,10 @@ Agent Builder in AI Toolkit streamlines the engineering workflow for building ag
 
 Agent Builder also enhances intelligent app's capabilities with tool use:
 - Connect to existing MCP servers
-- Build a new MCP server from scaffold and test in Agent Builder
+- Build new MCP servers from scaffolds
+- Use function calling to connect to external APIs and services
 
-![Getting started with prompt builder](./images/promptbuilder/AgentBuilder.gif)
+![Screenshot showing the Agent Builder interface with prompt engineering and testing capabilities.](./images/promptbuilder/AgentBuilder.gif)
 
 ## Create, edit, and test prompts
 
@@ -31,19 +32,19 @@ To test a prompt in Agent Builder, follow these steps:
 
 1. In **Models**, select a model from the dropdown list, or select **Browse models** to add another model from the model catalog.
 
-    ![select a model](./images/promptbuilder/select_models.png)
+   ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select_models.png)
 
 1. Enter a **User prompt** and optionally enter a **System prompt**.
 
    The *user prompt* is the input that you want to send to the model. The optional *system prompt* is used to provide instructions with relevant context to guide the model response.
 
    > [!TIP]
-   > You can describe your project idea by using natural language and let the AI-powered feature generate the prompts for you to experiment with.
-   > ![generate prompts with natural language](./images/promptbuilder/generate_prompt_2.gif)
+   > Describe your project idea using natural language to generate prompts automatically.
+   > ![Screenshot showing natural language prompt generation in Agent Builder.](./images/promptbuilder/generate_prompt_2.gif)
 
-1. Select **Run** to send the prompts to the selected model.
+3. Select **Run** to send the prompts to the model.
 
-1. Optionally, select **Add Prompt** to add more user and assistant prompts to the conversation, or select **Add to Prompts** as the history and context you send to the model to further guide the model's behavior.
+4. Optionally, select **Add Prompt** to add more prompts or **Add to Prompts** to build conversation history.
 
 1. Repeat the previous steps to iterate over your prompts by observing the model response and making changes to the prompts.
 
@@ -70,7 +71,7 @@ To configure an MCP server from featured selections, follow these steps:
 
 ### Use an existing MCP server
 > [!TIP]
-> There are many registries and marketplaces for MCP servers. We recommend starting with these [reference servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
+> Find MCP servers in these [reference servers](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file#-reference-servers).
 
 To use an existing MCP server, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
@@ -129,6 +130,27 @@ Follow these steps to test the MCP server:
 4. Select `Run` to test the server with the prompt.
 
 ![debug mcp](./images/promptbuilder/mcp_debug.gif)
+
+## Use function calling
+
+Function calling connects your agent to external APIs and services.
+
+![Screenshot showing the Add Custom Function Tool dialog with options to add tools by example or upload schemas.](./images/promptbuilder/add_function_call.png)
+
+1. In **Tools**, select **Add Tool**, then **Custom Tool**.
+2. Choose how to add the tool:
+   - **By Example**: Add from a JSON schema example
+   - **Upload Existing Schema**: Upload a JSON schema file
+3. Enter the tool name and description, then select **Add**.
+4. Provide a mock response in the tool card.
+
+![Screenshot showing a function calling tool card with weather tool configuration.](./images/promptbuilder/function_call_card.png)
+
+5. Run the agent with the function calling tool.
+
+Use function calling tools in the **Evaluation** tab by entering mock responses for test cases.
+
+![Screenshot showing function calling tool usage in the evaluation tab.](./images/promptbuilder/function_call_eval.png)
 
 ## Structured output
 
