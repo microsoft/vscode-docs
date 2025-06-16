@@ -146,7 +146,6 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
-        "noCollapse": true,
         "topics": [
           ["Edit notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
