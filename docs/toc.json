@@ -124,6 +124,7 @@
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
+        "noCollapse": true,
         "topics": [
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
@@ -145,6 +146,7 @@
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
+        "noCollapse": true,
         "topics": [
           ["Edit notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
