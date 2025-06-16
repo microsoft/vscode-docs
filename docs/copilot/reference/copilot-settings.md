@@ -51,7 +51,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 * `setting(chat.agent.maxRequests)`: Maximum number of requests that Copilot can make in agent mode (default: 15)
 * `setting(github.copilot.chat.agent.autoFix)`: Automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(github.copilot.chat.agent.runTasks)`: Run workspace tasks when using agent mode (default: `true`)
-* `setting(chat.mcp.enabled)` _(Preview)_: Enable Model Context Protocol (MCP) support in VS Code. This enables adding tools from MCP servers in agent mode.
+* `setting(chat.mcp.enabled)` : Enable Model Context Protocol (MCP) support in VS Code. This enables adding tools from MCP servers in agent mode.
+* `setting(chat.mcp.discovery.enabled)`: Enable automatic discovery of MCP servers defined in other tools.
+* `setting(mcp)`: MCP server configuration. Contains a JSON object with the list of MCP servers, similar to the `mcp.json` file format. More details about [defining MCP servers in settings](/docs/copilot/chat/mcp-servers.md#add-an-mcp-server-to-your-user-settings).
 * `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_: When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited.
 * `setting(chat.implicitContext.enabled)` _(Experimental)_: Configure if the active editor should be automatically added as context to the chat prompt.
 * `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_: Enable the thinking tool in agent mode.
