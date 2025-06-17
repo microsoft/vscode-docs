@@ -76,7 +76,7 @@ If you want to deploy a model to Azure AI Foundry, you can do so directly from t
 ## Add a custom model
 You can also add your own models that are hosted externally or run locally. There are several options available:
 - Add Ollama models from the Ollama library or custom Ollama endpoints.
-- Add custom models that has an OpenAI compatible endpoint, such as a self-hosted model or a model running on a cloud service.
+- Add custom models that have an OpenAI compatible endpoint, such as a self-hosted model or a model running on a cloud service.
 - Add custom ONNX models, such as those from Hugging Face, using AI Toolkit's [model conversion tool](/docs/intelligentapps/modelconversion.md).
 
 There are several entrypoints to add models to AI Toolkit:
