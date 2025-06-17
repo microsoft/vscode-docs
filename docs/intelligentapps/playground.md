@@ -96,7 +96,7 @@ The **Compare** feature allows you to compare responses from different models si
 To compare model responses:
 1. Select the **Compare** button in the tool bar.
 2. Choose the models you want to compare from the dropdown list.
-3. Enter the same chat prompt in one of the input boxes. Your prompt will be copied to the other input boxes.
+3. Enter the same chat prompt in one of the input boxes. Your prompt is copied to the other input boxes.
 4. Select **Send** to submit the prompt to all selected models.
 5. The responses from each model appear side by side for easy comparison.
 
