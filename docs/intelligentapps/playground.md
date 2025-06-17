@@ -116,5 +116,5 @@ To deploy a model to Azure AI Foundry:
 1. Select the **Deploy to Azure AI Foundry** button in the warning message.
 2. In the dialog that appears, enter the required information, such as deployment name, deployment type, and deployment details.
 3. Select **Deploy** to start the deployment process.
-4. A pop-up appears to confirm the deployment and charges will be applied to your Azure subscription. Select **Deploy** to confirm.
+4. A pop-up confirms the deployment and charges are applied to your Azure subscription. Select **Deploy** to confirm.
 5. When the deployment is complete, you can access the deployed model in **My Models** and use it in the playground.
