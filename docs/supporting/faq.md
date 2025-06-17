@@ -350,13 +350,11 @@ You may also see the **[Unsupported]** message if VS Code files have been mistak
 
 ### Resolving shell environment fails
 
-*This section applies to macOS and Linux environments only.*
-
 When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your, `.bashrc`, `.zshrc`, or PowerShell profile files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
