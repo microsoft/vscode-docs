@@ -59,7 +59,7 @@ To add a model from the model catalog:
 
     ![AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model_operation.png)
 
-    - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit will prompt you to enter the API Key.
+    - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
 
 Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
