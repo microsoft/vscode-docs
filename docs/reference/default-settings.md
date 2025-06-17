@@ -1,6 +1,6 @@
 ---
 ContentId: 96b20723-ca52-4c3a-8632-6dae669ac7e0
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Reference of default settings in Visual Studio Code.
 ---
 # Default settings reference
@@ -268,13 +268,13 @@ You can also view the default values in the Settings editor or see a read-only v
     // Controls whether the cursor should jump to find matches while typing.
     "editor.find.cursorMoveOnType": true,
 
-    // Controls whether the search history in the find control should be stored.
-    //  - never: Do not store search history.
-    //  - workspace: Store search history across the active workspace.
-    "editor.find.history": "workspace",
+    // Controls whether the Find Widget should search as you type.
+    "editor.find.findOnType": true,
 
-    // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
-    "editor.find.globalFindClipboard": false,
+    // Controls how the find widget history should be stored
+    //  - never: Do not store search history from the find widget.
+    //  - workspace: Store search history across the active workspace
+    "editor.find.history": "workspace",
 
     // Controls whether the search automatically restarts from the beginning (or the end) when no further matches can be found.
     "editor.find.loop": true,
@@ -1022,8 +1022,14 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - off: The accessible diff viewer is never enabled.
     "inlineChat.accessibleDiffView": "auto",
 
+    // Whether to use the next version of inline chat.
+    "inlineChat.enableV2": false,
+
     // Whether to finish an inline chat session when typing outside of changed regions.
     "inlineChat.finishOnType": false,
+
+    // Hide the inline chat control after making a request (requires inline chat v2).
+    "inlineChat.hideOnRequest": false,
 
     // Whether holding the inline chat keybinding will automatically enable speech recognition.
     "inlineChat.holdToSpeech": true,
@@ -1258,6 +1264,7 @@ You can also view the default values in the Settings editor or see a read-only v
         "default": false,
         "workbench.editor.chatSession": true,
         "workbench.editorinputs.searchEditorInput": false,
+        "workbench.editor.processExplorer": true,
         "notebookOutputEditor": false,
         "jupyter-notebook": false,
         "repl": false,
@@ -1643,8 +1650,8 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - filter: Filter the Table of Contents to just categories that have matching settings. Clicking on a category will filter the results to that category.
     "workbench.settings.settingsSearchTocBehavior": "filter",
 
-    // Controls whether setting suggestions are shown below the search bar in the Settings editor.
-    "workbench.settings.showSuggestions": false,
+    // Controls whether the AI search toggle is shown in the search bar in the Settings editor.
+    "workbench.settings.showAISearchToggle": true,
 
     // Controls whether to use the split JSON editor when editing settings as JSON.
     "workbench.settings.useSplitJSON": false,
@@ -1729,7 +1736,7 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - never: Hide custom titlebar when `window.titleBarStyle` is set to `native`.
     "window.customTitleBarVisibility": "auto",
 
-    // Adjust the appearance of dialog windows.
+    // Adjust the appearance of dialogs to be native by the OS or custom.
     "window.dialogStyle": "native",
 
     // If enabled, this setting will close the window when the application icon in the title bar is double-clicked. The window will not be able to be dragged by the icon. This setting is effective only if `window.titleBarStyle` is set to `custom`.
@@ -1751,6 +1758,12 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - hidden: Menu is always hidden.
     //  - compact: Menu is displayed as a compact button in the side bar. This value is ignored when `window.titleBarStyle` is `native`.
     "window.menuBarVisibility": "classic",
+
+    // Adjust the menu style to either be native by the OS, custom, or inherited from the title bar style defined in `window.titleBarStyle`. This also affects the context menu appearance.
+    //  - custom: Use the custom menu.
+    //  - native: Use the native menu. This is ignored when `window.titleBarStyle` is set to `custom`.
+    //  - inherit: Matches the menu style to the title bar style defined in `window.titleBarStyle`.
+    "window.menuStyle": "inherit",
 
     // Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
     //  - default: Open new windows in the center of the screen.
@@ -2184,7 +2197,16 @@ You can also view the default values in the Settings editor or see a read-only v
     // When `search.searchOnType` is enabled, controls the timeout in milliseconds between a character being typed and the search starting. Has no effect when `search.searchOnType` is disabled.
     "search.searchOnTypeDebouncePeriod": 300,
 
-    // Update the search query to the editor's selected text when focusing the search view. This happens either on click or when triggering the `workbench.views.search.focus` command.
+    // Enable keyword suggestions in the Search view.
+    "search.searchView.keywordSuggestions": false,
+
+    // Controls the behavior of the semantic search results displayed in the Search view.
+    //  - manual: Only request semantic search results manually.
+    //  - runOnEmpty: Request semantic results automatically only when text search results are empty.
+    //  - auto: Request semantic results automatically with every search.
+    "search.searchView.semanticSearchBehavior": "manual",
+
+    // Update the search query to the editor's selected text when focusing the Search view. This happens either on click or when triggering the `workbench.views.search.focus` command.
     "search.seedOnFocus": false,
 
     // Enable seeding search from the word nearest the cursor when the active editor has no selection.
@@ -2340,6 +2362,9 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Controls the line height in pixels in the Debug Console. Use 0 to compute the line height from the font size.
     "debug.console.lineHeight": 0,
+
+    // Controls the maximum number of lines in the Debug Console.
+    "debug.console.maximumLines": 10000,
 
     // Controls if the lines should wrap in the Debug Console.
     "debug.console.wordWrap": true,
@@ -2714,8 +2739,6 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable/disable automatic closing of JSX tags.
     "javascript.autoClosingTags": true,
 
-    "javascript.implicitProjectConfig.checkJs": false,
-
     // Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.
     "javascript.preferGoToSourceDefinition": false,
 
@@ -2739,6 +2762,9 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
+
+    // The maximum number of characters in a hover. If the hover is longer than this, it will be truncated.
+    "js/ts.hover.maximumLength": 500,
 
     // Enable/disable semantic checking of JavaScript files. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
     "js/ts.implicitProjectConfig.checkJs": false,
@@ -3528,7 +3554,7 @@ You can also view the default values in the Settings editor or see a read-only v
     "extensions.autoRestart": false,
 
     // Controls the automatic update behavior of extensions. The updates are fetched from a Microsoft online service.
-    //  - true: Download and install updates automatically for all extensions, except for those extensions where updates are ignored.
+    //  - true: Download and install updates automatically for all extensions.
     //  - onlyEnabledExtensions: Download and install updates automatically only for enabled extensions.
     //  - false: Extensions are not automatically updated.
     "extensions.autoUpdate": true,
@@ -3559,8 +3585,6 @@ You can also view the default values in the Settings editor or see a read-only v
     //  - false: The Web Worker Extension Host will never be launched.
     //  - auto: The Web Worker Extension Host will be launched when a web extension needs it.
     "extensions.webWorker": "auto",
-
-// Output
 
     // Enable/disable the ability of smart scrolling in the output view. Smart scrolling allows you to lock scrolling automatically when you click in the output view and unlocks when you click in the last line.
     "output.smartScroll.enabled": true,
@@ -3783,6 +3807,9 @@ You can also view the default values in the Settings editor or see a read-only v
     "interactiveWindow.showExecutionHint": true,
 
 // Terminal
+
+    // Controls the timeout in seconds before giving up resolving the shell environment when the application is not already launched from a terminal.
+    "application.shellEnvironmentResolutionTimeout": 10,
 
     // When opening a file from the Explorer in a terminal, determines what kind of terminal will be launched
     //  - integrated: Show the integrated terminal action.
@@ -4208,7 +4235,8 @@ You can also view the default values in the Settings editor or see a read-only v
     // List of inline suggestions providers (enabled by default). Omit them by setting the id of the provider to `false`.
     "terminal.integrated.suggest.providers": {
         "terminal-suggest": true,
-        "pwsh-shell-integration": true
+        "pwsh-shell-integration": true,
+        "lsp": true
     },
 
     // Controls whether suggestions should automatically show up while typing.
@@ -4779,12 +4807,12 @@ You can also view the default values in the Settings editor or see a read-only v
     "chat.agent.enabled": true,
 
     // The maximum number of requests to allow Copilot Edits to use in agent mode.
-    "chat.agent.maxRequests": 15,
+    "chat.agent.maxRequests": 25,
 
     // Controls whether the Command Center shows a menu for actions to control Copilot.
     "chat.commandCenter.enabled": true,
 
-    // Enables chat participant autodetection for chat.
+    // Enables chat participant autodetection for panel chat.
     "chat.detectParticipant.enabled": true,
 
     // Delay after which changes made by chat are automatically accepted.
@@ -4814,8 +4842,8 @@ You can also view the default values in the Settings editor or see a read-only v
     // Enable using tools contributed by third-party extensions in Copilot Chat agent mode.
     "chat.extensionTools.enabled": true,
 
-    // Controls whether the Copilot window should be focused when a confirmation is needed.
-    "chat.focusWindowOnConfirmation": true,
+    // Enable using tools contributed by third-party extensions.
+    "chat.extensionTools.enabled": true,
 
     // Enables automatically using the active editor as chat context for specified chat locations.
     "chat.implicitContext.enabled": {
@@ -4833,6 +4861,17 @@ You can also view the default values in the Settings editor or see a read-only v
 
     // Enables integration with Model Context Protocol servers to provide additional tools and functionality.
     "chat.mcp.enabled": true,
+
+    // Configures which models are exposed to MCP servers for sampling (making model requests in the background).
+    "chat.mcp.serverSampling": {},
+
+    // Specify location(s) of custom chat mode files
+    "chat.modeFilesLocations": {
+        ".github/chatmodes": true
+    },
+
+    // Controls whether the Copilot window should notify the user when a confirmation is needed.
+    "chat.notifyWindowOnConfirmation": true,
 
     // Enable reusable prompt (`*.prompt.md`) and instruction files in Chat, Edits, and Inline Chat sessions.
     "chat.promptFiles": true,
@@ -4971,6 +5010,12 @@ You can also view the default values in the Settings editor or see a read-only v
     // Plays a sound / audio cue when the response has been received.
     "accessibility.signals.chatResponseReceived": {
         "sound": "auto"
+    },
+
+    // Plays a signal when user action is required in the chat.
+    "accessibility.signals.chatUserActionRequired": {
+        "sound": "off",
+        "announcement": "auto"
     },
 
     // Plays a signal - sound (audio cue) and/or announcement (alert) - when a feature is cleared (for example, the terminal, Debug Console, or Output channel).

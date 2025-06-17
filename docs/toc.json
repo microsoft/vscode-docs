@@ -121,14 +121,14 @@
       ["Overview", "/docs/copilot/overview"],
       ["Setup", "/docs/copilot/setup"],
       ["Quickstart", "/docs/copilot/getting-started"],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["", "", {
         "name": "Chat",
         "area": "copilot/chat",
         "topics": [
-          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
           ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
@@ -138,8 +138,9 @@
         ]
       }
       ],
+      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Personalize Copilot", "/docs/copilot/copilot-customization"],
+      ["Customize Copilot", "/docs/copilot/copilot-customization"],
       ["Language Models", "/docs/copilot/language-models"],
       ["", "", {
         "name": "Guides",

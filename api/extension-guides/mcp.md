@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to registering an MCP server in a VS Code extension.
@@ -18,7 +18,7 @@ VS Code extensions can also register MCP server configurations programmatically 
 Instead of using MCP servers to extend the chat functionality, you can also [contribute language model tools](/api/extension-guides/tools) directly within your extension. This approach is useful if you want to deeply integrate with VS Code by using extension APIs or to avoid that users have to install and run an MCP server in a separate process.
 
 > [!IMPORTANT]
-> MCP support in VS Code is in preview and the API for registering an MCP server in a VS Code extension is currently in a proposed state.
+> MCP support in VS Code is currently in preview.
 
 ## Register an MCP server
 

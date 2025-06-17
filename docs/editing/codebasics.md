@@ -1,6 +1,6 @@
 ---
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: images/codebasics/code-basics-social.png
 ---
@@ -120,49 +120,57 @@ If something goes wrong with hot exit, all backups are stored in the following f
 * **macOS** `$HOME/Library/Application Support/Code/Backups`
 * **Linux** `$HOME/.config/Code/Backups`
 
-## Find and Replace
+## Find and replace
 
-VS Code allows you to quickly find text and replace in the currently opened file. Press `kb(actions.find)` to open the Find Widget in the editor, search results will be highlighted in the editor, overview ruler and minimap.
+VS Code allows you to quickly find and replace text in the currently opened file. Press `kb(actions.find)` to open the Find control in the editor and type the search string. The search results are highlighted in the editor, overview ruler, and minimap.
 
-If there are more than one matched result in the current opened file, you can press `kb(editor.action.nextMatchFindAction)` and `kb(editor.action.previousMatchFindAction)` to navigate to next or previous result when the find input box is focused.
+VS Code immediately starts searching as you type. To only start searching when you press `kbstyle(Enter)`, clear the `setting(editor.find.findOnType)` setting.
+
+If there are multiple matches in the current file, press `kb(editor.action.nextMatchFindAction)` to go to the next result or `kb(editor.action.previousMatchFindAction)` to go to the previous result while the find input box has focus.
 
 By default, VS Code saves the history of your find and replace queries for a workspace and restores it across restarts. You can configure this behavior with the `setting(editor.find.history)` and `setting(editor.find.replaceHistory)` settings. Set the value to `never` to disable saving the history.
 
-### Seed Search String From Selection
+### Seed search string from selection
 
-When the Find Widget is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
+When the Find control is opened, it will automatically populate the selected text in the editor into the find input box. If the selection is empty, the word under the cursor will be inserted into the input box instead.
 
 ![Seed Search String From Selection](images/codebasics/seed-search-string-from-selection.gif)
 
 This feature can be turned off by setting `setting(editor.find.seedSearchStringFromSelection)` to `"never"`.
 
-### Find In Selection
+### Find in selection
 
-By default, the find operations are run on the entire file in the editor. It can also be run on selected text. You can turn this feature on by clicking the hamburger icon on the Find Widget.
+By default, the find operations are run on the entire file in the editor. To limit the search to the text selection, select the **Find in Selection** icon on the Find control or press `kb(toggleFindInSelection)`.
 
 ![Find In Selection](images/codebasics/find-in-selection.gif)
 
-If you want it to be the default behavior of the Find Widget, you can set `setting(editor.find.autoFindInSelection)` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
+If you want it to be the default behavior of the Find control, you can set `setting(editor.find.autoFindInSelection)` to `always`, or to `multiline`, if you want it to be run on selected text only when multiple lines of content are selected.
 
 ### Advanced find and replace options
 
-In addition to find and replace with plain text, the Find Widget also has three advanced search options:
+For more advanced scenarios, the Find and Replace control has the following options:
 
-* Match Case
-* Match Whole Word
-* Regular Expression
+* Find control:
 
-The replace input box support case preserving, you can turn it on by clicking the Preserve Case (**AB**) button.
+  * Match Case
+  * Match Whole Word
+  * Regular Expression
 
-### Multiline support and Find Widget resizing
+* Replace control:
 
-You can search multiple line text by pasting the text into the Find input box and Replace input box. Pressing `Ctrl+Enter` inserts a new line in the input box.
+  * Preserve case
+
+![Advanced Find and Replace Options](images/codebasics/search-replace-advanced-options.png)
+
+### Multiline support and Find control resizing
+
+You can search multiple line text by pasting the text into the Find input box and Replace input box. Pressing `kbstyle(Ctrl+Enter)` inserts a new line in the input box.
 
 ![Multiple Line Support](images/codebasics/multiple-line-support.gif)
 
-While searching long text, the default size of Find Widget might be too small. You can drag the left sash to enlarge the Find Widget or double click the left sash to maximize it or shrink it to its default size.
+While searching long text, the default size of Find control might be too small. You can drag the left sash to enlarge the Find control or double click the left sash to maximize it or shrink it to its default size.
 
-![Resize Find Widget](images/codebasics/resize-find-widget.gif)
+![Resize Find control](images/codebasics/resize-find-widget.gif)
 
 ## Search across files
 
@@ -171,9 +179,9 @@ VS Code allows you to quickly search over all files in the currently opened fold
 ![A simple text search across files](images/codebasics/search.png)
 
 > [!TIP]
-> We support regular expression searching in the search box, too.
+> VS Code also supports regular expression searching in the search box.
 
-You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
+You can configure advanced search options by selecting the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This shows additional fields to configure the search.
 
 > [!TIP]
 > You can use Quick Search to quickly find text across all files in the currently opened folder. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter the **Search: Quick Search** command.

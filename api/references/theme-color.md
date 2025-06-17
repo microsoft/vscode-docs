@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -663,8 +663,8 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
 - `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
-- `prompt.frontMatter.background`: Background color of a Front Matter header block.
-- `prompt.frontMatter.inactiveBackground`: Background color of an inactive Front Matter header block.
+- `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
+- `chat.requestBubbleBackground`: Background color of the chat request bubble.
 
 ## Inline Chat colors
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Learn about working with the Julia programming language in Visual Studio Code.
 ---
 # Julia in Visual Studio Code

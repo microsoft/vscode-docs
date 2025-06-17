@@ -1,12 +1,23 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Manage context for AI
 
 By providing the right context, you can get more relevant and accurate responses from the AI in VS Code. In this article, you learn how to manage context in chat, including how to use #-mentions to reference files, folders, and symbols, how to reference web content, or how you can use custom instructions to guide the AI's responses.
+
+## Implicit context
+
+VS Code automatically provides context to the chat prompt based on your current activity. The following information is implicitly included in the chat context:
+
+* The currently selected text in the active editor.
+* The file name or notebook name of the active editor.
+
+The actual contents of the active file are not included in the context, but are shown as a suggested context item in the chat input box (indicated with italic text and a dotted outline). Depending on your prompt, VS Code might decide to read the contents of the active file. To explicitly include the contents of the active file in the chat context, select the suggested file in the chat input box.
+
+![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
 
 ## #-mentions
 
@@ -108,7 +119,7 @@ To let the AI automatically find relevant files and symbols in your workspace, y
 * #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
     To reference a symbol, make sure to open the file containing the symbol in the editor first.
 
-* Drag and drop files or folders from the Explorer view or editor tabs onto the Chat view to add them as context.
+* Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the Chat view to add them as context.
 
 * Use the **Add Context** button in the Chat view and select **Files & Folders** or **Symbols**.
 
@@ -146,9 +157,9 @@ You can reference content from the web in your chat prompts, for example to get 
 
 ## Reference tools
 
-Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page.
+Chat in VS Code has several [built-in tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) and you can further extend it with tools from [MCP servers](/docs/copilot/chat/mcp-servers.md) or extensions. For example, the `#fetch` tool is a built-in tool that allows you to fetch content from a web page. You can also group tools into [tool sets](/docs/copilot/chat/chat-agent-mode.md#define-tool-sets), which you can then reference in your chat prompts.
 
-To reference a tool directly in your chat prompt, type `#` followed by the tool name and optional tool parameters. The following prompt examples show how to use tools:
+To reference a tool or tool set directly in your chat prompt, type `#` followed by the tool (set) name and optional tool parameters. The following prompt examples show how to use tools:
 
 * Use the [GitHub MCP server](https://github.com/github/github-mcp-server) tool (configured as `github-mcp` in your `mcp.json`):
 
@@ -196,6 +207,9 @@ You can configure which information is included in the context:
 
 * Attach CSS - enable with the `setting(chat.sendElementsToChat.attachCSS)` setting.
 * Attach images - enable with the `setting(chat.sendElementsToChat.attachImages)` setting.
+
+> [!TIP]
+> This functionality is also available in the [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension (pre-release).
 
 ## Chat history
 
