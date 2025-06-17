@@ -67,7 +67,7 @@ In the detail view, you can:
 
 - Review the full conversation between the user and the assistant.
 - Analyze the AI's responses.
-- Mark responses as Good or Bad to keep a record of manual evaluations.
+- Mark responses as good or bad to keep a record of manual evaluations.
 - Navigate to previous or next queries in the dataset.
 - Select **Exit** to return to the dataset overview.
 - View the total number of queries in the dataset and the current query index.
