@@ -83,7 +83,7 @@ The tool bar in the playground provides quick access to various actions and feat
 ![Tool bar in AI Toolkit playground showing buttons for clearing chat history, saving chat, and switching modes.](./images/playground/tool_bar.png)
 
 - **New Playground**: Create a new playground session.
-- **History**: View, rename, delete and switch to a chat history.
+- **History**: View, rename, delete, and switch to a chat history.
 - **Automatic Naming**: Naming of chat sessions based on the user prompt will be automatically generated.
 - **Compare**: Compare responses from different models side by side.
 - **View Code**: View the generated code for the chat prompt from LLM integration.
