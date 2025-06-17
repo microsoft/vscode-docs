@@ -68,7 +68,7 @@ If a capability is not supported by the selected model or by AI Toolkit, a warni
 ## Model responses
 ![AI Toolkit playground response area showing a generated Python code snippet for encoding text in base64, with options to copy or regenerate the response.](./images/playground/response_area.png)
 
-Model responses are displayed above the chat prompt input box. Before you enter a chat prompt, the playground shows a welcome screen with three starter prompts for you to easily get started with the playground.
+Model responses are displayed above the chat prompt input box. Before you enter a chat prompt, the playground shows a welcome screen with three starter prompts for you to get started with the playground.
 
 Available features in the model response area:
 - **Copy Response**: Copy the model's response text to the clipboard.
