@@ -73,7 +73,7 @@ Model responses are displayed above the chat prompt input box. Before you enter 
 Available features in the model response area:
 - **Copy Response**: Copy the model's response text to the clipboard.
 - **Regenerate Response**: Regenerate the model's response based on the same prompt or regenerate response with another model.
-- **Copy Code**: Copy the generated code in the response to the clipboard or inset it into a new file.
+- **Copy Code**: Copy the generated code in the response to the clipboard or insert it into a new file.
 - **Rendering**: Playground supports rendering of code snippets, images, markdown, LaTex and other content in the model's response.
 - **Token Count**: Displays the number of tokens used in the model's response. This helps you understand the cost and performance of the model.
 
