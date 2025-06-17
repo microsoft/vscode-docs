@@ -54,7 +54,8 @@ To add a model from the model catalog:
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
     > [!TIP]
-    > You can edit the API key later by right clicking the model and selecting **Edit** and view the excrypted value in `${HOME}/.aikt/models/my-models/yml` file.
+    > You can edit the API key later by right clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
+
 
     ![AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model_operation.png)
 
