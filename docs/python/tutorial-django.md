@@ -1,6 +1,6 @@
 ---
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigation, and debugging for both code and templates in Visual Studio Code, the best Python IDE.
 ---
 # Django Tutorial in Visual Studio Code

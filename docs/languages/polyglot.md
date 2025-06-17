@@ -1,6 +1,6 @@
 ---
 ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
 # Polyglot Notebooks in VS Code

@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -181,7 +181,7 @@ VS Code is able to periodically fetch changes from your remotes. This enables VS
 
 ## Source control graph
 
-When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** section of the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
+When you have a remote repository configured, you can see how many commits you are ahead or behind the remote. The **Graph** view in the Source Control view shows a graphical representation of the commits that are incoming and outgoing.
 
 The graph contains the current branch, the current branch's upstream branch, and an optional base branch. The root of the graph is the common ancestor of these branches.
 
@@ -189,8 +189,11 @@ The graph contains the current branch, the current branch's upstream branch, and
 
 The graph provides the following functionality:
 
-* Select an entry to see the corresponding changes in the commit.
-* Perform Fetch, Pull, and Push actions by hovering over the **Incoming/Outgoing** heading.
+- Select an entry to see the files that are changed in that commit. Select the **Open Changes** action to see the diff of the commit in the editor.
+- Right-click on a commit to perform actions such as checkout, cherry-pick, and more. Use the Copilot actions to summarize a commit or attach it as context to your chat prompt.
+- Select a file to see the diff of that file in the editor.
+
+Use the actions in the Graph view tool bar to select the branch, fetch, pull, push, and sync changes.
 
 ## Git Status Bar actions
 

@@ -1,6 +1,6 @@
 ---
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Themes

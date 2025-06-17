@@ -1,6 +1,6 @@
 ---
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
-DateApproved: 05/08/2025
+DateApproved: 06/12/2025
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
