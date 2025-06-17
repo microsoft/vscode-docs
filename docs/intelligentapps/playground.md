@@ -46,7 +46,7 @@ The available parameters depend on the model type and publisher. Common paramete
 
 ![Chat prompt input box in AI Toolkit playground showing an attachment icon for adding files.](./images/playground/chat_prompt.png)
 
-The chat prompt is the input text you provide to the model. You can enter a question, statement, or any text that you want the model to respond to. The model will generate a response based on the provided prompt and the configured system prompts and parameters.
+The chat prompt is the input text you provide to the model. You can enter a question, statement, or any text that you want the model to respond to. The model generates a response based on the provided prompt and the configured system prompts and parameters.
 
 Available features in the chat prompt input box:
 - **Send**: Submit the chat prompt to the model for processing.
