@@ -49,7 +49,7 @@ To add a model from the model catalog:
 1. The flow for adding models will be slightly different based on the providers:
 
     - **GitHub**: AI Toolkit will ask for your GitHub credentials to access the model repository. Once authenticated, the model will be added directly into AI Toolkit.
-    - **Azure AI Foundry**: AI Toolkit will prompt you to sign in with your Azure account and set a default project in Azure AI Foundry. Once authenticated, you can deploy a model to your Azure AI Foundry project and use it in AI Toolkit.
+    - **Azure AI Foundry**: AI Toolkit prompts you to sign in with your Azure account and set a default project in Azure AI Foundry. Once authenticated, you can deploy a model to your Azure AI Foundry project and use it in AI Toolkit.
     - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
