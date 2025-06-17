@@ -45,7 +45,7 @@ To find a model in the model catalog:
 ## Add a model from the catalog
 To add a model from the model catalog:
 1. Locate the model you want to add in the model catalog
-1. Select the **Add** button on the model card
+1. Select the **Add** on the model card
 1. The flow for adding models will be slightly different based on the providers:
 
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
