@@ -84,7 +84,7 @@ The tool bar in the playground provides quick access to various actions and feat
 
 - **New Playground**: Create a new playground session.
 - **History**: View, rename, delete, and switch to a chat history.
-- **Automatic Naming**: Naming of chat sessions based on the user prompt will be automatically generated.
+- **Automatic Naming**: Names of chat sessions are automatically generated based on the user prompt.
 - **Compare**: Compare responses from different models side by side.
 - **View Code**: View the generated code for the chat prompt from LLM integration.
 
