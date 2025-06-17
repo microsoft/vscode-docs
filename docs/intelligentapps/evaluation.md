@@ -17,7 +17,7 @@ To evaluate prompts or agents:
 
 1. In **Agent Builder**, select the **Evaluation** tab.
 1. Add and run the dataset you want to evaluate.
-1. Use the thumb up and down icons to rate responses and keep a record of your manual evaluation.
+1. Use the thumbs up and down icons to rate responses and keep a record of your manual evaluation.
 1. To add an evaluator, select **New Evaluation**.
 1. Select an evaluator from the list of built-in evaluators, such as F1 score, relevance, coherence, or similarity.
     > [!NOTE]
