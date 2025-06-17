@@ -70,7 +70,7 @@ If you want to deploy a model to Azure AI Foundry, you can do so directly from t
 1. Select the **Deploy to Azure** button on the model card
 1. AI Toolkit will prompt you to sign in with your Azure account and set a default project in Azure AI Foundry
 1. Once authenticated, you can deploy the model to your Azure AI Foundry project
-1. After deployment, the model will be available in your Azure AI Foundry project and can be used in AI Toolkit
+1. After deployment, the model is available in your Azure AI Foundry project and can be used in AI Toolkit
 
 ![AI Toolkit interface showing a model card with options Deploy to Azure, Try in Playground, and Load in Playground.](./images/models/foundry_models.png)
 
