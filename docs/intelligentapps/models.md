@@ -62,7 +62,7 @@ To add a model from the model catalog:
     - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
 
-Once added, the model will appear under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
+Once added, the model appears under **MY MODELS** in the tree view, and you can use it in the [**Playground**](/docs/intelligentapps/playground.md) or [**Agent Builder**](/docs/intelligentapps/agentbuilder.md).
 
 ## Deploy a model to Azure AI Foundry
 If you want to deploy a model to Azure AI Foundry, you can do so directly from the model catalog. This allows you to run the model in your Azure AI Foundry project and use it in AI Toolkit.
