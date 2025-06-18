@@ -36,11 +36,11 @@ A system prompt is a predefined instruction that guides the model's behavior and
 
 ### Configure inference parameters
 The available parameters depend on the model type and publisher. Common parameters include:
-- **Temperature**: Controls the randomness of the model's output. Lower values make the output more deterministic. Higher values introduce more variability.
-- **Top P**: Controls the diversity of the output by limiting the cumulative probability of the selected tokens. A lower value results in more focused responses. A higher value allows for more diverse outputs.
-- **Max Response Length (Tokens)**: Sets the maximum number of tokens in the model's response. This limits the length of the generated text.
-- **Frequency Penalty**: Reduces the likelihood of the model repeating the same tokens in the response. Higher values discourage repetition.
-- **Presence Penalty**: Encourages the model to introduce new topics or concepts in the response. Higher values promote diversity in the generated text.
+- Temperature: Controls the randomness of the model's output. Lower values make the output more deterministic. Higher values introduce more variability.
+- Top P: Controls the diversity of the output by limiting the cumulative probability of the selected tokens. A lower value results in more focused responses. A higher value allows for more diverse outputs.
+- Max Response Length (Tokens): Sets the maximum number of tokens in the model's response. This limits the length of the generated text.
+- Frequency Penalty: Reduces the likelihood of the model repeating the same tokens in the response. Higher values discourage repetition.
+- Presence Penalty: Encourages the model to introduce new topics or concepts in the response. Higher values promote diversity in the generated text.
 
 ## Chat prompt
 
@@ -104,17 +104,3 @@ For each model you are comparing, you can:
 - Copy the response text to the clipboard.
 - Configure the model parameters for the selected model.
 - Continue the chat with the selected model.
-
-## Deploy models from playground
-AI Toolkit allows you to deploy models to Azure AI Foundry when you hit errors when experimenting with models from GitHub or other sources.
-
-![Screenshot of the AI Toolkit playground interface in Visual Studio Code showing a warning message stating Input too large for the GitHub Phi-4 model. Please reduce it or use Azure AI Foundry for higher limits.](./images/playground/deploy_to_foundry.png)
-
-This allows you to experiment with larger inputs and take advantage of the cloud-based capabilities of Azure AI Foundry.
-
-To deploy a model to Azure AI Foundry:
-1. Select the **Deploy to Azure AI Foundry** button in the warning message.
-2. In the dialog that appears, enter the required information, such as deployment name, deployment type, and deployment details.
-3. Select **Deploy** to start the deployment process.
-4. A pop-up confirms the deployment and charges are applied to your Azure subscription. Select **Deploy** to confirm.
-5. When the deployment is complete, you can access the deployed model in **My Models** and use it in the playground.
