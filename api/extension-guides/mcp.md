@@ -117,6 +117,7 @@ Get started with a full example of how to register an MCP server in a VS Code ex
 
 ## Related content
 
+- [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
 - [Contribute a language model tool](/api/extension-guides/tools)
