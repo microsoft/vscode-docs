@@ -51,7 +51,9 @@ VS Code supports the following MCP capabilities:
 <details>
 <summary>Finding MCP servers</summary>
 
-MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for reference, official, and community-contributed servers that showcase MCP's versatility. You can explore servers for various functionalities, such as file system operations, database interactions, and web services.
+The [curated list of MCP servers](https://code.visualstudio.com/mcp) on the VS Code website is a great starting point. Choose from different categories and directly install MCP servers in VS Code.
+
+MCP's [official server repository](https://github.com/modelcontextprotocol/servers) provides official, and community-contributed servers that showcase MCP's versatility. You can explore servers for various functionalities, such as file system operations, database interactions, and web services.
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
 
@@ -422,6 +424,7 @@ Verify that the command arguments are correct and that the container is not runn
 
 ## Related resources
 
+* [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
 * [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
