@@ -41,6 +41,7 @@
       ["", "", {
         "name": "Extensions",
         "area": "configure/extensions",
+        "noCollapse": true,
         "topics": [
           ["Extension Marketplace", "/docs/configure/extensions/extension-marketplace"],
           ["Extension Runtime Security", "/docs/configure/extensions/extension-runtime-security"]
