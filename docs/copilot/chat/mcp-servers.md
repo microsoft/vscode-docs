@@ -4,14 +4,11 @@ DateApproved: 06/12/2025
 MetaDescription: Learn how to configure and use Model Context Protocol (MCP) servers with GitHub Copilot in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Use MCP servers in VS Code (Preview)
+# Use MCP servers in VS Code
 
 Model Context Protocol (MCP) servers enable you to expand your chat experience in VS Code with extra tools for connecting to databases, invoking APIs, or performing specialized tasks.
 Model Context Protocol (MCP) is an open standard that enables AI models to interact with external tools and services through a unified interface.
 This article guides you through setting up MCP servers and using tools with agent mode in Visual Studio Code.
-
-> [!NOTE]
-> MCP support in VS Code is currently in preview.
 
 ## Prerequisites
 
@@ -62,7 +59,7 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 ## Enable MCP support in VS Code
 
 > [!NOTE]
-> MCP support in agent mode in VS Code is available starting from VS Code 1.99 and is currently in preview.
+> MCP support in VS Code is available starting from VS Code 1.99.
 
 To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting.
 
