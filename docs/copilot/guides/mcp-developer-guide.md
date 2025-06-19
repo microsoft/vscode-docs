@@ -211,5 +211,5 @@ VS Code has all the tools you need to develop your own MCP server. While MCP ser
 - [Use MCP tools in agent mode in VS Code](/docs/copilot/chat/mcp-servers.md)
 - [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
-- [Get started with the MCP curriculum for beginners](https://github.com/ntrogh/mcp-for-beginners/tree/main)
+- [Get started with the MCP curriculum for beginners](https://github.com/microsoft/mcp-for-beginners/tree/main)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
