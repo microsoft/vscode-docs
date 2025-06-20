@@ -17,7 +17,7 @@ However, you are not limited to using this model. You can choose from a selectio
 | Model type | Models |
 |-----------|--------|
 | Fast coding | <ul><li>GPT-4o</li><li>Claude Sonnet 3.5</li><li>Claude Sonnet 3.7</li><li>Gemini 2.0 Flash</li></ul> |
-| Reasoning/planning | <ul><li>Claude Sonnet 3.7 Thinking</li><li>o1</li><li>o3-mini</li></ul> |
+| Reasoning/planning | <ul><li>Claude Sonnet 3.7 Thinking</li><li>o1</li><li>o3-mini</li><li>o4-mini</li></ul> |
 
 For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
 
