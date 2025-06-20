@@ -359,7 +359,7 @@ VS Code also includes a URL handler that you can use to install an MCP server. T
 
 ```typescript
 // For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
