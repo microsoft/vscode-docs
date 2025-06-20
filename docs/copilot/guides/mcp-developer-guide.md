@@ -41,6 +41,7 @@ The following MCP features are supported in VS Code:
 - Resources: Data and content that can be used as chat context or that users can interact with directly in VS Code
 - Authorization: Authorize access to an MCP server using OAuth
 - Sampling _(Preview)_: Make language model requests using the user's configured models and subscription
+- Elicitation: Request input from the user
 - Workspace roots: Information about the user's workspace structure
 
 For complete specification details, see the [Model Context Protocol documentation](https://modelcontextprotocol.io/).
