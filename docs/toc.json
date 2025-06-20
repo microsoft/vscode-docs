@@ -149,9 +149,10 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
-          ["Edit notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
+          ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
-          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"]
+          ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
+          ["MCP Dev Guide", "/docs/copilot/guides/mcp-developer-guide"]
         ]
       }
       ],
