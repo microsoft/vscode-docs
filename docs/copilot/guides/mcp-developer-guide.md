@@ -11,20 +11,16 @@ Model Context Protocol (MCP) is an open standard that enables AI models to inter
 
 This guide covers everything you need to know to build MCP servers that work seamlessly with VS Code.
 
-## Use MCP servers in VS Code
+## Add MCP servers to VS Code
 
-VS Code enables users to configure MCP servers to extend the capabilities of agent mode in chat.
-
-Users can add MCP servers to VS Code in several ways:
+Users can add MCP servers within VS Code in several ways:
 
 - Workspace configuration: Specify the server configuration in a `.vscode/mcp.json` file in the workspace.
 - User settings: Define servers globally in VS Code user settings.
 - Auto-discovery: VS Code can discover servers from other tools like Claude Desktop.
-- Extension registration: VS Code extensions can register MCP servers programmatically.
+- Extension: VS Code extensions can register MCP servers programmatically.
 
-After configuring an MCP server, users can then access its capabilities from chat in VS Code. For example, they can select tools from the tool picker, or add MCP resources as context to a chat prompt.
-
-For complete user documentation, see [Use MCP servers in VS Code](/docs/copilot/chat/mcp-servers.md).
+In addition, users can also install MCP servers by using a [special URL](/docs/copilot/chat/mcp-servers.md#url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
 
 ## MCP features supported by VS Code
 
@@ -49,8 +45,6 @@ For complete specification details, see the [Model Context Protocol documentatio
 ### Tools
 
 #### Tool definition
-
-TODO: add some text about tool names and uniqueness and point to naming conventions
 
 VS Code supports MCP tools and enables users to enable and configure them with the tools picker in agent mode. The tool description is shown in the tools picker, alongside the tool name, and in the dialog when asking for confirmation before running a tool.
 
@@ -89,15 +83,33 @@ When accessing a resource with a template, users are prompted for the required p
 
 ### Prompts
 
-- Reusable chat prompt templates
-- Invoked through slash commands (`/mcp.servername.promptname`)
+Prompts are reusable chat prompt templates that users can invoke in chat by using a slash command (`mcp.servername.promptname`).
 
-- Naming conventions
-- Name and description
-- Input parameters
-- Context variables
-- Embed resources
-- Multi-step workflows?
+If you define completions to suggest values for prompt input arguments, then VS Code shows a dialog to collect input from the user.
+
+```typescript
+server.prompt(
+    "teamGreeting", "Generate a greeting for team members",
+    {
+        name: completable(z.string(), (value) => {
+            return ["Alice", "Bob", "Charlie"].filter(n => n.startsWith(value));
+        })
+    },
+    async ({ name }) => ({
+        messages: [{
+            role: "assistant",
+            content: { type: "text", text: `Hello ${name}, welcome to the team!` }
+        }]
+    })
+);
+```
+
+![Screenshot that shows the prompt dialog for an MCP prompt with input parameters.](images/mcp-developer-guide/mcp-prompt-argument.png)
+
+> [!NOTE]
+> Users can enter a terminal command in the prompt dialog and use the command output as input for the prompt.
+
+When you include a resource type in the prompt response, VS Code attaches that resource as context to the chat prompt.
 
 ### Authorization
 
@@ -139,6 +151,26 @@ VS Code provides the MCP server with the user's workspace root folder informatio
 If you're building a VS Code extension that includes or depends on an MCP server, you can register it programmatically using the VS Code API. This approach avoids requiring users to manually configure your server.
 
 For complete details and code examples, see the [MCP servers API guide](/api/extension-guides/mcp.md).
+
+## Manage MCP servers
+
+Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it like starting, stopping, viewing the logs, and more.
+
+> [!TIP]
+> When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
+
+![MCP server configuration with lenses to manage server.](images/mcp-developer-guide/mcp-server-config-lenses.png)
+
+### MCP URL handler
+
+VS Code provides a URL handler for installing an MCP server from a link. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
+
+```typescript
+// For Insiders, use `vscode-insiders` instead of `code`
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
+```
+
+This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## Troubleshoot and debug MCP servers
 
@@ -182,10 +214,9 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 
 ![MCP Server Error Output](images/mcp-developer-guide/mcp-server-error-output.png)
 
-### Best practices
+## Best practices
 
-- **Naming conventions**
-    TODO: add naming conventions for server names, tools, etc.
+- **Naming conventions** to ensure unique and descriptive names
 - **Implement proper error handling and validation** with descriptive error messages
 - **Use progress reporting** to inform users about long-running operations
 - **Keep tool operations focused and atomic** to avoid complex interactions
@@ -197,6 +228,19 @@ Select the error notification in the Chat view, and then select the **Show Outpu
 - **Set reasonable token limits** for sampling requests to avoid excessive resource usage
 - **Validate sampling responses** before using them
 
+### Naming conventions
+
+The following naming conventions are recommended for MCP servers and their components:
+
+| Component | Naming Convention Guidelines |
+|-----------|----------------------------|
+| Tool name | <ul><li>Unique within the MCP server</li><li>Describes the action and the target of the action</li><li>Use snake case, structured as `{verb}_{noun}`</li><li>Examples: `generate_report`, `fetch_data`, `analyze_code`</li></ul> |
+| Tool input parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `path`, `queryString`, `userId`</li></ul> |
+| Resource name | <ul><li>Unique within the MCP server</li><li>Describes the content of the resource</li><li>Use title case</li><li>Examples: `Application Logs`, `Database Table`, `GitHub Repository`</li></ul> |
+| Resource template parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `name`, `repo`, `fileType`</li></ul> |
+| Prompt name | <ul><li>Unique within the MCP server</li><li>Describes the intended use of the prompt</li><li>Use camelCase for multi-word parameters</li><li>Examples: `generateApiRoute`, `performSecurityReview`, `analyzeCodeQuality`</li></ul> |
+| Prompt input parameter | <ul><li>Describes the purpose of the parameter</li><li>Use camelCase for multi-word parameters</li><li>Examples: `filePath`, `queryString`, `userId`</li></ul> |
+
 ## Get started to create an MCP server
 
 VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
@@ -207,10 +251,11 @@ VS Code has all the tools you need to develop your own MCP server. While MCP ser
 - [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk)
 - [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
 
+You might also find the [MCP for Beginners curriculum](https://github.com/microsoft/mcp-for-beginners) helpful to get started with building your first MCP server.
+
 ## Related resources
 
-- [Use MCP tools in agent mode in VS Code](/docs/copilot/chat/mcp-servers.md)
+- [Use MCP in agent mode in VS Code](/docs/copilot/chat/mcp-servers.md)
 - [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
-- [Get started with the MCP curriculum for beginners](https://github.com/microsoft/mcp-for-beginners/tree/main)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
