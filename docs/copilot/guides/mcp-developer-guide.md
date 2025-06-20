@@ -17,7 +17,7 @@ Users can add MCP servers within VS Code in several ways:
 
 - Workspace configuration: Specify the server configuration in a `.vscode/mcp.json` file in the workspace.
 - User settings: Define servers globally in VS Code user settings.
-- Auto-discovery: VS Code can discover servers from other tools like Claude Desktop.
+- Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
 - Extension: VS Code extensions can register MCP servers programmatically.
 
 In addition, users can also install MCP servers by using a [special URL](/docs/copilot/chat/mcp-servers.md#url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
@@ -34,7 +34,7 @@ The following MCP features are supported in VS Code:
 
 - Tools: Executable actions that can be used in [agent mode](/docs/copilot/chat/chat-agent-mode.md)
 - Prompts: Reusable chat prompt templates, optionally with parameters, which users can invoke through slash commands(`/mcp.servername.promptname`) in chat
-- Resources: Data and content that can be used as chat context or that users can interact with directly in VS Code
+- Resources: Data and content which users can add as chat context or interact with directly in VS Code
 - Authorization: Authorize access to an MCP server using OAuth
 - Sampling _(Preview)_: Make language model requests using the user's configured models and subscription
 - Elicitation: Request input from the user
@@ -60,7 +60,7 @@ VS Code also supports [dynamic tool discovery](https://modelcontextprotocol.io/d
 
 #### Tool annotations
 
-To provide additional metadata about a tool's behavior, you can use [tool annotations](https://modelcontextprotocol.io/docs/concepts/tools#tool-annotations):
+To provide extra metadata about a tool's behavior, you can use [tool annotations](https://modelcontextprotocol.io/docs/concepts/tools#tool-annotations):
 
 - `title`: Human-readable title for the tool, shown in the Chat view when a tool is invoked
 - `readOnlyHint`: Optional hint to indicate that the tool is read-only. VS Code doesn't ask for confirmation to run read-only tools.
@@ -122,7 +122,7 @@ VS Code supports the following client functionality:
 - The MCP server behaves as an authorization server
 - The MCP server behaves as a resource server
 
-If the MCP server implements the latest specification and leverages GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
+If the MCP server implements the latest specification and uses GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
 
 ![Screenshot that shows the Accounts menu with the Manage Trusted MCP Servers action.](images/mcp-developer-guide/manage-trusted-mcp.png)
 
@@ -181,7 +181,7 @@ When developing MCP servers, you can enable MCP development mode in VS Code. To 
 - `watch`: A glob pattern to watch for file changes to files and automatically restart the server
 - `debug`: Debugger to attach to your MCP server process when starting it (currently only supported for servers launched with `node` or `python`)
 
-The following example shows how to configure a simple MCP server that runs a Node.js application and watches for changes to TypeScript files in the `src` directory:
+The following example shows how to configure a Node.js MCP server that watches for changes to TypeScript files in the `src` directory and uses the Node.js debugger:
 
 ```json
 {
@@ -195,9 +195,7 @@ The following example shows how to configure a simple MCP server that runs a Nod
             ],
             "dev": {
                 "watch": "src/**/*.ts",
-                    "debug": {
-                        "type": "node"
-                    }
+                "debug": { "type": "node" }
             }
         }
     }
