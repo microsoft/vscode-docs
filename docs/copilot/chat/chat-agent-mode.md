@@ -113,6 +113,11 @@ Based on the outcome of a tool, Copilot might invoke other tools to accomplish t
 
 You can enable or disable the use of agent tools by configuring the `setting(chat.extensionTools.enabled)` setting. Learn how to centrally manage this setting in your organization by checking [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
+> [!CAUTION]
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+>
+> While handling a chat prompt, the output of one agent mode tool might be passed to other tools for further processing. You should be careful when including tools in agent mode that return private information.
+
 ### Define tool sets
 
 A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
