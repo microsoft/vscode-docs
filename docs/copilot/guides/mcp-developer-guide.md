@@ -32,7 +32,7 @@ VS Code supports the following transport methods for MCP servers:
 
 - Standard input/output (`stdio`): Run a server as a local process that communicates over standard input and output
 - Streamable HTTP (`http`): Communicate with a (remote) server using HTTP POST and GET
-- Server-sent events (`sse`): Supported with a (remote) server over HTTP using server-sent events
+- Server-sent events (`sse`, legacy): Supported with a (remote) server over HTTP using server-sent events
 
 The following MCP features are supported in VS Code:
 
