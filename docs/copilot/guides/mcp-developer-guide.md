@@ -16,7 +16,7 @@ This guide covers everything you need to know to build MCP servers that work sea
 Users can add MCP servers within VS Code in several ways:
 
 - Workspace configuration: Specify the server configuration in a `.vscode/mcp.json` file in the workspace.
-- User settings: Define servers globally in VS Code user settings.
+- User or remote settings: Define servers globally in VS Code user settings, or for a remote machine or container in its remote settings.
 - Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
 - Extension: VS Code extensions can register MCP servers programmatically.
 
