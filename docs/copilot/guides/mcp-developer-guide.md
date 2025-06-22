@@ -50,7 +50,7 @@ VS Code supports MCP tools and enables users to enable and configure them with t
 
 ![Screenshot that shows the tools picker in agent mode, highlighting tools from an MCP server.](images/mcp-developer-guide/mcp-tools-picker.png)
 
-When you specify a tool input schema, users can override input parameters in the tool confirmation dialog.
+Users can edit model-generated input parameters in the tool confirmation dialog. The confirmation dialog will be shown for all tools that are not marked with the `readOnlyHint` annotation.
 
 ![Screenshot that shows the tool confirmation dialog with input parameters for an MCP tool.](images/mcp-developer-guide/mcp-tool-input-parameters.png)
 
