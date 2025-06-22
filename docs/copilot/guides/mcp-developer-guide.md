@@ -136,7 +136,7 @@ The first time an MCP server performs a sampling request, the user is prompted t
 
 ![Screenshot that shows the authorization prompt for an MCP server to access models.](images/mcp-developer-guide/mcp-allow-sampling.png)
 
-You can specify `modelPreferences` in your MCP server, for example to provide hints about which models to use for sampling. Users can specify which models they allow the MCP server to use for sampling by using the **MCP: List Servers** > **Configure Model Access** command in the Command Palette.
+Users can specify which models they allow the MCP server to use for sampling by using the **MCP: List Servers** > **Configure Model Access** command in the Command Palette. You can specify `modelPreferences` in your MCP server to provide hints about which models to use for sampling, and VS Code will pick from amoing the allowed models when evaluating the server's preferences
 
 ![Screenshot that shows the Configure Model Access dialog for an MCP server.](images/mcp-developer-guide/mcp-configure-model-access.png)
 
