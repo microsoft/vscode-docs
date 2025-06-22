@@ -20,7 +20,7 @@ Users can add MCP servers within VS Code in several ways:
 - Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
 - Extension: VS Code extensions can register MCP servers programmatically.
 
-In addition, users can also install MCP servers by using a [special URL](/docs/copilot/chat/mcp-servers.md#url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
+In addition, you can trigger MCP installation by using opening a [special URL](/docs/copilot/chat/mcp-servers.md#url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
 
 ## MCP features supported by VS Code
 
