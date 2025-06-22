@@ -20,7 +20,27 @@ Users can add MCP servers within VS Code in several ways:
 - Autodiscovery: VS Code can discover servers from other tools like Claude Desktop.
 - Extension: VS Code extensions can register MCP servers programmatically.
 
-In addition, you can trigger MCP installation by using opening a [special URL](/docs/copilot/chat/mcp-servers.md#url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
+In addition, you can trigger MCP installation by opening a [special URL](#mcp-url-handler) (`vscode:mcp/install`), or from the [command line](/docs/copilot/chat/mcp-servers.md#command-line-configuration) (`--add-mcp`).
+
+## Manage MCP servers
+
+Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it like starting, stopping, viewing the logs, and more.
+
+> [!TIP]
+> When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
+
+![MCP server configuration with lenses to manage server.](images/mcp-developer-guide/mcp-server-config-lenses.png)
+
+### MCP URL handler
+
+VS Code provides a URL handler for installing an MCP server from a link. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
+
+```typescript
+// For Insiders, use `vscode-insiders` instead of `code`
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
+```
+
+This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## MCP features supported by VS Code
 
@@ -69,7 +89,7 @@ To provide extra metadata about a tool's behavior, you can use [tool annotations
 
 Resources enable you to provide data and content to users in a structured way. Users can directly access resources in VS Code, or use them as context in chat prompts. For example, an MCP server could generate screenshots and make them available as resources, or provide access to log files, which are then updated in real-time.
 
-When you define an MCP resource, the resource name is shown in the MCP Resources Quick Picks. Resources can be opened via the **MCP: Browse Resources** command or attached to a chat request using the `Add Context` button and then picking `MCP Resource...`. Resources can contain text or binary content.
+When you define an MCP resource, the resource name is shown in the MCP Resources Quick Picks. Resources can be opened via the **MCP: Browse Resources** command or attached to a chat request with **Add Context** and then selecting **MCP Resource**. Resources can contain text or binary content.
 
 ![Screenshot that shows the MCP Resources Quick Pick.](images/mcp-developer-guide/mcp-resources-picker.png)
 
@@ -136,7 +156,7 @@ The first time an MCP server performs a sampling request, the user is prompted t
 
 ![Screenshot that shows the authorization prompt for an MCP server to access models.](images/mcp-developer-guide/mcp-allow-sampling.png)
 
-Users can specify which models they allow the MCP server to use for sampling by using the **MCP: List Servers** > **Configure Model Access** command in the Command Palette. You can specify `modelPreferences` in your MCP server to provide hints about which models to use for sampling, and VS Code will pick from amoing the allowed models when evaluating the server's preferences
+Users can specify which models they allow the MCP server to use for sampling by using the **MCP: List Servers** > **Configure Model Access** command in the Command Palette. You can specify `modelPreferences` in your MCP server to provide hints about which models to use for sampling, and VS Code will pick from the allowed models when evaluating the server's preferences
 
 ![Screenshot that shows the Configure Model Access dialog for an MCP server.](images/mcp-developer-guide/mcp-configure-model-access.png)
 
@@ -151,26 +171,6 @@ VS Code provides the MCP server with the user's workspace root folder informatio
 If you're building a VS Code extension that includes or depends on an MCP server, you can register it programmatically using the VS Code API. This approach avoids requiring users to manually configure your server.
 
 For complete details and code examples, see the [MCP servers API guide](/api/extension-guides/mcp.md).
-
-## Manage MCP servers
-
-Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it like starting, stopping, viewing the logs, and more.
-
-> [!TIP]
-> When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
-
-![MCP server configuration with lenses to manage server.](images/mcp-developer-guide/mcp-server-config-lenses.png)
-
-### MCP URL handler
-
-VS Code provides a URL handler for installing an MCP server from a link. To form the URL, construct an `obj` object in the same format as you would provide to `--add-mcp`, and then create the link by using the following logic:
-
-```typescript
-// For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
-```
-
-This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
 
 ## Troubleshoot and debug MCP servers
 
