@@ -69,7 +69,7 @@ To provide extra metadata about a tool's behavior, you can use [tool annotations
 
 Resources enable you to provide data and content to users in a structured way. Users can directly access resources in VS Code, or use them as context in chat prompts. For example, an MCP server could generate screenshots and make them available as resources, or provide access to log files, which are then updated in real-time.
 
-When you define an MCP resource, the resource name is shown in the MCP Resources Quick Pick. Resources can contain text or binary content.
+When you define an MCP resource, the resource name is shown in the MCP Resources Quick Picks. Resources can be opened via the **MCP: Browse Resources** command or attached to a chat request using the `Add Context` button and then picking `MCP Resource...`. Resources can contain text or binary content.
 
 ![Screenshot that shows the MCP Resources Quick Pick.](images/mcp-developer-guide/mcp-resources-picker.png)
 
