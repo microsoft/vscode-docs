@@ -103,7 +103,7 @@ When accessing a resource with a template, users are prompted for the required p
 
 ### Prompts
 
-Prompts are reusable chat prompt templates that users can invoke in chat by using a slash command (`mcp.servername.promptname`).
+Prompts are reusable chat prompt templates that users can invoke in chat by using a slash command (`mcp.servername.promptname`). Prompt can be useful for onboarding users to your servers by highlighting various tools or providing built-in complex workflows that adapt to the user's local context and service.
 
 If you define [completions](https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/completion) to suggest values for prompt input arguments, then VS Code shows a dialog to collect input from the user.
 
