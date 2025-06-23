@@ -77,7 +77,7 @@ which can include:
 
 > [!IMPORTANT]
 > Prior to Swift 6.1 you must perform a `swift build` command on your project either
-> on the command line or using a task in VS Code Before language features can be used.
+> on the command line or using a task in VS Code before language features can be used.
 > This populates the index in SourceKit-LSP.
 
 ## Swift tasks
