@@ -66,7 +66,7 @@ For complete specification details, see the [Model Context Protocol documentatio
 
 #### Tool definition
 
-VS Code supports MCP tools and enables users to enable and configure them with the tools picker in agent mode. The tool description is shown in the tools picker, alongside the tool name, and in the dialog when asking for confirmation before running a tool.
+VS Code supports MCP tools in agent mode, where they are invoked as needed based on the task. Users can enable and configure them with the tools picker. The tool description is shown in the tools picker, alongside the tool name, and in the dialog when asking for confirmation before running a tool.
 
 ![Screenshot that shows the tools picker in agent mode, highlighting tools from an MCP server.](images/mcp-developer-guide/mcp-tools-picker.png)
 
