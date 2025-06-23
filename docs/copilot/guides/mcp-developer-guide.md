@@ -105,7 +105,7 @@ When accessing a resource with a template, users are prompted for the required p
 
 Prompts are reusable chat prompt templates that users can invoke in chat by using a slash command (`mcp.servername.promptname`).
 
-If you define completions to suggest values for prompt input arguments, then VS Code shows a dialog to collect input from the user.
+If you define [completions](https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/completion) to suggest values for prompt input arguments, then VS Code shows a dialog to collect input from the user.
 
 ```typescript
 server.prompt(
