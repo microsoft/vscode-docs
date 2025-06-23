@@ -150,7 +150,7 @@ VS Code also supports [Dynamic Client Registration](https://modelcontextprotocol
 
 ### Sampling (Preview)
 
-VS Code supports MCP servers that implement the [sampling feature](https://modelcontextprotocol.io/docs/concepts/sampling). This allows your MCP server to make language model requests using the user's configured models and subscriptions.
+VS Code provides access to [sampling](https://modelcontextprotocol.io/docs/concepts/sampling) for MCP servers. This allows your MCP server to make language model requests using the user's configured models and subscriptions. Sampling can be used to summarize large data or extract information before sending it to the client, or to implement smarter agentic decision in tool logic.
 
 The first time an MCP server performs a sampling request, the user is prompted to authorize the server to access their models.
 
