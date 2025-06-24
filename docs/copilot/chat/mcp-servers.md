@@ -75,9 +75,7 @@ You have multiple options to add an MCP server in VS Code:
 * **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
 > [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
->
-> While handling a chat prompt, the output of one agent mode tool might be passed to other tools for further processing. You should be careful when including tools in agent mode that return private information.
+> Be careful when including tools in chat, as they might run arbitrary code on your machine or pass information to other tools.
 
 To view and manage the list of configured MCP servers, run the **MCP: List Servers** command from the Command Palette.
 
