@@ -135,7 +135,7 @@ When you include a resource type in the prompt response, VS Code attaches that r
 
 VS Code supports MCP servers that require authentication, allowing users to interact with an MCP server that operates on behalf of their user account for that service.
 
-The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Providers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch.
+The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch.
 
 VS Code supports the following client functionality:
 
