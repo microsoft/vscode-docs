@@ -124,13 +124,19 @@ We track issues and feature requests for GitHub Copilot in VS Code in the [micro
 
     Use the **Send Copilot Completion Feedback** action when hovering over a code completion in the editor. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
+    ![Screenshot that shows sending Copilot Completion Feedback action in the editor.](images/faq/code-completions-feedback.png)
+
 - **Next edit suggestions**
 
     Select the **Feedback** action in the next edit suggestions menu in the editor gutter. In the Issue Reporter, provide a clear and detailed description of the issue, including steps to reproduce it.
 
+    ![Screenshot that shows next edit suggestions menu in the editor gutter.](images/faq/nes-feedback.png)
+
 - **General issues**
 
     Open the VS Code Issue reporter (**Help menu** > **Report Issue**), select the **VS Code Extension** source, and then select the **GitHub Copilot Chat** extension. Provide a clear and detailed description of the issue, including steps to reproduce it.
+
+    ![Screenshot that shows VS Code Issue Reporter with GitHub Copilot Chat selected.](images/faq/issue-reporter.png)
 
 When you report an issue, follow the guidelines in our [wiki](https://github.com/microsoft/vscode/wiki/Copilot-Issues) to make sure your issue is actionable.
 
