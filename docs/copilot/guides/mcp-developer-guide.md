@@ -137,16 +137,13 @@ VS Code supports MCP servers that require authentication, allowing users to inte
 
 The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch.
 
-VS Code supports the following client functionality:
-
-- The MCP server behaves as an authorization server
-- The MCP server behaves as a resource server
-
-If the MCP server implements the latest specification and uses GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
+VS Code has built-in authentication support for GitHub and Microsoft Entra. If your MCP server implements the latest specification and uses GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
 
 ![Screenshot that shows the Accounts menu with the Manage Trusted MCP Servers action.](images/mcp-developer-guide/manage-trusted-mcp.png)
 
-VS Code also supports [Dynamic Client Registration](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration). User can view their authentication status through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+If your MCP server uses a different authorization server, VS Code also supports [Dynamic Client Registration](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration). Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+
+VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
 
 ### Sampling (Preview)
 
