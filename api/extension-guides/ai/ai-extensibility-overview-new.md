@@ -45,10 +45,6 @@ To implement a language model tool, use the [Language Model Tools API](/api/exte
 - Remote deployment requires the extension to implement the client-server communication
 - Reuse across different tools requires modular design and implementation
 
-**Examples**:
-
-TODO
-
 ### MCP tool
 
 Model Context Protocol (MCP) tools provide a way to integrate external services with language models by using a standardized protocol. In agent mode, these tools are automatically invoked based on the user's chat prompt to perform specialized tasks or retrieve information from external data sources.
@@ -107,56 +103,53 @@ To use language models directly, use the [Language Model API](/api/extension-gui
 
 ## Decide which option to use
 
-To choose the right extensibility option, consider these factors:
+When choosing the right approach for extending AI in your VS Code extension, consider the following guidelines:
 
-| If you want to... | Consider using... |
-|-------------------|-------------------|
-| Execute actions based on user intent in chat | Language Model Tool |
-| Run complex or resource-intensive AI tasks | MCP Tool |
-| Create a specialized assistant with domain expertise | Chat Participant |
-| Add AI capabilities to existing extension features | Language Model API |
+1. **Choose Language Model Tool when**:
+    - You want to extend chat in VS Code with specialized capabilities
+    - You want automatic invocation based on user intent in agent mode
+    - You want access to VS Code APIs for deep integration in VS Code
+    - You want to distribute your tool through the VS Code Marketplace
 
-**Decision guidance**:
+1. **Choose MCP Tool when**:
+    - You want to extend chat in VS Code with specialized capabilities
+    - You want automatic invocation based on user intent in agent mode
+    - You don't need to integrate with VS Code APIs
+    - Your tool needs to work across different environments (not just VS Code)
+    - Your tool should run remotely or locally
 
-1. **Language Model Tool**: Best for extensions that need to perform tasks in response to natural language requests and require access to VS Code APIs.
+1. **Choose Chat Participant when**:
+    - You want to extend ask mode with a specialized assistant with domain expertise
+    - You need to customize the entire interaction flow and response behavior
+    - You want access to VS Code APIs for deep integration in VS Code
+    - You want to distribute your tool through the VS Code Marketplace
 
-2. **MCP Tool**: Ideal when you need to run tools outside VS Code or want to leverage existing REST APIs and services.
-
-3. **Chat Participant**: Choose when you want to create a specialized assistant that can answer domain-specific questions.
-
-4. **Language Model API**: Best for building custom AI-powered features integrated with your extension's existing functionality.
-
-## Use cases
-
-Here are examples of how AI can enhance your VS Code extension:
-
-- **Docs querying**: Use Retrieval-Augmented Generation (RAG) to query documentation and generate contextual responses.
-
-- **AI-assisted coding**: Provide editor annotations with coding suggestions and improvements.
-
-- **AI-powered reviews**: Review code for security vulnerabilities or performance issues.
-
-- **Data retrieval**: Query databases or services to retrieve topic-specific information.
-
-- **Enterprise coding assistant**: Create a chat experience grounded in enterprise data and coding guidelines.
-
-- **Enhanced extensions**: Add AI capabilities to existing VS Code extensions.
+1. **Choose Language Model API when**:
+    - You want to integrate AI capabilities into existing extension features
+    - You're building UI experiences outside the chat interface
+    - You need direct programmatic control over AI model requests
 
 ## Next steps
 
 Choose the approach that best fits your extension's goals:
 
-- For task automation via chat: Explore the [Language Model Tools API](/api/extension-guides/ai/tools)
-- For offloading AI tasks to external services: Learn about [MCP tools](/api/extension-guides/ai/mcp)
-- For specialized chat assistants: Read the [Chat API guide](/api/extension-guides/ai/chat)
-- For custom AI features: Dive into the [Language Model API](/api/extension-guides/ai/language-model)
+- [Implement a language model tool](/api/extension-guides/ai/tools)
+- [Register MCP tools in your VS Code extension](/api/extension-guides/ai/mcp)
+- [Integrate AI in your extension with the Language Model API](/api/extension-guides/ai/language-model)
+- [Implement a chat participant](/api/extension-guides/ai/chat)
 
 ### Sample projects
 
 - [**Chat sample**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): Extension with agent mode tool and chat participant
-- [**MCP extension sample**](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample): Extension that registers an MCP tool
-- [**AI-powered code annotations tutorial**](/api/extension-guides/ai/language-model-tutorial): Step-by-step guide for using the Language Model API
 - [**Code tutor chat participant tutorial**](/api/extension-guides/ai/chat-tutorial): Building a specialized chat assistant
+- [**AI-powered code annotations tutorial**](/api/extension-guides/ai/language-model-tutorial): Step-by-step guide for using the Language Model API
+- [**MCP extension sample**](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample): Extension that registers an MCP tool
 
-[!TIP]
-Looking for examples? Visit the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-model-tools&target=VSCode&category=All%20categories&sortBy=Relevance) or search for extensions with the `language-model-tools` or `chat-participant` tags in the Extensions view.
+> [!TIP]
+> There are several examples already available in the Visual Studio Marketplace that extend AI in VS Code:
+>
+> **MCP servers**: Discover and install MCP tools from our curated list of [MCP servers](https://code.visualstudio.com/mcp).
+>
+> **Agent mode tools**: Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-model-tools&target=VSCode&category=All%20categories&sortBy=Relevance) or search for the `language-model-tools` tag in the [Extensions view](/docs/getstarted/extensions).
+>
+> **Chat participants**: Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or search for the `chat-participant` tag in the [Extensions view](/docs/getstarted/extensions).
