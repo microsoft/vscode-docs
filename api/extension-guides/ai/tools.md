@@ -239,7 +239,7 @@ When a user sends a chat prompt, the following steps occur:
 
 The following diagram shows the Copilot tool-calling flow.
 
-![Diagram that shows the Copilot tool-calling flow](images/tools/copilot-tool-calling-flow.png)
+![Diagram that shows the Copilot tool-calling flow](../images/ai/tools/copilot-tool-calling-flow.png)
 
 ## Getting started
 
@@ -268,5 +268,5 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 ## Related content
 
 - [Language Model API reference](/api/references/vscode-api#_lm)
-- [Register an MCP server in a VS Code extension](/api/extension-guides/mcp)
+- [Register an MCP server in a VS Code extension](/api/extension-guides/ai/mcp)
 - [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)

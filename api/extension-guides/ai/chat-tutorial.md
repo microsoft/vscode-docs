@@ -188,7 +188,7 @@ Press `kbstyle(F5)` to run the code. A new window of VS Code will open with your
 
 In the Copilot Chat pane, you can now invoke your participant by typing `@tutor`!
 
-![Participant in Chat pane](images/chat-tutorial/participant.png)
+![Participant in Chat pane](../images/ai/chat-tutorial/participant.png)
 
 Test it out by typing what you want to learn about. You should see a response giving you an overview of the concept!
 
@@ -196,7 +196,7 @@ If you type a related message to continue the conversation, you'll notice that t
 
 In the screenshot below, the tutor correctly responds with a starting explanation of stacks. However, in the follow-up, it does not understand that the user is continuing the conversation to see an implementation of stacks in Python, so it instead gives a generic response about Python.
 
-![Participant with no message history](images/chat-tutorial/participant-no-message-history.png)
+![Participant with no message history](../images/ai/chat-tutorial/participant-no-message-history.png)
 
 ## Step 7: Add message history for more context
 
@@ -248,7 +248,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
 Now when you run the code, you can have a conversation with your participant with all the context of the previous messages! In the screenshot below, the participant correctly understands that the user is requesting to see an implementation of stacks in Python.
 
-![Participant with message history](images/chat-tutorial/participant-message-history.png)
+![Participant with message history](../images/ai/chat-tutorial/participant-message-history.png)
 
 ## Step 8: Add a command
 
@@ -338,16 +338,16 @@ And that's all that needs to be added! The rest of the logic to get the message 
 
 Now you can type `/exercise`, which will bring up your chat participant, and you can get interactive exercises to practice coding!
 
-![Participant with a slash command](images/chat-tutorial/exercise-command.png)
+![Participant with a slash command](../images/ai/chat-tutorial/exercise-command.png)
 
 ## Next steps
 
-Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/language-model). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
+Congratulations! You have successfully created a chat participant that can provide explanations and sample exercises for programming concepts. You can further extend your participant by fine-tuning the prompts, adding more slash commands, or leveraging other APIs like the [Language Model API](/api/extension-guides/ai/language-model). Once ready, you can also publish your extension to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
 You can find the complete source code for this tutorial in the [vscode-extensions-sample repository](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-tutorial).
 
 ## Related content
 
-- [Chat API extension guide](/api/extension-guides/chat)
-- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/language-model-tutorial)
-- [Language Model API extension guide](/api/extension-guides/language-model)
+- [Chat API extension guide](/api/extension-guides/ai/chat)
+- [Tutorial: Generate AI-powered code annotations by using the Language Model API](/api/extension-guides/ai/language-model-tutorial)
+- [Language Model API extension guide](/api/extension-guides/ai/language-model)

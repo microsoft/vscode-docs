@@ -156,7 +156,6 @@
       }
       ],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
-      ["AI Extensibility", "/docs/copilot/copilot-extensibility-overview"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
         "name": "Reference",

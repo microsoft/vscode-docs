@@ -11,9 +11,9 @@ MetaDescription: A guide to creating an AI extension in Visual Studio Code
 
 Visual Studio Code's Copilot Chat architecture enables extension authors to integrate with the chat experience in VS Code. A chat extension is a VS Code extension that uses the Chat extension API by contributing a *chat participant*. Chat participants are domain experts that can answer user queries within a specific domain.
 
-Users can reference chat participants in [ask mode](/docs/copilot/chat/chat-ask-mode.md) by using the `@` symbol in the Chat view.
+Users can reference chat participants in [ask mode](/docs/copilot/chat/chat-ask-mode) by using the `@` symbol in the Chat view.
 
-Alternatively, you can also contribute a [language model tool](/api/extension-guides/tools.md) to the chat experience. A language model tool performs a specific task, and can be invoked automatically in [agent mode](/docs/copilot/chat/chat-agent-mode.md), or manually referenced in [ask mode](/docs/copilot/chat/chat-ask-mode.md) or [edit mode](/docs/copilot/chat/copilot-edits.md) by using `#`.
+Alternatively, you can also contribute a [language model tool](/api/extension-guides/ai/tools) to the chat experience. A language model tool performs a specific task, and can be invoked automatically in [agent mode](/docs/copilot/chat/chat-agent-mode), or manually referenced in [ask mode](/docs/copilot/chat/chat-ask-mode) or [edit mode](/docs/copilot/chat/copilot-edits) by using `#`.
 
 ## Overview
 
@@ -23,7 +23,7 @@ When a user explicitly mentions a `@participant` in their chat prompt, that prom
 
 Chat participants can use different approaches to process a user query:
 
-- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/language-model).
+- Use AI to interpret the request and generate a response, for example by using the [Language Model API](/api/extension-guides/ai/language-model).
 - Forward the user request to a backend service, which processes the request and returns a response.
 - Use procedural logic and local resources to generate a response.
 
@@ -48,7 +48,7 @@ Alternatively, it is possible to extend GitHub Copilot by creating a GitHub App 
 
 The following screenshot shows the different chat concepts in the Visual Studio Code chat experience for the sample extension.
 
-![Chat concepts explanation](images/chat/chat.png)
+![Chat concepts explanation](../images/ai/chat/chat.png)
 
 1. Use the `@` syntax to invoke the `@cat` chat participant
 1. Use the `/` syntax to call the `/teach` command
@@ -76,7 +76,7 @@ You can further expand the functionality of the chat extension with the followin
 
 As a starting point for developing a chat extension, you can refer to our [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample). This sample implements a simple cat tutor that can explain computer science topics using cat metaphors.
 
-![Diagram showing how extension can contribute to chat](images/chat/diagram.png)
+![Diagram showing how extension can contribute to chat](../images/ai/chat/diagram.png)
 
 ### Register the chat extension
 
@@ -151,7 +151,7 @@ const handler: vscode.ChatRequestHandler = async (request: vscode.ChatRequest, c
 
 #### Determine the request intent
 
-To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the user's prompt, [commands](#register-commands), and chat location. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/language-model) in your extension.
+To determine the intent of the user's request, you can reference the `vscode.ChatRequest` parameter to access the user's prompt, [commands](#register-commands), and chat location. Optionally, you can take advantage of the language model to determine the user's intent, rather than using traditional logic. As part of the `request` object you get a language model instance that the user picked in the chat model dropdown. Learn how you can use the [Language Model API](/api/extension-guides/ai/language-model) in your extension.
 
 The following code snippet shows the basic structure of first using the command, and then the user prompt to determine the user intent:
 
@@ -186,7 +186,7 @@ If you want to process a request differently based on the location of the chat i
 
 Once you've processed the request, you have to return a response to the user in the Chat view. Chat extensions can use streaming to respond to user queries. Responses can contain different content types: markdown, images, references, progress, buttons, and file trees. For example to generate this response:
 
-![Response from the cat extension that includes code, markdown and a button](images/chat/stream.png)
+![Response from the cat extension that includes code, markdown and a button](../images/ai/chat/stream.png)
 
 An extension can use the response stream in the following way:
 
@@ -209,7 +209,7 @@ stream.button({
 
 Get more info about the [supported chat response output types](#supported-chat-response-output-types).
 
-In practice, extensions typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming [Language Model API](/api/extension-guides/language-model). This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/language-model).
+In practice, extensions typically send a request to the language model. Once they get a response from the language model, they might further process it, and decide if they should stream anything back to the user. The VS Code Chat API is streaming-based, and is compatible with the streaming [Language Model API](/api/extension-guides/ai/language-model). This allows extensions to report progress and results continuously with the goal of having a smooth user experience. Learn how you can use the [Language Model API](/api/extension-guides/ai/language-model).
 
 #### Use the chat message history
 
@@ -227,7 +227,7 @@ A chat participant can contribute commands, which are shortcuts to specific func
 
 One of the tasks when answering questions is to determine the user intent. For example, VS Code could infer that `Create a new workspace with Node.js Express Pug TypeScript` means that you want a new project, but `@workspace /new Node.js Express Pug TypeScript` is more explicit, concise, and saves typing time. If you type `/` in the chat input field, VS Code offers a list of registered commands with their description.
 
-![List of commands in chat for @workspace](images/chat/commands.png)
+![List of commands in chat for @workspace](../images/ai/chat/commands.png)
 
 Chat participants can contribute commands with their description by adding them in `package.json`:
 
@@ -418,7 +418,7 @@ The following list provides the output types for a chat response in the Chat vie
     // Create a file tree instance
     var tree: vscode.ChatResponseFileTree[] = [
         { name: 'myworkspace', children: [
-            { name: 'README.md' },
+            { name: 'README' },
             { name: 'app.js' },
             { name: 'package.json' }
         ]}
@@ -477,7 +477,7 @@ The following list provides the output types for a chat response in the Chat vie
 
 ## Implement tool calling
 
-To respond to a user request, a chat extension can invoke language model tools. Learn more about [language model tools](/api/extension-guides/tools.md) and the [tool-calling flow](/api/extension-guides/tools.md#tool-calling-flow).
+To respond to a user request, a chat extension can invoke language model tools. Learn more about [language model tools](/api/extension-guides/ai/tools) and the [tool-calling flow](/api/extension-guides/ai/tools#_tool-calling-flow).
 
 You can implement tool calling in two ways:
 
@@ -488,7 +488,7 @@ You can implement tool calling in two ways:
 
 You can use the [`@vscode/chat-extension-utils` library](https://www.npmjs.com/package/@vscode/chat-extension-utils) to simplify the process of calling tools in a chat extension.
 
-Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat participant](/api/extension-guides/chat).
+Implement tool calling in the `vscode.ChatRequestHandler` function of your [chat participant](/api/extension-guides/ai/chat).
 
 1. Determine the relevant tools for the current chat context. You can access all available tools by using `vscode.lm.tools`.
 
@@ -603,5 +603,5 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Use the Language Model API](/api/extension-guides/language-model)
-- [Contribute a language model tool](/api/extension-guides/tools.md)
+- [Use the Language Model API](/api/extension-guides/ai/language-model)
+- [Contribute a language model tool](/api/extension-guides/ai/tools)
