@@ -1,56 +1,146 @@
 ---
 ContentId: e375ec2a-43d3-4670-96e5-fd25a6aed272
 DateApproved: 06/12/2025
-MetaDescription: Overview of how to extend the AI features in your Visual Studio Code extension by using the Chat API or Language Model API.
+MetaDescription: Overview of how to extend the AI features in your Visual Studio Code extension by using the Language Model, Tools, and Chat APIs.
 ---
 # AI extensibility in VS Code
 
-Visual Studio Code has many AI features to improve your coding experience, such as code completions, or natural language chat. You can further extend the built-in capabilities, for example by contributing tools for [agent mode](/docs/copilot/chat/chat-agent-mode), or adding AI-powered features to your VS Code extension.
+This article provides an overview of AI extensibility options in Visual Studio Code, helping you choose the right approach for your extension.
 
-Depending on your use case, you have the following options for extending AI in your VS Code extension:
+VS Code includes powerful AI features that enhance the coding experience:
 
-- **Agent mode tool**: use the [Language Model Tool API](/api/extension-guides/ai/tools) to contribute a tool for [agent mode](/docs/copilot/chat/chat-agent-mode) that is invoked automatically based on the user's prompt. Integrate deeply in VS Code by using other extension APIs in your tool.
+- **Code completion**: Offers inline code suggestions as you type
+- **Agent mode**: Enables AI to autonomously plan and execute development tasks with specialized tools
+- **Chat**: Lets developers use natural language to ask questions or make edits in codebase through chat interfaces
+- **Smart actions**: Use AI-enhanced actions for common development tasks, integrated throughout the editor
 
-- **MCP tool**: automatically register external [MCP tools](/docs/copilot/chat/mcp-servers) that can then be used in [agent mode](/docs/copilot/chat/chat-agent-mode). As an extension developer, you can [register an MCP tool](/api/extension-guides/ai/mcp) as part of your extension. MCP tools run outside of the VS Code extension host and don't have access to the VS Code extension APIs.
+You can extend and customize each of these built-in capabilities to create tailored AI experiences that meet the specific needs of your users.
 
-- **Chat participant**: use the [Chat](/api/extension-guides/ai/chat) and [Language Model](/api/extension-guides/ai/language-model) APIs to create a chat participant for [ask mode](/docs/copilot/chat/chat-ask-mode) that enables users to ask domain-specific questions by using natural language.
+## Why extend AI in VS Code?
 
-- **Use AI model**: use the [Language Model API](/api/extension-guides/ai/language-model) and the [VS Code extension APIs](/api/extension-guides/overview) to build custom AI-powered features into your extension and enhance editor-specific interactions.
+Adding AI capabilities to your extension brings several benefits:
 
-Alternatively, you can also build a GitHub Copilot Extension, implemented as a GitHub App with additional capabilities. Copilot Extensions work across all supported IDEs and GitHub, but don't have access to functionalities specific to VS Code. Get more info about [Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions) in the GitHub documentation.
+- **Enhanced user experience**: Provide intelligent assistance tailored to your extension's domain
+- **Improved productivity**: Automate repetitive tasks and provide contextual help
+- **Rich context awareness**: Use workspace understanding to deliver relevant assistance
+- **Domain specialization**: Create AI features specific to a programming language, framework, or domain
 
-## Use cases
+## Extend the chat experience
 
-Here are some examples of how you can use AI in your VS Code extension:
+### Language model tool
 
-- **Docs querying**: use Retrieval-Augmented Generation (RAG) to query a third-party documentation service and generate responses based on the retrieved information.
+Language model tools enable you to extend agent mode in VS Code with domain-specific capabilities. In agent mode, these tools are automatically invoked based on the user's chat prompt to perform specialized tasks or retrieve information from a data source or service. Users can also reference these tools explicitly in their chat prompt by #-mentioning the tool.
 
-- **AI-assisted coding**: use the AI model to provide editor annotations to provide coding suggestions.
+To implement a language model tool, use the [Language Model Tools API](/api/extension-guides/ai/tools) within your VS Code extension. A language model can access all VS Code extension APIs and provide deep integration with the editor.
 
-- **AI-powered reviews**: use the AI model to review your code for security vulnerabilities or performance improvements.
+**Key benefits**:
 
-- **Data retrieval**: query a database or third-party data service to retrieve information about a specific topic.
+- Domain-specific capabilities as part of an autonomous coding workflow
+- Automatic tool invocation in agent mode, depending on user intent
+- Deep VS Code integration through extension APIs
+- Easy distribution and deployment via the Visual Studio Marketplace
 
-- **Enterprise coding assistant**: get chat responses that are grounded in the data of your enterprise and are aware of the specific coding guidelines your company follows.
+**Key considerations**:
 
-- **Enhance extensions**: use the Language Model API to add AI-powered features to your existing VS Code extensions.
+- Remote deployment requires the extension to implement the client-server communication
+- Reuse across different tools requires modular design and implementation
 
-There are several examples already available in the Visual Studio Marketplace that extend AI in VS Code:
+### MCP tool
 
-- Agent mode tools: Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-model-tools&target=VSCode&category=All%20categories&sortBy=Relevance) or search for the `language-model-tools` tag in the [Extensions view](/docs/getstarted/extensions).
+Model Context Protocol (MCP) tools provide a way to integrate external services with language models by using a standardized protocol. In agent mode, these tools are automatically invoked based on the user's chat prompt to perform specialized tasks or retrieve information from external data sources.
 
-- Chat participants: Go to the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Achat-participant&target=VSCode&category=All%20categories&sortBy=Relevance) or search for the `chat-participant` tag in the [Extensions view](/docs/getstarted/extensions).
+MCP tools run outside of VS Code, either locally on the user's machine or as a remote service. Users can add MCP tools through JSON configuration or VS Code extension can configure them programmatically. You can implement MCP tools through various language SDKs and deployment options.
 
-## Get started with AI extensibility in VS Code
+As MCP tools run outside of VS Code, they do not have access to the VS Code extension APIs.
 
-To get started with extending AI in your VS Code extension, explore the following resources:
+**Key benefits**:
 
-- [**Chat sample**](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): sample code for building a VS Code extension that contributes an agent mode tool and chat participant.
+- Domain-specific capabilities as part of an autonomous coding workflow
+- Automatic tool invocation in agent mode, depending on user intent
+- Local and remote deployment options
+- Share implementations across different tools and platforms
 
-- [**MCP extension sample**](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample): sample code for building a VS Code extension that registers an MCP tool.
+**Key considerations**:
 
-- [**Tutorial: AI-powered code annotations**](/api/extension-guides/ai/language-model-tutorial): step-by-step guide to implement a VS Code extension that uses the Language Model API to generate code annotations in the editor to help improve your code.
+- No access to VS Code extension APIs
+- Distribution and deployment require users to set up the MCP server
 
-- [**Tutorial: Code tutor chat participant**](/api/extension-guides/ai/chat-tutorial): step-by-step guide to implement a code tutor chat participant that enables users to ask for explaining a technical topic by using natural language in the Chat view in VS Code.
+### Chat participant
 
-- **Extension guides**: Learn how to use the [Tools API](/api/extension-guides/ai/tools) [Chat API](/api/extension-guides/ai/chat) and [Language Model API](/api/extension-guides/ai/language-model).
+Chat participants are specialized assistants that enable users to extend ask mode with domain-specific experts. In ask mode, users can invoke a chat participant by @-mentioning it and passing in a natural language prompt about a particular topic or domain. The chat participant is responsible for handling the entire chat interaction.
+
+To implement a chat participant, use the [Chat API](/api/extension-guides/ai/chat) within your VS Code extension. A chat participant can access all VS Code extension APIs and provide deep integration with the editor.
+
+**Key benefits**:
+
+- Provide domain-specific expertise in ask mode
+- Control interaction flow and customize response behavior
+- Deep VS Code integration through extension APIs
+- Easy distribution and deployment via the Visual Studio Marketplace
+
+**Key considerations**:
+
+- Only available in ask mode
+- Remote deployment requires the extension to implement the client-server communication
+- Reuse across different tools requires modular design and implementation
+
+## Build your own AI-powered features
+
+VS Code gives you direct programmatic access to AI models for creating custom AI-powered features in your extensions. This approach enables you to build editor-specific interactions that use AI capabilities without relying on the chat interface.
+
+To use language models directly, use the [Language Model API](/api/extension-guides/ai/language-model) within your VS Code extension. You can incorporate these AI capabilities into any extension feature, such as code actions, hover providers, custom views, and more.
+
+**Key benefits**:
+
+- Create custom workflows and experiences that target specific use cases
+- Integrate AI capabilities into existing extension features
+- Deep VS Code integration through extension APIs
+- Easy distribution and deployment via the Visual Studio Marketplace
+
+**Key considerations**:
+
+- Reuse across chat or different tools requires modular design and implementation
+
+## Decide which option to use
+
+When choosing the right approach for extending AI in your VS Code extension, consider the following guidelines:
+
+1. **Choose Language Model Tool when**:
+    - You want to extend chat in VS Code with specialized capabilities
+    - You want automatic invocation based on user intent in agent mode
+    - You want access to VS Code APIs for deep integration in VS Code
+    - You want to distribute your tool through the VS Code Marketplace
+
+1. **Choose MCP Tool when**:
+    - You want to extend chat in VS Code with specialized capabilities
+    - You want automatic invocation based on user intent in agent mode
+    - You don't need to integrate with VS Code APIs
+    - Your tool needs to work across different environments (not just VS Code)
+    - Your tool should run remotely or locally
+
+1. **Choose Chat Participant when**:
+    - You want to extend ask mode with a specialized assistant with domain expertise
+    - You need to customize the entire interaction flow and response behavior
+    - You want access to VS Code APIs for deep integration in VS Code
+    - You want to distribute your tool through the VS Code Marketplace
+
+1. **Choose Language Model API when**:
+    - You want to integrate AI capabilities into existing extension features
+    - You're building UI experiences outside the chat interface
+    - You need direct programmatic control over AI model requests
+
+## Next steps
+
+Choose the approach that best fits your extension's goals:
+
+- [Implement a language model tool](/api/extension-guides/ai/tools)
+- [Register MCP tools in your VS Code extension](/api/extension-guides/ai/mcp)
+- [Integrate AI in your extension with the Language Model API](/api/extension-guides/ai/language-model)
+- [Implement a chat participant](/api/extension-guides/ai/chat)
+
+### Sample projects
+
+- [Chat sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample): Extension with agent mode tool and chat participant
+- [Code tutor chat participant tutorial](/api/extension-guides/ai/chat-tutorial): Building a specialized chat assistant
+- [AI-powered code annotations tutorial](/api/extension-guides/ai/language-model-tutorial): Step-by-step guide for using the Language Model API
+- [MCP extension sample](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample): Extension that registers an MCP tool
