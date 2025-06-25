@@ -62,9 +62,9 @@ Marketplace - [npm IntelliSense](https://marketplace.visualstudio.com/items?item
 
 Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=publisher%3A%22Christian%20Kohler%22&target=VSCode)
 
-A second incredibly useful extension from Christian Kohler. This extension provides IntelliSense for npm modules.
+A second incredibly useful extension from Christian Kuler. This extension provides IntelliSense for npm modules.
 
 ![npm intellisense](npm_intellisense.gif)
 
-Wade Anderson, VS Code Team Member <br>
+Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)
