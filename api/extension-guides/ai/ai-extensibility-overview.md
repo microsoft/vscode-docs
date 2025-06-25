@@ -18,12 +18,12 @@ You can extend and customize each of these built-in capabilities to create tailo
 
 ## Why extend AI in VS Code?
 
-Adding AI capabilities to your extension brings several benefits:
+Adding AI capabilities to your extension brings several benefits to your users:
 
 - **Enhanced user experience**: Provide intelligent assistance tailored to your extension's domain
-- **Improved productivity**: Automate repetitive tasks and provide contextual help
-- **Rich context awareness**: Use workspace understanding to deliver relevant assistance
 - **Domain specialization**: Create AI features specific to a programming language, framework, or domain
+- **Improved developer productivity**: Enhance common developer tasks, like debugging, code reviewing or testing, with AI capabilities
+- **Extend chat capabilities**: Add specialized tools or assistants to the chat interface for more powerful interactions
 
 ## Extend the chat experience
 
