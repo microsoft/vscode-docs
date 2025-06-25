@@ -223,7 +223,7 @@ The command highlights the source code that will be refactored or fixed with Qui
 
 ## Unused variables and unreachable code
 
-Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+Unused JavaScript code, such as the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 
@@ -288,7 +288,7 @@ GitHub Copilot provides suggestions for numerous languages and a wide variety of
 
 You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
-Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
+Once you have the Copilot extension installed and enabled, you can test it out for your JavaScript projects.
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 
