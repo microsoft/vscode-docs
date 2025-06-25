@@ -139,7 +139,7 @@ Visual Studio Code gives you many ways to refactor your source code as well as Q
 
 **What:** Lets you immediately add the necessary imports or using directives for copy-and-pasted code.
 
-**When:** It's common practice to copy code from different places in your project or other sources and paste it in to new code. This Quick Action finds missing imports directives for copy-and-pasted code and then prompts you to add them. This code fix can also add references from project to project.
+**When:** It's common practice to copy code from different places in your project or other sources and paste it into new code. This Quick Action finds missing imports directives for copy-and-pasted code and then prompts you to add them. This code fix can also add references from project to project.
 
 **Why:** Because the Quick Action automatically adds necessary imports, you don't need to manually copy the using directives that your code needs.
 
@@ -428,7 +428,7 @@ Select **Convert to binary**.
     * Select **Convert to `struct` -> updating usages in containing member**
     * Select **Convert to `struct` -> updating usages in containing type**
     * Select **Convert to `struct` -> updating usages in containing project**
-    * Select **Convert to `struct` -> updating usages in in dependent projects**
+    * Select **Convert to `struct` -> updating usages in dependent projects**
 
 ![Convert tuple to `struct` options](images/refactoring/convert-tuple-to-struct.png)
 

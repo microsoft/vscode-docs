@@ -62,7 +62,7 @@ You can run tests using any of the following actions:
 
 - From the Command Palette, by running any of the following commands:
   - **Test: Run All Tests** - Runs all tests that have been discovered.
-  - **Test: Run Tests in Current File** - Runs all tests in a file that that is open in the editor.
+  - **Test: Run Tests in Current File** - Runs all tests in a file that is open in the editor.
   - **Test: Run Test at Cursor** - Runs only the test method under your cursor in the editor.
 
 - From the **Test Explorer**:
