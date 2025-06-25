@@ -359,7 +359,7 @@ VS Code also includes a URL handler that you can use to install an MCP server. T
 
 ```typescript
 // For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
@@ -397,16 +397,6 @@ You can enable _development mode_ for MCP servers by adding a `dev` key to the M
 
 > [!NOTE]
 > We currently only support debugging Node.js and Python servers launched with `node` and `python` respectively.
-
-## Create an MCP server
-
-VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
-
-* [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-* [Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-* [Java SDK](https://github.com/modelcontextprotocol/java-sdk)
-* [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk)
-* [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
 
 ## Frequently asked questions
 
