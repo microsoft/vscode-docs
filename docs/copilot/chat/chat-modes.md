@@ -82,7 +82,7 @@ The plan consists of a Markdown document that describes the implementation plan,
 
 You can create a chat mode file in your workspace or user profile.
 
-1. Run the **Chat: New Mode File** command in the Command Palette (`kb(workbench.action.chat.createChatMode)`).
+1. Run the **Chat: New Mode File** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose between creating a new chat mode file in your workspace or user profile.
 
@@ -97,7 +97,7 @@ By default, VS Code looks for workspace chat mode files in the `.github/chatmode
 
 ### Manage existing chat modes
 
-To edit and manage existing chat modes, select the **Chat: Configure Chat Modes** command in the Command Palette (`kb(workbench.action.chat.configureChatModes)`). Select a chat mode from the list to open it in the editor, where you can edit the instructions and tools (sets).
+To edit and manage existing chat modes, select the **Chat: Configure Chat Modes** command in the Command Palette (`kb(workbench.action.showCommands)`). Select a chat mode from the list to open it in the editor, where you can edit the instructions and tools (sets).
 
 Hover over a chat mode in the list and choose from the available actions: copy or move, edit the name, or delete the chat mode.
 
