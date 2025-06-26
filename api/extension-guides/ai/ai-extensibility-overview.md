@@ -31,7 +31,7 @@ Adding AI capabilities to your extension brings several benefits to your users:
 
 Language model tools enable you to extend agent mode in VS Code with domain-specific capabilities. In agent mode, these tools are automatically invoked based on the user's chat prompt to perform specialized tasks or retrieve information from a data source or service. Users can also reference these tools explicitly in their chat prompt by #-mentioning the tool.
 
-To implement a language model tool, use the [Language Model Tools API](/api/extension-guides/ai/tools) within your VS Code extension. A language model can access all VS Code extension APIs and provide deep integration with the editor.
+To implement a language model tool, use the [Language Model Tools API](/api/extension-guides/ai/tools) within your VS Code extension. A language model tool can access all VS Code extension APIs and provide deep integration with the editor.
 
 **Key benefits**:
 
