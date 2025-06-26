@@ -201,7 +201,7 @@ The following keyboard shortcuts should work in PowerShell when shell integratio
 
 Experimental IntelliSense for PowerShell shows a completion list when typing in PowerShell, similar to the editor experience. Behind the scenes, this functionality is powered by the PowerShell session's native completion API, so context-aware completions like variables are available.
 
-![PowerShell IntelliSense shows completions like Get-Alias, Get-ChildItem, for example when typing Get-](images/shell-integration/pwsh-IntelliSense.png)
+![PowerShell IntelliSense shows completions like Get-Alias, Get-ChildItem, for example when typing Get-](images/shell-integration/pwsh-intellisense.png)
 
 You can enable the experimental IntelliSense for PowerShell with the `setting(terminal.integrated.suggest.enabled)` setting.
 
