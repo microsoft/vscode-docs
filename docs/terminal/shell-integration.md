@@ -91,6 +91,13 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
+## Intellisense
+
+Intellisense, powered by shell integration, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
+
+
+
+
 ## Command decorations and the overview ruler
 
 One of the things that shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
