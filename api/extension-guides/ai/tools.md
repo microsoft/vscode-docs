@@ -142,7 +142,7 @@ The following example shows how to define a tool that counts the number of activ
 
 </details>
 
-### 1. Tool implementation
+### 2. Tool implementation
 
 Implement the language model tool by using the [Language Model API reference](/api/references/vscode-api#_lm). This consists of the following steps:
 

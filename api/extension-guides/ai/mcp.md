@@ -15,16 +15,53 @@ VS Code retrieves MCP server configurations from `.vscode/mcp.json` files in wor
 
 VS Code extensions can also register MCP server configurations programmatically to avoid that users need to manually configure them. This is useful if you already have an MCP server and want to register it as part of your extension activation, or if your extension has a dependency on an MCP server.
 
-Instead of using MCP servers to extend the chat functionality, you can also [contribute language model tools](/api/extension-guides/ai/tools) directly within your extension. This approach is useful if you want to deeply integrate with VS Code by using extension APIs or to avoid that users have to install and run an MCP server in a separate process.
-
 > [!IMPORTANT]
 > MCP support in VS Code is currently in preview.
 
-## Register an MCP server
+## Why use MCP servers?
 
-To register an MCP server in your extension, use the `vscode.lm.registerMcpServerDefinitionProvider` API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+Implementing an MCP server to extend chat in VS Code with language model tools has the following benefits:
 
-Before calling this method, extensions must contribute the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider.
+- **Extend agent mode** with specialized, domain-specific, tools that are automatically invoked as part of responding to a user prompt. For example, enable database scaffolding and querying to dynamically provide the LLM with relevant context.
+- **Flexible deployment options** for local and remote scenarios.
+- **Reuse** your MCP server across different tools and platforms.
+
+You might consider implementing a language model tool with the [Language Model API](/api/extension-guides/ai/tools) in the following scenarios:
+
+- You want to deeply integrate with VS Code by using extension APIs.
+- You want to distribute your tool and updates by using the Visual Studio Marketplace.
+
+## Register an MCP server in your extension
+
+To register an MCP server in your extension, you need to perform the following steps:
+
+1. Define the MCP server definition provider in the `package.json` file of your extension.
+1. Implement the MCP server definition provider in your extension code by using the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API.
+
+You can get started with a basic [example of how to register an MCP server in a VS Code extension](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample).
+
+### 1. Static configuration in `package.json`
+
+Extensions that want to register MCP servers must contribute the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider. This `id` should match the one used in the implementation.
+
+```json
+{
+    ...
+    "contributes": {
+        "mcpServerDefinitionProviders": [
+            {
+                "id": "exampleProvider",
+                "label": "Example MCP Server Provider"
+            }
+        ]
+    }
+    ...
+}
+```
+
+### 2. Implement the provider
+
+To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
 
 The `McpServerDefinitionProvider` object has three properties:
 
@@ -36,6 +73,9 @@ An `McpServerDefinition` object can be one of the following types:
 
 - `vscode.McpStdioServerDefinition`: represents an MCP server available by running a local process and operating on its stdin and stdout streams.
 - `vscode.McpHttpServerDefinition`: represents an MCP server available using the Streamable HTTP transport.
+
+<details>
+<summary>Example MCP server definition provider</summary>
 
 The following example demonstrates how to register MCP servers in an extension and prompt the user for an API key when starting the server.
 
@@ -92,33 +132,11 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The `package.json` file should include the corresponding `contributes/mcpServerDefinitionProviders` section:
-
-```json
-{
-    ...
-    "contributes": {
-        "mcpServerDefinitionProviders": [
-            {
-                "id": "exampleProvider",
-                "label": "Example MCP Server Provider"
-            }
-        ]
-    }
-    ...
-}
-```
-
-## Getting started
-
-Get started with a full example of how to register an MCP server in a VS Code extension:
-
-- [MCP extension sample](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample)
+</details>
 
 ## Related content
 
+- [Contribute a language model tool](/api/extension-guides/ai/tools)
+- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
 - [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
-- [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
-- [Contribute a language model tool](/api/extension-guides/ai/tools)
-- [Language Model API reference](/api/references/vscode-api#_lm)
