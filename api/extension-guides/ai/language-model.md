@@ -21,11 +21,7 @@ The process for using the Language Model API consists of the following steps:
 
 The following sections provide more details on how to implement these steps in your extension.
 
-## Links
-
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [LanguageModels API](/api/references/vscode-api#lm)
-- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
+To get started, you can explore the [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample).
 
 ## Build the language model prompt
 
@@ -222,7 +218,6 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Build a VS Code chat extension](/api/extension-guides/ai/chat)
+- [Language Models API Reference](/api/references/vscode-api#lm)
 - [Learn more about @vscode/prompt-tsx](https://www.npmjs.com/package/@vscode/prompt-tsx)
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Build a VS Code chat extension](/api/extension-guides/ai/chat)
