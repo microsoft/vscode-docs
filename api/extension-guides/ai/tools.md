@@ -48,7 +48,7 @@ You might consider implementing a language model tool with an [MCP server](/api/
 Implementing a language model tool consists of two main parts:
 
 1. Define the tool's configuration in the `package.json` file of your extension.
-1. Implement the tool in your extension code by using the [Language Model API reference](/api/references/vscode-api#_lm)
+1. Implement the tool in your extension code by using the [Language Model API reference](/api/references/vscode-api#lm)
 
 You can get started with a [basic example project](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample).
 
@@ -62,7 +62,7 @@ The first step to define a language model tool in your extension is to define it
 
     | Property | Description |
     | -------- | ----------- |
-    | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines). |
+    | `name` | The unique name of the tool, used to reference the tool in the extension implementation code. Format the name in the format `{verb}_{noun}`. See [naming guidelines](#guidelines-and-conventions). |
     | `displayName` | The user-friendly name of the tool, used for displaying in the UI. |
 
 1. If the tool can be used in [agent mode](/docs/copilot/chat/chat-agent-mode) or referenced in a chat prompt with `#`, add the following properties:
@@ -144,7 +144,7 @@ The following example shows how to define a tool that counts the number of activ
 
 ### 2. Tool implementation
 
-Implement the language model tool by using the [Language Model API reference](/api/references/vscode-api#_lm). This consists of the following steps:
+Implement the language model tool by using the [Language Model API](/api/references/vscode-api#lm). This consists of the following steps:
 
 1. On activation of the extension, register the tool with [`vscode.lm.registerTool`](/api/references/vscode-api#lm.registerTool).
 
@@ -278,6 +278,6 @@ Get more best practices for creating tools in the [OpenAI documentation](https:/
 
 ## Related content
 
-- [Language Model API reference](/api/references/vscode-api#_lm)
+- [Language Model API reference](/api/references/vscode-api#lm)
 - [Register an MCP server in a VS Code extension](/api/extension-guides/ai/mcp)
 - [Use MCP tools in agent mode](/docs/copilot/chat/mcp-servers)
