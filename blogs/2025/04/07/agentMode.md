@@ -32,7 +32,7 @@ We have created a unified chat experience, combining the Chat and Edits view, th
 
 ![Agent mode with proposed changes in the editor](agent_full.png)
 
-We continue to receive fantastic user feedback ([please keep it coming!]( http://github.com/microsoft/vscode-copilot-release/issues/)), which has inspired many of the improvements we have made. Most notably:
+We continue to receive fantastic user feedback ([please keep it coming!]( http://github.com/microsoft/vscode/issues/)), which has inspired many of the improvements we have made. Most notably:
 
 * The undo action now reverts changes up to the last edit file tool call
 * Support for multiple agent sessions in the same workspace (best when editing sessions don't modify the same files)
@@ -80,7 +80,7 @@ As a developer you can extend the agent by creating an MCP server, or if you are
 
 ## What’s next
 
-Agent mode is improving every day, and to be among the first to benefit, consider installing [VS Code Insiders]( https://code.visualstudio.com/insiders/). Using VS Code Insiders and providing feedback in [our repo](http://github.com/microsoft/vscode-copilot-release/issues/) is the best way to help us improve the product. Next, we plan to work on:
+Agent mode is improving every day, and to be among the first to benefit, consider installing [VS Code Insiders]( https://code.visualstudio.com/insiders/). Using VS Code Insiders and providing feedback in [our repo](http://github.com/microsoft/vscode/issues/) is the best way to help us improve the product. Next, we plan to work on:
 
 * Support for custom modes with custom toolsets and [instructions]( https://code.visualstudio.com/docs/copilot/copilot-customization)
 * A faster code-apply experience
