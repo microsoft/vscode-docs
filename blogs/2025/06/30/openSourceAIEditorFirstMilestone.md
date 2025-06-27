@@ -20,7 +20,7 @@ As we [outlined previously](https://code.visualstudio.com/blogs/2025/05/19/openS
 
 ## Explore and contribute
 
-So now that the code is open source, what can you do? You can explore the codebase, dive into agent mode implementation, see what context we send to LLMs, and what prompts we use. All prompts, logic, telemetry, etc. is all transparent for you to see. In fact, you should try asking Agent mode to help learn and explore the codebase!
+Now that the code is open source, what does it mean for you? Explore the codebase and learn how agent mode is implemented, what context is sent to LLMs, and how we engineer our prompts. Everything, from our system prompts, implementation details, to the telemetry we capture, is available in all transparency. In fact, why not use agent mode itself for helping you understand and explore the codebase!
 
 We welcome [contributions](https://github.com/microsoft/vscode-copilot-chat/blob/main/contributing.md)! Feel free to [open pull requests]( https://github.com/microsoft/vscode-copilot-chat/pulls) and [file issues](https://github.com/microsoft/vscode/issues). Note, that we’re tracking issues in the [vscode repo](https://github.com/microsoft/vscode/issues), as our long-term goal is to integrate the vscode-copilot-chat code over to the core codebase.
 
