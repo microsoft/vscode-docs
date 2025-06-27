@@ -28,7 +28,7 @@ Have additional questions? Check out [our FAQ]( https://code.visualstudio.com/do
 
 ## What’s next?
 
-Next, we will carefully refactor the relevant components of the extension into VS Code core. The [original GitHub Copilot extension]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) that provides inline completions remains closed source – but in the following months we plan to have that functionality be provided by the open sourced [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). Also, we are excited to partner with the open source AI community to make sure our plan enables impactful open source scenarios.
+Next, we will carefully refactor the relevant components of the extension into VS Code core. The [original GitHub Copilot extension]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) that provides inline completions remains closed source – but in the following months we plan to have that functionality be provided by the open sourced [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat). Also, we are excited to partner with the open source AI community to make sure our plan covers impactful open source scenarios.
 
 Our core priorities remain intact: delivering great performance, powerful extensibility, and an intuitive, beautiful user interface.
 
