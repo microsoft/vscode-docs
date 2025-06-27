@@ -32,7 +32,7 @@ Next, we will carefully refactor the relevant components of the extension into V
 
 Our core priorities remain intact: delivering great performance, powerful extensibility, and an intuitive, beautiful user interface.
 
-We’re excited to shape the future of development as an open source AI editor - and we hope you’ll join us on this journey to build in the open.
+We’re excited to shape the future of development as an open source AI editor, and we hope you’ll join us on this journey to build in the open.
 
 Happy Coding!
 
