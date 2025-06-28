@@ -27,10 +27,12 @@ The GitHub Copilot services are not affected and will remain closed source.
 
 ### What is the timeline? When can I provide a contribution to the AI experience in VS Code?
 
-We plan to implement these changes over the next couple of months. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
+We have completed the first step of this process by open sourcing the GitHub Copilot Chat extension. The source code is available in the [microsoft/vscode-copilot-chat](https://github.com/microsoft/vscode-copilot-chat) repository.
+
+In the coming months, we will bring the relevant components of the Copilot Chat extension into the core VS Code repository. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
 
 Our goal is to make the experience for contributing to our AI features as simple as contributing to any part of VS Code. As part of this, we want to make it possible to use the Copilot backend services for debugging and testing purposes when contributing.
-Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md) file for details on how to contribute to VS Code.
+Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode-copilot-chat/blob/main/CONTRIBUTING.md) file for details on how to contribute.
 
 ### Why integrate GitHub Copilot into the core VS Code repository?
 
