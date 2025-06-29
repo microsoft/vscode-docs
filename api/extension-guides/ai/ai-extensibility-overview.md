@@ -20,10 +20,11 @@ You can extend and customize each of these built-in capabilities to create tailo
 
 Adding AI capabilities to your extension brings several benefits to your users:
 
+- **Domain-specific knowledge in agent mode**: Let agent mode access your company's data sources and services
 - **Enhanced user experience**: Provide intelligent assistance tailored to your extension's domain
 - **Domain specialization**: Create AI features specific to a programming language, framework, or domain
-- **Improved developer productivity**: Enhance common developer tasks, like debugging, code reviewing or testing, with AI capabilities
 - **Extend chat capabilities**: Add specialized tools or assistants to the chat interface for more powerful interactions
+- **Improved developer productivity**: Enhance common developer tasks, like debugging, code reviewing or testing, with AI capabilities
 
 ## Extend the chat experience
 
@@ -36,8 +37,7 @@ To implement a language model tool, use the [Language Model Tools API](/api/exte
 **Key benefits**:
 
 - Domain-specific capabilities as part of an autonomous coding workflow
-- Automatic tool invocation in agent mode, depending on user intent
-- Deep VS Code integration through extension APIs
+- Your tool implementation can use VS Code APIs since it runs in the extension host process
 - Easy distribution and deployment via the Visual Studio Marketplace
 
 **Key considerations**:
@@ -55,10 +55,9 @@ As MCP tools run outside of VS Code, they do not have access to the VS Code exte
 
 **Key benefits**:
 
-- Domain-specific capabilities as part of an autonomous coding workflow
-- Automatic tool invocation in agent mode, depending on user intent
+- Add domain-specific capabilities as part of an autonomous coding workflow
 - Local and remote deployment options
-- Share implementations across different tools and platforms
+- Reuse MCP servers in other MCP clients
 
 **Key considerations**:
 
@@ -67,20 +66,18 @@ As MCP tools run outside of VS Code, they do not have access to the VS Code exte
 
 ### Chat participant
 
-Chat participants are specialized assistants that enable users to extend ask mode with domain-specific experts. In ask mode, users can invoke a chat participant by @-mentioning it and passing in a natural language prompt about a particular topic or domain. The chat participant is responsible for handling the entire chat interaction.
+Chat participants are specialized assistants that enable users to extend ask mode with domain-specific experts. In chat, users can invoke a chat participant by @-mentioning it and passing in a natural language prompt about a particular topic or domain. The chat participant is responsible for handling the entire chat interaction.
 
 To implement a chat participant, use the [Chat API](/api/extension-guides/ai/chat) within your VS Code extension. A chat participant can access all VS Code extension APIs and provide deep integration with the editor.
 
 **Key benefits**:
 
-- Provide domain-specific expertise in ask mode
-- Control interaction flow and customize response behavior
-- Deep VS Code integration through extension APIs
+- Control the end-to-end interaction flow
+- Running in the extension host process allows access to VS Code extension APIs
 - Easy distribution and deployment via the Visual Studio Marketplace
 
 **Key considerations**:
 
-- Only available in ask mode
 - Remote deployment requires the extension to implement the client-server communication
 - Reuse across different tools requires modular design and implementation
 
@@ -92,14 +89,13 @@ To use language models directly, use the [Language Model API](/api/extension-gui
 
 **Key benefits**:
 
-- Create custom workflows and experiences that target specific use cases
-- Integrate AI capabilities into existing extension features
-- Deep VS Code integration through extension APIs
+- Integrate AI capabilities into existing extension features or build new ones
+- Running in the extension host process allows access to VS Code extension APIs
 - Easy distribution and deployment via the Visual Studio Marketplace
 
 **Key considerations**:
 
-- Reuse across chat or different tools requires modular design and implementation
+- Reuse across different experiences requires modular design and implementation
 
 ## Decide which option to use
 
@@ -137,6 +133,7 @@ Choose the approach that best fits your extension's goals:
 - [Register MCP tools in your VS Code extension](/api/extension-guides/ai/mcp)
 - [Integrate AI in your extension with the Language Model API](/api/extension-guides/ai/language-model)
 - [Implement a chat participant](/api/extension-guides/ai/chat)
+- [Extend code completions with the Inline Completions API](/api/references/vscode-api#InlineCompletionItemProvider)
 
 ### Sample projects
 
