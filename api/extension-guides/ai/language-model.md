@@ -11,7 +11,7 @@ MetaDescription: A guide to adding AI-powered features to a VS Code extension by
 
 The Language Model API enables you to [use the Language Model](/api/references/vscode-api#lm) and integrate AI-powered features and natural language processing in your Visual Studio Code extension.
 
-You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
+You can use the Language Model API in different types of extensions. A typical use for this API is in [chat extensions](/api/extension-guides/ai/chat), where you use a language model to interpret the user's request and help provide an answer. However, the use of the Language Model API is not limited to this scenario. You might use a language model in a [language](/api/language-extensions/overview) or [debugger](/api/extension-guides/debugger-extension) extension, or as part of a [command](/api/extension-guides/command) or [task](/api/extension-guides/task-provider) in a custom extension. For example, the Rust extension might use the Language Model to offer default names to improve its rename experience.
 
 The process for using the Language Model API consists of the following steps:
 
@@ -21,11 +21,7 @@ The process for using the Language Model API consists of the following steps:
 
 The following sections provide more details on how to implement these steps in your extension.
 
-## Links
-
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [LanguageModels API](/api/references/vscode-api#lm)
-- [@vscode/prompt-tsx npm package](https://www.npmjs.com/package/@vscode/prompt-tsx)
+To get started, you can explore the [chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample).
 
 ## Build the language model prompt
 
@@ -123,7 +119,7 @@ try {
 
 After you've sent the request, you have to process the response from the language model API. Depending on your usage scenario, you can pass the response directly on to the user, or you can interpret the response and perform extra logic.
 
-The response ([`LanguageModelChatResponse`](/api/references/vscode-api#LanguageModelChatResponse)) from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/chat).
+The response ([`LanguageModelChatResponse`](/api/references/vscode-api#LanguageModelChatResponse)) from the Language Model API is streaming-based, which enables you to provide a smooth user experience. For example, by reporting results and progress continuously when you use the API in combination with the [Chat API](/api/extension-guides/ai/chat).
 
 Errors might occur while processing the streaming response, such as network connection issues. Make sure to add appropriate error handling in your code to handle these errors.
 
@@ -191,10 +187,13 @@ We don't expect specific models to stay supported forever. When you reference a 
 ### Choosing the appropriate model
 
 Extension authors can choose which model is the most appropriate for their extension. We recommend using `gpt-4o` for its performance and quality. To get a full list of available models, you can use this code snippet:
+
 ```typescript
 const allModels = await vscode.lm.selectChatModels(MODEL_SELECTOR);
 ```
-> **Note**: The recommended GPT-4o model has a limit of `64K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
+
+> [!NOTE]
+> The recommended GPT-4o model has a limit of `64K` tokens. The returned model object from the `selectChatModels` call has a `maxInputTokens` attribute that shows the token limit. These limits will be expanded as we learn more about how extensions are using the language models.
 
 ### Rate limiting
 
@@ -219,7 +218,6 @@ Once you have created your AI extension, you can publish your extension to the V
 
 ## Related content
 
-- [Build a VS Code chat extension](/api/extension-guides/chat)
+- [Language Models API Reference](/api/references/vscode-api#lm)
 - [Learn more about @vscode/prompt-tsx](https://www.npmjs.com/package/@vscode/prompt-tsx)
-- [Chat extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/chat-sample)
-- [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
+- [Build a VS Code chat extension](/api/extension-guides/ai/chat)
