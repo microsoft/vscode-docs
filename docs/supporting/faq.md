@@ -13,7 +13,7 @@ If you don't see an answer to your question here, check our previously [reported
 
 ## Open sourcing AI in VS Code
 
-We've announced that we are open sourcing the GitHub Copilot Chat extension under the MIT license and then bringing relevant components into VS Code core. Read all details about this announcement in our [blog post](https://aka.ms/vscode-copilot-oss-blog).
+We've open sourced the GitHub Copilot Chat extension under the MIT license and are bringing relevant components into VS Code core. Read all details in our [announcement blog post](https://aka.ms/vscode-copilot-oss-blog) and [first milestone update](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone).
 
 ### Does this affect my current GitHub Copilot subscription? Is GitHub Copilot free now?
 
@@ -27,7 +27,7 @@ The GitHub Copilot services are not affected and will remain closed source.
 
 ### What is the timeline? When can I provide a contribution to the AI experience in VS Code?
 
-We have completed the first step of this process by open sourcing the GitHub Copilot Chat extension. The source code is available in the [microsoft/vscode-copilot-chat](https://github.com/microsoft/vscode-copilot-chat) repository.
+We have [completed the first step](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone) of this process by open sourcing the GitHub Copilot Chat extension. The source code is available in the [microsoft/vscode-copilot-chat](https://github.com/microsoft/vscode-copilot-chat) repository.
 
 In the coming months, we will bring the relevant components of the Copilot Chat extension into the core VS Code repository. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
 
