@@ -93,7 +93,7 @@ To view the shell integration quality, hover the terminal tab. Optionally, selec
 
 ## IntelliSense (Preview)
 
-IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. powered by shell integration `setting(terminal.integrated.shellIntegration.enable)`, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature is powered by shell integration `setting(terminal.integrated.shellIntegration.enable)` and can be enabled with `setting(terminal.integrated.suggest.enabled)`.
 
 ![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
 
