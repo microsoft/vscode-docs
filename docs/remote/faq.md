@@ -59,8 +59,8 @@ No. The VS Code Server is a component of the Remote Development extensions and i
 
 Installation of VS Code Server requires that your local machine have outbound HTTPS (port 443) connectivity to:
 
-* `update.code.visualstudio.com`
-* `*.vo.msecnd.net` (Azure CDN)
+- `update.code.visualstudio.com`
+- `vscode.download.prss.microsoft.com`
 
 By default, the Remote - SSH will attempt to download on the remote host, and fail back to downloading VS Code Server locally and transferring it remotely once a connection is established. You can change this behavior with the `setting(remote.SSH.localServerDownload)` setting to always download locally and then transfer it, or to never download locally.
 
@@ -68,10 +68,8 @@ The Dev Containers extension always downloads locally and transfers into the con
 
 You can install extensions manually without an internet connection using the **Extensions: Install from VSIX...** command, but if you use the extension panel or `devcontainer.json` to install extensions, your local machine and VS Code Server will need outbound HTTPS (port 443) access to:
 
-* `marketplace.visualstudio.com`
-* `vscode.blob.core.windows.net`
-* `*.vo.msecnd.net` (Azure CDN)
-* `*.gallerycdn.vsassets.io` (Azure CDN)
+- `marketplace.visualstudio.com`
+- `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 

@@ -242,9 +242,8 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 The WSL extension and VS Code Server require outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
+- `vscode.download.prss.microsoft.com`
 - `marketplace.visualstudio.com`
-- `vscode.blob.core.windows.net`
-- `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
