@@ -14,13 +14,17 @@ June 12, 2025 by [Harald Kirschner](https://github.com/digitarald), [Connor Peet
 
 VS Code now supports the complete [Model Context Protocol specification](https://modelcontextprotocol.io/).
 
+MCP co-creator [David Soria Parra](https://github.com/dsp) reflects on this milestone:
+
+> I'm excited to see what developers will build now that they have access to the full spectrum of MCP features within VS Code. The community continually impresses me with their creativity and drive to push the boundaries of what's possible.
+
 Beyond the initial tools and workspace awareness we [introduced in May](https://code.visualstudio.com/blogs/2025/05/12/agent-mode-meets-mcp), you can now use authorization, prompts, resources, and sampling. These additions transform MCP from a set of individual tools into a comprehensive standard for AI agent integrations.
 
 ## Security-First: The New Authorization Foundation
 
 The [new authorization specification](https://modelcontextprotocol.io/specification/draft/basic/authorization) is the biggest leap forward. Microsoft, Anthropic, and the broader identity community—including Okta/Auth0, Stytch, and Descope—collaborated on this effort. The new specification cleanly separates MCP servers as Resource Providers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch. For the technical details on how the new authorization flow works, check out [Den Delimarsky's comprehensive overview](https://den.dev/blog/new-mcp-authorization-spec/).
 
-Combined with **streamable HTTP transport** (which landed in our previous version), this enables remote MCP servers that can scale independently while maintaining enterprise-grade security. The [GitHub MCP Server](https://github.blog/changelog/) demonstrates this evolution perfectly—it's now available as a remote server with proper OAuth integration that uses VS Code's existing GitHub authentication and account management, so you can securely connect repositories and issue tracking.
+Combined with **streamable HTTP transport** (which landed in our previous version), this enables remote MCP servers that can scale independently while maintaining enterprise-grade security. The [GitHub MCP Server](https://github.blog/changelog/2025-06-12-remote-github-mcp-server-is-now-available-in-public-preview/) demonstrates this evolution perfectly—it's now available as a remote server with proper OAuth integration that uses VS Code's existing GitHub authentication and account management, so you can securely connect repositories and issue tracking.
 
 ![Screenshot showing the login dialog from the GitHub MCP server in VS Code.](mcp-server-authenticate.png)
 
@@ -40,7 +44,7 @@ Perhaps the most upvoted MCP capability is [**Sampling**](https://modelcontextpr
 
 ## Ready to Explore
 
-The complete MCP experience is available now in VS Code. Try the GitHub MCP server with its new remote capabilities and VS Code authentication integration, explore servers that provide rich prompts and resources, or build your own server that takes advantage of the full specification.
+The complete MCP experience is available now in VS Code. Try the [GitHub MCP server](https://github.blog/changelog/2025-06-12-remote-github-mcp-server-is-now-available-in-public-preview/) with its new remote capabilities and VS Code authentication integration, explore servers that provide rich prompts and resources, or build your own server that takes advantage of the full specification.
 
 To get started, check out the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), browse the [official server repository](https://github.com/modelcontextprotocol/servers), or dive into the [Model Context Protocol specification](https://modelcontextprotocol.io/).
 

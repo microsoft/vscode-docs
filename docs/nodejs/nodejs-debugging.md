@@ -650,7 +650,7 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 The JavaScript debugger can debug code compiled into WebAssembly if it includes [DWARF](https://dwarfstd.org) debug information. Many toolchains support emitting this information:
 
-* [C/C++ with Emscripten](https://emscripten.org/): Compile with the the `-g` flag to emit debug information.
+* [C/C++ with Emscripten](https://emscripten.org/): Compile with the `-g` flag to emit debug information.
 * [Zig](https://ziglang.org/): DWARF information is automatically emittted in the "Debug" build mode.
 * [Rust](https://www.rust-lang.org/): Rust emits DWARF debug information. However, wasm-pack [does not yet](https://github.com/rustwasm/wasm-pack/issues/1351) retain it during the build. So, instead of running `wasm-pack build`, users of the common wasm-bindgen/wasm-pack libraries should build manually build using two commands:
   1. `cargo install wasm-bindgen-cli` once to install the necessary command-line tool.

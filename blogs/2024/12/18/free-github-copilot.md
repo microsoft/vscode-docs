@@ -141,7 +141,7 @@ There's so much more GitHub Copilot we want to show you, but nothing can replace
 
 We ship updates and new features for GitHub Copilot every month. The best way to keep up with the latest and greatest in AI coding is to follow us on [X](https://twitter.com/code), [Bluesky](https://bsky.app/profile/vscode.dev), [LinkedIn](https://www.linkedin.com/showcase/vs-code/), and even [TikTok](https://www.tiktok.com/@vscode). We'll give you the updates as they drop - short and sweet - right in your feed.
 
-And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode-copilot-release).
+And if you've got feedback, we'd love to hear it. Feel free to @ us on social or drop an issue or feature request on the [GitHub Copilot extension issues repo](https://github.com/microsoft/vscode/issues).
 
 ## GitHub Copilot in other places
 

@@ -11,7 +11,7 @@ This article lists the configuration settings for GitHub Copilot in Visual Studi
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
-The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode-copilot-release/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
+The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
 
 ## General settings
 
@@ -82,9 +82,9 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 Copilot requests for reviewing the current editor selection.
 * `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: A set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
 * `setting(chat.promptFiles)` _(Experimental)_: Enable or disable reusable prompt files.
-* `setting(chat.promptFilesLocations)` _(Experimental)_: A list of folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
-* `setting(chat.instructionsFilesLocations)` _(Experimental)_: A list of folders where instruction files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
-* `setting(chat.modeFilesLocations)` _(Experimental)_: A list of folders where chat mode files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.promptFilesLocations)` _(Experimental)_: A dictionary of folders where prompt files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.instructionsFilesLocations)` _(Experimental)_: A dictionary of folders where instructions files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.modeFilesLocations)` _(Experimental)_: A dictionary of folders where chat mode files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
 
 ## Debugging settings
 

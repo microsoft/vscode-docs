@@ -49,7 +49,7 @@ The extension host where an extension is loaded depends on:
 * `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using VS Code for the Web with Codespaces it will run in the remote extension host always (as no local extension host is available).
 * `"extensionKind": ["ui"]` — Indicates the extension **must** run close to the UI because it requires access to local assets, devices, or capabilities or because low latency is required. In the case of VS Code for the Web with Codespaces, where no local extension host is available, such an extension can not load, unless it is also a [web extension](/api/extension-guides/web-extensions). It will then be loaded in the web extension host with a limitation that it cannot instantiate a web worker.
 
-**Note:** Prior VS Code releases (<1.40) allowed an extension to specify a single location as a string but this is deprecated in favor of multiple locations as a array.
+**Note:** Prior VS Code releases (<1.40) allowed an extension to specify a single location as a string but this is deprecated in favor of multiple locations as an array.
 
 If an extension can run on Node.js and in the browser, a Node.js extension host will be selected if available. There's one exception, when the configuration is VS Code for the Web with Codespaces and the `extensionKind` is set to `ui`, then the web extension host is preferred over the remote extension host.
 

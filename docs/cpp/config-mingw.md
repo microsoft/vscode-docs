@@ -432,7 +432,7 @@ UCRT on Windows machines is only included in Windows 10 or later. If you are usi
 pacman -S --needed base-devel mingw-w64-x86_64-toolchain
 ```
 
-When adding the the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
+When adding the MinGW-w64 destination folder to your list of environment variables, the default path will then be: `C:\msys64\mingw64\bin`.
 
 ### MinGW 32-bit
 
