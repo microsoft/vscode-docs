@@ -97,7 +97,7 @@ IntelliSense in the terminal enables you to receive suggestions for files, folde
 
 ![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
 
-Commands are sourced from [Fig specs](https://github.com/withfig) and per-shell builtin functions (for `pwsh`, `bash`, `zsh`, and `fish`) and are validated against the `$PATH` to ensure they exist. On Windows, the particular set of executables can be configured with `setting(terminal.integrated.suggest.windowsExecutableExtensions)`.
+VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
 
 There can be multiple IntelliSense providers, which can be changed with `setting(terminal.integrated.suggest.providers)`.
 
