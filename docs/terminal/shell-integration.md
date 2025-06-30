@@ -111,7 +111,7 @@ IntelliSense can be triggered manually `kb(workbench.action.terminal.requestComp
 
 When the shell provides an inline completion, VS Code surfaces this as the first completion item in the list. You can further configure this behavior with the `setting(terminal.integrated.suggest.inlineSuggestion)` setting.
 
-`setting(terminal.integrated.suggest.showStatusBar)` controls if a status bar shows up at the bottom of the list. This contains helpful actions like `Learn More` `kb(workbench.action.terminal.suggestLearnMore)`, `Insert` `kb(workbench.action.terminal.acceptSelectedSuggestion)`, and `Configure` `kb(workbench.action.terminal.configureSuggestSettings)`. When the feature is used for the first several times, the `Learn More` action will be highlighted for extra discoverability.
+The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a status bar shows up at the bottom of the list. This status bar provides actions like **Learn More** (`kb(workbench.action.terminal.suggestLearnMore)`), **Insert** (`kb(workbench.action.terminal.acceptSelectedSuggestion)`), and **Configure** (`kb(workbench.action.terminal.configureSuggestSettings)`). When you use the IntelliSense feature for the first several times, the **Learn More** action is highlighted for extra discoverability.
 
 Toggle suggest detail focus with `kb(workbench.action.terminal.suggestToggleDetails)` and focus the details widget with `kb(workbench.action.terminal.suggestToggleDetailsFocus)`.
 
