@@ -91,6 +91,29 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
+## IntelliSense (Preview)
+
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature is powered by shell integration `setting(terminal.integrated.shellIntegration.enable)` and can be enabled with `setting(terminal.integrated.suggest.enabled)`.
+
+![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
+
+VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
+
+### Keyboard navigation
+
+By default, `kbstyle(Tab)` inserts the suggestion. Once navigation of the list has occurred, `kbstyle(Enter)` will similarly insert the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
+
+To both insert and run the completion in the terminal on acceptance, configure `setting(terminal.integrated.suggest.runOnEnter)`.
+
+IntelliSense can be triggered manually `kb(workbench.action.terminal.requestCompletions)` or by typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
+
+When the shell provides an inline completion, VS Code surfaces this as the first completion item in the list. You can further configure this behavior with the `setting(terminal.integrated.suggest.inlineSuggestion)` setting.
+
+The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a status bar shows up at the bottom of the list. This status bar provides actions like **Learn More** (`kb(workbench.action.terminal.suggestLearnMore)`), **Insert** (`kb(workbench.action.terminal.acceptSelectedSuggestion)`), and **Configure** (`kb(workbench.action.terminal.configureSuggestSettings)`). When you use the IntelliSense feature for the first several times, the **Learn More** action is highlighted for extra discoverability.
+
+The suggest control can show extra details about the suggestion. You can toggle the visibility of these details with `kb(workbench.action.terminal.suggestToggleDetails)`. Screen reader users can focus the details control with `kb(workbench.action.terminal.suggestToggleDetailsFocus)` to hear them read out.
+
+
 ## Command decorations and the overview ruler
 
 One of the things that shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
@@ -196,24 +219,6 @@ The following keyboard shortcuts should work in PowerShell when shell integratio
 - `kbstyle(Shift+Enter)`: Defaults to `AddLine` on all platforms
 - `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
 - `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
-
-## Experimental IntelliSense for PowerShell
-
-Experimental IntelliSense for PowerShell shows a completion list when typing in PowerShell, similar to the editor experience. Behind the scenes, this functionality is powered by the PowerShell session's native completion API, so context-aware completions like variables are available.
-
-![PowerShell IntelliSense shows completions like Get-Alias, Get-ChildItem, for example when typing Get-](images/shell-integration/pwsh-intellisense.png)
-
-You can enable the experimental IntelliSense for PowerShell with the `setting(terminal.integrated.suggest.enabled)` setting.
-
-```json
-"terminal.integrated.suggest.enabled": true
-```
-
-> **Note**: This functionality is currently only available on Windows and macOS.
-
-### Git and VS Code completions
-
-When experimental IntelliSense is enabled, completions for CLIs `git`, `code`, and `code-insiders` are turned on by default. If your PowerShell profile already has completions, you may want to turn these off by using the `setting(terminal.integrated.suggest.builtinCompletions)` setting.
 
 ## Enhanced accessibility
 
