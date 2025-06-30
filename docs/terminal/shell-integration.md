@@ -91,11 +91,31 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
-## Intellisense
+## IntelliSense
 
-Intellisense, powered by shell integration, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
+### Background
 
+IntelliSense, powered by shell integration `setting(terminal.integrated.shellIntegration.enable)`, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
 
+By default, on request of completions `kb(workbench.action.terminal.requestCompletions)` files, folders, commands, arguments, and options are provided.
+
+Commands are sourced from [Fig specs](https://github.com/withfig) and per-shell builtin functions and are validated against the `$PATH` to ensure they exist. On Windows, the particular set of executables can be configured with `setting(terminal.integrated.suggest.windowsExecutableExtensions)`.
+
+There can be multiple IntelliSense providers, which can be changed with `setting(terminal.integrated.suggest.providers)`.
+
+### Keyboard navigation
+
+By default, `Tab` inserts the suggestion. Once navigation of the list has occurred, `Enter` will similarly insert the suggestion. This can be configured with `setting(terminal.integrated.suggest.selectionMode)`.
+
+To both insert and run the completion in the terminal on acceptance, configure `setting(terminal.integrated.suggest.runOnEnter)`.
+
+IntelliSense is triggered when typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
+
+When the shell provides an inline completion, we surface this as the first completion item and that can be configured with `setting(terminal.integrated.suggest.inlineSuggestion)`.
+
+`setting(terminal.integrated.suggest.showStatusBar)` controls if a status bar shows up at the bottom of the list. This contains helpful actions like `Learn More` `kb(workbench.action.terminal.suggestLearnMore)`, `Insert` `kb(workbench.action.terminal.acceptSelectedSuggestion)`, and `Configure` `kb(workbench.action.terminal.configureSuggestSettings)`. When the feature is used for the first several times, the `Learn More` action will be highlighted for extra discoverability.
+
+Toggle suggest detail focus with `kb(workbench.action.terminal.suggestToggleDetails)` and focus the details widget with `kb(workbench.action.terminal.suggestToggleDetailsFocus)`.
 
 
 ## Command decorations and the overview ruler
