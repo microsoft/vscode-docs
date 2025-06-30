@@ -91,7 +91,7 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
-## IntelliSense (Preview)
+## IntelliSense
 
 ### Background
 
