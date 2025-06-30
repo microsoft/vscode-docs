@@ -163,11 +163,108 @@ Users can view the sampling requests made by an MCP server with the **MCP: List 
 
 VS Code provides the MCP server with the user's workspace root folder information.
 
-## Register MCP servers in VS Code extensions
+## Register an MCP server in your extension
 
-If you're building a VS Code extension that includes or depends on an MCP server, you can register it programmatically using the VS Code API. This approach avoids requiring users to manually configure your server.
+To register an MCP server in your extension, you need to perform the following steps:
 
-For complete details and code examples, see the [MCP servers API guide](/api/extension-guides/mcp.md).
+1. Define the MCP server definition provider in the `package.json` file of your extension.
+1. Implement the MCP server definition provider in your extension code by using the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API.
+
+You can get started with a basic [example of how to register an MCP server in a VS Code extension](https://github.com/microsoft/vscode-extension-samples/blob/main/mcp-extension-sample).
+
+### 1. Static configuration in `package.json`
+
+Extensions that want to register MCP servers must contribute the `contributes.mcpServerDefinitionProviders` extension point in the `package.json` with the `id` of the provider. This `id` should match the one used in the implementation.
+
+```json
+{
+    ...
+    "contributes": {
+        "mcpServerDefinitionProviders": [
+            {
+                "id": "exampleProvider",
+                "label": "Example MCP Server Provider"
+            }
+        ]
+    }
+    ...
+}
+```
+
+### 2. Implement the provider
+
+To register an MCP server in your extension, use the [`vscode.lm.registerMcpServerDefinitionProvider`](/api/references/vscode-api#lm.registerMcpServerDefinitionProvider) API to provide the [MCP configuration](/docs/copilot/chat/mcp-servers#_configuration-format) for the server. The API takes a `providerId` string and a `McpServerDefinitionProvider` object.
+
+The `McpServerDefinitionProvider` object has three properties:
+
+- `onDidChangeMcpServerDefinitions`: event that is triggered when the MCP server configurations change.
+- `provideMcpServerDefinitions`: function that returns an array of MCP server configurations (`vscode.McpServerDefinition[]`).
+- `resolveMcpServerDefinition`: function that the editor calls when the MCP server needs to be started. Use this function to perform additional actions that may require user interaction, such as authentication.
+
+An `McpServerDefinition` object can be one of the following types:
+
+- `vscode.McpStdioServerDefinition`: represents an MCP server available by running a local process and operating on its stdin and stdout streams.
+- `vscode.McpHttpServerDefinition`: represents an MCP server available using the Streamable HTTP transport.
+
+<details>
+<summary>Example MCP server definition provider</summary>
+
+The following example demonstrates how to register MCP servers in an extension and prompt the user for an API key when starting the server.
+
+```ts
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    const didChangeEmitter = new vscode.EventEmitter<void>();
+
+    context.subscriptions.push(vscode.lm.registerMcpServerDefinitionProvider('exampleProvider', {
+        onDidChangeMcpServerDefinitions: didChangeEmitter.event,
+        provideMcpServerDefinitions: async () => {
+            let servers: vscode.McpServerDefinition[] = [];
+
+            // Example of a simple stdio server definition
+            servers.push(new vscode.McpStdioServerDefinition(
+            {
+                label: 'myServer',
+                command: 'node',
+                args: ['server.js'],
+                cwd: vscode.Uri.file('/path/to/server'),
+                env: {
+                    API_KEY: ''
+                },
+                version: '1.0.0'
+            });
+
+            // Example of an HTTP server definition
+            servers.push(new vscode.McpHttpServerDefinition(
+            {
+                label: 'myRemoteServer',
+                uri: 'http://localhost:3000',
+                headers: {
+                    'API_VERSION': '1.0.0'
+                },
+                version: '1.0.0'
+            }));
+
+            return servers;
+        },
+        resolveMcpServerDefinition: async (server: vscode.McpServerDefinition) => {
+
+            if (server.label === 'myServer') {
+                // Get the API key from the user, e.g. using vscode.window.showInputBox
+                // Update the server definition with the API key
+            }
+
+            // Return undefined to indicate that the server should not be started or throw an error
+            // If there is a pending tool call, the editor will cancel it and return an error message
+            // to the language model.
+            return server;
+        }
+    }));
+}
+```
+
+</details>
 
 ## Troubleshoot and debug MCP servers
 

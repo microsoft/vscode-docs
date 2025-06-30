@@ -29,7 +29,7 @@
         "topics": [
           ["AI Extensibility", "/api/extension-guides/ai/ai-extensibility-overview"],
           ["Language Model Tool", "/api/extension-guides/ai/tools"],
-          ["MCP", "/api/extension-guides/ai/mcp"],
+          ["MCP Dev Guide", "/api/extension-guides/ai/mcp"],
           ["Chat Participant", "/api/extension-guides/ai/chat"],
           ["Chat Tutorial", "/api/extension-guides/ai/chat-tutorial"],
           ["Language Model", "/api/extension-guides/ai/language-model"],
