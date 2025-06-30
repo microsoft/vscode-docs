@@ -113,7 +113,7 @@ When the shell provides an inline completion, VS Code surfaces this as the first
 
 The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a status bar shows up at the bottom of the list. This status bar provides actions like **Learn More** (`kb(workbench.action.terminal.suggestLearnMore)`), **Insert** (`kb(workbench.action.terminal.acceptSelectedSuggestion)`), and **Configure** (`kb(workbench.action.terminal.configureSuggestSettings)`). When you use the IntelliSense feature for the first several times, the **Learn More** action is highlighted for extra discoverability.
 
-Toggle suggest detail focus with `kb(workbench.action.terminal.suggestToggleDetails)` and focus the details widget with `kb(workbench.action.terminal.suggestToggleDetailsFocus)`.
+The suggest widget can show details. You can toggle the detail widget's visiblity with `kb(workbench.action.terminal.suggestToggleDetails)`. Screen reader users can focus the details widget with `kb(workbench.action.terminal.suggestToggleDetailsFocus)` to hear them read out.
 
 
 ## Command decorations and the overview ruler
