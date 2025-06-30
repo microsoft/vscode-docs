@@ -99,7 +99,7 @@ IntelliSense in the terminal enables you to receive suggestions for files, folde
 
 VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
 
-There can be multiple IntelliSense providers, which can be changed with `setting(terminal.integrated.suggest.providers)`.
+The terminal supports multiple IntelliSense providers. You can configure them with the `setting(terminal.integrated.suggest.providers)` setting.
 
 ### Keyboard navigation
 
