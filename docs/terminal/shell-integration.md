@@ -103,7 +103,7 @@ The terminal supports multiple IntelliSense providers. You can configure them wi
 
 ### Keyboard navigation
 
-By default, `Tab` inserts the suggestion. Once navigation of the list has occurred, `Enter` will similarly insert the suggestion. This can be configured with `setting(terminal.integrated.suggest.selectionMode)`.
+By default, `kbstyle(Tab)` inserts the suggestion. Once navigation of the list has occurred, `kbstyle(Enter)` will similarly insert the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
 
 To both insert and run the completion in the terminal on acceptance, configure `setting(terminal.integrated.suggest.runOnEnter)`.
 
