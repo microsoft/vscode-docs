@@ -436,6 +436,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/copilot/guides/mcp-developer-guide</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
