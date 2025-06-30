@@ -109,7 +109,7 @@ To both insert and run the completion in the terminal on acceptance, configure `
 
 IntelliSense can be triggered manually `kb(workbench.action.terminal.requestCompletions)` or by typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
 
-When the shell provides an inline completion, we surface this as the first completion item and that can be configured with `setting(terminal.integrated.suggest.inlineSuggestion)`.
+When the shell provides an inline completion, VS Code surfaces this as the first completion item in the list. You can further configure this behavior with the `setting(terminal.integrated.suggest.inlineSuggestion)` setting.
 
 `setting(terminal.integrated.suggest.showStatusBar)` controls if a status bar shows up at the bottom of the list. This contains helpful actions like `Learn More` `kb(workbench.action.terminal.suggestLearnMore)`, `Insert` `kb(workbench.action.terminal.acceptSelectedSuggestion)`, and `Configure` `kb(workbench.action.terminal.configureSuggestSettings)`. When the feature is used for the first several times, the `Learn More` action will be highlighted for extra discoverability.
 
