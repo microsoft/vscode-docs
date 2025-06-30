@@ -10,6 +10,8 @@ Author: The VS Code team
 
 # VS Code: Open Source AI Editor
 
+**Update (June 30th, 2025): the [GitHub Copilot Chat extension is now open source](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone).**
+
 May 19th, 2025 by the VS Code team
 
 We believe that the future of code editors should be open and powered by AI. For the last decade, VS Code has been one of the [most successful OSS projects on GitHub](https://github.blog/news-insights/octoverse/octoverse-2024/#the-state-of-open-source). We are grateful for our vibrant community of contributors and users who choose VS Code because it is open source. As AI becomes core to the developer experience in VS Code, we intend to stay true to our founding development principles: open, collaborative, and community-driven.

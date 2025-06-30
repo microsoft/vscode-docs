@@ -15,7 +15,7 @@ Use it to code in any programming language, without switching editors. Visual St
 
 ### Collaborate and code remotely
 
-Work together remotely with your teachers or classmates using the free [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using Live Share](/learn/collaboration/live-share.md).
+Work together remotely with your teachers or classmates using the free [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your session and code together. Check out this [tutorial on how to start using Live Share](/learn/collaboration/live-share.md).
 
 ### Code to learn
 

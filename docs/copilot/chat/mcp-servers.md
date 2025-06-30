@@ -51,7 +51,9 @@ VS Code supports the following MCP capabilities:
 <details>
 <summary>Finding MCP servers</summary>
 
-MCP's [official server repository](https://github.com/modelcontextprotocol/servers) is a great starting point for reference, official, and community-contributed servers that showcase MCP's versatility. You can explore servers for various functionalities, such as file system operations, database interactions, and web services.
+The [curated list of MCP servers](https://code.visualstudio.com/mcp) on the VS Code website is a great starting point. Choose from different categories and directly install MCP servers in VS Code.
+
+MCP's [official server repository](https://github.com/modelcontextprotocol/servers) provides official, and community-contributed servers that showcase MCP's versatility. You can explore servers for various functionalities, such as file system operations, database interactions, and web services.
 
 MCP is still a relatively new standard, and the ecosystem is rapidly evolving. As more developers adopt MCP, you can expect to see an increasing number of servers and tools available for integration with your projects.
 
@@ -357,7 +359,7 @@ VS Code also includes a URL handler that you can use to install an MCP server. T
 
 ```typescript
 // For Insiders, use `vscode-insiders` instead of `code`
-const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))`;
+const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
@@ -396,16 +398,6 @@ You can enable _development mode_ for MCP servers by adding a `dev` key to the M
 > [!NOTE]
 > We currently only support debugging Node.js and Python servers launched with `node` and `python` respectively.
 
-## Create an MCP server
-
-VS Code has all the tools you need to develop your own MCP server. While MCP servers can be written in any language that can handle `stdout`, the MCP's official SDKs are a good place to start:
-
-* [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-* [Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-* [Java SDK](https://github.com/modelcontextprotocol/java-sdk)
-* [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk)
-* [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
-
 ## Frequently asked questions
 
 ### Can I control which MCP tools are used?
@@ -422,6 +414,7 @@ Verify that the command arguments are correct and that the container is not runn
 
 ## Related resources
 
+* [VS Code curated list of MCP servers](https://code.visualstudio.com/mcp)
 * [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 * [Model Context Protocol Server repository](https://github.com/modelcontextprotocol/servers)
 * [Use agent mode in Visual Studio Code](/docs/copilot/chat/chat-agent-mode.md)

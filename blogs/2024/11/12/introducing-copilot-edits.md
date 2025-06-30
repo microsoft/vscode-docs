@@ -51,7 +51,7 @@ Copilot Edits is in preview and available to all [GitHub Copilot]( https://marke
 For a detailed overview of Copilot Edits please read the [official docs](https://code.visualstudio.com/docs/copilot/copilot-edits).
 
 Next, the team plans to improve the performance of the apply changes speculative decoding endpoint, support transitions into Copilot Edits from Copilot Chat by preserving context, suggest files to the Working Set, and to allow Undo of suggested chunks.
-If you want to be among the first to get your hands on these improvements make sure to use [VS Code Insiders]( https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension. To help improve the feature, please file issues in [our repo](https://github.com/microsoft/vscode-copilot-release).
+If you want to be among the first to get your hands on these improvements make sure to use [VS Code Insiders]( https://code.visualstudio.com/insiders/) and the pre-release version of the [GitHub Copilot Chat]( https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension. To help improve the feature, please file issues in [our repo](https://github.com/microsoft/vscode/issues).
 
 Ultimately, it’s not just about the Copilot Edits itself but what it helps you build.
 

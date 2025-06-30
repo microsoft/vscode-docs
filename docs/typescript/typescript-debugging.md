@@ -70,7 +70,7 @@ TypeScript is great for writing client-side code as well as Node.js applications
 
 We'll create a tiny web application to show client-side debugging in action.
 
-Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content"
+Create a new folder `HelloWeb` and add three files: `helloweb.ts`, `helloweb.html`, and `tsconfig.json` with the following content:
 
 helloweb.ts
 

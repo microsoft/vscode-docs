@@ -13,7 +13,7 @@ If you don't see an answer to your question here, check our previously [reported
 
 ## Open sourcing AI in VS Code
 
-We've announced that we are open sourcing the GitHub Copilot Chat extension under the MIT license and then bringing relevant components into VS Code core. Read all details about this announcement in our [blog post](https://aka.ms/vscode-copilot-oss-blog).
+We've open sourced the GitHub Copilot Chat extension under the MIT license and are bringing relevant components into VS Code core. Read all details in our [announcement blog post](https://aka.ms/vscode-copilot-oss-blog) and [first milestone update](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone).
 
 ### Does this affect my current GitHub Copilot subscription? Is GitHub Copilot free now?
 
@@ -27,10 +27,12 @@ The GitHub Copilot services are not affected and will remain closed source.
 
 ### What is the timeline? When can I provide a contribution to the AI experience in VS Code?
 
-We plan to implement these changes over the next couple of months. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
+We have [completed the first step](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone) of this process by open sourcing the GitHub Copilot Chat extension. The source code is available in the [microsoft/vscode-copilot-chat](https://github.com/microsoft/vscode-copilot-chat) repository.
+
+In the coming months, we will bring the relevant components of the Copilot Chat extension into the core VS Code repository. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
 
 Our goal is to make the experience for contributing to our AI features as simple as contributing to any part of VS Code. As part of this, we want to make it possible to use the Copilot backend services for debugging and testing purposes when contributing.
-Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md) file for details on how to contribute to VS Code.
+Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode-copilot-chat/blob/main/CONTRIBUTING.md) file for details on how to contribute.
 
 ### Why integrate GitHub Copilot into the core VS Code repository?
 
@@ -350,13 +352,11 @@ You may also see the **[Unsupported]** message if VS Code files have been mistak
 
 ### Resolving shell environment fails
 
-*This section applies to macOS and Linux environments only.*
-
 When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your, `.bashrc`, `.zshrc`, or PowerShell profile files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 

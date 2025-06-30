@@ -419,15 +419,18 @@ To centrally enable or disable this setting within your organization, check [Cen
 <details>
 <summary>Custom instructions settings</summary>
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable reusable prompt and instruction files.
+* `setting(chat.promptFiles)` _(Experimental)_: Enable reusable prompt and instructions files.
 
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
+* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
 
-* `setting(chat.instructionsFilesLocations)` _(Experimental)_: a list of folders where instruction files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.instructionsFilesLocations)` _(Experimental)_: A dictionary of folders where instructions files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, instructions files are located in the `.github/instructions` folder of your workspace.
 
-    | Setting value | Description |
-    |---------------|-------------|
-    | `["/path/to/folder"]` | Enable instruction files for a specific path. Specify one or more folders where instruction files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/copilot-instructions` is added but disabled. |
+    ```json
+    "chat.instructionsFilesLocations": {
+        "src/frontend/instructions": true,
+        "src/backend/instructions": false
+    }
+    ```
 
 * `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate code.
 * `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate tests.
@@ -440,13 +443,16 @@ To centrally enable or disable this setting within your organization, check [Cen
 <details>
 <summary>Prompt files settings</summary>
 
-* `setting(chat.promptFiles)` _(Experimental)_: enable reusable prompt and instruction files.
+* `setting(chat.promptFiles)` _(Experimental)_: Enable reusable prompt and instruction files.
 
-* `setting(chat.promptFilesLocations)` _(Experimental)_: a list of folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths.
+* `setting(chat.promptFilesLocations)` _(Experimental)_: A dictionary of folders where prompt files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, prompt files are located in the `.github/prompts` folder of your workspace.
 
-    | Setting value | Description |
-    |---------------|-------------|
-    | `["/path/to/folder"]` | Enable prompt files for a specific path. Specify one or more folders where prompt files are located. Relative paths are resolved from the root folder(s) of your workspace.<br/>By default, `.github/prompts` is added but disabled. |
+    ```json
+    "chat.promptFilesLocations": {
+        ".github/prompts": false,
+        "setup/**/prompts": true
+    }
+    ```
 
 </details>
 
