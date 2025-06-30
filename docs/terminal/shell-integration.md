@@ -99,8 +99,6 @@ IntelliSense, powered by shell integration `setting(terminal.integrated.shellInt
 
 By default, on request of completions `kb(workbench.action.terminal.requestCompletions)` files, folders, commands, arguments, and options are provided.
 
-![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
-
 Commands are sourced from [Fig specs](https://github.com/withfig) and per-shell builtin functions and are validated against the `$PATH` to ensure they exist. On Windows, the particular set of executables can be configured with `setting(terminal.integrated.suggest.windowsExecutableExtensions)`.
 
 There can be multiple IntelliSense providers, which can be changed with `setting(terminal.integrated.suggest.providers)`.
