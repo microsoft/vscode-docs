@@ -10,7 +10,7 @@ Author: The VS Code team
 
 # Open Source AI Editor: First Milestone
 
-June 27th, 2025 by the VS Code Team
+June 30th, 2025 by the VS Code Team
 
 Last month we shared our plan to make [**VS Code an open source AI editor**]( https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor). Today we reached the first milestone: the GitHub Copilot Chat extension is now [open source on GitHub](http://github.com/microsoft/vscode-copilot-chat) under the MIT license.
 
