@@ -226,6 +226,24 @@ The following keyboard shortcuts should work in PowerShell when shell integratio
 - `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
 - `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
 
+## Experimental IntelliSense for PowerShell
+
+Experimental IntelliSense for PowerShell shows a completion list when typing in PowerShell, similar to the editor experience. Behind the scenes, this functionality is powered by the PowerShell session's native completion API, so context-aware completions like variables are available.
+
+![PowerShell IntelliSense shows completions like Get-Alias, Get-ChildItem, for example when typing Get-](images/shell-integration/pwsh-IntelliSense.png)
+
+You can enable the experimental IntelliSense for PowerShell with the `setting(terminal.integrated.suggest.enabled)` setting.
+
+```json
+"terminal.integrated.suggest.enabled": true
+```
+
+> **Note**: This functionality is currently only available on Windows and macOS.
+
+### Git and VS Code completions
+
+When experimental IntelliSense is enabled, completions for CLIs `git`, `code`, and `code-insiders` are turned on by default. If your PowerShell profile already has completions, you may want to turn these off by using the `setting(terminal.integrated.suggest.builtinCompletions)` setting.
+
 ## Enhanced accessibility
 
 The information that shell integration provides to VS Code is used to improve [accessibility in the terminal](/docs/configure/accessibility/accessibility.md#terminal-accessibility). Some examples of enhancements are:
