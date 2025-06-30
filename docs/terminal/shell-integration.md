@@ -93,11 +93,7 @@ To view the shell integration quality, hover the terminal tab. Optionally, selec
 
 ## IntelliSense (Preview)
 
-### Background
-
-IntelliSense, powered by shell integration `setting(terminal.integrated.shellIntegration.enable)`, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
-
-By default, on request of completions `kb(workbench.action.terminal.requestCompletions)` files, folders, commands, arguments, and options are provided.
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. powered by shell integration `setting(terminal.integrated.shellIntegration.enable)`, can be enabled with `setting(terminal.integrated.suggest.enabled)`.
 
 ![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
 
@@ -111,7 +107,7 @@ By default, `Tab` inserts the suggestion. Once navigation of the list has occurr
 
 To both insert and run the completion in the terminal on acceptance, configure `setting(terminal.integrated.suggest.runOnEnter)`.
 
-IntelliSense is triggered when typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
+IntelliSense can be triggered manually `kb(workbench.action.terminal.requestCompletions)` or by typing, which can be disabled with `setting(terminal.integrated.suggest.quickSuggestions)`. Intellisense can also be triggered when certain characters are typed, such as `/`, which can be configured with `terminal.integrated.suggest.suggestOnTriggerCharacters`.
 
 When the shell provides an inline completion, we surface this as the first completion item and that can be configured with `setting(terminal.integrated.suggest.inlineSuggestion)`.
 
