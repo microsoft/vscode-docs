@@ -91,14 +91,6 @@ When using shell integration, it has a "quality" associated with it that declare
 
 To view the shell integration quality, hover the terminal tab. Optionally, select **Show Details** on the hover to view more detailed information.
 
-## IntelliSense (Preview)
-
-IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature is powered by shell integration `setting(terminal.integrated.shellIntegration.enable)` and can be enabled with `setting(terminal.integrated.suggest.enabled)`.
-
-![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
-
-VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
-
 ### Keyboard navigation
 
 By default, `kbstyle(Tab)` inserts the suggestion. Once navigation of the list has occurred, `kbstyle(Enter)` will similarly insert the suggestion. You can configure this behavior with the `setting(terminal.integrated.suggest.selectionMode)` setting.
@@ -227,6 +219,14 @@ The information that shell integration provides to VS Code is used to improve [a
 - Navigation through detected commands in the accessible buffer (`kb(workbench.action.terminal.focusAccessibleBuffer)`)
 - An [audio cue](/docs/configure/accessibility/accessibility.md#accessibility-signals) plays when a command fails.
 - Underlying text box synchronizing such that using the arrow and backspace keys behave more correctly.
+
+## IntelliSense (Preview)
+
+IntelliSense in the terminal enables you to receive suggestions for files, folders, commands, command arguments and options. This feature is powered by shell integration `setting(terminal.integrated.shellIntegration.enable)` and can be enabled with `setting(terminal.integrated.suggest.enabled)`.
+
+![A user has typed git checkout in a terminal and requests completions. The completion list shows branch names like main and merogge/terminal-section](images/shell-integration/terminal-suggest.png)
+
+VS Code sources commands from [Fig specs](https://github.com/withfig) and validates per-shell built-in functions (for `pwsh`, `bash`, `zsh`, and `fish`) against the `$PATH` to ensure they exist. On Windows, you can configure the particular set of executables with the `setting(terminal.integrated.suggest.windowsExecutableExtensions)` setting.
 
 ## Supported escape sequences
 
