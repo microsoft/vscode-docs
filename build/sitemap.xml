@@ -416,11 +416,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/copilot/copilot-extensibility-overview</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/copilot/faq</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1465,37 +1460,42 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/chat</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/ai-extensibility-overview</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/chat-tutorial</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/chat</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/language-model</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/chat-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/language-model-tutorial</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/tools</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/language-model-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/mcp</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/tools</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/extension-guides/prompt-tsx</loc>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/mcp</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/ai/prompt-tsx</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
