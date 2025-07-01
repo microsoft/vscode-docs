@@ -166,7 +166,7 @@ This can be configured using the `setting(terminal.integrated.rightClickBehavior
 
 ### Column selection
 
-`kbstyle(Alt)` and left-click drag allows selecting a rectangle of text inside the terminal instead of te regular selection of a line.
+Press `kbstyle(Alt)` and left-click drag to select a rectangle of text inside the terminal instead of the regular selection of a line.
 
 ### Reposition the cursor with Alt
 
