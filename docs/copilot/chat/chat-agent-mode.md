@@ -103,7 +103,7 @@ Agent mode can use the following tools:
 
 * Built-in tools
 * [MCP tools](/docs/copilot/chat/mcp-servers.md)
-* [Tools contributed by extensions](/api/extension-guides/tools.md)
+* [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
 
 You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and manage the tools that are available in agent mode.
 

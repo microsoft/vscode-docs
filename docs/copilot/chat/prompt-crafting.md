@@ -99,7 +99,7 @@ When you're using chat to interact with GitHub Copilot, there are several things
 
 ### Use chat participants and slash commands
 
-Chat participants are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate participant, Copilot Chat can find and provide better information to send to the Copilot backend. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
+Chat participants are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate participant, the AI can find and provide better information to send to the LLM. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
 
 ![Asking the @vscode participant how to change the VS Code colors](images/prompt-crafting/agent-example.png)
 
