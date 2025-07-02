@@ -149,6 +149,28 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
 
+## Edit chat requests (Experimental)
+
+> [!NOTE]
+> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+
+1. The edited request and all subsequent requests and responses are removed from the conversation history.
+1. Any edits that were made by these requests are reverted to their state before the request was made.
+1. The edited request is added to the conversation history and submitted to the language model for a new response.
+
+Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
+
+There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+
+* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
+* `none`: Disable editing of chat requests in the Chat view.
+
 ### Revert chat requests
 
 You can revert (undo) chat requests in the active chat session. When you revert a chat request, you also remove the corresponding response from the conversation history.
