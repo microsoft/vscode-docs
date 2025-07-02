@@ -50,8 +50,9 @@ A chat mode file is a Markdown file with the `.chatmode.md` suffix. It has the f
 
 * Front Matter metadata header
 
-    * `description`: A brief description of the chat mode. This description is displayed when you hover the chat mode in the chat mode dropdown list in the Chat view.
+    * `description`: A brief description of the chat mode. This description is displayed as placeholder text in the chat input field and when you hover the mode in the chat mode dropdown list.
     * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
+    * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
 
 * Body with chat mode instructions
 
@@ -65,6 +66,7 @@ The following code snippet shows an example of a "Plan" chat mode file that gene
 ---
 description: Generate an implementation plan for new features or refactoring existing code.
 tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
+model: Claude Sonnet 4
 ---
 # Planning mode instructions
 You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.

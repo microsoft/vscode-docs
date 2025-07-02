@@ -278,6 +278,7 @@ The following examples demonstrate how to use prompt files:
 ```markdown
 ---
 mode: 'agent'
+model: GPT-4o
 tools: ['githubRepo', 'codebase']
 description: 'Generate a new React form component'
 ---
@@ -304,15 +305,18 @@ Requirements for the form:
 
 ```markdown
 ---
-mode: 'edit'
+mode: 'ask'
+model: Claude Sonnet 4
 description: 'Perform a REST API security review'
 ---
-Perform a REST API security review:
+Perform a REST API security review and provide a TODO list of security issues to address.
 
 * Ensure all endpoints are protected by authentication and authorization
 * Validate all user inputs and sanitize data
 * Implement rate limiting and throttling
 * Implement logging and monitoring for security events
+
+Return the TODO list in a Markdown format, grouped by priority and issue type.
 ```
 
 </details>
@@ -324,6 +328,7 @@ A prompt file is a Markdown file with the `.prompt.md` file suffix. It has the f
 * (Optional) Header with metadata (Front Matter syntax)
 
     * `mode`: The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default).
+    * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
     * `tools`: Array of tool (set) names to indicate which tools (sets) can be used in agent mode. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
     * `description`: A short description of the prompt.
 
@@ -443,7 +448,7 @@ To centrally enable or disable this setting within your organization, check [Cen
 <details>
 <summary>Prompt files settings</summary>
 
-* `setting(chat.promptFiles)` _(Experimental)_: Enable reusable prompt and instruction files.
+* `setting(chat.promptFiles)` _(Experimental)_: Enable support for reusable prompt files and instruction files.
 
 * `setting(chat.promptFilesLocations)` _(Experimental)_: A dictionary of folders where prompt files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, prompt files are located in the `.github/prompts` folder of your workspace.
 
