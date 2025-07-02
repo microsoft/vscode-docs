@@ -121,16 +121,18 @@ A tool set is a collection of tools that you can use in chat. You can use tool s
 
 Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/copilot-customization.md), or [custom chat modes](/docs/copilot/chat/chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
 
-To create a tool set, use the **Chat: Configure Tool Sets** > **Create new tool sets file** command in the Command Palette. A tool sets file is a `.jsonc` file that is stored in your user profile.
+To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-A tool set has the following structure:
+![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+
+A tool sets file is a `.jsonc` file that is stored in your user profile and that contains a list of agent mode tools. A tool set has the following structure:
 
 * `<tool set name>`: name of the tool set, which is displayed in the tools picker and when referencing the tool set in your prompt.
 * `tools`: list of tool names that are included in the tool set. The tools can be built-in tools, MCP tools, or tools contributed by extensions.
 * `description`: brief description of the tool set. This description is displayed alongside the tool set name in the tools picker.
 * `icon`: icon for the tool set, values can be found in the [Product Icon Reference](/api/references/icons-in-labels.md).
 
-The following code snippet shows an example of a tool sets file:
+The following code snippet shows an example of a tool sets file that defines a tool set named `reader`:
 
 ```json
 {
@@ -146,7 +148,7 @@ The following code snippet shows an example of a tool sets file:
 
 ## Manage tool approvals
 
-When a tool is invoked, Copilot requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
+When a tool is invoked, agent mode requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
 
 In the Chat view, after a tool invocation, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 

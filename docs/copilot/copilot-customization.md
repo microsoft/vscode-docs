@@ -128,7 +128,7 @@ VS Code automatically includes the instructions from the `.github/copilot-instru
 
 To use a `.github/copilot-instructions.md` file:
 
-1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct VS Code to use the custom instructions file.
+1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct VS Code to automatically use the `copilot-instructions.md` file for every chat request.
 
 1. Create a `.github/copilot-instructions.md` file at the root of your workspace. If needed, create a `.github` directory first.
 
@@ -176,36 +176,41 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
 
 #### Create an instructions file
 
+You can create instructions files in your workspace or user profile. Workspace instructions files are only available within the workspace, while user instructions files are available across multiple workspaces.
+
 To create an instructions file:
 
-1. Run the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select the **Configure Chat** button in the Chat view, select **Instructions**, and then select **New instruction file**.
+
+    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](images/customization/configure-chat-instructions.png)
+
+    Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the instruction file should be created.
 
-    User instruction files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instruction files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md). Make sure to configure the **Prompts and Instructions** setting in the **Settings Sync: Configure** command.
+    * **Workspace**: By default, workspace instruction files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
-    By default, workspace instruction files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
+    * **User profile**: User instruction files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instruction files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for your instruction file.
 
 1. Author the custom instructions by using Markdown formatting.
 
-    Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#index.ts` references within the instructions file.
+    Specify the `applyTo` metadata property in the header to configure when the instructions should be applied automatically. For example, you can specify `applyTo: "**/*.ts,**/*.tsx"` to apply the instructions only to TypeScript files.
 
-Use the **Chat: Configure Instructions** command from the Command Palette to select and edit an existing instructions file. This command opens the instruction file in the editor, where you can edit the instructions and metadata.
+    To reference additional workspace files, use Markdown links (`[index](../index.ts)`) or #-reference them (`#index.ts`) within the instructions file.
+
+To modify an existing instructions file, select the **Configure Chat** button in the Chat view, select **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
 #### Use an instructions file in chat
+
+If you specified the `applyTo` metadata property in the instructions file, VS Code automatically applies the instructions to all files that match the glob pattern.
 
 To manually attach an instructions file to a chat prompt:
 
 * In the Chat view, select **Add Context** > **Instructions** and select the instruction file from the Quick Pick.
 
 * Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instruction file from the Quick Pick.
-
-To automatically apply instructions files, specify the `applyTo` metadata property in the instructions file:
-
-* `**`: Apply the instructions for all chat requests.
-* `<glob pattern>`: Apply the instructions based on the types of files that are in the chat context.
 
 ### Specify custom instructions in settings
 
@@ -233,7 +238,6 @@ The following code snippet shows how to define a set of instructions in the `set
         { "file": "guidance/frontend-review-guidelines.md" }
   ]
 ```
-
 
 ### Tips for defining custom instructions
 
@@ -338,19 +342,23 @@ Within a prompt file, you can reference variables by using the `${variableName}`
 * File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
 * Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
 
-### Create a workspace prompt file
+### Create a prompt file
 
-Workspace prompt files are stored in your workspace and are only available in that workspace.
+You can create prompt files in your workspace or user profile. Workspace prompt files are only available within the workspace, while user prompt files are available across multiple workspaces.
 
-By default, prompt files are located in the `.github/prompts` directory of your workspace. You can specify additional prompt file locations with the `setting(chat.promptFilesLocations)` setting.
+To create a prompt file:
 
-To create a workspace prompt file:
+1. Select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select **New prompt file**.
 
-1. Run the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
+    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](images/customization/configure-chat-instructions.png)
+
+    Alternatively, use the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 1. Choose the location where the prompt file should be created.
 
-    By default, only the `.github/prompts` folder is available. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
+    * **Workspace**: By default, workspace prompt files are stored in the `.github/prompts` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
+
+    * **User profile**: User prompt files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for your prompt file.
 
@@ -362,23 +370,7 @@ To create a workspace prompt file:
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](#custom-instructions) in the same way.
 
-### Create a user prompt file
-
-User prompt files are stored in your [user profile](/docs/configure/profiles.md). With user prompt files, you can share reusable prompts across multiple workspaces.
-
-To create a user prompt file:
-
-1. Select the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **User Data Folder** as the location for the prompt file.
-
-    If you use multiple [VS Code profiles](/docs/configure/profiles.md), the prompt file is created in the current profile's user data folder.
-
-1. Enter a name for your prompt file.
-
-1. Author the chat prompt by using Markdown formatting.
-
-    You can also reference other user prompt files or user instruction files.
+To modify an existing prompt file, select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
 
 ### Use a prompt file in chat
 

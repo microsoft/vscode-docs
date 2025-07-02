@@ -99,7 +99,9 @@ By default, VS Code looks for workspace chat mode files in the `.github/chatmode
 
 ### Manage existing chat modes
 
-To edit and manage existing chat modes, select the **Chat: Configure Chat Modes** command in the Command Palette (`kb(workbench.action.showCommands)`). Select a chat mode from the list to open it in the editor, where you can edit the instructions and tools (sets).
+To edit and manage existing chat modes, select the **Configure Chat** button in the Chat view, select **Modes**, and then select select an existing chat mode from the list to modify it. Alternatively, you can use the **Chat: Configure Chat Modes** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
 Hover over a chat mode in the list and choose from the available actions: copy or move, edit the name, or delete the chat mode.
 
