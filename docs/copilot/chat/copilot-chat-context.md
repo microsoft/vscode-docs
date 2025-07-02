@@ -15,7 +15,7 @@ VS Code automatically provides context to the chat prompt based on your current 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
 
-The actual contents of the active file are not included in the context, but are shown as a suggested context item in the chat input box (indicated with italic text and a dotted outline). Depending on your prompt, VS Code might decide to read the contents of the active file. To explicitly include the contents of the active file in the chat context, select the suggested file in the chat input box.
+VS Code automatically adds the active file as a context item in the chat input box (indicated by _Current file_). Select the context item to exclude it from the chat context.
 
 ![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
 
