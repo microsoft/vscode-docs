@@ -136,15 +136,23 @@ To disable showing the code changes in the editor, enable the `setting(editor.in
 
 ## Enable or disable code completions
 
-You can enable or disable code completions either for all languages, or for specific languages only.
+You can enable or disable code completions either for all languages or for specific languages only.
 
 * To enable or disable code completions, select the Copilot menu in the Status Bar, and then check or uncheck the options to enable or disable code completions.
+
+    The option to disable code completions for a specific language is dependent on the language of the active editor.
 
     ![Screenshot of the Copilot menu in the Status Bar with checkboxes to enabled or disable code completions and NES.](images/inline-suggestions/copilot-menu-status-bar.png)
 
 * Alternatively, modify the `setting(github.copilot.enable)` setting in the Settings editor.
 
     Add an entry for each language you want to enable or disable code completions for. To enable or disable code completions for all languages, set the value for `*` to `true` or `false`.
+
+With the snooze functionality, you can temporarily disable all code completions in the editor. To snooze code completions, select the Copilot menu in the Status Bar, and then select the **Snooze** button to increment the snooze time by five minutes. To resume code completions, select the **Cancel Snooze** button in the Copilot menu.
+
+![Screenshot of the Copilot menu in the Status Bar with Snooze and Cancel Snooze buttons.](images/inline-suggestions/snooze-code-completions.png)
+
+Alternatively, use the **Snooze Code Completions** and **Cancel Snooze Code Completions** commands in the Command Palette.
 
 ## Change the AI model for completions
 
