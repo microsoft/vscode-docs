@@ -164,6 +164,10 @@ This can be configured using the `setting(terminal.integrated.rightClickBehavior
 * `selectWord` - Select the word under the cursor and show the context menu.
 * `nothing` - Do nothing and pass event to terminal.
 
+### Column selection
+
+Press `kbstyle(Alt)` and left-click drag to select a rectangle of text inside the terminal instead of the regular selection of a line.
+
 ### Reposition the cursor with Alt
 
 `kbstyle(Alt)` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `setting(terminal.integrated.altClickMovesCursor)` setting.
