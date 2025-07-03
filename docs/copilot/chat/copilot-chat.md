@@ -215,6 +215,14 @@ With the voice control capabilities in VS Code, provided by the [VS Code Speech]
 
 Learn more about how to [use voice interactions in VS Code](/docs/configure/accessibility/voice.md).
 
+## Chat Debug view
+
+The Chat Debug view is a dedicated view where you can see the details of AI requests and responses. For each chat request, you can see the system prompt, user prompt, and details about the context that is sent to the language model. You can view the detailed response from the language model, and responses from tools that are invoked as part of the chat request.
+
+To open the Chat Debug view, run the **Developer: Show Chat Debug View** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot of the Chat Debug view, showing the details of a chat request and response.](images/copilot-chat/chat-debug-view.png)
+
 ## Privacy and transparency
 
 To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
@@ -235,7 +243,7 @@ The different chat modes are optimized for different use cases:
 
 * Use _edit mode_ to directly apply edits across multiple files in your codebase based on your chat prompt. You provide the relevant context and files for your prompt.
 
-* Use _agent mode_ to start an agentic coding workflow, whereby Copilot autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can invoke tools to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
+* Use _agent mode_ to start an autonomous coding workflow, whereby the AI autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can invoke [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) from extensions or MCP servers to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
 
 ## Additional resources
 
