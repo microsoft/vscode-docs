@@ -268,7 +268,9 @@ The following code snippet shows an example MCP server configuration that specif
 
 ## Use MCP tools in agent mode
 
-Once you have added an MCP server, you can use the tools it provides in agent mode. To use MCP tools in agent mode:
+Once you have added an MCP server, you can use the tools it provides in agent mode.
+
+To use MCP tools in agent mode:
 
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`), and select **Agent** mode from the dropdown.
 
@@ -280,12 +282,8 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
 
     ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
-    > [!TIP]
-    > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
-
-1. Select **Add Context** > **MCP Resources** to add resources from the MCP server to your chat context.
-
-    For example, a database MCP server might provide access to database tables, or a file system MCP server might provide access to files and directories.
+    > [!IMPORTANT]
+    > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker.
 
 1. You can now enter a prompt in the chat input box and notice how tools are automatically invoked as needed.
 
@@ -294,6 +292,9 @@ Once you have added an MCP server, you can use the tools it provides in agent mo
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
     ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+
+    > [!TIP]
+    > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
 
 1. Optionally, verify and edit the tool input parameters before running the tool.
 
@@ -414,6 +415,12 @@ Yes, you have several options to control which tools are active:
 ### The MCP server is not starting when using Docker
 
 Verify that the command arguments are correct and that the container is not running in detached mode (`-d` option). You can also check the MCP server output for any error messages (see [Troubleshooting](#troubleshoot-and-debug-mcp-servers)).
+
+### I'm getting an error that says "Cannot have more than 128 tools per request."
+
+A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view.
+
+![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 
 ## Related resources
 
