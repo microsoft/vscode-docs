@@ -663,8 +663,11 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
 - `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
+- `chat.linesAddedForeground`: Foreground color of lines added in chat code block pill.
+- `chat.linesRemovedForeground`: Foreground color of lines removed in chat code block pill.
 - `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
 - `chat.requestBubbleBackground`: Background color of the chat request bubble.
+- `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
 
 ## Inline Chat colors
 
@@ -716,6 +719,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorStickyScroll.background`: Editor sticky scroll background color.
 - `editorStickyScroll.border`: Border color of sticky scroll in the editor.
 - `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor.
+- `editorStickyScrollGutter.background`: Background color of the gutter part of sticky scroll in the editor.
 - `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
@@ -754,6 +758,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewTitleDescription.foreground`: Color of the peek view title info.
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
 - `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
+- `peekViewEditorStickyScrollGutter.background`: Background color of the gutter part of sticky scroll in the peek view editor.
 
 ## Merge conflicts colors
 
@@ -1024,6 +1029,8 @@ The following customizations are available:
 - `terminalSymbolIcon.inlineSuggestionForeground`: The foreground color for an inline suggestion icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.fileForeground`: The foreground color for a file icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.folderForeground`: The foreground color for a folder icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.symbolicLinkFileForeground`: The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.symbolicLinkFolderForeground`: The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.
 
 ## Debug colors
 
