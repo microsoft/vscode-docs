@@ -79,12 +79,15 @@ You have multiple options to add an MCP server in VS Code:
 * **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
 * **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
 
-> [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+> [!TIP]
+> You can directly install an MCP server from the [curated list of MCP servers](https://code.visualstudio.com/mcp) on the VS Code website. This automatically adds the MCP server configuration to your environment.
 
 To view and manage the list of configured MCP servers, run the **MCP: List Servers** command from the Command Palette.
 
 After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
+
+> [!CAUTION]
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
 
 ### Add an MCP server to your workspace
 
@@ -130,9 +133,6 @@ To add an MCP server to your workspace:
     ```
 
 1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
-
-> [!IMPORTANT]
-> Follow the naming conventions for the server, as specified in the [Configuration format](#configuration-format) section.
 
 ### Add an MCP server to your user settings
 
@@ -332,15 +332,22 @@ Learn more about how to [create and use tool sets in VS Code](/docs/copilot/chat
 
 ## Manage MCP servers
 
-Run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform the following actions on it:
+You can manage the list of installed MCP servers from the Extension view (`kb(workbench.view.extensions)`) in VS Code.
 
-* **Start**: Start the MCP server if it is not already running.
-* **Stop**: Stop the MCP server if it is running.
-* **Restart**: Restart the MCP server.
+![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png)
+
+Right-click on an MCP server or select the gear icon to perform the following actions:
+
+* **Start/Stop/Restart**: Start, stop, or restart the MCP server.
+* **Disconnect Account**: Disconnect the account for authentication with the MCP server.
 * **Show Output**: View the server logs to diagnose issues.
-* **Show Configuration**: View the server configuration in the editor.
+* **Show Configuration**: View the MCP server configuration.
 * **Configure Model Access**: Configure which models the MCP server can access (sampling).
+* **Show Sampling Requests**: View the sampling requests made by the MCP server.
 * **Browse Resources**: View the resources provided by the MCP server.
+* **Uninstall**: Uninstall the MCP server from your environment.
+
+Alternatively, run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it.
 
 > [!TIP]
 > When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
