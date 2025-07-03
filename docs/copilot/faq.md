@@ -159,6 +159,12 @@ If you encounter problems connecting to GitHub Copilot, you can view network con
 1. Run the **GitHub Copilot: Collect Diagnostics** command.
 1. An editor tab opens where you can inspect the diagnostics information.
 
+### Use the Chat Debug view
+
+You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
+
+Learn more about the [Chat Debug view](/docs/copilot/chat/copilot-chat.md#chat-debug-view).
+
 ## Additional resources
 
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/)
