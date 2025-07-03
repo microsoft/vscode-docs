@@ -152,7 +152,7 @@ With the snooze functionality, you can temporarily disable all code completions 
 
 ![Screenshot of the Copilot menu in the Status Bar with Snooze and Cancel Snooze buttons.](images/inline-suggestions/snooze-code-completions.png)
 
-Alternatively, use the **Snooze Code Completions** and **Cancel Snooze Code Completions** commands in the Command Palette.
+Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline Suggestions** commands in the Command Palette.
 
 ## Change the AI model for completions
 
