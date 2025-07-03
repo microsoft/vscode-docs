@@ -6,12 +6,12 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code settings reference
 
-This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md), as well as the [Variables reference](/docs/reference/variables-reference.md) for information about predefined variable support.
+This article lists the configuration settings for GitHub Copilot in Visual Studio Code. For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/configure/settings.md).
+
+The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
 
 > [!TIP]
 > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
-The team is continuously working on improving Copilot in VS Code and adding new features. Some features are still experimental. Try them out and share your feedback in [our issues](https://github.com/microsoft/vscode/issues). Get more info about the [feature lifecycle in VS Code](/docs/configure/settings.md#feature-lifecycle).
 
 ## General settings
 
@@ -24,15 +24,15 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 ## Code editing settings
 
 * `setting(github.copilot.editor.enableCodeActions)`: Controls if Copilot commands are shown as Code Actions when available.
-* `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Controls whether Copilot generates suggestions for renaming.
+* `setting(github.copilot.renameSuggestions.triggerAutomatically)`: Generate symbol renaming suggestions.
 * `setting(github.copilot.enable)`: Enable or disable code completions for specified [languages](/docs/languages/identifiers.md).
-* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables Copilot next edit suggestions (Copilot NES).
-* `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if Copilot NES is able to shift your code to show a suggestion.
-* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if Copilot NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
+* `setting(github.copilot.nextEditSuggestions.enabled)`: Enables [next edit suggestions](/docs/copilot/ai-powered-suggestions.md#next-edit-suggestions) (NES).
+* `setting(editor.inlineSuggest.edits.allowCodeShifting)`: Configure if NES is able to shift your code to show a suggestion.
+* `setting(editor.inlineSuggest.edits.renderSideBySide)`: Configure if NES can show larger suggestions side-by-side if possible, or if Copilot NES should always show larger suggestions below the relevant code.
 
 ## Chat settings
 
-* `setting(github.copilot.chat.localeOverride)`: Specify a locale that Copilot should respond in, such as `en` or `fr`.
+* `setting(github.copilot.chat.localeOverride)`: Specify a locale for chat responses, such as `en` or `fr`.
 * `setting(github.copilot.chat.useProjectTemplates)`: Use relevant GitHub projects as starter projects when using `/new`.
 * `setting(github.copilot.chat.scopeSelection)`: Whether to prompt for a specific symbol scope if you use `/explain` and the active editor has no selection.
 * `setting(github.copilot.chat.terminalChatLocation)`: Controls where chat queries from the terminal should be opened.
