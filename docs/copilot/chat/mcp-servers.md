@@ -157,6 +157,8 @@ Specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarte
 
 Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **User Settings** to add the server configuration to your user settings.
 
+When you use VS Code [profiles](/docs/configure/profiles.md), the MCP server configuration is stored in the user profile settings. This allows you to switch between different MCP server configurations based on your active profile. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) could be configured in a web development profile, but not in a Python development profile.
+
 ### Automatic discovery of MCP servers
 
 VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
@@ -374,6 +376,12 @@ const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
+
+## Synchronize MCP servers across devices
+
+With [Settings Sync](/docs/configure/settings-sync.md) enabled, you can synchronize settings and configurations across devices, including MCP server configurations. This allows you to maintain a consistent development environment and access the same MCP servers on all your devices.
+
+To enable MCP server synchronization with Settings Sync, run the **Settings Sync: Configure** command from the Command Palette, and ensure that **MCP Servers** is included in the list of synchronized configurations.
 
 ## Troubleshoot and debug MCP servers
 

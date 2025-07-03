@@ -15,11 +15,11 @@ The **Profiles editor** enables you to create and manage your profiles in VS Cod
 
 You can access the Profiles editor in either of the following ways:
 
-- From the **File** > **Preferences** > **Profiles** menu item
+* From the **File** > **Preferences** > **Profiles** menu item
 
     ![Profiles editor Menu Item](images/profiles/profiles-editor-menu-item.png)
 
-- From the **Manage** gear button in the bottom of the Activity Bar.
+* From the **Manage** gear button in the bottom of the Activity Bar.
 
     ![Profiles editor via the Manage button in the Activity bar](images/profiles/profiles-editor-via-manage.png)
 
@@ -35,7 +35,7 @@ You can choose to either create a new profile by copying the contents from a Pro
 
 ![Copy from options](images/profiles/copy-from.png)
 
-You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
+You can limit the new profile to only include a subset of configurations (settings, keyboard shortcuts, MCP servers, snippets, tasks and extensions) and use the rest of the configurations from the Default Profile. For example, you can create a profile with all configurations, except for keyboard shortcuts, and VS Code will apply the keyboard shortcuts from the Default Profile when this profile is active.
 
 You can browse the contents of the template or profile you are copying from in the **Contents** section. There is an **Open** button next to each section that you can select to see its contents.
 
