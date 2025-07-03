@@ -159,17 +159,32 @@ The following code snippet shows an example of a tool sets file that defines a t
 
 ## Manage tool approvals
 
-When a tool is invoked, agent mode requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
+Before agent mode runs a tool or terminal command, it requests confirmation to run it. This is because they might perform actions that modify files or data or perform destructive actions.
 
-In the Chat view, after a tool invocation, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
 ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
 
 You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
 
-In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
+### Auto-approve all tools and commands (Experimental)
+
+In case you want to auto-approve _all_ tools and terminal commands, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool and command invocations, and VS Code will not ask for confirmation when a language model wishes to run tools.
+
+> [!CAUTION]
+> With this setting enabled, you don't have the opportunity to cancel potentially destructive actions a model wants to take.
 
 As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
+
+### Auto-approve terminal commands (Experimental)
+
+Before agent mode runs a terminal command, it requests confirmation to run it. With auto-approval enabled, all terminal commands are automatically approved.
+
+If you want more fine-grained control over which terminal commands are auto-approved, use the following settings:
+
+* `setting(github.copilot.chat.agent.terminal.allowList)`: A list of commands or regular expressions that allow the run in terminal tool commands to run without explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters. For example, to allow all commands, use `/.*/`.
+
+* `setting(github.copilot.chat.agent.terminal.denyList)`: A list of commands or regular expressions that override matches in the allow list and force a command line to require explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters.
 
 ## Accept or discard edits
 
