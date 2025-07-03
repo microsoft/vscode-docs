@@ -414,7 +414,7 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 Enable or disable instructions and prompt files in VS Code with the `setting(chat.promptFiles)` setting.
 
-To centrally enable or disable this setting within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+To centrally enable or disable this setting within your organization with device management, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
 ## Settings
 

@@ -32,7 +32,17 @@ Agent mode is particularly useful for coding tasks when you have a less well-def
 
 To enable agent mode in VS Code, enable the `setting(chat.agent.enabled)` setting.
 
-To centrally enable or disable agent mode within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+### Centrally manage agent mode
+
+To centrally enable or disable agent mode within your organization with device management, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+
+You can centrally manage the following settings related to agent mode:
+
+* Enable or disable agent mode: `setting(chat.agent.enabled)`
+
+* Enable or disable using tools contributed by third-party extensions: `setting(chat.extensionTools.enabled)`
+
+* Enable or disable auto-approval for agent mode tools: `setting(chat.tools.autoApprove)`
 
 ## Use agent mode
 
@@ -111,8 +121,6 @@ You can view and manage the tools that can be used for responding to a request. 
 
 Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
 
-You can enable or disable the use of agent tools by configuring the `setting(chat.extensionTools.enabled)` setting. Learn how to centrally manage this setting in your organization by checking [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
-
 ### Define tool sets
 
 A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
@@ -159,8 +167,6 @@ You can reset the tool confirmations by using the **Chat: Reset Tool Confirmatio
 In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
 
 As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
-
-Learn how to centrally manage the auto-approve tools setting in your organization by checking [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
 
 ## Accept or discard edits
 

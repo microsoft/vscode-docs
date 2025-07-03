@@ -66,7 +66,13 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 
 To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting.
 
-To centrally enable or disable MCP support within your organization, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+### Centrally manage MCP support
+
+You have two options to centrally manage MCP support in your organization:
+
+* **Device management**: Centrally enable or disable MCP support in your organization via group policies or configuration profiles. Learn more about [managing VS Code settings with device management](/docs/setup/enterprise.md#centrally-manage-vs-code-settings).
+
+* **GitHub Copilot policy**: Control the availability of MCP servers in your organization with a GitHub Copilot policy. Learn more about [Managing policies and features for Copilot in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise) in the GitHub Copilot documentation.
 
 ## Add an MCP server
 
