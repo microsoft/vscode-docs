@@ -189,6 +189,28 @@ With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a de
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
 
+## Edit chat requests (Experimental)
+
+> [!NOTE]
+> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+
+1. The edited request and all subsequent requests and responses are removed from the conversation history.
+1. Any edits that were made by these requests are reverted to their state before the request was made.
+1. The edited request is added to the conversation history and submitted to the language model for a new response.
+
+Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
+
+There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+
+* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
+* `none`: Disable editing of chat requests in the Chat view.
+
 ## Revert edits
 
 As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example, because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.
