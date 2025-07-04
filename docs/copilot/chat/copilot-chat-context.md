@@ -33,28 +33,7 @@ Alternatively, choose from the list of available predefined context items like `
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-<details>
-<summary>Supported context items</summary>
-
-VS Code supports the following context items:
-
-| Context item | Description |
-| ------------- | ----------- |
-| #changes | Get the diffs of changed files in source control. |
-| #codebase | Perform a codebase search across the current workspace. |
-| #extensions | Search across VS Code extensions. |
-| #fetch | Get the contents of a web page. |
-| #githubRepo | Perform a web search within a GitHub repo. |
-| #problems | Get the list of problems for the current workspace. |
-| #selection | Get the text selection for the active editor. |
-| #searchResults | Get the results from the Search view. |
-| #terminalLastCommand | Get the last run terminal command and its status. |
-| #terminalSelection | Get the terminal text selection. |
-| #testFailure | Get the list of test failures. |
-| #usages | Get symbol references across the workspace. |
-| #vscodeAPI | Perform a search across the VS Code extension API. |
-
-</details>
+View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-variables) of the cheat sheet.
 
 ### Prompt examples
 
