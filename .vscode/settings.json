@@ -98,7 +98,8 @@
         "/visual-studio-live-share",
         "/assets/blogs/2018/04/25/ZoomScrollWheel-before.png",
         "/assets/blogs/2018/04/25/ZoomScrollWheel.gif",
-        "/docs/debugtest/debugging#_launch-configurations"
+        "/docs/debugtest/debugging#_launch-configurations",
+        "/docs/debugtest/debugging#_launchjson-attributes"
     ],
     "markdown.copyFiles.destination": {
         // /release-notes/v123.md -> /release-notes/images/123/img.png
