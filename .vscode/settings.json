@@ -94,7 +94,8 @@
         "/docs/extensionAPI/extension-manifest.md",
         "/docs/getstarted/settings.md",
         "/docs/getstarted/themes.md",
-        "/docs/languages/emmet.md#known-issues-in-emmet-20"
+        "/docs/languages/emmet.md#known-issues-in-emmet-20",
+        "/visual-studio-live-share"
     ],
     "markdown.copyFiles.destination": {
         // /release-notes/v123.md -> /release-notes/images/123/img.png
