@@ -95,7 +95,9 @@
         "/docs/getstarted/settings.md",
         "/docs/getstarted/themes.md",
         "/docs/languages/emmet.md#known-issues-in-emmet-20",
-        "/visual-studio-live-share"
+        "/visual-studio-live-share",
+        "/assets/blogs/2018/04/25/ZoomScrollWheel-before.png",
+        "/assets/blogs/2018/04/25/ZoomScrollWheel.gif"
     ],
     "markdown.copyFiles.destination": {
         // /release-notes/v123.md -> /release-notes/images/123/img.png
