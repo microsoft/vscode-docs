@@ -50,7 +50,7 @@ There are many updates in this version that we hope you'll like, some of the key
 <br>
 
 
-><br>**Use what others won’t for weeks. Influence what they’ll get next.**
+><br>**Use what others won’t for weeks. Influence what you’ll get next.**
 <br>
 [Download Insiders](https://code.visualstudio.com/insiders/) for nightly updates. Access features early and shape the next version of VS Code.
 <br>
