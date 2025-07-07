@@ -223,6 +223,30 @@ To open the Chat Debug view, run the **Developer: Show Chat Debug View** command
 
 ![Screenshot of the Chat Debug view, showing the details of a chat request and response.](images/copilot-chat/chat-debug-view.png)
 
+## Start chat from the command line
+
+You can start a chat session directly from the command line by using the `chat` subcommand in the VS Code CLI. This enables you to open a chat session in your current working directory with a prompt you provide.
+
+For example, the following command opens chat for the current directory and asks "Find and fix all untyped variables":
+
+```bash
+code chat Find and fix all untyped variables
+```
+
+The `chat` subcommand has the following command-line options:
+
+* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-a`, `--add-file <path>`: Add files as context to the chat session.
+* `--maximize`: Maximize the chat session view.
+* `-r`, `--reuse-window`: Use the last active window for the chat session.
+* `-n`, `--new-window`: Open an empty window for the chat session.
+
+The `chat` subcommand also supports piping input from `stdin` by passing `-` at the end of the command. For example:
+
+```bash
+python app.py | code chat why does it fail -
+```
+
 ## Privacy and transparency
 
 To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
