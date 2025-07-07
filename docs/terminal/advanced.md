@@ -82,7 +82,7 @@ Using mnemonics to access VS Code's menu (for example, `kbstyle(Alt+F)` for File
 
 ### Custom sequence keyboard shortcuts
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, etc. This can be run via the command palette which allows manual input, but it's most useful when a custom keybinding with arguments are provided.
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences that are interpreted specially by the shell. The command enables you to send Arrow keys, `kbstyle(Enter)`, cursor moves, and more. Run this command via the Command Palette, which allows for manual input, but it's most useful when you assign a custom keyboard shortcut with arguments.
 
 For example, the sequence below jumps over the word to the left of the cursor (`kbstyle(Ctrl+Left)`) and then presses `kbstyle(Backspace)`:
 
