@@ -134,30 +134,15 @@ To add an MCP server to your workspace:
 
 1. Alternatively, run the **MCP: Add Server** command from the Command Palette, choose the type of MCP server to add and provide the server information. Next, select **Workspace Settings** to create the `.vscode/mcp.json` file in your workspace if it doesn't already exist.
 
-### Add an MCP server to your user settings
+### Add an MCP server to your user configuration
 
-To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
+To configure an MCP server for all your workspaces, you can add the server configuration to your user configuration. This allows you to reuse the same server configuration across multiple projects.
 
-Specify the server in the `setting(mcp)` VS Code [user settings](/docs/getstarted/personalize-vscode.md#configure-settings) to enable the MCP server across all workspaces.
+To add an MCP to your user configuration, run the **MCP: Open User Configuration** command, which opens the `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
 
-```json
-// settings.json
-{
-    "mcp": {
-        "servers": {
-            "my-mcp-server": {
-                "type": "stdio",
-                "command": "my-command",
-                "args": []
-            }
-        }
-    },
-}
-```
+Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **Global** to add the server configuration to your profile.
 
-Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **User Settings** to add the server configuration to your user settings.
-
-When you use VS Code [profiles](/docs/configure/profiles.md), the MCP server configuration is stored in the user profile settings. This allows you to switch between different MCP server configurations based on your active profile. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) could be configured in a web development profile, but not in a Python development profile.
+When you use multiple VS Code [profiles](/docs/configure/profiles.md), this allows you to switch between different MCP server configurations based on your active profile. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) could be configured in a web development profile, but not in a Python development profile.
 
 ### Automatic discovery of MCP servers
 
