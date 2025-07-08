@@ -1,6 +1,6 @@
 ---
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 # Terminal Shell Integration
