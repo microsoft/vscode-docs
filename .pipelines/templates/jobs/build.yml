@@ -48,6 +48,12 @@ jobs:
   - script: npm config list
     displayName: List npm properties
 
+  - powershell: |
+      if (Test-Path "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional") {
+        mv "$(Pipeline.Workspace)/vscode-website/server/.npmrc.optional" "$(Pipeline.Workspace)/vscode-website/server/.npmrc"
+      }
+    displayName: Enforce .npmrc
+
   - task: npmAuthenticate@0
     displayName: Setup NPM Authentication
     inputs:
