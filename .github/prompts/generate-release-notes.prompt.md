@@ -1,5 +1,5 @@
 ---
 mode: 'agent'
-tools: ['getCurrentMilestone', 'getReleaseFeatures', 'file_search', 'semantic_search', 'read_file', 'insert_edit_into_file', 'create_file', 'replace_string_in_file', 'fetch_webpage', 'vscode_search_extensions_internal']
+tools: ['changes', 'codebase', 'editFiles', 'extensions', 'fetch', 'findTestFiles', 'githubRepo', 'new', 'openSimpleBrowser', 'problems', 'readCellOutput', 'runCommands', 'runNotebooks', 'runTasks', 'runTests', 'search', 'searchResults', 'terminalLastCommand', 'terminalSelection', 'testFailure', 'updateUserPreferences', 'usages', 'vscodeAPI', 'Figma', 'getCurrentMilestone', 'getReleaseFeatures']
 ---
 Generate release notes for the features I worked in the current release and update them in the release notes file. Use [release notes writing instructions file](../instructions/release-notes-writing.instructions.md) as a guide.

@@ -1,6 +1,6 @@
 ---
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
