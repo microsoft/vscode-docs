@@ -1,7 +1,7 @@
 ---
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 ---
 # GitHub Codespaces
 

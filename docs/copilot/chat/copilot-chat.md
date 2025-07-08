@@ -1,6 +1,6 @@
 ---
 ContentId: 130ecf6c-6f06-4ddd-8b1d-f85f023af77b
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Interact with GitHub Copilot through AI-powered chat conversations in VS Code to generate code, increase your code understanding, and even configure your editor.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -149,6 +149,28 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
 
+## Edit chat requests (Experimental)
+
+> [!NOTE]
+> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+
+1. The edited request and all subsequent requests and responses are removed from the conversation history.
+1. Any edits that were made by these requests are reverted to their state before the request was made.
+1. The edited request is added to the conversation history and submitted to the language model for a new response.
+
+Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
+
+There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+
+* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
+* `none`: Disable editing of chat requests in the Chat view.
+
 ### Revert chat requests
 
 You can revert (undo) chat requests in the active chat session. When you revert a chat request, you also remove the corresponding response from the conversation history.
@@ -193,6 +215,38 @@ With the voice control capabilities in VS Code, provided by the [VS Code Speech]
 
 Learn more about how to [use voice interactions in VS Code](/docs/configure/accessibility/voice.md).
 
+## Chat Debug view
+
+The Chat Debug view is a dedicated view where you can see the details of AI requests and responses. For each chat request, you can see the system prompt, user prompt, and details about the context that is sent to the language model. You can view the detailed response from the language model, and responses from tools that are invoked as part of the chat request.
+
+To open the Chat Debug view, run the **Developer: Show Chat Debug View** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot of the Chat Debug view, showing the details of a chat request and response.](images/copilot-chat/chat-debug-view.png)
+
+## Start chat from the command line
+
+You can start a chat session directly from the command line by using the `chat` subcommand in the VS Code CLI. This enables you to open a chat session in your current working directory with a prompt you provide.
+
+For example, the following command opens chat for the current directory and asks "Find and fix all untyped variables":
+
+```bash
+code chat Find and fix all untyped variables
+```
+
+The `chat` subcommand has the following command-line options:
+
+* `-m`, `--mode <mode>`: The chat mode to use for the chat session. Available options: `ask`, `edit`, `agent`, or the identifier of a custom mode. Defaults to `agent`.
+* `-a`, `--add-file <path>`: Add files as context to the chat session.
+* `--maximize`: Maximize the chat session view.
+* `-r`, `--reuse-window`: Use the last active window for the chat session.
+* `-n`, `--new-window`: Open an empty window for the chat session.
+
+The `chat` subcommand also supports piping input from `stdin` by passing `-` at the end of the command. For example:
+
+```bash
+python app.py | code chat why does it fail -
+```
+
 ## Privacy and transparency
 
 To enable more workspace search features for private repositories, we require additional permissions. If we detect that we don't have these permissions already, we will ask for them at startup. Once granted, we'll securely store the session for the future.
@@ -213,7 +267,7 @@ The different chat modes are optimized for different use cases:
 
 * Use _edit mode_ to directly apply edits across multiple files in your codebase based on your chat prompt. You provide the relevant context and files for your prompt.
 
-* Use _agent mode_ to start an agentic coding workflow, whereby Copilot autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can invoke tools to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
+* Use _agent mode_ to start an autonomous coding workflow, whereby the AI autonomously determines the relevant context and files, determines which tasks need to be performed to complete the request. It then iterates independently to achieve the desired outcome, fixing issues as they come up. Agent mode can invoke [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) from extensions or MCP servers to perform specialized tasks, such as running terminal commands, validating test cases, or accessing APIs.
 
 ## Additional resources
 

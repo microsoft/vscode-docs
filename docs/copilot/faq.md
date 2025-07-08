@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -158,6 +158,12 @@ If you encounter problems connecting to GitHub Copilot, you can view network con
 1. Open the Command Palette (`kb(workbench.action.showCommands)`).
 1. Run the **GitHub Copilot: Collect Diagnostics** command.
 1. An editor tab opens where you can inspect the diagnostics information.
+
+### Use the Chat Debug view
+
+You can use the Chat Debug view to see the details of AI requests and responses, including the prompt being used and the context that is sent to the language model. This view can help you understand how the AI is interpreting your requests and what context it is using to generate responses.
+
+Learn more about the [Chat Debug view](/docs/copilot/chat/copilot-chat.md#chat-debug-view).
 
 ## Additional resources
 

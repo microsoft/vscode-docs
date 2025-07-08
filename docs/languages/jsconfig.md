@@ -1,6 +1,6 @@
 ---
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
