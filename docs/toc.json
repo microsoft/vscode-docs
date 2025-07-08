@@ -94,28 +94,6 @@
   },
 
   {
-    "name": "Source Control",
-    "area": "sourcecontrol",
-    "topics": [
-      ["Overview", "/docs/sourcecontrol/overview"],
-      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
-      ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
-      ["FAQ", "/docs/sourcecontrol/faq"]
-    ]
-  },
-  {
-    "name": "Terminal",
-    "area": "terminal",
-    "topics": [
-      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
-      ["Terminal Basics", "/docs/terminal/basics"],
-      ["Terminal Profiles", "/docs/terminal/profiles"],
-      ["Shell Integration", "/docs/terminal/shell-integration"],
-      ["Appearance", "/docs/terminal/appearance"],
-      ["Advanced", "/docs/terminal/advanced"]
-    ]
-  },
-  {
     "name": "GitHub Copilot",
     "area": "copilot",
     "topics": [
@@ -162,7 +140,7 @@
         "name": "Reference",
         "area": "copilot/reference",
         "topics": [
-          ["Copilot Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
+          ["Cheat Sheet", "/docs/copilot/reference/copilot-vscode-features"],
           ["Settings Reference", "/docs/copilot/reference/copilot-settings"],
           ["Workspace Context", "/docs/copilot/reference/workspace-context"]
         ]
@@ -170,6 +148,30 @@
       ]
     ]
   },
+
+  {
+    "name": "Source Control",
+    "area": "sourcecontrol",
+    "topics": [
+      ["Overview", "/docs/sourcecontrol/overview"],
+      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
+      ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["FAQ", "/docs/sourcecontrol/faq"]
+    ]
+  },
+  {
+    "name": "Terminal",
+    "area": "terminal",
+    "topics": [
+      ["Getting Started Tutorial", "/docs/terminal/getting-started"],
+      ["Terminal Basics", "/docs/terminal/basics"],
+      ["Terminal Profiles", "/docs/terminal/profiles"],
+      ["Shell Integration", "/docs/terminal/shell-integration"],
+      ["Appearance", "/docs/terminal/appearance"],
+      ["Advanced", "/docs/terminal/advanced"]
+    ]
+  },
+
   {
     "name": "Languages",
     "area": "languages",

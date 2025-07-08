@@ -1,6 +1,6 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: "Learn how to manage context when using AI in VS Code, including workspace indexing, #-mentions for files and symbols, web content references, and custom instructions."
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -15,7 +15,7 @@ VS Code automatically provides context to the chat prompt based on your current 
 * The currently selected text in the active editor.
 * The file name or notebook name of the active editor.
 
-The actual contents of the active file are not included in the context, but are shown as a suggested context item in the chat input box (indicated with italic text and a dotted outline). Depending on your prompt, VS Code might decide to read the contents of the active file. To explicitly include the contents of the active file in the chat context, select the suggested file in the chat input box.
+VS Code automatically adds the active file as a context item in the chat input box (indicated by _Current file_). Select the context item to exclude it from the chat context.
 
 ![Screenshot of the Chat view, showing the active file as a suggested context item in the chat input box.](./images/copilot-chat/chat-context-current-file.png)
 
@@ -33,28 +33,7 @@ Alternatively, choose from the list of available predefined context items like `
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-<details>
-<summary>Supported context items</summary>
-
-VS Code supports the following context items:
-
-| Context item | Description |
-| ------------- | ----------- |
-| #changes | Get the diffs of changed files in source control. |
-| #codebase | Perform a codebase search across the current workspace. |
-| #extensions | Search across VS Code extensions. |
-| #fetch | Get the contents of a web page. |
-| #githubRepo | Perform a web search within a GitHub repo. |
-| #problems | Get the list of problems for the current workspace. |
-| #selection | Get the text selection for the active editor. |
-| #searchResults | Get the results from the Search view. |
-| #terminalLastCommand | Get the last run terminal command and its status. |
-| #terminalSelection | Get the terminal text selection. |
-| #testFailure | Get the list of test failures. |
-| #usages | Get symbol references across the workspace. |
-| #vscodeAPI | Perform a search across the VS Code extension API. |
-
-</details>
+View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-variables) of the cheat sheet.
 
 ### Prompt examples
 
@@ -174,9 +153,7 @@ To reference a tool or tool set directly in your chat prompt, type `#` followed 
 
 ## @-mentions
 
-When you use [ask mode](/docs/copilot/chat/chat-ask-mode.md) in chat, you can use the `@` symbol to pass the chat prompt to a chat participant. A chat participant is a domain expert that has context and knowledge about a specific topic. For example, the built-in `@vscode` participant is an expert on VS Code and the extension API, or `@terminal` can help with shell commands.
-
-To use a chat participant, start your prompt with `@` followed by the participant name, and then continue with your question.
+Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 
@@ -185,7 +162,9 @@ The following examples show how to use @-mentions in your chat prompts:
 
 Type `@` in the chat input field to see a list of available chat participants.
 
-Extensions can also contribute their own [chat participants](/api/extension-guides/chat.md).
+Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
+
+Chat participants are different from [tools](#reference-tools) that are invoked as part of an autonomous coding flow in agent mode. Chat participants are responsible to handle your prompt entirely themselves.
 
 ## Add elements from the VS Code simple browser (Experimental)
 

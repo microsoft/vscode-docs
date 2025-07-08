@@ -1,6 +1,6 @@
 ---
 ContentId: 393f3945-0821-42ca-bdd7-fb82affacb6a
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Get started with chat edit mode in VS Code to start an AI-powered code editing session across multiple files in your project.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---

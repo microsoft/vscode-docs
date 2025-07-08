@@ -1,6 +1,6 @@
 ---
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Learn about Visual Studio Code's enterprise support features, such as group policies or restricting allowed extensions.
 
 ---

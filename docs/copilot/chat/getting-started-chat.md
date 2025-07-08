@@ -1,6 +1,6 @@
 ---
 ContentId: ae1f36a9-7597-425f-97fc-49bd51c153a3
-DateApproved: 06/12/2025
+DateApproved: 07/09/2025
 MetaDescription: Get started with AI-powered chat conversations with GitHub Copilot in Visual Studio Code, inline while you're coding, or in a separate Chat view.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
