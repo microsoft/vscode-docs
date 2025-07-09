@@ -59,9 +59,7 @@ MCP is still a relatively new standard, and the ecosystem is rapidly evolving. A
 ## Enable MCP support in VS Code
 
 > [!NOTE]
-> MCP support in VS Code is available starting from VS Code 1.99.
-
-To enable MCP support in VS Code, enable the `setting(chat.mcp.enabled)` setting.
+> MCP support in VS Code is generally available starting from VS Code 1.102, but can be [disabled by your organization](#centrally-manage-mcp-support).
 
 ### Centrally manage MCP support
 
@@ -75,14 +73,12 @@ You have two options to centrally manage MCP support in your organization:
 
 You have multiple options to add an MCP server in VS Code:
 
+* **Direct installation**: Visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
 * **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
-* **User settings**: specify the server in your user settings to enable the MCP server across all workspaces.
-* **Automatic discovery**: enable autodiscovery of MCP servers defined in other tools, such as Claude Desktop.
+* **User settings**: specify the server in your user configuration (**MCP: Open User Configuration**) to enable the MCP server across all workspaces, synchronized via [Settings Sync](/docs/configure/settings-sync.md).
+* **Automatic discovery**: enable autodiscovery (`chat.mcp.discovery.enabled`) of MCP servers defined in other tools, such as Claude Desktop.
 
-> [!TIP]
-> You can directly install an MCP server from the [curated list of MCP servers](https://code.visualstudio.com/mcp) on the VS Code website. This automatically adds the MCP server configuration to your environment.
-
-To view and manage the list of configured MCP servers, run the **MCP: List Servers** command from the Command Palette.
+To view and manage the list of configured MCP servers, run the **MCP: Show Installed Servers** command from the Command Palette or visit the **MCP SERVERS - INSTALLED** section in the Extensions view.
 
 After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
 
@@ -116,6 +112,10 @@ To add an MCP server to your workspace:
             }
         ],
         "servers": {
+            // https://github.com/github/github-mcp-server/
+            "Github": {
+                "url": "https://api.githubcopilot.com/mcp/"
+            },
             // https://github.com/ppl-ai/modelcontextprotocol/
             "Perplexity": {
                 "type": "stdio",
@@ -143,6 +143,32 @@ To add an MCP to your user configuration, run the **MCP: Open User Configuration
 Alternatively, use the **MCP: Add Server** command from the Command Palette, provide the server information, and then select **Global** to add the server configuration to your profile.
 
 When you use multiple VS Code [profiles](/docs/configure/profiles.md), this allows you to switch between different MCP server configurations based on your active profile. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) could be configured in a web development profile, but not in a Python development profile.
+
+### Dev Container support
+
+MCP servers can be configured in Dev Containers through the `devcontainer.json` file. This allows you to include MCP server configurations as part of your containerized development environment.
+
+To configure MCP servers in a Dev Container, add the server configuration to the `customizations.vscode.mcp` section:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+    "customizations": {
+        "vscode": {
+            "mcp": {
+                "servers": {
+                    "playwright": {
+                        "command": "npx",
+                        "args": ["-y", "@microsoft/mcp-server-playwright"]
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+When the Dev Container is created, VS Code automatically writes the MCP server configurations to the remote `mcp.json` file, making them available in your containerized development environment.
 
 ### Automatic discovery of MCP servers
 
@@ -236,16 +262,15 @@ The following code snippet shows an example MCP server configuration that specif
                 "PERPLEXITY_API_KEY": "${input:perplexity-key}"
             }
         },
+        // https://github.com/github/github-mcp-server/
+        "Github": {
+            "url": "https://api.githubcopilot.com/mcp/"
+        },
         // https://github.com/modelcontextprotocol/servers/tree/main/src/fetch
         "fetch": {
             "type": "stdio",
             "command": "uvx",
             "args": ["mcp-server-fetch"]
-        },
-        "my-remote-server": {
-            "type": "sse",
-            "url": "http://api.contoso.com/sse",
-            "headers": { "VERSION": "1.2" }
         }
     }
 }
@@ -287,6 +312,12 @@ To use MCP tools in agent mode:
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
+## MCP elicitations
+
+MCP servers can request additional input from you through elicitations. When an MCP server needs more information to complete a task, it can prompt you for specific details, such as confirmations, configuration values, or other parameters required for the operation.
+
+When an MCP server sends an elicitation request, VS Code presents you with a dialog or input field where you can provide the requested information. This allows MCP servers to gather necessary data dynamically without requiring all configuration to be set up in advance.
+
 ## Use MCP resources
 
 In addition to tools, MCP servers can also provide resources that you can use as context in your chat prompts. For example, a file system MCP server might provide access to files and directories, or a database MCP server might provide access to database tables.
@@ -319,7 +350,7 @@ Learn more about how to [create and use tool sets in VS Code](/docs/copilot/chat
 
 ## Manage MCP servers
 
-You can manage the list of installed MCP servers from the Extension view (`kb(workbench.view.extensions)`) in VS Code.
+You can manage the list of installed MCP servers from the **MCP SERVERS - INSTALLED** section in the Extensions view (`kb(workbench.view.extensions)`) in VS Code. This dedicated view makes it easy to monitor, configure, and control your installed MCP servers.
 
 ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png)
 
@@ -337,7 +368,7 @@ Right-click on an MCP server or select the gear icon to perform the following ac
 Alternatively, run the **MCP: List Servers** command from the Command Palette to view the list of configured MCP servers. You can then select a server and perform actions on it.
 
 > [!TIP]
-> When you open the `.vscode/mcp.json` file, VS Code shows commands to start, stop, or restart a server directly from the editor.
+> When you open the `.vscode/mcp.json` file via **MCP: Open Workspace Folder MCP Configuration**, VS Code shows commands to start, stop, or restart a server directly from the editor.
 
 ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png)
 
@@ -418,7 +449,7 @@ Verify that the command arguments are correct and that the container is not runn
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
-A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view.
+A chat request can have a maximum of 128 tools enabled at a time due to model constrains. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools or whole servers in the tools picker in the Chat view.
 
 ![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 
