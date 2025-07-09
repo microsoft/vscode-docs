@@ -49,13 +49,6 @@ To test a prompt in Agent Builder, follow these steps:
 
 1. Repeat the previous steps to iterate over your prompts by observing the model response and making changes to the prompts.
 
-## Version management of prompts
-To manage versions of your prompts, follow these steps:
-
-1. At the left top corner, select the **Save as new version** button to create a new version of the prompt you want to manage.
-2. Click on the **Version History** button to view previous versions of the prompt.
-3. Select a version to restore it or create a new version for further editing.
-
 ## Use MCP servers
 MCP server is a tool that allows you to connect to external APIs and services, enabling your agent to perform actions beyond just generating text. For example, you can use an MCP server to access databases, call web services, or interact with other applications.
 

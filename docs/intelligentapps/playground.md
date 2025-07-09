@@ -1,6 +1,6 @@
 ---
 ContentId: e919aee8-fd2e-401b-9d83-0ff6f98b23ba
-DateApproved: 14/06/2025
+DateApproved: 07/09/2025
 MetaDescription: Chat with selected generative AI model in playground. Change system prompt and parameters. Add attachment for Multi-Modal models. Keep chat history.
 ---
 # Model playground in AI Toolkit
@@ -23,7 +23,20 @@ To test a model in the playground, follow these steps:
 3. Optionally, configure the model parameters available for the selected model.
 4. Enter a chat prompt in the chat input box
 
+## GitHub Pay-as-you-go Model Support
+
+AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working after passing free tier limits.
+
+- When you reach GitHub’s model usage limit, AI Toolkit shows a warning with a link to GitHub’s paid usage documentation.
+
+    ![GitHub Pay-as-you-go Model Support](./images/playground/github_pay_as_you_go.png)
+
+- Turn on billing for models in your [GitHub Settings](https://github.com/settings/billing).
+
+- After enabling billing, keep using the model in Playground or Agent Builder without changing your workflow.
+
 ## Model preferences
+
 ![Model Preferences panel displaying adjustable parameters for generative AI models](./images/playground/parameters.png)
 
 The **Model Preferences** panel allows you to select a model for playground interaction, set system prompts to guide the model's behavior and configure the model parameters for the selected model.

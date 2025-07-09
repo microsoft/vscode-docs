@@ -9,7 +9,7 @@ AI Toolkit provides comprehensive support for a wide variety of generative AI mo
 
 Within the model catalog, you can explore and utilize models from multiple hosting sources:
 
-- Models hosted on GitHub, such as Llama3, Phi-3, and Mistral.
+- Models hosted on GitHub, such as Llama3, Phi-3, and Mistral, including pay-as-you-go options.
 - Models provided directly by publishers, including OpenAI's ChatGPT, Anthropic's Claude, and Google's Gemini.
 - Models hosted on Azure AI Foundry.
 - Models downloaded locally from repositories like Ollama and ONNX.
@@ -46,7 +46,8 @@ To add a model from the model catalog:
 1. The flow for adding models will be slightly different based on the providers:
 
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
-    - **Azure AI Foundry Hosted Models**: The model is deployed directly to Azure AI Foundry.
+        > [!NOTE]
+        > AI Toolkit now [supports GitHub pay-as-you-go models](), .
     - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
