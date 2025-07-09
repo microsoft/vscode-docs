@@ -41,18 +41,18 @@ To find a model in the model catalog:
 
 ## Add a model from the catalog
 To add a model from the model catalog:
-1. Locate the model you want to add in the model catalog
+1. Locate the model you want to add in the model catalog.
 1. Select the **Add** on the model card
 1. The flow for adding models will be slightly different based on the providers:
 
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
         > [!NOTE]
-        > AI Toolkit now [supports GitHub pay-as-you-go models](), .
+        > AI Toolkit now [supports GitHub pay-as-you-go models](playground.md#github-pay-as-you-go-model-support), so you can keep working after passing free tier limits.
     - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
         > [!TIP]
-        > You can edit the API key later by right clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
+        > You can edit the API key later by right     clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
         > ![AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model_operation.png)
 
     - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
