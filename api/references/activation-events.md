@@ -296,7 +296,7 @@ An activation event emitted whenever an external URI, such as an http or https l
 
 ```json
 "activationEvents": [
-  "onTerminal:terminalTest.terminal"
+  "onTerminal:bash"
 ]
 ```
 
@@ -316,7 +316,7 @@ An activation event emitted whenever an external URI, such as an http or https l
 
 ```json
 "activationEvents": [
-    "onTerminalShellIntegration:terminalTest.terminal-ShellIntegration"
+    "onTerminalShellIntegration:bash"
 ]
 ```
 
