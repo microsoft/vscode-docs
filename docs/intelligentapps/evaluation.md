@@ -1,6 +1,6 @@
 ---
 ContentId: 3342b8ef-72fe-4cca-baad-64ee57c05b5f
-DateApproved: 06/16/2025
+DateApproved: 07/09/2025
 MetaDescription: Evaluate AI models, prompts, and agents using AI Toolkit's comprehensive evaluation system. Import datasets, run evaluations with built-in evaluators like F1 score, relevance, coherence, and similarity, or create custom LLM-based and code-based evaluators. Visualize and compare results in tables and charts.
 ---
 # Evaluate models, prompts, and agents
@@ -56,7 +56,7 @@ You can compare evaluation results of different versions in **Agent Builder**. R
 To compare evaluation results between versions:
 
 1. In **Agent Builder**, select the **Evaluation** tab.
-1. From the agent title, select **Compare with**.
+1. From the evaluation toolbar, select **Compare**.
 1. Choose the version you want to compare with from the list.
     > [!NOTE]
     > Compare functionality is only available in full screen mode of Agent Builder for better visibility of the evaluation results. You can expand the **Prompt** section to see the model and prompt details.
