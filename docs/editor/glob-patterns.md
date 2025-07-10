@@ -34,3 +34,6 @@ We implemented our own [glob matching library](https://github.com/microsoft/vsco
 ### Why does my glob pattern not work?
 
 Make sure that on Windows you are using `/` to separate paths and not `\`. Glob patterns in VS Code require `/` for separating paths but they will both match on `/` and `\` in paths.
+
+
+[def]: /docs/editing/codebasics.md#advanced-search-options
