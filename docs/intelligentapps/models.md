@@ -126,7 +126,7 @@ To add a custom ONNX model, first convert it to the AI Toolkit model format usin
 
 You can deploy a model to Azure AI Foundry directly from the AI Toolkit. This allows you to run the model in the cloud and access it via an endpoint.
 
-1. From the model catalog, select the model you want to deploy
+1. From the model catalog, select the model you want to deploy.
 1. Select **Deploy to Azure AI Foundry**, either from the dropdown menu or directly from the **Deploy to Azure AI Foundry** button, as in the following screenshot:
 
     ![AI Toolkit interface showing the model catalog with a model selected and the Deploy to Azure AI Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
@@ -167,4 +167,3 @@ You can manage your models in the **MY MODELS** section of the AI Toolkit view. 
 ## License and sign-in
 
 Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
-

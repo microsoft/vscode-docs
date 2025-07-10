@@ -13,7 +13,6 @@ Agent Builder in AI Toolkit streamlines the engineering workflow for building ag
 - Iterate and refine with each run
 - Break down complex tasks through prompt chaining and structured outputs
 - Provide easy access to code for seamless Large Language Model (LLM) integration via APIs
-- Version control for prompt management
 
 Agent Builder also enhances intelligent app's capabilities with tool use:
 - Connect to existing MCP servers
@@ -84,22 +83,23 @@ To use an existing MCP server, follow these steps:
 5. Enter your prompts and select **Run** to test the connection.
 
 Here's an example of configuring the [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) server in AI Toolkit:
+
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
-2. Select **Connect to an Existing MCP Server**
-3. Select **Command (stdio)**
+1. Select **Connect to an Existing MCP Server**
+1. Select **Command (stdio)**
    > [!NOTE]
    > Some servers use the Python runtime and the `uvx` command. The process is the same as using the `npx` command.
-4. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
-5. Copy the `command` and `args` into the input box in AI Toolkit. For the Filesystem server example, it's `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
-6. Input a name for the server.
-7. Optionally, enter extra environment variables.
+1. Navigate to the [Server instructions](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem#npx) and locate the `npx` section.
+1. Copy the `command` and `args` into the input box in AI Toolkit. For the Filesystem server example, it's `npx -y @modelcontextprotocol/server-filesystem /Users/<username>/.aitk/examples`
+1. Input a name for the server.
+1. Optionally, enter extra environment variables.
    Some servers might require extra environment variables such as API keys. In this case, AI Toolkit fails at the stage of adding tools and a file `mcp.json` opens, where you can enter the required server details following the instructions provided by each server.
    ![Modify args](./images/promptbuilder/modify_args.png)
-   Once completed the configuration:
-   1. Navigate back to **Tools** section and select **+ MCP Server**
-   2. Select the server you configured from the dropdown list
-   3. Select tools you want to use.
-8. Select tools you want to use.
+   After you complete the configuration:
+       1. Navigate back to **Tools** section and select **+ MCP Server**
+       1. Select the server you configured from the dropdown list
+
+1. Select the tools you want to use.
 
 ![connect to MCP server](./images/promptbuilder/mcp_existing.gif)
 
@@ -108,10 +108,10 @@ AI Toolkit also provides a scaffold to help you build a new MCP server. The scaf
 ### Build a new MCP server
 To build a new MCP server, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the quick pick.
-2. Select **Create a New MCP Server**
-3. Select a programming language from the dropdown list: **Python** or **TypeScript**
-4. Select a folder to create the new MCP server project in.
-5. Enter a name for the MCP server project.
+1. Select **Create a New MCP Server**
+1. Select a programming language from the dropdown list: **Python** or **TypeScript**
+1. Select a folder to create the new MCP server project in.
+1. Enter a name for the MCP server project.
 
 ![scaffold mcp](./images/promptbuilder/scaffold_mcp.gif)
 
@@ -125,10 +125,10 @@ Follow these steps to test the MCP server:
 > To run the MCP Server in your local dev machine, you need: [Node.js](https://nodejs.org/) or Python installed on your machine.
 
 1. Open VS Code Debug panel. Select `Debug in Agent Builder` or press `F5` to start debugging the MCP server.
-2. Use AI Toolkit Agent Builder to test the server with the following prompt:
+1. Use AI Toolkit Agent Builder to test the server with the following prompt:
    1. System Prompt: You are a weather forecast professional that can tell weather information based on given location.
-3. The server is automatically connected to Agent Builder.
-4. Select `Run` to test the server with the prompt.
+1. The server is automatically connected to Agent Builder.
+1. Select `Run` to test the server with the prompt.
 
 ![debug mcp](./images/promptbuilder/mcp_debug.gif)
 
@@ -139,15 +139,15 @@ Function calling connects your agent to external APIs and services.
 ![Screenshot showing the Add Custom Function Tool dialog with options to add tools by example or upload schemas.](./images/promptbuilder/add_function_call.png)
 
 1. In **Tools**, select **Add Tool**, then **Custom Tool**.
-2. Choose how to add the tool:
+1. Choose how to add the tool:
    - **By Example**: Add from a JSON schema example
    - **Upload Existing Schema**: Upload a JSON schema file
-3. Enter the tool name and description, then select **Add**.
-4. Provide a mock response in the tool card.
+1. Enter the tool name and description, then select **Add**.
+1. Provide a mock response in the tool card.
 
 ![Screenshot showing a function calling tool card with weather tool configuration.](./images/promptbuilder/function_call_card.png)
 
-5. Run the agent with the function calling tool.
+1. Run the agent with the function calling tool.
 
 Use function calling tools in the **Evaluation** tab by entering mock responses for test cases.
 
@@ -163,13 +163,13 @@ To test using structured output in Agent Builder, follow these steps:
 
 1. Select the **Structure output** from the left area, and select **json_schema**.
 
-2. Select **Prepare schema**, and then select **Select local file** to use your own schema, or select **Use an example** to use a predefined schema.
+1. Select **Prepare schema**, and then select **Select local file** to use your own schema, or select **Use an example** to use a predefined schema.
 
    If you proceed with an example, you can select a schema from the dropdown list.
 
-3. Select **Run** to send the prompts to the selected model.
+1. Select **Run** to send the prompts to the selected model.
 
-4. You can also edit the schema by selecting name of the schema.
+1. You can also edit the schema by selecting name of the schema.
 
    ![edit schema](./images/promptbuilder/edit_schema_2.png)
 
