@@ -75,7 +75,9 @@ To disable Copilot for a specific workspace:
 
 1. Open the Extensions view in VS Code (`kb(workbench.view.extensions)`).
 1. Search for the **GitHub Copilot** extension.
-1. Select the gear icon and then select **Disable (Workspace)**
+1. Select the gear icon and then select **Disable (Workspace)**.
+1. Select **Restart extensions**.
+1. You can re-enable it later by selecting the **Enable (Workspace)** button that appears after restarting extensions. 
 
 ![Screenshot that shows the GitHub Copilot extension in the Extensions view, with the option to disable it for the workspace.](images/setup/copilot-disable-workspace.png)
 
