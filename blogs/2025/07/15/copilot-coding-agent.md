@@ -1,6 +1,6 @@
 
 
-# Announcing Copilot Coding Agent Integration in Visual Studio Code
+# Copilot Coding Agent Comes to VS Code
 
 Today, we’re excited to give you a first look at the Copilot Coding Agent in Visual Studio Code.
 
