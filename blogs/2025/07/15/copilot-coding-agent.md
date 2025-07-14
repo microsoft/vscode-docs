@@ -35,7 +35,7 @@ Copilot Coding Agent integrates with the [GitHub Pull Requests extension](https:
 
 ### Track your agent’s progress
 
-There’s a new **Copilot on My Behalf** query in the Pull Requests view. This shows you everything Copilot is working on for you. Want to see exactly what the agent did? Click "View Session" and watch the play-by-play. You get full transparency into every command and decision. You can also terminate the agent - all without leaving the editor.
+There’s a new **Copilot on My Behalf** query in the Pull Requests view. This shows you everything Copilot is working on for you. Want to see exactly what the agent did? Click "View Session" and watch the play-by-play. You get full transparency into every command and decision. You can also terminate the agent if you're not happy with how things are going. And you can drive all of this without even leaving the editor.
 
 ![A WIP PR shown under the "Copilot on my behalf" section with the "View Session" button highlighted](copilot-wip.png)
 
