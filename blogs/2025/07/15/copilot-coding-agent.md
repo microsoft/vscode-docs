@@ -39,7 +39,7 @@ There’s a new **Copilot on My Behalf** query in the Pull Requests view. This s
 
 ![A WIP PR shown under the "Copilot on my behalf" section with the "View Session" button highlighted](copilot-wip.png)
 
-In this screenshot, the agent implemented a trending section complete with UI and database changes. All of this is one interaction so it's only one premium request.
+In this screenshot, the agent implemented a "trending" section to a website, complete with UI and database changes. All of this is one interaction so it's only one premium request.
 
 ### Review, comment, and iterate
 
