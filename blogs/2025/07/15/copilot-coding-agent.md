@@ -47,7 +47,7 @@ When the agent is done, it will assign the PR to you and request you as a review
 
 ![PR from Coding agent shown in VS Code with a screenshot](draft-with-screenshot.png)
 
-You can review the agent’s PR, leave comments, and ask for changes - all from within VS Code. The agent will picks up your feedback, updates the PR and let you know when it's finished.
+You can review the agent’s PR, leave comments, and ask for changes - all from within VS Code. The agent will pick up your feedback, update the PR, and let you know when it's finished.
 
 My colleague @pierceboggan pointed out a fascinating workflow here - with services like Azure Static Web Apps, Vercel and Netlify that offer previews for PR's, you can review the agent's work without even having to checkout it's PR and run it locally.
 
