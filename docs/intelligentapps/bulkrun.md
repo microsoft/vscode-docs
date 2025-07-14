@@ -1,6 +1,6 @@
 ---
 ContentId: 1124d141-e893-4780-aba7-b6ca13628bc5
-DateApproved: 06/16/2025
+DateApproved: 07/14/2025
 MetaDescription: Run a set of prompts with variables or function calls with an imported or synthetically generated dataset towards the selected models and parameters.
 ---
 # Run multiple prompts in bulk
@@ -27,7 +27,7 @@ To start a bulk run in AI Toolkit, follow these steps:
 
 1. Select **Generate Data** to create a synthetic dataset.
 1. Choose the number of rows to generate and view or modify the data generation logic.
-    ![Screenshot showing Generate Data dialog in AI Toolkit.](./images/bulkrun/generate_data.png)
+    ![Screenshot showing Generate Data dialog in AI Toolkit.](./images/bulkrun/generate-data.png)
 1. Select **Generate** to create the dataset.
 
 > [!TIP]
@@ -37,7 +37,7 @@ To start a bulk run in AI Toolkit, follow these steps:
 
 ## Operate on dataset
 
-![Screenshot showing AI Toolkit interface with dataset operations and a table of evaluation results.](./images/bulkrun/dataset_operation.png)
+![Screenshot showing AI Toolkit interface with dataset operations and a table of evaluation results.](./images/bulkrun/dataset-operation.png)
 
 AI Toolkit provides several operations to manage and analyze your dataset during a bulk run:
 
@@ -55,11 +55,11 @@ AI Toolkit provides several operations to manage and analyze your dataset during
 
 AI Toolkit lets you evaluate the results of your bulk run directly in the dataset view.
 
-![Screenshot showing AI Toolkit interface in full screen mode with the Evaluation tab expanded. The dataset table displays multiple columns, including query prompts and AI responses, for detailed analysis.](./images/bulkrun/full_screen.png)
+![Screenshot showing AI Toolkit interface in full screen mode with the Evaluation tab expanded. The dataset table displays multiple columns, including query prompts and AI responses, for detailed analysis.](./images/bulkrun/full-screen.png)
 
 You can expand the **Evaluation** tab to full screen mode for a more detailed view of the results. Full screen mode provides the same functionality as the standard view, but with a larger display area for better visibility and analysis.
 
-![Screenshot showing detailed view of evaluation results with a modal dialog displaying a full conversation between user and assistant about weather queries.](./images/bulkrun/view_detail.png)
+![Screenshot showing detailed view of evaluation results with a modal dialog displaying a full conversation between user and assistant about weather queries.](./images/bulkrun/view-detail.png)
 
 Select **View Details** to see the full response for each query.
 
@@ -74,7 +74,7 @@ In the detail view, you can:
 
 ## Manage data columns
 
-![Screenshot showing AI Toolkit interface with dataset management options and column management controls.](./images/bulkrun/manage_columns.png)
+![Screenshot showing AI Toolkit interface with dataset management options and column management controls.](./images/bulkrun/manage-columns.png)
 
 With data column management, you can customize the dataset view to focus on the most relevant information for your bulk run analysis.
 

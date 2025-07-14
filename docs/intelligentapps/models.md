@@ -1,6 +1,6 @@
 ---
 ContentId: 52ad40fe-f352-4e16-a075-7a9606c5df3b
-DateApproved: 07/08/2025
+DateApproved: 07/14/2025
 MetaDescription: Find a popular generative AI model by publisher and source. Bring your own model that is hosted with a URL, or select an Ollama model.
 ---
 # Explore models in AI Toolkit
@@ -52,8 +52,8 @@ To add a model from the model catalog:
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
         > [!TIP]
-        > You can edit the API key later by right     clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
-        > ![AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model_operation.png)
+        > You can edit the API key later by right-clicking the model and selecting **Edit** and view the encrypted value in `${HOME}/.aikt/models/my-models/yml` file.
+        > ![Screenshot of the AI Toolkit interface showing a model card with options Try in Playground, Download, and Load in Playground.](./images/models/model-operation.png)
 
     - **OpenAI**, **Anthropic**, and **Google**: AI Toolkit prompts you to enter the API Key.
     - **Custom models**: Refer to the [Add a custom model](#add-a-custom-model) section for detailed instructions.
@@ -68,13 +68,13 @@ You can also add your own models that are hosted externally or run locally. Ther
 
 There are several entrypoints to add models to AI Toolkit:
 - From **MY MODELS** in the tree view, hover over it and select the `+` icon.
-    ![AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can click to add a new custom model.](./images/models/custom_1.png)
+    ![Screenshot of the AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted, indicating where users can click to add a new custom model.](./images/models/custom-1.png)
 
 - From the **Model Catalog**, select the **+ Add model** button from the tool bar.
-    ![AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted. The toolbar is located at the top of the catalog view, and the + Add model button is emphasized to indicate where users can click to add a new custom model.](./images/models/custom_2.png)
+    ![Screenshot of the AI Toolkit interface showing the Model Catalog toolbar with the + Add model button highlighted. The toolbar is located at the top of the catalog view, and the + Add model button is emphasized to indicate where users can click to add a new custom model.](./images/models/custom-2.png)
 
 - From the **Add Custom Models** section in the model catalog, select **+ Add Your Own Model**.
-    ![AI Toolkit interface showing the Custom Models section in the model catalog. The + Add model button is highlighted, indicating where users can click to add a new custom model.](./images/models/custom_3.png)
+    ![Screenshot of the AI Toolkit interface showing the Custom Models section in the model catalog. The + Add model button is highlighted, indicating where users can click to add a new custom model.](./images/models/custom-3.png)
 
 ### Add Ollama models
 
@@ -129,11 +129,11 @@ You can deploy a model to Azure AI Foundry directly from the AI Toolkit. This al
 1. From the model catalog, select the model you want to deploy.
 1. Select **Deploy to Azure AI Foundry**, either from the dropdown menu or directly from the **Deploy to Azure AI Foundry** button, as in the following screenshot:
 
-    ![AI Toolkit interface showing the model catalog with a model selected and the Deploy to Azure AI Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
+    ![Screenshot of the AI Toolkit interface showing the model catalog with a model selected and the Deploy to Azure AI Foundry button highlighted.](./images/models/catalog-deploy-dropdown.png)
 
-1. In the **model deployment** tab, Enter the required information, such as the model name, description, and any additional settings, as in the following screenshot:
+1. In the **model deployment** tab, enter the required information, such as the model name, description, and any additional settings, as in the following screenshot:
 
-    ![AI Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
+    ![Screenshot of the AI Toolkit interface showing the model deployment tab with fields for model name, description, and additional settings.](./images/models/deploy-to-azure-dialog.png)
 
 1. Select **Deploy to Azure AI Foundry** to start the deployment process.
 1. A dialog will appear to confirm the deployment. Review the details and select **Deploy** to proceed.

@@ -1,6 +1,6 @@
 ---
 ContentId: bd3d7555-3d84-4500-ae95-6dcd39641af0
-DateApproved: 07/08/2025
+DateApproved: 07/14/2025
 MetaDescription: Get Started with creating, iterating and optimizing your agents in AI Toolkit.
 ---
 # Build agents and prompts in AI Toolkit
@@ -25,14 +25,14 @@ Agent Builder also enhances intelligent app's capabilities with tool use:
 
 To access Agent Builder, use either of these options:
 
-- In the AI Toolkit view, select **Agent (Prompt) Builder**
-- Select **Try in Agent (Prompt) Builder** from a model card in the model catalog
+- In the AI Toolkit view, select **Agent Builder**
+- Select **Try in Agent Builder** from a model card in the model catalog
 
 To test a prompt in Agent Builder, follow these steps:
 
 1. In **Models**, select a model from the dropdown list, or select **Browse models** to add another model from the model catalog.
 
-   ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select_models.png)
+   ![Screenshot showing the model selection dropdown in Agent Builder.](./images/promptbuilder/select-models.png)
 
 1. Enter a **User prompt** and optionally enter a **System prompt**.
 
@@ -40,7 +40,7 @@ To test a prompt in Agent Builder, follow these steps:
 
    > [!TIP]
    > Describe your project idea using natural language to generate prompts automatically.
-   > ![Screenshot showing natural language prompt generation in Agent Builder.](./images/promptbuilder/generate_prompt_2.gif)
+   > ![Screenshot showing natural language prompt generation in Agent Builder.](./images/promptbuilder/generate-prompt-2.gif)
 
 3. Select **Run** to send the prompts to the model.
 
@@ -64,10 +64,10 @@ To configure an MCP server from featured selections, follow these steps:
 1. In the **Tools** section, select **+ MCP Server**, and then select **+ Add server** in the Quick Pick.
 2. Select **Use Featured MCP Servers** from the dropdown list.
 3. Choose an MCP server that meets your needs.
-   ![connect to MCP server](./images/promptbuilder/featured_server_2.png)
+   ![Screenshot showing the connect to MCP server interface in Agent Builder.](./images/promptbuilder/featured-server-2.png)
 4. Enter a name for the server.
 5. Select tools you want to use.
-   ![select_tools](./images/promptbuilder/select_tools.png)
+   ![Screenshot showing the select tools interface in Agent Builder.](./images/promptbuilder/select-tools.png)
 
 ### Use an existing MCP server
 > [!TIP]
@@ -94,7 +94,7 @@ Here's an example of configuring the [Filesystem](https://github.com/modelcontex
 1. Input a name for the server.
 1. Optionally, enter extra environment variables.
    Some servers might require extra environment variables such as API keys. In this case, AI Toolkit fails at the stage of adding tools and a file `mcp.json` opens, where you can enter the required server details following the instructions provided by each server.
-   ![Modify args](./images/promptbuilder/modify_args.png)
+   ![Screenshot showing an example of a missing arg exception](./images/promptbuilder/modify-args.png)
    After you complete the configuration:
        1. Navigate back to **Tools** section and select **+ MCP Server**
        1. Select the server you configured from the dropdown list
@@ -113,7 +113,7 @@ To build a new MCP server, follow these steps:
 1. Select a folder to create the new MCP server project in.
 1. Enter a name for the MCP server project.
 
-![scaffold mcp](./images/promptbuilder/scaffold_mcp.gif)
+![Animated GIF showing how to use the scaffold mcp](./images/promptbuilder/scaffold-mcp.gif)
 
 After you create the MCP server project, you can customize the implementation to suit your needs. The scaffold includes a basic implementation of the MCP protocol, which you can modify to add your own functionality.
 
@@ -130,13 +130,13 @@ Follow these steps to test the MCP server:
 1. The server is automatically connected to Agent Builder.
 1. Select `Run` to test the server with the prompt.
 
-![debug mcp](./images/promptbuilder/mcp_debug.gif)
+![Animated GIF showing the debug mcp process](./images/promptbuilder/mcp-debug.gif)
 
 ## Use function calling
 
 Function calling connects your agent to external APIs and services.
 
-![Screenshot showing the Add Custom Function Tool dialog with options to add tools by example or upload schemas.](./images/promptbuilder/add_function_call.png)
+![Screenshot showing the Add Custom Function Tool dialog with options to add tools by example or upload schemas.](./images/promptbuilder/add-function-call.png)
 
 1. In **Tools**, select **Add Tool**, then **Custom Tool**.
 1. Choose how to add the tool:
@@ -145,19 +145,19 @@ Function calling connects your agent to external APIs and services.
 1. Enter the tool name and description, then select **Add**.
 1. Provide a mock response in the tool card.
 
-![Screenshot showing a function calling tool card with weather tool configuration.](./images/promptbuilder/function_call_card.png)
+![Screenshot showing a function calling tool card with weather tool configuration.](./images/promptbuilder/function-call-card.png)
 
 1. Run the agent with the function calling tool.
 
 Use function calling tools in the **Evaluation** tab by entering mock responses for test cases.
 
-![Screenshot showing function calling tool usage in the evaluation tab.](./images/promptbuilder/function_call_eval.png)
+![Screenshot showing function calling tool usage in the evaluation tab.](./images/promptbuilder/function-call-eval.png)
 
 ## Structured output
 
 Structured output support helps you design prompts to deliver outputs in a structured, predictable format.
 
-![Use structured output](./images/promptbuilder/structured_output_2.gif)
+![Animated GIF showing how to use structured output](./images/promptbuilder/structured-output-2.gif)
 
 To test using structured output in Agent Builder, follow these steps:
 
@@ -171,13 +171,13 @@ To test using structured output in Agent Builder, follow these steps:
 
 1. You can also edit the schema by selecting name of the schema.
 
-   ![edit schema](./images/promptbuilder/edit_schema_2.png)
+   ![Screenshot showing the edit schema dropdown in Agent Builder.](./images/promptbuilder/edit-schema-2.png)
 
 ## Integrate prompt engineering into your application
 
 After experimenting with models and prompts, you can get into coding right away with the automatically generated Python code.
 
-![view code](./images/promptbuilder/view_code_2.gif)
+![Animated GIF showing the generated Python code](./images/promptbuilder/view-code-2.gif)
 
 To view the Python code, follow these steps:
 
