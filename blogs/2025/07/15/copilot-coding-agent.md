@@ -1,10 +1,6 @@
 
 
-<<<<<<< HEAD
 # Command GitHub's Coding Agent from VS Code
-=======
-# Copilot Coding Agent Comes to VS Code
->>>>>>> a0f5ddabcd894328d21ee237ab4492acea62e9d7
 
 Today, we’re excited to give you a first look at the Copilot Coding Agent in Visual Studio Code.
 
