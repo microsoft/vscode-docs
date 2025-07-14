@@ -60,7 +60,7 @@ But what if we *did* want to give access to make the database changes to a dev e
 
 ![MCP configuration shown for copilot coding agent on github.com](coding-agent-mcp-config.png)
 
-But it gets even better - because you can do all of this right from the agent in VS Code.
+But it gets even better - because you can do all of this right from VS Code.
 
 ### Start sessions from Copilot Chat
 
