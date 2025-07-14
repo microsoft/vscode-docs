@@ -1,20 +1,20 @@
 
 
+<<<<<<< HEAD
+# Command GitHub's Coding Agent from VS Code
+=======
 # Copilot Coding Agent Comes to VS Code
+>>>>>>> a0f5ddabcd894328d21ee237ab4492acea62e9d7
 
 Today, we’re excited to give you a first look at the Copilot Coding Agent in Visual Studio Code.
 
-This is a big step - instead of only having one agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a a thing. You get to hand off any work you need done to to a squad of AI teammates that never get tired and will actually read the whole issue before starting work.
-
-The Copilot Coding Agent is now integrated directly into VS Code, making it easier than ever to hand off programming tasks, big or small, and focus on what matters most to you. No more context switching, no more backlog dread - just assign, review, and move forward. And in case you missed it, we just dropped the pricing significantly so that one agent interaction equals one premium request. Which means it doesn't matter how much the angent has to do to complete the work, it's just one request each time you ask it to do something. That's the bargain of the century.
+Instead of only having one agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a a thing. You get to hand off any work you need done to to a squad of AI teammates.
 
 In this post, we'll take a look at what the coding agent is, give you an exclusive preview of the integrations coming to VS Code and even tell you how you can start using them today.
 
 ## What is GitHub Copilot Coding Agent?
 
-GitHub Copilot Coding Agent is an autonomous AI developer you can assign to any GitHub issue. The agent runs in GitHub and is fully integrated as a member of your repo that can comment on issues, open PR's, do code reviews and more. The agent can tackle complex work, implement features across your codebase, and even use Model Context Protocol (MCP) tools to work with databases or cloud services.
-
-Here’s how it works on GitHub.com:
+[GitHub Copilot Coding Agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) is an autonomous AI developer you can assign to any GitHub issue. The agent runs in GitHub and is fully integrated as a member of your repo that can comment on issues, open PR's, do code reviews and more. The agent can tackle complex work, implement features across your codebase, and even use Model Context Protocol (MCP) tools to work with databases or cloud services.
 
 1. You enable the agent in your repo settings.
 2. You assign an issue to Copilot.
@@ -23,7 +23,9 @@ Here’s how it works on GitHub.com:
 
 ![Copilot Coding Agent on GitHub](coding-agent-github.png)
 
-That's all there is to it. The agent runs within a GitHub Actions powered environment. A temporary, isolated dev environment gets spun up where the agent can explore the codebase, make changes, run tests, builds - everything that it needs to function as a developer working automously with thier own environment.
+That's all there is to it. It's the workflow you already know with an agent in the mix.
+
+The agent runs within a temporary, isolated dev environment (similar to GitHub Actions) that gets spun up where the agent can explore the codebase, make changes, build the code, run tests, etc. - a complete dev enviornment just for the agent so it can function in a fully autonomous manner.
 
 And now, we're integrating the coding agent and all of its workflows directly into VS Code.
 
@@ -87,4 +89,4 @@ We recently made the move [to fully open source the AI features in VS Code](http
 
 We can’t wait to see what you and your new agent friends build together! Keep an eye on the [release notes](/release-notes/) and the [Copilot documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) for new developments here.
 
-In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite teammate. And no, it doesn’t eat your snacks from the office fridge. I checked.
+In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite teammate.
