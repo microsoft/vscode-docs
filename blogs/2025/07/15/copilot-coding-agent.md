@@ -85,6 +85,6 @@ We recently made the move [to fully open source the AI features in VS Code](http
 
 ## Go forth and 100x yourself
 
-We can’t wait to see what you build (or, more accurately, what you get the agent to build for you). Keep an eye on the [release notes](/release-notes/) and the [Copilot documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent).
+We can’t wait to see what you and your new agent friends build together! Keep an eye on the [release notes](/release-notes/) and the [Copilot documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) for new developments here.
 
 In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite teammate. And no, it doesn’t eat your snacks from the office fridge. I checked.
