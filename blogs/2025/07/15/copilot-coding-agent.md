@@ -81,7 +81,7 @@ The Copilot Coding Agent integration in Visual Studio Code is currently in previ
 "githubPullRequests.codingAgent.autoCommitAndPush": true,
 ```
 
-We recently made the move to fully open source the AI features in VS Code and you can track our progress and open new issues on the vscode repo.
+We recently made the move [to fully open source the AI features in VS Code](https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor) and you can track our progress and open new issues [on the vscode repo](https://github.com/microsoft/vscode).
 
 ## Go forth and 100x yourself
 
