@@ -54,7 +54,7 @@ For example, if you use Azure Static Web Apps, Vercel, Netlify, and others, you 
 
 ![Live preview of the site on Netlify but we have an error](live-preview-netlify.png)
 
-Uh oh - looks like we didn't quite get the trending working. In this case, that's ok. In fact it's good. We didn't get it because our agent doesn't have access to create the required database changes so it created a migraiton script for us instead as part of the PR.
+Uh oh - now that we look closely, it looks like we didn't quite get the "Trending" section working. In this case, that's ok. In fact it's good. Our agent couldn't succeed in one shot because it doesn't have access to create the required database changes. Instead, so it created a migration script as part of the PR. That *will* require us to manually check out the PR, but you might feel more comfortable being in control over that sort of change.
 
 But what if we wanted to give it access to make the database changes to a dev environment? Coding agent has support for MCP servers and provided you have one for your database of choice (in this case supabse), you can [configure MCP servers for the agent on the repo](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp). It's up to you - how autonomous do you want the agent to be?
 
