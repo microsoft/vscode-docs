@@ -70,16 +70,20 @@ The coding agent then opens a PR and goes directly to work - skipping the issue 
 
 ## What’s next?
 
-The Copilot Coding Agent integration in Visual Studio Code is currently in preview, but as with everything we do, we do it all in the open and you can use it all today. If you want to light all of this up in your editor, all you need to do is make sure you have the GitHub Pull Requests extension installed and add the following settings...
+The Copilot Coding Agent integration in Visual Studio Code is currently in preview, but you can use it all today. If you want to light all of this up in your editor, all you need to do is make sure you have the GitHub Pull Requests extension installed and add the following setting...
 
 ```json
-"githubPullRequests.codingAgent.enabled": true,
-"githubPullRequests.experimental.chat": true,
 "githubPullRequests.codingAgent.uiIntegration": true,
-"githubPullRequests.codingAgent.autoCommitAndPush": true,
 ```
 
-We recently made the move [to fully open source the AI features in VS Code](https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor) and you can track our progress and open new issues [on the VS Code repo](https://github.com/microsoft/vscode).
+We are very excited to further deepen this integration with Coding Agent. And since we recently made the move [to fully open source the AI features in VS Code](https://code.visualstudio.com/blogs/2025/05/19/openSourceAIEditor), you can track our progress in our [Coding Agent iteration plan](https://github.com/microsoft/vscode/issues/255483). We're working on:
+- PR performance and rendering
+- Integrated chat view for Coding Agent sessions
+- Bringing the Copilot Agents command center into VS Code
+- Sharing custom instructions between the Coding Agent and VS Code
+- Adding more documentation
+
+We'd love your thoughts on the experience, so please provide any feedback as [issues in the VS Code repo](https://github.com/microsoft/vscode/issues)!
 
 ## Go forth and 100x yourself
 
