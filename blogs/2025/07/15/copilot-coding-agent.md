@@ -31,6 +31,8 @@ Copilot Coding Agent integrates with the [GitHub Pull Requests extension](https:
 
 ![A GIF showing Copilot assigned to an issue from within VS Code](assign-to-copilot-gif.gif)
 
+As with every VS Code feature, the VS Code team itself uses the Coding Agent integration in their own development. In fact, you can see just how many PRs have been assigned [to Copilot Coding Agent in the VS Code repo](https://github.com/search?q=is%3Apr+head%3Acopilot%2F+repo%3Amicrosoft%2Fvscode&type=pullrequests) - and that number continues to increase.
+
 ### Track your agent’s progress
 
 There’s a new **Copilot on My Behalf** query in the Pull Requests view. This shows you everything Copilot is working on for you. Want to see exactly what the agent did? Click "View Session" and watch the play-by-play. You get full transparency into every command and decision. You can also terminate the agent if you're not happy with how things are going. And you can drive all of this without even leaving the editor.
