@@ -4,7 +4,7 @@
 
 Today, we’re excited to give you a first look at the Copilot Coding Agent in Visual Studio Code.
 
-Instead of only having one agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a thing. You get to hand off any work you need done to a squad of AI teammates.
+Instead of only having one synchronous agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a thing. You get to hand off any work you need done to a squad of AI teammates.
 
 In this post, we'll take a look at what the Coding Agent is, give you an exclusive preview of the integrations coming to VS Code and even tell you how you can start using them today.
 
