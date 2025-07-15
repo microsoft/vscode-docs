@@ -10,7 +10,7 @@ In this post, we'll take a look at what the coding agent is, give you an exclusi
 
 ## What is GitHub Copilot Coding Agent?
 
-[GitHub Copilot Coding Agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) is an autonomous AI developer you can assign to any GitHub issue. The agent runs in GitHub and is fully integrated as a member of your repo that can comment on issues, open PR's, do code reviews and more. The agent can tackle complex work, implement features across your codebase, and even use Model Context Protocol (MCP) tools to work with databases or cloud services.
+[GitHub Copilot Coding Agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) is an autonomous AI developer you can assign to any GitHub issue. The agent runs in GitHub and is fully integrated as a member of your repo that can comment on issues, open PRs, do code reviews and more. The agent can tackle complex work, implement features across your codebase, and even use Model Context Protocol (MCP) tools to work with databases or cloud services.
 
 1. You enable the agent in your repo settings.
 2. You assign an issue to Copilot.
