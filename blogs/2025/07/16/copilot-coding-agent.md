@@ -90,7 +90,7 @@ The Coding Agent then opens a PR and goes directly to work - skipping the issue 
 
 ## What’s next?
 
-The Copilot Coding Agent integration in Visual Studio Code is currently in preview, but you can use it all today. As a reminder, make sure you have the GitHub Pull Requests extension installed and add the following VS Code setting...
+While the Copilot Coding Agent integration in Visual Studio Code is currently in preview, you can still use it all today! Simply make sure you have the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) installed and add the following setting to VS Code...
 
 ```json
 "githubPullRequests.codingAgent.uiIntegration": true,
