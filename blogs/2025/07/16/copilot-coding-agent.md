@@ -16,7 +16,13 @@ Today, we’re excited to give you a first look at the Copilot Coding Agent in V
 
 Instead of only having one synchronous agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a thing. You get to hand off any work you need done to a squad of AI teammates.
 
-In this post, we'll take a look at what the Coding Agent is, give you an exclusive preview of the integrations coming to VS Code and even tell you how you can start using them today.
+To see this in action in your editor right now, install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and add the following setting...
+
+```json
+"githubPullRequests.codingAgent.uiIntegration": true,
+```
+
+In this post, we'll take a look at what the Coding Agent is, show you an exclusive preview of the integrations in VS Code, and give you a peak at what's coming next.
 
 ## What is GitHub Copilot Coding Agent?
 
@@ -43,7 +49,7 @@ Copilot Coding Agent integrates with the [GitHub Pull Requests extension](https:
 
 ![A GIF showing Copilot assigned to an issue from within VS Code](assign-to-copilot-gif.gif)
 
-As with every VS Code feature, the VS Code team itself uses the Coding Agent integration in their own development. In fact, you can see just how many PRs have been assigned [to Copilot Coding Agent in the VS Code repo](https://github.com/search?q=is%3Apr+head%3Acopilot%2F+repo%3Amicrosoft%2Fvscode&type=pullrequests) - and that number continues to increase.
+As with every VS Code feature, the VS Code team itself uses the Coding Agent integration in their own development. In fact, you can see just how many PRs have been [assigned to Copilot Coding Agent in the VS Code repo](https://github.com/search?q=is%3Apr+head%3Acopilot%2F+repo%3Amicrosoft%2Fvscode&type=pullrequests), and that number has continued to increase.
 
 ### Track your agent’s progress
 
@@ -51,7 +57,7 @@ There’s a new **Copilot on My Behalf** query in the Pull Requests view. This s
 
 ![A WIP PR shown under the "Copilot on my behalf" section with the "View Session" button highlighted](copilot-wip.png)
 
-In this screenshot, the agent implemented a "trending" section to a website, complete with UI and database changes. All of this is one interaction so it's [only one premium request](https://github.blog/changelog/2025-07-10-github-copilot-coding-agent-now-uses-one-premium-request-per-session/).
+In this screenshot, the agent implemented a "Trending" section to a website, complete with UI and database changes. All of this is one interaction so it's [only one premium request](https://github.blog/changelog/2025-07-10-github-copilot-coding-agent-now-uses-one-premium-request-per-session/).
 
 ### Review, comment, and iterate
 
@@ -76,7 +82,7 @@ But it gets even better - because you can do all of this right from VS Code.
 
 ### Start sessions from Copilot Chat
 
-We find ourselves wanting to do more and more right from the [chat panel](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) in VS Code. This is where most work and thinking happens and you're not locked into the issue workflow. You can - at any point in a chat, no matter how long - delegate the task directly to the Coding Agent. All of the context that is currently a part of that chat will get sent to the Coding Agent.
+We find ourselves wanting to do more and more right from the [chat panel](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) in VS Code. While we love working in GitHub, many of us find that VS Code is our home base. Bringing Coding Agent into chat means you're not locked into the issue workflow. Now, you can - at any point in a chat, no matter how long - delegate the task you're working on directly to the Coding Agent. All of the context that's part of your current chat session will be handed off to the Coding Agent.
 
 The Coding Agent then opens a PR and goes directly to work - skipping the issue step entirely. It distills down the context into a detailed PR description and you'll see that Copilot Coding Agent makes use of "to-do lists" so that you can see what it's doing and where it is in the process at a glance.
 
@@ -84,7 +90,7 @@ The Coding Agent then opens a PR and goes directly to work - skipping the issue 
 
 ## What’s next?
 
-The Copilot Coding Agent integration in Visual Studio Code is currently in preview, but you can use it all today. If you want to light all of this up in your editor, all you need to do is make sure you have the GitHub Pull Requests extension installed and add the following setting...
+The Copilot Coding Agent integration in Visual Studio Code is currently in preview, but you can use it all today. As a reminder, make sure you have the GitHub Pull Requests extension installed and add the following setting...
 
 ```json
 "githubPullRequests.codingAgent.uiIntegration": true,
@@ -103,4 +109,4 @@ We'd love your thoughts on the experience, so please provide any feedback as [is
 
 We can’t wait to see what you and your new agent friends build together! Keep an eye on the [release notes](/release-notes/) and the [Copilot documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) for new developments here.
 
-In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite teammate.
+In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite squad of teammates.
