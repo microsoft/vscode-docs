@@ -16,7 +16,7 @@ Today, we’re excited to give you a first look at the Copilot Coding Agent in V
 
 Instead of only having one synchronous agent in VS Code, you can now have multiple agents running at once working on your behalf. This is _actually_ being a 10x developer. It's officially a thing. You get to hand off any work you need done to a squad of AI teammates.
 
-To see this in action in your editor right now, install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and add the following setting...
+To see this in action in your editor right now, install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and add the following VS Code setting:
 
 ```json
 "githubPullRequests.codingAgent.uiIntegration": true,
