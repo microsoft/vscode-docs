@@ -33,7 +33,7 @@ That's all there is to it. It's the workflow you already know with an agent in t
 
 The agent runs within a temporary isolated dev environment that gets spun up where the agent can explore the codebase, make changes, build the code, run tests, etc. - a complete dev environment just for the agent so it can function in a fully autonomous manner.
 
-And now, we're integrating the Coding Agent and all of its workflows directly into VS Code.
+And now, we're integrating the Coding Agent and all of its workflows directly into VS Code!
 
 ## Copilot Coding Agent in Visual Studio Code
 
