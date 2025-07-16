@@ -53,7 +53,7 @@ In this screenshot, the agent implemented a "trending" section to a website, com
 
 ### Review, comment, and iterate
 
-When the agent is done, it will assign the PR to you and request you as a reviewer. It even includes a screenshot if applicable so you can quickly verify whether it did the right thing or not at all.
+When the agent is done, it will assign the PR to you and request you as a reviewer. It even includes a screenshot if applicable so you can quickly verify whether it did the right thing.
 
 ![PR from Coding Agent shown in VS Code with a screenshot](draft-with-screenshot.png)
 
