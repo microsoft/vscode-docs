@@ -109,4 +109,4 @@ We'd love your thoughts on the experience, so please provide any feedback as [is
 
 We can’t wait to see what you and your new agent friends build together! Keep an eye on the [release notes](/release-notes/) and the [Copilot documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) for new developments here.
 
-In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a new favorite squad of teammates.
+In the meantime, start making a list of all the things you’d rather not do. Because you’re about to have a few new favorite teammates.
