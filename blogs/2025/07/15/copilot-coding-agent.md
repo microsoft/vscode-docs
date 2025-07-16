@@ -4,13 +4,13 @@ TOCTitle: "Command GitHub's Coding Agent from VS Code"
 PageTitle: "Command GitHub's Coding Agent from VS Code"
 MetaDescription: VS Code's integration with GitHub Copilot Coding Agent allows you to delegate tasks to the agent and let it handle them in the background.
 MetaSocialImage: copilot-wip.png
-Date: 2025-7-17
+Date: 2025-7-16
 Author: Burke Holland
 ---
 
 # Command GitHub's Coding Agent from VS Code
 
-July 17, 2025 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
+July 16, 2025 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
 Today, we’re excited to give you a first look at the Copilot Coding Agent in Visual Studio Code.
 
@@ -78,7 +78,7 @@ We find ourselves wanting to do more and more right from the [chat panel](https:
 
 The Coding Agent then opens a PR and goes directly to work - skipping the issue step entirely. It distills down the context into a detailed PR description and you'll see that Copilot Coding Agent makes use of "to-do lists" so that you can see what it's doing and where it is in the process at a glance.
 
-![A GIF that shows the delegate to copilot button in chat](delegate-to-coding-agent.gif)
+<video src="delegate-to-coding-agent.mp4" title="Delegate to Coding Agent video" controls poster="delegate-to-coding-agent.png"></video>
 
 ## What’s next?
 
