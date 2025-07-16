@@ -30,7 +30,7 @@ In this post, we'll take a look at what the Coding Agent is, show you an exclusi
 
 It works like this:
 
-1. You [enable the agent in your settings](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/enabling-copilot-coding-agent).
+1. You [enable the agent in your GitHub settings](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/enabling-copilot-coding-agent).
 2. You assign an issue to Copilot.
 3. The agent does the work, opens a pull request, and keeps you in the loop.
 4. You review the PR, leave comments if you want changes, and the agent iterates until it’s done.
