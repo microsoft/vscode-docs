@@ -86,7 +86,7 @@ We find ourselves wanting to do more and more right from the [chat panel](https:
 
 The Coding Agent then opens a PR and goes directly to work - skipping the issue step entirely. It distills down the context into a detailed PR description and you'll see that Copilot Coding Agent makes use of "to-do lists" so that you can see what it's doing and where it is in the process at a glance.
 
-<video src="delegate-to-coding-agent.mp4" title="Delegate to Coding Agent video" controls poster="delegate-to-coding-agent.png"></video>
+<video src="delegate-to-coding-agent.mp4" title="Delegate to Coding Agent video" controls poster="delegate-to-coding-agent-poster.png"></video>
 
 ## What’s next?
 
