@@ -25,6 +25,20 @@ Agent mode is optimized for making autonomous edits across multiple files in you
 
 Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
 
+## Agent mode vs Copilot Coding Agent
+
+VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, Copilot Coding Agent works independently on GitHub to implement features in the background.
+
+| Feature | Local Agent Mode | Copilot Coding Agent |
+|---------|------------------|---------------------|
+| **Where it runs** | Your VS Code editor | GitHub cloud |
+| **Independence** | Requires your interaction | Fully autonomous |
+| **Duration** | Active VS Code session | Hours without intervention |
+| **Output** | Edits files directly | Creates pull requests |
+| **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
+
+Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
+
 ## Enable agent mode in VS Code
 
 > [!NOTE]
@@ -296,6 +310,10 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
+
+### When should I use Copilot Coding Agent instead of local agent mode?
+
+Use [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can work independently in the background. Use local agent mode when you want to stay involved in the development process and iterate quickly on changes.
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
