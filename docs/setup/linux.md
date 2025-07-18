@@ -56,17 +56,27 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 1. To manually install the apt repository:
 
-    1. Run the following script:
+    1. Run the following script to install the signing key:
 
         ```bash
         sudo apt-get install wget gpg
-        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-        sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-        echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
-        rm -f packages.microsoft.gpg
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+        rm -f microsoft.gpg
         ```
 
-    1. Then update the package cache and install the package using:
+    1. Create a `/etc/apt/sources.list.d/vscode.sources` file with the following contents to add a reference to the upstream package repository:
+
+        ```plaintext
+        Types: deb
+        URIs: https://packages.microsoft.com/repos/code
+        Suites: stable
+        Components: main
+        Architectures: amd64,arm64,armhf
+        Signed-By: /usr/share/keyrings/microsoft.gpg
+        ```
+
+    1. Lastly, update the package cache and install the package:
 
         ```bash
         sudo apt install apt-transport-https
@@ -74,11 +84,14 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
         sudo apt install code # or code-insiders
         ```
 
+> [!NOTE]
+> Due to the manual signing process and the publishing system we use, the Debian repo could lag behind by up to three hours and not immediately get the latest version of VS Code.
+
 ### RHEL, Fedora, and CentOS based distributions
 
 We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based distributions in a yum repository.
 
-1. Install the  key and yum repository by running the following script:
+1. Install the key and yum repository by running the following script:
 
     ```bash
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -100,7 +113,7 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
     ```
 
 > [!NOTE]
-> Due to the manual signing process and the publishing system we use, the yum repo could lag behind and might not immediately get the latest version of VS Code.
+> Due to the manual signing process and the publishing system we use, the yum repo could lag behind by up to three hours and not immediately get the latest version of VS Code.
 
 ### Snap
 
