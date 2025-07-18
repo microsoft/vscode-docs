@@ -85,7 +85,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
         ```
 
 > [!NOTE]
-> Due to the manual signing process and the publishing system we use, the Debian repo could lag behind by up to two hours and not immediately get the latest version of VS Code.
+> Due to the manual signing process and the publishing system we use, the Debian repo could lag behind by up to three hours and not immediately get the latest version of VS Code.
 
 ### RHEL, Fedora, and CentOS based distributions
 
@@ -113,7 +113,7 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
     ```
 
 > [!NOTE]
-> Due to the manual signing process and the publishing system we use, the yum repo could lag behind by up to two hours and not immediately get the latest version of VS Code.
+> Due to the manual signing process and the publishing system we use, the yum repo could lag behind by up to three hours and not immediately get the latest version of VS Code.
 
 ### Snap
 
