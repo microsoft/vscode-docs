@@ -1,6 +1,6 @@
 ---
 ContentId: 3342b8ef-72fe-4cca-baad-64ee57c05b5f
-DateApproved: 06/16/2025
+DateApproved: 07/14/2025
 MetaDescription: Evaluate AI models, prompts, and agents using AI Toolkit's comprehensive evaluation system. Import datasets, run evaluations with built-in evaluators like F1 score, relevance, coherence, and similarity, or create custom LLM-based and code-based evaluators. Visualize and compare results in tables and charts.
 ---
 # Evaluate models, prompts, and agents
@@ -25,7 +25,7 @@ To evaluate prompts or agents:
 1. Select a model to use as a judging model for the evaluation, if required.
 1. Select **Run Evaluation** to start the evaluation job.
 
-![Screenshot showing the Evaluation tab in Agent Builder with options to select evaluators, judging models, and run evaluation against a dataset.](./images/evaluation/new_eval_builder.png)
+![Screenshot showing the Evaluation tab in Agent Builder with options to select evaluators, judging models, and run evaluation against a dataset.](./images/evaluation/new-eval-builder.png)
 
 ## Versioning and evaluation comparison
 
@@ -42,7 +42,7 @@ To save a new version of a prompt or agent:
 
 You can view the version history of a prompt or agent in **Agent Builder**. The version history shows all versions, along with evaluation results for each version.
 
-![Screenshot showing the Version History dialog with a list of saved versions of a prompt or agent.](./images/evaluation/version_history.png)
+![Screenshot showing the Version History dialog with a list of saved versions of a prompt or agent.](./images/evaluation/version-history.png)
 
 In version history view, you can:
 - Select the pencil icon next to the version name to rename a version.
@@ -56,13 +56,13 @@ You can compare evaluation results of different versions in **Agent Builder**. R
 To compare evaluation results between versions:
 
 1. In **Agent Builder**, select the **Evaluation** tab.
-1. From the agent title, select **Compare with**.
+1. From the evaluation toolbar, select **Compare**.
 1. Choose the version you want to compare with from the list.
     > [!NOTE]
     > Compare functionality is only available in full screen mode of Agent Builder for better visibility of the evaluation results. You can expand the **Prompt** section to see the model and prompt details.
 1. The evaluation results for the selected version are displayed in a table, allowing you to compare the scores for each evaluator and the overall score for each version.
 
-![Screenshot showing the Evaluation tab in Agent Builder with the interface for comparing evaluation results between different versions.](./images/evaluation/compare_eval.png)
+![Screenshot showing the Evaluation tab in Agent Builder with the interface for comparing evaluation results between different versions.](./images/evaluation/compare-eval.png)
 
 ## Built-in evaluators
 
@@ -125,14 +125,14 @@ You can also select **Open In Data Wrangler** to open the data with the [Data Wr
 
 You can create custom evaluators to extend the built-in evaluation capabilities of AI Toolkit. Custom evaluators let you define your own evaluation logic and metrics.
 
-![Screenshot showing the custom evaluator creation interface in AI Toolkit.](./images/evaluation/custom_evaluator.png)
+![Screenshot showing the custom evaluator creation interface in AI Toolkit.](./images/evaluation/custom-evaluator.png)
 
 To create a custom evaluator:
 
 1. In the **Evaluation** view, select the **Evaluators** tab.
 1. Select **Create Evaluator** to open the creation form.
 
-    ![Screenshot showing the form to create a new custom evaluator.](./images/evaluation/create_new_custom_evaluator.png)
+    ![Screenshot showing the form to create a new custom evaluator.](./images/evaluation/create-new-custom-evaluator.png)
 
 1. Provide the required information:
     - **Name**: Enter a name for your custom evaluator.
@@ -158,7 +158,7 @@ You can also use the **Examples** section to get started with your LLM-based eva
 
 For code-based evaluators, define the evaluation logic using Python code. The code should return a JSON result with the evaluation score and reason.
 
-![Screenshot showing the Evaluators tab in AI Toolkit with options for creating code-based evaluators.](./images/evaluation/code_eval.png)
+![Screenshot showing the Evaluators tab in AI Toolkit with options for creating code-based evaluators.](./images/evaluation/code-eval.png)
 
 AI Toolkit provides a scaffold based on your evaluator name and whether you use an external library.
 
