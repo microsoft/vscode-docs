@@ -71,6 +71,8 @@ Before you can use Copilot Coding Agent, you need:
 
 1. The agent will begin working on the issue in the background
 
+![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](../../release-notes/images/1_101/github-pull-request-coding-agent.png)
+
 ![GIF showing how to assign an issue to Copilot Coding Agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
 
 ### Method 2: Delegate from Copilot Chat
@@ -87,10 +89,12 @@ Before you can use Copilot Coding Agent, you need:
 
    **Use the #copilotCodingAgent tool**
 
-   You can also reference the tool directly in your prompt:
+   You can also reference the tool directly in your prompt to ask Copilot to continue a local change in the background. This tool automatically pushes pending changes to a remote branch and initiates a coding agent session:
    ```
    #copilotCodingAgent Please implement this login feature
    ```
+
+![Screenshot showing handing off a session to Copilot coding agent](../../release-notes/images/1_102/coding-agent-start.png)
 
 1. The agent will create a pull request and begin implementing the discussed changes
 
@@ -103,6 +107,9 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 * All active Copilot Coding Agent sessions
 * Pull requests created by the agent
 * Progress status for each task
+* Numeric badges indicating new changes or updates
+
+![Screenshot showing status of multiple coding agent pull requests](../../release-notes/images/1_102/coding-agent-status.png)
 
 ![Screenshot showing a work-in-progress PR under the "Copilot on my behalf" section with the "View Session" button highlighted.](../../blogs/2025/07/17/copilot-wip.png)
 
@@ -115,6 +122,11 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    * Files modified
    * Tests run
    * Decision-making process
+
+![Screenshot showing the session log of a coding agent session.](../../release-notes/images/1_102/coding-agent-session-log.png)
+
+> [!TIP]
+> When working with pull requests created by the Coding Agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
 
 ### Cancel a running session
 
