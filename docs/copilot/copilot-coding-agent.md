@@ -11,29 +11,22 @@ MetaSocialImage: images/shared/github-copilot-social.png
 > [!NOTE]
 > Copilot Coding Agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
-## What is the Copilot Coding Agent?
-
-The Copilot Coding Agent is a GitHub-hosted autonomous agent that:
-
-* Works independently in an isolated GitHub Actions-powered development environment
-* Can be assigned GitHub issues or delegated tasks from VS Code chat
-* Creates branches and pull requests automatically
-* Implements features across multiple files in your repository
-* Runs tests, linters, and other automated checks
-* Operates completely independently of your local development environment
-
-This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which runs locally in your editor and requires your active participation during the coding session.
 
 ## What Copilot Coding Agent can do
 
-Copilot Coding Agent can handle a variety of development tasks:
+Copilot Coding Agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks. It can be assigned GitHub issues or delegated tasks from VS Code chat, and will:
 
-* **Fix bugs** - Diagnose and resolve issues in your codebase
-* **Implement incremental new features** - Add functionality that builds on existing code
-* **Improve test coverage** - Write additional tests for your code
-* **Update documentation** - Keep docs in sync with code changes
-* **Address technical debt** - Refactor and improve code quality
-* **Implement UI changes** - Create user interface components and styling
+* Fix bugs and resolve issues in your codebase
+* Implement new features across multiple files
+* Improve test coverage
+* Update documentation
+* Refactor and address technical debt
+* Create user interface components and styling
+* Create branches and pull requests automatically
+* Run tests, linters, and other automated checks
+* Operate independently of your local development environment
+
+This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which runs locally in your editor and requires your active participation during the coding session.
 
 ## How it works
 
