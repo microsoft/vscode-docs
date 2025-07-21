@@ -47,7 +47,7 @@ To add a model from the model catalog:
 
     - **GitHub**: AI Toolkit asks for your GitHub credentials to access the model repository. Once authenticated, the model is added directly into AI Toolkit.
         > [!NOTE]
-        > AI Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-pay-as-you-go-model-support), so you can keep working after passing free tier limits.
+        > AI Toolkit now [supports GitHub pay-as-you-go models](/docs/intelligentapps/playground.md#_github-payasyougo-model-support), so you can keep working after passing free tier limits.
     - **ONNX**: The model is downloaded from ONNX and added to AI Toolkit.
     - **Ollama**: The model is downloaded from Ollama and added to AI Toolkit.
 
