@@ -103,8 +103,6 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 
 ![Screenshot showing status of multiple coding agent pull requests](../../release-notes/images/1_102/coding-agent-status.png)
 
-![Screenshot showing a work-in-progress PR under the "Copilot on my behalf" section with the "View Session" button highlighted.](../../blogs/2025/07/17/copilot-wip.png)
-
 ### View detailed session logs
 
 1. In the Pull Requests view, find your agent's work under **Copilot on My Behalf**
@@ -122,8 +120,9 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 
 ### Cancel a running session
 
-If you need to stop the agent:
+If you need to stop the agent, you can stay in VS Code and use the **Cancel Coding Agent** button on the PR overview page.
 
+You can also cancel a session from GitHub.com:
 1. Go to your GitHub repository on GitHub.com
 1. Navigate to the **Actions** tab
 1. Find the running Copilot Coding Agent workflow
@@ -145,81 +144,21 @@ The Copilot Coding Agent will:
 
 ### Providing feedback
 
-You can guide the agent's work through pull request comments:
+You can guide the agent's work through pull request comments. Make sure to tag `@copilot` in your comments so the agent will respond:
 
 1. **Request changes**: Leave specific feedback about what needs to be modified
 
    ```
-   Please update the login form to include password strength validation
-   ```
-
-1. **Ask questions**: Get clarification about implementation decisions
-
-   ```
-   Why did you choose this authentication library over others?
+   @copilot Please update the login form to include password strength validation
    ```
 
 1. **Request improvements**: Ask for additional features or refinements
 
    ```
-   Can you add error handling for network timeouts?
+   @copilot Can you add error handling for network timeouts?
    ```
 
 The agent will respond to your feedback, make the requested changes, and update the pull request.
-
-## Example tasks and best practices
-
-### Effective task examples
-
-Here are examples of well-written tasks that work well with Copilot Coding Agent:
-
-```
-Add a shopping cart feature with add, remove, and checkout functionality
-```
-
-```
-Fix the memory leak in the image processing pipeline and add proper error handling
-```
-
-```
-Add user management with admin and regular user roles, including profile editing and password reset functionality using JWT tokens with bcrypt password hashing
-```
-
-```
-Add payment processing to the existing e-commerce app, integrating with the current Order model and including comprehensive unit tests
-```
-
-### Tips for success
-
-* **Be specific**: Include technical preferences, testing requirements, and integration details
-* **Provide context**: Reference existing code patterns and architectural decisions
-* **Review promptly**: The agent can iterate quickly on feedback
-* **Start small**: Try simpler tasks first to understand how the agent works with your codebase
-
-## Security and permissions
-
-Copilot Coding Agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot Coding Agent security documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent#built-in-security-protections).
-
-## Limitations
-
-### What Copilot Coding Agent cannot do
-
-* **Cross-repository changes**: Can only work within the repository where the issue is assigned
-* **Multiple PRs per task**: Opens exactly one pull request per assigned task
-* **Existing PR modifications**: Cannot work on pull requests it didn't create
-
-For detailed information about limitations, compatibility, and usage costs, see the [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent).
-
-## Extending with MCP servers
-
-For advanced scenarios, you can extend Copilot Coding Agent with Model Context Protocol (MCP) servers to give it access to:
-
-* External databases
-* Cloud services
-* APIs and third-party integrations
-* Custom development tools
-
-Learn more about [extending Copilot Coding Agent with MCP](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Frequently asked questions
 
@@ -248,6 +187,29 @@ Learn more about [local agent mode](/docs/copilot/chat/chat-agent-mode.md).
 * Check if tests failed during the agent's work
 * Provide more detailed requirements in your issue description
 
+### What security protections does Copilot Coding Agent have?
+
+Copilot Coding Agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot Coding Agent security documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent#built-in-security-protections).
+
+### Can I extend Copilot Coding Agent with external tools?
+
+For advanced scenarios, you can extend Copilot Coding Agent with Model Context Protocol (MCP) servers to give it access to:
+
+* External databases
+* Cloud services
+* APIs and third-party integrations
+* Custom development tools
+
+Learn more about [extending Copilot Coding Agent with MCP](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+
+### What are the current limitations?
+
+* **Cross-repository changes**: Can only work within the repository where the issue is assigned
+* **Multiple PRs per task**: Opens exactly one pull request per assigned task
+* **Existing PR modifications**: Cannot work on pull requests it didn't create
+
+For detailed information about limitations, compatibility, and usage costs, see the [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent).
+
 ## Getting help
 
 ### Hands-on practice
@@ -257,12 +219,10 @@ Try the [Expand your team with Copilot coding agent](https://github.com/skills/e
 ## Next steps
 
 * Enable Copilot Coding Agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try the [local agent mode](/docs/copilot/chat/chat-agent-mode.md) for immediate, interactive coding assistance
+* Try [local agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code for immediate, interactive coding assistance
 * Learn about [Copilot Chat](/docs/copilot/chat/copilot-chat.md) for conversational AI help
-* Explore [Smart Actions](/docs/copilot/copilot-smart-actions.md) for quick code improvements
 
 ## Related resources
 
 * [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
-* [Local agent mode comparison](/docs/copilot/chat/chat-agent-mode.md)
