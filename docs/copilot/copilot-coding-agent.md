@@ -52,7 +52,9 @@ Before you can use Copilot Coding Agent, you need:
 * **GitHub Copilot subscription**: Available with Copilot Pro, Pro+, Business, or Enterprise plans
 * **Write access**: You must have write permissions to the repository
 * **Enable the agent**: Copilot Coding Agent must be enabled for your account or organization
-* **VS Code setup**: Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) and enable the preview setting `setting(githubPullRequests.codingAgent.uiIntegration)`
+* **VS Code setup**: Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+
+**Optional**: Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in Copilot Chat for easier task delegation.
 
 > [!TIP]
 > If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly limit of interactions.
@@ -61,9 +63,7 @@ Before you can use Copilot Coding Agent, you need:
 
 ### Method 1: Assign issues to Copilot
 
-1. Open the **GitHub Pull Requests** view in VS Code
-
-1. Navigate to the **Issues** section
+1. In the **GitHub Pull Requests** view, navigate to the **Issues** section
 
 1. Find the issue you want to assign to Copilot
 
@@ -71,15 +71,25 @@ Before you can use Copilot Coding Agent, you need:
 
 1. The agent will begin working on the issue in the background
 
+![GIF showing how to assign an issue to Copilot Coding Agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
+
 ### Method 2: Delegate from Copilot Chat
 
 1. Open Copilot Chat (`kb(workbench.action.chat.open)`)
 
 1. Have a conversation about the feature or change you want to implement
 
-1. When ready, use a prompt like:
+1. When ready, delegate to the agent using one of these methods:
+
+   **Use the delegate button (Experimental)**
+
+   Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in the Chat view for repositories that have the agent enabled. Select this button to hand off your current chat context to the Coding Agent.
+
+   **Use the #copilotCodingAgent tool**
+
+   You can also reference the tool directly in your prompt:
    ```
-   Please implement this feature using the Copilot Coding Agent
+   #copilotCodingAgent Please implement this login feature
    ```
 
 1. The agent will create a pull request and begin implementing the discussed changes
