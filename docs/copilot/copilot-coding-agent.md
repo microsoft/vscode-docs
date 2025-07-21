@@ -66,7 +66,7 @@ Before you can use Copilot Coding Agent, you need:
 
 1. The agent will begin working on the issue in the background
 
-![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](../../release-notes/images/1_101/github-pull-request-coding-agent.png)
+   ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](../../release-notes/images/1_101/github-pull-request-coding-agent.png)
 
 ### Method 2: Delegate from Copilot Chat
 
@@ -115,7 +115,7 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    * Tests run
    * Decision-making process
 
-![Screenshot showing the session log of a coding agent session.](../../release-notes/images/1_102/coding-agent-session-log.png)
+   ![Screenshot showing the session log of a coding agent session.](../../release-notes/images/1_102/coding-agent-session-log.png)
 
 > [!TIP]
 > When working with pull requests created by the Coding Agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
@@ -264,6 +264,5 @@ Try the [Expand your team with Copilot coding agent](https://github.com/skills/e
 ## Related resources
 
 * [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
-* [Responsible use of Copilot Coding Agent](https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 * [Local agent mode comparison](/docs/copilot/chat/chat-agent-mode.md)
