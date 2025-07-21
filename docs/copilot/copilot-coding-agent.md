@@ -8,6 +8,8 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks from Copilot Chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
+![GIF showing how to assign an issue to Copilot Coding Agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
+
 > [!NOTE]
 > Copilot Coding Agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
@@ -68,8 +70,6 @@ Before you can use Copilot Coding Agent, you need:
 1. Right-click the issue and select **Assign to Copilot** or click the assign button and select `@copilot`
 
 1. The agent will begin working on the issue in the background
-
-![GIF showing how to assign an issue to Copilot Coding Agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
 
 ### Method 2: Delegate from Copilot Chat
 
