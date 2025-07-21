@@ -164,7 +164,7 @@ The agent will respond to your feedback, make the requested changes, and update 
 
 ### What's the difference between Copilot Coding Agent and local agent mode?
 
-VS Code offers two autonomous coding experiences:
+VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, the Copilot Coding Agent works independently in the background.
 
 | Feature | Copilot Coding Agent | Local Agent Mode |
 |---------|---------------------|------------------|
@@ -173,7 +173,7 @@ VS Code offers two autonomous coding experiences:
 | **Output** | Creates pull requests | Edits files directly |
 | **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
 
-Learn more about [local agent mode](/docs/copilot/chat/chat-agent-mode.md).
+Learn more about local agent mode in its [documentation](/docs/copilot/chat/chat-agent-mode.md).
 
 ### Why isn't the agent starting?
 

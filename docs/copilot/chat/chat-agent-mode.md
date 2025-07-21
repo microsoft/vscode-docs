@@ -27,17 +27,16 @@ Agent mode is particularly useful for coding tasks when you have a less well-def
 
 ## Agent mode vs Copilot Coding Agent
 
-VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, Copilot Coding Agent works independently on GitHub to implement features in the background.
+VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md) works independently on GitHub to implement features in the background.
 
 | Feature | Local Agent Mode | Copilot Coding Agent |
 |---------|------------------|---------------------|
 | **Where it runs** | Your VS Code editor | GitHub cloud |
 | **Independence** | Requires your interaction | Fully autonomous |
-| **Duration** | Active VS Code session | Hours without intervention |
 | **Output** | Edits files directly | Creates pull requests |
 | **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
 
-Learn more about [Copilot Coding Agent](/docs/copilot/copilot-coding-agent.md).
+This document describes local agent mode. You can learn more about the Copilot Coding Agent in its [documentation](/docs/copilot/copilot-coding-agent.md).
 
 ## Enable agent mode in VS Code
 
