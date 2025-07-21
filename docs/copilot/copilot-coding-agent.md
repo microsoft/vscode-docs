@@ -14,17 +14,17 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 ## What Copilot Coding Agent can do
 
-Copilot Coding Agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks. It can be assigned GitHub issues or delegated tasks from VS Code chat, and will:
+Copilot Coding Agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks, such as:
 
-* Fix bugs and resolve issues in your codebase
-* Implement new features across multiple files
-* Improve test coverage
-* Update documentation
-* Refactor and address technical debt
-* Create user interface components and styling
-* Create branches and pull requests automatically
-* Run tests, linters, and other automated checks
-* Operate independently of your local development environment
+* **Fix bugs and resolve issues** in your codebase
+* **Implement new features** across multiple files
+* **Improve test coverage** with comprehensive unit and integration tests
+* **Update documentation** to reflect code changes
+* **Refactor and address technical debt** for better code quality
+* **Create user interface components** and styling
+* **Create branches and pull requests** automatically
+* **Run tests, linters, and other automated checks** to ensure code quality
+* **Operate independently** of your local development environment
 
 This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which runs locally in your editor and requires your active participation during the coding session.
 
@@ -54,20 +54,6 @@ Before you can use Copilot Coding Agent, you need:
 
 > [!TIP]
 > If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly limit of interactions.
-
-## Copilot Coding Agent vs local agent mode
-
-VS Code offers two autonomous coding experiences. While Copilot Coding Agent works independently on GitHub, local agent mode runs within your editor for interactive development.
-
-| Feature | Copilot Coding Agent | Local Agent Mode |
-|---------|---------------------|------------------|
-| **Where it runs** | GitHub cloud | Your VS Code editor |
-| **Independence** | Fully autonomous | Requires your interaction |
-| **Duration** | Hours without intervention | Active VS Code session |
-| **Output** | Creates pull requests | Edits files directly |
-| **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
-
-Learn more about [local agent mode](/docs/copilot/chat/chat-agent-mode.md).
 
 ## Getting started in VS Code
 
@@ -221,23 +207,38 @@ For advanced scenarios, you can extend Copilot Coding Agent with Model Context P
 
 Learn more about [extending Copilot Coding Agent with MCP](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
+## Frequently asked questions
+
+### What's the difference between Copilot Coding Agent and local agent mode?
+
+VS Code offers two autonomous coding experiences:
+
+| Feature | Copilot Coding Agent | Local Agent Mode |
+|---------|---------------------|------------------|
+| **Where it runs** | GitHub cloud | Your VS Code editor |
+| **Independence** | Fully autonomous | Involves user interaction and iteration |
+| **Output** | Creates pull requests | Edits files directly |
+| **Best for** | Well-defined tasks, background work | Interactive development, immediate feedback |
+
+Learn more about [local agent mode](/docs/copilot/chat/chat-agent-mode.md).
+
+### Why isn't the agent starting?
+
+* Verify Copilot access on your GitHub account
+* Ensure you have write permissions to the repository
+* Check that Copilot Coding Agent is enabled for your organization
+
+### Why are implementations incomplete?
+
+* Review the session logs for any errors encountered
+* Check if tests failed during the agent's work
+* Provide more detailed requirements in your issue description
+
 ## Getting help
 
 ### Hands-on practice
 
 Try the [Expand your team with Copilot coding agent](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience.
-
-### Troubleshooting
-
-**Agent not starting:**
-* Verify Copilot access on your GitHub account
-* Ensure you have write permissions to the repository
-* Check that Copilot Coding Agent is enabled for your organization
-
-**Incomplete implementations:**
-* Review the session logs for any errors encountered
-* Check if tests failed during the agent's work
-* Provide more detailed requirements in your issue description
 
 ## Next steps
 
