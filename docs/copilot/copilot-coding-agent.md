@@ -6,7 +6,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot coding agent
 
-[GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks from Copilot Chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
+[GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks in chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
 
