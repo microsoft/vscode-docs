@@ -310,9 +310,9 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
-### When should I use Copilot coding agent instead of local agent mode?
+### When should I use Copilot coding agent instead of agent mode?
 
-Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can work independently in the background. Use local agent mode when you want to stay involved in the development process and iterate quickly on changes.
+Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can work independently in the background. Use agent mode when you want to stay involved in the development process and iterate quickly on changes.
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
