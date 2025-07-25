@@ -32,7 +32,7 @@ VS Code offers two autonomous coding experiences. While agent mode provides inte
 | Feature | Agent mode | Copilot coding agent |
 |---------|------------------|---------------------|
 | **Where it runs** | Your VS Code editor | GitHub cloud |
-| **Independence** | Requires your interaction | Fully autonomous |
+| **Independence** | Involves user interaction and iteration | Fully autonomous |
 | **Output** | Edits files directly | Creates pull requests |
 | **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
 
