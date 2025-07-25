@@ -1,7 +1,7 @@
 ---
 ContentId: f8b9e2a4-7c1d-4f5e-9a8b-3d2e1f0c6789
-DateApproved: 07/28/2025
-MetaDescription: Learn how to use the GitHub Copilot Coding Agent to autonomously implement features and fix bugs in VS Code.
+DateApproved: 07/09/2025
+MetaDescription: Learn how to interact with the GitHub Copilot coding agent in VS Code to autonomously implement features and fix bugs in the background.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot Coding Agent
