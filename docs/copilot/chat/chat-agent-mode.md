@@ -36,7 +36,7 @@ VS Code offers two autonomous coding experiences. While agent mode provides inte
 | **Output** | Edits files directly | Creates pull requests |
 | **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
 
-This document describes local agent mode. You can learn more about the Copilot coding agent in its [documentation](/docs/copilot/copilot-coding-agent.md).
+This document describes agent mode. You can learn more about the Copilot coding agent in its [documentation](/docs/copilot/copilot-coding-agent.md).
 
 ## Enable agent mode in VS Code
 
