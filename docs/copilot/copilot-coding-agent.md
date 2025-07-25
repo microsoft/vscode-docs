@@ -4,18 +4,18 @@ DateApproved: 07/09/2025
 MetaDescription: Learn how to interact with the GitHub Copilot coding agent in VS Code to autonomously implement features and fix bugs in the background.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# GitHub Copilot Coding Agent
+# GitHub Copilot coding agent
 
-[GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks from Copilot Chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
+[GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks from Copilot Chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-![GIF showing how to assign an issue to Copilot Coding Agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
+![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
 
 > [!NOTE]
-> Copilot Coding Agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
+> Copilot coding agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
-## What Copilot Coding Agent can do
+## What Copilot coding agent can do
 
-Copilot Coding Agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks, such as:
+Copilot coding agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks, such as:
 
 * **Fix bugs and implement features** across multiple files
 * **Improve test coverage** and run automated checks
@@ -26,7 +26,7 @@ This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode
 
 ## How it works
 
-The Copilot Coding Agent workflow:
+The Copilot coding agent workflow:
 
 1. **Assignment**: You [assign a GitHub issue to `@copilot`](#method-1-assign-issues-to-copilot) or [delegate a task from VS Code chat](#method-2-delegate-from-copilot-chat)
 1. **Analysis**: The agent analyzes the task and your repository structure
@@ -41,11 +41,11 @@ The Copilot Coding Agent workflow:
 
 ## Prerequisites
 
-Before you can use Copilot Coding Agent, you need:
+Before you can use Copilot coding agent, you need:
 
 * **GitHub Copilot subscription**: Available with Copilot Pro, Pro+, Business, or Enterprise plans
 * **Write access**: You must have write permissions to the repository
-* **Enable the agent**: Copilot Coding Agent must be enabled for your account or organization
+* **Enable the agent**: Copilot coding agent must be enabled for your account or organization
 * **VS Code setup**: Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
 **Optional**: Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in Copilot Chat for easier task delegation.
@@ -77,9 +77,9 @@ Before you can use Copilot Coding Agent, you need:
 
    **Use the delegate button (Experimental)**
 
-   Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in the Chat view for repositories that have the agent enabled. Select this button to hand off your current chat context to the Coding Agent.
+   Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in the Chat view for repositories that have the agent enabled. Select this button to hand off your current chat context to the coding agent.
 
-   <video src="../../blogs/2025/07/17/delegate-to-coding-agent.mp4" title="Video showing how to delegate to Coding Agent from VS Code chat." controls poster="../../blogs/2025/07/17/delegate-to-coding-agent-poster.png"></video>
+   <video src="../../blogs/2025/07/17/delegate-to-coding-agent.mp4" title="Video showing how to delegate to coding agent from VS Code chat." controls poster="../../blogs/2025/07/17/delegate-to-coding-agent-poster.png"></video>
 
    **Use the #copilotCodingAgent tool**
 
@@ -95,7 +95,7 @@ Before you can use Copilot Coding Agent, you need:
 
 The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf** section that shows:
 
-* All active Copilot Coding Agent sessions
+* All active Copilot coding agent sessions
 * Pull requests created by the agent
 * Progress status for each task
 * Numeric badges indicating new changes or updates
@@ -115,11 +115,11 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    ![Screenshot showing the session log of a coding agent session.](../../release-notes/images/1_102/coding-agent-session-log.png)
 
 > [!TIP]
-> When working with pull requests created by the Coding Agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
+> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
 
 ### Cancel a running session
 
-If you need to stop the agent, you can stay in VS Code and use the **Cancel Coding Agent** button on the PR overview page.
+If you need to stop the agent, you can stay in VS Code and use the **Cancel coding agent** button on the PR overview page.
 
 You can also cancel a session from GitHub.com:
 1. Go to your GitHub repository on GitHub.com
@@ -131,7 +131,7 @@ You can also cancel a session from GitHub.com:
 
 ### When the agent completes work
 
-The Copilot Coding Agent will:
+The Copilot coding agent will:
 
 * Create a pull request with all changes
 * Assign the PR to you for review
@@ -139,7 +139,7 @@ The Copilot Coding Agent will:
 * Include a detailed description explaining the implementation
 * Add screenshots when applicable (for UI changes)
 
-![Screenshot showing a pull request from Copilot Coding Agent displayed in VS Code with an included screenshot of the implemented feature.](../../blogs/2025/07/17/draft-with-screenshot.png)
+![Screenshot showing a pull request from Copilot coding agent displayed in VS Code with an included screenshot of the implemented feature.](../../blogs/2025/07/17/draft-with-screenshot.png)
 
 ### Providing feedback
 
@@ -161,11 +161,11 @@ The agent will respond to your feedback, make the requested changes, and update 
 
 ## Frequently asked questions
 
-### What's the difference between Copilot Coding Agent and local agent mode?
+### What's the difference between Copilot coding agent and local agent mode?
 
-VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, the Copilot Coding Agent works independently in the background.
+VS Code offers two autonomous coding experiences. While local agent mode provides interactive development within your editor, the Copilot coding agent works independently in the background.
 
-| Feature | Copilot Coding Agent | Local Agent Mode |
+| Feature | Copilot coding agent | Local Agent Mode |
 |---------|---------------------|------------------|
 | **Where it runs** | GitHub cloud | Your VS Code editor |
 | **Independence** | Fully autonomous | Involves user interaction and iteration |
@@ -178,7 +178,7 @@ Learn more about local agent mode in its [documentation](/docs/copilot/chat/chat
 
 * Verify Copilot access on your GitHub account
 * Ensure you have write permissions to the repository
-* Check that Copilot Coding Agent is enabled for your organization
+* Check that Copilot coding agent is enabled for your organization
 
 ### Why are implementations incomplete?
 
@@ -186,20 +186,20 @@ Learn more about local agent mode in its [documentation](/docs/copilot/chat/chat
 * Check if tests failed during the agent's work
 * Provide more detailed requirements in your issue description
 
-### What security protections does Copilot Coding Agent have?
+### What security protections does Copilot coding agent have?
 
-Copilot Coding Agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot Coding Agent security documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent#built-in-security-protections).
+Copilot coding agent includes built-in security protections and operates within GitHub's security framework. For detailed information about security measures, permissions, and branch protection compatibility, see the [GitHub Copilot coding agent security documentation](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent#built-in-security-protections).
 
-### Can I extend Copilot Coding Agent with external tools?
+### Can I extend Copilot coding agent with external tools?
 
-For advanced scenarios, you can extend Copilot Coding Agent with Model Context Protocol (MCP) servers to give it access to:
+For advanced scenarios, you can extend Copilot coding agent with Model Context Protocol (MCP) servers to give it access to:
 
 * External databases
 * Cloud services
 * APIs and third-party integrations
 * Custom development tools
 
-Learn more about [extending Copilot Coding Agent with MCP](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+Learn more about [extending Copilot coding agent with MCP](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ### What are the current limitations?
 
@@ -217,11 +217,11 @@ Try the [Expand your team with Copilot coding agent](https://github.com/skills/e
 
 ## Next steps
 
-* Enable Copilot Coding Agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
+* Enable Copilot coding agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
 * Try [local agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code for immediate, interactive coding assistance
 * Learn about [Copilot Chat](/docs/copilot/chat/copilot-chat.md) for conversational AI help
 
 ## Related resources
 
-* [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
+* [GitHub Copilot coding agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent)
 * [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
