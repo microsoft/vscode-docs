@@ -8,7 +8,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 
 [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks in chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
-![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](../../blogs/2025/07/17/assign-to-copilot-gif.gif)
+![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
 > [!NOTE]
 > Copilot coding agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
@@ -65,7 +65,7 @@ Before you can use Copilot coding agent, you need:
 
 1. The agent will begin working on the issue in the background
 
-   ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](../../release-notes/images/1_101/github-pull-request-coding-agent.png)
+   ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](images/copilot-coding-agent/github-pull-request-coding-agent.png)
 
 ### Method 2: Delegate from Copilot Chat
 
@@ -79,13 +79,13 @@ Before you can use Copilot coding agent, you need:
 
    Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in the Chat view for repositories that have the agent enabled. Select this button to hand off your current chat context to the coding agent.
 
-   <video src="../../blogs/2025/07/17/delegate-to-coding-agent.mp4" title="Video showing how to delegate to coding agent from VS Code chat." controls poster="../../blogs/2025/07/17/delegate-to-coding-agent-poster.png"></video>
+   <video src="images/copilot-coding-agent/delegate-to-coding-agent.mp4" title="Video showing how to delegate to coding agent from VS Code chat." controls poster="images/copilot-coding-agent/delegate-to-coding-agent-poster.png"></video>
 
    **Use the #copilotCodingAgent tool**
 
    You can also reference the tool directly in your prompt to ask Copilot to continue a local change in the background. This tool automatically pushes pending changes to a remote branch and initiates a coding agent session:
 
-   ![Screenshot showing handing off a session to Copilot coding agent](../../release-notes/images/1_102/coding-agent-start.png)
+   ![Screenshot showing handing off a session to Copilot coding agent](images/copilot-coding-agent/coding-agent-start.png)
 
 1. The agent will create a pull request and begin implementing the discussed changes
 
@@ -100,7 +100,7 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 * Progress status for each task
 * Numeric badges indicating new changes or updates
 
-![Screenshot showing status of multiple coding agent pull requests](../../release-notes/images/1_102/coding-agent-status.png)
+![Screenshot showing status of multiple coding agent pull requests](images/copilot-coding-agent/coding-agent-status.png)
 
 ### View detailed session logs
 
@@ -112,7 +112,7 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    * Tests run
    * Decision-making process
 
-   ![Screenshot showing the session log of a coding agent session.](../../release-notes/images/1_102/coding-agent-session-log.png)
+   ![Screenshot showing the session log of a coding agent session.](images/copilot-coding-agent/coding-agent-session-log.png)
 
 > [!TIP]
 > When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
@@ -139,7 +139,7 @@ The Copilot coding agent will:
 * Include a detailed description explaining the implementation
 * Add screenshots when applicable (for UI changes)
 
-![Screenshot showing a pull request from Copilot coding agent displayed in VS Code with an included screenshot of the implemented feature.](../../blogs/2025/07/17/draft-with-screenshot.png)
+![Screenshot showing a pull request from Copilot coding agent displayed in VS Code with an included screenshot of the implemented feature.](images/copilot-coding-agent/draft-with-screenshot.png)
 
 ### Providing feedback
 
