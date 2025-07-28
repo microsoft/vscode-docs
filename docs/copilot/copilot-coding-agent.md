@@ -45,7 +45,7 @@ Before you can use Copilot coding agent, you need:
 > [!TIP]
 > If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly limit of interactions.
 
-## Getting started in VS Code
+## Assign work to Copilot coding agent in VS Code
 
 ### Method 1: Assign issues to Copilot
 
