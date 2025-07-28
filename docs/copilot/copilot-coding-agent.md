@@ -6,12 +6,12 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot coding agent
 
-[GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. You can assign GitHub issues to Copilot or delegate tasks in chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
+[GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
 > [!NOTE]
-> Copilot coding agent is in public preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
+> Copilot coding agent is in preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
 ## What Copilot coding agent can do
 
@@ -141,7 +141,7 @@ The Copilot coding agent will:
 
 ![Screenshot showing a pull request from Copilot coding agent displayed in VS Code with an included screenshot of the implemented feature.](images/copilot-coding-agent/draft-with-screenshot.png)
 
-### Providing feedback
+### Provide feedback
 
 You can guide the agent's work through pull request comments. Make sure to tag `@copilot` in your comments so the agent will respond:
 
@@ -218,8 +218,8 @@ Try the [Expand your team with Copilot coding agent](https://github.com/skills/e
 ## Next steps
 
 * Enable Copilot coding agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
-* Try [local agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code for immediate, interactive coding assistance
-* Learn about [Copilot Chat](/docs/copilot/chat/copilot-chat.md) for conversational AI help
+* Try [agent mode in VS Code](/docs/copilot/chat/chat-agent-mode.md) for immediate, interactive coding assistance
+* Learn about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md) for conversational AI help
 
 ## Related resources
 
