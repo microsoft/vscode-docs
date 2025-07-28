@@ -53,7 +53,7 @@ Before you can use Copilot coding agent, you need:
 
 1. Find the issue you want to assign to Copilot
 
-1. Right-click the issue and select **Assign to Copilot** or click the assign button and select `@copilot`
+1. Right-click the issue and select **Assign to Copilot** or select **Assign** and then select `@copilot`
 
 1. The agent will begin working on the issue in the background
 
