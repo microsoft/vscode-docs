@@ -203,10 +203,6 @@ For detailed information about limitations, compatibility, and usage costs, see 
 
 ## Getting help
 
-### Hands-on practice
-
-Try the [Expand your team with Copilot coding agent](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience.
-
 ## Next steps
 
 * Enable Copilot coding agent by following the [GitHub setup guide](https://docs.github.com/en/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent)
