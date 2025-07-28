@@ -6,23 +6,15 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot coding agent
 
-[GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is an autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
+[GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent) is a GitHub-hosted, autonomous AI developer that works independently in the background to complete development tasks. To invoke the coding agent, assign a GitHub issue to Copilot or delegate a task from chat, and the agent will work autonomously to implement features, fix bugs, and make changes across your repository using its own isolated development environment.
+
+This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which runs locally in your editor and requires your active participation during the coding session.
 
 ![GIF showing how to assign an issue to Copilot coding agent from within VS Code.](images/copilot-coding-agent/assign-to-copilot-gif.gif)
 
 > [!NOTE]
 > Copilot coding agent is in preview and subject to change. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](https://docs.github.com/en/site-policy/github-terms/github-pre-release-license-terms).
 
-## What Copilot coding agent can do
-
-Copilot coding agent is a GitHub-hosted autonomous agent that works independently in an isolated environment to complete development tasks, such as:
-
-* **Fix bugs and implement features** across multiple files
-* **Improve test coverage** and run automated checks
-* **Refactor code and address technical debt**
-* **Create pull requests** and work independently of your local environment
-
-This is different from the local [agent mode](/docs/copilot/chat/chat-agent-mode.md) in VS Code, which runs locally in your editor and requires your active participation during the coding session.
 
 ## How it works
 
