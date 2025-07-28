@@ -59,7 +59,7 @@ Before you can use Copilot coding agent, you need:
 
    ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](images/copilot-coding-agent/github-pull-request-coding-agent.png)
 
-### Method 2: Delegate from Copilot Chat
+### Method 2: Delegate from chat
 
 1. Open Copilot Chat (`kb(workbench.action.chat.open)`)
 
