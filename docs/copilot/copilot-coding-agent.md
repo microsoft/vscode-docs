@@ -132,8 +132,7 @@ You can also cancel a session from GitHub.com:
 ## Review and iterate
 
 ### Work completion
-
-The Copilot coding agent will:
+When the Copilot coding agent completes its work, it will proactively take several next steps:
 
 * Create a pull request with all changes
 * Assign the PR to you for review
@@ -210,8 +209,6 @@ Learn more about [extending Copilot coding agent with MCP](https://docs.github.c
 * **Existing PR modifications**: Cannot work on pull requests it didn't create
 
 For detailed information about limitations, compatibility, and usage costs, see the [GitHub Copilot Coding Agent documentation](https://docs.github.com/en/copilot/using-github-copilot/coding-agent).
-
-## Getting help
 
 ## Next steps
 
