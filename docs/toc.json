@@ -359,6 +359,7 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",
