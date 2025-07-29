@@ -88,7 +88,7 @@ You can also hand off work to Copilot coding agent directly from your chat conve
 
 1. The agent will create a pull request and begin implementing the discussed changes
 
-## Tracking agent progress
+## Track agent progress
 
 ### Monitor work in VS Code
 
@@ -100,6 +100,9 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 * Numeric badges indicating new changes or updates
 
 ![Screenshot showing status of multiple coding agent pull requests](images/copilot-coding-agent/coding-agent-status.png)
+
+> [!TIP]
+> You can also monitor work that you assigned to `@copilot` through GitHub.com - all active sessions and pull requests will appear in this section regardless of where you initiated them.
 
 ### View detailed session logs
 
@@ -114,7 +117,7 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    ![Screenshot showing the session log of a coding agent session.](images/copilot-coding-agent/coding-agent-session-log.png)
 
 > [!TIP]
-> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically attached to chat, allowing you to maintain context and continue working on the pull request with access to the coding agent session information.
+> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically attached to chat. This gives chat context about your PR, including what files were changed, who's assigned, and the state (draft or ready for review). Attaching this context helps as you may want to learn more about and iterate on the PR in chat.
 
 ### Cancel a running session
 
@@ -126,9 +129,9 @@ You can also cancel a session from GitHub.com:
 1. Find the running Copilot Coding Agent workflow
 1. Select **Cancel workflow**
 
-## Reviewing and iterating
+## Review and iterate
 
-### When the agent completes work
+### Work completion
 
 The Copilot coding agent will:
 
