@@ -37,7 +37,7 @@ Before you can use Copilot coding agent, you need:
 
 * **GitHub Copilot subscription**: Available with Copilot Pro, Pro+, Business, or Enterprise plans
 * **Write access**: You must have write permissions to the repository
-* **Enable the agent**: Copilot coding agent must be enabled for your account or organization
+* **Enable the agent**: Copilot coding agent [must be enabled](https://docs.github.com/copilot/concepts/coding-agent/enable-coding-agent) for your account or organization
 * **VS Code setup**: Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
 **Optional**: Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in Copilot Chat for easier task delegation.
@@ -49,6 +49,8 @@ Before you can use Copilot coding agent, you need:
 
 ### Method 1: Assign issues to Copilot
 
+You can trigger Copilot coding agent by assigning a GitHub issue to Copilot, similar to how you assign an issue to a team member. Copilot coding agent automatically analyzes the issue and starts working on it.
+
 1. In the **GitHub Pull Requests** view, navigate to the **Issues** section
 
 1. Find the issue you want to assign to Copilot
@@ -56,6 +58,9 @@ Before you can use Copilot coding agent, you need:
 1. Right-click the issue and select **Assign to Copilot** or select **Assign** and then select `@copilot`
 
 1. The agent will begin working on the issue in the background
+
+> [!TIP]
+> You can also assign issues to `@copilot` directly on GitHub.com. The coding agent will work the same way, creating a pull request that you can then review in VS Code or on GitHub.
 
    ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](images/copilot-coding-agent/github-pull-request-coding-agent.png)
 
