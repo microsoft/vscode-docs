@@ -345,7 +345,7 @@ A prompt file is a Markdown file with the `.prompt.md` file suffix. It has the f
 
     Prompt files mimic the format of writing prompts in chat. This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies. You can use Markdown formatting to structure the prompt content, including headings, lists, and code blocks.
 
-You can reference other workspace files, prompt files, or instructions files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
+You can reference other workspace files, prompt files, or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
 Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
 
