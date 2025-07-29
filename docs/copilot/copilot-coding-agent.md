@@ -61,16 +61,18 @@ You can trigger Copilot coding agent by assigning a GitHub issue to Copilot, sim
 
 > [!TIP]
 > You can also assign issues to `@copilot` directly on GitHub.com. The coding agent will work the same way, creating a pull request that you can then review in VS Code or on GitHub.
-
+1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`)
    ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](images/copilot-coding-agent/github-pull-request-coding-agent.png)
 
 ### Method 2: Delegate from chat
 
-1. Open Copilot Chat (`kb(workbench.action.chat.open)`)
+You can also hand off work to Copilot coding agent directly from your chat conversation. Instead of having agent mode implement changes immediately in your editor, you can delegate the task to the coding agent to work on it autonomously in the background.
+
+1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`)
 
 1. Have a conversation about the feature or change you want to implement
 
-1. When ready, delegate to the agent using one of these methods:
+1. When ready, delegate to the agent by using one of these methods:
 
    **Use the delegate button (Experimental)**
 
@@ -80,7 +82,7 @@ You can trigger Copilot coding agent by assigning a GitHub issue to Copilot, sim
 
    **Use the #copilotCodingAgent tool**
 
-   You can also reference the tool directly in your prompt to ask Copilot to continue a local change in the background. This tool automatically pushes pending changes to a remote branch and initiates a coding agent session:
+   You can also reference the `#copilotCodingAgent` tool directly in your prompt to ask Copilot to continue a local change in the background. This tool automatically pushes pending changes to a remote branch and initiates a coding agent session:
 
    ![Screenshot showing handing off a session to Copilot coding agent](images/copilot-coding-agent/coding-agent-start.png)
 
