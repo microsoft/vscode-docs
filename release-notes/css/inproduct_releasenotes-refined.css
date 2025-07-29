@@ -1,0 +1,126 @@
+/* Header styling */
+h2 {
+  margin-top: 1.2em;
+  scroll-margin-top: 1.2em;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 4em;
+  scroll-margin-top: 1em;
+}
+
+h3 {
+  margin-top: 2em;
+  scroll-margin-top: 1em;
+}
+
+h2 + h3 {
+  margin-top: 0;
+}
+
+/* TOC Navigation styling */
+.toc-link {
+  color: var(--vscode-editor-foreground, #ccc);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+}
+
+.toc-link:hover {
+  color: var(--vscode-textLink-activeForeground, #0066cc);
+  cursor: pointer;
+}
+
+/* Sparkle chat button styling */
+#sparkle-chat {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--vscode-button-secondaryBackground, #3c3c3c);
+  border: .25px solid var(--vscode-button-secondaryBorder, #6c6c6c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+#sparkle-chat:hover {
+  background: var(--vscode-button-secondaryHoverBackground, #1177bb);
+}
+
+#sparkle-chat:focus {
+  outline: none;
+  border: .25px solid var(--vscode-button-secondaryBorder, #6c6c6c);
+}
+
+/* Highlights table styling */
+.highlights-table {
+  border-collapse: collapse;
+  border: none;
+}
+
+.highlights-table th {
+  vertical-align: top;
+  border: none;
+  padding-top: 2em;
+}
+
+.highlights-table th span {
+  font-weight: bold;
+}
+.highlights-table th span {
+  font-weight: bold;
+}
+
+.highlights-table td {
+  vertical-align: top;
+  border: none;
+}
+
+.highlights-table td.first-row {
+  padding-bottom: 1em;
+}
+
+/* Main content layout */
+.main-content-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* TOC Navigation */
+#toc-nav {
+  position: sticky;
+  top: 20px;
+  width: 10vw;
+  min-width: 120px;
+  margin-right: 32px;
+  margin-top: 2em;
+}
+
+#toc-nav > div {
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+#toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#toc-list li {
+  margin-bottom: 1em;
+}
+
+/* Main content area */
+.content-main {
+  flex: 1;
+  min-width: 0;
+}
