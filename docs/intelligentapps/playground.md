@@ -31,7 +31,7 @@ AI Toolkit now supports GitHub pay-as-you-go models, so you can keep working aft
 
     ![Screenshot of the GitHub Pay-as-you-go Model support](./images/playground/github-pay-as-you-go.png)
 
-- Turn on billing for models in your [GitHub settings](https://github.com/settings/billing).
+- Turn on billing for models in your [GitHub settings](https://github.com/settings/billing) (requires signing in to your GitHub account).
 
 - After enabling billing, keep using the model in Playground or Agent Builder without changing your workflow.
 
