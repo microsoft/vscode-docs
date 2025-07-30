@@ -117,7 +117,7 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
    ![Screenshot showing the session log of a coding agent session.](images/copilot-coding-agent/coding-agent-session-log.png)
 
 > [!TIP]
-> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically attached to chat. This gives chat context about your PR, including what files were changed, who's assigned, and the state (draft or ready for review). Attaching this context helps as you may want to learn more about and iterate on the PR in chat.
+> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically enabled for your chat session. This gives chat context about your PR, including what files were changed, who's assigned, and the state (draft or ready for review). You can then ask about this PR and iterate further on it in chat.
 
 ### Cancel a running session
 
