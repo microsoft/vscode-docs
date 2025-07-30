@@ -76,6 +76,7 @@ h2 + h3 {
   margin: -4px -6px;
   border-radius: 4px;
   display: block;
+  outline: none;
 }
 
 .toc-link:hover {
@@ -84,6 +85,7 @@ h2 + h3 {
   cursor: pointer;
   text-decoration: none !important;
 }
+
 
 /* Sparkle chat button styling */
 #sparkle-chat {
@@ -189,4 +191,19 @@ h2 + h3 {
 .content-main {
   flex: 1;
   min-width: 0;
+}
+
+/* Responsive breakpoint - Hide TOC on smaller screens */
+@media (max-width: 576px) {
+  #toc-nav {
+    display: none;
+  }
+
+  .main-content-layout {
+    flex-direction: column;
+  }
+
+  .content-main {
+    margin-left: 0;
+  }
 }
