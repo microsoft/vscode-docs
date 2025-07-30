@@ -132,7 +132,7 @@ You can also cancel a session from GitHub.com:
 ## Review and iterate
 
 ### Work completion
-When the Copilot coding agent completes its work, it will proactively take several next steps:
+After the Copilot coding agent has analyzed your code and determined the changes that are needed to accomplish the task, it performs the following steps:
 
 * Create a pull request with all changes
 * Assign the PR to you for review
