@@ -60,7 +60,7 @@ See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-d
 
 ### How can I remove Copilot from VS Code?
 
-To remove Copilot from VS Code, select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
+To remove Copilot from VS Code, run the **Chat: Hide Copilot** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
 
 If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions from the Extensions view. After that, you can hide the Copilot menu.
 
