@@ -312,7 +312,7 @@ To use MCP tools in agent mode:
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-## MCP elicitations
+## Use MCP elicitations
 
 MCP servers can request additional input from you through elicitations. When an MCP server needs more information to complete a task, it can prompt you for specific details, such as confirmations, configuration values, or other parameters required for the operation.
 
@@ -371,6 +371,16 @@ Alternatively, run the **MCP: List Servers** command from the Command Palette to
 > When you open the `.vscode/mcp.json` file via **MCP: Open Workspace Folder MCP Configuration**, VS Code shows commands to start, stop, or restart a server directly from the editor.
 
 ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png)
+
+### Automatically start MCP servers
+
+When you add an MCP server or change its configuration, VS Code needs to (re)start the server to discover the tools it provides.
+
+You can manually restart the MCP server from the Chat view, or by using the [other start options](#manage-mcp-servers).
+
+![Screenshot showing the Refresh button in the Chat view.](images/mcp-servers/chat-view-mcp-refresh.png)
+
+Alternatively, configure VS Code to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
 
 ### Command-line configuration
 
