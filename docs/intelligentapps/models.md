@@ -167,3 +167,19 @@ You can manage your models in the **MY MODELS** section of the AI Toolkit view. 
 ## License and sign-in
 
 Some models require a publisher or hosting-service license and account to sign-in. In that case, before you can run the model in the [model playground](/docs/intelligentapps/playground.md), you are prompted to provide this information.
+
+## What you learned
+
+In this article, you learned how to:
+
+- Explore and manage generative AI models in AI Toolkit.
+- Find models from various sources, including GitHub, ONNX, OpenAI, Anthropic, Google, Ollama, and custom endpoints.
+- Add models to your toolkit and deploy them to Azure AI Foundry.
+- Add custom models, including Ollama and OpenAI compatible models, and test them in the playground or agent builder.
+- Use the model catalog to view available models and select the best fit for your AI application needs.
+- Use filters and search to find models quickly.
+- Browse models by category, such as Popular, GitHub, ONNX, and Ollama.
+- Convert and add custom ONNX models using the model conversion tool.
+- Manage models in MY MODELS, including editing, deleting, refreshing, and viewing details.
+- Start and stop the ONNX server and copy endpoints for local models.
+- Handle license and sign-in requirements for some models before testing them.

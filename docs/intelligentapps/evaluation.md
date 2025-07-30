@@ -176,3 +176,15 @@ def measure_the_response_if_human_like_or_not(query, **kwargs):
         "reason": "This is a placeholder for the evaluator's reason."
     }
 ```
+
+## What you learned
+
+In this article, you learned how to:
+
+- Create and run evaluation jobs in AI Toolkit for VS Code.
+- Monitor the status of evaluation jobs and view their results.
+- Compare evaluation results between different versions of prompts and agents.
+- View version history for prompts and agents.
+- Use built-in evaluators to measure performance with various metrics.
+- Create custom evaluators to extend the built-in evaluation capabilities.
+- Use LLM-based and code-based evaluators for different evaluation scenarios.

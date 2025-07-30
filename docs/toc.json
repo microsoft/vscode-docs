@@ -119,6 +119,7 @@
       }
       ],
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
+      ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Customize Copilot", "/docs/copilot/copilot-customization"],
       ["Language Models", "/docs/copilot/language-models"],
@@ -359,6 +360,7 @@
       ["Evaluation", "/docs/intelligentapps/evaluation"],
       ["Fine-tune", "/docs/intelligentapps/finetune"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
+      ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],
       ["", "", {
         "name": "Reference",
