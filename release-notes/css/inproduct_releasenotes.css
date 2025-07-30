@@ -118,7 +118,8 @@ h2 + h3 {
 }
 
 /* TOC Navigation styling */
-.toc-link {
+/* TOC Navigation styling */
+#toc-nav a {
   color: var(--vscode-editor-foreground, #ccc);
   text-decoration: none !important;
   transition: background-color 0.2s, color 0.2s;
@@ -129,7 +130,7 @@ h2 + h3 {
   outline: none;
 }
 
-.toc-link:hover {
+#toc-nav a:hover {
   background-color: var(--vscode-button-secondaryHoverBackground, #1177bb);
   color: var(--vscode-button-secondaryForeground, #ffffff);
   cursor: pointer;
@@ -186,12 +187,6 @@ h2 + h3 {
   vertical-align: top;
   border: none;
   padding-top: 2em;
-}
-
-.highlights-table th span {
-  font-weight: bold;
-}
-.highlights-table th span {
   font-weight: bold;
 }
 
@@ -200,8 +195,20 @@ h2 + h3 {
   border: none;
 }
 
-.highlights-table td.first-row {
+.highlights-table tr:nth-child(2) td {
   padding-bottom: 1em;
+}
+
+/* Style all links in table cells to use line breaks automatically */
+.highlights-table td a {
+  display: block;
+  margin-top: 0.5em;
+  font-size: inherit;
+}
+
+/* Add extra padding above blockquotes */
+blockquote {
+  margin-top: 2em;
 }
 
 /* Main content layout */
