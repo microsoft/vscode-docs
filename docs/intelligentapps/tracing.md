@@ -458,6 +458,7 @@ The following end-to-end example uses the Azure AI Inference SDK in Python and s
 ### Prerequisites
 
 To run this example, you need the following prerequisites:
+
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-toolkit.vscode-ai-toolkit)
 - [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
@@ -532,78 +533,76 @@ Use the following instructions to deploy a preconfigured development environment
 
     1. In the `my-tracing-app` directory, create a Python file named `main.py`.
 
-    You'll add the code to set up tracing and interact with the Azure AI Inference SDK.
+        You'll add the code to set up tracing and interact with the Azure AI Inference SDK.
 
-    1. Add the following code to `main.py`:
+    1. Add the following code to `main.py` and save the file:
 
-    ```python
-    import os
+        ```python
+        import os
 
-    ### Set up for OpenTelemetry tracing ###
-    os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-    os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
+        ### Set up for OpenTelemetry tracing ###
+        os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+        os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
 
-    from opentelemetry import trace, _events
-    from opentelemetry.sdk.resources import Resource
-    from opentelemetry.sdk.trace import TracerProvider
-    from opentelemetry.sdk.trace.export import BatchSpanProcessor
-    from opentelemetry.sdk._logs import LoggerProvider
-    from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-    from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-    from opentelemetry.sdk._events import EventLoggerProvider
-    from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
+        from opentelemetry import trace, _events
+        from opentelemetry.sdk.resources import Resource
+        from opentelemetry.sdk.trace import TracerProvider
+        from opentelemetry.sdk.trace.export import BatchSpanProcessor
+        from opentelemetry.sdk._logs import LoggerProvider
+        from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+        from opentelemetry.sdk._events import EventLoggerProvider
+        from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
 
-    github_token = os.environ["GITHUB_TOKEN"]
+        github_token = os.environ["GITHUB_TOKEN"]
 
-    resource = Resource(attributes={
-        "service.name": "opentelemetry-instrumentation-azure-ai-inference"
-    })
-    provider = TracerProvider(resource=resource)
-    otlp_exporter = OTLPSpanExporter(
-        endpoint="http://localhost:4318/v1/traces",
-    )
-    processor = BatchSpanProcessor(otlp_exporter)
-    provider.add_span_processor(processor)
-    trace.set_tracer_provider(provider)
+        resource = Resource(attributes={
+            "service.name": "opentelemetry-instrumentation-azure-ai-inference"
+        })
+        provider = TracerProvider(resource=resource)
+        otlp_exporter = OTLPSpanExporter(
+            endpoint="http://localhost:4318/v1/traces",
+        )
+        processor = BatchSpanProcessor(otlp_exporter)
+        provider.add_span_processor(processor)
+        trace.set_tracer_provider(provider)
 
-    logger_provider = LoggerProvider(resource=resource)
-    logger_provider.add_log_record_processor(
-        BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-    )
-    _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
+        logger_provider = LoggerProvider(resource=resource)
+        logger_provider.add_log_record_processor(
+            BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
+        )
+        _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 
-    from azure.ai.inference.tracing import AIInferenceInstrumentor
-    AIInferenceInstrumentor().instrument()
-    ### Set up for OpenTelemetry tracing ###
+        from azure.ai.inference.tracing import AIInferenceInstrumentor
+        AIInferenceInstrumentor().instrument()
+        ### Set up for OpenTelemetry tracing ###
 
-    from azure.ai.inference import ChatCompletionsClient
-    from azure.ai.inference.models import UserMessage
-    from azure.ai.inference.models import TextContentItem
-    from azure.core.credentials import AzureKeyCredential
+        from azure.ai.inference import ChatCompletionsClient
+        from azure.ai.inference.models import UserMessage
+        from azure.ai.inference.models import TextContentItem
+        from azure.core.credentials import AzureKeyCredential
 
-    client = ChatCompletionsClient(
-        endpoint = "https://models.inference.ai.azure.com",
-        credential = AzureKeyCredential(github_token),
-        api_version = "2024-08-01-preview",
-    )
+        client = ChatCompletionsClient(
+            endpoint = "https://models.inference.ai.azure.com",
+            credential = AzureKeyCredential(github_token),
+            api_version = "2024-08-01-preview",
+        )
 
-    response = client.complete(
-        messages = [
-            UserMessage(content = [
-                TextContentItem(text = "hi"),
-            ]),
-        ],
-        model = "gpt-4.1",
-        tools = [],
-        response_format = "text",
-        temperature = 1,
-        top_p = 1,
-    )
+        response = client.complete(
+            messages = [
+                UserMessage(content = [
+                    TextContentItem(text = "hi"),
+                ]),
+            ],
+            model = "gpt-4.1",
+            tools = [],
+            response_format = "text",
+            temperature = 1,
+            top_p = 1,
+        )
 
-    print(response.choices[0].message.content)
-    ```
-
-    1. Save the file.
+        print(response.choices[0].message.content)
+        ```
 
 1. Run the code
 
