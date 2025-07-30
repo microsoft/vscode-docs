@@ -465,164 +465,164 @@ To run this example, you need the following prerequisites:
 - Python 3.7 or later
 - [GitHub account](https://github.com/)
 
-## Open development environment
+### Open development environment
 
 Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
 
-### Setup GitHub Personal Access Token
+1. Setup GitHub Personal Access Token
 
-Use the free [GitHub Models](https://docs.github.com/en/github-models) as an example model.
+    Use the free [GitHub Models](https://docs.github.com/en/github-models) as an example model.
 
-Open [GitHub Developer Settings](https://github.com/settings/tokens) and select **Generate new token**.
+    Open [GitHub Developer Settings](https://github.com/settings/tokens) and select **Generate new token**.
 
-> [!IMPORTANT]
-> `models:read` permissions are required for the token or it will return unauthorized. The token is sent to a Microsoft service.
+    > [!IMPORTANT]
+    > `models:read` permissions are required for the token or it will return unauthorized. The token is sent to a Microsoft service.
 
-### Create environment variable
+1. Create environment variable
 
-Create an environment variable to set your token as the key for the client code using one of the following code snippets. Replace `<your-github-token-goes-here>` with your actual GitHub token.
+    Create an environment variable to set your token as the key for the client code using one of the following code snippets. Replace `<your-github-token-goes-here>` with your actual GitHub token.
 
-bash:
+    bash:
 
-```bash
-export GITHUB_TOKEN="<your-github-token-goes-here>"
-```
-
-powershell:
-
-```powershell
-$Env:GITHUB_TOKEN="<your-github-token-goes-here>"
-```
-
-Windows command prompt:
-
-```cmd
-set GITHUB_TOKEN=<your-github-token-goes-here>
-```
-
-### Install Python packages
-
-The following command installs the required Python packages for tracing with Azure AI Inference SDK:
-
-```bash
-pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http azure-ai-inference[opentelemetry]
-```
-
-### Set up tracing
-
-1. Create a new local directory on your computer for the project.
-
-    ```shell
-    mkdir my-tracing-app
+    ```bash
+    export GITHUB_TOKEN="<your-github-token-goes-here>"
     ```
 
-1. Navigate to the directory you created.
+    powershell:
 
-    ```shell
-    cd my-tracing-app
+    ```powershell
+    $Env:GITHUB_TOKEN="<your-github-token-goes-here>"
     ```
 
-1. Open Visual Studio Code in that directory:
+    Windows command prompt:
 
-    ```shell
-    code .
+    ```cmd
+    set GITHUB_TOKEN=<your-github-token-goes-here>
     ```
 
-### Create the Python file
+1. Install Python packages
 
-1. In the `my-tracing-app` directory, create a Python file named `main.py`.
+    The following command installs the required Python packages for tracing with Azure AI Inference SDK:
 
-You'll add the code to set up tracing and interact with the Azure AI Inference SDK.
+    ```bash
+    pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-http azure-ai-inference[opentelemetry]
+    ```
 
-1. Add the following code to `main.py`:
+1. Set up tracing
 
-```python
-import os
+    1. Create a new local directory on your computer for the project.
 
-### Set up for OpenTelemetry tracing ###
-os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
-os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
+        ```shell
+        mkdir my-tracing-app
+        ```
 
-from opentelemetry import trace, _events
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk._logs import LoggerProvider
-from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk._events import EventLoggerProvider
-from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
+    1. Navigate to the directory you created.
 
-github_token = os.environ["GITHUB_TOKEN"]
+        ```shell
+        cd my-tracing-app
+        ```
 
-resource = Resource(attributes={
-    "service.name": "opentelemetry-instrumentation-azure-ai-inference"
-})
-provider = TracerProvider(resource=resource)
-otlp_exporter = OTLPSpanExporter(
-    endpoint="http://localhost:4318/v1/traces",
-)
-processor = BatchSpanProcessor(otlp_exporter)
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
+    1. Open Visual Studio Code in that directory:
 
-logger_provider = LoggerProvider(resource=resource)
-logger_provider.add_log_record_processor(
-    BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
-)
-_events.set_event_logger_provider(EventLoggerProvider(logger_provider))
+        ```shell
+        code .
+        ```
 
-from azure.ai.inference.tracing import AIInferenceInstrumentor
-AIInferenceInstrumentor().instrument()
-### Set up for OpenTelemetry tracing ###
+1. Create the Python file
 
-from azure.ai.inference import ChatCompletionsClient
-from azure.ai.inference.models import UserMessage
-from azure.ai.inference.models import TextContentItem
-from azure.core.credentials import AzureKeyCredential
+    1. In the `my-tracing-app` directory, create a Python file named `main.py`.
 
-client = ChatCompletionsClient(
-    endpoint = "https://models.inference.ai.azure.com",
-    credential = AzureKeyCredential(github_token),
-    api_version = "2024-08-01-preview",
-)
+    You'll add the code to set up tracing and interact with the Azure AI Inference SDK.
 
-response = client.complete(
-    messages = [
-        UserMessage(content = [
-            TextContentItem(text = "hi"),
-        ]),
-    ],
-    model = "gpt-4.1",
-    tools = [],
-    response_format = "text",
-    temperature = 1,
-    top_p = 1,
-)
+    1. Add the following code to `main.py`:
 
-print(response.choices[0].message.content)
-```
+    ```python
+    import os
 
-1. Save the file.
+    ### Set up for OpenTelemetry tracing ###
+    os.environ["AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED"] = "true"
+    os.environ["AZURE_SDK_TRACING_IMPLEMENTATION"] = "opentelemetry"
 
-### Run the code
+    from opentelemetry import trace, _events
+    from opentelemetry.sdk.resources import Resource
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import BatchSpanProcessor
+    from opentelemetry.sdk._logs import LoggerProvider
+    from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+    from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+    from opentelemetry.sdk._events import EventLoggerProvider
+    from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
 
-1. Open a new terminal in Visual Studio Code.
+    github_token = os.environ["GITHUB_TOKEN"]
 
-1. In the terminal, run the code using the command `python main.py`.
+    resource = Resource(attributes={
+        "service.name": "opentelemetry-instrumentation-azure-ai-inference"
+    })
+    provider = TracerProvider(resource=resource)
+    otlp_exporter = OTLPSpanExporter(
+        endpoint="http://localhost:4318/v1/traces",
+    )
+    processor = BatchSpanProcessor(otlp_exporter)
+    provider.add_span_processor(processor)
+    trace.set_tracer_provider(provider)
 
-### Check the trace data in AI Toolkit
+    logger_provider = LoggerProvider(resource=resource)
+    logger_provider.add_log_record_processor(
+        BatchLogRecordProcessor(OTLPLogExporter(endpoint="http://localhost:4318/v1/logs"))
+    )
+    _events.set_event_logger_provider(EventLoggerProvider(logger_provider))
 
-After you run the code and refresh the tracing webview, there's a new trace in the list.
+    from azure.ai.inference.tracing import AIInferenceInstrumentor
+    AIInferenceInstrumentor().instrument()
+    ### Set up for OpenTelemetry tracing ###
 
-Select the trace to open the trace details webview.
+    from azure.ai.inference import ChatCompletionsClient
+    from azure.ai.inference.models import UserMessage
+    from azure.ai.inference.models import TextContentItem
+    from azure.core.credentials import AzureKeyCredential
 
-![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list.png)
+    client = ChatCompletionsClient(
+        endpoint = "https://models.inference.ai.azure.com",
+        credential = AzureKeyCredential(github_token),
+        api_version = "2024-08-01-preview",
+    )
 
-Check the complete execution flow of your app in the left span tree view.
+    response = client.complete(
+        messages = [
+            UserMessage(content = [
+                TextContentItem(text = "hi"),
+            ]),
+        ],
+        model = "gpt-4.1",
+        tools = [],
+        response_format = "text",
+        temperature = 1,
+        top_p = 1,
+    )
 
-Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
+    print(response.choices[0].message.content)
+    ```
 
-Select the **Metadata** tab to view the raw metadata.
+    1. Save the file.
 
-![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details.png)
+1. Run the code
+
+    1. Open a new terminal in Visual Studio Code.
+
+    1. In the terminal, run the code using the command `python main.py`.
+
+1. Check the trace data in AI Toolkit
+
+    After you run the code and refresh the tracing webview, there's a new trace in the list.
+
+    Select the trace to open the trace details webview.
+
+    ![Screenshot showing selecting a trace from the Trace List in the Tracing webview.](./images/tracing/trace_list.png)
+
+    Check the complete execution flow of your app in the left span tree view.
+
+    Select a span in the right span details view to see generative AI messages in the **Input + Output** tab.
+
+    Select the **Metadata** tab to view the raw metadata.
+
+    ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details.png)
