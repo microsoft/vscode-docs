@@ -39,8 +39,8 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 VS Code supports the following MCP capabilities:
 
-* MCP Server transport: local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport.
-* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, and sampling.
+* MCP Server transport: local standard input/output (`stdio`), streamable HTTP (`http`), and server-sent events (`sse`, legacy support).
+* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, elicitation, sampling, and authentication.
 * VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 </details>
@@ -73,10 +73,10 @@ You have two options to centrally manage MCP support in your organization:
 
 You have multiple options to add an MCP server in VS Code:
 
-* **Direct installation**: Visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
-* **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
+* **Direct installation**: visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
+* **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers scoped to a workspace.
 * **User settings**: specify the server in your user configuration (**MCP: Open User Configuration**) to enable the MCP server across all workspaces, synchronized via [Settings Sync](/docs/configure/settings-sync.md).
-* **Automatic discovery**: enable autodiscovery (`chat.mcp.discovery.enabled`) of MCP servers defined in other tools, such as Claude Desktop.
+* **Automatic discovery**: enable autodiscovery (`setting(chat.mcp.discovery.enabled)`) of MCP servers defined in other tools, such as Claude Desktop.
 
 To view and manage the list of configured MCP servers, run the **MCP: Show Installed Servers** command from the Command Palette or visit the **MCP SERVERS - INSTALLED** section in the Extensions view.
 
@@ -211,7 +211,7 @@ Use the following JSON configuration format to define MCP servers.
 
     | Field | Description | Examples |
     |-------|-------------|----------|
-    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"sse"`, `"http"` |
+    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"http"`, `"sse"` |
     | `url` | URL of the server. | `"http://localhost:3000"` |
     | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
