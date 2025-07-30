@@ -451,7 +451,7 @@ logfire.instrument_openai_agents()
 ```
 </details>
 
-## Putting it all together
+## Example: set up tracing with the Azure AI Inference SDK
 
 The following end-to-end example uses the Azure AI Inference SDK in Python and shows how to set up the tracing provider and instrumentation.
 
@@ -462,10 +462,10 @@ To run this example, you need the following prerequisites:
 - [AI Toolkit extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-toolkit.vscode-ai-toolkit)
 - [Azure AI Inference SDK](https://pypi.org/project/azure-ai-inference/)
 - [OpenTelemetry](https://opentelemetry.io/)
-- Python 3.7 or later
+- [Python latest version](https://www.python.org/downloads)
 - [GitHub account](https://github.com/)
 
-### Open development environment
+### Set up your development environment
 
 Use the following instructions to deploy a preconfigured development environment containing all required dependencies to run this example.
 
@@ -626,3 +626,16 @@ Use the following instructions to deploy a preconfigured development environment
     Select the **Metadata** tab to view the raw metadata.
 
     ![Screenshot showing the Trace Details view in the Tracing webview.](./images/tracing/trace_details.png)
+
+## What you learned
+
+In this article, you learned how to:
+
+- Set up tracing in your AI application using the Azure AI Inference SDK and OpenTelemetry.
+- Configure the OTLP trace exporter to send trace data to the local collector server.
+- Run your application to generate trace data and view traces in the AI Toolkit webview.
+- Use the tracing feature with multiple SDKs and languages, including Python and TypeScript/JavaScript, and non-Microsoft tools via OTLP.
+- Instrument various AI frameworks (Anthropic, Gemini, LangChain, OpenAI, and more) using provided code snippets.
+- Use the tracing webview UI, including the **Start Collector** and **Refresh** buttons, to manage trace data.
+- Set up your development environment, including environment variables and package installation, to enable tracing.
+- Analyze the execution flow of your app using the span tree and details view, including generative AI message flow and metadata.

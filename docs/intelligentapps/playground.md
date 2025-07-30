@@ -117,3 +117,17 @@ For each model you are comparing, you can:
 - Copy the response text to the clipboard.
 - Configure the model parameters for the selected model.
 - Continue the chat with the selected model.
+
+## What you learned
+
+In this article, you learned how to:
+
+- Use the AI Toolkit playground to interact with generative AI models.
+- Test models in the playground, configure system prompts and parameters, and explore multi-modal capabilities by attaching files.
+- Use the Compare feature to evaluate the performance of different models on the same prompt and view responses side by side.
+- Use the chat prompt input box to send prompts, attach files or images, perform web searches, and switch between modes for AI features.
+- View model responses, copy or regenerate responses, and render code snippets, images, markdown, and LaTeX.
+- Track token count in model responses to understand cost and performance.
+- Use the Model Preferences panel to select models, set system prompts, and adjust inference parameters.
+- Use the tool bar to create new playground sessions, view and manage chat history, automatically name sessions, compare models, and view generated code.
+- Manage chat history, including viewing, renaming, deleting, and switching between sessions.

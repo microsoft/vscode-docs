@@ -211,6 +211,20 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
 
+## What you learned
+
+In this article, you learned how to:
+
+- Create a model conversion project in AI Toolkit for VS Code.
+- Configure the conversion workflow, including quantization and evaluation settings.
+- Run the conversion workflow to transform a pre-built model into an optimized ONNX model.
+- View the results of the conversion, including metrics and logs.
+- Use the sample notebook for model inference and testing.
+- Export and share the model project with others.
+- Re-evaluate a model using different execution providers or datasets.
+- Handle failed jobs and adjust configurations for re-runs.
+- Understand the supported models and their requirements for conversion and quantization.
+
 ## See also
 
 - [How to manually setup GPU conversion](/docs/intelligentapps/reference/ManualConversionOnGPU.md)
