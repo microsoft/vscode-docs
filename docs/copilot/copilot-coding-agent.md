@@ -57,10 +57,11 @@ You can trigger Copilot coding agent by assigning a GitHub issue to Copilot, sim
 
 1. Right-click the issue and select **Assign to Copilot** or select **Assign** and then select `@copilot`
 
+   > [!TIP]
+   > You can also assign issues to `@copilot` directly on GitHub.com. The coding agent will work the same way, creating a pull request that you can then review in VS Code or on GitHub.
+
 1. The agent will begin working on the issue in the background
 
-> [!TIP]
-> You can also assign issues to `@copilot` directly on GitHub.com. The coding agent will work the same way, creating a pull request that you can then review in VS Code or on GitHub.
 1. Open the Chat view in VS Code (`kb(workbench.action.chat.open)`)
    ![Screenshot showing the GitHub Pull Requests view, highlighting the assign to Copilot action, and the PR query for work assigned to Copilot.](images/copilot-coding-agent/github-pull-request-coding-agent.png)
 
