@@ -8,9 +8,21 @@ Date: 2025-07-09
 DownloadVersion: 1.102.2
 ---
 
-Version [1.102](https://code.visualstudio.com/updates/v1_102) - _Release date: July 9, 2025_
+# June 2025 (v1.102)
 
-# June 2025
+_Release date: July 9, 2025_
+
+**Update 1.102.1**: The update addresses these [issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22June+2025+Recovery+1%22+).
+
+**Update 1.102.2**: The update addresses these [issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22June+2025+Recovery+2%22+).
+
+**Update 1.102.3**: The update addresses these [issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%22June+2025+Recovery+3%22+).
+
+<!-- DOWNLOAD_LINKS_PLACEHOLDER -->
+
+---
+
+<br>
 Welcome to the June 2025 release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
 
 <table class="highlights-table">
@@ -715,4 +727,4 @@ Contributions to `ripgrep-prebuilt`:
 
 <a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
 
-<!-- <a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a> -->
+<!-- <a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a>
