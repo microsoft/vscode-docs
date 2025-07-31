@@ -729,7 +729,7 @@ Contributions to `ripgrep-prebuilt`:
   * Publish binary for riscv64 linux [PR #51](https://github.com/microsoft/ripgrep-prebuilt/pull/51)
 
 
-<link rel="stylesheet" type="text/css" href="css/inproduct_releasenotes-refined.css"/>
+<link rel="stylesheet" type="text/css" href="css/inproduct_releasenotes.css"/>
 
 <a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
 
