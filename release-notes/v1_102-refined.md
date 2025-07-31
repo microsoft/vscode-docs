@@ -8,7 +8,6 @@ Date: 2025-07-09
 DownloadVersion: 1.102.2
 ---
 
-<!-- Version [0.000](web-docs-link) - _Release Date_ -->
 Version [1.102](https://code.visualstudio.com/updates/v1_102) - _Release date: July 9, 2025_
 
 # June 2025
@@ -50,16 +49,11 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
   </tr>
 </table>
 
-
-<br>
-<br>
-
-> **Insiders: Want to try new features as soon as possible?** <br> You can download the nightly Insiders build and try the latest updates as soon as they are available. <br> [Download Insiders](https://code.visualstudio.com/insiders)
-
-<br>
+> **Insiders: Want to try new features as soon as possible?**<br>
+> You can download the nightly Insiders build and try the latest updates as soon as they are available.<br>
+> [Download Insiders](https://code.visualstudio.com/insiders)<br>
 
 <div class="main-content-layout">
-  <!-- Sticky TOC Sidebar -->
   <nav id="toc-nav">
     <div>In this update</div>
     <ul id="toc-list">
