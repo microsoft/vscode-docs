@@ -26,5 +26,6 @@
     "markdown.validate.ignoredLinks": [
         "/Download",
         "/insiders"
-    ]
+    ],
+    "files.autoSave": "onFocusChange"
 }
