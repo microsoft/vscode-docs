@@ -90,6 +90,7 @@ The following MCP features are supported in VS Code:
 - Tools: Executable actions that can be used in [agent mode](/docs/copilot/chat/chat-agent-mode)
 - Prompts: Reusable chat prompt templates, optionally with parameters, which users can invoke through slash commands(`/mcp.servername.promptname`) in chat
 - Resources: Data and content which users can add as chat context or interact with directly in VS Code
+- Authentication: Authenticate access to an MCP server using static keys, tokens using headers
 - Authorization: Authorize access to an MCP server using OAuth
 - Sampling _(Preview)_: Make language model requests using the user's configured models and subscription
 - Elicitation: Request input from the user
@@ -170,15 +171,36 @@ When you include a resource type in the prompt response, VS Code attaches that r
 
 VS Code supports MCP servers that require authentication, allowing users to interact with an MCP server that operates on behalf of their user account for that service.
 
-The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch.
+The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers (IdPs) rather than building their own OAuth implementations from scratch.
 
 VS Code has built-in authentication support for GitHub and Microsoft Entra. If your MCP server implements the latest specification and uses GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
 
 ![Screenshot that shows the Accounts menu with the Manage Trusted MCP Servers action.](../images/ai/mcp/manage-trusted-mcp.png)
 
-If your MCP server uses a different authorization server, VS Code also supports [Dynamic Client Registration](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration). Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+---
 
-VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
+VS Code supports authorization to other IdPs than Github and Microsoft Entra using OAuth 2.1 standards and 2.0 standards. VS Code first starts with a [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) handshake then falls back to a Client-Credentials workflow if the IdP does not support DCR. This allows more flexibility to the various IdPs to create static client ids or specific client-id/client-secret pairs for each MCP server accordingly.
+
+Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+
+Below is a checklist to ensure your MCP server and VS Code's OAuth workflows will work:
+
+1. The MCP Server defines the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+2. The IdP must support one of the two options defined above (DCR / Client-Credentials)
+3. The redirect URL list must include these urls `http://127.0.0.1:33418, https://vscode.dev/redirect`
+
+When DCR is not supported, you will see the fallback client credential flow as the following:
+
+![Screenshot that shows the authorization when DCR is not supported for a MCP server.](../images/ai/mcp/mcp-auth-dynamic-client-required.png)
+
+![Screenshot that shows the authorization when Client ID for a MCP server is requested.](../images/ai/mcp/mcp-auth-client-id.png)
+
+![Screenshot that shows the authorization when Client Secret for a MCP server is requested.](../images/ai/mcp/mcp-auth-client-secret.png)
+
+---
+
+> [!NOTE]
+> VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
 
 ### Sampling (Preview)
 
