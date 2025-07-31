@@ -90,7 +90,6 @@ The following MCP features are supported in VS Code:
 - Tools: Executable actions that can be used in [agent mode](/docs/copilot/chat/chat-agent-mode)
 - Prompts: Reusable chat prompt templates, optionally with parameters, which users can invoke through slash commands(`/mcp.servername.promptname`) in chat
 - Resources: Data and content which users can add as chat context or interact with directly in VS Code
-- Authentication: Authenticate access to an MCP server using static keys, tokens using headers
 - Authorization: Authorize access to an MCP server using OAuth
 - Sampling _(Preview)_: Make language model requests using the user's configured models and subscription
 - Elicitation: Request input from the user
