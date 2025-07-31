@@ -84,6 +84,17 @@ You can:
 - **Edit Column Name**: Change the name of any column in the dataset.
 - **Add Ground Truth Column**: Add a column for ground truth values to compare with AI responses.
 
+## What you learned
+
+In this article, you learned how to:
+
+- Generate a synthetic dataset for bulk runs.
+- Import and export datasets in CSV format.
+- Run evaluations on bulk run results.
+- Mark responses as good or bad to keep a record of manual evaluations.
+- View details of responses and navigate between queries in the dataset.
+- Manage data columns for better analysis.
+
 ## Next steps
 
 - [Run an evaluation](/docs/intelligentapps/evaluation.md) with the popular evaluators

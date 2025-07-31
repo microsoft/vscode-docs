@@ -191,6 +191,16 @@ To view the Python code, follow these steps:
 
    > To authenticate with the model, you usually need an API key from the provider. To access models hosted by GitHub, [generate a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) (PAT) in your GitHub settings.
 
+## What you learned
+
+In this article, you learned how to:
+
+- Use the AI Toolkit for VS Code to test and debug your agents.
+- Discover, configure, and build MCP servers to connect your agents to external APIs and services.
+- Set up function calling to connect your agents to external APIs and services.
+- Implement structured output to deliver predictable results from your agents.
+- Integrate prompt engineering into your application with generated code snippets.
+
 ## Next steps
 
 - [Run an evaluation job](/docs/intelligentapps/evaluation.md) for the popular evaluators
