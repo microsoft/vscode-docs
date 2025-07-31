@@ -1,33 +1,30 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "git.branchProtection": [
-    "main"
-  ],
-  "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
-  "editor.wordWrap": "on",
-    "files.eol": "\n",
-    "files.trimTrailingWhitespace": true,
-    "files.associations": {
-        "**/toc.json": "jsonc"
-    },
-    "markdown.validate.enabled": true,
-    "markdown.validate.ignoredLinks": [
-        "/Download",
-        "/insiders"
-    ],
-    "markdown.copyFiles.destination": {
-        // /release-notes/v123.md -> /release-notes/images/123/img.png
-        "/release-notes/**/*": "/release-notes/images/${documentBaseName/v(.*)/$1/}/",
-
-        // Put into 'images' directory next to file
-        "/api/**/*": "images/${documentBaseName}/"
-    },
+    "doc-assistant.milestone": "June 2025",
     "editor.codeActionsOnSave": {
         "source.organizeLinkDefinitions": "explicit"
     },
-    "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
-
-    "doc-assistant.milestone": "June 2025",
-
+    "editor.wordWrap": "on",
+    "files.associations": {
+        "**/toc.json": "jsonc"
+    },
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "git.branchProtection": [
+        "main"
+    ],
+    "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
+    "markdown.copyFiles.destination": {
+        // Put into 'images' directory next to file
+        "/api/**/*": "images/${documentBaseName}/",
+        // /release-notes/v123.md -> /release-notes/images/123/img.png
+        "/release-notes/**/*": "/release-notes/images/${documentBaseName/v(.*)/$1/}/"
+    },
+    "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
+    "markdown.validate.enabled": false,
+    "markdown.validate.ignoredLinks": [
+        "/Download",
+        "/insiders"
+    ]
 }
