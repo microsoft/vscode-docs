@@ -80,7 +80,7 @@ You have multiple options to add an MCP server in VS Code:
 
 To view and manage the list of configured MCP servers, run the **MCP: Show Installed Servers** command from the Command Palette or visit the **MCP SERVERS - INSTALLED** section in the Extensions view.
 
-After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
+When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in agent mode](#use-mcp-tools-in-agent-mode). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
 
 > [!CAUTION]
 > MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time.
@@ -412,6 +412,8 @@ When you add an MCP server to your workspace or change its configuration, you ne
 ![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
 
 If you don't trust the server, it is not started, and chat requests will continue without using the tools provided by the server.
+
+You can reset trust for your MCP servers by running the **MCP: Reset Trust** command from the Command Palette.
 
 > [!NOTE]
 > If you start the MCP server directly from the `mcp.json` file, you are not prompted to trust the server configuration.
