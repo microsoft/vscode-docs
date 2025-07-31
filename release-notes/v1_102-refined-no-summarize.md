@@ -15,37 +15,19 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
 
 <table class="highlights-table">
   <tr>
-    <th>
-      <span>Chat</span>
-    </th>
-  <th>
-      <span>MCP</span>
-    </th>
-  <th>
-      <span>Editor experience</span>
-    </th>
+    <th>Chat</th>
+    <th>MCP</th>
+    <th>Editor experience</th>
   </tr>
   <tr>
-    <td class="first-row">
-      Generate custom instructions that reflect your project's conventions. <a href="#generate-custom-instructions"><br>Read more</a>
-    </td>
-  <td class="first-row">
-      MCP support is now generally available in VS Code. <a href="#mcp-support-in-vs-code-is-generally-available"><br>Read more</a>
-    </td>
-  <td class="first-row">
-      Scroll the editor on middle click. <a href="#scroll-on-middle-click"><br>Read more</a>
-    </td>
+    <td>Generate custom instructions that reflect your project's conventions. <a href="#generate-custom-instructions">Read more</a></td>
+    <td>MCP support is now generally available in VS Code. <a href="#mcp-support-in-vs-code-is-generally-available">Read more</a></td>
+    <td>Scroll the editor on middle click. <a href="#scroll-on-middle-click">Read more</a></td>
   </tr>
   <tr>
-    <td>
-      Automatically approve selected terminal commands. <a href="#terminal-auto-approval-experimental"><br>Read more</a>
-    </td>
-    <td>
-      Easily install and manage MCP servers with the MCP view and gallery. <a href="#mcp-server-discovery-and-installation"><br>Read more</a>
-    </td>
-    <td>
-      Delegate tasks to Copilot coding agent and let it handle them in the background. <a href="#start-a-coding-agent-session-preview"><br>Read more</a>
-    </td>
+    <td>Automatically approve selected terminal commands. <a href="#terminal-auto-approval-experimental">Read more</a></td>
+    <td>Easily install and manage MCP servers with the MCP view and gallery. <a href="#mcp-server-discovery-and-installation">Read more</a></td>
+    <td>Delegate tasks to Copilot coding agent and let it handle them in the background. <a href="#start-a-coding-agent-session-preview">Read more</a></td>
   </tr>
 </table>
 
@@ -56,19 +38,19 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
 <div class="main-content-layout">
   <nav id="toc-nav">
     <div>In this update</div>
-    <ul id="toc-list">
-      <li><a class="toc-link" href="#chat">Chat</a></li>
-      <li><a class="toc-link" href="#mcp">MCP</a></li>
-      <li><a class="toc-link" href="#accessibility">Accessibility</a></li>
-      <li><a class="toc-link" href="#code-editing">Code Editing</a></li>
-      <li><a class="toc-link" href="#editor-experience">Editor Experience</a></li>
-      <li><a class="toc-link" href="#tasks">Tasks</a></li>
-      <li><a class="toc-link" href="#terminal">Terminal</a></li>
-      <li><a class="toc-link" href="#contributions-to-extensions">Contributions to extensions</a></li>
-      <li><a class="toc-link" href="#notable-fixes">Notable fixes</a></li>
-      <li><a class="toc-link" href="#thank-you">Thank you</a></li>
-      <li><a class="toc-link" href="#issue-tracking">Issue tracking</a></li>
-      <li><a class="toc-link" href="#pull-requests">Pull requests</a></li>
+    <ul>
+      <li><a href="#chat">Chat</a></li>
+      <li><a href="#mcp">MCP</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#code-editing">Code Editing</a></li>
+      <li><a href="#editor-experience">Editor Experience</a></li>
+      <li><a href="#tasks">Tasks</a></li>
+      <li><a href="#terminal">Terminal</a></li>
+      <li><a href="#contributions-to-extensions">Contributions to extensions</a></li>
+      <li><a href="#notable-fixes">Notable fixes</a></li>
+      <li><a href="#thank-you">Thank you</a></li>
+      <li><a href="#issue-tracking">Issue tracking</a></li>
+      <li><a href="#pull-requests">Pull requests</a></li>
     </ul>
   </nav>
   <div class="content-main">
@@ -731,6 +713,6 @@ Contributions to `ripgrep-prebuilt`:
 
 <link rel="stylesheet" type="text/css" href="css/inproduct_releasenotes.css"/>
 
-<a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
+<a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"></a>
 
-<!-- <a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a>
+<-<a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a>
