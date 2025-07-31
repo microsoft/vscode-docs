@@ -1,6 +1,6 @@
 ---
 ContentId: 2452fb1c-7636-44d3-a52d-00923844d384
-DateApproved: 05/13/2025
+DateApproved: 07/14/2025
 MetaDescription: Model Conversion Quickstart in AI Toolkit.
 ---
 # Convert a model with AI Toolkit for VS Code (Preview)
@@ -20,13 +20,13 @@ Creating a project in model conversion is the first step toward converting, opti
 
 2. Start a new project by selecting **New Model Project**
 
-    ![Screenshot that shows view for creating model project, including Primary Side Bar and create project button.](./images/modelconversion/create_project_default.png)
+    ![Screenshot that shows view for creating model project, including Primary Side Bar and create project button.](./images/modelconversion/create-project-default.png)
 
 3. Choose a base model
     - `Hugging Face Model`: choose the base model with predefined recipes from the supported model list.
     - `Model Template` : if the model is not included in the base model, select an empty template for your customized recipes (advanced scenario).
 
-    ![Screenshot that shows model list, such as bert, resnet, llama and so on.](./images/modelconversion/create_project_model_list.png)
+    ![Screenshot that shows model list, such as bert, resnet, llama and so on.](./images/modelconversion/create-project-model-list.png)
 
 4. Enter project details: a unique **Project Folder** and a **Project Name**.
 
@@ -36,7 +36,7 @@ Creating a project in model conversion is the first step toward converting, opti
 > The first time you create a model project, it might take a while to set up the environment.
 >
 > A `README.md` file is included in each project. If you close it, you can reopen it via the workspace.
-> ![Screenshot that shows model readme.](./images/modelconversion/create_project_readme.png)
+> ![Screenshot that shows model readme.](./images/modelconversion/create-project-readme.png)
 
 ### Supported models
 
@@ -69,7 +69,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 1. Select **Models** > **Conversion**, and then select **Add Models** on the right panel.
 
-    ![Screenshot that shows how to add model. It contains a button to add models.](./images/modelconversion/create_project_add_models.png)
+    ![Screenshot that shows how to add model. It contains a button to add models.](./images/modelconversion/create-project-add-models.png)
 
 1. Choose a base model or template, and then select **Add**.
 
@@ -81,7 +81,7 @@ Model Conversion currently supports a growing list of models, including top Hugg
 
 1. Select **Models** > **Conversion**, and then select **New Project** on the right panel.
 
-    ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create_project_add_models.png)
+    ![Screenshot that shows how to create a new project. It contains a button to create a new project.](./images/modelconversion/create-project-default.png)
 
 1. Alternatively, close the current model project and [create a new project](#create-project) from the start.
 
@@ -96,7 +96,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     1. Select **Models** > **Conversion**
     1. Select the workflow template to view the conversion recipe.
 
-    ![Screenshot that shows running a workflow. There is a workflow configuration section containing Conversion, Quantization and Evaluation.](./images/modelconversion/Run.png)
+    ![Screenshot that shows running a workflow. There is a workflow configuration section containing Conversion, Quantization and Evaluation.](./images/modelconversion/run.png)
 
     **Conversion**
 
@@ -108,7 +108,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     > [!Important]
     > **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are **enabled** and that you accept the required licenses.
-    > ![Screenshot that shows disclaimer.](./images/modelconversion/run_disclaimer.png)
+    > ![Screenshot that shows disclaimer.](./images/modelconversion/run-disclaimer.png)
 
     - **Activation Type**: this is the data type used to represent the intermediate outputs (activations) of each layer in the neural network.
     - **Weight Type**: this is the data type used to represent the learned parameters (weights) of the model.
@@ -118,14 +118,14 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
       1. Select the **HuggingFace Access Token** button to get your Hugging Face Access Token.
 
-          ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run_token_1.png)
+          ![Screenshot that shows input token step 1: start to get Hugging Face Access Token.](./images/modelconversion/run-token-1.png)
       2. Select **Open** to open the Hugging Face website.
 
-          ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run_token_2.png)
+          ![Screenshot that shows input token step 2: open Hugging Face websites.](./images/modelconversion/run-token-2.png)
 
       3. Get your token on Hugging Face portal and paste it Quick Pick. Press `kbstyle(Enter)`.
 
-          ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run_token_3.png)
+          ![Screenshot that shows input token step 3: input token on dropdown textbox.](./images/modelconversion/run-token-3.png)
 
     - **Quantization Dataset Split**: dataset could have different splits like validation, train and test.
     - **Quantization Dataset Size**: the number of data used to quantize the model.
@@ -171,7 +171,7 @@ Go to the History board and find the model run job. Select the three-dot menu un
 
 You can choose the different EPs or datasets for re-evaluation
 
-![Screenshot that shows re-evaluation. It contains configurations such as name, system and datasets settings.](./images/modelconversion/Re-evaluate.png)
+![Screenshot that shows re-evaluation. It contains configurations such as name, system and datasets settings.](./images/modelconversion/re-evaluate.png)
 
 ### Tips for failed jobs
 
@@ -210,6 +210,20 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 ## Export and share with others
 
 Go to the History board. Select **Export** to share the model project with others. This copies the model project without history folder. If you want to share models with others, select the corresponding jobs. This copies the selected history folder containing the model and its configuration.
+
+## What you learned
+
+In this article, you learned how to:
+
+- Create a model conversion project in AI Toolkit for VS Code.
+- Configure the conversion workflow, including quantization and evaluation settings.
+- Run the conversion workflow to transform a pre-built model into an optimized ONNX model.
+- View the results of the conversion, including metrics and logs.
+- Use the sample notebook for model inference and testing.
+- Export and share the model project with others.
+- Re-evaluate a model using different execution providers or datasets.
+- Handle failed jobs and adjust configurations for re-runs.
+- Understand the supported models and their requirements for conversion and quantization.
 
 ## See also
 

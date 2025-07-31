@@ -21,7 +21,18 @@ Refer to the [network common hostnames list](/docs/setup/network.md#common-hostn
 
 The `extensions.allowed` application-wide setting in VS Code enables you to control which extensions can be installed on the user's machine. If the setting is not configured, all extensions are allowed. If the setting is configured, all extensions not listed are blocked from installing. If you block an extension or version that is already installed, the extension is disabled.
 
-To [centrally manage](#centrally-manage-vs-code-settings) allowed extensions for your organization, configure the `AllowedExtensions` policy using your device management solution. This policy overrides the `extensions.allowed` setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions.
+To [centrally manage](#centrally-manage-vs-code-settings) allowed extensions for your organization, configure the `AllowedExtensions` policy using your device management solution. This policy overrides the `extensions.allowed` setting on users' devices. The value of this policy is a JSON string that contains the allowed extensions:
+
+```json
+{
+    "github": true,
+    "microsoft": true
+}
+```
+
+This is how an administrator may locally configure the `AllowedExtensions` policy using the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)):
+
+![Configuring AllowedExtensions from the Local Group Policy Editor](images/enterprise/allowed-extensions-local-gp-editor.png)
 
 > [!IMPORTANT]
 > If there's a syntax error in the policy value, the `extensions.allowed` setting is not applied. You can check the Window log in VS Code for errors (press `kb(workbench.action.showCommands)` and enter **Show Window Log**).
@@ -132,6 +143,8 @@ VS Code currently provides policies to control the following admin-controlled fe
 VS Code has support for [Windows Registry-based Group Policy](https://learn.microsoft.com/previous-versions/windows/desktop/policy/implementing-registry-based-policy). Starting from VS Code version 1.69, each release ships with a `policies` directory containing ADMX template files that can be added to the following path: `C:\Windows\PolicyDefinitions`. Make sure to also copy the corresponding `adml` file to the `C:\Windows\PolicyDefinitions\<your-locale>` directory.
 
 Once the policy definitions are installed, admins can use the [Local Group Policy Editor](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265982(v=ws.11)) to manage the policy values.
+
+Products such as [Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/what-is-intune) may be used to centrally manage device policy at scale.
 
 Policies can be set both at the Computer level and the User level. If both are set, Computer level will take precedence. When a policy value is set, the value overrides the VS Code [setting](/docs/configure/settings.md) value configured at any level (default, user, workspace, etc.).
 

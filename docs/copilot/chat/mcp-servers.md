@@ -39,8 +39,8 @@ By standardizing this interaction, MCP eliminates the need for custom integratio
 
 VS Code supports the following MCP capabilities:
 
-* MCP Server transport: local standard input/output (`stdio`), server-sent events (`sse`), and streamable HTTP (`http`) for MCP server transport.
-* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, and sampling.
+* MCP Server transport: local standard input/output (`stdio`), streamable HTTP (`http`), and server-sent events (`sse`, legacy support).
+* [MCP features](https://modelcontextprotocol.io/specification/2025-03-26#features): tools, prompts, resources, elicitation, sampling, and authentication.
 * VS Code provides servers with the current workspace folders using `roots` ([spec](https://modelcontextprotocol.io/docs/concepts/roots)).
 
 </details>
@@ -73,17 +73,17 @@ You have two options to centrally manage MCP support in your organization:
 
 You have multiple options to add an MCP server in VS Code:
 
-* **Direct installation**: Visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
-* **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers for a workspace and share configurations with team members.
+* **Direct installation**: visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
+* **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers scoped to a workspace.
 * **User settings**: specify the server in your user configuration (**MCP: Open User Configuration**) to enable the MCP server across all workspaces, synchronized via [Settings Sync](/docs/configure/settings-sync.md).
-* **Automatic discovery**: enable autodiscovery (`chat.mcp.discovery.enabled`) of MCP servers defined in other tools, such as Claude Desktop.
+* **Automatic discovery**: enable autodiscovery (`setting(chat.mcp.discovery.enabled)`) of MCP servers defined in other tools, such as Claude Desktop.
 
 To view and manage the list of configured MCP servers, run the **MCP: Show Installed Servers** command from the Command Palette or visit the **MCP SERVERS - INSTALLED** section in the Extensions view.
 
-After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
+When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in agent mode](#use-mcp-tools-in-agent-mode). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
 
 > [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time.
 
 ### Add an MCP server to your workspace
 
@@ -211,7 +211,7 @@ Use the following JSON configuration format to define MCP servers.
 
     | Field | Description | Examples |
     |-------|-------------|----------|
-    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"sse"`, `"http"` |
+    | `type` | Server connection type. VS Code first tries the streamable HTTP transport and falls back to SSE if HTTP is not supported. | `"http"`, `"sse"` |
     | `url` | URL of the server. | `"http://localhost:3000"` |
     | `headers` | HTTP headers for the server. | `{"API_KEY": "${input:api-key}"}` |
 
@@ -312,7 +312,7 @@ To use MCP tools in agent mode:
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-## MCP elicitations
+## Use MCP elicitations
 
 MCP servers can request additional input from you through elicitations. When an MCP server needs more information to complete a task, it can prompt you for specific details, such as confirmations, configuration values, or other parameters required for the operation.
 
@@ -372,6 +372,16 @@ Alternatively, run the **MCP: List Servers** command from the Command Palette to
 
 ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png)
 
+### Automatically start MCP servers
+
+When you add an MCP server or change its configuration, VS Code needs to (re)start the server to discover the tools it provides.
+
+You can manually restart the MCP server from the Chat view, or by using the [other start options](#manage-mcp-servers).
+
+![Screenshot showing the Refresh button in the Chat view.](images/mcp-servers/chat-view-mcp-refresh.png)
+
+Alternatively, configure VS Code to automatically restart the MCP server when configuration changes are detected by using the `setting(chat.mcp.autostart)` setting (Experimental).
+
 ### Command-line configuration
 
 You can also use the VS Code command-line interface to add an MCP server to your user profile or to a workspace.
@@ -392,6 +402,21 @@ const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
+
+## MCP server trust
+
+MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+
+When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. Select the link to MCP server in the dialog to review the MCP server configuration in a separate window.
+
+![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
+
+If you don't trust the server, it is not started, and chat requests will continue without using the tools provided by the server.
+
+You can reset trust for your MCP servers by running the **MCP: Reset Trust** command from the Command Palette.
+
+> [!NOTE]
+> If you start the MCP server directly from the `mcp.json` file, you are not prompted to trust the server configuration.
 
 ## Synchronize MCP servers across devices
 
