@@ -83,7 +83,7 @@ To view and manage the list of configured MCP servers, run the **MCP: Show Insta
 After you add an MCP server, you can [use the tools it provides in agent mode](#use-mcp-tools-in-agent-mode).
 
 > [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time.
 
 ### Add an MCP server to your workspace
 
@@ -402,6 +402,19 @@ const link = `vscode:mcp/install?${encodeURIComponent(JSON.stringify(obj))}`;
 ```
 
 This link can be used in a browser, or opened on the command line, for example via `xdg-open $LINK` on Linux.
+
+## MCP server trust
+
+MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+
+When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. Select the link to MCP server in the dialog to review the MCP server configuration in a separate window.
+
+![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
+
+If you don't trust the server, it is not started, and chat requests will continue without using the tools provided by the server.
+
+> [!NOTE]
+> If you start the MCP server directly from the `mcp.json` file, you are not prompted to trust the server configuration.
 
 ## Synchronize MCP servers across devices
 
