@@ -733,5 +733,4 @@ Contributions to `ripgrep-prebuilt`:
 
 <a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
 
-<a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:workbench.action.chat.open?%22Summarize%20this%20release%20note.%22">
-</a>
+<a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a>
