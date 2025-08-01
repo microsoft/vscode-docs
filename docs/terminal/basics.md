@@ -80,7 +80,7 @@ To open a terminal in a new window:
 1. Select **Move Terminal to New Window**
     This opens the [terminal editor](#terminals-in-editor-area) in its own VS Code window
 
-![A terminal in its own separate window will be opened](images/basics/terminal-new-window.png)
+    ![Screenshot showing a terminal in its own separate window.](images/basics/terminal-new-window.png)
 
 ## Navigating the buffer
 
