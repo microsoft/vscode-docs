@@ -63,7 +63,7 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
 ## Hide Copilot in VS Code
 
-To completely hide Copilot in VS Code, select **Hide Copilot** from the Copilot menu in the VS Code title bar.
+To completely hide Copilot in VS Code, run the **Chat: Hide Copilot** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Hide Copilot** from the Copilot menu in the VS Code title bar.
 
 ![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide Copilot.](images/setup/hide-copilot.png)
 
