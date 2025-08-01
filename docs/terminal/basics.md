@@ -72,6 +72,12 @@ You can have terminal editors on either side or arranged in multiple dimensions 
 
 The `setting(terminal.integrated.defaultLocation)` setting can change the default `view` or `editor` area terminal location.
 
+## Terminals in new windows
+
+You can open terminals in new windows by right clicking a terminal tab, or left clicking if you only have a single terminal opened and tabs aren't showing, then selecting **Move Terminal to New Window**. This will open a [terminal editor](#terminals-in-editor-area) in its own window:
+
+![A terminal in its own separate window will be opened](images/basics/terminal-new-window.png)
+
 ## Navigating the buffer
 
 The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `setting(terminal.integrated.scrollback)` [setting](/docs/configure/settings.md) and defaults to `1000` lines.
