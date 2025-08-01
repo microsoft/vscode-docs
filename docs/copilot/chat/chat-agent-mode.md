@@ -135,7 +135,7 @@ You can view and manage the tools that can be used for responding to a request. 
 Based on the outcome of a tool, the agent might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, the agent might explore another approach and suggest different code changes.
 
 > [!IMPORTANT]
-> A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker.
+> A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 ### Define tool sets
 
@@ -340,7 +340,7 @@ Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defin
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
-A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view.
+A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 ![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 

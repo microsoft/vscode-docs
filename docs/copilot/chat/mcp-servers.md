@@ -295,7 +295,7 @@ To use MCP tools in agent mode:
     ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
     > [!IMPORTANT]
-    > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker.
+    > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 1. You can now enter a prompt in the chat input box and notice how tools are automatically invoked as needed.
 
@@ -474,7 +474,7 @@ Verify that the command arguments are correct and that the container is not runn
 
 ### I'm getting an error that says "Cannot have more than 128 tools per request."
 
-A chat request can have a maximum of 128 tools enabled at a time due to model constrains. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools or whole servers in the tools picker in the Chat view.
+A chat request can have a maximum of 128 tools enabled at a time due to model constrains. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools or whole servers in the tools picker in the Chat view, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 ![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 
