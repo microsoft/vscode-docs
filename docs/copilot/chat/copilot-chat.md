@@ -59,21 +59,26 @@ You can also add models from other model providers (preview) and use them in cha
 
 ## Submit a chat prompt
 
-Use natural language to make chat requests in VS Code. Depending on the chat mode, you can ask questions about your codebase, get code suggestions, or make code edits across multiple files in your project and invoke specialized tools.
+Type a natural language prompt in the chat input box to make chat requests in VS Code. Depending on the chat mode, you can ask questions about your codebase, get code suggestions, or make code edits across multiple files in your project and invoke specialized tools.
 
 A chat response might contain a combination of rich content such as Markdown text, code blocks, buttons, file trees, and more.
 
-![Copilot Chat view in the Secondary Side Bar and Explorer view in the Primary Side Bar.](images/copilot-chat/copilot-chat-view.png)
+![Screenshot of the Chat view in the Secondary Side Bar showing the response to 'explain recursion'.](images/copilot-chat/copilot-chat-view.png)
 
 To get more relevant responses or reference specific files or artifacts in your workspace, such as test failures or terminal output, [add context](#add-chat-context) to your chat prompt by #-mentioning relevant context items.
 
 ## Add chat context
 
-VS Code tries to determine the intent and scope of your chat request based on your natural language prompt. To help get more relevant responses, provide additional context in your chat prompt, such as files, test results, terminal output, and more.
+VS Code tries to determine the intent and scope of the chat request based on your natural language prompt. To help get more relevant responses, provide additional context in your chat prompt, such as files, test results, terminal output, and more.
 
-Use the **Add Context** button in the Chat view or type #-mentions to add context to your chat prompt. For example, `#codebase` to refer to the entire codebase, or `#<file | folder | symbol>` to refer to a specific file, folder, or symbol in your workspace. Type `#` in the chat input field to view the list of context items.
+Use the **Add Context** button in the Chat view or type #-mentions to add context to your chat prompt. For example, type `#codebase` to perform a full codebase search, or `#<file | folder | symbol>` to refer to a specific file, folder, or symbol in your workspace. Type `#` in the chat input field to view the list of context items.
 
-![Screenshot of the Chat view with the context menu open](images/copilot-chat/chat-add-context.png)
+![Screenshot of the Chat view with the context menu open.](images/copilot-chat/chat-add-context.png)
+
+If you have installed MCP servers or extensions that provide tools, you can also directly reference these tools by #-mentioning them in your chat prompt. For example:
+
+* `summarize #fetch code.visualstudio.com/updates`: retrieve the contents of a web page using the `fetch` built-in tool
+* `what is terminal suggest #githubRepo microsoft/code`: perform a code search in a GitHub repository using the `githubRepo` built-in tool.
 
 You can also directly reference an agent mode tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode). For example, use the `#fetch` tool to add the content of a web page as context to your chat prompt, or use `#githubRepo` to perform a code search in a GitHub repository.
 
@@ -149,22 +154,23 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette.
 
-## Edit chat requests (Experimental)
+## Edit a previous chat request (Experimental)
 
 > [!NOTE]
 > The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
 
-You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+
+When you edit a previous chat request, the following steps are performed:
 
 1. The edited request and all subsequent requests and responses are removed from the conversation history.
 1. Any edits that were made by these requests are reverted to their state before the request was made.
 1. The edited request is added to the conversation history and submitted to the language model for a new response.
 
-Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
-![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
-
-There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+You can configure editing of previous chat request with the `setting(chat.editRequests)` setting:
 
 * `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
 * `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
@@ -191,11 +197,7 @@ You have two options to revert a chat request:
 
 You can open a chat session as a separate editor tab, or even as a separate, floating window. This functionality enables you to have multiple chat sessions open at the same time.
 
-In the Chat view, select the `...` icon in the top-right corner, and then select **Open Chat in Editor** or **Open Chat in New Window**.
-
-![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options.](images/copilot-chat/chat-three-dot-menu.png)
-
-The following screenshot shows the Chat view running in a floating window:
+In the Chat view, select the `...` icon in the top-right corner, and then select **Open Chat in Editor** or **Open Chat in New Window**. The following screenshot shows the Chat view running in a floating window:
 
 ![Screenshot of the Chat view, highlighting the three-dot menu that contains the Open in Editor and Open in New Window options. The desktop shows a floating window with a chat session.](images/copilot-chat/chat-open-in-new-window.png)
 
