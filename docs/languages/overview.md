@@ -3,24 +3,23 @@ ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 DateApproved: 07/09/2025
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
-# Programming Languages
+# Supported Languages
 
-## Hundreds of programming languages supported
+## Hundreds of languages supported
 
-In Visual Studio Code, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+Visual Studio Code supports many popular languages out-of-the-box, like JavaScript, TypeScript, HTML, and CSS, whereas more languages are available through extensions in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
 Here are eight of the most popular language extensions:
 
 <div class="marketplace-extensions-languages-curated"></div>
 
-Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/configure/extensions/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
+Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/configure/extensions/extension-marketplace.md) and search for your desired language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
 
 >**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/configure/locales.md) topic.
 
 ## Language specific documentation
 
-Learn about programming languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dart](https://dart.dev/tools/vs-code) - [Dockerfile](/docs/azure/docker.md) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Julia](/docs/languages/julia.md) - [Less](/docs/languages/css.md) -
-[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [R](/docs/languages/r.md) - [Ruby](/docs/languages/ruby.md) - [Rust](/docs/languages/rust.md) - [SCSS](/docs/languages/css.md) - [Swift](/docs/languages/swift.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
+Learn about popular languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dart](https://dart.dev/tools/vs-code) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Julia](/docs/languages/julia.md) - [Less](/docs/languages/css.md) - [Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [R](/docs/languages/r.md) - [Ruby](/docs/languages/ruby.md) - [Rust](/docs/languages/rust.md) - [SCSS](/docs/languages/css.md) - [Swift](/docs/languages/swift.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language. Most language extensions also contain a summary of their core features in their README.
 
@@ -57,7 +56,7 @@ In VS Code, we default the language support for a file based on its filename ext
 
 VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
 
-A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
+A language identifier is often (but not always) the lowercased language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
 
 You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) dropdown.
 
