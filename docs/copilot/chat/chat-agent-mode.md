@@ -191,13 +191,44 @@ As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove
 
 ### Auto-approve terminal commands (Experimental)
 
-Before agent mode runs a terminal command, it requests confirmation to run it. With auto-approval enabled, all terminal commands are automatically approved.
+Before agent mode runs a terminal command, it requests confirmation to run it. If you want more fine-grained control over which terminal commands are auto-approved, use the `setting(chat.tools.terminal.autoApprove)` setting.
 
-If you want more fine-grained control over which terminal commands are auto-approved, use the following settings:
+This setting lets you specify both allowed and denied commands in a single configuration:
 
-* `setting(github.copilot.chat.agent.terminal.allowList)`: A list of commands or regular expressions that allow the run in terminal tool commands to run without explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters. For example, to allow all commands, use `/.*/`.
+* Set commands to `true` to automatically approve them without confirmation
+* Set commands to `false` to always require explicit approval
+* Use regular expressions by wrapping patterns in `/` characters
 
-* `setting(github.copilot.chat.agent.terminal.denyList)`: A list of commands or regular expressions that override matches in the allow list and force a command line to require explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters.
+For example:
+
+```json
+{
+  "mkdir": true,
+  "echo": true,
+  "/^git (status|show)/": true,
+  "rm": false,
+  "del": false,
+  "/dangerous/": false
+}
+```
+
+By default, commands and regular expressions are evaluated for every subcommand within the full command line, so `foo && bar` needs both `foo` and `bar` to match a `true` entry and must not match a `false` entry in order to auto-approve. This also applies to inline commands (for example, `echo $(rm file)`).
+
+For advanced scenarios, you can use object syntax to control whether patterns match against individual subcommands or the full command line:
+
+```json
+{
+  "echo": { "approve": true, "matchCommandLine": false },
+  "/\.ps1/i": { "approve": false, "matchCommandLine": true }
+}
+```
+
+The `matchCommandLine` property determines the matching behavior:
+
+* `false` (default): Matches against subcommands and inline commands. For example, for `foo && bar`, both `foo` and `bar` must match.
+* `true`: Matches against the full command line. For example, `foo && bar` is treated as a single string.
+
+For a terminal command to be auto approved, both the subcommand and command line must not be explicitly denied, and either all subcommands or the full command line needs to be approved.
 
 ## Accept or discard edits
 

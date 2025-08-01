@@ -69,8 +69,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.tools.autoApprove)` _(Experimental)_<br/>Automatically approve all tools. | `false` |
 | `setting(github.copilot.chat.newWorkspaceCreation.enabled)` _(Experimental)_<br/>Enable the agent mode tool for scaffolding a new workspace in chat. | `true` |
 | `setting(github.copilot.chat.agent.thinkingTool:true)` _(Experimental)_<br/>Enable the thinking tool in agent mode. | `false` |
-| `setting(github.copilot.chat.agent.terminal.allowList)` _(Experimental)_<br/>A list of terminal commands that are allowed to be [run in agent mode without confirmation](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental). | `{ "echo": true, "cd": true, "ls": true, "cat": true, "pwd": true, "Write-Host": true, "Set-Location": true, "Get-ChildItem": true, "Get-Content": true, "Get-Location": true }` |
-| `setting(github.copilot.chat.agent.terminal.denyList)` _(Experimental)_<br/>A list of terminal commands that are not allowed to be [run in agent mode without confirmation](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental). | `{ "rm": true, "rmdir": true, "del": true, "kill": true, "curl": true, "wget": true, "eval": true, "chmod": true, "chown": true, "Remove-Item": true }` |
+| `setting(chat.tools.terminal.autoApprove)` _(Experimental)_<br/>Control which terminal commands are [auto-approved in agent mode](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental). Commands can be set to `true` (auto-approve) or `false` (require approval). Regular expressions can be used by wrapping patterns in `/` characters. | `{ "rm": false, "rmdir": false, "del": false, "kill": false, "curl": false, "wget": false, "eval": false, "chmod": false, "chown": false, "/^Remove-Item\\b/i": false }` |
 
 ## Inline chat settings
 

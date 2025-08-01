@@ -151,7 +151,7 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 | `kb(workbench.action.chat.openAgent)` | Switch to agent mode in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
 | Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental) in agent mode with an allow and deny list. |
+| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/chat/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
