@@ -81,7 +81,7 @@ Follow these steps to get started:
 
 1. Agent mode might invoke multiple [tools](#agent-mode-tools) to accomplish different tasks. Optionally, select the **Tools** icon to configure which tools can be used for responding to your request.
 
-    ![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
+    ![Screenshot showing the Chat view in agent mode, highlighting the Tools icon, and showing the tools Quick Pick control.](images/copilot-edits/agent-mode-select-tools.png)
 
     > [!TIP]
     > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
@@ -102,17 +102,17 @@ Follow these steps to get started:
 
     ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
 
-1. Copilot detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.
+1. VS Code detects issues and problems in code edits and terminal commands and will iterate to resolve them.
 
     Enable the `setting(github.copilot.chat.agent.autoFix)` setting to automatically diagnose and fix issues in the generated code changes. This setting is enabled by default.
 
     For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.
 
-    Copilot Edits agent mode iterates multiple times to resolve issues and problems. The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that Copilot Edits can make in agent mode.
+    Agent mode iterates multiple times to resolve issues and problems. The `setting(chat.agent.maxRequests)` setting controls the maximum number of requests that agent mode can make before asking you if it can continue.
 
-1. As Copilot processes your request, notice that Copilot streams the suggested code edits directly in the editor.
+1. As your chat request is processed, notice that suggested code edits appear directly in the editor.
 
-    The Chat view shows the list of files that were edited in bold text. The editor overlay controls enable you to navigate between the suggested edits.
+    You can view the list of changed files in the Chat view. The editor overlay controls enable you to navigate between the suggested edits.
 
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
@@ -249,22 +249,22 @@ With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a de
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
 
-## Edit chat requests (Experimental)
+## Edit a previous chat request (Experimental)
 
 > [!NOTE]
 > The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
 
-You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+When you edit a previous chat request, the following steps are performed:
 
 1. The edited request and all subsequent requests and responses are removed from the conversation history.
 1. Any edits that were made by these requests are reverted to their state before the request was made.
 1. The edited request is added to the conversation history and submitted to the language model for a new response.
 
-Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
-![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
-
-There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+You can configure editing of previous chat request with the `setting(chat.editRequests)` setting:
 
 * `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
 * `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
@@ -282,14 +282,6 @@ You can use the **Undo Last Edit** control in the Chat view title bar to revert 
 You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Copilot Edits view to revert all edits that were made from that request onwards.
 
 ![Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
-
-## Interrupt an agent mode request
-
-To interrupt an ongoing request, you can either **Pause** it or **Cancel** it. When you pause a request, Copilot stops processing the request and waits for your input.
-
-When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.
-
-When you cancel a request, Copilot interrupts and ends the active request. You can still [review and accept or reject](#accept-or-discard-edits) the changes that were made up to that point.
 
 ## Use instructions to get AI edits that follow your coding style
 

@@ -161,7 +161,6 @@ You can export all prompts and responses for a chat session in a JSON file with 
 
 You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
 
-
 When you edit a previous chat request, the following steps are performed:
 
 1. The edited request and all subsequent requests and responses are removed from the conversation history.
