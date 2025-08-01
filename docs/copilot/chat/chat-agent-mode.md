@@ -197,6 +197,7 @@ This setting lets you specify both allowed and denied commands in a single confi
 
 * Set commands to `true` to automatically approve them without confirmation
 * Set commands to `false` to always require explicit approval
+* Set commands to `null` to unset the default behavior for that command
 * Use regular expressions by wrapping patterns in `/` characters
 
 For example:
