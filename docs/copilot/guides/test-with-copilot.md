@@ -36,7 +36,6 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
     * Chat view (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 

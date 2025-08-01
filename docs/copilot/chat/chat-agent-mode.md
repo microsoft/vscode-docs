@@ -235,7 +235,7 @@ For a terminal command to be auto approved, both the subcommand and command line
 
 Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
 
-![Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
+![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
 With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
@@ -243,7 +243,7 @@ With the editor overlay controls, you can navigate between the suggested edits b
 
 Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
 
-![Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
+![Screenshot showing the Chat view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
 
 With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
 
@@ -277,11 +277,11 @@ As you're sending requests to make edits to your code, you might want to roll ba
 
 You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
+![Screenshot showing the Chat view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
 
-You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Copilot Edits view to revert all edits that were made from that request onwards.
+You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Chat view to revert all edits that were made from that request onwards.
 
-![Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
+![Screenshot showing the Chat view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
 
 ## Use instructions to get AI edits that follow your coding style
 
@@ -316,8 +316,8 @@ Learn more about [using instruction files](/docs/copilot/copilot-customization.m
 The following list contains the settings related to agent mode. You can configure settings through the Settings editor (`kb(workbench.action.openSettings)`).
 
 * `setting(chat.agent.enabled:true)`: enable or disable agent mode (default: `false`, requires VS Code 1.99 or later)
-* `setting(chat.agent.maxRequests)`: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
-* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode in Copilot Edits (default: `true`)
+* `setting(chat.agent.maxRequests)`: maximum number of requests that chat can make in agent mode (default: 5 for Copilot Free users, 15 for other users)
+* `setting(github.copilot.chat.agent.runTasks)`: run workspace tasks when using agent mode (default: `true`)
 * `setting(chat.mcp.discovery.enabled)`: enable or disable discovery of MCP servers configured in other tools (default: `true`)
 * `setting(github.copilot.chat.agent.autoFix)`: automatically diagnose and fix issues in the generated code changes (default: `true`)
 * `setting(chat.tools.autoApprove)` _(Experimental)_: automatically approve all tools (default: `false`)

@@ -53,7 +53,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.editRequests)` _(Experimental)_<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental). | `"inline"` |
-| `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in Copilot Edits. | `true` |
+| `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
 
 ## Agent mode settings

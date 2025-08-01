@@ -38,7 +38,7 @@ Your limit of code completions and chat interactions is reset every month, start
 
 If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
 
-If only the code completions are reaching the limit, you can still use Copilot for chat interactions and Copilot Edits.
+If only the code completions are reaching the limit, you can still use Copilot for chat interactions.
 
 ### My Copilot subscription is not detected in VS Code
 

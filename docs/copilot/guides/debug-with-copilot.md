@@ -62,7 +62,6 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
 1. Open your application code file.
 
 1. Open one of these views:
-    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
     * Chat view (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
@@ -73,7 +72,7 @@ You can use Copilot Chat to help you fix coding issues or improve your code.
     * "Refactor this code"
     * "Improve the performance of this code"
 
-Learn more about using [Copilot Chat](/docs/copilot/chat/copilot-chat.md) and [Copilot Edits](/docs/copilot/chat/copilot-edits.md) in VS Code.
+Learn more about using [Copilot Chat](/docs/copilot/chat/copilot-chat.md) in VS Code.
 
 ### Use editor smart actions
 

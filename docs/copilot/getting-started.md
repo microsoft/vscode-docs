@@ -178,8 +178,6 @@ Congratulations, you've now used AI to enhance your coding! In this tutorial, yo
 
 * To learn more about chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/chat/getting-started-chat.md).
 
-* To learn more about AI code editing, proceed to the [Copilot Edits](/docs/copilot/chat/copilot-edits.md) documentation.
-
 ## Related resources
 
 * Check our videos on YouTube about [Copilot Best Practices](https://youtu.be/2q0BoioYSxQ) and [Advanced Features](https://www.youtube.com/watch?v=SLMfhuptCo8).
