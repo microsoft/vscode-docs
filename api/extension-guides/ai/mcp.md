@@ -170,15 +170,32 @@ When you include a resource type in the prompt response, VS Code attaches that r
 
 VS Code supports MCP servers that require authentication, allowing users to interact with an MCP server that operates on behalf of their user account for that service.
 
-The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers rather than building their own OAuth implementations from scratch.
+The [authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) cleanly separates MCP servers as Resource Servers from Authorization Servers, allowing developers to delegate authentication to existing identity providers (IdPs) rather than building their own OAuth implementations from scratch.
 
 VS Code has built-in authentication support for GitHub and Microsoft Entra. If your MCP server implements the latest specification and uses GitHub or Microsoft Entra as the authorization server, users can manage which MCP servers have access to their account through the **Accounts menu** > **Manage Trusted MCP Servers** action for that account.
 
 ![Screenshot that shows the Accounts menu with the Manage Trusted MCP Servers action.](../images/ai/mcp/manage-trusted-mcp.png)
 
-If your MCP server uses a different authorization server, VS Code also supports [Dynamic Client Registration](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration). Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+VS Code supports authorization using OAuth 2.1 standards and 2.0 standards to other IdPs than GitHub and Microsoft Entra. VS Code first starts with a [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) handshake and then falls back to a client-credentials workflow if the IdP does not support DCR. This gives more flexibility to the various IdPs to create static client IDs or specific client ID-secret pairs for each MCP server accordingly.
 
-VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
+Users can then view their authentication status also through the **Accounts menu**. To remove dynamic client registrations, users can use the **Authentication: Remove Dynamic Authentication Providers** command in the Command Palette.
+
+Below is a checklist to ensure your MCP server and VS Code's OAuth workflows will work:
+
+1. The MCP server defines the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+2. The IdP must support either DCR or client credentials
+3. The redirect URL list must include these URLs: `http://127.0.0.1:33418` and `https://vscode.dev/redirect`
+
+When DCR is not supported by the MCP server, users will go through the fallback client-credential flow:
+
+![Screenshot that shows the authorization when DCR is not supported for a MCP server.](../images/ai/mcp/mcp-auth-dynamic-client-required.png)
+
+![Screenshot that shows the authorization when Client ID for a MCP server is requested.](../images/ai/mcp/mcp-auth-client-id.png)
+
+![Screenshot that shows the authorization when Client Secret for a MCP server is requested.](../images/ai/mcp/mcp-auth-client-secret.png)
+
+> [!NOTE]
+> VS Code still supports MCP servers that behave as an authorization server, but it is recommended to use the latest specification for new servers.
 
 ### Sampling (Preview)
 
