@@ -154,7 +154,11 @@ To reference a tool or tool set directly in your chat prompt, type `#` followed 
 
 ## @-mentions
 
-Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
+Chat participants are specialized assistants that enable you to ask domain-specific questions in chat. Imagine a chat participant as a domain expert to whom you hand off your chat request and it takes care of the rest.
+
+Chat participants are different from [tools](#reference-tools) that are invoked as part of an agent flow to contribute and perform specific tasks.
+
+You can invoke a chat participant by @-mentioning it: type `@` followed by the participant name. VS Code has several built-in chat participants like `@vscode`, `@terminal`, or `@workspace`. They are optimized to answer questions about their respective domains.
 
 The following examples show how to use @-mentions in your chat prompts:
 
@@ -164,8 +168,6 @@ The following examples show how to use @-mentions in your chat prompts:
 Type `@` in the chat input field to see a list of available chat participants.
 
 Extensions can also contribute their own [chat participants](/api/extension-guides/ai/chat.md).
-
-Chat participants are different from [tools](#reference-tools) that are invoked as part of an autonomous coding flow in agent mode. Chat participants are responsible to handle your prompt entirely themselves.
 
 ## Add elements from the VS Code simple browser (Experimental)
 
