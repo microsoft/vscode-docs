@@ -82,7 +82,7 @@ Let's look at how to use editor inline chat for code refactoring.
     If you're not happy with the suggested code changes, you can select the **Rerun Request** control or ask a follow-up question to get another suggestion.
 
 > [!TIP]
-> Right-click in the editor and select the **Copilot** context menu to access commonly used Copilot commands, such as fixing or explaining code or generating tests.
+> Right-click in the editor to access commonly used AI commands, such as fixing or explaining code or generating tests.
 
 ## Make edits across multiple files
 

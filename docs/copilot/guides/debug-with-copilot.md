@@ -81,9 +81,9 @@ To fix coding issues for your application code without writing a prompt, you can
 
 1. Open your application code file.
 1. Select the code you want to fix.
-1. Right-click and select **Copilot** > **Fix**.
+1. Right-click and select **Generate Code** > **Fix**.
 
-    Copilot provides a code suggestion to fix the code.
+    VS Code provides a code suggestion to fix the code.
 
 1. Optionally, refine the generated code by providing additional context in the chat prompt.
 

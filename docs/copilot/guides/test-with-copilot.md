@@ -53,7 +53,7 @@ To generate tests for your application code without writing a prompt, you can us
 
 1. Open your application code file.
 1. Optionally, select the code you want to test.
-1. Right-click and select **Copilot** > **Generate Tests**.
+1. Right-click and select **Generate Code** > **Generate Tests**.
 
     Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
 

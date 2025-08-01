@@ -1,7 +1,7 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
 DateApproved: 07/09/2025
-MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
+MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code cheat sheet
@@ -186,14 +186,14 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Code comments | Provide a code completion prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
-| Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Copilot**. |
+| Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Generate Code**. |
 | Code Actions (lightbulb) | Select the Code Action (lightbulb) in the editor for fixing linting or compiler errors in your code. |
 
 > **Tips**
 >
 > * Use meaningful method or function names to get better code completions quicker.
 > * Select a code block to scope your Inline Chat prompt or attach relevant context by attaching files or symbols.
-> * Use the editor context menu options to access common Copilot actions directly from the editor.
+> * Use the editor context menu options to access common AI-powered actions directly from the editor.
 
 ## Source control and issues
 
@@ -203,7 +203,6 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 |--------|-------------|
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
-| Summarize commit | Right-click a commit in the source control graph and select **Copilot** > **Summarize** to generate a summary of the commit changes. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
@@ -214,7 +213,7 @@ Use AI to do a quick review pass of a code block or perform a review of uncommit
 
 | Action | Description |
 |--------|-------------|
-| **Review and Comment** _(Preview)_ | Select a block of code, and select **Copilot** > **Review and Comment** from the editor context menu for quick review pass.  |
+| **Review and Comment** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review and Comment** from the editor context menu for quick review pass.  |
 | **Copilot Code Review** | Select the **Copilot Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
 
 ## Search and settings
@@ -291,4 +290,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+* [Tutorial: Get started with AI features in VS Code](/docs/copilot/getting-started.md)
