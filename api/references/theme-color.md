@@ -668,6 +668,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
 - `chat.requestBubbleBackground`: Background color of the chat request bubble.
 - `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
+- `chat.checkpointSeparator`: Chat checkpoint separator color.
 
 ## Inline Chat colors
 
