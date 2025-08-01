@@ -34,7 +34,7 @@ Alternatively, choose from the list of available predefined context items like `
 
 Make sure to enable the `setting(github.copilot.chat.codesearch.enabled)` _(preview)_ setting to get the best results.
 
-View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-variables) of the cheat sheet.
+View the full list of supported context items in the [Chat Variables section](/docs/copilot/reference/copilot-vscode-features.md#chat-tools) of the cheat sheet.
 
 ### Prompt examples
 

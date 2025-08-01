@@ -77,13 +77,13 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | Drag & drop folders | Drag & drop a folder onto the Chat view to attach the files within it. |
 | Drag & drop problem | Drag & drop an item from the Problems panel. |
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
-| `#-mention | Type `#`, followed by a [chat variable](#chat-variables) to add a specific context type or tool. |
+| `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
-### Chat variables
+### Chat tools
 
-Use chat variables in your chat prompt to reference context that is relevant to your question or to reference specific tools. Reference chat variables or tools in your chat prompt by using the `#`-mention syntax.
+Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
 
-Tools can be invoked as part of an autonomous coding workflow with [agent mode](/docs/copilot/chat/chat-agent-mode.md). Extensions and MCP servers can provide additional tools that you can use in your chat prompts.
+The following table lists the VS Code built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
@@ -93,7 +93,6 @@ Tools can be invoked as part of an autonomous coding workflow with [agent mode](
 | `#extensions` | Tool to find and ask questions about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a web page - provide the URL. |
 | `#findTestFiles` | Tool for finding test files in the current workspace. |
-| `#<file\|folder\|symbol>` | Add a file, folder, or code symbol as context. |
 | `#githubRepo` | Tool to perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
 | `#new` | Tool to scaffold a new VS Code workspace. |
 | `#openSimpleBrowser` | Tool to open the built-in Simple Browser and preview a locally-deployed web app. |
