@@ -205,7 +205,7 @@ For example:
 {
   "mkdir": true,
   "echo": true,
-  "/^git (status|show)/": true,
+  "/^git (status|show)\\b/": true,
   "rm": false,
   "del": false,
   "/dangerous/": false
@@ -216,10 +216,10 @@ By default, commands and regular expressions are evaluated for every subcommand 
 
 For advanced scenarios, you can use object syntax to control whether patterns match against individual subcommands or the full command line:
 
-```json
+```jsonc
 {
-  "echo": { "approve": true, "matchCommandLine": false },
-  "/\.ps1/i": { "approve": false, "matchCommandLine": true }
+  // Broad rule to block any command line that contains ".ps1"
+  "/\\.ps1\\b/i": { "approve": false, "matchCommandLine": true }
 }
 ```
 
