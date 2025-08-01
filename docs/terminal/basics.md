@@ -74,7 +74,11 @@ The `setting(terminal.integrated.defaultLocation)` setting can change the defaul
 
 ## Terminals in new windows
 
-You can open terminals in new windows by right clicking a terminal tab, or left clicking if you only have a single terminal opened and tabs aren't showing, then selecting **Move Terminal to New Window**. This will open a [terminal editor](#terminals-in-editor-area) in its own window:
+To open a terminal in a new window:
+
+1. Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened
+1. Select **Move Terminal to New Window**
+    This opens the [terminal editor](#terminals-in-editor-area) in its own VS Code window
 
 ![A terminal in its own separate window will be opened](images/basics/terminal-new-window.png)
 
