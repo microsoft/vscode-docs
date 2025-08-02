@@ -132,7 +132,7 @@ h2 + h3 {
 }
 
 /* Main content layout */
-.main-content-layout {
+.toc-nav-layout {
   display: flex;
   align-items: flex-start;
 }
@@ -183,7 +183,7 @@ h2 + h3 {
 }
 
 /* Main content area */
-.content-main {
+.notes-main {
   flex: 1;
   min-width: 0;
 }
@@ -194,11 +194,11 @@ h2 + h3 {
     display: none;
   }
 
-  .main-content-layout {
+  .toc-nav-layout {
     flex-direction: column;
   }
 
-  .content-main {
+  .notes-main {
     margin-left: 0;
   }
 }

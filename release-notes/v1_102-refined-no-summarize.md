@@ -47,7 +47,7 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
 > You can download the nightly Insiders build and try the latest updates as soon as they are available.<br>
 > [Download Insiders](https://code.visualstudio.com/insiders)<br>
 
-<div class="main-content-layout">
+<div class="toc-nav-layout">
   <nav id="toc-nav">
     <div>In this update</div>
     <ul>
@@ -65,7 +65,7 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
       <li><a href="#pull-requests">Pull requests</a></li>
     </ul>
   </nav>
-  <div class="content-main">
+  <div class="notes-main">
 
 ## Chat
 
@@ -726,5 +726,3 @@ Contributions to `ripgrep-prebuilt`:
 <link rel="stylesheet" type="text/css" href="css/inproduct_releasenotes.css"/>
 
 <a id="scroll-to-top" role="button" title="Scroll to top" aria-label="scroll to top" href="#"><span class="icon"></span></a>
-
-<!-- <a id="sparkle-chat" role="button" title="Summarize this release note" aria-label="Summarize this release note" href="command:summarize.release.notes"></a>
