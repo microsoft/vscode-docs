@@ -31,7 +31,7 @@ We'll discuss many of Ruby LSP features in this topic but you can also refer to 
 
 ### Check your installation
 
-After installing, check the language status item to see the status of the Ruby LSP server. If the version manager has been configured, it should display the right Ruby version for your project. The server status should display starting or running, but not error.
+After installing, check the language status item in the **Status Bar** to see the status of the Ruby LSP server. If the version manager has been configured, it should display the right Ruby version for your project. The server status should display starting or running, but not error.
 
 ![Ruby LSP language status center](images/ruby/ruby_lsp_status_center.png)
 
