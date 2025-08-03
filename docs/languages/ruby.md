@@ -16,7 +16,7 @@ This topic goes into detail about setting up and using Ruby within Visual Studio
 
 ### Install Ruby through a version manager
 
-While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager such as [rbenv](https://github.com/rbenv/rbenv) to be able to access newer versions of Ruby on macOS and Linux. Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform. Because [rbenv] doesn't work for Windows, it is recommended to install via [RubyInstallers](https://rubyinstaller.org/downloads/) directly.
+While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager to access newer versions of Ruby such as [rbenv](https://github.com/rbenv/rbenv) on macOS and Linux and [rbenv on Windows](https://github.com/RubyMetric/rbenv-for-windows). Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
 
 >**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
@@ -37,7 +37,7 @@ After installing, check the language status item in the **Status Bar** to see th
 
 The extension generates a `.ruby-lsp` folder automatically with a custom bundle that includes the language server gem `ruby-lsp`. No configuration should be required.
 
-By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior or set to "none" to disable version manager in Windows, set the following configuration in your user [settings](/docs/configure/settings.md):
+By default, the extension tries to automatically detect the Ruby version manager you're using and use the right versions and paths accordingly. If you want to customize that behavior, set the following configuration in your user [settings](/docs/configure/settings.md):
 
 ```json
 {
