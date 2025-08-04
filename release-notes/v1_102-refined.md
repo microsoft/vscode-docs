@@ -43,6 +43,8 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
   </tr>
 </table>
 
+<br>
+
 > **Insiders: Want to try new features as soon as possible?**<br>
 > You can download the nightly Insiders build and try the latest updates as soon as they are available.<br>
 > [Download Insiders](https://code.visualstudio.com/insiders)<br>
