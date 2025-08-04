@@ -217,22 +217,6 @@ To help you understand the impact of each chat request and make it easier to dec
 
 ![Screenshot of the Chat view, showing the file changes at the end of a chat request.](images/copilot-chat/chat-checkpoint-changed-files.png)
 
-### Revert chat requests
-
-You can revert (undo) chat requests in the active chat session. When you revert a chat request, you also remove the corresponding response from the conversation history.
-
-Reverting a request is useful if you want to remove a specific prompt and response from the conversation history of that session. For example, if you notice that the language model is not providing relevant responses or is taking an unwanted direction.
-
-You have two options to revert a chat request:
-
-* Undo the last chat request: use the **Undo Last Request** button in the Chat view toolbar.
-
-    ![Screenshot of the Chat view with the Undo Last Request button highlighted.](images/copilot-chat/chat-undo-last-request.png)
-
-* Undo a specific chat request: hover over a chat request in the Chat view and select the **Undo Request (Delete)** (`x`) button next to the request (or press `kb(workbench.action.chat.undoEdits)`). When you undo a request, it also undoes all subsequent requests and responses in the chat session.
-
-    ![Screenshot of the Chat view with multiple prompts, highlighting the 'x' control to delete a chat prompt and its response.](images/copilot-chat/copilot-chat-delete-prompt.png)
-
 ## Open chat in an editor tab or separate window
 
 You can open a chat session as a separate editor tab, or even as a separate, floating window. This functionality enables you to have multiple chat sessions open at the same time.
