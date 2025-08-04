@@ -43,6 +43,18 @@ You can further extend the list of available models by [using your own language 
 
 If you have a paid Copilot plan, the model picker shows the premium request multiplier for premium models. Learn more about [premium requests](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#premium-requests) in the GitHub Copilot documentation.
 
+## Customize the model picker
+
+You can customize which models you want to show in the model picker:
+
+1. Open the model picker and select **Manage Models**.
+
+1. In the provider list, select **Copilot**.
+
+1. Select the models you want to show in the model picker.
+
+   ![Screenshot that shows the model Quick Pick to choose which models to show in the model picker.](images/language-models/model-picker-choose-models.png)
+
 ## Change the model for code completions
 
 To change the language model that is used for generating code completions in the editor:
