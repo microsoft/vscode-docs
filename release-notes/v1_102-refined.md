@@ -21,9 +21,6 @@ _Release date: July 9, 2025_
 <!-- DOWNLOAD_LINKS_PLACEHOLDER -->
 
 ---
-
-<br>
-
 Welcome to the June 2025 release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
 
 <table class="highlights-table">
