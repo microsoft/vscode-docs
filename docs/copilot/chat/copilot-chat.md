@@ -176,6 +176,47 @@ You can configure editing of previous chat request with the `setting(chat.editRe
 * `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
 * `none`: Disable editing of chat requests in the Chat view.
 
+### Revert chat requests with checkpoints (Preview)
+
+> [!NOTE]
+> Checkpoints are available as of VS Code release 1.103 and are currently in preview.
+
+Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
+
+When checkpoints are enabled, VS Code automatically creates snapshots of your files at key points during chat interactions, allowing you to return to a known good state if the changes made by chat requests are not what you expected or if you want to try a different approach.
+
+To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting.
+
+#### Restore a checkpoint
+
+When you restore a checkpoint, VS Code reverts the workspace to the state it was in at the time of that checkpoint. This means that _all_ changes made to files after that checkpoint will be undone.
+
+To restore your workspace to a previous checkpoint:
+
+1. In the Chat view, navigate to previous chat request in the chat session.
+
+1. Hover over the chat request and select **Restore Checkpoint**.
+
+    ![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
+
+1. Confirm that you want to restore the checkpoint and undo any file changes made after that point.
+
+    Notice that the chat request is removed from the conversation history, and the workspace files are restored to their state at the time of the checkpoint.
+
+#### Redo after restoring
+
+After restoring to a previous checkpoint, you can redo the changes that were undone. This might be useful if you inadvertently restored to a checkpoint.
+
+To redo changes after restoring a checkpoint, select **Redo** in the Chat view.
+
+![Screenshot of the Chat view, showing the Redo button to redo the changes after restoring a checkpoint to a previous state.](images/copilot-chat/chat-redo-checkpoint.png)
+
+#### View file changes in checkpoints
+
+To help you understand the impact of each chat request and make it easier to decide which checkpoint to restore to, enable the `setting(chat.checkpoints.showFileChanges)` setting. This shows a list of files that were modified at the end of each chat request, along with the number of lines added and removed in each file.
+
+![Screenshot of the Chat view, showing the file changes at the end of a chat request.](images/copilot-chat/chat-checkpoint-changed-files.png)
+
 ### Revert chat requests
 
 You can revert (undo) chat requests in the active chat session. When you revert a chat request, you also remove the corresponding response from the conversation history.
