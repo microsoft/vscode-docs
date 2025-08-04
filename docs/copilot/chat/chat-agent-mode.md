@@ -189,7 +189,7 @@ In case you want to auto-approve _all_ tools and terminal commands, you can now 
 
 As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
 
-### Auto-approve terminal commands (Experimental)
+### Auto-approve terminal commands
 
 Before agent mode runs a terminal command, it requests confirmation to run it. If you want more fine-grained control over which terminal commands are auto-approved, use the `setting(chat.tools.terminal.autoApprove)` setting.
 
