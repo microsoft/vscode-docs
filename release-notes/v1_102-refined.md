@@ -23,6 +23,7 @@ _Release date: July 9, 2025_
 ---
 
 <br>
+
 Welcome to the June 2025 release of Visual Studio Code. There are many updates in this version that we hope you'll like, some of the key highlights include:
 
 <table class="highlights-table">
@@ -49,6 +50,7 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
 > You can download the nightly Insiders build and try the latest updates as soon as they are available.<br>
 > [Download Insiders](https://code.visualstudio.com/insiders)<br>
 
+<!-- TOC
 <div class="toc-nav-layout">
   <nav id="toc-nav">
     <div>In this update</div>
@@ -68,6 +70,8 @@ Welcome to the June 2025 release of Visual Studio Code. There are many updates i
     </ul>
   </nav>
   <div class="notes-main">
+Navigation End -->
+
 
 ## Chat
 
