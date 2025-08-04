@@ -67,6 +67,9 @@ A chat response might contain a combination of rich content such as Markdown tex
 
 To get more relevant responses or reference specific files or artifacts in your workspace, such as test failures or terminal output, [add context](#add-chat-context) to your chat prompt by #-mentioning relevant context items.
 
+> [!TIP]
+> Enable rendering of mathematical equations in chat responses with the `setting(chat.math.enabled)` setting (preview).
+
 ## Add chat context
 
 VS Code tries to determine the intent and scope of the chat request based on your natural language prompt. To help get more relevant responses, provide additional context in your chat prompt, such as files, test results, terminal output, and more.

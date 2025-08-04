@@ -51,6 +51,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
 | `setting(chat.editing.confirmEditRequestRetry)`<br/>Ask for confirmation before performing a redo of the last edit. | `true` |
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
+| `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(chat.checkpoints.enabled)` _(Preview)_<br/>Enable or disable checkpoints in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` _(Preview)_<br/>Show a summary of file changes at the end of each chat request. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
