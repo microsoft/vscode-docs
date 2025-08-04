@@ -51,6 +51,8 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.editing.confirmEditRequestRemoval)`<br/>Ask for confirmation before undoing an edit. | `true` |
 | `setting(chat.editing.confirmEditRequestRetry)`<br/>Ask for confirmation before performing a redo of the last edit. | `true` |
 | `setting(chat.editing.autoAcceptDelay)`<br/>Configure a delay after which suggested edits are automatically accepted, use zero to disable auto-accept. | `0` |
+| `setting(chat.checkpoints.enabled)` _(Preview)_<br/>Enable or disable checkpoints in the chat. | `true` |
+| `setting(chat.checkpoints.showFileChanges)` _(Preview)_<br/>Show a summary of file changes at the end of each chat request. | `true` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
 | `setting(chat.editRequests)` _(Experimental)_<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental). | `"inline"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
