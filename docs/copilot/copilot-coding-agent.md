@@ -40,6 +40,10 @@ Before you can use Copilot coding agent, you need:
 * **Enable the agent**: Copilot coding agent [must be enabled](https://docs.github.com/copilot/concepts/coding-agent/enable-coding-agent) for your account or organization
 * **VS Code setup**: Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
+Ensure you are signed into the GitHub Pull Request extension with the correct GitHub account.
+
+![Screenshot showing the accounts menu, highlighting the sign in to GitHub Pull Request action.](images/copilot-coding-agent/sign-in-github-pull-requests.png)
+
 **Optional**: Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in Copilot Chat for easier task delegation.
 
 > [!TIP]
