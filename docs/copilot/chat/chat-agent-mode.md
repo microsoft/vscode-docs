@@ -1,6 +1,6 @@
 ---
 ContentId: 57754e12-a134-41cc-9693-fb187729c49f
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -8,31 +8,70 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 
 With chat _agent mode_ in Visual Studio Code, you can use natural language to specify a high-level task, and let AI autonomously reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of code editing and tool invocation to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
 ## Prerequisites
 
 * Install the latest version of [Visual Studio Code](/download)
-* Access to [Copilot](/docs/copilot/setup.md)
+* Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+
+## Why use agent mode?
+
+Agent mode is optimized for making autonomous edits across multiple files in your project. It is particularly useful for complex tasks that require not only code edits but also the invocation of tools and terminal commands. You can use agent mode to:
+
+* Refactor parts of your codebase, such as "refactor the app to use a Redis cache".
+* Plan and implement new features, such as "add a login form to the app using OAuth for authentication".
+* Migrate your codebase to a new framework, such as "migrate the app from React to Vue.js".
+* Generate an implementation plan for a complex task, such as "create a meal-planning web app using a Swift front-end and a Node.js back-end".
+* Define a high-level requirement, such as "add social media sharing functionality".
+
+Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+
+## Agent mode vs Copilot coding agent
+
+VS Code offers two autonomous coding experiences. While agent mode provides interactive development directly within the editor, the [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) works independently on GitHub to implement features in the background.
+
+| Feature | Agent mode | Copilot coding agent |
+|---------|------------------|---------------------|
+| **Where it runs** | Your VS Code editor | GitHub cloud |
+| **Independence** | Involves user interaction and iteration | Fully autonomous |
+| **Output** | Edits files directly | Creates pull requests |
+| **Best for** | Interactive development, immediate feedback | Well-defined tasks, background work |
+
+This document describes agent mode. You can learn more about the Copilot coding agent in its [documentation](/docs/copilot/copilot-coding-agent.md).
+
+## Enable agent mode in VS Code
+
+> [!NOTE]
+> Agent mode is available starting from VS Code 1.99.
+
+To enable agent mode in VS Code, enable the `setting(chat.agent.enabled)` setting.
+
+### Centrally manage agent mode
+
+To centrally enable or disable agent mode within your organization with device management, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
+
+You can centrally manage the following settings related to agent mode:
+
+* Enable or disable agent mode: `setting(chat.agent.enabled)`
+
+* Enable or disable using tools contributed by third-party extensions: `setting(chat.extensionTools.enabled)`
+
+* Enable or disable auto-approval for agent mode tools: `setting(chat.tools.autoApprove)`
 
 ## Use agent mode
 
-In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.
+In agent mode, the AI operates autonomously and determines the relevant context for your prompt.
 
 Follow these steps to get started:
 
-1. Make sure that agent mode is enabled by configuring the `setting(chat.agent.enabled)` setting in the [Settings editor](/docs/getstarted/personalize-vscode.md#configure-settings) (requires VS Code 1.99 or later).
+1. Open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the chat mode selector.
 
-1. Open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
+    ![Screenshot showing the Chat view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
 
-    Alternatively, open the Chat view (`kb(workbench.action.chat.open)`) and select **Agent** from the chat mode selector.
-
-    ![Screenshot showing the Copilot Edits view, highlighting agent mode selected.](images/copilot-edits/copilot-edits-agent-mode.png)
+    Directly open agent mode in VS Code [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) or [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent).
 
 1. Enter your prompt for making edits in the chat input field and select **Send** (`kb(workbench.action.edits.submit)`) to submit it.
 
-    You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, Copilot determines the relevant context and files to edit autonomously.
+    You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, the AI determines the relevant context and files to edit autonomously.
 
     Experiment with some of these example prompts to get started:
 
@@ -87,25 +126,78 @@ Agent mode can use the following tools:
 
 * Built-in tools
 * [MCP tools](/docs/copilot/chat/mcp-servers.md)
-* [Tools contributed by extensions](/api/extension-guides/tools.md)
+* [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
 
-You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and manage the tools that are available in agent mode.
+You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select the tools that are available in agent mode.
 
-![Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input.](images/copilot-edits/agent-mode-select-tools.png)
+![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
 
-Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.
+Based on the outcome of a tool, the agent might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, the agent might explore another approach and suggest different code changes.
+
+> [!IMPORTANT]
+> A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker.
+
+### Define tool sets
+
+A tool set is a collection of tools that you can use in chat. You can use tool sets in the same way as you would use individual tools. For example, select a tool set with the tools picker in agent mode or reference the tool set directly in your prompt by typing `#` followed by the tool set name.
+
+![Screenshot showing the tools picker, highlighting user-defined tool sets.](images/agent-mode/tools-picker-tool-sets.png)
+
+Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/copilot-customization.md), or [custom chat modes](/docs/copilot/chat/chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
+
+To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+
+A tool sets file is a `.jsonc` file that is stored in your user profile and that contains a list of agent mode tools. A tool set has the following structure:
+
+* `<tool set name>`: name of the tool set, which is displayed in the tools picker and when referencing the tool set in your prompt.
+* `tools`: list of tool names that are included in the tool set. The tools can be built-in tools, MCP tools, or tools contributed by extensions.
+* `description`: brief description of the tool set. This description is displayed alongside the tool set name in the tools picker.
+* `icon`: icon for the tool set, values can be found in the [Product Icon Reference](/api/references/icons-in-labels.md).
+
+The following code snippet shows an example of a tool sets file that defines a tool set named `reader`:
+
+```json
+{
+    "reader": {
+        "tools": [
+            "changes", "codebase", "fetch", "findTestFiles", "githubRepo", "problems", "usages"
+        ],
+        "description": "description",
+        "icon": "tag"
+    }
+}
+```
 
 ## Manage tool approvals
 
-When a tool is invoked, Copilot requests confirmation to run the tool. This is because tools might run locally on your machine and perform actions that modify files or data.
+Before agent mode runs a tool or terminal command, it requests confirmation to run it. This is because they might perform actions that modify files or data or perform destructive actions.
 
-In the Chat view, after a tool invocation, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
 ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
 
 You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
 
-In case you want to auto-approve _all_ tools, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool invocations, and VS Code will not ask for confirmation when a language model wishes to run tools. Bear in mind that with this setting enabled, you will not have the opportunity to cancel potentially destructive actions a model wants to take.
+### Auto-approve all tools and commands (Experimental)
+
+In case you want to auto-approve _all_ tools and terminal commands, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool and command invocations, and VS Code will not ask for confirmation when a language model wishes to run tools.
+
+> [!CAUTION]
+> With this setting enabled, you don't have the opportunity to cancel potentially destructive actions a model wants to take.
+
+As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
+
+### Auto-approve terminal commands (Experimental)
+
+Before agent mode runs a terminal command, it requests confirmation to run it. With auto-approval enabled, all terminal commands are automatically approved.
+
+If you want more fine-grained control over which terminal commands are auto-approved, use the following settings:
+
+* `setting(github.copilot.chat.agent.terminal.allowList)`: A list of commands or regular expressions that allow the run in terminal tool commands to run without explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters. For example, to allow all commands, use `/.*/`.
+
+* `setting(github.copilot.chat.agent.terminal.denyList)`: A list of commands or regular expressions that override matches in the allow list and force a command line to require explicit approval. These are matched against the start of a command. A regular expression can be provided by wrapping the string in `/` characters.
 
 ## Accept or discard edits
 
@@ -124,6 +216,28 @@ Use the **Keep** or **Undo** controls in the editor or Chat view to accept or re
 With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
+
+## Edit chat requests (Experimental)
+
+> [!NOTE]
+> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. When you edit a previous chat request, the following steps are performed:
+
+1. The edited request and all subsequent requests and responses are removed from the conversation history.
+1. Any edits that were made by these requests are reverted to their state before the request was made.
+1. The edited request is added to the conversation history and submitted to the language model for a new response.
+
+Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
+
+![Screenshot of the Chat view with a chat request being edited in-place.](images/copilot-chat/chat-edit-request.png)
+
+There are different ways to edit a chat request, configured by the `setting(chat.editRequests)` setting:
+
+* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
+* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
+* `none`: Disable editing of chat requests in the Chat view.
 
 ## Revert edits
 
@@ -144,6 +258,34 @@ To interrupt an ongoing request, you can either **Pause** it or **Cancel** it. W
 When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.
 
 When you cancel a request, Copilot interrupts and ends the active request. You can still [review and accept or reject](#accept-or-discard-edits) the changes that were made up to that point.
+
+## Use instructions to get AI edits that follow your coding style
+
+To get AI-generated code edits that follow your coding style, preferred frameworks, and other preferences, you can use instruction files. Instruction files enable you to describe your coding style and preferences in Markdown files, which the AI uses to generate code edits that match your requirements.
+
+You can manually attach instruction files as context to your chat prompt, or you can configure the instruction files to be automatically applied.
+
+The following code snippet shows an example of an instruction file that describes your coding style and preferences:
+
+```markdown
+---
+applyTo: "**"
+---
+# Project general coding standards
+
+## Naming Conventions
+- Use PascalCase for component names, interfaces, and type aliases
+- Use camelCase for variables, functions, and methods
+- Prefix private class members with underscore (_)
+- Use ALL_CAPS for constants
+
+## Error Handling
+- Use try/catch blocks for async operations
+- Implement proper error boundaries in React components
+- Always log errors with contextual information
+```
+
+Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
 
 ## Settings
 
@@ -168,9 +310,17 @@ Consider the following criteria to choose between edit mode and agent mode:
 * **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
 * **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
 
+### When should I use Copilot coding agent instead of agent mode?
+
+Use [Copilot coding agent](/docs/copilot/copilot-coding-agent.md) for well-defined tasks that can work independently in the background. Use agent mode when you want to stay involved in the development process and iterate quickly on changes.
+
+### I'm getting an error that says "Cannot have more than 128 tools per request."
+
+A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker in the Chat view.
+
+![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)
+
 ## Related resources
 
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/reference/copilot-vscode-features.md)
-* [Use Copilot Chat for AI chat conversations](/docs/copilot/chat/copilot-chat.md)
 * [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
-* [Start a multi-file coding session](/docs/copilot/chat/copilot-edits.md)
+* [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)

@@ -1,6 +1,6 @@
 ---
 ContentId: 5dfd207f-fcee-42c3-b7fe-622b42b3397c
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Optimize your development experience with GitHub Copilot in VS Code with best practices for crafting chat prompts and providing context.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -99,7 +99,7 @@ When you're using chat to interact with GitHub Copilot, there are several things
 
 ### Use chat participants and slash commands
 
-Chat participants are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate participant, Copilot Chat can find and provide better information to send to the Copilot backend. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
+Chat participants are designed to collect extra context either about a code base or a specific domain or technology. By using the appropriate participant, the AI can find and provide better information to send to the LLM. For example, use `@workspace` if you want to ask questions about your open project, or `@vscode` to know more about VS Code features and APIs.
 
 ![Asking the @vscode participant how to change the VS Code colors](images/prompt-crafting/agent-example.png)
 

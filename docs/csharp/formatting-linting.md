@@ -1,13 +1,8 @@
 ---
-Order: 6
-Area: csharp
-TOCTitle: Formatting and Linting
 ContentId: 34c5ba31-5844-4eca-8fef-dabb6e917314
-PageTitle: Formatting and linting C# code in Visual Studio Code
 DateApproved: 6/6/2023
 MetaDescription: Formatting and linting C# source code in Visual Studio Code
 ---
-
 # Formatting and Linting
 
 You can format your C# source code using the [C# Dev Kit extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit), a lightweight extension to enhance your C# development experience in Visual Studio Code.

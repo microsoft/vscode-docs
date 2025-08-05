@@ -1,14 +1,9 @@
 ---
-Order: 6
-Area: languages
-TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
-PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 05/08/2025
-MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
+DateApproved: 07/09/2025
+MetaDescription: Get the best out of editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/typescript-social.png
 ---
-
 # TypeScript in Visual Studio Code
 
 [TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
@@ -170,7 +165,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) available in the Marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provide warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the Marketplace.
 
 [ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly fix many of them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). The [ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/eslint-plugin#readme) details how to configure ESLint for your TypeScript projects.
 

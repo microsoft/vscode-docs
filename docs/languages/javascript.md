@@ -1,13 +1,8 @@
 ---
-Order: 2
-Area: languages
-TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
-PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
-
 # JavaScript in Visual Studio Code
 
 Visual Studio Code includes built-in JavaScript IntelliSense, debugging, formatting, code navigation, refactorings, and many other advanced language features.
@@ -228,7 +223,7 @@ The command highlights the source code that will be refactored or fixed with Qui
 
 ## Unused variables and unreachable code
 
-Unused JavaScript code, such the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
+Unused JavaScript code, such as the else block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
 
 ![Unreachable source code faded out](images/javascript/unreachable.png)
 
@@ -293,7 +288,7 @@ GitHub Copilot provides suggestions for numerous languages and a wide variety of
 
 You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
 
-Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
+Once you have the Copilot extension installed and enabled, you can test it out for your JavaScript projects.
 
 Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
 
@@ -361,7 +356,7 @@ Click on the reference count to quickly browse a list of references:
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/configure/extensions/extension-marketplace.md) are available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 

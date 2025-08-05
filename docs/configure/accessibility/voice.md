@@ -1,9 +1,5 @@
 ---
-Order: 24
-Area: editor
-TOCTitle: Voice Interactions
 ContentId: e3bf9098-7b2f-4b23-9e0f-3d2094bad80a
-PageTitle: Using Voice in Visual Studio Code
 DateApproved:
 MetaDescription: Visual Studio Code voice accessibility features. Learn here about the various ways VS Code can be used with voice.
 ---

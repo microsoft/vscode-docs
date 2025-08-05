@@ -1,9 +1,5 @@
 ---
-Order: 15
-Area: languages
-TOCTitle: Ruby
 ContentId: 33c079a7-f8d5-48fc-9d92-16be760b42ab
-PageTitle: Ruby with Visual Studio Code
 DateApproved: 19/09/2024
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Ruby.
 ---
@@ -20,7 +16,7 @@ This topic goes into detail about setting up and using Ruby within Visual Studio
 
 ### Install Ruby through a version manager
 
-While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager such as [rbenv](https://github.com/rbenv/rbenv) to be able to access newer versions of Ruby on Windows, macOS, and Linux. Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
+While Ruby is installed by default on some operating systems (such as macOS and some distributions of Linux), we recommend using a version manager to access newer versions of Ruby such as [rbenv](https://github.com/rbenv/rbenv) on macOS and Linux and [rbenv on Windows](https://github.com/RubyMetric/rbenv-for-windows). Follow the [installation guidance](https://github.com/rbenv/rbenv#installation) for your platform.
 
 >**Note**: As with installing any new toolset on your machine, you'll want to make sure to restart your terminal/Command Prompt and VS Code instances to use the updated toolset location in your platform's PATH variable.
 
@@ -35,7 +31,7 @@ We'll discuss many of Ruby LSP features in this topic but you can also refer to 
 
 ### Check your installation
 
-After installing, check the language status item to see the status of the Ruby LSP server. If the version manager has been configured, it should display the right Ruby version for your project. The server status should display starting or running, but not error.
+After installing, check the language status item in the **Status Bar** to see the status of the Ruby LSP server. If the version manager has been configured, it should display the right Ruby version for your project. The server status should display starting or running, but not error.
 
 ![Ruby LSP language status center](images/ruby/ruby_lsp_status_center.png)
 

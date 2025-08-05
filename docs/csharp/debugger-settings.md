@@ -1,11 +1,8 @@
 ---
-Area: csharp
 ContentId: 34c5ba31-5844-4eca-8fef-dabb6e917314
-PageTitle: Configuring C# debugging
 DateApproved: 6/6/2023
 MetaDescription: Configuring C# debugging
 ---
-
 # Configuring C# debugging
 
 You can configure the C# debugger in Visual Studio Code with a `launch.json`, `launchSettings.json`, or your user `settings.json` file.

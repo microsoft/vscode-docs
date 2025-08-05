@@ -3,7 +3,6 @@ ContentId: 5b6626b8-98a9-497e-bbc6-e2274885be56
 DateApproved: 12/11/2024
 MetaDescription: Use custom dataset to fine-tune a generative AI model in the Azure cloud or locally with GPUs. Deploy the fine-tuned model to the Azure cloud or download incremental files from fine-tuned model.
 ---
-
 # Fine-tune models
 
 Fine-tune AI model is a common practice that allows you to use your custom dataset to run **fine-tune** jobs on a pre-trained model in a computing environment with GPUs. AI Toolkit currently supports fine-tuning SLMs on local machine with GPU or in the cloud (Azure Container App) with GPU.
@@ -300,3 +299,19 @@ For example:
   "ACA_APP_ENDPOINT": "<your-aca-endpoint>"
 }
 ```
+
+## What you learned
+
+In this article, you learned how to:
+
+- Set up the AI Toolkit for VS Code to support fine-tuning and inference in Azure Container Apps.
+- Create a fine-tuning project in AI Toolkit for VS Code.
+- Configure the fine-tuning workflow, including dataset selection and training parameters.
+- Run the fine-tuning workflow to adapt a pre-trained model to your specific dataset.
+- View the results of the fine-tuning process, including metrics and logs.
+- Use the sample notebook for model inference and testing.
+- Export and share the fine-tuning project with others.
+- Re-evaluate a model using different datasets or training parameters.
+- Handle failed jobs and adjust configurations for re-runs.
+- Understand the supported models and their requirements for fine-tuning.
+- Use the AI Toolkit for VS Code to manage fine-tuning projects, including provisioning Azure resources, running fine-tuning jobs, and deploying models for inference.

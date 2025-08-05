@@ -1,8 +1,4 @@
 ---
-Order: 2
-Area: azure
-TOCTitle: Getting Started
-PageTitle: Azure Tools for Visual Studio Code
 ContentId:
 MetaDescription: Azure Tools for Visual Studio Code Getting Started guide for developers
 DateApproved: 08/21/2024

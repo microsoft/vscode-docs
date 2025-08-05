@@ -1,13 +1,8 @@
 ---
-Order: 5
-Area: datascience
-TOCTitle: Data Wrangler Quick Start
 ContentId: 0227288a-2698-47bd-b97a-3a1736acb473
-PageTitle: Getting Started with Data Wrangler in VS Code
 DateApproved: 04/04/2024
 MetaDescription: A quick start guide to get you up and running with the Data Wrangler extension in Visual Studio Code.
 ---
-
 # Quick Start Guide for Data Wrangler in VS Code
 
 [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) is a code-centric data viewing and cleaning tool that is integrated into VS Code and VS Code Jupyter Notebooks. It provides a rich user interface to view and analyze your data, show insightful column statistics and visualizations, and automatically generate Pandas code as you clean and transform the data.

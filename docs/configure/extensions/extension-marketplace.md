@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: editor
-TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
-PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -349,10 +345,7 @@ You may see this error if your machine is going through a proxy server to access
 
 Some users prefer to download an extension once from the Marketplace and then install it to multiple VS Code instances from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX**.
-
-> [!NOTE]
-> The download option is available as of VS Code release 1.96, and is only available for extensions that are not installed yet.
+To download an extension, search for it in the Extensions view, right-click on an extension from the results, and select **Download VSIX** or **Download Specific Version VSIX**.
 
 ### Can I stop VS Code from providing extension recommendations?
 

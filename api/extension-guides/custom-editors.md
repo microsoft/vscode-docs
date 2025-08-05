@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -249,7 +249,7 @@ A `CustomDocumentEditEvent` is a more complex edit that allows for undo/redo. Yo
 A `CustomDocumentEditEvent` has the following fields:
 
 - `document` — The `CustomDocument` the edit was for.
-- `label` — Optional text that that describes what type of edit was made (for example: "Crop", "Insert", ...)
+- `label` — Optional text that describes what type of edit was made (for example: "Crop", "Insert", ...)
 - `undo` — Function invoked by VS Code when the edit needs to be undone.
 - `redo` — Function invoked by VS Code when the edits needs to be redone.
 
@@ -291,7 +291,7 @@ The first step to saving is getting the data stream to write to disk. Common app
 
 - Ask a `WebviewPanel` for the custom editor for file data to save.
 
-    Keep in mind though that custom editors can be saved even when they are not visible. For this reason, it is recommended that that your extension's implementation of `save` does not depend on a `WebviewPanel`. If this is not possible, you can use the `WebviewPanelOptions.retainContextWhenHidden` setting so that the webview stays alive even when it is hidden. `retainContextWhenHidden` does have significant memory overhead so be conservative about using it.
+    Keep in mind though that custom editors can be saved even when they are not visible. For this reason, it is recommended that your extension's implementation of `save` does not depend on a `WebviewPanel`. If this is not possible, you can use the `WebviewPanelOptions.retainContextWhenHidden` setting so that the webview stays alive even when it is hidden. `retainContextWhenHidden` does have significant memory overhead so be conservative about using it.
 
 After getting the data for the resource, you generally should use the [workspace FS API](https://code.visualstudio.com/api/references/vscode-api#FileSystem) to write it to disk. The FS APIs take a `UInt8Array` of data and can write out both binary and text based files. For binary file data, simply put the binary data into the `UInt8Array`. For text file data, use `Buffer` to convert a string into a `UInt8Array`:
 

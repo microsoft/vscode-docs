@@ -1,10 +1,6 @@
 ---
-Order: 18
-Area: languages
-TOCTitle: T-SQL
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
-PageTitle: Transact-SQL with Visual Studio Code
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
 ---
 # Transact-SQL in Visual Studio Code

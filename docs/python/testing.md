@@ -1,10 +1,6 @@
 ---
-Order: 9
-Area: python
-TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
-PageTitle: Testing Python in Visual Studio Code
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/python-social.png
 ---
@@ -66,7 +62,7 @@ You can run tests using any of the following actions:
 
 - From the Command Palette, by running any of the following commands:
   - **Test: Run All Tests** - Runs all tests that have been discovered.
-  - **Test: Run Tests in Current File** - Runs all tests in a file that that is open in the editor.
+  - **Test: Run Tests in Current File** - Runs all tests in a file that is open in the editor.
   - **Test: Run Test at Cursor** - Runs only the test method under your cursor in the editor.
 
 - From the **Test Explorer**:

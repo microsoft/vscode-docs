@@ -1,8 +1,4 @@
 ---
-Order: 9
-Area: azure
-TOCTitle: Remote Debugging for Node.js
-PageTitle: Azure Remote Debugging for Node.js with Visual Studio Code
 ContentId: 09cb23b6-b1e9-4a29-a934-cbc16fe109c7
 MetaDescription: Azure Remote Debugging for Node.js with Visual Studio Code
 DateApproved: 11/1/2022

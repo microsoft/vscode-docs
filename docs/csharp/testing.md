@@ -1,13 +1,8 @@
 ---
-Order: 11
-Area: csharp
-TOCTitle: Testing
 ContentId: 0e62b3c9-6c13-4a71-a942-63d37c8f47d1
-PageTitle: Testing C# with C# Dev Kit in Visual Studio Code
 DateApproved: 3/12/2025
 MetaDescription: Testing C# with C# Dev Kit in Visual Studio Code
 ---
-
 # Testing with C# Dev Kit
 
 Testing in C# in Visual Studio Code is enabled by the C# Dev Kit extension. It's a lightweight extension to enhance your C# development experience.

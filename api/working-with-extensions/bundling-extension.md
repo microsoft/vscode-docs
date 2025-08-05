@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -99,7 +99,7 @@ The build script does the following:
 esbuild can work directly with TypeScript files. However, esbuild simply strips off all type declarations without doing any type checks.
 Only syntax errors are reported and can cause esbuild to fail.
 
-For that reason, we separatly run the TypeScript compiler (`tsc`) to check the types, but without emmiting any code (flag `--noEmit`).
+For that reason, we separately run the TypeScript compiler (`tsc`) to check the types, but without emitting any code (flag `--noEmit`).
 
 The `scripts` section in `package.json` now looks like that
 

@@ -1,6 +1,6 @@
 ---
 ContentId: d2ce015b-4075-4467-a221-114aff2633db
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Learn how to install extensions from the Visual Studio Marketplace to add features for your programming language, framework, or development workflow to Visual Studio.
 ---
 # Use extensions in Visual Studio Code

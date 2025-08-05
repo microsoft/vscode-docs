@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -13,7 +13,7 @@ If you don't see an answer to your question here, check our previously [reported
 
 ## Open sourcing AI in VS Code
 
-We've announced that we are open sourcing the GitHub Copilot Chat extension under the MIT license and then bringing relevant components into VS Code core. Read all details about this announcement in our [blog post](https://aka.ms/vscode-copilot-oss-blog).
+We've open sourced the GitHub Copilot Chat extension under the MIT license and are bringing relevant components into VS Code core. Read all details in our [announcement blog post](https://aka.ms/vscode-copilot-oss-blog) and [first milestone update](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone).
 
 ### Does this affect my current GitHub Copilot subscription? Is GitHub Copilot free now?
 
@@ -27,14 +27,18 @@ The GitHub Copilot services are not affected and will remain closed source.
 
 ### What is the timeline? When can I provide a contribution to the AI experience in VS Code?
 
-We plan to implement these changes over the next couple of months. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
+We have [completed the first step](https://code.visualstudio.com/blogs/2025/06/30/openSourceAIEditorFirstMilestone) of this process by open sourcing the GitHub Copilot Chat extension. The source code is available in the [microsoft/vscode-copilot-chat](https://github.com/microsoft/vscode-copilot-chat) repository.
+
+In the coming months, we will bring the relevant components of the Copilot Chat extension into the core VS Code repository. Check our [plan item](https://github.com/microsoft/vscode/issues/249031) for details and updates about the timeline.
 
 Our goal is to make the experience for contributing to our AI features as simple as contributing to any part of VS Code. As part of this, we want to make it possible to use the Copilot backend services for debugging and testing purposes when contributing.
-Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md) file for details on how to contribute to VS Code.
+Check the [CONTRIBUTING.md](https://github.com/microsoft/vscode-copilot-chat/blob/main/CONTRIBUTING.md) file for details on how to contribute.
 
 ### Why integrate GitHub Copilot into the core VS Code repository?
 
-In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code, and making that a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
+In the time since GitHub Copilot was first released, it's become clear that AI-powered tools are core to how we write code. From usage telemetry, we can see that more users are actually using AI features in VS Code than some other features like debugging or testing.
+
+Making AI functionality a core part of VS Code is a reaffirmation in our belief that working in the open leads to a better product for our users and fosters a diverse ecosystem of extensions.
 
 ### I'm an extension author. How am I affected?
 
@@ -47,14 +51,26 @@ You can continue to use these extensions in VS Code!
 We love that the community is building extensions to make the developer experience in VS Code better.
 To improve the experience for other AI extensions, we're constantly adding APIs like the [Language Model](https://code.visualstudio.com/api/references/vscode-api#lm) API for directly calling language models from an extension, the [Tools](https://code.visualstudio.com/api/references/vscode-api#LanguageModelChatTool) API for interacting with language model tools and integrating with the built-in or your own agents, or the [Shell Execution](https://code.visualstudio.com/api/references/vscode-api#ShellExecution) API for running and interacting with terminal commands (particularly useful for agentic experiences). Going forward, we are planning to add even more APIs to meet the needs of extension authors.
 
+### Will this change anything about how you collect data?
+
+No, nothing is changing. By open sourcing GitHub Copilot Chat, we are making it fully transparent how we collect data and enable you to verify this in the source code. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
 ### How will the VS Code team prioritize between AI features and non-AI features in future releases?
 
 We believe that AI-powered tools are core to how we write code. We invest in both AI features and improving the core editor experience. This is also reflected in a 50/50% split of the team working on AI versus other features.
 Many of the non-AI features might not always be as visible to the user, such as performance, security, accessibility, Electron updates, and more.
 
+### Will bringing AI features into the core VS Code repository affect the (startup) performance of VS Code?
+
+Performance is our core priority and we are committed to maintaining the performance of VS Code as we integrate AI features. In addition, if you don't enable AI functionality in VS Code, no associated background processes will run that could affect performance.
+
 ### Can I disable AI functionality in VS Code?
 
 You can disable the built-in AI functionality in VS Code by selecting **Hide Copilot** in the Command Palette or selecting **Hide Copilot** from the Copilot menu in the VS Code title bar.
+
+### If I disable AI functionality in VS Code, is my data still sent to Microsoft?
+
+No, if you disable AI functionality in VS Code or if you don't login to your Copilot subscription from VS Code, your data is not sent to the Copilot backend services. Learn more about [telemetry in VS Code](/docs/configure/telemetry.md) and the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
 
 ### Are the models that VS Code uses in the Copilot extension open source (OSS)?
 
@@ -181,17 +197,18 @@ Most extensions will have a link to their license on the Marketplace page (their
 
 ### Can I use a Microsoft extension outside of VS Code?
 
-No. While the source code for an extension from Microsoft may be open source, we do not allow extensions from Microsoft or its affiliates that are published to and acquired from the Visual Studio Marketplace to be used outside of the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). We build, test, deploy, and support these extensions and services only in these products. We cannot guarantee the security and functionality of the extensions elsewhere, including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode). Please see _Conditions: Use Rights for Marketplace/NuGet Offerings_ in the Visual Studio Marketplace [Terms of Service](https://aka.ms/vsmarketplace-ToU) for more information.
+No. While the source code for an extension from Microsoft may be open source, we do not license extensions from Microsoft or its affiliates that are published to and acquired from the Visual Studio Marketplace for use outside of the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. We build, test, deploy, and support these extensions and services only in the Visual Studio family of products, to ensure they meet our security and quality standards. We do not do this for extensions elsewhere, including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode). Please see _Conditions: Use Rights for Marketplace/NuGet Offerings_ in the Visual Studio Marketplace [Terms of Service](https://aka.ms/vsmarketplace-ToU) for more information.
+
 
 ### I can't access the Visual Studio Marketplace from product << fill in the blank >>, why not?
 
-We license the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. (“GitHub”). Therefore, alternative products including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode), are not permitted to access the Visual Studio Marketplace. We do this for several reasons:
+We provide the Visual Studio Marketplace for use only by the Visual Studio family of products: Microsoft Visual Studio, Visual Studio Code, GitHub Codespaces, Azure DevOps, Azure DevOps Server, and successor products and services offered by us and Microsoft affiliates, such as GitHub, Inc. Therefore, alternative products including those built on a fork of the [Code - OSS Repository](https://github.com/microsoft/vscode), are not permitted to access the Visual Studio Marketplace. We do this to protect the security and quality of the ecosystem, including the following measures:
 
-* Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/editor/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, we can ensure that the extension is safe to run in that context.
+* Extensions run in the context and with the permissions of the product, and they might contain executable code. The [Marketplace vets every extension](/docs/editor/extension-runtime-security.md#marketplace-protections) for security and to prevent them from performing malicious activity. When you install an extension with a product in the Visual Studio family, you know that it has been vetted to run in that context.
 
-* When a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace, added to a *block list*, and automatically uninstalled by VS Code.
+* When a malicious extension is reported and verified, or a vulnerability is found in an extension dependency, the extension is removed from the Marketplace, added to a block list, and automatically uninstalled by VS Code.
 
-* Microsoft spends considerable resources in running, maintaining, and securing this global online service. Products in the Visual Studio family are guaranteed to access the Marketplace in a secure and reliable manner, ensuring that the Marketplace is available when you need it.
+* Microsoft spends considerable resources in running, maintaining, and securing this global online service. Products in the Visual Studio family are designed to access the Marketplace in a secure and reliable manner, so that the Marketplace is available when you need it.
 
 * Extensions might integrate deeply with the product. The Marketplace ensures that we maintain API compatibility and that extensions use the product's extensions APIs correctly. This helps ensure that extensions you install work correctly across version updates.
 
@@ -335,13 +352,11 @@ You may also see the **[Unsupported]** message if VS Code files have been mistak
 
 ### Resolving shell environment fails
 
-*This section applies to macOS and Linux environments only.*
-
 When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your, `.bashrc`, `.zshrc`, or PowerShell profile files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 

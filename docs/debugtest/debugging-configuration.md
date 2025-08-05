@@ -1,6 +1,6 @@
 ---
 ContentId: f8ea7d84-9b4e-4f42-874e-25aa6c7fa244
-DateApproved: 05/08/2025
+DateApproved: 07/09/2025
 MetaDescription: Learn how to configure debugging in Visual Studio Code with launch.json, including attributes, variable substitution, and compound configurations.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
