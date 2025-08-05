@@ -46,6 +46,8 @@ Ensure you are signed into the GitHub Pull Request extension with the correct Gi
 
 **Optional**: Enable the experimental setting `setting(githubPullRequests.codingAgent.uiIntegration)` to show a **Delegate to coding agent** button in Copilot Chat for easier task delegation.
 
+You can also manage coding agent sessions from a dedicated chat editor and view a **Chat Sessions** view by enabling the experimental setting `setting(chat.agentSessionsViewLocation)`.
+
 > [!TIP]
 > If you don't have Copilot access yet, you can sign up for the [Copilot Free plan](https://github.com/features/copilot/plans) to get a monthly limit of interactions.
 
@@ -91,7 +93,9 @@ You can also hand off work to Copilot coding agent directly from your chat conve
 
    ![Screenshot showing handing off a session to Copilot coding agent](images/copilot-coding-agent/coding-agent-start.png)
 
-1. The agent will create a pull request and begin implementing the discussed changes
+1. The agent will create a pull request and begin implementing the discussed changes. When you start a coding agent session (via `#copilotCodingAgent` or with the **Delegate to coding agent** action), the pull request is rendered as a card in the Chat view.
+
+   ![Screenshot of a coding agent PR card in the Chat view.](images/copilot-coding-agent/pr-card-in-chat.png)
 
 ## Track agent progress
 
@@ -121,8 +125,26 @@ The GitHub Pull Requests extension provides a dedicated **Copilot on My Behalf**
 
    ![Screenshot showing the session log of a coding agent session.](images/copilot-coding-agent/coding-agent-session-log.png)
 
-> [!TIP]
-> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically enabled for your chat session. This gives chat context about your PR, including what files were changed, who's assigned, and the state (draft or ready for review). You can then ask about this PR and iterate further on it in chat.
+### Manage sessions with dedicated chat editor (Experimental)
+
+You can manage coding agent sessions from a dedicated chat editor that enables you to:
+
+* Follow the progress of the coding agent in real-time
+* Provide follow-up instructions directly from chat
+* See the agent's responses in a dedicated environment
+
+Enable the experimental setting `setting(chat.agentSessionsViewLocation)` to try this feature:
+
+* When set to `view`, you'll see a **Chat Sessions** view in the VS Code Side Bar for managing local and coding agent sessions
+
+   ![Screenshot showing the Coding Agent Sessions view.](images/copilot-coding-agent/coding-agent-sessions-view.png)
+
+* When set to `showChatsMenu`, coding agent sessions appear alongside local chat history
+
+   ![Screenshot showing the Coding Agent Sessions Quick Pick.](images/copilot-coding-agent/coding-agent-sessions-quick-pick.png)
+
+Pull requests created by the coding agent are also rendered as cards in the Chat view when you start a session, providing better visual integration.
+
 
 ### Cancel a running session
 
@@ -164,6 +186,9 @@ You can guide the agent's work through pull request comments. Make sure to tag `
    ```
 
 The agent will respond to your feedback, make the requested changes, and update the pull request.
+
+> [!TIP]
+> When working with pull requests created by the coding agent, the `#activePullRequest` tool is automatically enabled for your chat session. This gives chat context about your PR, including what files were changed, who's assigned, and the state (draft or ready for review). You can then ask about this PR and iterate further on it in chat.
 
 ## Frequently asked questions
 
