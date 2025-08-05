@@ -174,7 +174,7 @@ To create a PR, make sure you are on a separate branch from the main branch, and
 ![Source Control view, highlighting the 'Create pull request' button](images/intro/scm-create-pull-request.png)
 
 > [!TIP]
-> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also [let Copilot perform a code review of the PR]() before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
+> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description. You can also [let Copilot perform a code review of the PR]() before you create it. Select the **Code Review** button in the GitHub Pull Request view.
 
 Learn more about pull requests in [VS Code's GitHub documentation](/docs/sourcecontrol/github.md).
 

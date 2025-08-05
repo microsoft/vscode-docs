@@ -141,9 +141,9 @@ To adjust the color of the editor decoration, use the `git.blame.editorDecoratio
 
 GitHub Copilot in VS Code can help you review your uncommitted code changes.
 
-1. In the Source Control view, select the **Copilot Code Review** button to start a code review of the uncommitted changes
+1. In the Source Control view, select the **Code Review** button to start a code review of the uncommitted changes
 
-    ![Screenshot that shows the Copilot Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
+    ![Screenshot that shows the Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
 
 1. Copilot generates code review comments and suggestions as overlays in the editor
 

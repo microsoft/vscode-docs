@@ -214,7 +214,7 @@ Use AI to do a quick review pass of a code block or perform a review of uncommit
 | Action | Description |
 |--------|-------------|
 | **Review and Comment** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review and Comment** from the editor context menu for quick review pass.  |
-| **Copilot Code Review** | Select the **Copilot Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
+| **Code Review** | Select the **Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
 
 ## Search and settings
 

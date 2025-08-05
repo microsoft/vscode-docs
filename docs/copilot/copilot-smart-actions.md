@@ -118,7 +118,7 @@ To review a code block in the editor:
 To review all changes in a pull request:
 
 1. Create a pull request with the GitHub Pull Requests extension
-1. Select the **Copilot Code Review** button in the **Files Changed** view.
+1. Select the **Code Review** button in the **Files Changed** view.
 
     VS Code creates review comments in the **Comments** panel and also shows them inline in the editor.
 
