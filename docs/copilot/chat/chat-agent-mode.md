@@ -1,6 +1,6 @@
 ---
 ContentId: 57754e12-a134-41cc-9693-fb187729c49f
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
