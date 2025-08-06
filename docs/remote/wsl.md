@@ -1,11 +1,7 @@
 ---
-Order: 4
-Area: remote
-TOCTitle: Windows Subsystem for Linux
-PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 ---
 # Developing in WSL
 
@@ -129,7 +125,7 @@ You can also use the `code` command line from this same terminal window to perfo
 
 Once you've opened a folder in WSL, you can use VS Code's debugger in the same way you would when running the application locally. For example, if you select a launch configuration in `launch.json` and start debugging (`kb(workbench.action.debug.start)`), the application will start on remote host and attach the debugger to it.
 
-See the [debugging](/docs/editor/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
+See the [debugging](/docs/debugtest/debugging.md) documentation for details on configuring VS Code's debugging features in `.vscode/launch.json`.
 
 ## WSL specific settings
 
@@ -203,9 +199,9 @@ Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://githu
 
 If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
-### Docker Extension limitations
+### Container Tools Extension limitations
 
-While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
+While the Container Tools extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
 
 ### Extension limitations
 
@@ -242,9 +238,8 @@ Some extensions rely on libraries not found in the vanilla install of certain WS
 The WSL extension and VS Code Server require outbound HTTPS (port 443) connectivity to:
 
 - `update.code.visualstudio.com`
+- `vscode.download.prss.microsoft.com`
 - `marketplace.visualstudio.com`
-- `vscode.blob.core.windows.net`
-- `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
 Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
@@ -271,11 +266,11 @@ Once the server is up and running the proxy settings on the *Remote* tab are use
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
+For example, the setting below will force the [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
-    "ms-azuretools.vscode-docker": [ "ui" ],
+    "ms-azuretools.vscode-containers": [ "ui" ],
     "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```

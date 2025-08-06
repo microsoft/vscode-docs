@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -101,6 +101,8 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.secondaryHoverBackground`: Secondary button background color when hovering.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
+- `checkbox.disabled.background`: Background of a disabled checkbox.
+- `checkbox.disabled.foreground`: Foreground of a disabled checkbox.
 - `checkbox.border`: Border color of checkbox widget.
 - `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
 - `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
@@ -267,6 +269,7 @@ The Minimap shows a minified version of the current file.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
 - `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
 - `minimap.infoHighlight`: Minimap marker color for infos.
+- `minimap.chatEditHighlight`: Color of pending edit regions in the minimap.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -275,6 +278,7 @@ The Minimap shows a minified version of the current file.
 - `minimapGutter.addedBackground`: Minimap gutter color for added content.
 - `minimapGutter.modifiedBackground`: Minimap gutter color for modified content.
 - `minimapGutter.deletedBackground`: Minimap gutter color for deleted content.
+- `editorMinimap.inlineChatInserted`: Minimap marker color for inline chat inserted content.
 
 ## Editor Groups & Tabs
 
@@ -581,12 +585,17 @@ The gutter contains the glyph margins and the line numbers:
 
 - `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
+- `editorGutter.modifiedSecondaryBackground`: Editor gutter secondary background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
+- `editorGutter.addedSecondaryBackground`: Editor gutter secondary background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
+- `editorGutter.deletedSecondaryBackground`: Editor gutter secondary background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
 - `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
+- `editorGutter.itemGlyphForeground`: Editor gutter decoration color for gutter item glyphs.
+- `editorGutter.itemBackground`: Editor gutter decoration color for gutter item background. This color should be opaque.
 
 The editor comments widget can be seen when reviewing pull requests:
 
@@ -595,6 +604,29 @@ The editor comments widget can be seen when reviewing pull requests:
 - `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
 - `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
 - `editorCommentsWidget.replyInputBackground`: Background color for comment reply input box.
+
+Editor inline edits can be seen when using Copilot to suggest the next change to make:
+
+- `inlineEdit.gutterIndicator.primaryBorder`: Border color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.primaryForeground`: Foreground color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.primaryBackground`: Background color for the primary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryBorder`: Border color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryForeground`: Foreground color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.secondaryBackground`: Background color for the secondary inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulBorder`: Border color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulForeground`: Foreground color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.successfulBackground`: Background color for the successful inline edit gutter indicator.
+- `inlineEdit.gutterIndicator.background`: Background color for the inline edit gutter indicator.
+- `inlineEdit.originalBackground`: Background color for the original text in inline edits.
+- `inlineEdit.modifiedBackground`: Background color for the modified text in inline edits.
+- `inlineEdit.originalChangedLineBackground`: Background color for the changed lines in the original text of inline edits.
+- `inlineEdit.originalChangedTextBackground`: Overlay color for the changed text in the original text of inline edits.
+- `inlineEdit.modifiedChangedLineBackground`: Background color for the changed lines in the modified text of inline edits.
+- `inlineEdit.modifiedChangedTextBackground`: Overlay color for the changed text in the modified text of inline edits.
+- `inlineEdit.originalBorder`: Border color for the original text in inline edits.
+- `inlineEdit.modifiedBorder`: Border color for the modified text in inline edits.
+- `inlineEdit.tabWillAcceptModifiedBorder`: Modified border color for the inline edits widget when tab will accept it.
+- `inlineEdit.tabWillAcceptOriginalBorder`: Original border color for the inline edits widget over the original text when tab will accept it.
 
 ## Diff editor colors
 
@@ -631,6 +663,11 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.avatarBackground`: The background color of a chat avatar.
 - `chat.avatarForeground`: The foreground color of a chat avatar.
 - `chat.editedFileForeground`: The foreground color of a chat edited file in the edited file list.
+- `chat.linesAddedForeground`: Foreground color of lines added in chat code block pill.
+- `chat.linesRemovedForeground`: Foreground color of lines removed in chat code block pill.
+- `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
+- `chat.requestBubbleBackground`: Background color of the chat request bubble.
+- `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
 
 ## Inline Chat colors
 
@@ -682,6 +719,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorStickyScroll.background`: Editor sticky scroll background color.
 - `editorStickyScroll.border`: Border color of sticky scroll in the editor.
 - `editorStickyScroll.shadow`:  Shadow color of sticky scroll in the editor.
+- `editorStickyScrollGutter.background`: Background color of the gutter part of sticky scroll in the editor.
 - `editorStickyScrollHover.background`: Editor sticky scroll on hover background color.
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
@@ -720,6 +758,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewTitleDescription.foreground`: Color of the peek view title info.
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
 - `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
+- `peekViewEditorStickyScrollGutter.background`: Background color of the gutter part of sticky scroll in the peek view editor.
 
 ## Merge conflicts colors
 
@@ -764,6 +803,8 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
 - `panelTitle.border`: Panel title border color on the bottom, separating the title from the views. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelTitleBadge.background`: Panel title badge background color. Panels are shown below the editor area and contain views like output and integrated terminal.
+- `panelTitleBadge.foreground`: Panel title badge foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelInput.border`: Input box border for inputs in the panel.
 - `panelSection.border`: Panel section border color used when multiple views are stacked horizontally in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSection.dropBackground`: Drag and drop feedback color for the panel sections. The color should have transparency so that the panel sections can still shine through. Panels are shown below the editor area and contain views like output and integrated terminal.
@@ -896,6 +937,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
 - `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
+- `extensionIcon.privateForeground`: The icon color for private extensions.
 
 ## Quick picker colors
 
@@ -977,6 +1019,18 @@ The following customizations are available:
 - `terminal.initialHintForeground`: Foreground color of the terminal initial hint.
 - `terminalOverviewRuler.border`: The overview ruler left-side border color.
 - `terminalCommandGuide.foreground`: The foreground color of the terminal command guide that appears to the left of a command and its output on hover.
+
+- `terminalSymbolIcon.aliasForeground`: The foreground color for an alias icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.flagForeground`: The foreground color for an flag icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.optionForeground`: The foreground color for an option icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.optionValueForeground`: The foreground color for an enum member icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.methodForeground`: The foreground color for a method icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.argumentForeground`: The foreground color for an argument icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.inlineSuggestionForeground`: The foreground color for an inline suggestion icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.fileForeground`: The foreground color for a file icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.folderForeground`: The foreground color for a folder icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.symbolicLinkFileForeground`: The foreground color for a symbolic link file icon. These icons will appear in the terminal suggest widget.
+- `terminalSymbolIcon.symbolicLinkFolderForeground`: The foreground color for a symbolic link folder icon. These icons will appear in the terminal suggest widget.
 
 ## Debug colors
 
@@ -1224,7 +1278,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `chart.axis`: Axis color for the chart.
 - `chart.guide`: Guide line for the chart.
 
-## Ports Colors
+## Ports colors
 
 - `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
 
@@ -1237,10 +1291,20 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `actionBar.toggledBackground`: Background color for toggled action items in action bar.
 
-## Simple Find Widget
+## Simple Find Widget colors
 
 - `simpleFindWidget.sashBorder`: Border color of the sash border.
 
+## Gauge colors
+
+- `gauge.background`: Gauge background color.
+- `gauge.foreground`: Gauge foreground color.
+- `gauge.border`: Gauge border color.
+- `gauge.warningBackground`: Gauge warning background color.
+- `gauge.warningForeground`: Gauge warning foreground color.
+- `gauge.errorBackground`: Gauge error background color.
+- `gauge.errorForeground`: Gauge error foreground color.
+
 ## Extension colors
 
-Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/configure/extensions/extension-marketplace#extension-details) tab.

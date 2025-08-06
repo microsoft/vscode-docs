@@ -1,9 +1,5 @@
 ---
-Order:
-Area: introvideos
-TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
-PageTitle: Edit and run code in Visual Studio Code
 DateApproved: 11/16/2021
 MetaDescription: Learn the basics of editing and running code in VS Code.
 MetaSocialImage:
@@ -52,10 +48,10 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Basic Editing](/docs/editing/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editing/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
-* [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
+* [Tasks](/docs/debugtest/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
-* [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
+* [Code Folding](/docs/editing/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.

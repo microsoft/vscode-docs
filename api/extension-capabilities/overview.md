@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: d22675fc-6609-43f2-a66b-8f2a52597195
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn the details of what's possible with Visual Studio Code's rich extension (plug-in) API.
@@ -55,7 +55,7 @@ Some of these capabilities include:
 
 ## Programmatic Language Features
 
-[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support such as Hovers, Go to Definition, diagnostic errors, IntelliSense and CodeLens. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these API directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/microsoft/vscode-languageserver-node).
+[Programmatic Language Features](/api/language-extensions/overview#programmatic-language-features) add rich programming language support such as Hovers, Go to Definition, diagnostic errors, IntelliSense and CodeLens. These language features are exposed through the [`vscode.languages.*`](/api/references/vscode-api#languages) API. An extension can either use these APIs directly, or write a Language Server and adapt it to VS Code using the VS Code [Language Server library](https://github.com/microsoft/vscode-languageserver-node).
 
 Although we provide a listing of [language features](/api/language-extensions/programmatic-language-features) and their intended usage, nothing prevents you from using these API creatively. For example, CodeLens and Hovers are a great way to present additional information inline, while diagnostic errors can be used to highlight spelling or code style errors.
 
@@ -82,7 +82,7 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 
 ## Debugging
 
-You can take advantage of VS Code's [Debugging](/docs/editor/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debugger-extension) that connect VS Code's debugging UI to a specific debugger or runtime.
+You can take advantage of VS Code's [Debugging](/docs/debugtest/debugging) functionality by writing [Debugger Extensions](/api/extension-guides/debugger-extension) that connect VS Code's debugging UI to a specific debugger or runtime.
 
 **Extension Ideas**
 

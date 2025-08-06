@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: sourcecontrol
-TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-PageTitle: Collaborate on GitHub
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -69,7 +65,7 @@ User suggestions are triggered by the "@" character and issue suggestions are tr
 
 ![User and Issue suggestions](images/github/user-issue-suggest.gif)
 
-The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/getstarted/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
+The issues that appear in the suggestion can be configured with the **GitHub Issues: Queries** (`setting(githubIssues.queries)`) [setting](/docs/configure/settings.md). The queries use the [GitHub search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 You can also configure which files show these suggestions using the settings **GitHub Issues: Ignore Completion Trigger** (`setting(githubIssues.ignoreCompletionTrigger)`) and **GitHub Issues: Ignore User Completion Trigger** (`setting(githubIssues.ignoreUserCompletionTrigger)`). These settings take an array of [language identifiers](/docs/languages/identifiers.md) to specify the file types.
 
@@ -96,7 +92,7 @@ The queries used to display pull requests can be configured with the **GitHub Pu
     },
 ```
 
-### Creating Pull Requests
+### Creating pull requests
 
 Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
@@ -114,6 +110,11 @@ Once you select **Create**, if you have not already pushed your branch to a GitH
 
 The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, and merge the PR once it's ready. After the PR is merged, you'll have the option to delete both the remote and local branch.
 
+> [!TIP]
+> Use GitHub Copilot to generate a PR title and description, based on the commits that are included in the PR. Select the _sparkle_ icon next to the PR title field to generate a PR title and description.
+
+![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
+
 ### Reviewing
 
 Pull requests can be reviewed from the **Pull Requests** view. You can assign reviewers and labels, add comments, approve, close, and merge all from the pull request **Description**.
@@ -127,6 +128,9 @@ From the **Description** page, you can also easily checkout the pull request loc
 The diff editors from this view use the local file, so file navigation, IntelliSense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.
 
 When you are done reviewing the pull request changes you can merge the PR or select **Exit Review Mode** to go back to the previous branch you were working on.
+
+> [!TIP]
+> You can also [let Copilot perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
 
 ## Issues
 
@@ -231,7 +235,7 @@ Sometimes you'll want to switch to working on a repository in a development envi
 
 * Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
 * Clone the repository locally.
-* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) installed).
 
 To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
 
@@ -247,12 +251,6 @@ These changes are deleted from our service once they are applied to your target 
 
 In the event that your pending changes are not automatically applied to your target development environment, you can view, manage, and delete your stored changes using the **Cloud Changes: Show Cloud Changes** command.
 
-## GitHub Copilot
+## Next steps
 
-In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
-
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
-
-[![GitHub Copilot extension in the VS Code Marketplace](images/github/copilot-extension.png)](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-
-You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/github-copilot.md).
+* Learn more about [Copilot VS Code](/docs/copilot/overview.md) - Learn about Copilot in VS Code.

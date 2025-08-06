@@ -1,14 +1,9 @@
 ---
-Order: 7
-Area: java
-TOCTitle: Run and Debug
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
-PageTitle: Run and Debug Java in Visual Studio Code
 DateApproved: 12/9/2021
 MetaDescription: See how you can run and debug your Java source code locally, and in the cloud.
 MetaSocialImage:
 ---
-
 # Running and debugging Java
 
 Visual Studio Code allows you to debug Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension. It's a lightweight Java debugger based on [Java Debug Server](https://github.com/microsoft/java-debug), which extends the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
@@ -52,7 +47,7 @@ If you would like to customize and persist your launch configuration, you can se
 
 The `launch.json` file is located in a `.vscode` folder in your workspace (project root folder).
 
-For more details on how to create the `launch.json`, read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
+For more details on how to create the `launch.json`, read [Launch configurations](/docs/debugtest/debugging-configuration.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
 
 ## Run and Debug
 
@@ -72,34 +67,31 @@ Another way to start debugging is to select **Run Java** or **Debug Java** menu 
 
 ### Run from pressing F5
 
-Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/debugtest/debugging.md).
 
 ## Debugging single files
 
 In addition to support for debugging Java projects managed by build tools, VS Code also supports for debugging single Java files without any project.
 
-<video autoplay loop muted playsinline controls title="Debugging a single Main.java file">
-  <source src="/docs/java/java-debugging/single-file-debugging.mp4" type="video/mp4">
+<video src="images/java-debugging/single-file-debugging.mp4" autoplay loop muted playsinline controls title="Debugging a single Main.java file">
 </video>
 
 ## Debug session inputs
 
-The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
+The default Debug Console in VS Code doesn't support inputs. If your program needs inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
 
-<video autoplay loop muted playsinline controls title="Debugging a Java app that takes input via the Integrated Terminal">
-  <source src="/docs/java/java-debugging/launch-in-terminal.mp4" type="video/mp4">
+<video src="images/java-debugging/launch-in-terminal.mp4" autoplay loop muted playsinline controls title="Debugging a Java app that takes input via the Integrated Terminal">
 </video>
 
 ## Breakpoints
 
-The Debugger for Java supports various breakpoints, such as line breakpoints, conditional breakpoints, data breakpoints, logpoints.
+The Debugger for Java supports various breakpoints, such as line breakpoints, conditional breakpoints, data breakpoints, and logpoints.
 
 ### Breakpoint - Conditional breakpoint
 
-With the help of expression evaluation, the debugger also supports conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
+With the help of expression evaluation, the debugger also supports conditional breakpoints. You can set your breakpoint to break when the expression evaluates to true.
 
-<video autoplay loop muted playsinline controls title="Setting a conditional breakpoint when i==1000">
-  <source src="/docs/java/java-debugging/conditional-bp.mp4" type="video/mp4">
+<video src="images/java-debugging/conditional-bp.mp4" autoplay loop muted playsinline controls title="Setting a conditional breakpoint when i==1000">
 </video>
 
 ### Breakpoint - Data breakpoint
@@ -110,15 +102,14 @@ You can have the debugger break when a variable changes its value. Note that the
 
 ### Breakpoint - Logpoints
 
-[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
+[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) are also supported by the Java Debugger. Logpoints allow you to send output to the Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
 
-<video autoplay loop muted playsinline controls title="Adding a Logpoint that outputs the value of result.size to the Debug Console">
-  <source src="/docs/java/java-debugging/logpoints.mp4" type="video/mp4">
+<video src="images/java-debugging/logpoints.mp4" autoplay loop muted playsinline controls title="Adding a Logpoint that outputs the value of result.size to the Debug Console">
 </video>
 
 ### Breakpoint - Triggered breakpoints
 
-A trigged breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
+A triggered breakpoint is a breakpoint that is automatically enabled once another breakpoint is hit. They can be very useful when diagnosing failure cases in code that happen only after a certain precondition.
 
 Triggered breakpoints can be set by right-clicking on the glyph margin, selecting **Add Triggered Breakpoint**, and then choosing which other breakpoint enables the breakpoint.
 
@@ -128,16 +119,14 @@ Triggered breakpoints can be set by right-clicking on the glyph margin, selectin
 
 The debugger also lets you evaluate expressions in the **WATCH** window as well as the Debug Console.
 
-<video autoplay loop muted playsinline controls title="Add an expression to the WATCH window to display the owner object">
-  <source src="/docs/java/java-debugging/expression-evaluation.mp4" type="video/mp4">
+<video src="images/java-debugging/expression-evaluation.mp4" autoplay loop muted playsinline controls title="Add an expression to the WATCH window to display the owner object">
 </video>
 
 ## Hot Code Replace
 
 Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Debugger for Java transmits the class changes over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
-<video autoplay loop muted playsinline controls title="Using Hot Code replacement to change string output during a debug session">
-  <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
+<video src="images/java-debugging/hcr.mp4" autoplay loop muted playsinline controls title="Using Hot Code replacement to change string output during a debug session">
 </video>
 
 You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code Replace. The possible setting values are:
@@ -148,30 +137,28 @@ You may use the debug setting `java.debug.settings.hotCodeReplace` to control ho
 
 ## Step filtering
 
-Step filter is supported by the extension to filter out types that you do not want to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
+Step filtering is supported by the extension to filter out types that you do not want to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they can be skipped when you step through.
 
-<video autoplay loop muted playsinline controls title="Adding a stepfilter to avoid stepping into java.lang.ClassLoader">
-  <source src="/docs/java/java-debugging/step-filter.mp4" type="video/mp4">
+<video src="images/java-debugging/step-filter.mp4" autoplay loop muted playsinline controls title="Adding a step filter to avoid stepping into java.lang.ClassLoader">
 </video>
 
 ## Configuration options
 
 There are many options and settings available to configure the debugger. For example, configuring the JVM arguments and environment variables is easily done with launch options.
 
-<video autoplay loop muted playsinline controls title="Adding various configuration options to the workspace launch.json file">
-  <source src="/docs/java/java-debugging/launch-configuration.mp4" type="video/mp4">
+<video src="images/java-debugging/launch-configuration.mp4" autoplay loop muted playsinline controls title="Adding various configuration options to the workspace launch.json file">
 </video>
 
 Consult the documentation for the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help with setting up your project.
 
-For many commonly used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with Main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
+For many commonly used setups, there are samples available in [VS Code Java Debugger Configuration](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md). The document explains how the Java debugger automatically generates configurations for you, and if you need to modify them, how to do so with the main class, different arguments, environment, attaching to other Java processes, and usage of more advanced features.
 
-Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/editor/debugging.md).
+Below are all the configurations available for `Launch` and `Attach`. For more information about how to write the `launch.json` file, refer to [Debugging](/docs/debugtest/debugging.md).
 
 ### Launch
 
 - `mainClass` (required) - The fully qualified class name (for example [java module name/]com.xyz.MainApp) or the java file path of the program entry.
-- `args` - The command-line arguments passed to the program. Use `"${command:SpecifyProgramArgs}"` to prompt for program arguments. It accepts a string or an array of string.
+- `args` - The command-line arguments passed to the program. Use `"${command:SpecifyProgramArgs}"` to prompt for program arguments. It accepts a string or an array of strings.
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
   - `$Auto` - Automatically resolve the modulepaths of current project.
@@ -282,7 +269,7 @@ You can find the full list of issues at the [vscode-java-debug](https://github.c
 
 Read on to find out about:
 
-- [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+- [Debugging](/docs/debugtest/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
 
 And for Java:
 

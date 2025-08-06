@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -169,17 +169,18 @@ This section can either be a single object, representing a single category of se
 {
   "contributes": {
     "configuration": {
-      "title": "TypeScript",
+      "title": "Settings Editor Test Extension",
+      "type": "object",
       "properties": {
-        "typescript.useCodeSnippetsOnMethodSuggest": {
+        "settingsEditorTestExtension.booleanExample": {
           "type": "boolean",
-          "default": false,
-          "description": "Complete functions with their parameter signature."
+          "default": true,
+          "description": "Boolean Example"
         },
-        "typescript.tsdk": {
-          "type": ["string", "null"],
-          "default": null,
-          "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+        "settingsEditorTestExtension.stringExample": {
+          "type": "string",
+          "default": "Hello World",
+          "description": "String Example"
         }
       }
     }
@@ -187,7 +188,7 @@ This section can either be a single object, representing a single category of se
 }
 ```
 
-![configuration extension point example](images/contribution-points/configuration.png)
+![configuration extension point example](images/contribution-points/configuration-2.png)
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 
@@ -379,8 +380,8 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
-- `machine` - Machine specific settings that can be set only in user settings or only in remote settings. For example, an installation path which shouldn't be shared across machines.
-- `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
+- `machine` - Machine specific settings that can be set only in user settings or only in remote settings. For example, an installation path which shouldn't be shared across machines. The value of these settings will not be synchronized.
+- `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings. The value of these settings will not be synchronized.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
 - `language-overridable` - Resource settings that can be overridable at a language level.
@@ -431,6 +432,35 @@ Below are example configuration scopes from the built-in Git extension:
 ```
 
 You can see that `git.alwaysSignOff` has `resource` scope and can be set per user, workspace, or folder, while the ignored repositories list with `window` scope applies more globally for the VS Code window or workspace (which might be multi-root).
+
+#### ignoreSync
+
+You can set `ignoreSync` to `true` to prevent the setting from being synchronized with the user's settings. This is useful for settings that are not user-specific. For example, the `remoteTunnelAccess.machineName` setting is not user-specific and should not be synchronized. Please note that if you have set the `scope` to `machine` or `machine-overridable`, the setting will not be synchronized regardless of the value of `ignoreSync`.
+
+```json
+{
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "remoteTunnelAccess.machineName": {
+          "type": "string",
+          "default": "",
+          "ignoreSync": true
+        }
+      }
+    }
+  }
+}
+
+```json
+{
+  "remoteTunnelAccess.machineName": {
+    "type": "string",
+    "default": '',
+    "ignoreSync": true
+  }
+}
+```
 
 #### Linking to settings
 
@@ -1036,7 +1066,7 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 }
 ```
 
-Also see: [Defining a Problem Matcher](/docs/editor/tasks#_defining-a-problem-matcher)
+Also see: [Defining a Problem Matcher](/docs/debugtest/tasks#_defining-a-problem-matcher)
 
 ## contributes.problemPatterns
 
@@ -1153,7 +1183,7 @@ See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highligh
 
 ## contributes.snippets
 
-Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets#_snippet-syntax).
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editing/userdefinedsnippets#_snippet-syntax).
 
 The example below shows adding snippets for the Go language.
 

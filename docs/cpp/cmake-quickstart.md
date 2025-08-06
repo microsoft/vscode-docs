@@ -1,9 +1,5 @@
 ---
-Order: 9
-Area: cpp
-TOCTitle: CMake Quick Start
 ContentId: 55b5d15c-a020-4808-941f-e0255751a5f7
-PageTitle: Create a CMake project with the CMake Quick Start
 DateApproved: 5/29/2024
 MetaDescription: Create a Hello World project by using the CMake Quick Start in the CMake Tools Visual Studio Code extension
 ---
@@ -30,7 +26,7 @@ The CMake Tools extension can create the files for a basic CMake project for you
 
     ![Create CMake quickstart](images/cpp/cmake-quickstart-command-palette.png)
 
-1. Enter a project name, and select and **C++** as the project language.
+1. Enter a project name, and select **C++** as the project language.
 
     This information will be written to `CMakeLists.txt` and a few initial source files.
 

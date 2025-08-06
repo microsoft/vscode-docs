@@ -1,9 +1,5 @@
 ---
-Order: 6
-Area: cpp
-TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
-PageTitle: Configure Visual Studio Code for Microsoft C++
 DateApproved: 3/7/2023
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
@@ -37,7 +33,7 @@ To successfully complete this tutorial, you must do the following:
 
    ![Cpp build tools workload](images/msvc/desktop_development_with_cpp-2022.png)
 
->**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to develop, build, and test any C++ code as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise).
 
 ### Check your Microsoft Visual C++ installation
 
@@ -106,7 +102,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice how the fil
 
 ![File Explorer](images/msvc/file-explorer.png)
 
-You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
 
@@ -175,7 +171,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/reference/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler.
 
@@ -443,6 +439,6 @@ In this case, `cl.exe` is available to VS Code through the `PATH` environment va
 
 ## Next steps
 
-- Explore the [VS Code User Guide](/docs/editor/codebasics.md).
+- Explore the [VS Code User Guide](/docs/editing/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
 - Create a new workspace, copy your `.vscode` JSON files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

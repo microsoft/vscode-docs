@@ -1,13 +1,8 @@
 ---
-Order: 1
-Area: csharp
-TOCTitle: Intro Videos
 ContentId: 14819e24-7ddf-4202-8e2a-d6fed961bff7
-PageTitle: Introductory Videos for C# in Visual Studio Code
 DateApproved: 12/12/2023
 MetaDescription: Get started with C# in Visual Studio Code by watching these introductory videos
 ---
-
 # Introductory Videos for C# in VS Code
 
 Get started with C# in Visual Studio Code by watching these introductory videos! These videos are designed to help you set up [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) and build and debug C# projects in VS Code. After watching these quick tutorials, you'll be able to enjoy VS Code's rich C# feature set.

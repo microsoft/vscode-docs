@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: terminal
-TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
-PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -31,7 +27,7 @@ Example profile:
 }
 ```
 
-You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. There is a list of available variables in the [Variables Reference](/docs/editor/variables-reference.md) topic.
+You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. There is a list of available variables in the [Variables Reference](/docs/reference/variables-reference.md) topic.
 
 Configure your default profile by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
 
@@ -69,7 +65,7 @@ Other arguments supported in profiles include:
 * `icon`: An icon ID to use for the profile.
 * `color`: A theme color ID to style the icon.
 
->**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
+>**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/reference/variables-reference)
 
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 
@@ -114,9 +110,9 @@ By default, the task/debug features will use the default profile. This may not b
 }
 ```
 
-## Profile-specific keybindings
+## Profile-specific keyboard shortcuts
 
-Launching a terminal with a specific profile via a [dedicated keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
+Launching a terminal with a specific profile via a [dedicated keyboard shortcut](https://code.visualstudio.com/docs/configure/keybindings#_advanced-customization) can be accomplished with the `workbench.action.terminal.newWithProfile` command. This command takes a profile name and optional location as arguments. For example, to bind `kbstyle(Ctrl+Shift+T)` to open a terminal with the `zsh` profile:
 
 ```json
 {

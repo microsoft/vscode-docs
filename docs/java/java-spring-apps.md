@@ -1,12 +1,8 @@
 ---
-Area: java
-TOCTitle: Java Spring Apps
 ContentId: d34d8d3a-2093-4c67-a0a8-e02525fae8ab
-PageTitle: Build and Deploy Java Spring Boot Apps to Azure Spring Cloud with Visual Studio Code
 DateApproved: 3/2/2023
 MetaDescription: Java Spring app tutorial showing how to build and deploy a Java Spring Boot microservices to Azure Spring Cloud with Visual Studio Code
 ---
-
 # Java on Azure Spring Apps
 
 > **Note**: Azure Spring Apps is the new name for the Azure Spring Cloud service.
@@ -59,7 +55,7 @@ Once you have the Extension Pack for Java installed, it will automatically build
 
 ![debug configuration in the Status bar](images/java-webapp/debugging-status-bar.png)
 
-You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/debugtest/debugging-configuration.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
 
 ![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
 

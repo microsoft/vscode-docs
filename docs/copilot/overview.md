@@ -1,199 +1,226 @@
 ---
-Order: 1
-Area: copilot
-TOCTitle: Overview
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-PageTitle: GitHub Copilot overview
-DateApproved: 12/11/2024
-MetaDescription: Copilot is your AI pair programmer in VS Code. Code faster with completions and Inline Chat. Build features or resolve bugs with Copilot Edits, and explore your codebase using chat.
+DateApproved: 07/09/2025
+MetaDescription: Copilot is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type in the editor, or use natural language chat to ask about your code or start an editing session for implementing new feature and fixing bugs.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code
 
-[GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) is your AI pair programmer tool in Visual Studio Code. Get code suggestions as you type or use Inline Chat in the editor to write code faster. Add new functionality or resolve bugs across your project with Copilot Edits, or use natural language in chat to explore your codebase.
+GitHub Copilot is an AI-powered coding assistant integrated into Visual Studio Code. It provides code suggestions, explanations, and automated implementations based on natural language prompts and existing code context. Copilot has been trained on public code repositories and can assist with most programming languages and frameworks.
 
-> [!TIP]
-> If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+<video src="images/overview/agent-mode-blog-video.mp4" title="Agent mode hero video" autoplay loop controls muted></video>
 
-GitHub Copilot can provide assistance in a variety of scenarios.
+## Core capabilities
 
-<div class="card-grid">
-<a href="#_code-completions-in-the-editor" class="card">
-    <i class="codicon codicon-keyboard"></i>
-    <p class="card-title">Get code suggestions as you type</p>
-</a>
-<a href="#_iterate-on-large-changes-across-multiple-files" class="card">
-    <i class="codicon codicon-edit-session"></i>
-    <p class="card-title">Make large changes across multiple files</p>
-</a>
-<a href="#_answer-coding-questions" class="card">
-    <i class="codicon codicon-comment-discussion"></i>
-    <p class="card-title">Ask questions about your code</p>
-</a>
-<a href="#_code-refactoring-and-improvements" class="card">
-    <i class="codicon codicon-lightbulb"></i>
-    <p class="card-title">Refactor and improve your code</p>
-</a>
-<a href="#_fix-issues" class="card">
-    <i class="codicon codicon-debug"></i>
-    <p class="card-title">Fix code issues and debugging</p>
-</a>
-<a href="#_jumpstart-your-project" class="card">
-    <i class="codicon codicon-new-file"></i>
-    <p class="card-title">Scaffold a new project or files</p>
-</a>
-<a href="#_generate-unit-test-cases" class="card">
-    <i class="codicon codicon-beaker"></i>
-    <p class="card-title">Configure and generate tests</p>
-</a>
-<a href="#_generate-code-documentation" class="card">
-    <i class="codicon codicon-book"></i>
-    <p class="card-title">Generate code documentation</p>
-</a>
-<a href="#_productivity-improvements" class="card">
-    <i class="codicon codicon-sparkle"></i>
-    <p class="card-title">Improve your productivity in VS Code</p>
-</a>
-</div>
+### Code completions
+
+Copilot provides inline code suggestions as you type, ranging from single line completions to entire function implementations. With next edit suggestions, it predicts the next logical code change based on your current context.
+
+<video src="images/inline-suggestions/nes-video.mp4" title="Copilot NES video" autoplay loop controls muted poster="./images/inline-suggestions/point3d.png"></video>
+
+**Examples:**
+
+- Type `function calculateTax(` to get a complete tax calculation implementation
+- Write `// Create a REST API endpoint for user authentication` to generate Express.js route code
+- Begin a React component with `const UserProfile = ({` to receive a complete functional component with TypeScript types
+
+Learn more about [code completions in VS Code](/docs/copilot/ai-powered-suggestions.md).
+
+### Autonomous coding
+
+VS Code and agent mode can autonomously plan and execute complex development tasks, coordinating multi-step workflows that involve running terminal commands or invoking specialized tools. It can transform high-level requirements into working code.
+
+Install Model Context Protocol (MCP) servers or tools from Marketplace extensions to further enhance the capabilities of the autonomous coding experience. For example, pull information from a database or connect to external APIs.
+
+<video src="images/overview/agent-mode-short.mp4" title="Agent mode video" autoplay loop controls muted></video>
+
+**Example tasks:**
+
+- Implement authentication using OAuth
+- Migrate the codebase to a new framework or language
+- Debug failing tests and apply fixes
+- Optimize performance across the application
+
+Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/chat/mcp-servers.md).
+
+### Natural language chat
+
+Use natural language to interact with your codebase through chat interfaces. Ask questions, request explanations, or specify code changes using conversational prompts.
+
+Apply changes across multiple files in your project using single prompts. Copilot analyzes your project structure and makes coordinated modifications.
+
+**Common queries:**
+
+- "How does authentication work in this project?"
+- "What's causing the memory leak in the data processing function?"
+- "Add error handling to the payment processing service"
+- "Add a login form and backend API"
+
+![Screenshot of the Chat view asking how to add a page to a web app](images/overview/copilot-chat-view-add-page.png)
+
+Learn more about [using chat in VS Code](/docs/copilot/chat/copilot-chat.md).
+
+### Smart actions
+
+VS Code has many predefined actions for common development tasks that are enhanced with AI capabilities and integrated into the editor.
+
+From helping you write commit messages or pull requests descriptions, renaming code symbols, fixing errors in the editor, to semantic search that helps you find relevant files.
+
+![Screenshot of the Smart Actions menu in VS Code](images/overview/copilot-chat-fix-test-failure.png)
+
+Learn more about the [smart actions in VS Code](/docs/copilot/copilot-smart-actions.md).
 
 ## Getting started
 
-1. Install the GitHub Copilot extensions.
+### Step 1: Set up Copilot
 
-    > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot?referrer=docs-copilot-overview">Install the GitHub Copilot extensions</a>
+1. **Set up Copilot** from the Copilot dashboard in the Status Bar
+2. **Sign in** with your GitHub account
 
-1. Sign in with your GitHub account to use Copilot.
+![Hover over the Copilot icon in the Status Bar and select Set up Copilot.](images/setup/setup-copilot-status-bar.png)
 
-    > [!TIP]
-    > You can get started for free with the [Copilot Free plan](https://github.com/github-copilot/signup) if you don't yet have a Copilot subscription. Follow the steps in the [setup guide](/docs/copilot/setup.md) to set up a Copilot subscription.
+### Step 2: Basic code completion
 
-1. Discover the key features of Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+Create a new file and start typing. Copilot displays suggestions in _ghost text_.
 
-## Keyboard shortcuts
+```javascript
+// Try typing this in a new .js file:
+function factorial(
+```
 
-Use the following keyboard shortcuts to start a chat conversation with Copilot:
+Accept suggestions with `kbstyle(Tab)`.
 
-| Shortcut | Description |
-|----------|-------------|
-| `kb(workbench.action.chat.open)` | Open the **Chat view** and start a chat conversation with Copilot by using natural language. |
-| `kb(workbench.action.chat.openEditSession)` | Open the **Copilot Edits view** and start a code editing session across multiple files. |
-| `kb(workbench.action.quickchat.toggle)` | Open **Quick Chat** and ask a quick question to Copilot. |
-| `kb(inlinechat.start)` | Start **Inline Chat** to send a chat request to Copilot directly from the editor. Use natural language or use `/` commands to give instructions to Copilot. |
+### Step 3: Autonomous coding
 
-Check our [Copilot cheat sheet](/docs/copilot/copilot-vscode-features.md) for an overview of the key Copilot commands and shortcuts.
+Let Copilot handle complex tasks by using the chat interface and agent mode. The AI will iterate on the code until the task is complete.
 
-## Use cases for GitHub Copilot in VS Code
+1. Open the Chat view (`kb(workbench.action.chat.open)`)
+1. Select **Agent** from the chat mode dropdown list
+1. Ask to generate a basic web app like: "Create a basic node.js web app to share cycling tips. Make it look modern and responsive."
 
-### Code completions in the editor
+Notice how the code is generated step-by-step, and dependencies are installed automatically.
 
-* **Copilot suggests code as you type**. Copilot analyzes the context in the file you're editing and related files, and offers suggestions from within the editor. For example, begin typing the name of a method and Copilot suggests the implementation, following your coding style.
+### Step 4: Inline Chat
 
-    ![Inline chat suggests the implementation of a 'CalculateDaysBetweenDates' JavaScript function](images/overview/js-suggest.png)
+Use inline chat to ask questions about your code while you're in the flow of writing code.
 
-### Iterate on large changes across multiple files
+1. Select some code in your editor
+1. Press `kb(inlinechat.start)` to open editor inline chat
+1. Ask to explain or make a modification like: "Refactor this code to ..."
+1. Review and accept the suggested changes
 
-* **Start a AI-powered code editing session**. [Copilot Edits](/docs/copilot/copilot-edits.md) brings the conversational flow of Copilot Chat and fast feedback from Inline Chat together in one experience. Have an ongoing, multi-turn chat conversation on the side, while benefiting of inline code suggestions.
+## Usage scenarios
 
-    ![Screenshot showing the Copilot Edits response for "Add a feedback field in the contact page" and showing the diff in the editor.](images/copilot-edits/copilot-edits-view-edits-in-file.png)
+### Code analysis and review
 
-### Answer coding questions
+Understanding existing codebases and identifying issues:
 
-* **Provide guidance and support for common coding tasks and challenges**. Ask Copilot about syntax or general programming concepts without requiring to navigate documentation or search online forums. Copilot gives responses in natural language format or in code snippet format. For example, you can ask questions such as "what is recursion?" or "how to create a singleton in Java?".
+- "Explain the authentication flow in this application"
+- "What are the potential security issues in this payment handler?"
+- "Document this API endpoint with proper JSDoc comments"
 
-    ![Copilot Chat answering what a singleton is](images/overview/copilot-chat-singleton.png)
+### Debugging and troubleshooting
 
-* **Improve code understanding by explaining selected code**. Copilot generates natural language descriptions of the code's functionality and purpose. This can be useful if you want to understand the code's behavior or for non-technical stakeholders who need to understand how the code works.
+Identifying and resolving code issues:
 
-    ![Inline chat explaining which sorting algorithm is used in the selected text](images/overview/inline-chat-question-example.png)
+- "Why is this component re-rendering unnecessarily?"
+- "Find and fix the memory leak in this data processing pipeline"
+- "Optimize this database query for better performance"
 
-* **Provide guidance that is specific to your codebase**. Copilot has the context of your workspace and can give step-by-step guidance and code samples that are tailored to your project. For example, "how to add a contacts page?" or "how do I read customer data from the database?".
+Learn more about using [AI for debugging](/docs/copilot/guides/debug-with-copilot.md).
 
-    ![Copilot Chat provides step-by-step guidance about adding a page to an Express app](images/overview/copilot-chat-view-add-page.png)
+### Feature implementation
 
-### Code refactoring and improvements
+Building new functionality:
 
-* **Provide suggestions for implementing code refactorings**. Copilot suggests refactorings using the context of your codebase. For example, ask Copilot to refactor a function to not use recursion, or to suggest an algorithm that can improve performance.
+- "Create a user registration system with email verification"
+- "Add real-time notifications using WebSockets"
+- "Implement a shopping cart with local storage persistence"
 
-    ![Inline Chat refactoring to use different sorting algorithm](images/overview/inline-chat-convert-sort.png)
+### Testing and quality assurance
 
-* **Suggest potential improvements to selected code**, such as improved handling of errors and edge cases, or changes to the logical flow to make the code more readable.
+Generating tests and ensuring code quality:
 
-    ![Copilot Inline Chat suggesting improvements to error handling](images/overview/copilot-inline-chat-error-handling.png)
+- "Generate comprehensive unit tests for this service class"
+- "Create integration tests for the API endpoints"
+- "Add property-based tests for this data validation function"
 
-### Fix issues
+Learn more about using [AI for testing](/docs/copilot/guides/test-with-copilot.md).
 
-* **Propose a fix for bugs in your code** with the `/fix` command by suggesting code snippets and solutions based on the context of the error or issue. For example, if your code produces an error message or warning, Copilot Chat can suggest possible fixes based on the error message, the code's syntax, and the surrounding code. The changes might consist of changes to variables, control structures, or function calls that could resolve the issue.
+### Learning and documentation
 
-    ![Inline Chat /fix for an error proposing to install a missing library](images/overview/inline-chat-fix-error-message-example.png)
+Understanding new technologies and patterns:
 
-* **Propose a fix for failing tests** (preview). When you run automated tests for your code, Copilot can suggest code fixes for tests that fail with the `/fixTestFailure` command.
+- "Show me the differences between async/await and Promises"
+- "How would you implement this pattern in Go instead of Python?"
+- "What are the best practices for error handling in React?"
 
-    ![Copilot Chat /fixTestFailure for identifying and suggesting a fix for a failing test](images/overview/copilot-chat-fix-test-failure.png)
+## Customize the AI to your workflow
 
-* **Suggest terminal command fixes**. When a command fails to run in the terminal, Copilot displays a sparkle in the gutter that offers a Quick Fix to explain what happened.
+### Custom instructions
 
-    ![Quick Chat with @terminal #terminalLastCommand and Copilot's answer](images/overview/terminal-command-explanation.png)
+Use custom instructions to define project-specific coding conventions and patterns, and the AI will generate code that matches your style. Automatically apply these instructions to all chat requests or only for specific file types.
 
-### Jumpstart your project
+```markdown
+---
+applyTo: "**"
+---
+# My Coding Style
+- Use arrow functions for components
+- Prefer const over let
+- Always include TypeScript types
+- Use descriptive variable names
+- Follow the Repository pattern for data access
+```
 
-* **Generate a new VS Code workspace** for your choice of technologies with `/new` to get started quickly with a new project. Pick and choose your technology stack, preview the workspace files, and let Copilot scaffold the entire workspace for you.
+Learn more about [using custom instructions](/docs/copilot/copilot-customization.md) to tailor the AI to your coding style.
 
-    ![Asking the @workspace agent to scaffold a new Node.js project using TypeScript](images/overview/copilot-chat-view-file-tree-preview.png)
+### Language models
 
-* **Scaffold a new Jupyter notebook by using natural language**. Generate a new notebook that is preconfigured based on a description by using `/newNotebook`. For example, to scaffold a new notebook that loads, inspects, and visualizes a sample dataset, prompt Copilot with "@workspace /newNotebook download titanic dataset and display key information using MatPlotLib".
+Quickly switch between different AI models to optimize for speed, reasoning, or specialized tasks. Choose from various built-in models or connect to external providers and bring your own API keys.
 
-    ![Asking the @workspace agent to scaffold a new notebook that reads titanic data, and visualizes with MatPlotLib](images/overview/copilot-new-notebook.png)
+![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-### Generate unit test cases
+Learn more about using [language models in VS Code](/docs/copilot/language-models.md).
 
-* **Configure your testing framework setup** based on your codebase. For example, if you have a JavaScript and TypeScript project, Copilot will suggest suitable testing frameworks and steps to configure them for your workspace.
+### Custom chat modes
 
-    ![Chat view showing the /setupTests slash command to set up a testing framework for JavaScript and TypeScript](images/overview/copilot-chat-setup-tests.png)
+The chat experience in VS Code can operate in different modes to switch between asking questions, making edits, or running autonomous coding sessions. You can also create custom chat modes that fit your workflow. For example, create a chat mode that focuses on planning and architecture discussions. Specify which tools chat is allowed to use, and provide custom instructions to provide the right context in which it should operate.
 
-* **Write unit test cases for your testing framework** based on the code open in the editor or the code snippet you highlight in the editor. Copilot identifies your testing framework and coding style and generates matching code snippets.
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
 
-    ![Chat view showing the /tests slash command to generate unit tests for the Divide method in a C# calculator class](images/overview/workspace-agent-tests-example.png)
+Learn more about [creating your own chat modes](/docs/copilot/chat/chat-modes.md).
 
-* **Identify and write test cases for edge cases and boundary conditions** that might be difficult to identify manually. For instance, Copilot can suggest test cases for error handling, null values, or unexpected input types.
+### Extend chat with tools
 
-* **Suggest assertions** that ensure the function is working correctly, based on the code's context and semantics. For example, generate assertions to ensure that function input parameters are valid.
+Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
-### Generate code documentation
+![MCP tools list](chat/images/mcp-servers/agent-mode-select-tools.png)
 
-* **Generate code documentation for multiple languages** for the code open in the editor or the code snippet you highlight in the editor. Use `/doc` or a Copilot smart action to help you generate meaningful code documentation.
+Learn more about [using MCP servers and tools](/docs/copilot/chat/mcp-servers.md).
 
-    ![Inline chat /doc example to generate documentation code comments for a calculator class](images/overview/inline-chat-doc-example.png)
+## Best Practices
 
-### Productivity improvements
+- Choose the right tool for the task. Get code completions while you're coding, use chat for natural language queries, and pick the chat mode that fits your workflow.
 
-* **AI-generated commit messages and PR descriptions** based on the code changes in a commit or the changes in a pull request. Use the *sparkle* button in the Source Control view or GitHub PR extension to generate a title and description that summarizes your changes.
+- Write effective prompts to get the best results. Be specific, provide the right context, and iterate often.
 
-    ![Hover over Source Control input box sparkle buttons shows Generate Commit Message](images/overview/generate-commit-message.png)
+- Customize the AI to your coding style and project conventions by using custom instructions, prompt files, or chat modes.
 
-* **Ask help in the Command Palette** to help you find the relevant command in VS Code. You can describe the functionality and Copilot can help identify the matching functionality. For example, type "code preview in scrollbar" in the Command Palette, and Copilot can identify that you're referring to the `editor.minimap` settings.
+- Extend the AI's capabilities with tools from MCP servers or Marketplace extensions.
 
-    ![Chat view with answer to "hide editor overview"](images/overview/copilot-answer-hide-editor-overview.png)
+- Choose a language model that is optimized for your task. Use fast models for quick code suggestions, reasoning models for more complex requests.
 
-* **AI-generated rename suggestions** for symbols in your source code. When you rename a symbol in your code, Copilot suggests a new name based on the context of the symbol and the codebase.
+Get more [tips and tricks for using AI in VS Code](/docs/copilot/copilot-tips-and-tricks.md).
 
-    ![Inline chat suggesting a new name for a symbol in a Python file](images/overview/copilot-inline-chat-rename-suggestion.png)
+## Pricing
 
-* **Semantic search results** (preview). The Search view lists exact text matches across your files, in addition to matches that are semantically relevant based on your search text.
+You can start using GitHub Copilot for free with monthly limits on completions and chat interactions. For more extensive usage, you can choose from various paid plans.
 
-    ![Search view showing semantic search results that are not an exact match for the search criteria.](images/overview/semantic-search-results.png)
-
-* **Use terminal Inline Chat** to ask questions about the terminal or how to use specific shell commands. For example, you can ask questions such as "list the top 5 largest files in the src directory", or "how to enable shell integration".
-
-    ![Screenshot showing that you can ask complex questions like "list the top 5 largest files in the src dir"](images/overview/terminal-chat-2.png)
+[View detailed pricing →](https://docs.github.com/en/copilot/about-github-copilot/plans-for-github-copilot)
 
 ## Next steps
 
-* [Get started with the Copilot in VS Code Quickstart](/docs/copilot/getting-started.md)
-* [Get started with editing across multiple files with Copilot Edits](/docs/copilot/copilot-edits.md)
-* [Get a quick overview of the Copilot features in VS Code](/docs/copilot/copilot-vscode-features.md)
-
-## Additional resources
-
-You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot?tool=vscode).
-
-Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=PLj6YeMhvp2S5_hvBl2SE-7YCHYlLQ0bPt) on YouTube, where you can find more introductory content and programming-specific videos for using Copilot with [Python](https://www.youtube.com/watch?v=DSHfHT5qnGc), [C#](https://www.youtube.com/watch?v=VsUQlSyQn1E), [Java](https://www.youtube.com/watch?v=zhCB95cE0HY), [PowerShell](https://www.youtube.com/watch?v=EwtRzAFiXEM), [C++](https://www.youtube.com/watch?v=ZfT2CXY5-Dc), and more.
+- [Set up Copilot in VS Code](/docs/copilot/setup.md)
+- [Get started with hands-on examples](/docs/copilot/getting-started.md)
+- [Customize the AI for your workflow](/docs/copilot/copilot-customization.md)

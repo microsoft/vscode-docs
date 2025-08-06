@@ -1,10 +1,6 @@
 ---
-Order: 4
-Area: getstarted
-TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-PageTitle: Visual Studio Code User Interface
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -15,18 +11,16 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 ## Basic layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into five main areas:
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into six main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
 * **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the Chat view. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar.
 * **Panel** - An additional space for views below the editor region. By default, it contains output, debug information, errors and warnings, and an integrated terminal. The Panel can also be moved to the left or right for more vertical space.
 
-![Screenshot of the VS Code user interface, highlighting the five main areas.](images/userinterface/hero.png)
-
-> [!TIP]
-> A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)` and drag a view from the Primary Side Bar to the Secondary Side Bar.
+![Screenshot of the VS Code user interface, highlighting the main areas.](images/userinterface/hero.png)
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
@@ -34,6 +28,8 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 > [!TIP]
 > You can move the Primary Side Bar to the right hand side by right-clicking the Activity Bar and selecting **Move Primary Side Bar Right** or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+
+Learn more about using [Primary and Secondary Side Bar](/docs/configure/custom-layout.md#workbench).
 
 ## Side by side editing
 
@@ -43,7 +39,7 @@ You can open as many editors as you like side by side vertically and horizontall
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** (`kb(explorer.openToSide)`) from the Explorer context menu on a file.
 * Select the **Split Editor** button in the upper right of an editor.
-* Drag and drop a file to any side of the editor region.
+* Drag and drop a file to any side of the editor region. Hold `kbstyle(Ctrl)` (`kbstyle(Option)` on macOS) while dragging to copy the tab instead of moving it.
 * Press `kb(explorer.openToSide)` in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
@@ -72,22 +68,30 @@ You can drag and drop editor groups on the workbench, move individual tabs betwe
 
 ### Split in group
 
-You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#split-in-group) article.
+You can split the current editor without creating a new editor group with the **View: Split Editor in Group** command (`kb(workbench.action.splitEditorInGroup)`). To learn more about this editor mode and specific commands for navigating between the two sides, you can read the section in the [Custom Layout](/docs/configure/custom-layout.md#split-in-group) article.
 
 ### Floating windows
 
-You can move editors into their own floating windows with the **Move into New Window** or **Copy into New Window** (`kb(workbench.action.copyEditorToNewWindow)`) commands. To learn more about floating editor windows, you can read the section in the [Custom Layout](/docs/editor/custom-layout.md#floating-editor-windows) article.
+You can move editors, the terminal, or specific views into their own floating windows. This is useful if you have a multi-monitor setup and want to keep a file open on a different monitor.
+
+![Screenshot that shows the OS desktop with VS Code window and a CSV file opened in a floating window.](images/userinterface/floating-editor.png)
+
+Drag an editor tab out of the current VS Code window to open it in a floating window. Alternatively, use the **Move into New Window** or **Copy into New Window** context options from the editor tab.
+
+To pin a floating window to the top of the screen, select the **Set Always on Top** option (pin icon) from its title bar.
+
+To learn more about floating windows, read the section in the [Custom Layout](/docs/configure/custom-layout.md#floating-windows) article.
 
 ## Minimap
 
 A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can select or drag the shaded area to quickly jump to different sections in your file.
 
-If you have [folding markers](/docs/editor/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
+If you have [folding markers](/docs/editing/codebasics.md#folding) in the editor, such as `//#region` or `MARK:` comments, then the minimap shows the folding marker names.
 
 ![minimap](images/userinterface/minimap.png)
 
 > [!TIP]
-> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/getstarted/settings.md).
+> You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in the user or workspace [settings](/docs/configure/settings.md).
 
 ## Sticky Scroll
 
@@ -102,7 +106,7 @@ Sticky Scroll uses several different content models to create its headings. It i
 
 ### Indent guides
 
-The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/getstarted/settings.md).
+The editor shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `setting(editor.guides.indentation)` to `false` in your user or workspace [settings](/docs/configure/settings.md).
 
 ## Breadcrumbs
 
@@ -110,7 +114,7 @@ The editor has a navigation bar at the top, also called [breadcrumbs](https://en
 
 ![Breadcrumbs](images/userinterface/breadcrumbs.png)
 
-You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editingevolved.md) article.
+You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editing/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editing/editingevolved.md) article.
 
 ## Explorer view
 
@@ -170,7 +174,7 @@ For symbols, the view relies on information computed by your installed extension
 
 ![Markdown Outline view](images/userinterface/markdown-outline-view.png)
 
-There are several Outline view [settings](/docs/getstarted/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
+There are several Outline view [settings](/docs/configure/settings.md). Search for settings starting with `outline.` and to configure what information is shown in the Outline view.
 
 ### Timeline view
 
@@ -236,7 +240,7 @@ The Explorer view is only one of the views available in VS Code. There are also 
 
 You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
 
-![view management](images/userinterface/view-management.gif)
+<video src="images/userinterface/view-management.mp4" autoplay loop controls muted title="View Management"></video>
 
 ## Command Palette
 
@@ -256,6 +260,11 @@ Type `?` in the input field to get a list of available commands that you can run
 
 ![Quick Open Help](images/userinterface/quickopenhelp.png)
 
+> [!TIP]
+> You can move the Command Palette to another location by grabbing the top edge with the mouse cursor and dragging it somewhere else. You can also select the **Customize Layout** control in the title bar, and then select one of the preconfigured **Quick Input Positions**.
+
+![Screenshot that shows the Command Palette in a different location, highlighting the Customize Layout control in the title bar and the preconfigured position options.](images/userinterface/command-palette-position.png)
+
 ## Configure the editor
 
 VS Code gives you many options to configure the editor. From the **View** > **Appearance** menu, you can hide or toggle various parts of the user interface, such as the **Side Bar**, **Status Bar**, and **Activity Bar**.
@@ -268,7 +277,7 @@ You can also hide the menu bar on Windows and Linux with the **View: Toggle Menu
 
 ### Settings
 
-Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/getstarted/settings.md#settingsjson).
+Most editor configurations are managed in settings, which you can modify directly. You can set options either globally through user settings, or per project/folder through workspace settings. Settings values are stored in a [`settings.json` file](/docs/configure/settings.md#settings-json-file).
 
 You can view and edit settings in the Settings Editor (select **File** > **Preferences** > **Settings**, or press `kb(workbench.action.openSettings)`). Use the **User** and **Workspace** tab to switch between user and workspace settings. You can filter settings by using the search box at the top.
 
@@ -348,7 +357,7 @@ For example, you might like new tabbed items to appear on the left:
 
 You can reorder tabs by dragging and dropping them.
 
-If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/editor/custom-layout.md#pinned-tabs) article.
+If you'd like an editor tab to always be visible, you can pin it to the editor tab bar. Learn more about pinning tabs in the [Custom Layout](/docs/configure/custom-layout.md#pinned-tabs) article.
 
 ### Preview mode
 
@@ -410,7 +419,7 @@ The following examples use the `${extname}` variable for the file `tests/editor.
 
 By default, editor groups are laid out in vertical columns. For example, when you split an editor, it opens the editor to the side. You can arrange editor groups in any layout you like, both vertically and horizontally:
 
-![Grid Editor Layout](images/userinterface/grid-layout.gif)
+<video src="images/userinterface/grid-layout.mp4" autoplay loop controls muted title="Grid Editor Layout"></video>
 
 To support flexible layouts, you can create empty editor groups. By default, closing the last editor of an editor group also closes the group itself, but you can change this behavior with the new setting `workbench.editor.closeEmptyGroups: false`:
 
@@ -424,7 +433,7 @@ By default, editors that open to the side (for example, by selecting the editor 
 
 There are many keyboard commands for adjusting the editor layout by using the keyboard. If you prefer to use the mouse, you can use drag and drop to split the editor into any direction:
 
-![Grid Editor Drag and Drop](images/userinterface/grid-dnd.gif)
+<video src="images/userinterface/grid-dnd.mp4" autoplay loop controls muted title="Grid Editor Drag and Drop"></video>
 
 > [!TIP]
 > If you press and hold the `kbstyle(Alt)` key while hovering over the toolbar action to split an editor, it offers to split to the other orientation. This is a fast way to split either to the right or to the bottom.
@@ -445,7 +454,7 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 * `kb(workbench.action.closeEditorsInGroup)` - close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` - close all editors.
 
->If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
+>If you want to modify the default keyboard shortcuts, see [Key Bindings](/docs/configure/keybindings.md) for details.
 
 ## Working without tabs
 
@@ -457,9 +466,9 @@ Without tabs, the **Open Editors** section of the Explorer view is a quick way t
 
 ### Use keyboard shortcuts to navigate the editor history
 
-You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
+You can change vs for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history, independent of the active editor group.
 
-Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
+Edit your [keyboard shortcuts](/docs/configure/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
@@ -468,7 +477,7 @@ Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/configure/keybindings.md).
 
 macOS:
 
@@ -499,8 +508,8 @@ The `setting(window.restoreWindows)` setting informs VS Code about how to restor
 
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following articles:
 
-* [Changing the theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon Theme to your preference.
-* [Using custom layouts](/docs/editor/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
+* [Changing the theme](/docs/configure/themes.md) - Set a Color and/or File Icon Theme to your preference.
+* [Using custom layouts](/docs/configure/custom-layout.md) - Learn more about VS Code's workbench and editor layout customizations.
 
 ## Common questions
 

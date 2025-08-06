@@ -1,9 +1,5 @@
 ---
-Order:
-Area: cpp
-TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
-PageTitle: Enhanced colorization in Visual Studio Code C++ projects
 DateApproved: 2/23/2023
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
@@ -17,7 +13,7 @@ The Visual Studio Code C/C++ extension now supports semantic colorization, when 
 
 ## Themes
 
-Colors can be associated using the existing support for theming and color customization in VS Code.  See the [VS Code Themes documentation](/docs/getstarted/themes.md) for more information.
+Colors can be associated using the existing support for theming and color customization in VS Code.  See the [VS Code Themes documentation](/docs/configure/themes.md) for more information.
 
 Colors are associated with [semantic tokens](https://code.visualstudio.com/api/extension-guides/color-theme#semantic-colors) as well as [TextMate scopes](https://macromates.com/manual/en/language_grammars#naming_conventions).
 

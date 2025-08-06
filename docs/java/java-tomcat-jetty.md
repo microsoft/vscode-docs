@@ -1,13 +1,8 @@
 ---
-Order: 10
-Area: java
-TOCTitle: Application Servers
 ContentId: 4f5e169c-d91d-46b7-8c36-b695b5862313
-PageTitle: Working with application servers in Visual Studio Code
 DateApproved: 12/142021
 MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer using Visual Studio Code.
 ---
-
 # Working with Application Servers in VS Code
 
 Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](/docs/java/java-debugging.md#configure) if you want to attach to it.
@@ -22,8 +17,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 The [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) extension is published by Red Hat. It provides a Remote Server Protocol-based server connector, which can start, stop, publish to, and otherwise control community runtimes and servers like [Apache Felix](https://felix.apache.org/documentation/index.html), [Karaf](https://karaf.apache.org/), and [Tomcat](https://tomcat.apache.org/).
 
-<video autoplay loop muted playsinline controls title="Community server connectors">
-  <source src="/docs/java/java-tomcat-jetty/server-connector.mp4" type="video/mp4">
+<video src="images/java-tomcat-jetty/server-connector.mp4" autoplay loop muted playsinline controls title="Community server connectors">
 </video>
 
 ## Other Servers

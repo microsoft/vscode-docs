@@ -1,10 +1,6 @@
 ---
-Order: 3
-Area: languages
-TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
-PageTitle: JSON editing in Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with Visual Studio Code
@@ -17,7 +13,7 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
-We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/getstarted/settings.md).
+We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `setting(json.validate.enable)` [setting](/docs/configure/settings.md).
 
 ![IntelliSense](images/json/intellisense.png)
 
@@ -57,7 +53,7 @@ To understand the structure of JSON files, we use [JSON schemas](https://json-sc
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/configure/settings.md) (**File** > **Preferences** > **Settings**) under the property `setting(json.schemas)`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well-known JSON files such as `package.json`, `bower.json`, and `tsconfig.json`.
 
@@ -76,7 +72,7 @@ Note that this syntax is VS Code-specific and not part of the [JSON Schema speci
 
 ### Mapping in the User Settings
 
-The following excerpt from User [Settings](/docs/getstarted/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
+The following excerpt from User [Settings](/docs/configure/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
 
 ```json
 "json.schemas": [
@@ -131,7 +127,7 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 
 ### Mapping a schema in an extension
 
-Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
+Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributesjsonvalidation).
 
 ### File match syntax
 
@@ -153,18 +149,18 @@ The file match syntax supports the '*' wildcard. Also, you can define exclusion 
 
 JSON schemas describe the shape of the JSON file, as well as value sets and default values, which are used by the JSON language support to provide completion proposals. If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema.
 
-The following example shows a schema for a key binding settings file defining a snippet:
+The following example shows a schema for a keyboard shortcut settings file defining a snippet:
 
 ```json
 {
     "type": "array",
-    "title": "Keybindings configuration",
+    "title": "Keyboard shortcuts configuration",
     "items": {
         "type": "object",
         "required": ["key"],
         "defaultSnippets": [
             {
-                "label": "New keybinding",
+                "label": "New keyboard shortcut",
                 "description": "Binds a key to a command for a given state",
                 "body": { "key": "$1", "command": "$2", "when": "$3" }
             }
@@ -186,7 +182,7 @@ This is an example in a JSON schema:
 Use the property `defaultSnippets` to specify any number of snippets for the given JSON object.
 
 - `label` and `description` will be shown in the completion selection dialog. If no label is provided, a stringified object representation of the snippet will be shown as label instead.
-- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](/docs/editor/userdefinedsnippets.md#snippet-syntax) can be used inside strings literals to define tabstops, placeholders, and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
+- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](/docs/editing/userdefinedsnippets.md#snippet-syntax) can be used inside strings literals to define tabstops, placeholders, and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
 
 Note that `defaultSnippets` is not part of the JSON schema specification but a VS Code-specific schema extension.
 

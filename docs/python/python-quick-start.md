@@ -1,14 +1,9 @@
 ---
-Order: 1
-Area: python
-TOCTitle: Quick Start
 ContentId: c7134463-4fdd-4674-8685-77c94472902c
-PageTitle: Quick Start Guide for Python in VS Code
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: A quick start guide to get you up and coding with the Python extension in Visual Studio Code.
 MetaSocialImage: images/tutorial/python-social.png
 ---
-
 # Quick Start Guide for Python in VS Code
 
 The Python extension makes Visual Studio Code an excellent Python editor, works on any operating system, and is usable with a variety of Python interpreters.
@@ -21,7 +16,7 @@ Get started by installing:
 
 ![Gif installing the Python extension in a fresh install of VS Code](images/quick-start/qs-python-ext-install.gif)
 
-To further customize VS Code for Python, you can leverage the [Python profile template](/docs/editor/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/editor/profiles.md#data-science-profile-template).
+To further customize VS Code for Python, you can leverage the [Python profile template](/docs/configure/profiles.md#python-profile-template), automatically installing recommended extensions and settings. For Data Science projects, consider using the [Data Science profile template](/docs/configure/profiles.md#data-science-profile-template).
 
 ![Gif showing the Python profile template being installing into VS Code.](images/quick-start/python-profile-create.gif)
 
@@ -104,7 +99,7 @@ To learn how to build web apps with popular Python web frameworks, see the follo
 
 There is much more to explore with Python in Visual Studio Code:
 
-- [Python profile template](/docs/editor/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets
+- [Python profile template](/docs/configure/profiles.md#python-profile-template) - Create a new [profile](/docs/configure/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

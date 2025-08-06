@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 5b4962ff-2dc9-4201-aa95-46edb5a575b6
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Guidelines that showcase best practices for creating Visual Studio Code extensions.
@@ -83,7 +83,7 @@ On the left, [Status Bar Items](/api/ux-guidelines/status-bar#status-bar-items) 
 
 Extensions can contribute Commands that appears in the [Command Palette](/api/ux-guidelines/command-palette) to quickly execute some functionality.
 
-[![Overview of the Command Palette element](images/examples/command-palette.png)](images/examples/command-palette.png)
+[![Overview of the Command Palette element](images/examples/command-palette.png)](/assets/api/ux-guidelines/examples/command-palette.png)
 
 ### Quick Pick
 

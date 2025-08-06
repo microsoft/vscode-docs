@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b31344d9-a1d9-4f87-82df-9c7151ef99e3
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how Visual Studio Code extensions can enable telemetry and respect user telemetry choices.

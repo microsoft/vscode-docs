@@ -1,17 +1,13 @@
 ---
-Order: 7
-Area: languages
-TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
-PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 12/11/2024
+DateApproved: 07/09/2025
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a several Markdown-specific features that help you be more productive.
 
->**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/configure/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -27,7 +23,7 @@ The Outline view is a great way to review your document's header structure and o
 
 VS Code includes some useful snippets that can speed up writing Markdown. This includes snippets for code blocks, images, and more. Press `kb(editor.action.triggerSuggest)` (Trigger Suggest) while editing to see a list of suggested Markdown snippets. You can also use the dedicated snippet picker by selecting **Insert Snippet** in the Command Palette.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editing/userdefinedsnippets.md) to find out how.
 
 ### Go to header in file
 
@@ -47,7 +43,7 @@ Start typing a header name to filter down the list and find the header you are a
 
 ### Path completions
 
-Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editing/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
 
 ![Path completions in a Markdown link](images/Markdown/path-completions.png)
 
@@ -105,7 +101,7 @@ For example, if you want every Markdown file under `/docs` in your workspace to 
 
 Now when a new file is pasted in `/docs/api/readme.md`, the image file is created at `/docs/api/images/readme/image.png`.
 
-You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editor/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
+You can even use simple regular expressions to transform variables in a [similar way to snippets](/docs/editing/userdefinedsnippets.md#variable-transforms). For example, this transform uses only the first letter of the document file name when creating the media file:
 
 ```jsonc
 "markdown.copyFiles.destination": {
@@ -114,6 +110,20 @@ You can even use simple regular expressions to transform variables in a [similar
 ```
 
 When a new file is pasted into `/docs/api/readme.md`, the image is now created under `/docs/api/images/r/image.png`.
+
+### Generating alt text for images
+
+You can use AI to generate or update alt text for images in Markdown files. To generate alt text:
+
+1. Make sure you have [set up Copilot](/docs/copilot/setup.md) in your VS Code environment. You can get started with Copilot for free.
+
+1. Open a Markdown file.
+1. Put the cursor on an image link.
+1. Select the Code Action (lightbulb) icon and select **Generate alt text**.
+
+    ![Screenshot that shows a Code Action menu with Generate alt text option for a Markdown image link.](../copilot/images/copilot-smart-actions/generate-alt-text.png)
+
+1. If you already have an alt text, select the Code Action, and select **Refine alt text**.
 
 ### Smart selection
 
@@ -139,7 +149,7 @@ Selection applies to the following, and follows a traditional hierarchical patte
 
 Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that was renamed or to a file that no longer exists on disk.
 
-![A warning shown in the editor when linking to a file that does not exist](images/markdown/link-validation.png)
+![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
 
 Link validation is off by default. To enable it, set `"markdown.validate.enabled": true`. VS Code then analyzes Markdown links to headers, images, and other local files. Invalid links are reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
 
@@ -215,7 +225,7 @@ VS Code automatically synchronizes the Markdown editor and the preview panes. Sc
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
-You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/getstarted/settings.md).
+You can disable scroll synchronization using the `setting(markdown.preview.scrollPreviewWithEditor)` and `setting(markdown.preview.scrollEditorWithPreview)` [settings](/docs/configure/settings.md).
 
 The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
@@ -261,7 +271,7 @@ Extensions can contribute custom styles and scripts to the Markdown preview to c
 
 ### Using your own CSS
 
-You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/getstarted/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
+You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/configure/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be `https` URLs, or relative paths to local files in the current workspace.
 
 For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
@@ -318,7 +328,7 @@ Disables additional security in the preview window. This allows script execution
 
 ## Doc Writer profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
+[Profiles](https://code.visualstudio.com/docs/configure/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/configure/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for your own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 
