@@ -1,7 +1,7 @@
 ---
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 ---
 # Dev Containers Tips and Tricks
 

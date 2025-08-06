@@ -5,7 +5,7 @@ TOCTitle: Use Docker or Kubernetes
 PageTitle: Use Docker or Kubernetes from a container
 ContentId: d324a29d-3f64-4331-9c34-a283719e9d7b
 MetaDescription: Use Docker or Kubernetes from a container
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 ---
 # Use Docker or Kubernetes from a container
 

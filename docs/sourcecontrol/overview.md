@@ -1,6 +1,6 @@
 ---
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -141,9 +141,9 @@ To adjust the color of the editor decoration, use the `git.blame.editorDecoratio
 
 GitHub Copilot in VS Code can help you review your uncommitted code changes.
 
-1. In the Source Control view, select the **Copilot Code Review** button to start a code review of the uncommitted changes
+1. In the Source Control view, select the **Code Review** button to start a code review of the uncommitted changes
 
-    ![Screenshot that shows the Copilot Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
+    ![Screenshot that shows the Code Review button in the Source Control view.](images/overview/copilot-code-review.png)
 
 1. Copilot generates code review comments and suggestions as overlays in the editor
 
@@ -190,7 +190,7 @@ The graph contains the current branch, the current branch's upstream branch, and
 The graph provides the following functionality:
 
 - Select an entry to see the files that are changed in that commit. Select the **Open Changes** action to see the diff of the commit in the editor.
-- Right-click on a commit to perform actions such as checkout, cherry-pick, and more. Use the Copilot actions to summarize a commit or attach it as context to your chat prompt.
+- Right-click on a commit to perform actions such as checkout, cherry-pick, adding it as context to chat, and more.
 - Select a file to see the diff of that file in the editor.
 
 Use the actions in the Graph view tool bar to select the branch, fetch, pull, push, and sync changes.

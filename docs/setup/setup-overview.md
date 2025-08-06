@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -29,7 +29,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
     Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
 
-1. [Set up AI-assisted coding with GitHub Copilot](/docs/copilot/setup-simplified.md)
+1. [Enable AI features](/docs/copilot/setup-simplified.md)
 
     > [!TIP]
     > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.

@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Access your GitHub Copilot subscription and set up GitHub Copilot in Visual Studio.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -61,11 +61,11 @@ If your Copilot subscription is associated with another GitHub account, sign out
 
     - Run the **GitHub Copilot: Sign in** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
-## Hide Copilot in VS Code
+## Remove AI features from VS Code
 
-To completely hide Copilot in VS Code, run the **Chat: Hide Copilot** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Hide Copilot** from the Copilot menu in the VS Code title bar.
+To completely hide AI features in VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Hide AI Features** from the Copilot menu in the VS Code title bar.
 
-![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide Copilot.](images/setup/hide-copilot.png)
+![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide AI features.](images/setup/hide-copilot.png)
 
 To reenable Copilot, run the **Chat: Use AI Features with Copilot for Free** command in the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -77,7 +77,7 @@ To disable Copilot for a specific workspace:
 1. Search for the **GitHub Copilot** extension.
 1. Select the gear icon and then select **Disable (Workspace)**.
 1. Select **Restart extensions**.
-1. You can re-enable it later by selecting the **Enable (Workspace)** button that appears after restarting extensions. 
+1. You can re-enable it later by selecting the **Enable (Workspace)** button that appears after restarting extensions.
 
 ![Screenshot that shows the GitHub Copilot extension in the Extensions view, with the option to disable it for the workspace.](images/setup/copilot-disable-workspace.png)
 
