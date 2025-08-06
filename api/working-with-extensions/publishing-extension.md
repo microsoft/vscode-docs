@@ -175,7 +175,7 @@ Once unpublished, the extension's Availability status is changed to **Unpublishe
 ![Unpublished extension](images/publishing-extension/unpublished-extension.png)
 
 > [!NOTE]
-> When you unpublish an extension, the Marketplace preserves the extension statistics. The extension remains publicly discoverable and available via an existing, authenticated API.
+> When you unpublish an extension, the Marketplace preserves the extension statistics. The extension remains publicly discoverable and available via an existing API.
 
 ## Removing extensions
 
