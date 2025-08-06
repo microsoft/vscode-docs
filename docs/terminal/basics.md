@@ -72,6 +72,16 @@ You can have terminal editors on either side or arranged in multiple dimensions 
 
 The `setting(terminal.integrated.defaultLocation)` setting can change the default `view` or `editor` area terminal location.
 
+## Terminals in new windows
+
+To open a terminal in a new window:
+
+1. Right-click the terminal tab if you have multiple terminals, or left-click the tab if you only have a single terminal opened
+1. Select **Move Terminal to New Window**
+    This opens the [terminal editor](#terminals-in-editor-area) in its own VS Code window
+
+    ![Screenshot showing a terminal in its own separate window.](images/basics/terminal-new-window.png)
+
 ## Navigating the buffer
 
 The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `setting(terminal.integrated.scrollback)` [setting](/docs/configure/settings.md) and defaults to `1000` lines.
