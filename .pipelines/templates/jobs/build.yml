@@ -18,6 +18,7 @@ jobs:
 
   steps:
   - checkout: self
+    lfs: true
     path: vscode-docs
 
   - download: ${{ parameters.artifactName }}
