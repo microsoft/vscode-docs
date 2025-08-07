@@ -1,7 +1,7 @@
 ---
 ContentId: de6f9f68-7dd5-4de3-a210-3db57882384b
-DateApproved: 07/09/2025
-MetaDescription: Get a quick overview of the GitHub Copilot features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
+DateApproved: 08/07/2025
+MetaDescription: Get a quick overview of the AI features in Visual Studio Code. GitHub Copilot provides AI-powered features to help you write code faster and with less effort.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code cheat sheet
@@ -58,6 +58,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | Edit (<i class="codicon codicon-pencil"></i>) | [Edit a previous chat prompt](/docs/copilot/chat/copilot-chat.md#edit-chat-requests-experimental) and revert changes. |
 | History (<i class="codicon codicon-history"></i>) | Access your history of chat sessions. |
 | Voice (<i class="codicon codicon-mic"></i>) | Enter a chat prompt by using speech (voice chat). The chat response is read out aloud. |
+| [KaTeX](https://katex.org) | Render mathematical equations in chat responses. Enable with `setting(chat.math.enabled)`. |
 
 > **Tips**
 >
@@ -77,13 +78,13 @@ Get more relevant responses by providing [context to your chat prompt](/docs/cop
 | Drag & drop folders | Drag & drop a folder onto the Chat view to attach the files within it. |
 | Drag & drop problem | Drag & drop an item from the Problems panel. |
 | `#<file\|folder\|symbol>` | Type `#`, followed by a file, folder, or symbol name, to add it as chat context. |
-| `#-mention | Type `#`, followed by a [chat variable](#chat-variables) to add a specific context type or tool. |
+| `#-mention | Type `#`, followed by a [chat tool](#chat-tools) to add a specific context type or tool. |
 
-### Chat variables
+### Chat tools
 
-Use chat variables in your chat prompt to reference context that is relevant to your question or to reference specific tools. Reference chat variables or tools in your chat prompt by using the `#`-mention syntax.
+Use [tools](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools) in chat to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more. Choose built-in tools or tools from MCP servers and extensions.
 
-Tools can be invoked as part of an autonomous coding workflow with [agent mode](/docs/copilot/chat/chat-agent-mode.md). Extensions and MCP servers can provide additional tools that you can use in your chat prompts.
+The following table lists the VS Code built-in tools:
 
 | Chat variable/Tool | Description |
 |--------|-------------|
@@ -93,7 +94,6 @@ Tools can be invoked as part of an autonomous coding workflow with [agent mode](
 | `#extensions` | Tool to find and ask questions about VS Code extensions. For example, "how to get started with Python #extensions?" |
 | `#fetch` | Fetch the content from a web page - provide the URL. |
 | `#findTestFiles` | Tool for finding test files in the current workspace. |
-| `#<file\|folder\|symbol>` | Add a file, folder, or code symbol as context. |
 | `#githubRepo` | Tool to perform a code search in a GitHub repo. For example, "what is a global snippet #githubRepo microsoft/vscode." |
 | `#new` | Tool to scaffold a new VS Code workspace. |
 | `#openSimpleBrowser` | Tool to open the built-in Simple Browser and preview a locally-deployed web app. |
@@ -151,7 +151,7 @@ With chat [agent mode](/docs/copilot/chat/chat-agent-mode.md), you can use natur
 | `kb(workbench.action.chat.openAgent)` | Switch to agent mode in the Chat view |
 | Tools (<i class="codicon codicon-tools"></i>) | Configure which tools are available in agent mode. Select from built-in tools, MCP servers, and extension-provided tools. |
 | Auto-approve tools _(Experimental)_ | Enable [auto-approval of all tools](/docs/copilot/chat/chat-agent-mode.md#auto-approve-all-tools-and-commands-experimental) in agent mode (`setting(chat.tools.autoApprove)`). |
-| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#auto-approve-terminal-commands-experimental) in agent mode with an allow and deny list. |
+| Auto-approve terminal commands _(Experimental)_ | Enable [auto-approval of terminal commands](/docs/copilot/chat/chat-agent-mode.md#autoapprove-terminal-commands-experimental) in agent mode (`setting(chat.tools.terminal.autoApprove)`). |
 | MCP | Configure [MCP servers](/docs/copilot/chat/mcp-servers.md) to extend agent mode with extra capabilities and tools. |
 
 > **Tips**
@@ -186,14 +186,14 @@ As you're coding in the editor, you can use Copilot to generate code completions
 | Code comments | Provide a code completion prompt by writing instructions in a code comment.<br/>Example: `# write a calculator class with methods for add, subtract, and multiply. Use static methods.` |
 | `kb(inlinechat.start)` | Start editor inline chat to send a chat request directly from the editor. Use natural language and reference chat variables and slash commands to provide context. |
 | `kb(editor.action.rename)` | Get AI-powered suggestions when renaming symbols in your code. |
-| Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Copilot**. |
+| Context menu actions | Use the editor context menu to access common AI actions, such as explaining code, generating tests, reviewing code, and more. Right-click in the editor to open the context menu and select **Generate Code**. |
 | Code Actions (lightbulb) | Select the Code Action (lightbulb) in the editor for fixing linting or compiler errors in your code. |
 
 > **Tips**
 >
 > * Use meaningful method or function names to get better code completions quicker.
 > * Select a code block to scope your Inline Chat prompt or attach relevant context by attaching files or symbols.
-> * Use the editor context menu options to access common Copilot actions directly from the editor.
+> * Use the editor context menu options to access common AI-powered actions directly from the editor.
 
 ## Source control and issues
 
@@ -203,7 +203,6 @@ Use AI to analyze the changes in your commits and pull requests and provide sugg
 |--------|-------------|
 | `#changes` | Add the current source control changes as context in your chat prompt. |
 | Commit as context | Add a commit from the source control history as context in your chat prompt. |
-| Summarize commit | Right-click a commit in the source control graph and select **Copilot** > **Summarize** to generate a summary of the commit changes. |
 | Commit message | Generate a commit message for the current changes in a source control commit. |
 | Pull request description | Generate a pull request title and description that correspond with the changes in your pull request. |
 | `@github` | Use the `@github` participant in chat to ask about issues, pull requests, and more across your repositories. Get more information about the [available GitHub skills](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#currently-available-skills).<br/>Example: `@github What are all of the open PRs assigned to me?`, `@github Show me the recent merged pr's from @dancing-mona`  |
@@ -214,8 +213,8 @@ Use AI to do a quick review pass of a code block or perform a review of uncommit
 
 | Action | Description |
 |--------|-------------|
-| **Review and Comment** _(Preview)_ | Select a block of code, and select **Copilot** > **Review and Comment** from the editor context menu for quick review pass.  |
-| **Copilot Code Review** | Select the **Copilot Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
+| **Review and Comment** _(Preview)_ | Select a block of code, and select **Generate Code** > **Review and Comment** from the editor context menu for quick review pass.  |
+| **Code Review** | Select the **Code Review** button in the Source Control view for a deeper review of all uncommitted changes. |
 
 ## Search and settings
 
@@ -291,4 +290,4 @@ You can use chat to help you with Python programming tasks in the Native Python 
 
 ## Next steps
 
-* [Tutorial: Get started with GitHub Copilot in VS Code](/docs/copilot/getting-started.md)
+* [Tutorial: Get started with AI features in VS Code](/docs/copilot/getting-started.md)

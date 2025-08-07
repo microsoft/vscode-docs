@@ -1,6 +1,6 @@
 ---
 ContentId: 71e2c9c1-fb19-469a-9620-877d4b08fb0d
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Visual Studio Code custom user interface layout.
 ---
 # Custom Layout
@@ -189,7 +189,9 @@ The **View** > **Appearance** menu has a section for customizing the editor regi
 
 ### Editor groups
 
-By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file. Create a new editor group by dragging an editor to the side, or using one of the **Split** commands in the context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
+By default, each opened editor goes into the same **editor group** and adds a new editor tab to the right. You can create new editor groups in order to group similar or related files,  or to allow [side by side editing](/docs/getstarted/userinterface.md#side-by-side-editing) of the same file.
+
+Create a new editor group by dragging an editor to the side, or by using one of the **Split** commands in the editor tab context menu to duplicate the current editor into a new editor group to the left, right, above, or below.
 
 ![Split editor commands in the editor tab context menu](images/custom-layout/split-editor-commands.png)
 
