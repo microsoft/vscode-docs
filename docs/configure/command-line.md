@@ -1,6 +1,6 @@
 ---
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)

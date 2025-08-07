@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -668,6 +668,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `chat.requestCodeBorder`: Border color of code blocks within the chat request bubble.
 - `chat.requestBubbleBackground`: Background color of the chat request bubble.
 - `chat.requestBubbleHoverBackground`: Background color of the chat request bubble on hover.
+- `chat.checkpointSeparator`: Chat checkpoint separator color.
 
 ## Inline Chat colors
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 106AA11C-DB26-493A-9E3C-16F513B2AEC8
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: The Visual Studio Code Extension Host is responsible for managing extensions and ensuring the stability and performance of Visual Studio Code.

@@ -1,6 +1,6 @@
 ---
 ContentId: 9f84b21e-5b76-4c3a-a5dd-2021ab343f1f
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Learn how to use GitHub Copilot in Visual Studio Code to write, debug, and fix tests.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
@@ -36,7 +36,6 @@ Copilot can help you write tests for your application code by generating test co
 1. Open your application code file.
 
 1. Open one of these views:
-    * Copilot Edits (`kb(workbench.action.chat.openEditSession)`)
     * Chat view (`kb(workbench.action.chat.open)`)
     * Inline Chat (`kb(inlineChat.start)`)
 
@@ -53,7 +52,7 @@ To generate tests for your application code without writing a prompt, you can us
 
 1. Open your application code file.
 1. Optionally, select the code you want to test.
-1. Right-click and select **Copilot** > **Generate Tests**.
+1. Right-click and select **Generate Code** > **Generate Tests**.
 
     Copilot generates test code in an existing test file, or creates a new test file if one doesn't exist.
 
