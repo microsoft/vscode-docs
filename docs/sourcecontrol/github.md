@@ -1,6 +1,6 @@
 ---
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -130,7 +130,7 @@ The diff editors from this view use the local file, so file navigation, IntelliS
 When you are done reviewing the pull request changes you can merge the PR or select **Exit Review Mode** to go back to the previous branch you were working on.
 
 > [!TIP]
-> You can also [let Copilot perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Copilot Code Review** button in the GitHub Pull Request view.
+> You can also [let Copilot perform a code review of the PR](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode) before you create it. Select the **Code Review** button in the GitHub Pull Request view.
 
 ## Issues
 

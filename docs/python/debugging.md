@@ -1,6 +1,6 @@
 ---
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/python-social.png
 ---

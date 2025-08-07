@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense

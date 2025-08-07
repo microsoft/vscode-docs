@@ -1,6 +1,6 @@
 ---
 ContentId: e02ded07-6e5a-4f94-b618-434a2c3e8f09
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Frequently asked questions for using GitHub Copilot in Visual Studio Code.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -38,7 +38,7 @@ Your limit of code completions and chat interactions is reset every month, start
 
 If only the chat interactions are reaching the limit, you can still use Copilot for code completions.
 
-If only the code completions are reaching the limit, you can still use Copilot for chat interactions and Copilot Edits.
+If only the code completions are reaching the limit, you can still use Copilot for chat interactions.
 
 ### My Copilot subscription is not detected in VS Code
 
@@ -60,7 +60,7 @@ See [Use a different GitHub account with Copilot](/docs/copilot/setup.md#use-a-d
 
 ### How can I remove Copilot from VS Code?
 
-To remove Copilot from VS Code, run the **Chat: Hide Copilot** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide Copilot** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
+To remove Copilot from VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide AI Features** option from the Copilot menu in the VS Code title bar. This removes the Copilot menu from the title bar and the Status Bar, and removes the Chat view.
 
 If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions from the Extensions view. After that, you can hide the Copilot menu.
 

@@ -1,7 +1,7 @@
 ---
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 ---
 # Remote Development using SSH
 
