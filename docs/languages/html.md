@@ -1,6 +1,6 @@
 ---
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code

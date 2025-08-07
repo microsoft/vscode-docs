@@ -1,6 +1,6 @@
 ---
 ContentId:
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Running Python Code in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
 ---

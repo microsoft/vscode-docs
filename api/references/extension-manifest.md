@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -165,19 +165,14 @@ Due to security concerns, we only allow badges from trusted services.
 
 We allow badges from the following URL prefixes:
 
-- api.bintray.com
 - api.travis-ci.com
-- api.travis-ci.org
 - app.fossa.io
 - badge.buildkite.com
 - badge.fury.io
-- badge.waffle.io
 - badgen.net
 - badges.frapsoft.com
 - badges.gitter.im
-- badges.greenkeeper.io
 - cdn.travis-ci.com
-- cdn.travis-ci.org
 - ci.appveyor.com
 - circleci.com
 - cla.opensource.microsoft.com
@@ -190,7 +185,6 @@ We allow badges from the following URL prefixes:
 - dev.azure.com
 - docs.rs
 - flat.badgen.net
-- gemnasium.com
 - github.com (from Workflows only)
 - gitlab.com
 - godoc.org
@@ -202,10 +196,8 @@ We allow badges from the following URL prefixes:
 - opencollective.com
 - snyk.io
 - travis-ci.com
-- travis-ci.org
 - visualstudio.com
 - vsmarketplacebadges.dev
-- www.versioneye.com
 
 Note : Replace vsmarketplacebadge.apphb.com badge with vsmarketplacebadges.dev badge.
 
