@@ -153,7 +153,7 @@ Implement the chat participant by using the [Chat Participant API](/api/referenc
 
     Alternately, you can implement the extension logic by invoking a backend service, by using traditional programming logic, or by using a combination of all these options. For example, you could invoke a web search to gather additional information, which you then provide as context to the language model.
 
-    While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". Learn how you can use the chat message history](#use-the-chat-message-history).
+    While processing the current request, you might want to refer to previous chat messages. For example, if a previous response returned a C# code snippet, the user's current request might be "give the code in Python". [Learn how you can use the chat message history](#use-the-chat-message-history).
 
     If you want to process a request differently based on the location of the chat input (Chat view, Quick Chat, inline chat), you can use the `location` property of the `vscode.ChatRequest`. For example, if the user sends a request from the terminal inline chat, you might look up a shell command. Whereas, if the user uses the Chat view, you could return a more elaborate response.
 
