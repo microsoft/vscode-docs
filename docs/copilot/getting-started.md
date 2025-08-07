@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Get started with GitHub Copilot in Visual Studio Code and create your first AI-powered suggestions in the editor.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -132,21 +132,21 @@ Let's start an editing session to return the contents of an HTML file for our we
 
     ![Screenshot of the Chat view, highlighting the dropdown to to change the chat mode to 'Edit'](./images/getting-started/copilot-chat-edit-mode.png)
 
-1. Notice that the `server.ts` file is automatically added as context for your chat prompt.
-
-    By adding the file as context to your prompt, the AI model can provide more relevant code edits. Optionally, add more context to your prompt with the **Add Context** button.
+1. Notice that the active file (`server.ts`) is automatically added as context for your chat prompt.
 
     ![Screenshot of the Chat view, showing the prompt input field with the `server.ts` file.](./images/getting-started/copilot-edits-working-set.png)
 
-1. Enter _Return a static html page as the home page and implement it._ in the chat input field and press `kbstyle(Enter)` to start a new edit session.
+    By adding files as context to your prompt, the AI model can provide more relevant code edits. Optionally, add more context to your prompt with the **Add Context** button, or by typing `#` followed by the file name in the prompt input field.
 
-    Notice that multiple edits are applied to your project: the `server.ts` file now returns the newly created `index.html` HTML page.
+1. Enter _Return a static html page as the home page and implement it_ in the chat input field and press `kbstyle(Enter)` to start a new edit session.
+
+    Notice that multiple edits are applied to your project: an `index.html` is created and the `server.ts` file is updated to return this file.
 
     ![Screenshot of VS Code editor, showing the chat response for returning a static HTML page in the web server response.](./images/getting-started/copilot-edits-html-response.png)
 
-1. If you're happy with the results, select **Keep** to apply all suggested changes.
+1. If you're happy with the results, select **Keep** in the Chat view to apply all suggested changes.
 
-    You can also navigate between the different edited files and accept or reject them by using the editor overlay controls.
+    You can also use the editor overlay controls to navigate between the different edits and accept or reject them individually.
 
     ![Screenshot of the Chat view, highlighting the Keep button to apply the changes and the editor overlay controls.](./images/getting-started/copilot-edits-accept.png)
 
@@ -177,8 +177,6 @@ One such place is the editor, whenever there's a red squiggle due to a compiler 
 Congratulations, you've now used AI to enhance your coding! In this tutorial, you successfully used AI features in VS Code to get code completions in the editor, and used chat to ask questions and generate code edits.
 
 * To learn more about chat, proceed to the [Copilot Chat Tutorial](/docs/copilot/chat/getting-started-chat.md).
-
-* To learn more about AI code editing, proceed to the [Copilot Edits](/docs/copilot/chat/copilot-edits.md) documentation.
 
 ## Related resources
 

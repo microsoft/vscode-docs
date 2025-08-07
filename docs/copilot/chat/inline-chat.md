@@ -1,6 +1,6 @@
 ---
 ContentId: e6b33fcb-8240-49dd-b6ca-5412d6fa669a
-DateApproved: 07/09/2025
+DateApproved: 08/07/2025
 MetaDescription: Use Inline Chat in Visual Studio Code to make edits directly in the editor or get command suggestions in the terminal.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
