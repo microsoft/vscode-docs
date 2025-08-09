@@ -233,7 +233,7 @@ This activation event is emitted and interested extensions will be activated **s
 
 ```json
 "activationEvents": [
-    "onTaskType":"npm"
+    "onTaskType:npm"
 ]
 ```
 
@@ -356,7 +356,7 @@ An activation event emitted when the specified language model tool is invoked.
 
 ```json
 "activationEvents": [
-    "onChatParticipant:my-language-model-tool"
+    "onLanguageModelTool:my-language-model-tool"
 ]
 ```
 
