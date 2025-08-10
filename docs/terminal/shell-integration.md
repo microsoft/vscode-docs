@@ -229,7 +229,7 @@ The suggest control can show extra details about the suggestion. You can toggle 
 
 ### Global completion caching
 
-In order to improve performance, globals for a particular shell are aggressively cached and require manual refreshing via the `terminal.integrated.suggest.clearCachedGlobals` command. You should run this after making changes to your shell startup logic that adds commands if they weren't picked up automatically.
+To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
 
 ## Supported escape sequences
 
