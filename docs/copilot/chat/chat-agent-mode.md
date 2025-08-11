@@ -296,83 +296,59 @@ Agent mode provides powerful autonomous capabilities, but it's essential to unde
 
 ### Understanding the security model
 
-Agent mode operates with significant autonomy - it can automatically write files to disk, run terminal commands, and invoke tools without individual confirmation for each action (depending on your configuration). This powerful functionality comes with important security considerations:
+Agent mode operates with significant autonomy and comes with important security considerations. It's crucial to understand the potential risks:
 
-**Autonomous file operations**: Agent mode directly modifies files in your workspace. Unlike manual editing where you review each change, agent mode can make multiple file modifications based on a single request.
+**Autonomous file operations**: Agent mode can automatically modify files in your workspace, including sensitive configuration files, source code, or data files. These modifications could potentially trigger watch tasks or scripts that run malicious code if working with untrusted projects.
 
-**Tool and command execution**: Agent mode can invoke various tools and run terminal commands to accomplish tasks. These operations can interact with your local system, external services, or modify your development environment.
+**Tool and command execution**: Agent mode can run tools and execute terminal commands that can run arbitrary code, interact with your local file system, communicate with external services, or modify your development environment. These operations have the same privileges as your user account.
 
-**Context and data access**: Agent mode has access to your workspace files and can use this information to make decisions about what changes to implement.
+**Context and data access**: Agent mode has access to your workspace files and can use this information to make decisions about what changes to implement. This includes potentially sensitive information like API keys, configuration files, or proprietary code.
 
-### Permission-based security architecture
+### Built-in protections
+
+VS Code includes several security protections when using agent mode:
+
+#### Workspace Trust integration
+
+Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary. Only use agent mode in workspaces you trust completely, as agent mode's autonomous capabilities should not be used with untrusted code or projects.
+
+#### Permission-based security architecture
 
 Agent mode uses a permission-based security model where you maintain control over potentially risky operations:
 
-**Tool approval system**: Before running most tools and all terminal commands, agent mode requests explicit confirmation. You can approve actions for the current session, workspace, or all future invocations. See [Manage tool approvals](#manage-tool-approvals) for details.
+**Approve tool calls and terminal commands**: Before running tools and terminal commands, agent mode requests explicit confirmation. You can approve actions for the current session, workspace, or all future invocations. See [Manage tool approvals](#manage-tool-approvals) for details.
 
-**Built-in vs. external tools**: Built-in VS Code tools generally run without confirmation, while MCP servers and extension-contributed tools require approval before first use.
+**Review file changes**: While agent mode can automatically write files, you can review proposed changes in the chat interface before they are applied.
 
-**Granular control**: You can selectively enable or disable specific tools using the tools picker, giving you precise control over what capabilities are available.
+**Tool enablement**: You can selectively enable or disable specific tools using the tools picker, giving you precise control over what capabilities are available.
 
-### Workspace Trust integration
+#### MCP security
 
-Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary:
+Before starting an MCP server, you need to trust it explicitly. This prevents malicious code execution on startup and shows a trust prompt when installing or when MCP server configuration changes.
 
-**Use trusted workspaces only**: Only enable agent mode in workspaces you trust completely. Agent mode's autonomous capabilities should not be used with untrusted code or projects.
+#### Additional safeguards
 
-**Trust verification**: Ensure your workspace is marked as trusted before using agent mode. Untrusted workspaces limit agent mode's functionality for security reasons.
-
-**Credential access**: Remember that agent mode operating in trusted workspaces may have access to your development credentials and can perform actions using those credentials.
-
-### Built-in security protections
-
-VS Code includes several built-in protections when using agent mode:
+**Secure credentials store**: VS Code uses a secure credentials store for tool configuration, helping protect sensitive authentication information.
 
 **Request limits**: The `setting(chat.agent.maxRequests)` setting limits the number of requests agent mode can make, preventing runaway operations.
 
-**User confirmation for risky operations**: Terminal commands and external tools require explicit user approval before execution.
-
 **Session isolation**: Tool approvals can be scoped to the current session, allowing you to grant temporary permissions that don't persist.
-
-**Audit trail**: All agent mode actions are visible in the chat history, providing transparency into what operations were performed.
 
 ### User responsibility and best practices
 
 While agent mode includes security protections, users should follow these best practices:
 
-**Review prompts carefully**: Be specific about what you want agent mode to do. Vague or overly broad requests may lead to unintended changes.
+**Review suggested commands before approval**: Carefully examine terminal commands and tool invocations before approving them. Don't approve operations you don't understand.
 
-**Monitor agent actions**: Pay attention to what tools and commands agent mode wants to run. Don't approve operations you don't understand.
+**Review MCP tool configuration before starting them**: Before enabling MCP servers or extension tools, understand what they can do, what data they can access, and verify the publisher information.
 
-**Use version control**: Always work with committed code so you can easily revert changes if needed. Agent mode works well with git workflows.
+**Review MCP server publisher information**: Check the source and reputation of MCP servers before installing and using them in your environment.
 
-**Start with trusted environments**: When learning agent mode, practice in development environments or isolated projects rather than production codebases.
+**Verify proposed changes to critical files**: Pay special attention when agent mode wants to modify important files like configuration files, security settings, or build scripts.
 
-**Understand tool capabilities**: Before enabling MCP servers or extension tools, understand what they can do and what data they can access.
+**Consider using dev containers or VMs for isolation**: For enhanced security, run agent mode operations in isolated environments like dev containers or virtual machines to limit potential impact.
 
-**Regular tool approval review**: Periodically review and reset your tool approvals using the **Chat: Reset Tool Confirmations** command.
-
-### Security for organizations
-
-Organizations deploying agent mode should consider:
-
-**Centralized settings management**: Use [centralized settings management](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) to control agent mode availability and auto-approval settings across the organization.
-
-**Training and guidelines**: Ensure developers understand agent mode's security implications and follow organizational security policies.
-
-**Environment isolation**: Consider restricting agent mode to development environments and requiring additional approvals for production use.
-
-### Reporting security concerns
-
-If you discover a security issue with agent mode or any VS Code feature:
-
-**Do not report publicly**: Security vulnerabilities should not be reported through public GitHub issues.
-
-**Use proper channels**: Report security issues to the Microsoft Security Response Center (MSRC) at [https://msrc.microsoft.com/create-report](https://aka.ms/opensource/security/create-report) or email [secure@microsoft.com](mailto:secure@microsoft.com).
-
-**Include details**: Provide as much detail as possible about the issue, including steps to reproduce and potential impact.
-
-For more information about Microsoft's security policies, see the [repository security documentation](https://github.com/microsoft/vscode-docs/blob/main/SECURITY.md).
+**When opening a codebase, open it in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, open it in restricted mode to prevent automatic execution of potentially harmful code.
 
 ## Settings
 
@@ -389,12 +365,12 @@ The following list contains the settings related to agent mode. You can configur
 
 ### Is agent mode secure to use?
 
-Agent mode includes built-in security protections and follows a permission-based model where you control potentially risky operations. However, it's designed for use in trusted environments with trusted code. Key security considerations include:
+Agent mode includes built-in security protections and follows a permission-based model, but it operates with significant autonomy and requires careful use. Key security considerations include:
 
-* **Workspace Trust**: Only use agent mode in trusted workspaces
-* **Tool approvals**: Review and approve tool invocations before they run
-* **Autonomous operations**: Agent mode can automatically modify files and run commands
-* **User oversight**: Monitor agent actions and understand what tools you're enabling
+* **Trusted environments only**: Only use agent mode in trusted workspaces with trusted code
+* **Autonomous operations**: Agent mode can automatically modify files, run commands, and access workspace data
+* **Review before approval**: Carefully review terminal commands and tool invocations before approving them
+* **MCP server trust**: Explicitly trust MCP servers before they can start and execute
 
 For comprehensive security guidance, see the [Security section](#security) above.
 
