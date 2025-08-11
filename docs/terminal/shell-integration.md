@@ -227,6 +227,10 @@ The `setting(terminal.integrated.suggest.showStatusBar)` setting controls if a s
 
 The suggest control can show extra details about the suggestion. You can toggle the visibility of these details with `kb(workbench.action.terminal.suggestToggleDetails)`. Screen reader users can focus the details control with `kb(workbench.action.terminal.suggestToggleDetailsFocus)` to hear them read out.
 
+### Global completion caching
+
+To improve performance, VS Code aggressively caches globals for a particular shell. When you make changes to shell startup logic that adds commands, manually refresh the cache with the **Terminal: Clear Suggest Cached Globals** command (`terminal.integrated.suggest.clearCachedGlobals`) if they weren't picked up automatically.
+
 ## Supported escape sequences
 
 VS Code supports several custom escape sequences:
