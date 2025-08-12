@@ -296,13 +296,13 @@ Agent mode provides powerful autonomous capabilities, but it's essential to unde
 
 ### Understanding the security model
 
-Agent mode operates with significant autonomy and comes with important security considerations. It's crucial to understand the potential risks:
+Agent mode operates with significant autonomy and comes with important security considerations:
 
-**Autonomous file operations**: Agent mode can automatically modify files in your workspace, including sensitive configuration files, source code, or data files. These modifications could potentially trigger watch tasks or scripts that run malicious code if working with untrusted projects.
+**Autonomous file operations**: Agent mode automatically modifies files in your workspace, including sensitive configuration files, source code, or data files. These modifications might trigger watch tasks or scripts that run malicious code if working with untrusted projects.
 
 **Tool and command execution**: Agent mode can run tools and execute terminal commands that can run arbitrary code, interact with your local file system, communicate with external services, or modify your development environment. These operations have the same privileges as your user account.
 
-**Context and data access**: Agent mode has access to your workspace files and can use this information to make decisions about what changes to implement. This includes potentially sensitive information like API keys, configuration files, or proprietary code.
+**Context and data access**: Agent mode has access to your workspace files and uses this information to make decisions about what changes to implement. This includes potentially sensitive information like API keys, configuration files, or proprietary code.
 
 ### Built-in protections
 
@@ -310,7 +310,7 @@ VS Code includes several security protections when using agent mode:
 
 #### Workspace Trust integration
 
-Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary. Only use agent mode in workspaces you trust completely, as agent mode's autonomous capabilities should not be used with untrusted code or projects.
+Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary. By default, when your workspace is in restricted mode (untrusted), agent mode and other AI capabilities are disabled for the workspace. Recommendation is that you carefully review code or projects you downloaded before you trust the workspace, and only then use agent mode.
 
 #### Permission-based security architecture
 
@@ -318,37 +318,39 @@ Agent mode uses a permission-based security model where you maintain control ove
 
 **Approve tool calls and terminal commands**: Before running tools and terminal commands, agent mode requests explicit confirmation. You can approve actions for the current session, workspace, or all future invocations. See [Manage tool approvals](#manage-tool-approvals) for details.
 
-**Review file changes**: While agent mode can automatically write files, you can review proposed changes in the chat interface before they are applied.
+**Review file changes**: While agent mode can automatically write files, you can review proposed changes in a diff editor and decide to keep or reject each individual change.
 
 **Tool enablement**: You can selectively enable or disable specific tools using the tools picker, giving you precise control over what capabilities are available.
 
-#### MCP security
+#### MCP server trust
 
-Before starting an MCP server, you need to trust it explicitly. This prevents malicious code execution on startup and shows a trust prompt when installing or when MCP server configuration changes.
+MCP servers might run arbitrary code on your computer or invoke external services on startup.
+
+When you install an MCP server or when its configuration changes, VS Code prompts you to explicitly trust the MCP server.  It's recommended that you review the MCP configuration before trusting the server.
 
 #### Additional safeguards
 
-**Secure credentials store**: VS Code uses a secure credentials store for tool configuration, helping protect sensitive authentication information.
+**Secure credentials store**: VS Code uses a secure credentials store for sensitive tool input parameters, helping protect sensitive authentication information.
 
 **Request limits**: The `setting(chat.agent.maxRequests)` setting limits the number of requests agent mode can make, preventing runaway operations.
 
-**Session isolation**: Tool approvals can be scoped to the current session, allowing you to grant temporary permissions that don't persist.
+**Session isolation**: You can scope tool approvals to the current session, enabling you to grant temporary permissions that don't persist.
 
 ### User responsibility and best practices
 
 While agent mode includes security protections, users should follow these best practices:
 
-**Review suggested commands before approval**: Carefully examine terminal commands and tool invocations before approving them. Don't approve operations you don't understand.
+* **Review suggested commands before approval**: Carefully examine terminal commands and tool invocations before approving them. Don't approve operations you don't understand.
 
-**Review MCP tool configuration before starting them**: Before enabling MCP servers or extension tools, understand what they can do, what data they can access, and verify the publisher information.
+* **Review MCP tool configuration before starting them**: Before enabling MCP servers or extension tools, understand what they can do, what data they can access, and verify the publisher information.
 
-**Review MCP server publisher information**: Check the source and reputation of MCP servers before installing and using them in your environment.
+* **Review MCP server publisher information**: Check the source and reputation of MCP servers before installing and using them in your environment.
 
-**Verify proposed changes to critical files**: Pay special attention when agent mode wants to modify important files like configuration files, security settings, or build scripts.
+* **Verify proposed changes to critical files**: Pay special attention when agent mode wants to modify important files like configuration files, security settings, or build scripts.
 
-**Consider using dev containers or VMs for isolation**: For enhanced security, run agent mode operations in isolated environments like dev containers or virtual machines to limit potential impact.
+* **Consider using dev containers or VMs for isolation**: For enhanced security, run agent mode operations in isolated environments like [dev containers](https://code.visualstudio.com/docs/devcontainers/containers) or virtual machines to limit potential impact.
 
-**When opening a codebase, open it in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, open it in restricted mode to prevent automatic execution of potentially harmful code.
+* **When opening a codebase, open it in restricted mode**: Until you've reviewed a project for malicious code like watch tasks or scripts, open it in restricted mode to prevent automatic execution of potentially harmful code.
 
 ## Settings
 
@@ -398,3 +400,20 @@ A chat request can have a maximum of 128 tools enabled at a time. If you have mo
 
 * [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
 * [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
+ot/copilot-customization.md)
+lot-customization.md)
+mization.md)
+/docs/copilot/copilot-customization.md)
+ot/copilot-customization.md)
+lot-customization.md)
+lot-customization.md)
+customization.md)
+ot/copilot-customization.md)
+lot-customization.md)
+lot-customization.md)
+lot-customization.md)
+.md)
+ot/copilot-customization.md)
+lot-customization.md)
+lot-customization.md)
+lot-customization.md)
