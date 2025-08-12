@@ -63,6 +63,8 @@ The Visual Studio Marketplace employs several mechanisms to protect you from mal
 
 * **Extension Signature Verification**: The Visual Studio Marketplace signs all extensions when they're published. VS Code checks this signature when you install an extension to verify the integrity and the source of the extension package.
 
+* **Secret Scanning**: The Marketplace automatically scans every newly published extension for secrets such as API keys or credentials (e.g., Azure DevOps PAT tokens). If any are detected, publishing is blocked to prevent potential security risks. VSCE tool scans .env files during packaging and blocks publishing if secrets are found.
+
 Learn about these measures in the [Security and Trust in Visual Studio Marketplace blog post](https://devblogs.microsoft.com/blog/security-and-trust-in-visual-studio-marketplace).
 
 ## Report suspicious extensions
