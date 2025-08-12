@@ -310,7 +310,7 @@ VS Code includes several security protections when using agent mode:
 
 #### Workspace Trust integration
 
-Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary. By default, when your workspace is in restricted mode (untrusted), agent mode and other AI capabilities are disabled for the workspace. Recommendation is that you carefully review code or projects you downloaded before you trust the workspace, and only then use agent mode.
+Workspace Trust is VS Code's security feature that helps you decide whether code in a folder can be executed safely. Agent mode respects VS Code's [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature, which is a critical security boundary. By default, when your workspace is in restricted mode (untrusted), agent mode and other AI capabilities are disabled for the workspace. Recommendation is that you carefully review code or projects you downloaded before you trust the workspace, and only then use agent mode.
 
 #### Permission-based security architecture
 
@@ -400,20 +400,3 @@ A chat request can have a maximum of 128 tools enabled at a time. If you have mo
 
 * [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
 * [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
-ot/copilot-customization.md)
-lot-customization.md)
-mization.md)
-/docs/copilot/copilot-customization.md)
-ot/copilot-customization.md)
-lot-customization.md)
-lot-customization.md)
-customization.md)
-ot/copilot-customization.md)
-lot-customization.md)
-lot-customization.md)
-lot-customization.md)
-.md)
-ot/copilot-customization.md)
-lot-customization.md)
-lot-customization.md)
-lot-customization.md)
