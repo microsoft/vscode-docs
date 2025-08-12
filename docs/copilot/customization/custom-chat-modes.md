@@ -1,25 +1,25 @@
 ---
 ContentId: 276ecd8f-2a76-467e-bf82-846d49c13ab5
 DateApproved: 08/07/2025
-MetaDescription: Learn how to use chat modes in VS Code to use chat for different tasks, such as asking questions, making code edits, and autonomous coding tasks. Define custom chat modes to chat for your usage scenario or project.
+MetaDescription: Learn how to use chat modes in VS Code for different tasks, and create custom chat modes to tailor AI chat behavior for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Chat modes in VS Code
 
 Chat modes are predefined configurations that enable you to tailor the AI chat behavior in Visual Studio Code for specific tasks, such as asking questions, making code edits, or performing autonomous coding tasks. Switch between chat modes at any time in the Chat view, depending on the task you want to accomplish.
 
-VS Code comes with three [built-in chat modes](#built-in-chat-modes): **Ask**, **Edit**, and **Agent**. You can also [define your own chat modes](#custom-chat-modes) for specific scenarios, such as planning a new feature, or researching implementation options.
+VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can also create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
 ## Prerequisites
 
-* Install the latest version of [Visual Studio Code](/download)
+* Install the latest version of Visual Studio Code
 * Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
 
 ## Switch between chat modes
 
 To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open)`), and then select the desired mode from the chat mode dropdown list.
 
-![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
+![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](../chat/images/chat-modes/chat-mode-dropdown.png)
 
 ## Built-in chat modes
 
@@ -27,9 +27,9 @@ Chat in VS Code can operate in different modes, each optimized for a specific us
 
 | Chat mode | Description |
 |-----------|-------------|
-| [Ask mode](/docs/copilot/chat/chat-ask-mode.md) | Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts.<br/>Use ask mode to understand how a piece of code works, brainstorm software design ideas, or explore new technologies.<br/>Open ask mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). |
-| [Edit mode](/docs/copilot/chat/copilot-edits.md) | Edit mode is optimized for making code edits across multiple files in your project. VS Code directly applies the code changes in the editor, where you can review them in-place. <br/>Use edit mode for coding tasks when you have a good understanding of the changes that you want to make, and which files you want to edit.<br/>Open edit mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). |
-| [Agent mode](/docs/copilot/chat/chat-agent-mode.md) | Agent mode is optimized for making autonomous edits across multiple files in your project. <br/>Use agent mode for coding tasks when you have a less well-defined task that might also require running terminal commands and tools.<br/>Open agent mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). |
+| [Ask mode](/docs/copilot/chat/chat-ask-mode.md) | Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts. Use ask mode to understand how a piece of code works, brainstorm software design ideas, or explore new technologies. Open ask mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=ask) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=ask). |
+| [Edit mode](/docs/copilot/chat/copilot-edits.md) | Edit mode is optimized for making code edits across multiple files in your project. VS Code directly applies the code changes in the editor, where you can review them in-place. Use edit mode for coding tasks when you have a good understanding of the changes that you want to make, and which files you want to edit. Open edit mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=edit) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=edit). |
+| [Agent mode](/docs/copilot/chat/chat-agent-mode.md) | Agent mode is optimized for making autonomous edits across multiple files in your project. Use agent mode for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Open agent mode in [Stable](vscode://GitHub.Copilot-Chat/chat?mode=agent) \| [Insiders](vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent). |
 
 ## Custom chat modes
 
@@ -109,5 +109,6 @@ Hover over a chat mode in the list and choose from the available actions: copy o
 
 * [Get started with the Chat tutorial](/docs/copilot/chat/getting-started-chat.md)
 * [Get an overview of chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
+* [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
+* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)

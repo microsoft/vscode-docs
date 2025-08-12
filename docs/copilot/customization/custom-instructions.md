@@ -1,57 +1,21 @@
 ---
-ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
+ContentId: 8b4f3c21-4e02-4a89-9f15-7a8d6b5c2e91
 DateApproved: 08/07/2025
-MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions and reusable prompt files to align AI responses with your coding practices and project requirements.
-MetaSocialImage: images/shared/github-copilot-social.png
+MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
+MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Customize AI responses in VS Code
+# Custom instructions for Copilot Chat
 
-Chat in Visual Studio Code can give you responses and generate code that matches your coding practices and project requirements, if you give it the right context. Instead of repeatedly adding this information in every chat prompt, you can store this context in files and automatically include it in every chat request. In this article, you learn how to use custom instructions and prompt files to customize AI responses in VS Code.
+Custom instructions enable you to define common guidelines and rules that automatically influence how Copilot generates code, performs code reviews, and handles other development tasks. Instead of manually including context in every chat prompt, custom instructions ensure consistent AI responses that align with your coding practices and project requirements.
 
-There are three main ways to customize AI responses in Visual Studio Code:
+## What are custom instructions?
 
-* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done). Learn how to [define custom instructions](#custom-instructions). VS Code can also help you [generate a custom instructions file for your workspace](#generate-an-instructions-file-for-your-workspace) that matches your coding practices and project requirements.
-
-    <details>
-    <summary>Example scenarios</summary>
-
-    * Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards.
-    * Set rules for code reviews, such as checking for security vulnerabilities or performance issues.
-    * Provide instructions for generating commit messages or pull request titles and descriptions.
-
-    </details>
-
-* **Prompt files**: Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done). Optionally, you can include tasks-specific guidelines about how the task should be performed, or you can reference custom instructions in the prompt file. Learn how to [create prompt files](#prompt-files-experimental).
-
-    <details>
-    <summary>Example scenarios</summary>
-
-    * Create reusable prompts for common coding tasks, such as scaffolding a new component, API route, or generating tests.
-    * Define prompts for performing code reviews, such as checking for code quality, security vulnerabilities, or performance issues.
-    * Create step-by-step guides for complex processes or project-specific patterns.
-    * Define prompts for generating implementation plans, architectural designs, or migration strategies.
-
-    </details>
-
-* **Custom chat modes**: Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
-
-    <details>
-    <summary>Example scenarios</summary>
-
-    * Create a chat mode for planning, where the AI has read-only access to the codebase and can only generate implementation plans.
-    * Define a research chat mode, where the AI can reach out to external resources to explore new technologies or gather information.
-    * Create a front-end developer chat mode, where the AI can only generate and modify code related to front-end development.
-
-    </details>
-
-## Custom instructions
-
-Custom instructions enable you to describe common guidelines or rules to get responses that match your specific coding practices and tech stack. Instead of manually including this context in every chat query, custom instructions automatically incorporate this information with every chat request.
+Custom instructions describe the conditions and standards that AI should follow when generating responses (_how_ a task should be done). They automatically apply to every chat request, ensuring consistency across your development workflow.
 
 > [!NOTE]
 > Custom instructions are not taken into account for [code completions](/docs/copilot/ai-powered-suggestions.md).
 
-### Types of custom instructions
+## Types of custom instructions
 
 VS Code supports multiple ways to define custom instructions:
 
@@ -63,9 +27,9 @@ VS Code supports multiple ways to define custom instructions:
 
 You can use a combination of these approaches to define custom instructions and the instructions are all included in the chat request. No particular order or priority is applied to the instructions, so make sure to avoid conflicting instructions in the files.
 
-### Custom instructions examples
+## Custom instructions examples
 
-The following examples demonstrates how to use custom instructions:
+The following examples demonstrate how to use custom instructions:
 
 <details>
 <summary>Example: general coding guidelines</summary>
@@ -120,7 +84,7 @@ Apply the [general coding guidelines](./general-coding.instructions.md) to all c
 
 </details>
 
-### Use a `.github/copilot-instructions.md` file
+## Use a `.github/copilot-instructions.md` file
 
 You can store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and describe your coding practices, preferred technologies, and project requirements by using Markdown. These instructions only apply to the workspace where the file is located.
 
@@ -139,7 +103,7 @@ To use a `.github/copilot-instructions.md` file:
 > [!NOTE]
 > GitHub Copilot in Visual Studio and GitHub.com also detect the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
 
-### Use `.instructions.md` files
+## Use `.instructions.md` files
 
 You can also create one or more `.instructions.md` files to store custom instructions for specific tasks. For example, you can create instruction files for different programming languages, frameworks, or project types.
 
@@ -150,7 +114,7 @@ VS Code supports two types of scopes for instruction files:
 * **Workspace instructions files**: are only available within the workspace and are stored in the `.github/instructions` folder of the workspace.
 * **User instruction files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
 
-#### Instructions file structure
+### Instructions file structure
 
 An instructions file is a Markdown file with the `.instructions.md` file suffix. The instructions file consists of two sections:
 
@@ -174,7 +138,7 @@ An instructions file is a Markdown file with the `.instructions.md` file suffix.
 
     You can reference other instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the instruction file.
 
-#### Create an instructions file
+### Create an instructions file
 
 You can create instructions files in your workspace or user profile. Workspace instructions files are only available within the workspace, while user instructions files are available across multiple workspaces.
 
@@ -182,7 +146,7 @@ To create an instructions file:
 
 1. Select the **Configure Chat** button in the Chat view, select **Instructions**, and then select **New instruction file**.
 
-    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](images/customization/configure-chat-instructions.png)
+    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -202,7 +166,7 @@ To create an instructions file:
 
 To modify an existing instructions file, select the **Configure Chat** button in the Chat view, select **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
-#### Use an instructions file in chat
+### Use an instructions file in chat
 
 If you specified the `applyTo` metadata property in the instructions file, VS Code automatically applies the instructions to all files that match the glob pattern.
 
@@ -212,7 +176,7 @@ To manually attach an instructions file to a chat prompt:
 
 * Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instruction file from the Quick Pick.
 
-### Specify custom instructions in settings
+## Specify custom instructions in settings
 
 You can configure custom instructions for specialized scenarios in your user or workspace settings.
 
@@ -231,27 +195,30 @@ You can define the custom instructions as text in the settings value (`text` pro
 The following code snippet shows how to define a set of instructions in the `settings.json` file.
 
 ```json
+{
     "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
-        { "text": "Always include a list of key changes." },
+        { "text": "Always include a list of key changes." }
+    ],
     "github.copilot.chat.reviewSelection.instructions": [
         { "file": "guidance/backend-review-guidelines.md" },
         { "file": "guidance/frontend-review-guidelines.md" }
-  ]
+    ]
+}
 ```
 
-### Generate an instructions file for your workspace
+## Generate an instructions file for your workspace
 
 VS Code can analyze your workspace and generate a matching `.github/copilot-instructions.md` file with custom instructions that match your coding practices and project requirements.
 
 To generate an instructions file for your workspace:
 
-1. Select the **Configure Chat** button in the Chat view and select **Instructions**
+1. Select the **Configure Chat** button in the Chat view and select **Instructions**.
 
 1. Select **Generate instructions** from the Quick Pick.
 
 1. Review the generated instructions file and make any necessary edits.
 
-### Tips for defining custom instructions
+## Tips for defining custom instructions
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
@@ -265,158 +232,7 @@ To generate an instructions file for your workspace:
 
 * Reference custom instructions in your prompt files to keep your prompts clean and focused, and to avoid duplicating instructions for different tasks.
 
-## Prompt files (experimental)
-
-Prompt files are reusable prompts for common tasks like generating code or performing a code review. You define the prompt content in a Markdown file. A prompt file is a standalone prompt that you can run directly in chat. Optionally, you can also include guidelines about how the task should be performed.
-
-> [!TIP]
-> Prompt files can take advantage of instruction files to reuse common guidelines and have task-specific instructions included in the prompt. For example, a security review prompt file can reference a custom instructions that describe general security practices, while also including specific instructions on how to report the findings of the review.
-
-VS Code supports two types of scopes for prompt files:
-
-* **Workspace prompt files**: Are only available within the workspace and are stored in the `.github/prompts` folder of the workspace.
-* **User prompt files**: Are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
-
-### Prompt file examples
-
-The following examples demonstrate how to use prompt files:
-
-<details>
-<summary>Example: generate a React form component</summary>
-
-```markdown
----
-mode: 'agent'
-model: GPT-4o
-tools: ['githubRepo', 'codebase']
-description: 'Generate a new React form component'
----
-Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
-
-Ask for the form name and fields if not provided.
-
-Requirements for the form:
-* Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-* Use `react-hook-form` for form state management:
-* Always define TypeScript types for your form data
-* Prefer *uncontrolled* components using register
-* Use `defaultValues` to prevent unnecessary rerenders
-* Use `yup` for validation:
-* Create reusable validation schemas in separate files
-* Use TypeScript types to ensure type safety
-* Customize UX-friendly validation rules
-```
-
-</details>
-
-<details>
-<summary>Example: perform a security review of a REST API</summary>
-
-```markdown
----
-mode: 'ask'
-model: Claude Sonnet 4
-description: 'Perform a REST API security review'
----
-Perform a REST API security review and provide a TODO list of security issues to address.
-
-* Ensure all endpoints are protected by authentication and authorization
-* Validate all user inputs and sanitize data
-* Implement rate limiting and throttling
-* Implement logging and monitoring for security events
-
-Return the TODO list in a Markdown format, grouped by priority and issue type.
-```
-
-</details>
-
-### Prompt file structure
-
-A prompt file is a Markdown file with the `.prompt.md` file suffix. It has the following two main sections:
-
-* (Optional) Header with metadata (Front Matter syntax)
-
-    * `mode`: The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default).
-    * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
-    * `tools`: Array of tool (set) names to indicate which tools (sets) can be used in agent mode. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
-    * `description`: A short description of the prompt.
-
-* Body with the prompt content
-
-    Prompt files mimic the format of writing prompts in chat. This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies. You can use Markdown formatting to structure the prompt content, including headings, lists, and code blocks.
-
-You can reference other workspace files, prompt files, or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
-
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
-
-### Create a prompt file
-
-You can create prompt files in your workspace or user profile. Workspace prompt files are only available within the workspace, while user prompt files are available across multiple workspaces.
-
-To create a prompt file:
-
-1. Select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select **New prompt file**.
-
-    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](images/customization/configure-chat-instructions.png)
-
-    Alternatively, use the **Chat: New Prompt File** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Choose the location where the prompt file should be created.
-
-    * **Workspace**: By default, workspace prompt files are stored in the `.github/prompts` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.promptFilesLocations)` setting.
-
-    * **User profile**: User prompt files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
-
-1. Enter a name for your prompt file.
-
-    Alternatively, you can directly create a `.prompt.md` file in the prompts folder of your workspace.
-
-1. Author the chat prompt by using Markdown formatting.
-
-    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#index.ts` references within the prompt file.
-
-    You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](#custom-instructions) in the same way.
-
-To modify an existing prompt file, select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
-
-### Use a prompt file in chat
-
-You have multiple options to run a prompt file:
-
-* Run the **Chat: Run Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) and select a prompt file from the Quick Pick.
-
-* In the Chat view, type `/` followed by the prompt file name in the chat input field.
-
-    This option enables you to pass additional information in the chat input field. For example, `/create-react-form` or `/create-react-form: formName=MyForm`.
-
-* Open the prompt file in the editor, and press the play button in the editor title area. You can choose to run the prompt in the current chat session or open a new chat session.
-
-    This option is useful for quickly testing and iterating on your prompt files.
-
-### Sync user prompt files across devices
-
-VS Code can sync your user prompt files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
-
-To sync your user prompt files, enable Settings Sync for prompt and instruction files:
-
-1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
-
-1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-1. Select **Prompts and Instructions** from the list of settings to sync.
-
-## Centrally manage instructions and prompt files in VS Code
-
-Enable or disable instructions and prompt files in VS Code with the `setting(chat.promptFiles)` setting.
-
-To centrally enable or disable this setting within your organization with device management, check [Centrally Manage VS Code Settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) in the enterprise documentation.
-
-## Settings
+## Settings reference
 
 <details>
 <summary>Custom instructions settings</summary>
@@ -442,24 +258,9 @@ To centrally enable or disable this setting within your organization with device
 
 </details>
 
-<details>
-<summary>Prompt files settings</summary>
-
-* `setting(chat.promptFiles)` _(Experimental)_: Enable support for reusable prompt files and instruction files.
-
-* `setting(chat.promptFilesLocations)` _(Experimental)_: A dictionary of folders where prompt files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, prompt files are located in the `.github/prompts` folder of your workspace.
-
-    ```json
-    "chat.promptFilesLocations": {
-        ".github/prompts": false,
-        "setup/**/prompts": true
-    }
-    ```
-
-</details>
-
 ## Related content
 
-* [Create custom chat modes](/docs/copilot/chat/chat-modes.md)
+* [Customize AI responses overview](/docs/copilot/customization/overview.md)
+* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
+* [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)

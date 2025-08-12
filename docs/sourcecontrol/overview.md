@@ -100,7 +100,7 @@ GitHub Copilot in VS Code can generate a commit message for you, based on the co
 
 ![Screenshot that shows the Generate Commit Message with Copilot button in the commit message input box.](images/overview/copilot-generate-commit-message.png)
 
-If you have specific requirements for your commit message for your organization or project, you can use Copilot custom instructions for generating commit messages. For example, _commit messages have a maximum length of 60 chars and should start with a verb in the present tense_. Get more details about [Copilot custom instructions for generating commit messages](/docs/copilot/copilot-customization.md).
+If you have specific requirements for your commit message for your organization or project, you can use Copilot custom instructions for generating commit messages. For example, _commit messages have a maximum length of 60 chars and should start with a verb in the present tense_. Get more details about [Copilot custom instructions for generating commit messages](/docs/copilot/customization/overview.md).
 
 ### Author commit messages using an editor
 

@@ -342,7 +342,7 @@ MCP servers can provide preconfigured prompts for common tasks, so you don't hav
 
 ## Group related tools in a tool set
 
-As you add more MCP servers, the list of tools can become long. This can make it tedious to manage individual tools, for example when you want to define a [reusable prompt file](/docs/copilot/copilot-customization.md#prompt-files-experimental) or a [custom chat mode](/docs/copilot/chat/chat-modes.md).
+As you add more MCP servers, the list of tools can become long. This can make it tedious to manage individual tools, for example when you want to define a [reusable prompt file](/docs/copilot/customization/prompt-files.md) or a [custom chat mode](/docs/copilot/customization/custom-chat-modes.md).
 
 To help you manage tools, you can group related tools into a tool set. A tool set is a collection of individual tools that you can refer to as a single entity. A tool set can contain built-in tools, MCP tools, or tools provided by extensions.
 

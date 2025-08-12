@@ -108,7 +108,6 @@
           ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
           ["Chat Tutorial", "/docs/copilot/chat/getting-started-chat"],
           ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Chat Modes", "/docs/copilot/chat/chat-modes"],
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
@@ -121,7 +120,17 @@
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
-      ["Customize Copilot", "/docs/copilot/copilot-customization"],
+      ["", "", {
+        "name": "Customize Copilot",
+        "area": "copilot/customization",
+        "topics": [
+          ["Overview", "/docs/copilot/customization/overview"],
+          ["Custom Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Prompt Files", "/docs/copilot/customization/prompt-files"],
+          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"]
+        ]
+      }
+      ],
       ["Language Models", "/docs/copilot/language-models"],
       ["", "", {
         "name": "Guides",
