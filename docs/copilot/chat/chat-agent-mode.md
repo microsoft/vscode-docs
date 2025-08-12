@@ -320,7 +320,7 @@ Agent mode uses a permission-based security model where you maintain control ove
 
 **Review file changes**: While agent mode can automatically write files, you can review proposed changes in a diff editor and decide to keep or reject each individual change.
 
-**Tool enablement**: You can selectively enable or disable specific tools using the tools picker, giving you precise control over what capabilities are available.
+**Tool enablement**: You can selectively enable or disable specific tools using the tools picker, giving you precise control over what capabilities are available to the language model. For example, to prevent the model from making code edits in planning mode.
 
 #### MCP server trust
 
