@@ -19,7 +19,7 @@ All frameworks or SDKs that support OTLP and follow [semantic conventions for ge
 
 > 1. The SDKs in brackets are non-Microsoft tools that add OTLP support because the official SDKs do not support OTLP.
 > 1. These tools do not fully follow the OpenTelemetry rules for generative AI systems.
-> 1. For OpenAI SDK, only chat completions API is supported. The responses API is not supported yet.
+> 1. For OpenAI SDK, only the [Chat Completions API](https://platform.openai.com/docs/api-reference/chat) is supported. The [Responses API](https://platform.openai.com/docs/api-reference/responses) is not supported yet.
 
 ## How to get started with tracing
 
