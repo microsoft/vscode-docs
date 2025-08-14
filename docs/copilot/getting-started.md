@@ -35,7 +35,7 @@ Code completions provide AI suggestions as you type, helping you write code fast
 
     Notice that as you type, VS Code suggests the complete HTML structure in gray dimmed text. This is called "ghost text."
 
-    ![Screenshot showing Copilot suggesting HTML structure completion](./images/getting-started/html-completion.png)
+    ![Screenshot showing Copilot suggesting HTML structure completion.](./images/getting-started/html-completion.png)
 
 1. Press `kbstyle(Tab)` to accept the suggestion.
 
@@ -53,7 +53,7 @@ Code completions provide AI suggestions as you type, helping you write code fast
 
 1. If you see multiple suggestions, hover over the ghost text to see navigation controls, or use `kb(editor.action.inlineSuggest.showNext)` and `kb(editor.action.inlineSuggest.showPrevious)` to cycle through options.
 
-    ![Screenshot showing inline suggestion navigation controls](./images/getting-started/inline-suggestion-navigation.png)
+    ![Screenshot showing inline suggestion navigation controls.](./images/getting-started/inline-suggestion-navigation.png)
 
 Code completions work automatically as you type, learning from your patterns and the context of your project. They're particularly helpful for writing boilerplate code, HTML structures, and repetitive patterns.
 
@@ -67,7 +67,7 @@ Agent mode is VS Code's most powerful AI capability. Given a natural language pr
 
 1. In the chat mode dropdown at the top of the Chat view, select **Agent**.
 
-    ![Screenshot showing the agent mode selection in Chat view](./images/getting-started/agent-mode-selection.png)
+    ![Screenshot showing the agent mode selection in Chat view.](./images/getting-started/agent-mode-selection.png)
 
 1. Enter the following prompt and press `kbstyle(Enter)`:
 
@@ -111,7 +111,7 @@ While agent mode handles large features, inline chat is perfect for targeted imp
 
 1. Select the code block and then press `kb(inlinechat.start)` to open editor inline chat.
 
-    ![Screenshot showing inline chat starting for selected code block](./images/getting-started/inline-chat-start.png)
+    ![Screenshot showing inline chat starting for selected code block.](./images/getting-started/inline-chat-start.png)
 
     > [!NOTE]
     > The exact code might vary because large language models are nondeterministic.
@@ -124,7 +124,7 @@ While agent mode handles large features, inline chat is perfect for targeted imp
 
     Notice how inline chat focuses specifically on the selected code and makes targeted improvements.
 
-    ![Screenshot showing inline chat adding validation to selected function](./images/getting-started/inline-chat-validation.png)
+    ![Screenshot showing inline chat adding validation to selected function.](./images/getting-started/inline-chat-validation.png)
 
 1. Review the changes and select **Accept** to apply them.
 
@@ -224,7 +224,7 @@ Custom chat modes create specialized AI personas for specific tasks. Let's creat
 
 1. Save the file. In the Chat view, you can now select this custom mode from the chat mode dropdown.
 
-    ![Screenshot showing the Code Reviewer custom mode in the chat mode dropdown](./images/getting-started/custom-mode-dropdown.png)
+    ![Screenshot showing the Code Reviewer custom mode in the chat mode dropdown.](./images/getting-started/custom-mode-dropdown.png)
 
 1. Test your custom reviewer mode:
 
@@ -233,7 +233,7 @@ Custom chat modes create specialized AI personas for specific tasks. Let's creat
 
    Notice how the AI now behaves as a code reviewer, providing analysis and suggestions without writing code directly.
 
-    ![Screenshot showing custom reviewer mode analyzing code](./images/getting-started/custom-reviewer-mode.png)
+    ![Screenshot showing custom reviewer mode analyzing code.](./images/getting-started/custom-reviewer-mode.png)
 
     > [!TIP]
     > Provide more context in your prompts for better or different responses. You can type `#` to reference specific files or predefined context variables like `#codebase`.
@@ -261,7 +261,7 @@ Smart actions provide AI functionality directly integrated within VS Code's inte
     * The nature of the changes (added features, bug fixes, refactoring)
     * The scope and impact of modifications
 
-    ![Screenshot showing generated commit message in Source Control view](./images/getting-started/generated-commit-message.png)
+    ![Screenshot showing generated commit message in Source Control view.](./images/getting-started/generated-commit-message.png)
 
 1. Review the generated message. If you're satisfied with it, proceed with your commit. If you want a different style or focus, select the sparkle icon again to generate an alternative message.
 
