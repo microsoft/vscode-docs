@@ -306,7 +306,6 @@ Or check out the [VS Code Copilot Series](https://www.youtube.com/playlist?list=
 
 ## Next steps
 
-* Get started with the introductory [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md).
 * [Use ask mode to ask questions about your code](/docs/copilot/chat/chat-ask-mode.md)
 * [Use agent mode to start an autonomous coding session](/docs/copilot/chat/chat-agent-mode.md)
 * [Use edit mode to make code edits across multiple files](/docs/copilot/chat/copilot-edits.md)
