@@ -75,10 +75,12 @@ You have multiple options to add an MCP server in VS Code:
 
 * **Direct installation**: visit the [curated list of MCP servers](https://code.visualstudio.com/mcp) and select **Install** on any MCP server to automatically add it to your VS Code instance.
 * **Workspace settings**: add a `.vscode/mcp.json` file in your workspace to configure MCP servers scoped to a workspace.
-* **User settings**: specify the server in your user configuration (**MCP: Open User Configuration**) to enable the MCP server across all workspaces, synchronized via [Settings Sync](/docs/configure/settings-sync.md).
+* **User or Remote settings**: specify the server in your user configuration (**MCP: Open User Configuration** or **MCP: Open Remote User Configuration**) to enable the MCP server across all workspaces. MCP servers in your user settings can be synchronized via [Settings Sync](/docs/configure/settings-sync.md).
 * **Automatic discovery**: enable autodiscovery (`setting(chat.mcp.discovery.enabled)`) of MCP servers defined in other tools, such as Claude Desktop.
 
 To view and manage the list of configured MCP servers, run the **MCP: Show Installed Servers** command from the Command Palette or visit the **MCP SERVERS - INSTALLED** section in the Extensions view.
+
+MCP servers are executed wherever they're configured. If you're connected to a [remote](/docs/remote/remote-overview.md) and want a server to run on the remote machine, it should be defined in your remote settings (**MCP: Open Remote User Configuration**) or in the workspace's settings. MCP servers defined in your user settings are always executed locally.
 
 When VS Code starts the MCP server for the first time, it discovers the server's capabilities and tools. You can then [use these tools in agent mode](#use-mcp-tools-in-agent-mode). VS Code caches the list of tools for an MCP server. To clear the cached tools, use the **MCP: Reset Cached Tools** command in the Command Palette.
 
