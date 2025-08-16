@@ -5,8 +5,8 @@ PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-08
 Author: Alexandru Dima
-MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.png
----
+**MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.png
+**---
 # Optimizations in Syntax Highlighting
 
 February 8, 2017 - Alexandru Dima
@@ -14,37 +14,37 @@ February 8, 2017 - Alexandru Dima
 Visual Studio Code version 1.9 includes a cool performance improvement that we've been working on and I wanted to tell its story.
 
 **TL;DR** TextMate themes will look more like their authors intended in VS Code 1.9, while being rendered faster and with less memory consumption.
-
----
+**
+**---
 
 ## Syntax Highlighting
 
 Syntax Highlighting usually consists of two phases. Tokens are assigned to source code, and then they are targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
 
-Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
+Tokenization in VS Code (and in the [Monaco Editor][def15]) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
 
 Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens:
 
 <center>
-<img src="/assets/blogs/2017/02/08/tokenization-1.gif" alt="Tokenization Single Line">
+<img src="[def8]" alt="Tokenization Single Line">
 </center>
 
 More rarely, typing on a line results in a retokenization/repaint of the current line and some of the ones below (until an equal end state is encountered):
 
 <center>
-<img src="/assets/blogs/2017/02/08/tokenization-2.gif" alt="Tokenization Multiple Lines">
-</center>
 
----
+</center>
+**
+**---
 
 ## How we represented tokens in the past
 
-The code for the editor in VS Code was written long before VS Code existed. It was shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement we had was to reduce memory usage.
+The code for the editor in VS Code was written long before VS Code existed. It was shipped in the form of the [Monaco Editor][def15] in various Microsoft projects, including Internet Explorer's F12 tools. One requirement we had was to reduce memory usage.
 
 In the past, we wrote tokenizers by hand (there is no feasible way to interpret TextMate grammars in the browser even today, but that's another story). For the line below, we would get the following tokens from our hand-written tokenizers:
 
 <center>
-<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
+<img src="[def23]" alt="Line offsets">
 </center>
 
 ```javascript
@@ -61,7 +61,7 @@ tokens = [
 
 Holding on to that tokens array takes 648 bytes in Chrome and so storing such an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc). Our current machines do have a lot of RAM, but storing 648 bytes for a 15 characters line is unacceptable.
 
-So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/microsoft/vscode/blob/release/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given that there would be duplicate token types, we collected them in a separate map (per file), doing something like the following:
+So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8][def18]. Given that there would be duplicate token types, we collected them in a separate map (per file), doing something like the following:
 
 ```javascript
 //     0        1               2                  3                      4
@@ -77,7 +77,7 @@ tokens = [
 ]
 ```
 
-We'd then encode the `startIndex` (32 bits) and the `type` (16 bits) in 48 bits of [the 53 mantissa bits](https://stackoverflow.com/a/2803010) a JavaScript number has. Our tokens array would finally look like this, and the map array would be reused for the entire file:
+We'd then encode the `startIndex` (32 bits) and the `type` (16 bits) in 48 bits of [the 53 mantissa bits][def19] a JavaScript number has. Our tokens array would finally look like this, and the map array would be reused for the entire file:
 
 ```javascript
 tokens = [
@@ -95,8 +95,8 @@ tokens = [
 Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 x 64-bit numbers), and the rest is probably explained by v8 storing other metadata with the array, or probably allocating the backing store in powers of 2. However, the memory savings are obvious and get better with more tokens per line. We were happy with this approach and we've been using this representation ever since.
 
 > Note: There may be more compact ways of storing the tokens, but having them in a binary-searchable linear format gives us the best trade-off in terms of memory usage and access performance.
-
----
+**
+**---
 
 ## Tokens <-> Theme matching
 
@@ -112,36 +112,36 @@ We thought it would be a good idea to follow browser best practices, such as lea
   <span class="token delimiter curly js">{</span>
 ```
 
-And we'd write our themes [in CSS](https://github.com/microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (for example the Visual Studio theme):
+And we'd write our themes [in CSS][def20] (for example the Visual Studio theme):
 
-```css
-...
+**```css
+**...
 .monaco-editor.vs .token.delimiter          { color: #000000; }
 .monaco-editor.vs .token.keyword            { color: #0000FF; }
-.monaco-editor.vs .token.keyword.flow       { color: #AF00DB; }
-...
+**.monaco-editor.vs .token.keyword.flow       { color: #AF00DB; }
+**...
 ```
 
 It turned out quite nicely, we could flip a class name somewhere and immediately get a new theme applied to the editor.
-
----
+**
+**---
 
 ## TextMate Grammars
 
-For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars](https://manual.macromates.com/en/language_grammars), a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TextMate grammars didn't work quite like our hand-written tokenizers.
+For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars][def21], a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TextMate grammars didn't work quite like our hand-written tokenizers.
 
 TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
 
-![TextMate Scopes](TM-scopes.png)
-
----
+![TextMate Scopes][def22]
+**
+**---
 
 ## TextMate Grammars in VS Code 1.8
 
 If we were to make a section through the scopes stack, each token basically gets an array of scope names, and we'd get something like the following back from the tokenizer:
 
 <center>
-<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
+<img src="[def23]" alt="Line offsets">
 </center>
 
 ```javascript
@@ -192,7 +192,7 @@ These tokens would then "fit in" and would follow the same code path as the manu
 
 ## TextMate Themes
 
-TextMate Themes work with [scope selectors](https://manual.macromates.com/en/scope_selectors.html) which select tokens with certain scopes and apply theming information to them, such as color, boldness, etc.
+TextMate Themes work with [scope selectors][def24] which select tokens with certain scopes and apply theming information to them, such as color, boldness, etc.
 
 Given a token with the following scopes:
 
@@ -350,50 +350,50 @@ To make things a bit more complicated, TextMate themes also support parent selec
 > Observation: `entity.name` wins over `source entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
 
 > Note: There is a third kind of selector, one that involves excluding scopes, which we'll not discuss here. We didn't add support for this kind and we've noticed it is rarely used in the wild.
-
----
+**
+**---
 
 ## TextMate Themes in VS Code 1.8
 
 Here are two Monokai theme rules (as JSON here for brevity; the original is in XML):
 
-```json
-...
+**```json
+**...
 // Function name
-{ "scope": "entity.name.function", "fontStyle": "", "foreground":"#A6E22E" }
-...
+**{ "scope": "entity.name.function", "fontStyle": "", "foreground":"#A6E22E" }
+**...
 // Class name
-{ "scope": "entity.name.class", "fontStyle": "underline", "foreground":"#A6E22E" }
-...
+**{ "scope": "entity.name.class", "fontStyle": "underline", "foreground":"#A6E22E" }
+**...
 ```
 
 In VS Code 1.8, to match our "approximated" scopes, we would generate the following dynamic CSS rules:
 
-```css
-...
+**```css
+**...
 /* Function name */
-.entity.name.function { color: #A6E22E; }
-...
+**.entity.name.function { color: #A6E22E; }
+**...
 /* Class name */
-.entity.name.class { color: #A6E22E; text-decoration: underline; }
-...
+**.entity.name.class { color: #A6E22E; text-decoration: underline; }
+**...
 ```
 
 We would then leave it up to CSS to match the "approximated" scopes with the "approximated" rules. But the CSS matching rules are different from the TextMate selector matching rules, especially when it comes to ranking. CSS ranking is based on the number of class names matched, while TextMate selector ranking has clear rules regarding scope specificity.
 
 That's why TextMate themes in VS Code would look OK, but never quite like their authors intended. Sometimes, the differences would be small, but sometimes these differences would completely change the feel of a theme.
-
----
+**
+**---
 
 ## Some stars lining up
 
-Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VS Code today, all the files get tokenized with TextMate grammars. For the Monaco Editor, we've migrated to using [Monarch](https://microsoft.github.io/monaco-editor/monarch.html) (a descriptive tokenization engine similar at heart with TextMate grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TextMate, Monarch and the manual wrapper) and not more than 10.
+Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VS Code today, all the files get tokenized with TextMate grammars. For the Monaco Editor, we've migrated to using [Monarch][def25] (a descriptive tokenization engine similar at heart with TextMate grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TextMate, Monarch and the manual wrapper) and not more than 10.
 
 A few months ago we reviewed all the code we have in the VS Code core that reads token types and we noticed that those consumers only cared about strings, regular expressions or comments. For example, the bracket matching logic ignores tokens that contain the scope `"string"`, `"comment"` or `"regex"`.
 
 Recently we've gotten the OK from our internal partners (other teams inside Microsoft consuming the Monaco Editor), that they no longer need support for IE9 and IE10 in the Monaco Editor.
 
-Probably most important, the number one most voted feature for the editor is [minimap support](https://github.com/microsoft/vscode/issues/4865). To render a minimap in a reasonable amount of time, we cannot use DOM nodes and CSS matching. We will probably use a canvas, and we're going to need to know the color of each token in JavaScript, so we can paint those tiny letters with the right colors.
+Probably most important, the number one most voted feature for the editor is [minimap support][def26]. To render a minimap in a reasonable amount of time, we cannot use DOM nodes and CSS matching. We will probably use a canvas, and we're going to need to know the color of each token in JavaScript, so we can paint those tiny letters with the right colors.
 
 Perhaps the biggest breakthrough we've had is that we **don't need to store tokens, nor their scopes**, since tokens only produce effects in terms of a theme matching them or in terms of bracket matching skipping strings.
 
@@ -436,10 +436,10 @@ theme = [
 ];
 ```
 
-We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) data structure out of the theme rules, where each node holds on to the resolved theme options:
+We will then generate a [Trie][def27] data structure out of the theme rules, where each node holds on to the resolved theme options:
 
 <center>
-<img src="/assets/blogs/2017/02/08/trie.png" alt="Theme Trie">
+<img src="[def28]" alt="Theme Trie">
 </center>
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
@@ -463,7 +463,7 @@ For example:
 
 ### Changes to tokenization
 
-All the TextMate tokenization code used in VS Code lives in a separate project, [vscode-textmate](https://github.com/microsoft/vscode-textmate), which can be used independently of VS Code. We've changed the way we represent the scope stack in `vscode-textmate` to be [an immutable linked list](https://github.com/microsoft/vscode-textmate/blob/main/src/grammar.ts#L946) that also stores the fully resolved `metadata`.
+All the TextMate tokenization code used in VS Code lives in a separate project, [vscode-textmate][def30], which can be used independently of VS Code. We've changed the way we represent the scope stack in `vscode-textmate` to be [an immutable linked list][def29] that also stores the fully resolved `metadata`.
 
 When pushing a new scope onto the scope stack, we will look up the new scope in the theme trie. We can then compute immediately the fully resolved desired foreground or font style for a scope list, based on what we inherit from the scope stack and on what the theme trie returns.
 
@@ -641,3 +641,22 @@ Happy coding!
 
 [Alexandru Dima](https://github.com/alexandrudima/), VS Code Team Member
 [@alexdima123](https://twitter.com/alexdima123)
+
+
+[def8]: def7
+[def11]: def10
+[def12]: def11
+[def15]: https://microsoft.github.io/monaco-editor/
+[def18]: https://github.com/microsoft/vscode/blob/release/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts
+[def19]: https://stackoverflow.com/a/2803010
+[def20]: https://github.com/microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css
+[def21]: https://manual.macromates.com/en/language_grammars
+[def22]: TM-scopes.png
+[def23]: def17
+[def24]: https://manual.macromates.com/en/scope_selectors.html
+[def25]: https://microsoft.github.io/monaco-editor/monarch.html
+[def26]: https://github.com/microsoft/vscode/issues/4865
+[def27]: https://en.wikipedia.org/wiki/Trie
+[def28]: assets/blogs/2017/02/08/trie.pn
+[def29]: https://github.com/microsoft/vscode-textmate/blob/main/src/grammar.ts#L946
+[def30]: https://github.com/microsoft/vscode-textmate
