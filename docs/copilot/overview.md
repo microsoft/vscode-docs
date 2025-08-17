@@ -6,7 +6,7 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # GitHub Copilot in VS Code
 
-GitHub Copilot is an AI-powered coding assistant integrated into Visual Studio Code. It provides code suggestions, explanations, and automated implementations based on natural language prompts and existing code context. Copilot has been trained on public code repositories and can assist with most programming languages and frameworks.
+[GitHub Copilot](https://github.com/github/awesome-copilot) is an AI-powered coding assistant integrated into Visual Studio Code. It provides code suggestions, explanations, and automated implementations based on natural language prompts and existing code context. Copilot has been trained on public code repositories and can assist with most programming languages and frameworks.
 
 <video src="images/overview/agent-mode-blog-video.mp4" title="Agent mode hero video" autoplay loop controls muted></video>
 
