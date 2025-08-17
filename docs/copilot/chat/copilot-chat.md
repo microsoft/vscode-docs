@@ -154,7 +154,7 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 ![Screenshot of the Chat view with the Show Chats... button highlighted](images/copilot-chat/copilot-chat-view-show-chats.png)
 
-You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. You can also copy a specific chat prompt or response to the clipboard in markdown format, by Ctrl + right-clicking the message and selecting "Copy", or copy the entire chat session by Ctrl + right-clicking the Chat view and selecting "Copy All".
+You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. To copy a specific chat prompt or response to the clipboard in Markdown format, right-click the message and select **Copy**. To copy the entire chat session, right-click the Chat view and select **Copy All**.
 
 ## Edit a previous chat request (Experimental)
 
