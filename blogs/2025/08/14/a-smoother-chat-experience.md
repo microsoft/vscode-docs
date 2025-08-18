@@ -1,16 +1,16 @@
 ---
 Order: 104
-TOCTitle: "What’s New in VS Code: Deep Dive into July’s Release"
-PageTitle: "What’s New in VS Code: Deep Dive into July’s Release"
-MetaDescription: The VS Code July release focuses on reducing friction for users, with rewriting the terminal tools, adding virtual tools to bypass the 128 tool limit, introducing checkpoints, and more.
+TOCTitle: "A Smoother Chat Experience: v1.103 Release Highlights"
+PageTitle: "A Smoother Chat Experience: v1.103 Release Highlights"
+MetaDescription: The VS Code v1.103 release focuses on reducing friction for users, with rewriting the terminal tools, adding virtual tools to bypass the 128 tool limit, introducing checkpoints, and more.
 MetaSocialImage: release-highlights.png
-Date: 2025-08-18
+Date: 2025-08-19
 Author: Olivia McVicker
 ---
 
-# What’s New in VS Code: Deep Dive into July’s Release
+# A Smoother Chat Experience: v1.103 Release Highlights
 
-August 18, 2025 by Olivia McVicker, [@OliviaGuzzardo](https://twitter.com/oliviaguzzardo)
+August 19, 2025 by Olivia McVicker, [@OliviaGuzzardo](https://twitter.com/oliviaguzzardo)
 
 Papercuts can make great tools feel miserable. They are the extra clicks, the stalled actions, and the moments where you feel like you have to fight your tools to keep moving. The [v1.103 (July) release of VS Code](https://code.visualstudio.com/updates/v1_103) is about removing those frictions with practical quality of life improvements.
 
