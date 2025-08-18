@@ -132,5 +132,5 @@ The way you phrase your question can significantly influence the quality of the 
 ## Related resources
 
 - Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
-- Get started with the [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md)
-- Learn more about [Copilot Chat](/docs/copilot/chat/copilot-chat.md)
+- Get started with the [Quickstart](/docs/copilot/getting-started.md)
+- Learn more about [chat in VS Code](/docs/copilot/chat/copilot-chat.md)
