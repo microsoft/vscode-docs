@@ -35,4 +35,4 @@ We implemented our own [glob matching library](https://github.com/microsoft/vsco
 
 Make sure that on Windows you are using `/` to separate paths and not `\`. Glob patterns in VS Code require `/` for separating paths but they will both match on `/` and `\` in paths.
 
-If you're trying to match a special character like `[` or `]` literally, you can escape it with a single character range to avoid it being interpreted in pattern matching. Backslashes do not escape them. For example, to match files under `src/routes/post/[id]/`, you would use the pattern `src/routes/post/[[]id[]]/**`.
+If you're trying to literally match a special character like `[` or `]`, escape it by placing the special character inside square brackets (single-character range) to avoid it being interpreted in pattern matching. Backslashes do not escape them. For example, to match files under `src/routes/post/[id]/`, you would use the pattern `src/routes/post/[[]id[]]/**`.
