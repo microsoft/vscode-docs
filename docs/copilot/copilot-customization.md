@@ -463,3 +463,4 @@ To centrally enable or disable this setting within your organization with device
 * [Create custom chat modes](/docs/copilot/chat/chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
