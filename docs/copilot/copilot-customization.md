@@ -10,7 +10,7 @@ Chat in Visual Studio Code can give you responses and generate code that matches
 
 There are three main ways to customize AI responses in Visual Studio Code:
 
-* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operate (_how_ a task should be done). Learn how to [define custom instructions](#custom-instructions). VS Code can also help you [generate a custom instructions file for your workspace](#generate-an-instructions-file-for-your-workspace) that matches your coding practices and project requirements.
+* **Custom instructions**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should perform operations (_how_ a task should be done). Learn how to [define custom instructions](#custom-instructions). VS Code can also help you [generate a custom instructions file for your workspace](#generate-an-instructions-file-for-your-workspace) that matches your coding practices and project requirements.
 
     <details>
     <summary>Example scenarios</summary>
