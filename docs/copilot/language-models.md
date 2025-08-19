@@ -33,6 +33,8 @@ You can customize which models you want to show in the model picker:
 
 1. Open the model picker and select **Manage Models**.
 
+    Alternatively, run the **Chat: Manage Language Models** command from the Command Palette.
+
 1. In the provider list, select **Copilot**.
 
 1. Select the models you want to show in the model picker.
@@ -67,7 +69,7 @@ To manage the available models for chat:
 
     ![Screenshot that shows the model picker in the Chat view, which has an item for managing the list of models.](images/language-models/model-dropdown-change-model.png)
 
-    Alternatively, run the **GitHub Copilot: Manage Models** command from the Command Palette.
+    Alternatively, run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. Select a model provider from the list.
 
@@ -87,7 +89,7 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Select **Manage Models** from the language model picker in the Chat view.
 
-   Alternatively, run the **GitHub Copilot: Manage Models** command from the Command Palette.
+   Alternatively, run the **Chat: Manage Language Models** command from the Command Palette.
 
 1. Hover over a model provider in the list, and select the gear icon to edit the provider details.
 
