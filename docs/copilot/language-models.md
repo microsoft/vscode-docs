@@ -51,7 +51,7 @@ To change the language model that is used for generating code completions in the
 
 ## Bring your own language model key
 
-In addition to the built-in models, you can access models directly from Anthropic, Azure, Google, Groq, OpenAI, OpenRouter, or Ollama by providing a valid API key.
+In addition to the built-in models, you can access models directly from Anthropic, Azure, Google, Groq, OpenAI, OpenRouter, Ollama, or custom OpenAI-compatible endpoint by providing a valid API key.
 
 Using your own language model API key in VS Code has several advantages:
 
@@ -97,7 +97,52 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Update the provider details, such as the API key or endpoint URL.
 
-### Considerations
+## Configure custom OpenAI-compatible endpoints
+
+The Custom OpenAI provider allows you to connect to any OpenAI-compatible API endpoint by configuring custom models through VS Code settings.
+
+To configure a custom OpenAI endpoint:
+
+1. Open the Settings editor (`kb(workbench.action.openSettings)`) and search for `setting(github.copilot.chat.customOAIModels)`.
+
+1. Add your custom model configuration:
+
+    - `name`: Display name for the model in the picker
+    - `url`: Full API endpoint URL (will automatically append /v1/chat/completions if not present)
+    - `toolCalling`: Whether the model supports function calling
+    - `vision`: Whether the model supports image inputs
+    - `maxInputTokens`: Maximum input token limit
+    - `maxOutputTokens`: Maximum output token limit
+    - `requiresAPIKey`: Set to false if the endpoint doesn't require authentication
+    - `thinking`: Whether the model supports reasoning/thinking capabilities
+
+    <details>
+    <summary>Example configuration</summary>
+
+    ```json
+    {
+        "github.copilot.chat.customOAIModels": {
+        "my-custom-model": {
+            "name": "My Custom Model",
+            "url": "https://your-endpoint.com/v1/chat/completions",
+            "toolCalling": true,
+            "vision": false,
+            "maxInputTokens": 4096,
+            "maxOutputTokens": 2048,
+            "requiresAPIKey": true,
+            "thinking": false
+        }
+        }
+    }
+    ```
+
+    </details>
+
+1. Select **Manage Models** from the model picker and then select **Custom OpenAI Compatible Models** to configure the API key for your custom endpoint.
+
+1. Your custom model will appear in the model picker once configured.
+
+## Considerations for using your own language model API key
 
 There are a number of considerations when using your own language model API key in VS Code:
 
