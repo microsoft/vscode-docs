@@ -160,7 +160,8 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     **Cloud Conversion** enables you to run model conversion and quantization in the cloud, even if your local machine doesn’t have enough compute or storage capacity. An Azure subscription is required.
 
-    1. Select dropdown on right top button. Choose **Run with Cloud**. Description of all sections are introduced above. The **Evalution** section is disabled since Cloud environment doesn't have target chips for inference.
+    1. Select **Run with Cloud** from the dropdown in the top right.
+        Note that the **Evalution** section is disabled because the cloud environment doesn't have target processors for inference.
 
         ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud_conversion_run.png)
 
