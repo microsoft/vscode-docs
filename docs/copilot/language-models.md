@@ -48,13 +48,13 @@ If you have a paid Copilot plan, the model picker shows the premium request mult
 > [!NOTE]
 > Auto model selection is available as of VS Code release 1.104 and is currently only available in [Insiders](https://code.visualstudio.com/insiders/).
 
-With auto model selection, VS Code automatically selects the best model for your task based on available capacity. This ensures that you get the best performance and helps avoid rate limiting due to excessive usage of particular language models. We continue to improve this feature to use more advanced criteria for model selection.
+With auto model selection, VS Code automatically selects the best model for your task based on available capacity. It detects degraded model performance and uses the best model at that point in time. This ensures that you get the best performance and helps avoid rate limiting due to excessive usage of particular language models. We continue to improve this feature to pick the most suitable model for your needs.
 
 To use auto model selection, select **Auto** from the model picker in chat.
 
 ![Screenshot that shows the model picker in the Chat view, showing the Auto option.](images/language-models/model-dropdown-auto.png)
 
-Currently, VS Code chooses between GPT-5 mini, Gemini Pro 2.5, and Claude Sonnet 4, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of these models are available, VS Code will fall back to GPT-4.1.
+Currently, VS Code chooses between Claude Sonnet 4, GPT-5 mini, and Gemini Pro 2.5, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of these models are available, VS Code will fall back to GPT-4.1 at 0x.
 
 When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the selected model.
 
