@@ -9,7 +9,7 @@ MetaDescription: Theme Color reference that lists all themable colors in Visual 
 
 # Theme Color
 
-You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings).
+You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes) with the `workbench.colorCustomizations` user [setting](/docs/configure/settings).
 
 ```json
 {
