@@ -174,7 +174,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     4. An Azure Container App Job will be triggered to run Cloud Conversion. For a running job, you can:
         - Click status link to navigate to Azure ACA Job Execution History page, to see latest job status.
-        - Click **logs** to navigate to Azure Log Analytics.
+        - Select **logs** to navigate to Azure Log Analytics.
         - Select **Refresh** to fetch the current job status.
 
         ![Screenshot that shows prompt for provisionning.](./images/modelconversion/cloud_conversion_history.png)
