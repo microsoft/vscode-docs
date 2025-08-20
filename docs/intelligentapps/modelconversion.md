@@ -165,7 +165,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
         ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud_conversion_run.png)
 
-    2. **Provisioning**: After clicking **Run with Cloud**, firstly we will check if Azure resources for Cloud Conversion is prepared. If not, steps for Azure resources provisioning will be prompted. You will be prompted to select your Azure subscription and resource group.
+    2. AI Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
 
         ![Screenshot that shows prompt for provisionning.](./images/modelconversion/provisioning.png)
 
