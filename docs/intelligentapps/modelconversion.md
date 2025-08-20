@@ -228,7 +228,7 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 > [!NOTE]
 > For model using **Cloud Conversion**, after the status turns **Succeeded**, please click cloud download icon ![Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud_download.png) to download output model to local.
 >
-> To avoid overwriting any existing local files, such as config or history related files, only missing files will be downloaded. If you want to download a clean copy, please delete the local folder first and then download again.
+> To avoid overwriting any existing local files, such as config or history related files, only missing files are downloaded. If you want to download a clean copy, delete the local folder first, and then download again.
 
 > [!TIP]
 > **Model compatibility:** Ensure the converted model supports the specified EPs in the inference samples
