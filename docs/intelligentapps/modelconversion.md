@@ -172,7 +172,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
     3. After provisioning is completed, the provisioning config is saved in `model_lab.workspace.provision.config` in your workspace root folder.
         This information is cached for reusing Azure resources and accelerating the cloud conversion process. If you want to use new resources, delete this file and run Cloud Conversion again.
 
-    4. An Azure Container App Job will be triggered to run Cloud Conversion. For a running job, you can:
+    4. An Azure Container App (ACA) job is triggered to run Cloud Conversion. For a running job, you can:
         - Click status link to navigate to Azure ACA Job Execution History page, to see latest job status.
         - Select **logs** to navigate to Azure Log Analytics.
         - Select **Refresh** to fetch the current job status.
