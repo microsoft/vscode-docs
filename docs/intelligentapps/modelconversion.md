@@ -156,9 +156,9 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
 
-4. (Optional) Cloud Conversion
+4. (Optional) Run model conversion in the cloud
 
-    **Cloud Conversion** enables you to run model conversion and quantization in the cloud, even if your local machine doesn’t have enough compute or storage capacity. An Azure subscription is required.
+    Cloud Conversion enables you to run model conversion and quantization in the cloud, when your local machine doesn’t have enough compute or storage capacity. You need an Azure subscription to use Cloud Conversion.
 
     1. Select **Run with Cloud** from the dropdown in the top right.
         Note that the **Evalution** section is disabled because the cloud environment doesn't have target processors for inference.
