@@ -178,10 +178,10 @@ You can configure editing of previous chat request with the `setting(chat.editRe
 * `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
 * `none`: Disable editing of chat requests in the Chat view.
 
-### Revert chat requests with checkpoints (Preview)
+### Revert chat requests with checkpoints
 
 > [!NOTE]
-> Checkpoints are available as of VS Code release 1.103 and are currently in preview.
+> Checkpoints are available as of VS Code release 1.103.
 
 Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
 
