@@ -227,7 +227,7 @@ The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python
 
 > [!NOTE]
 > For models that use Cloud Conversion, after the status turns **Succeeded**, select the cloud download icon to download the output model to your local machine.
-> [Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud_download.png) to download output model to local.
+> ![Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud_download.png)
 >
 > To avoid overwriting any existing local files, such as config or history related files, only missing files are downloaded. If you want to download a clean copy, delete the local folder first, and then download again.
 
