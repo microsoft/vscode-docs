@@ -10,7 +10,7 @@ Author: Olivia McVicker
 
 # A Smoother Chat Experience: v1.103 Release Highlights
 
-August 19, 2025 by Olivia McVicker, [@OliviaGuzzardo](https://twitter.com/oliviaguzzardo)
+August 21, 2025 by Olivia McVicker, [@OliviaGuzzardo](https://twitter.com/oliviaguzzardo)
 
 Papercuts can make great tools feel miserable. They are the extra clicks, the stalled actions, and the moments where you feel like you have to fight your tools to keep moving. The [v1.103 (July) release of VS Code](https://code.visualstudio.com/updates/v1_103) is about removing those frictions with practical quality of life improvements.
 
