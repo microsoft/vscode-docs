@@ -40,7 +40,7 @@ To use auto model selection, select **Auto** from the model picker in chat.
 
 ![Screenshot that shows the model picker in the Chat view, showing the Auto option.](images/language-models/model-dropdown-auto.png)
 
-Currently, VS Code chooses between Claude Sonnet 4, GPT-5 mini, and Gemini Pro 2.5, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of these models are available, VS Code will fall back to GPT-4.1 at 0x.
+Currently, VS Code chooses between Claude Sonnet 4, GPT-5 mini, and Gemini Pro 2.5, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of these models are available, auto model seletion will fall back to GPT-4.1 at 0x. If you are on a paid plan and you run out of premium requests, you will fall back to GPT-5 mini at 0x.
 
 When using auto model selection, VS Code uses a variable [model multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers), based on the selected model.
 
