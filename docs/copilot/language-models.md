@@ -6,32 +6,18 @@ MetaSocialImage: images/shared/github-copilot-social.png
 ---
 # AI language models in VS Code
 
-Copilot in Visual Studio Code offers different built-in language models that are optimized for different tasks. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or code completions, and how to use your own API key.
+Visual Studio Code offers different language models that are optimized for different tasks via GitHub Copilot. You can also bring your own language model API key to use models from other providers. This article describes how to change the language model for chat or code completions, and how to use your own API key.
 
 ## Choose the right model for your task
 
 By default, chat uses a base model to provide fast, capable responses for a wide range of tasks, such as coding, summarization, knowledge-based questions, reasoning, and more.
 
-However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject. For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
 
-Depending on the [chat mode](/docs/copilot/chat/copilot-chat.md#chat-mode) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
+Depending on the [chat mode](/docs/copilot/chat/chat-modes.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
-
-## Why use your own language model API key?
-
-In addition to the built-in models, you can access models directly from Anthropic, Azure, Google, Groq, OpenAI, OpenRouter, or Ollama by providing a valid API key. Learn how to [use your own API in VS Code](#bring-your-own-language-model-key).
-
-Using your own language model API key in VS Code has several advantages:
-
-- **Model choice**: access hundreds of models from different providers, beyond the built-in models.
-- **Experimentation**: experiment with new models or features that are not yet available in the built-in models.
-- **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
-- **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
-
-> [!IMPORTANT]
-> This feature is in preview and is not currently available to Copilot Business or Copilot Enterprise users.
 
 ## Change the model for chat conversations
 
@@ -67,10 +53,17 @@ To change the language model that is used for generating code completions in the
 
 ## Bring your own language model key
 
-If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Groq, Ollama, OpenAI, and OpenRouter.
-
 > [!IMPORTANT]
 > This feature is in preview and is not currently available to Copilot Business or Copilot Enterprise users.
+
+If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Groq, Ollama, OpenAI, OpenRouter, and xAI.
+
+Using your own language model API key in VS Code has several advantages:
+
+- **Model choice**: access hundreds of models from different providers, beyond the built-in models.
+- **Experimentation**: experiment with new models or features that are not yet available in the built-in models.
+- **Local compute**: use your own compute for one of the models already supported in GitHub Copilot or to run models not yet available.
+- **Greater control**: by using your own key, you can bypass the standard rate limits and restrictions imposed on the built-in models.
 
 To manage the available models for chat:
 
@@ -108,7 +101,7 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Update the provider details, such as the API key or endpoint URL.
 
-### Considerations
+## Considerations
 
 There are a number of considerations when using your own language model API key in VS Code:
 
