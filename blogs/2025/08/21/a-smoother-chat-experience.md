@@ -4,7 +4,7 @@ TOCTitle: "A Smoother Chat Experience: v1.103 Release Highlights"
 PageTitle: "A Smoother Chat Experience: v1.103 Release Highlights"
 MetaDescription: The VS Code v1.103 release focuses on reducing friction for users, with rewriting the terminal tools, adding virtual tools to bypass the 128 tool limit, introducing checkpoints, and more.
 MetaSocialImage: release-highlights.png
-Date: 2025-08-19
+Date: 2025-08-21
 Author: Olivia McVicker
 ---
 
@@ -36,11 +36,11 @@ We’ve also streamlined the terminal auto-approve settings. The old `allowList`
 
 ## More tools, less problems
 
-We know once users start leveling up their agent game with their first MCP server, they keep installing more tools. Meanwhile, MCP servers continue expanding their toolsets. This rapid growth often means hitting model limits, like the infamous 128-tool cap (<!-- TODO: find screenshot of this issue -->).
+We know once users start leveling up their agent game with their first MCP server, they keep installing more tools. Meanwhile, MCP servers continue expanding their toolsets. This rapid growth often means hitting model limits, like the [128-tool cap](https://github.com/microsoft/vscode/issues/248021).
 
-With this update, VS Code can now automatically manage large numbers of servers and tools. When the number of tools exceeds the system maximum (currently 128), tools are automatically grouped, and the model can activate and call on these groups to stay under the limit. This behavior is configurable with the `github.copilot.chat.virtualTools.threshold` setting.
+With this update, VS Code can now automatically manage large numbers of servers and tools. When the number of tools exceeds the threshold (default of 128 - configurable with the `github.copilot.chat.virtualTools.threshold` setting), tools are automatically grouped, and the model can activate and call on these groups to stay under the limit. You'll see a warning that you may experience degraded tool calling with this experience, but your request will succeed and the tool groupings will be cached for optimized tool calling in subsequent requests.
 
-<!-- screenshot -->
+<!-- gif -->
 
 As the number of available tools grows, we realized how tedious navigating the tool picker could be, so we’ve overhauled the tool picker UI for easier tool management. The new Quick Tree UI with sticky scroll and icon rendering lets you expand or collapse tool sets, MCP servers, and more, making it effortless to search, group, and browse tools.
 
@@ -62,7 +62,7 @@ Restored a checkpoint by mistake and want your changes back? No problem – you 
 
 ## Better collaboration with Copilot coding agent
 
-Last month, we introduced the first phase of our Copilot coding agent integration <!-- TODO: link to Burke’s blogpost --> through the GitHub Pull Requests extension, bringing asynchronous agents directly into VS Code.
+Last month, we introduced the first phase of our [Copilot coding agent integration](/blogs/2025/07/17/copilot-coding-agent.md) through the GitHub Pull Requests extension, bringing asynchronous agents directly into VS Code.
 
 In this month’s release, we’ve added several improvements to the experience. First, coding agent sessions now render pull requests as cards in the Chat view, showing the PR title, link, author, and description for easy referencing.
 
