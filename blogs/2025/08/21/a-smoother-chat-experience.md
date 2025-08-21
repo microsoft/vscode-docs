@@ -26,9 +26,7 @@ Now let’s dive in to each of these improvements and see how they keep you in t
 
 ## A smoother terminal experience
 
-With this release, we’ve completed an overhaul of the terminal tools to resolve many of the frustrating terminal hanging issues that you’ve told us about. The tools for running tasks and commands within the terminal are now part of the core [microsoft/vscode](https://github.com/microsoft/vscode) repository, giving access to lower-level and richer APIs.
-
-Expect a smoother, more reliable terminal experience in chat. Initial testing shows a decrease in tool error from 2.4% to just 0.2%.
+With this release, we’ve completed an overhaul of the terminal tools to resolve many of the frustrating terminal hanging issues that you’ve told us about. The tools for running tasks and commands within the terminal are now part of the core [microsoft/vscode](https://github.com/microsoft/vscode) repository, giving access to lower-level and richer APIs. Expect a smoother, more reliable terminal experience in chat- initial testing shows a decrease in tool error from 2.4% to just 0.2%.
 
 We’ve also streamlined the terminal auto-approve settings. The old `allowList` and `denyList` options have merged into a single `chat.tools.terminal.autoApprove` setting. For example, if you want to make sure the agent doesn’t auto-approve git commit commands so you can edit commit messages before proceeding, you can easily configure that in the new setting.
 
@@ -76,8 +74,8 @@ And if you have multiple coding agent sessions running at once, there’s a new 
 
 <!-- screenshot -->
 
-Check out our documentation to learn more about how you can delegate changes to your newest AI teammate: https://code.visualstudio.com/docs/copilot/copilot-coding-agent
+Check out [our documentation](https://code.visualstudio.com/docs/copilot/copilot-coding-agent) to learn more about how you can delegate changes to your newest AI teammate.
 
 ## That’s not all, folks
 
-These are just some of the highlights from the v1.103 release – you’ll want to read [the release notes](https://aka.ms/VSCodeRelease) for a full look at everything that’s new (and spoiler, there’s a lot!). We make improvements every day, so be sure to install [VS Code Insiders](https://code.visualstudio.com/insiders/) so you’re the first to try out the latest features and follow us on [X](https://x.com/code) so you can stay in the loop. Happy coding!
+These are just some of the highlights from the v1.103 release – you’ll want to read [the release notes](https://aka.ms/VSCodeRelease) for a full look at everything that’s new (and spoiler, there’s a lot!). We make improvements every day, so be sure to install [VS Code Insiders](https://code.visualstudio.com/insiders/) so you’re the first to try out the latest features and follow us on [X](https://x.com/code) to stay in the loop. Happy coding!
