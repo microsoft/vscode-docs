@@ -107,7 +107,7 @@ Agent mode in Copilot Edits is capable of iterating on its own code - recognizin
 
 We see tremendous power in agent mode for GitHub Copilot. It's getting better every day, but we wanted to get it into your hands as quickly as we could. Watch this space for major changes and improvements over the next few weeks as we refine the experience, and [share your feedback](https://github.com/microsoft/vscode/issues) as you try it out (today in VS Code Insiders, and soon in VS Code Stable).
 
-You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/copilot-edits#_use-agent-mode-preview).
+You can read more about agent mode in [our docs](https://code.visualstudio.com/docs/copilot/chat/copilot-edits#_use-agent-mode-preview).
 
 ## Vision
 

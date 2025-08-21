@@ -28,7 +28,7 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 ## Work with multiple files using Copilot Edits
 
-[Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) is a multi-file editing experience that you can open from the top of the chat side bar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
+[Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits) is a multi-file editing experience that you can open from the top of the chat side bar. Given a prompt, Edits will propose changes across files including creating new files when needed. This gives you the conversational flow of chat combined with the power of Copilot's code generation capabilities. The result is something you have to try to believe.
 
 <video src="../../11/12/blog-video-demo.mp4" title="Copilot Edits video" autoplay muted controls></video>
 
@@ -36,11 +36,11 @@ With this announcement, GitHub Copilot becomes a core part of the VS Code experi
 
 ## Multiple models, your choice
 
-Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/getting-started-chat#_stay-in-the-flow-with-inline-chat), or [Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits), you get to decide who your pair programmer is.
+Whether you're using [Chat](https://code.visualstudio.com/docs/copilot/copilot-chat), [Inline Chat](https://code.visualstudio.com/docs/copilot/chat/getting-started-chat#_stay-in-the-flow-with-inline-chat), or [Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits), you get to decide who your pair programmer is.
 
 ![AI model selection menu in VS Code.](model-picker.png)
 
-**Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/copilot-edits) to build it.
+**Try this:** Use 4o to generate an implementation plan for a new feature and then feed that prompt to Claude in [GitHub Copilot Edits](https://code.visualstudio.com/docs/copilot/chat/copilot-edits) to build it.
 
 ## Custom instructions
 
