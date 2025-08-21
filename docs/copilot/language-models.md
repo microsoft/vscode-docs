@@ -54,7 +54,7 @@ To change the language model that is used for generating code completions in the
 ## Bring your own language model key
 
 > [!IMPORTANT]
-> This feature is in preview and is not currently available to Copilot Business or Copilot Enterprise users.
+> This feature is not currently available to Copilot Business or Copilot Enterprise users.
 
 If you already have an API key for a language model provider, you can use their models in chat in VS Code, in addition to the built-in models that Copilot provides. You can use models from the following providers: Anthropic, Azure, Google Gemini, Groq, Ollama, OpenAI, OpenRouter, and xAI.
 
