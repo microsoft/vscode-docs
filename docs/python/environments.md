@@ -8,7 +8,31 @@ MetaSocialImage: images/tutorial/python-social.png
 
 An "environment" in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
 
-> **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
+> **Note**: If you'd like to become more familiar with the Python programming language, review [more Python resources](#more-python-resources).
+
+## Python Environments extension
+
+Python environments are managed via the Python Environments extension. The extension provides a dedicated view in the Activity Bar for creating, managing, and switching between environments, as well as installing and uninstalling packages.
+
+### Python Environments view
+
+The Python Environments view can be accessed from the Activity Bar and provides a unified interface for managing your Python projects and environments:
+
+![Python Environments view in VS Code (Screenshot placeholder)]()
+
+The view consists of two main sections:
+
+1. **Python Projects**: Shows all the projects in your workspace and their selected environments. From here you can:
+   - Add existing folders as Python projects
+   - Auto-find Python projects in your workspace
+   - Create new projects from templates
+   - Select different environments for each project
+
+2. **Environment Managers**: Shows all available environment managers with their environments. From here you can:
+   - Create new environments
+   - Delete environments
+   - Manage packages
+   - Activate environments in terminals
 
 ## Types of Python environments
 
@@ -30,7 +54,7 @@ A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual
 
 #### Conda environments
 
-A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)).Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
+A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)). Choosing between conda and virtual environments depends on your packaging needs, team standards, etc.
 
 ### Python environment tools
 
@@ -44,27 +68,37 @@ The following table lists the various tools involved with Python environments:
 
 ## Creating environments
 
-### Using the Create Environment command
+### Quick Create
 
-To create local environments in VS Code using virtual environments or Anaconda, you can follow these steps: open the Command Palette (`kb(workbench.action.showCommands)`), search for the **Python: Create Environment** command, and select it.
+Quick create allows for a one-click environment creation flow, choosing the defaults for you. Quick create configures a virutal environment using the default environment manager and the latest Python version, and installing dependencies found in a `requirements.txt` or `pyproject.toml` file.
 
-The command presents a list of environment types: **Venv** or **Conda**.
+1. Open the Python Environments view from the Activity Bar
+2. Under "Environment Managers", find your preferred environment manager (e.g., venv)
+3. Select the **Create Environment** option
+4. Choose **Quick Create** to automatically create a virtual environment using:
+   - Your default environment manager
+   - The latest Python version
+   - Workspace dependencies (if available)
 
-![Create Environment dropdown](images/environments/create_environment_dropdown.png)
+### Custom environment creation
 
-If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used as a base for the new virtual environment.
+For more control over your environment settings, choose custom environment creation.
 
-![Virtual environment interpreter selection](images/environments/interpreters-list.png)
+1. Open the Python Environments view from the Activity Bar
+2. Under "Environment Managers", find your preferred environment manager
+3. Select **Create Environment**
+4. Choose **Custom Create**
+5. Follow the prompts to specify:
+   - Python version
+   - Environment name
+   - Packages to install
+   - Additional options specific to your environment manager
 
-If you are creating an environment using **Conda**, the command presents a list of Python versions that can be used for your project.
-
-![Conda environment Python version selection](images/environments/conda_environment_python_versions.png)
-
-After selecting the desired interpreter or Python version, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
+You can continue to create environments in VS Code using the Command Palette (Ctrl/Cmd + Shift + P) and searching for **Python: Create Environment**.
 
 ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
-> **Note**: The command will also install necessary packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder. It will also add a `.gitignore` file to the virtual environment to help prevent you from accidentally committing the virtual environment to source control.
+> **Note**: The Create Environment command will install packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder. It will also add a `.gitignore` file to the virtual environment to help prevent you from accidentally committing the virtual environment to source control.
 
 ### Create a virtual environment in the terminal
 
@@ -116,7 +150,20 @@ Additional notes:
 
 ### Select and activate an environment
 
-The Python extension tries to find and then select what it deems the best environment for the workspace. If you would prefer to select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+The Python extension attempts to find and select what it deems the best environment for the workspace. If you would prefer to select a specific environment, you can do so in one of the following ways:
+
+#### Using the Python Environments extension
+
+1. Open the Python Environments view from the Activity Bar
+2. Under "Python Projects", find your project
+3. Select the current environment to open a dropdown list of available environments
+4. Choose the environment you want to use for the project
+
+Alternatively, under "Environment Managers", you can navigate to any environment and use the "Select" option to choose it for your workspace.
+
+#### Using the Select Interpreter command
+
+Use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 

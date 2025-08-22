@@ -22,6 +22,22 @@ To further customize VS Code for Python, you can leverage the [Python profile te
 
 ## How to create and open a Python project or file
 
+You can quickly create a scaffolded Python project for scripts or a Python package.
+
+1. Open the **Python Environments** view from the Activity Bar.
+
+![Screenshot showing the Python Environments Activity Bar.](/docs/python/images/environments/python-environments-activity-bar.png)
+
+2. Under "Python Projects", select **Create New**.
+
+3. Choose from available project templates:
+   - **Package**: A structured Python package with `__init__.py` and setup configurations.
+   - **Script**: A simple project for standalone Python scripts.
+
+4. Follow the prompts to specify the project name, location, and environment settings.
+
+5. The extension will create the project structure and configure a virtual environment automatically.
+
 If you have an existing Python project you wish to work on in VS Code, you can begin by opening your folder or file from the VS Code Welcome page or File Explorer view, or by selecting **File > Open Folder** (`kb(workbench.action.files.openFolder)`) or **File > Open File** (`kb(workbench.action.files.openFile)`).
 
 You can create a new Python file by selecting **New File** on the VS Code Welcome page and then selecting **Python file**, or by navigating to **File > New File** (`kb(workbench.action.files.newFile)`).

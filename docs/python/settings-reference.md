@@ -1,5 +1,4 @@
 ---
-ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 DateApproved: 3/6/2023
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/python-social.png
@@ -29,6 +28,16 @@ For general information about working with settings in VS Code, refer to [User a
 | terminal.focusAfterLaunch | `false` | Whether to switch the cursor focus to the terminal when launching a Python terminal. |
 | terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**.<br> In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). <br> For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. <br> Note that VS Code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | venvFolders | `[]` | Paths to folders where virtual environments are created. <br> Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
+
+## Python Environments extension settings
+
+| Setting<br/>(python-envs.) | Default | Description |
+| --- | --- | --- |
+| defaultEnvManager | `"ms-python.python:venv"` | The default environment manager used for creating and managing environments. |
+| defaultPackageManager | `"ms-python.python:pip"` | The default package manager to use for installing and managing packages. This is often dictated by the default environment manager but can be customized. |
+| pythonProjects | `[]` | A list of Python workspaces, specified by the path, in which you can set particular environment and package managers. Format: `[{"path": "/path/to/workspace", "envManager": "ms-python.python:venv", "packageManager": "ms-python.python:pip"}]`. |
+| terminal.showActivateButton | `false` | (Experimental) Show a button in the terminal to activate/deactivate the current environment for the terminal. This button is only shown if the active terminal is associated with a project that has an activatable environment. |
+| terminal.autoActivationType | `"command"` | Specifies how the extension can activate an environment in a terminal. Using Shell Startup requires changes to the shell script file and is only enabled for the following shells: zsh, fsh, pwsh, bash, cmd. When set to command, any shell can be activated. This setting applies only when terminals are created. |
 
 ## Debugger Settings
 

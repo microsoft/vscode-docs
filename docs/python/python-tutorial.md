@@ -81,25 +81,29 @@ Alternately, you can create a folder through the operating system UI, then use V
 
 ## Create a virtual environment
 
-A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
+A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions.
 
-Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
+### Using the Python Environments extension
 
-The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
+The Python Environments extension provides a dedicated interface for managing environments. To create a virtual environment:
 
-![Create Environment dropdown](images/environments/create_environment_dropdown.png)
+1. Open the Python Environments view from the Activity Bar on the left side of VS Code.
 
-The command then presents a list of interpreters that can be used for your project. Select the interpreter you installed at the beginning of the tutorial.
+2. Under "Environment Managers", select your preferred environment manager (such as venv).
 
-![Virtual environment interpreter selection](images/environments/interpreters-list.png)
+3. Select **Create Environment** or use the **Quick Create** option which automatically creates a new virtual environment using your default environment manager and the latest Python version.
 
-After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
+   [TODO: Add screenshot of Python Environments Quick Create option in VS Code]
 
-![Create environment status notification](images/environments/create_environment_prompt_status.png)
+4. Follow the prompts to specify the Python version and environment name.
 
-Ensure your new environment is selected by using the **Python: Select Interpreter** command from the **Command Palette**.
+4. After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
 
-![Select an Interpreter](images/tutorial/interpreter-venv.png)
+   ![Create environment status notification](images/environments/create_environment_prompt_status.png)
+
+5. Once created, your new environment will be available in the list and automatically selected for your workspace.
+
+   ![Select an Interpreter](images/tutorial/interpreter-venv.png)
 
 > **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#creating-environments).
 
@@ -233,13 +237,27 @@ print(np.random.randint(1,9))
 
 Next, run the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your interpreter. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message.
+You should see the message, **"ModuleNotFoundError: No module named 'numpy'"**. This message indicates that the required package isn't available in your interpreter. If you're using an Anaconda distribution or have previously installed the `numpy` package you may not see this message. Before proceeding, stop the debugger.
 
-To install the `numpy` package, stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
+Installing Python packages can be done fully within the UI.
 
-To install the required packages in your virtual environment, enter the following commands as appropriate for your operating system:
+1. Open the **Python Environments** view from the Activity Bar.
 
-1. Install the packages
+2. Locate your active environment under either "Python Projects" or "Environment Managers".
+
+3. Expand your environment and the **Packages** node to view packages currently available in your environment. Select the package icon on the environment.
+
+4. Select **Search common PyPI packages** and search for and select `numpy`.
+
+   [TODO: Add screenshot of Python Environments package management interface]
+
+5. Once installed, the package will appear in your environment's package list.
+
+### Using the terminal to install packages
+
+Alternatively, you can install packages using the terminal:
+
+Install the required packages in your virtual environment, entering the following commands as appropriate for your operating system:
 
    ```bash
    # Don't use with Anaconda distributions because they include matplotlib already.
@@ -255,7 +273,39 @@ To install the required packages in your virtual environment, enter the followin
    python3 -m pip install numpy
    ```
 
-1. Now, rerun the program, with or without the debugger, to view the output!
+3. Now, rerun the program, with or without the debugger, to view the output!
+
+### Managing dependencies across environments
+
+When working on Python projects, it's essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
+
+Follow these steps to create a `requirements.txt` file:
+
+1. Activate your virtual environment, if you haven't already.
+
+   ```bash
+   source venv/bin/activate  # On macOS/Linux
+   ```
+
+   ```powershell
+   .\venv\Scripts\activate   # On Windows
+   ```
+
+2. Generate the `requirements.txt` file.
+
+   ```powershell
+   pip freeze > requirements.txt
+   ```
+
+You can now use the newly generated `requirements.txt` file to install dependencies in another environment. Furthermore, you can continue to add dependencies to it as your project may grow in complexity.
+
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+By following these steps, you ensure that your project dependencies are consistent across different environments, making it easier to collaborate with others and deploy your project.
+
+Congrats on completing the Python tutorial! During the course of this tutorial, you learned how to create a Python project, create a virtual environment, run and debug your Python code, and install Python packages. Explore additional resources to learn how to get the most out of Python in Visual Studio Code!
 
 ### Managing dependencies across environments
 When working on Python projects, it’s essential to manage your dependencies effectively. One useful tip is to use the `pip freeze > requirements.txt` command. This command helps you create a `requirements.txt` file that lists all the packages installed in your virtual environment. This file can then be used to recreate the same environment elsewhere.
