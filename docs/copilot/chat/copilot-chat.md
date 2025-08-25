@@ -44,7 +44,7 @@ To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
 
-Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-modes.md).
+Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
 
 ## Change the language model
 

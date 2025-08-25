@@ -23,7 +23,7 @@ Depending on the [chat mode](/docs/copilot/chat/chat-modes.md) you are using, th
 
 Use the language model picker in the chat input field to change the model that is used for chat conversations and code editing.
 
-![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
+![Screenshot that shows the model picker in the Chat view.](../images/language-models/model-dropdown-change-model.png)
 
 You can further extend the list of available models by [using your own language model API key](#bring-your-own-language-model-key).
 
@@ -41,7 +41,7 @@ You can customize which models you want to show in the model picker:
 
 1. Select the models you want to show in the model picker.
 
-   ![Screenshot that shows the model Quick Pick to choose which models to show in the model picker.](images/language-models/model-picker-choose-models.png)
+   ![Screenshot that shows the model Quick Pick to choose which models to show in the model picker.](../images/language-models/model-picker-choose-models.png)
 
 ## Change the model for code completions
 
@@ -71,11 +71,11 @@ To manage the available models for chat:
 
     Alternatively, run the **Chat: Manage Language Models** command from the Command Palette.
 
-    ![Screenshot that shows the model picker in the Chat view, which has an item for managing the list of models.](images/language-models/model-dropdown-change-model.png)
+    ![Screenshot that shows the model picker in the Chat view, which has an item for managing the list of models.](../images/language-models/model-dropdown-change-model.png)
 
 1. Select a model provider from the list.
 
-    ![Screenshot that shows the model provider Quick Pick.](images/language-models/model-provider-quick-pick.png)
+    ![Screenshot that shows the model provider Quick Pick.](../images/language-models/model-provider-quick-pick.png)
 
 1. Enter the provider-specific details, such as the API key or endpoint URL.
 
@@ -83,7 +83,7 @@ To manage the available models for chat:
 
     The following screenshot shows the model picker for Ollama running locally, with the Phi-4 model deployed.
 
-    ![Screenshot that shows the model picker of Ollama running locally, allowing you to select a model from the list of available models.](images/language-models/ollama-installed-models-quick-pick.png)
+    ![Screenshot that shows the model picker of Ollama running locally, allowing you to select a model from the list of available models.](../images/language-models/ollama-installed-models-quick-pick.png)
 
 1. You can now select the model from the model picker in the Chat view and use it for chat conversations.
 
@@ -97,7 +97,7 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Hover over a model provider in the list, and select the gear icon to edit the provider details.
 
-   ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](images/language-models/reconfigure-model-provider.png)
+   ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
 
