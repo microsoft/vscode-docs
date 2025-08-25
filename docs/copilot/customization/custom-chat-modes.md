@@ -107,7 +107,6 @@ Hover over a chat mode in the list and choose from the available actions: copy o
 
 ## Related resources
 
-* [Get started with the Chat tutorial](/docs/copilot/chat/getting-started-chat.md)
 * [Get an overview of chat in VS Code](/docs/copilot/chat/copilot-chat.md)
 * [Customize AI with custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)

@@ -32,7 +32,7 @@ VS Code runs on Windows, macOS, Linux, and even [Chromebooks](https://code.visua
 
 Since VS Code is easy to customize, Professor Dodds is able to tailor the editor for his students, preferring to hide [IntelliSense](/docs/editing/intellisense), or code completion suggestions, so they can learn from what they type and reinforce the conceptual models being built.
 
-Here are the [settings](/docs/getstarted/settings.md) his students use:
+Here are the [settings](/docs/configure/settings.md) his students use:
 
 ```json
 "editor.quickSuggestions": false,

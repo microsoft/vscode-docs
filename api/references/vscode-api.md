@@ -20837,7 +20837,7 @@ const config = workspace.getConfiguration(&#39;launch&#39;, vscode.workspace.wor
 // retrieve values
 const values = config.get(&#39;configurations&#39;);
 </code></pre>
-<p>Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a> for more information.</p>
+<p>Refer to <a href="https://code.visualstudio.com/docs/configure/settings">Settings</a> for more information.</p>
 </div>
 
 #### Methods

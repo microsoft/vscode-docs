@@ -50,7 +50,7 @@ To answer your question, workspace context searches through the same sources a d
 
 - All [indexable files](#what-content-is-included-in-the-workspace-index) in the workspace, except for files that are ignored by a `.gitignore` file
 - Directory structure with nested folder and file names
-- GitHub's code search index, if the workspace is a GitHub repository and [indexed by code search](https://docs.github.com/en/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-specific-repository-file-or-symbol)
+- A [remote code search index](#remote-index). This allows Copilot to quickly search for relevant code snippets in your code without building up a local index.
 - Symbols and definitions in the workspace
 - Currently selected text or visible text in the active editor
 
@@ -77,20 +77,21 @@ You can view the type of index and its status in the Copilot status dashboard in
 
 ### Remote index
 
-If your code is hosted in a GitHub repository, you can build a remote index with [GitHub code search](https://docs.github.com/en/search-github/github-code-search/about-github-code-search) to enable AI to search your codebase quickly, even for large codebases.
+Copilot can use remote code search indexes to enable AI to search your codebase quickly, even for large codebases. Remote code search is currently available for workspaces that use GitHub or Azure Dev Ops repositories.
 
-To build a remote index for your workspace:
+#### GitHub Remote indexing
 
-1. Sign in with your GitHub account in VS Code.
+Copilot automatically builds and uses remote code search indexes for any GitHub backed repositories in your workspace. All you need to do is sign in with your GitHub account in VS Code and Copilot will automatically start using any available remote code search indexes.
 
-1. Run the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands))`.
+The Copilot entry in the Status Bar shows the current index status. Repositories are automatically indexed the first time `@workspace` or `#codebase` is used.  You can also force indexing by running the **Build Remote Workspace Index** command in the Command Palette (`kb(workbench.action.showCommands))`.
 
-    It may take some time for the remote index to be built, especially for large codebases. You can monitor the status of the remote index in the Copilot status dashboard in the Status Bar.
+The index only needs to be built once per repository. After that, the index is automatically kept up to date. Building the index is fast for small and medium sized projects, but may take a little time if your repository contains hundreds of thousands of files.
 
-    You only need to build the remote index once. GitHub automatically keeps it up-to-date whenever you push code changes.
+Currently remote indexing works for repositories hosted on GitHub.com or on GitHub Enterprise Cloud. It is not supported for repositories that use GitHub Enterprise Server. The remote index works also best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
 
-> [!IMPORTANT]
-> Remote indexing requires a project with a git remote on GitHub. Make sure that you have pushed your code to GitHub too. The remote index works best if GitHub has a relatively up-to-date version of your code, so make sure to push your code to GitHub regularly.
+#### Azure Dev Ops Remote indexing
+
+Copilot also can use remote indexes for Azure Dev Ops repositories. These indexes are automatically built and maintained. All you need to do is sign in with your Microsoft account. Check the Copilot Status Bar item for the current index status or a sign in link if your  account doesn't have the right permissions to access the Azure Dev Ops repository.
 
 ### Local index
 
@@ -132,5 +133,5 @@ The way you phrase your question can significantly influence the quality of the 
 ## Related resources
 
 - Learn more about [adding context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md)
-- Get started with the [Copilot Chat tutorial](/docs/copilot/chat/getting-started-chat.md)
-- Learn more about [Copilot Chat](/docs/copilot/chat/copilot-chat.md)
+- Get started with the [Quickstart](/docs/copilot/getting-started.md)
+- Learn more about [chat in VS Code](/docs/copilot/chat/copilot-chat.md)

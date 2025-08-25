@@ -156,6 +156,29 @@ Running a workflow in model conversion is the core step that transform the pre-b
 
     **Hugging Face compliance alerts**: During the quantization, we need the calibration datasets. You may be prompted to accept license terms before proceeding. If you missed the notification, the running process will be paused, waiting for your input. Please make sure notifications are enabled and that you accept the required licenses.
 
+4. (Optional) Run model conversion in the cloud
+
+    Cloud Conversion enables you to run model conversion and quantization in the cloud, when your local machine doesn’t have enough compute or storage capacity. You need an Azure subscription to use Cloud Conversion.
+
+    1. Select **Run with Cloud** from the dropdown in the top right.
+        Note that the **Evalution** section is disabled because the cloud environment doesn't have target processors for inference.
+
+        ![Screenshot that shows Run with Cloud button.](./images/modelconversion/cloud_conversion_run.png)
+
+    2. AI Toolkit first checks if Azure resources for Cloud Conversion are prepared. If needed, you are prompted for your Azure subscription and resource group for provisioning Azure resources.
+
+        ![Screenshot that shows prompt for provisionning.](./images/modelconversion/provisioning.png)
+
+    3. After provisioning is completed, the provisioning config is saved in `model_lab.workspace.provision.config` in your workspace root folder.
+        This information is cached for reusing Azure resources and accelerating the cloud conversion process. If you want to use new resources, delete this file and run Cloud Conversion again.
+
+    4. An Azure Container App (ACA) job is triggered to run Cloud Conversion. For a running job, you can:
+        - Select the status link to navigate to the Azure ACA Job Execution History page.
+        - Select **logs** to navigate to Azure Log Analytics.
+        - Select **Refresh** to fetch the current job status.
+
+        ![Screenshot that shows prompt for provisionning.](./images/modelconversion/cloud_conversion_history.png)
+
 > [!NOTE]
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
@@ -201,6 +224,12 @@ The History Board in **Conversion** is your central dashboard for tracking, revi
 The default runtime is: `C:\Users\{user_name}\.aitk\bin\model_lab_runtime\Python-WCR-win32-x64-3.12.9`.
   - Note that the default runtime contains everything needed, otherwise, manually install the requirements.txt
 - The sample will launch in a Jupyter Notebook. You can customize the input data or parameters to test different scenarios.
+
+> [!NOTE]
+> For models that use Cloud Conversion, after the status turns **Succeeded**, select the cloud download icon to download the output model to your local machine.
+> ![Screenshot that shows action, including icon for downloading model from cloud.](./images/modelconversion/cloud_download.png)
+>
+> To avoid overwriting any existing local files, such as config or history related files, only missing files are downloaded. If you want to download a clean copy, delete the local folder first, and then download again.
 
 > [!TIP]
 > **Model compatibility:** Ensure the converted model supports the specified EPs in the inference samples

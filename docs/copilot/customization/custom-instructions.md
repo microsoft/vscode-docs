@@ -264,3 +264,5 @@ To generate an instructions file for your workspace:
 * [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 * [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
