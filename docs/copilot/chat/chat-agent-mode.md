@@ -125,7 +125,7 @@ Agent mode uses tools to accomplish specialized tasks while processing a user re
 Agent mode can use the following tools:
 
 * Built-in tools
-* [MCP tools](/docs/copilot/chat/mcp-servers.md)
+* [MCP tools](/docs/copilot/customization/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
 
 You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select the tools that are available in agent mode.
@@ -309,7 +309,7 @@ applyTo: "**"
 - Always log errors with contextual information
 ```
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Settings
 
@@ -346,5 +346,5 @@ A chat request can have a maximum of 128 tools enabled at a time. If you have mo
 
 ## Related resources
 
-* [Configure MCP servers to add tools to agent mode](/docs/copilot/chat/mcp-servers.md)
-* [Customize AI with instructions and prompts](/docs/copilot/copilot-customization.md)
+* [Configure MCP servers to add tools to agent mode](/docs/copilot/customization/mcp-servers.md)
+* [Customize AI with instructions and prompts](/docs/copilot/customization/overview.md)

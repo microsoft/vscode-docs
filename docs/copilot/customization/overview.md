@@ -45,7 +45,7 @@ Use chat modes to:
 
 ### Language models
 
-[Language models](/docs/copilot/language-models.md) let you choose from different AI models optimized for specific tasks. You can switch between models to get the best performance for code generation, reasoning, or specialized tasks like vision processing. Bring your own API key to access more models or have more control over model hosting.
+[Language models](/docs/copilot/customization/language-models.md) let you choose from different AI models optimized for specific tasks. You can switch between models to get the best performance for code generation, reasoning, or specialized tasks like vision processing. Bring your own API key to access more models or have more control over model hosting.
 
 Use different language models to:
 
@@ -55,7 +55,7 @@ Use different language models to:
 
 ### MCP and tools
 
-[MCP and tools](/docs/copilot/chat/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
+[MCP and tools](/docs/copilot/customization/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
 
 Use MCP and tools to:
 
@@ -73,9 +73,9 @@ Different customization methods work best for different scenarios. The following
 | Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
 | Use chat in plan or research mode | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
 | Define specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
-| Complex reasoning and analysis | [Language models](/docs/copilot/language-models.md) |
-| Bring your own model | [Language models](/docs/copilot/language-models.md) |
-| Integrate external services | [MCP and tools](/docs/copilot/chat/mcp-servers.md) |
+| Complex reasoning and analysis | [Language models](/docs/copilot/customization/language-models.md) |
+| Bring your own model | [Language models](/docs/copilot/customization/language-models.md) |
+| Integrate external services | [MCP and tools](/docs/copilot/customization/mcp-servers.md) |
 
 ## Getting started
 
@@ -106,5 +106,5 @@ For advanced usage, build **custom chat modes** that combine specific tools, ins
 - [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
 - [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 - [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
-- [Choose language models](/docs/copilot/language-models.md)
-- [Use MCP servers and tools](/docs/copilot/chat/mcp-servers.md)
+- [Choose language models](/docs/copilot/customization/language-models.md)
+- [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)
