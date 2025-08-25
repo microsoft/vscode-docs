@@ -44,7 +44,7 @@ To switch between chat modes, open the Chat view (`kb(workbench.action.chat.open
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/chat-modes/chat-mode-dropdown.png)
 
-Learn more about [chat modes in VS Code](/docs/copilot/chat/chat-modes.md).
+Learn more about [chat modes in VS Code](/docs/copilot/customization/custom-chat-modes.md).
 
 ## Change the language model
 
@@ -52,7 +52,7 @@ VS Code offers different built-in language models to choose from. Some models ar
 
 ![Screenshot of the chat model picker in the Chat view, showing a dropdown list of available models.](images/copilot-chat/chat-model-picker.png)
 
-You can also add models from other model providers (preview) and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
+You can also add models from other model providers and use them in chat. Get more details about how to [use models from other providers](/docs/copilot/language-models.md#bring-your-own-language-model-key).
 
 > [!NOTE]
 > The list of available models might vary based on your Copilot subscription and might change over time. See the GitHub Copilot documentation for more information about the [available language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode).
@@ -178,10 +178,10 @@ You can configure editing of previous chat request with the `setting(chat.editRe
 * `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
 * `none`: Disable editing of chat requests in the Chat view.
 
-### Revert chat requests with checkpoints (Preview)
+### Revert chat requests with checkpoints
 
 > [!NOTE]
-> Checkpoints are available as of VS Code release 1.103 and are currently in preview.
+> Checkpoints are available as of VS Code release 1.103.
 
 Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
 

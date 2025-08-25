@@ -143,7 +143,7 @@ A tool set is a collection of tools that you can use in chat. You can use tool s
 
 ![Screenshot showing the tools picker, highlighting user-defined tool sets.](images/agent-mode/tools-picker-tool-sets.png)
 
-Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/copilot-customization.md), or [custom chat modes](/docs/copilot/chat/chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
+Tool sets enable you to group related tools together, making it easier to use them in your chat prompts, [prompt files](/docs/copilot/customization/overview.md), or [custom chat modes](/docs/copilot/customization/custom-chat-modes.md). This can be particularly useful when you have many installed tools from MCP servers or extensions.
 
 To create a tool set, select the **Configure Chat** button in the Chat view, select **Tool Sets**, and then select **New tool sets file**. Alternatively, you can use the **Chat: Configure Tool Sets** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -271,7 +271,7 @@ You can configure editing of previous chat request with the `setting(chat.editRe
 * `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
 * `none`: Disable editing of chat requests in the Chat view.
 
-## Revert edits with checkpoints (Preview)
+## Revert edits with checkpoints
 
 Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
 
@@ -281,7 +281,7 @@ To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting
 
 ![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
 
-Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints-preview).
+Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
 
 ## Use instructions to get AI edits that follow your coding style
 
