@@ -4,7 +4,7 @@ DateApproved: 08/07/2025
 MetaDescription: Learn how to create reusable prompt files for GitHub Copilot Chat in VS Code to standardize common development tasks and improve your coding workflow efficiency.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Prompt files for Copilot Chat
+# Use prompt files in VS Code
 
 Prompt files are Markdown files that define reusable prompts for common development tasks like generating code, performing code reviews, or scaffolding project components. They are standalone prompts that you can run directly in chat, enabling the creation of a library of standardized development workflows.
 
@@ -160,9 +160,11 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 * Use the editor play button to test your prompts and refine them based on the results.
 
-## Related content
+## Related resources
 
 * [Customize AI responses overview](/docs/copilot/customization/overview.md)
 * [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
 * [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
 * [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
+* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+* [Community contributed instructions, prompts, and chat modes](https://github.com/github/awesome-copilot)
