@@ -81,17 +81,17 @@ Different customization methods work best for different scenarios. The following
 
 You can implement chat customizations incrementally, starting with the simplest options and gradually adding more complexity as needed.
 
-### 1. Start with the basics
+### 1. Try different language models
 
-Begin with **custom instructions** for immediate impact. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instruction files for different parts of your codebase using glob patterns to target specific languages or frameworks.
+Start by experimenting with different **language models** to get better results for different types of work. Use the model picker in chat to switch between models - try faster models for simple tasks and more capable models for complex reasoning. This requires no setup and provides immediate results.
 
-### 2. Add task automation
+### 2. Set up basic guidelines
+
+Create **custom instructions** for consistent results across all your chat interactions. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instruction files for different parts of your codebase using glob patterns to target specific languages or frameworks.
+
+### 3. Add task automation
 
 Once you identify repetitive tasks, create **prompt files** for common workflows like component generation, code reviews, or documentation tasks. These save time and ensure consistency across your team.
-
-### 3. Optimize for different tasks
-
-Experiment with different **language models** to find the best fit for various types of work. Use faster models for simple tasks and more capable models for complex reasoning.
 
 ### 4. Extend capabilities
 
