@@ -194,7 +194,7 @@ To create an instructions file:
 
     To reference additional workspace files, use Markdown links (`[index](../index.ts)`).
 
-To modify an existing instructions file, select the **Configure Chat** button in the Chat view, select **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
+To modify an existing instructions file, in the Chat view, select **Configure Chat** > **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
 ## Specify custom instructions in settings
 
@@ -235,6 +235,18 @@ To generate an instructions file for your workspace:
 1. In the Chat view, select **Configure Chat** > **Generate Instructions**.
 
 1. Review the generated instructions file and make any necessary edits.
+
+## Sync user instructions files across devices
+
+VS Code can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+
+To sync your user instructions files, enable Settings Sync for prompt and instruction files:
+
+1. Make sure you have [Settings Sync](/docs/configure/settings-sync.md) enabled.
+
+1. Run **Settings Sync: Configure** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Select **Prompts and Instructions** from the list of settings to sync.
 
 ## Tips for defining custom instructions
 
