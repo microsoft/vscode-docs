@@ -4,16 +4,9 @@ DateApproved: 08/07/2025
 MetaDescription: Learn how to use chat modes in VS Code for different tasks, and create custom chat modes to tailor AI chat behavior for your specific workflows and development scenarios.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Chat modes in VS Code
+# Use chat modes in VS Code
 
-Chat modes are predefined configurations that enable you to tailor the AI chat behavior in Visual Studio Code for specific tasks, such as asking questions, making code edits, or performing autonomous coding tasks. Switch between chat modes at any time in the Chat view, depending on the task you want to accomplish.
-
-VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can also create your own custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
-
-## Prerequisites
-
-* Install the latest version of Visual Studio Code
-* Access to [Copilot](/docs/copilot/setup.md). [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+Chat modes are predefined configurations that enable you to tailor the chat behavior in Visual Studio Code for specific workflows or have chat assume a specific persona. VS Code comes with three built-in chat modes: **Ask**, **Edit**, and **Agent**. You can create custom chat modes for specialized workflows like planning features, conducting code reviews, or researching implementation options.
 
 ## Switch between chat modes
 
@@ -46,21 +39,23 @@ You can reference instructions files and tools (sets) in your custom chat mode f
 
 ### Chat mode file structure
 
-A chat mode file is a Markdown file with the `.chatmode.md` suffix. It has the following two main sections:
+Chat mode files are Markdown files and use the `.chatmode.md` extension and have this structure:
 
-* Front Matter metadata header
+* **Header** (optional): YAML frontmatter
 
     * `description`: A brief description of the chat mode. This description is displayed as placeholder text in the chat input field and when you hover the mode in the chat mode dropdown list.
     * `tools`: A list of tool or tool set names that are available for this chat mode. This can include built-in tools, tool sets, MCP tools, or tools contributed by extensions. Use the **Configure Tools** action to select the tools from the list of available tools in your workspace.
     * `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
 
-* Body with chat mode instructions
+* **Body**: Chat mode details and instructions in Markdown format
 
-    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode. You can also reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
+    This is where you provide specific prompts, guidelines, or any other relevant information that you want the AI to follow when in this chat mode. 
+
+    Reference instructions files by using Markdown links. The chat mode instructions will complement whatever is specified in the chat prompt.
 
 ### Chat mode file example
 
-The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits.
+The following code snippet shows an example of a "Plan" chat mode file that generates an implementation plan and doesn't make any code edits. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
 ```markdown
 ---
@@ -84,9 +79,17 @@ The plan consists of a Markdown document that describes the implementation plan,
 
 You can create a chat mode file in your workspace or user profile.
 
-1. Run the **Chat: New Mode File** command in the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the Chat view, select **Configure Chat** > **Modes**, and then select **Create new custom chat mode file**.
 
-1. Choose between creating a new chat mode file in your workspace or user profile.
+    ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
+
+    Alternatively, use the **Chat: New Mode File** command in the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. Choose the location where the chat mode file should be created.
+
+    * **Workspace**: By default, workspace chat mode files are stored in the `.github/chatmodes` folder of your workspace. Add more prompt folders for your workspace with the `setting(chat.modeFilesLocations)` setting.
+
+    * **User profile**: User chat mode files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user chat mode files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
 1. Enter a name for the chat mode. This name is used in the chat mode dropdown list in the Chat view.
 
@@ -95,15 +98,7 @@ You can create a chat mode file in your workspace or user profile.
     * Provide the description and configure the list of available tools or tool sets in the Front Matter metadata.
     * Add instructions for the chat mode in the body of the file.
 
-By default, VS Code looks for workspace chat mode files in the `.github/chatmodes` folder. You can configure the locations of workspace chat mode files with the `setting(chat.modeFilesLocations)` setting.
-
-### Manage existing chat modes
-
-To edit and manage existing chat modes, select the **Configure Chat** button in the Chat view, select **Modes**, and then select select an existing chat mode from the list to modify it. Alternatively, you can use the **Chat: Configure Chat Modes** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
-![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
-
-Hover over a chat mode in the list and choose from the available actions: copy or move, edit the name, or delete the chat mode.
+To edit and manage existing chat modes, in the Chat view, select **Configure Chat** > **Modes**, and then select select an existing chat mode from the list to modify it. Alternatively, you can use the **Chat: Configure Chat Modes** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ## Related resources
 
