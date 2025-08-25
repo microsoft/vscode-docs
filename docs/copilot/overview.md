@@ -181,7 +181,7 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-Learn more about using [language models in VS Code](/docs/copilot/language-models.md).
+Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ### Custom chat modes
 

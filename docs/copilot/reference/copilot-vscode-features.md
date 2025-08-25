@@ -50,7 +50,7 @@ Start a natural language chat conversation to get help with coding tasks. For ex
 | `kb(workbench.action.quickchat.toggle)` | Open [Quick Chat](/docs/copilot/chat/copilot-chat.md) without interrupting your workflow. |
 | `kb(workbench.action.chat.newChat)` | Start a new chat session in the Chat view. |
 | `kb(workbench.action.chat.toggleAgentMode)` | Toggle between different [chat modes](/docs/copilot/customization/custom-chat-modes.md) in the Chat view. |
-| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/language-models.md) for chat. |
+| `kb(workbench.action.chat.openModelPicker)` | Show the model picker to [select a different AI model](/docs/copilot/customization/language-models.md) for chat. |
 | `Add Context...` | Attach different types of [context to your chat prompt](/docs/copilot/chat/copilot-chat-context.md). |
 | `/`-command | Use [slash commands](#slash-commands) for common tasks or invoke a [reusable chat prompt](/docs/copilot/customization/overview.md). |
 | `#`-mention | Reference common tools or chat variables to [provide context](/docs/copilot/chat/copilot-chat-context.md) within in your prompt. |

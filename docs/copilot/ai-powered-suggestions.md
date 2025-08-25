@@ -156,7 +156,7 @@ Alternatively, use the **Snooze Inline Suggestions** and **Cancel Snooze Inline 
 
 ## Change the AI model for completions
 
-Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/language-models.md) in VS Code.
+Different Large Language Models (LLMs) are trained on different types of data and might have different capabilities and strengths. Learn more about how to [choose between different AI language models](/docs/copilot/customization/language-models.md) in VS Code.
 
 To change the language model that is used for generating code completions in the editor:
 
