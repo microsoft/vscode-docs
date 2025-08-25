@@ -177,7 +177,7 @@ To view and manage the list of configured MCP servers:
 
     Alternatively, directly open the **MCP SERVERS - INSTALLED** section in the Extensions view (`kb(workbench.view.extensions)`).
 
-    ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png)
+    ![Screenshot showing the MCP servers in the Extensions view.](../images/mcp-servers/extensions-view-mcp-servers.png)
 
 * Run the **MCP: List Servers** command from the Command Palette to view the list of installed MCP servers.
 
@@ -189,20 +189,20 @@ To use MCP tools in agent mode:
 
 1. Open the **Chat** view (`kb(workbench.action.chat.open)`), and select **Agent** mode from the dropdown.
 
-    ![Agent mode dropdown option](images/mcp-servers/chat-mode-agent.png)
+    ![Agent mode dropdown option](../images/mcp-servers/chat-mode-agent.png)
 
 1. Select the **Tools** button to view the list of available tools.
 
     Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
 
-    ![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
+    ![MCP tools list](../images/mcp-servers/agent-mode-select-tools.png)
 
     > [!IMPORTANT]
     > A chat request can have a maximum of 128 tools enabled at a time. If you have more than 128 tools selected, reduce the number of tools by deselecting some tools in the tools picker, or ensure that virtual tools are enabled (`setting(github.copilot.chat.virtualTools.threshold)`).
 
 1. Enter a prompt in the chat input box and notice how tools are automatically invoked as needed. For example, install the [GitHub MCP server](https://github.com/github/github-mcp-server) and ask "List my GitHub issues".
 
-    ![Screenshot of the Chat view, showing an MCP tool invocation in agent mode.](images/mcp-servers/chat-agent-mode-tool-invocation.png)
+    ![Screenshot of the Chat view, showing an MCP tool invocation in agent mode.](../images/mcp-servers/chat-agent-mode-tool-invocation.png)
 
     > [!TIP]
     > You can also directly reference a tool in your prompt by typing `#` followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).
@@ -214,11 +214,11 @@ To use MCP tools in agent mode:
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
-    ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+    ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
 1. Optionally, verify and edit the tool input parameters before running the tool.
 
-    ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
+    ![MCP Tool Input Parameters](../images/mcp-servers/mcp-tool-edit-parameters.png)
 
 ## Use MCP resources
 
@@ -230,7 +230,7 @@ To add a resource from an MCP server to your chat prompt:
 
 1. Select a resource type from the list and provide optional resource input parameters.
 
-    ![Screenshot of the MCP resource Quick Pick, showing resource types provided by the GitHub MCP server.](images/mcp-servers/mcp-resources-quick-pick.png)
+    ![Screenshot of the MCP resource Quick Pick, showing resource types provided by the GitHub MCP server.](../images/mcp-servers/mcp-resources-quick-pick.png)
 
 To view the list of available resources for an MCP server, use the **MCP: Browse Resources** command or use the **MCP: List Servers** > **Browse Resources** command to view resources for a specific server.
 
@@ -240,7 +240,7 @@ MCP tools can return resources as part of their response. You can view or save t
 
 MCP servers can provide preconfigured prompts for common tasks, so you don't have to type an elaborate chat prompt. You can directly invoke these prompts in the chat input box by typing `/` followed by the prompt name, formatted as `mcp.servername.promptname`. Optionally, the prompt might ask you for extra input parameters.
 
-![Screenshot of the Chat view, showing an MCP prompt invocation and a dialog asking for additional input parameters.](images/mcp-servers/mcp-prompt-invocation.png)
+![Screenshot of the Chat view, showing an MCP prompt invocation and a dialog asking for additional input parameters.](../images/mcp-servers/mcp-prompt-invocation.png)
 
 ## Use MCP elicitations
 
@@ -264,17 +264,17 @@ To perform these actions on an MCP server, use either of these options:
 
 * Right-click on the server in the **MCP SERVERS - INSTALLED** section or select the gear icon
 
-    ![Screenshot showing the MCP servers in the Extensions view.](images/mcp-servers/extensions-view-mcp-servers.png)
+    ![Screenshot showing the MCP servers in the Extensions view.](../images/mcp-servers/extensions-view-mcp-servers.png)
 
 * Open the `mcp.json` configuration file and access the actions inline in the editor (lenses)
 
-    ![MCP server configuration with lenses to manage server.](images/mcp-servers/mcp-server-config-lenses.png)
+    ![MCP server configuration with lenses to manage server.](../images/mcp-servers/mcp-server-config-lenses.png)
 
     Use the **MCP: Open User Configuration** or **MCP: Open Workspace Folder Configuration** commands to access the MCP server configuration.
 
 * Run the **MCP: List Servers** command from the Command Palette and select a server
 
-    ![Screenshot showing the actions for an MCP server in the Command Palette.](images/mcp-servers/mcp-list-servers-actions.png)
+    ![Screenshot showing the actions for an MCP server in the Command Palette.](../images/mcp-servers/mcp-list-servers-actions.png)
 
 ### Automatically start MCP servers
 
@@ -284,7 +284,7 @@ You can configure VS Code to automatically restart the MCP server when configura
 
 Alternatively, manually restart the MCP server from the Chat view, or by selecting the restart action from the [MCP server list](#manage-mcp-servers).
 
-![Screenshot showing the Refresh button in the Chat view.](images/mcp-servers/chat-view-mcp-refresh.png)
+![Screenshot showing the Refresh button in the Chat view.](../images/mcp-servers/chat-view-mcp-refresh.png)
 
 ### Command-line configuration
 
@@ -323,7 +323,7 @@ MCP servers can run arbitrary code on your machine. Only add servers from truste
 
 When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. Select the link to MCP server in the dialog to review the MCP server configuration in a separate window.
 
-![Screenshot showing the MCP server trust prompt.](images/mcp-servers/mcp-server-trust-dialog.png)
+![Screenshot showing the MCP server trust prompt.](../images/mcp-servers/mcp-server-trust-dialog.png)
 
 If you don't trust the server, it is not started, and chat requests continue without using the tools provided by the server.
 
@@ -480,11 +480,11 @@ When defining MCP servers, follow these naming conventions for the server name:
 
 When VS Code encounters an issue with an MCP server, it shows an error indicator in the Chat view.
 
-![MCP Server Error](images/mcp-servers/mcp-error-loading-tool.png)
+![MCP Server Error](../images/mcp-servers/mcp-error-loading-tool.png)
 
 Select the error notification in the Chat view, and then select the **Show Output** option to view the server logs. Alternatively, run **MCP: List Servers** from the Command Palette, select the server, and then choose **Show Output**.
 
-![MCP Server Error Output](images/mcp-servers/mcp-server-error-output.png)
+![MCP Server Error Output](../images/mcp-servers/mcp-server-error-output.png)
 
 ### Debug an MCP server
 

@@ -110,7 +110,6 @@
           ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
           ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
           ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
-          ["MCP Servers", "/docs/copilot/chat/mcp-servers"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
           ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
         ]
@@ -118,19 +117,20 @@
       ],
       ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
-      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["", "", {
         "name": "Customize Copilot",
         "area": "copilot/customization",
+        "noCollapse": true,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
           ["Custom Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"]
+          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Language Models", "/docs/copilot/customization/language-models"],
+          ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
       }
       ],
-      ["Language Models", "/docs/copilot/language-models"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
@@ -143,6 +143,7 @@
         ]
       }
       ],
+      ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Tips and Tricks", "/docs/copilot/copilot-tips-and-tricks"],
       ["FAQ", "/docs/copilot/faq"],
       ["", "", {
