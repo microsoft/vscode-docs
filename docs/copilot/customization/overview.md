@@ -1,132 +1,110 @@
 ---
-ContentId: 16c73175-a606-4aab-8ae5-a507fe8947eb
-DateApproved: 08/07/2025
+ContentId: 16c73175-a606-4aab-8ae5-a507
+dateApproved: 08/07/2025
 MetaDescription: Learn how to customize GitHub Copilot Chat with custom instructions, reusable prompt files, and custom chat modes to align AI responses with your coding practices and project requirements.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
-# Customize AI responses in VS Code
+# Customize chat to your workflow
 
-Chat in Visual Studio Code can give you responses and generate code that matches your coding practices and project requirements, if you give it the right context. Instead of repeatedly adding this information in every chat prompt, you can store this context in files and automatically include it in every chat request.
+You can customize chat in Visual Studio Code to match your coding practices and project requirements. Set up persistent configurations that automatically apply your preferred context, tools, and guidelines to every conversation. This saves time and ensures consistent responses without manually providing the same information in each chat request.
 
-There are three main ways to customize AI responses in Visual Studio Code:
+## Customization options
 
-* **[Custom instructions](/docs/copilot/customization/custom-instructions.md)**: Define common guidelines or rules for tasks like generating code, performing code reviews, or generating commit messages. Custom instructions describe the conditions in which the AI should operate (_how_ a task should be done). VS Code can also help you [generate a custom instructions file for your workspace](/docs/copilot/customization/custom-instructions.md#generate-an-instructions-file-for-your-workspace) that matches your coding practices and project requirements.
+There are five main ways to customize chat in Visual Studio Code. These options work independently or you can combine them for more comprehensive customization.
 
-    <details>
-    <summary>Example scenarios</summary>
+### Custom instructions
 
-    * Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards.
-    * Set rules for code reviews, such as checking for security vulnerabilities or performance issues.
-    * Provide instructions for generating commit messages or pull request titles and descriptions.
+[Custom instructions](/docs/copilot/customization/custom-instructions.md) let you define common guidelines or rules in a Markdown file for tasks like generating code, performing code reviews, or generating commit messages. With custom instruction, you describe _how_ a specific task should be performed. VS Code can automatically apply these instructions or you can choose to include them in specific chat requests.
 
-    </details>
+Use custom instructions to:
 
-* **[Prompt files](/docs/copilot/customization/prompt-files.md)**: Define reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (_what_ should be done). Optionally, you can include task-specific guidelines about how the task should be performed, or you can reference custom instructions in the prompt file.
+- Specify coding practices, preferred technologies, or project requirements, so generated code follows your standards
+- Provide guidelines about how a commit message or pull request title and description should be structured
+- Set rules for code reviews, such as checking for security vulnerabilities, performance issues, or adherence to coding standards
 
-    <details>
-    <summary>Example scenarios</summary>
+### Prompt files
 
-    * Create reusable prompts for common coding tasks, such as scaffolding a new component, API route, or generating tests.
-    * Define prompts for performing code reviews, such as checking for code quality, security vulnerabilities, or performance issues.
-    * Create step-by-step guides for complex processes or project-specific patterns.
-    * Define prompts for generating implementation plans, architectural designs, or migration strategies.
+[Prompt files](/docs/copilot/customization/prompt-files.md) let you define reusable prompts for common and repeatable development tasks in a Markdown file. Prompt files are standalone prompts that you can run directly in chat. You can include task-specific context and guidelines about how the task should be performed. Combine prompt files with custom instructions to ensure consistent execution of complex tasks.
 
-    </details>
+Use prompt files to:
 
-* **[Custom chat modes](/docs/copilot/customization/custom-chat-modes.md)**: Define how chat operates, which tools it can use, and how it interacts with the codebase. Each chat prompt is run within the boundaries of the chat mode, without having to configure tools and instructions for every request.
+- Create reusable prompts for common coding tasks, such as scaffolding a new component, API route, or generating tests
+- Define prompts for performing code reviews, such as checking for code quality, security vulnerabilities, or performance issues
+- Create step-by-step guides for complex processes or project-specific patterns
+- Define prompts for generating implementation plans, architectural designs, or migration strategies
 
-    <details>
-    <summary>Example scenarios</summary>
+### Chat modes
 
-    * Create a chat mode for planning, where the AI has read-only access to the codebase and can only generate implementation plans.
-    * Define a research chat mode, where the AI can reach out to external resources to explore new technologies or gather information.
-    * Create a front-end developer chat mode, where the AI can only generate and modify code related to front-end development.
+[Chat modes](/docs/copilot/customization/custom-chat-modes.md) let you define the boundaries in which chat operates: which tools it can use, the suggested language model, and how it interacts with the codebase.
 
-    </details>
+Use chat modes to:
 
-## Choose the right customization approach
+- Create a chat mode for planning, where the AI has read-only access to the codebase and can only generate implementation plans
+- Define a research chat mode, where the AI can reach out to external resources to explore new technologies or gather information
+- Create a front-end developer chat mode, where the AI can only generate and modify code related to front-end development
 
-Different customization methods work best for different scenarios. Use this guide to choose the right approach:
+### Language models
 
-| Use Case | Best Approach | Why |
-|----------|---------------|-----|
-| Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) | Apply automatically to all chat requests |
-| Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-structure) | Target specific file types |
-| Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) | On-demand execution with consistent parameters |
-| Specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) | Combine tools, instructions, and context |
-| Code review guidelines | [Custom instructions in settings](/docs/copilot/customization/custom-instructions.md#specify-custom-instructions-in-settings) | Apply to specific VS Code features |
+[Language models](/docs/copilot/language-models.md) let you choose from different AI models optimized for specific tasks. You can switch between models to get the best performance for code generation, reasoning, or specialized tasks like vision processing. Bring your own API key to access more models or have more control over model hosting.
 
-## Quick start guide
+Use different language models to:
 
-Get started with customization in three steps:
+- Use a fast model for quick code suggestions and simple refactoring tasks
+- Switch to a more capable model for complex architectural decisions or detailed code reviews
+- Bring your own API key to access experimental models or use locally hosted models
 
-### 1. Start with custom instructions
+### MCP and tools
 
-Create a `.github/copilot-instructions.md` file in your workspace root to define your basic coding standards:
+[MCP and tools](/docs/copilot/chat/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
 
-```markdown
-# Project coding standards
+Use MCP and tools to:
 
-## Code Style
-- Use TypeScript for all new code
-- Follow ESLint and Prettier configurations
-- Use descriptive variable and function names
+- Connect database tools to query and analyze data without leaving your development environment
+- Integrate with external APIs to fetch real-time information or perform actions
 
-## Architecture
-- Follow the existing folder structure
-- Use dependency injection for services
-- Write unit tests for all public functions
-```
+## Usage scenarios
 
-### 2. Add task-specific prompt files
+Different customization methods work best for different scenarios. The following table lists common use cases and the recommended approach:
 
-Create reusable prompts for common tasks in `.github/prompts/`:
+| Use Case | Approach |
+|----------|----------|
+| Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) |
+| Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-structure) |
+| Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
+| Use chat in plan or research mode | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
+| Define specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
+| Complex reasoning and analysis | [Language models](/docs/copilot/language-models.md) |
+| Bring your own model | [Language models](/docs/copilot/language-models.md) |
+| Integrate external services | [MCP and tools](/docs/copilot/chat/mcp-servers.md) |
 
-```markdown
----
-description: 'Generate a new React component with TypeScript'
-mode: 'agent'
----
-Create a new React functional component with the following requirements:
-- TypeScript interfaces for all props
-- CSS modules for styling
-- Basic error boundary handling
-- JSDoc comments for all props
-```
+## Getting started
 
-### 3. Create specialized chat modes
+You can implement chat customizations incrementally, starting with the simplest options and gradually adding more complexity as needed.
 
-For advanced workflows, create custom chat modes that combine specific tools and instructions:
+### 1. Start with the basics
 
-```markdown
----
-description: 'Code review mode with security focus'
-tools: ['codebase', 'search', 'usages']
----
-You are performing a security-focused code review. Check for:
-- Input validation issues
-- Authentication and authorization problems
-- Data exposure risks
-- Dependency vulnerabilities
-```
+Begin with **custom instructions** for immediate impact. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instruction files for different parts of your codebase using glob patterns to target specific languages or frameworks.
 
-## Settings management
+### 2. Add task automation
 
-Enable customization features in your VS Code settings:
+Once you identify repetitive tasks, create **prompt files** for common workflows like component generation, code reviews, or documentation tasks. These save time and ensure consistency across your team.
 
-```json
-{
-  "chat.promptFiles": true,
-  "github.copilot.chat.codeGeneration.useInstructionFiles": true
-}
-```
+### 3. Optimize for different tasks
 
-For organizations, you can [centrally manage these settings](/docs/setup/enterprise.md#centrally-manage-vs-code-settings) through device management policies.
+Experiment with different **language models** to find the best fit for various types of work. Use faster models for simple tasks and more capable models for complex reasoning.
 
-## Related content
+### 4. Extend capabilities
 
-* [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
-* [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
-* [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
-* [Get started with chat in VS Code](/docs/copilot/chat/copilot-chat.md)
-* [Configure tools in chat](/docs/copilot/chat/chat-agent-mode.md#agent-mode-tools)
+When you need to connect external services or perform specialized operations, add **MCP servers and tools** to extend chat beyond basic code assistance.
+
+### 5. Create specialized workflows
+
+For advanced usage, build **custom chat modes** that combine specific tools, instructions, and context for particular roles or project phases.
+
+## Related resources
+
+- [Create custom instructions](/docs/copilot/customization/custom-instructions.md)
+- [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
+- [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
+- [Choose language models](/docs/copilot/language-models.md)
+- [Use MCP servers and tools](/docs/copilot/chat/mcp-servers.md)
