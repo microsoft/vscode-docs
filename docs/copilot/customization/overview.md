@@ -55,7 +55,7 @@ Use different language models to:
 
 ### MCP and tools
 
-[MCP and tools](/docs/copilot/chat/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
+[MCP and tools](/docs/copilot/customization/mcp-servers.md) let you connect external services and specialized tools through Model Context Protocol (MCP). This extends chat capabilities beyond code to interact with databases, APIs, and other development tools.
 
 Use MCP and tools to:
 
@@ -75,7 +75,7 @@ Different customization methods work best for different scenarios. The following
 | Define specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
 | Complex reasoning and analysis | [Language models](/docs/copilot/customization/language-models.md) |
 | Bring your own model | [Language models](/docs/copilot/customization/language-models.md) |
-| Integrate external services | [MCP and tools](/docs/copilot/chat/mcp-servers.md) |
+| Integrate external services | [MCP and tools](/docs/copilot/customization/mcp-servers.md) |
 
 ## Getting started
 
@@ -107,4 +107,4 @@ For advanced usage, build **custom chat modes** that combine specific tools, ins
 - [Create reusable prompt files](/docs/copilot/customization/prompt-files.md)
 - [Create custom chat modes](/docs/copilot/customization/custom-chat-modes.md)
 - [Choose language models](/docs/copilot/customization/language-models.md)
-- [Use MCP servers and tools](/docs/copilot/chat/mcp-servers.md)
+- [Use MCP servers and tools](/docs/copilot/customization/mcp-servers.md)
