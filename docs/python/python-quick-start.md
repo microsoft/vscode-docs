@@ -28,7 +28,9 @@ You can quickly create a scaffolded Python project for scripts or a Python packa
 
 ![Screenshot showing the Python Environments Activity Bar.](/docs/python/images/environments/python-environments-activity-bar.png)
 
-2. Under "Python Projects", select **Create New**.
+2. In the "Python Projects" section, select **Add Python Project** and **Create New**.
+
+![Screenshot showing the UI entry point to add a new python project.](/docs/python/images/quick-start/create-project.png)
 
 3. Choose from available project templates:
    - **Package**: A structured Python package with `__init__.py` and setup configurations.
@@ -48,7 +50,7 @@ You can create a new Python file by selecting **New File** on the VS Code Welcom
 
 When you launch VS Code for the very first time, you will need to install the Python extension to get Python-specific features and UI. Let’s look at the UI after installing the Python extension:
 
-![Image of the Python UI highlights in VS Code.](images/quick-start/ui-tour.png)
+![Image of the Python UI highlights in VS Code.](images/quick-start/updated-ui-tour.png)
 
 ## Code Actions
 

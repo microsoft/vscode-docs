@@ -89,21 +89,21 @@ The Python Environments extension provides a dedicated interface for managing en
 
 1. Open the Python Environments view from the Activity Bar on the left side of VS Code.
 
-2. Under "Environment Managers", select your preferred environment manager (such as venv).
+![Screenshot of the Python Environments panel from the Activity Bar.](/docs/python/images/environments/python-environments-activity-bar.png)
 
-3. Select **Create Environment** or use the **Quick Create** option which automatically creates a new virtual environment using your default environment manager and the latest Python version.
+2. Under "Environment Managers", select the `+` next to your preferred environment manager (such as Venv).
 
-   [TODO: Add screenshot of Python Environments Quick Create option in VS Code]
+3. Select the **Quick Create** option which automatically creates a new virtual environment using your default environment manager and the latest Python version.
 
-4. Follow the prompts to specify the Python version and environment name.
+   ![Screenshot of the environment creation options for venv.](/docs/python/images/environments/environment-creation-dropdown.png)
 
-4. After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
+4. A notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
 
    ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
 5. Once created, your new environment will be available in the list and automatically selected for your workspace.
 
-   ![Select an Interpreter](images/tutorial/interpreter-venv.png)
+   ![Select an Interpreter](/docs/python/images/environments/selected-interpreter-envs.png)
 
 > **Note**: For additional information about virtual environments, or if you run into an error in the environment creation process, see [Environments](/docs/python/environments.md#creating-environments).
 
@@ -243,15 +243,19 @@ Installing Python packages can be done fully within the UI.
 
 1. Open the **Python Environments** view from the Activity Bar.
 
-2. Locate your active environment under either "Python Projects" or "Environment Managers".
+2. Locate your active environment under "Environment Managers".
 
 3. Expand your environment and the **Packages** node to view packages currently available in your environment. Select the package icon on the environment.
 
+![Screenshot of UI entry point for package management.](/docs/python/images/tutorial/manage-packages.png)
+
 4. Select **Search common PyPI packages** and search for and select `numpy`.
 
-   [TODO: Add screenshot of Python Environments package management interface]
+![Screenshot of package installation UI.](/docs/python/images/tutorial/install-numpy.png)
 
 5. Once installed, the package will appear in your environment's package list.
+
+![Screenshot showing numpy installed in the virtual environment.](/docs/python/images/tutorial/numpy-installed.png)
 
 ### Using the terminal to install packages
 

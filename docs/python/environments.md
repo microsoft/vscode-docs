@@ -18,7 +18,7 @@ Python environments are managed via the Python Environments extension. The exten
 
 The Python Environments view can be accessed from the Activity Bar and provides a unified interface for managing your Python projects and environments:
 
-![Python Environments view in VS Code (Screenshot placeholder)]()
+![Python Environments view in the Activity Bar.](/docs/python/images/environments/python-environments-activity-bar.png)
 
 The view consists of two main sections:
 
@@ -70,7 +70,7 @@ The following table lists the various tools involved with Python environments:
 
 ### Quick Create
 
-Quick create allows for a one-click environment creation flow, choosing the defaults for you. Quick create configures a virutal environment using the default environment manager and the latest Python version, and installing dependencies found in a `requirements.txt` or `pyproject.toml` file.
+Quick create allows for a one-click environment creation flow, choosing the defaults for you. Quick create configures a virtual environment using the default environment manager and the latest Python version, and installing dependencies found in a `requirements.txt` or `pyproject.toml` file.
 
 1. Open the Python Environments view from the Activity Bar
 2. Under "Environment Managers", find your preferred environment manager (e.g., venv)
@@ -79,6 +79,8 @@ Quick create allows for a one-click environment creation flow, choosing the defa
    - Your default environment manager
    - The latest Python version
    - Workspace dependencies (if available)
+
+![Screenshot of the environment creation options for venv.](/docs/python/images/environments/environment-creation-dropdown.png)
 
 ### Custom environment creation
 
