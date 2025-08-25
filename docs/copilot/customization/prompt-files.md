@@ -6,17 +6,12 @@ MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
 # Prompt files for Copilot Chat
 
-Prompt files are reusable prompts for common development tasks like generating code, performing code reviews, or scaffolding project components. Define your prompt content in Markdown files that you can run directly in chat, creating a library of standardized development workflows.
+Prompt files are Markdown files that define reusable prompts for common development tasks like generating code, performing code reviews, or scaffolding project components. They are standalone prompts that you can run directly in chat, enabling the creation of a library of standardized development workflows.
+
+They can include task-specific guidelines or reference custom instructions to ensure consistent execution. Unlike custom instructions that apply to all requests, prompt files are triggered on-demand for specific tasks.
 
 > [!NOTE]
 > Prompt files are currently experimental and may change in future releases.
-
-## What are prompt files?
-
-Prompt files are standalone prompts that describe specific tasks to be performed (_what_ should be done). They can include task-specific guidelines or reference custom instructions to ensure consistent execution. Unlike custom instructions that apply to all requests, prompt files are triggered on-demand for specific tasks.
-
-> [!TIP]
-> Prompt files can take advantage of instruction files to reuse common guidelines and have task-specific instructions included in the prompt. For example, a security review prompt file can reference a custom instructions that describe general security practices, while also including specific instructions on how to report the findings of the review.
 
 VS Code supports two types of scopes for prompt files:
 
@@ -25,7 +20,7 @@ VS Code supports two types of scopes for prompt files:
 
 ## Prompt file examples
 
-The following examples demonstrate how to use prompt files:
+The following examples demonstrate how to use prompt files. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
 <details>
 <summary>Example: generate a React form component</summary>
@@ -76,37 +71,36 @@ Return the TODO list in a Markdown format, grouped by priority and issue type.
 
 </details>
 
-## Prompt file structure
+## Prompt file format
 
-A prompt file is a Markdown file with the `.prompt.md` file suffix. It has the following two main sections:
+Prompt files are Markdown files and use the `.prompt.md` extension and have this structure:
 
-### Header with metadata (Front Matter syntax)
+* **Header** (optional): YAML frontmatter
+    * `description`: Short description of the prompt
+    * `mode`: Chat mode used for running the prompt: `ask`, `edit`, or `agent` (default).
+    * `model`: Language model used when running the prompt. If not specified, the currently selected model in model picker is used.
+    * `tools`: Array of tool (set) names that can be used. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
 
-* `mode`: The chat mode to use when running the prompt: `ask`, `edit`, or `agent` (default).
-* `model`: The AI model to use when running the prompt. If not specified, the currently selected model in model picker is used.
-* `tools`: Array of tool (set) names to indicate which tools (sets) can be used in agent mode. Select **Configure Tools** to select the tools from the list of available tools in your workspace. If a given tool (set) is not available when running the prompt, it is ignored.
-* `description`: A short description of the prompt.
+* **Body**: Prompt instructions in Markdown format
 
-### Body with the prompt content
+    Reference other workspace files, prompt files, or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
 
-Prompt files mimic the format of writing prompts in chat. This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies. You can use Markdown formatting to structure the prompt content, including headings, lists, and code blocks.
+    Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
 
-You can reference other workspace files, prompt files, or instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.
-
-Within a prompt file, you can reference variables by using the `${variableName}` syntax. You can reference the following variables:
-
-* Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
-* Selection variables - `${selection}`, `${selectedText}`
-* File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
-* Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
+    * Workspace variables - `${workspaceFolder}`, `${workspaceFolderBasename}`
+    * Selection variables - `${selection}`, `${selectedText}`
+    * File context variables - `${file}`, `${fileBasename}`, `${fileDirname}`, `${fileBasenameNoExtension}`
+    * Input variables - `${input:variableName}`, `${input:variableName:placeholder}` (pass values to the prompt from the chat input field)
 
 ## Create a prompt file
 
-You can create prompt files in your workspace or user profile. Workspace prompt files are only available within the workspace, while user prompt files are available across multiple workspaces.
+When you create a prompt file, choose whether to store it in your workspace or user profile. Workspace prompt files apply only to that workspace, while user prompt files are available across multiple workspaces.
 
 To create a prompt file:
 
-1. Select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select **New prompt file**.
+1. Enable the `setting(chat.promptFiles)` setting.
+
+1. In the Chat view, select **Configure Chat** > **Prompt Files**, and then select **New prompt file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
@@ -120,25 +114,23 @@ To create a prompt file:
 
 1. Enter a name for your prompt file.
 
-    Alternatively, you can directly create a `.prompt.md` file in the prompts folder of your workspace.
-
 1. Author the chat prompt by using Markdown formatting.
 
-    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#index.ts` references within the prompt file.
+    Within a prompt file, reference additional workspace files as Markdown links (`[index](../index.ts)`).
 
     You can also reference other `.prompt.md` files to create a hierarchy of prompts. You can also reference [instructions files](/docs/copilot/customization/custom-instructions.md) in the same way.
 
-To modify an existing prompt file, select the **Configure Chat** button in the Chat view, select **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
+To modify an existing prompt file, in the Chat view, select **Configure Chat** > **Prompt Files**, and then select a prompt file from the list. Alternatively, use the **Chat: Configure Prompt Files** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the prompt file from the Quick Pick.
 
 ## Use a prompt file in chat
 
 You have multiple options to run a prompt file:
 
-* Run the **Chat: Run Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) and select a prompt file from the Quick Pick.
-
 * In the Chat view, type `/` followed by the prompt file name in the chat input field.
 
     This option enables you to pass additional information in the chat input field. For example, `/create-react-form` or `/create-react-form: formName=MyForm`.
+
+* Run the **Chat: Run Prompt** command from the Command Palette (`kb(workbench.action.showCommands)`) and select a prompt file from the Quick Pick.
 
 * Open the prompt file in the editor, and press the play button in the editor title area. You can choose to run the prompt in the current chat session or open a new chat session.
 
@@ -156,37 +148,17 @@ To sync your user prompt files, enable Settings Sync for prompt and instruction 
 
 1. Select **Prompts and Instructions** from the list of settings to sync.
 
-## Best practices for prompt files
+## Tips for defining prompt files
 
-* **Be specific about the task**: Clearly describe what the prompt should accomplish and what output format is expected.
+* Clearly describe what the prompt should accomplish and what output format is expected.
 
-* **Include examples**: Provide examples of the expected input and output to guide the AI's responses.
+* Provide examples of the expected input and output to guide the AI's responses.
 
-* **Reference instructions files**: Use Markdown links to reference custom instructions rather than duplicating guidelines in each prompt.
+* Use Markdown links to reference custom instructions rather than duplicating guidelines in each prompt.
 
-* **Use variables**: Take advantage of built-in variables like `${selection}` and input variables to make prompts more flexible.
+* Take advantage of built-in variables like `${selection}` and input variables to make prompts more flexible.
 
-* **Test and iterate**: Use the editor play button to test your prompts and refine them based on the results.
-
-* **Organize by purpose**: Group related prompts in folders and use descriptive names that make their purpose clear.
-
-## Settings reference
-
-<details>
-<summary>Prompt files settings</summary>
-
-* `setting(chat.promptFiles)` _(Experimental)_: Enable support for reusable prompt files and instruction files.
-
-* `setting(chat.promptFilesLocations)` _(Experimental)_: A dictionary of folders where prompt files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, prompt files are located in the `.github/prompts` folder of your workspace.
-
-    ```json
-    "chat.promptFilesLocations": {
-        ".github/prompts": false,
-        "setup/**/prompts": true
-    }
-    ```
-
-</details>
+* Use the editor play button to test your prompts and refine them based on the results.
 
 ## Related content
 
