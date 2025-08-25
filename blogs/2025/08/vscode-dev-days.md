@@ -1,8 +1,9 @@
 ---
 Order: 104
-TOCTitle: Join a VS Code Dev Days event
+TOCTitle: "VS Code Dev Days 2025"
 PageTitle: "VS Code Dev Days – Join an event near you to learn about AI-assisted development"
 MetaDescription: Join a VS Code Dev Days event to learn about GitHub Copilot in VS Code
+MetaSocialImage: VSCode-Dev-Days-banner.jpg
 Date: 2025-08-26
 Author: Katie Savage, Cynthia Zanoni
 ---
@@ -10,20 +11,19 @@ Author: Katie Savage, Cynthia Zanoni
 # VS Code Dev Days – Join an event near you to learn about AI-assisted development
 
 August 26th, 2025 by [Katie Savage](https://github.com/katiesavage) and [Cynthia Zanoni](https://x.com/cynthiazanoni)
-
-AI has become core to the developer experience in VS Code - shipping features like agent mode, Next Edit Suggestions, and full MCP spec support in just the past six months. We've loved seeing how the community has embraced these AI features to transform their workflows. But with this rapid era of change, we also recognize that there is a lot to learn to effectively use these tools. We, and our amazing community, are excited to share that we’re running 60+ global, in-person events to re-introduce you to VS Code as an AI-powered editor and upskill you on the latest features.
+AI has become core to the developer experience in VS Code, shipping features like agent mode, next edit suggestions, and full MCP spec support in just the past six months. We've loved seeing how the community has embraced these AI features to transform their developer workflows. But with this rapid era of change, we also recognize that there is a lot to learn to effectively use these tools. We are excited to share that, together with our amazing community, we’re running 60+ global, in-person events to re-introduce you to VS Code as an AI-powered editor and upskill you on the latest features.
 
 Find an event near you and register today: <https://aka.ms/VSCode/DevDays>.
 
-## What to expect from a VS Code Dev Days event
+## What to expect from a VS Code Dev Days event?
 
-Each VS Code Dev Days event is run by a Microsoft employee or active, recognized community member. The events are short and sweet and will typically include two lecture-style sessions and one interactive lab. Here is a sample agenda:
+Each VS Code Dev Days event is run by a Microsoft employee or active, recognized community member. The events are short and sweet and will typically include two lecture-style sessions and one interactive lab to put it all in practice. Here is a sample agenda:
 
-- **Introductory Session:** 30-45 minutes on VS Code, GitHub Copilot, and AI development from a Microsoft advocate or active community member.
-- **Local Community Session:** 30-45 minutes by a local developer or community leader on relevant topics.
-- **Hands-on Workshop:** 1 hour of coding and practical exercises.
+- **Introductory session:** 30-45 minutes on VS Code, GitHub Copilot, and AI development from a Microsoft advocate or active community member.
+- **Local community session:** 30-45 minutes by a local developer or community leader on relevant topics.
+- **Hands-on workshop:** 1 hour of coding and practical exercises.
 
-There is some variety to this as each community event organizer may tweak the event to fit the interests of their local developer community.
+The specific event details can vary, as each community event organizer might tweak the event to fit the interests of their local developer community.
 
 At every event, from São Paulo to Seoul, you can connect with local devs to explore the features, tips, and extensions that make coding with AI smarter, faster, and more productive.
 
