@@ -87,7 +87,7 @@ Start by experimenting with different **language models** to get better results 
 
 ### 2. Set up basic guidelines
 
-Create **custom instructions** for consistent results across all your chat interactions. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instruction files for different parts of your codebase using glob patterns to target specific languages or frameworks.
+Create **custom instructions** for consistent results across all your chat interactions. Create a `.github/copilot-instructions.md` file with your coding standards and preferences. This automatically improves all chat responses without extra effort. Create different instructions files for different parts of your codebase using glob patterns to target specific languages or frameworks.
 
 ### 3. Add task automation
 
