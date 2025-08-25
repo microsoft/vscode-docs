@@ -196,16 +196,6 @@ To create an instructions file:
 
 To modify an existing instructions file, select the **Configure Chat** button in the Chat view, select **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
-### Use an instructions file in chat
-
-If you specified the `applyTo` metadata property in the instructions file, VS Code automatically applies the instructions to all files that match the glob pattern.
-
-To manually attach an instructions file to a chat prompt:
-
-* In the Chat view, select **Add Context** > **Instructions** and select the instructions file from the Quick Pick.
-
-* Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
-
 ## Specify custom instructions in settings
 
 You can configure custom instructions for specialized scenarios by using VS Code user or workspace settings.
