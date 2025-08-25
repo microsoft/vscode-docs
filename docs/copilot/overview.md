@@ -41,7 +41,7 @@ Install Model Context Protocol (MCP) servers or tools from Marketplace extension
 - Debug failing tests and apply fixes
 - Optimize performance across the application
 
-Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/chat/mcp-servers.md).
+Learn more about [autonomous coding with agent mode](/docs/copilot/chat/chat-agent-mode.md) and [configuring MCP servers in VS Code](/docs/copilot/customization/mcp-servers.md).
 
 ### Natural language chat
 
@@ -181,7 +181,7 @@ Quickly switch between different AI models to optimize for speed, reasoning, or 
 
 ![Screenshot that shows the model picker in the Chat view.](images/language-models/model-dropdown-change-model.png)
 
-Learn more about using [language models in VS Code](/docs/copilot/language-models.md).
+Learn more about using [language models in VS Code](/docs/copilot/customization/language-models.md).
 
 ### Custom chat modes
 
@@ -197,7 +197,7 @@ Extend the capabilities of the chat experience with specialized tools from MCP s
 
 ![MCP tools list](chat/images/mcp-servers/agent-mode-select-tools.png)
 
-Learn more about [using MCP servers and tools](/docs/copilot/chat/mcp-servers.md).
+Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-servers.md).
 
 ## Best Practices
 
