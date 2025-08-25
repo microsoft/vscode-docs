@@ -173,7 +173,7 @@ applyTo: "**"
 - Follow the Repository pattern for data access
 ```
 
-Learn more about [using custom instructions](/docs/copilot/copilot-customization.md) to tailor the AI to your coding style.
+Learn more about [using custom instructions](/docs/copilot/customization/overview.md) to tailor the AI to your coding style.
 
 ### Language models
 
@@ -189,7 +189,7 @@ The chat experience in VS Code can operate in different modes to switch between 
 
 ![Screenshot showing the Chat view, highlighting the chat mode dropdown list.](images/overview/chat-mode-dropdown.png)
 
-Learn more about [creating your own chat modes](/docs/copilot/chat/chat-modes.md).
+Learn more about [creating your own chat modes](/docs/copilot/customization/custom-chat-modes.md).
 
 ### Extend chat with tools
 
@@ -223,4 +223,4 @@ You can start using GitHub Copilot for free with monthly limits on completions a
 
 - [Set up Copilot in VS Code](/docs/copilot/setup.md)
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
-- [Customize the AI for your workflow](/docs/copilot/copilot-customization.md)
+- [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
