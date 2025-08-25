@@ -14,7 +14,7 @@ By default, chat uses a base model to provide fast, capable responses for a wide
 
 However, you are not limited to using only this model. You can choose from a [selection of language models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat#ai-models-for-copilot-chat-1), each with its own particular strengths. For a detailed comparison of AI models, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
 
-Depending on the [chat mode](/docs/copilot/chat/chat-modes.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
+Depending on the [chat mode](/docs/copilot/customization/custom-chat-modes.md) you are using, the list of available models might be different. For example, in agent mode, the list of models is limited to those that have good support for tool calling.
 
 > [!NOTE]
 > If you are a Copilot Business or Enterprise user, your administrator needs to enable certain models for your organization by opting in to `Editor Preview Features` in the [Copilot policy settings](https://docs.github.com/en/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) on GitHub.com.
@@ -38,7 +38,7 @@ With auto model selection, VS Code automatically selects the best model for your
 
 To use auto model selection, select **Auto** from the model picker in chat.
 
-![Screenshot that shows the model picker in the Chat view, showing the Auto option.](images/language-models/model-dropdown-auto.png)
+![Screenshot that shows the model picker in the Chat view, showing the Auto option.](../images/language-models/model-dropdown-auto.png)
 
 Currently, VS Code chooses between Claude Sonnet 4, GPT-5 mini, and Gemini Pro 2.5, unless your organization has [disabled access to these models](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). If none of these models are available, auto model seletion will fall back to GPT-4.1 at 0x. If you are on a paid plan and you run out of premium requests, you will fall back to GPT-5 mini at 0x.
 
@@ -46,7 +46,7 @@ When using auto model selection, VS Code uses a variable [model multiplier](http
 
 At any time, you can see which model and model multiplier are used by hovering over the chat response.
 
-![Screenshot of a chat response, showing the selected model on hover.](images/language-models/chat-response-selected-model.png)
+![Screenshot of a chat response, showing the selected model on hover.](../images/language-models/chat-response-selected-model.png)
 
 ## Customize the model picker
 
