@@ -4,35 +4,38 @@ DateApproved: 08/07/2025
 MetaDescription: Learn how to create custom instructions for GitHub Copilot Chat in VS Code to ensure AI responses match your coding practices, project requirements, and development standards.
 MetaSocialImage: ../images/shared/github-copilot-social.png
 ---
-# Custom instructions for Copilot Chat
+# Use custom instructions in VS Code
 
-Custom instructions enable you to define common guidelines and rules that automatically influence how Copilot generates code, performs code reviews, and handles other development tasks. Instead of manually including context in every chat prompt, custom instructions ensure consistent AI responses that align with your coding practices and project requirements.
+Custom instructions enable you to define common guidelines and rules that automatically influence how AI generates code and handles other development tasks. Instead of manually including context in every chat prompt, specify custom instructions in a Markdown file to ensure consistent AI responses that align with your coding practices and project requirements.
 
-## What are custom instructions?
-
-Custom instructions describe the conditions and standards that AI should follow when generating responses (_how_ a task should be done). They automatically apply to every chat request, ensuring consistency across your development workflow.
+You can configure custom instructions to apply automatically to all chat requests or to specific files only. Alternatively, you can manually attach custom instructions to a specific chat prompt.
 
 > [!NOTE]
-> Custom instructions are not taken into account for [code completions](/docs/copilot/ai-powered-suggestions.md).
+> Custom instructions are not taken into account for [code completions](/docs/copilot/ai-powered-suggestions.md) as you type in the editor.
 
-## Types of custom instructions
+## Type of instructions files
 
-VS Code supports multiple ways to define custom instructions:
+VS Code supports two types of Markdown-based instructions files:
 
-| Custom instructions type | Description |
-|--------------------------|-------------|
-| `.github/copilot-instructions.md` file | <ul><li>Describe code-generation instructions in Markdown.</li><li>All instructions are combined in a single file, stored within the workspace.</li><li>Instructions are automatically included in every chat request.</li><li>Supported across all editors and IDEs that support Copilot.</li><li>Use this file to define general coding practices, preferred technologies, and project requirements that apply to all code-generation tasks.</li></ul> |
-| `.instructions.md` files | <ul><li>Describe code-generation instructions in Markdown.</li><li>Create one or more instructions files, stored in the workspace or your user profile.</li><li>Use glob patterns to automatically include instructions for all requests or for specific files.</li><li>Supported in VS Code.</li><li>Use these files if you want to have task-specific code-generation instructions, and to have more control over when to include instructions with your chat prompt.</li></ul> |
-| VS Code settings | <ul><li>Specify instructions in VS Code user or workspace settings.</li><li>Define instructions in settings values or in one or more files.</li><li>Supported in VS Code.</li><li>Supports instructions for code generation, test generation, commit messages, code review, and PR titles and descriptions.</li><li>Use this option to define instructions for tasks other than code-generation.</li></ul> |
+* A single [`.github/copilot-instructions.md`](#use-a-githubcopilotinstructionsmd-file) file
+    * Automatically applies to all chat requests in the workspace
+    * Stored within the workspace
 
-You can use a combination of these approaches to define custom instructions and the instructions are all included in the chat request. No particular order or priority is applied to the instructions, so make sure to avoid conflicting instructions in the files.
+* One or more [`.instructions.md`](#use-instructionsmd-files) files
+    * Created for specific tasks or files
+    * Use `applyTo` frontmatter to define what files the instructions should be applied to
+    * Stored in the workspace or user profile
+
+Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+Reference specific context, such as files or URLs, in your instructions by using Markdown links.
 
 ## Custom instructions examples
 
-The following examples demonstrate how to use custom instructions:
+The following examples demonstrate how to use custom instructions. For more community-contributed examples, see the [Awesome Copilot repository](https://github.com/github/awesome-copilot/tree/main).
 
 <details>
-<summary>Example: general coding guidelines</summary>
+<summary>Example: General coding guidelines</summary>
 
 ```markdown
 ---
@@ -55,7 +58,7 @@ applyTo: "**"
 </details>
 
 <details>
-<summary>Example: TypeScript and React coding guidelines</summary>
+<summary>Example: Language-specific coding guidelines</summary>
 
 Notice how these instructions reference the general coding guidelines file. You can separate the instructions into multiple files to keep them organized and focused on specific topics.
 
@@ -84,85 +87,112 @@ Apply the [general coding guidelines](./general-coding.instructions.md) to all c
 
 </details>
 
+<details>
+<summary>Example: Documentation writing guidelines</summary>
+
+You can create instructions files for different types of tasks, including non-development activities like writing documentation.
+
+```markdown
+---
+applyTo: "docs/**/*.md"
+---
+# Project documentation writing guidelines
+
+## General Guidelines
+- Write clear and concise documentation.
+- Use consistent terminology and style.
+- Include code examples where applicable.
+
+## Grammar
+* Use present tense verbs (is, open) instead of past tense (was, opened).
+* Write factual statements and direct commands. Avoid hypotheticals like "could" or "would".
+* Use active voice where the subject performs the action.
+* Write in second person (you) to speak directly to readers.
+
+## Markdown Guidelines
+- Use headings to organize content.
+- Use bullet points for lists.
+- Include links to related resources.
+- Use code blocks for code snippets.
+```
+
+</details>
+
 ## Use a `.github/copilot-instructions.md` file
 
-You can store custom instructions in your workspace or repository in a `.github/copilot-instructions.md` file and describe your coding practices, preferred technologies, and project requirements by using Markdown. These instructions only apply to the workspace where the file is located.
-
-VS Code automatically includes the instructions from the `.github/copilot-instructions.md` file in every chat request and applies them for generating code.
+Define your custom instructions in a single `.github/copilot-instructions.md` Markdown file in the root of your workspace. VS Code applies the instructions in this file automatically to all chat requests within this workspace.
 
 To use a `.github/copilot-instructions.md` file:
 
-1. Set the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting to `true` to instruct VS Code to automatically use the `copilot-instructions.md` file for every chat request.
+1. Enable the `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` setting.
 
 1. Create a `.github/copilot-instructions.md` file at the root of your workspace. If needed, create a `.github` directory first.
 
 1. Describe your instructions by using natural language and in Markdown format.
-
-    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
 > [!NOTE]
 > GitHub Copilot in Visual Studio and GitHub.com also detect the `.github/copilot-instructions.md` file. If you have a workspace that you use in both VS Code and Visual Studio, you can use the same file to define custom instructions for both editors.
 
 ## Use `.instructions.md` files
 
-You can also create one or more `.instructions.md` files to store custom instructions for specific tasks. For example, you can create instruction files for different programming languages, frameworks, or project types.
+Instead of using a single instructions file that applies to all chat requests, you can create multiple `.instructions.md` files that apply to specific file types or tasks. For example, you can create instructions files for different programming languages, frameworks, or project types.
 
-VS Code can automatically add instructions files to all chat requests, or you can specify for which files the instructions should be applied automatically. Alternatively, you can manually attach instructions files to a chat prompt.
+By using the `applyTo` frontmatter property in the instructions file header, you can specify a glob pattern to define which files the instructions should be applied to automatically.
 
-VS Code supports two types of scopes for instruction files:
+Alternatively, you can manually attach an instructions file to a specific chat prompt by using the **Add Context** > **Instructions** option in the Chat view.
 
 * **Workspace instructions files**: are only available within the workspace and are stored in the `.github/instructions` folder of the workspace.
-* **User instruction files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
+* **User instructions files**: are available across multiple workspaces and are stored in the current [VS Code profile](/docs/configure/profiles.md).
 
-### Instructions file structure
+### Instructions file format
 
-An instructions file is a Markdown file with the `.instructions.md` file suffix. The instructions file consists of two sections:
+Instructions files use the `.instructions.md` extension and have this structure:
 
-* (Optional) Header with metadata (Front Matter syntax)
+* **Header** (optional): YAML frontmatter
+    * `description`: Description shown on hover in Chat view
+    * `applyTo`: Glob pattern for automatic application (use `**` for all files)
 
-    * `description`: A brief description of the instructions file. This description is displayed when you hover the instructions file in the Chat view.
-    * `applyTo`: Specify a glob pattern for files to which the instructions are automatically applied. To always include the custom instructions, use the `**` pattern.
+* **Body**: Instructions in Markdown format
 
-        For example, the following instructions file is always applied:
+Example:
 
-        ```markdown
-        ---
-        applyTo: "**"
-        ---
-        Add a comment at the end of the file: 'Contains AI-generated edits.'
-        ```
-
-* Body with the instruction content
-
-    Specify the custom instructions in natural language by using Markdown formatting. You can use headings, lists, and code blocks to structure the instructions.
-
-    You can reference other instruction files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the instruction file.
+```markdown
+---
+applyTo: "**/*.py"
+---
+# Project coding standards for Python
+- Follow the PEP 8 style guide for Python.
+- Always prioritize readability and clarity.
+- Write clear and concise comments for each function.
+- Ensure functions have descriptive names and include type hints.
+- Maintain proper indentation (use 4 spaces for each level of indentation).
+```
 
 ### Create an instructions file
 
-You can create instructions files in your workspace or user profile. Workspace instructions files are only available within the workspace, while user instructions files are available across multiple workspaces.
+When you create an instructions file, choose whether to store it in your workspace or user profile. Workspace instructions files apply only to that workspace, while user instructions files are available across multiple workspaces.
 
 To create an instructions file:
 
-1. Select the **Configure Chat** button in the Chat view, select **Instructions**, and then select **New instruction file**.
+1. In the Chat view, select **Configure Chat** > **Instructions**, and then select **New instruction file**.
 
     ![Screenshot showing the Chat view, and Configure Chat menu, highlighting the Configure Chat button.](../images/customization/configure-chat-instructions.png)
 
     Alternatively, use the **Chat: New Instructions File** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-1. Choose the location where the instruction file should be created.
+1. Choose the location where to create the instructions file.
 
-    * **Workspace**: By default, workspace instruction files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
+    * **Workspace**: By default, workspace instructions files are stored in the `.github/instructions` folder of your workspace. Add more instruction folders for your workspace with the `setting(chat.instructionsFilesLocations)` setting.
 
-    * **User profile**: User instruction files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instruction files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
+    * **User profile**: User instructions files are stored in the [current profile folder](/docs/configure/profiles.md). You can sync your user instructions files across multiple devices by using [Settings Sync](/docs/configure/settings-sync.md).
 
-1. Enter a name for your instruction file.
+1. Enter a name for your instructions file.
 
 1. Author the custom instructions by using Markdown formatting.
 
     Specify the `applyTo` metadata property in the header to configure when the instructions should be applied automatically. For example, you can specify `applyTo: "**/*.ts,**/*.tsx"` to apply the instructions only to TypeScript files.
 
-    To reference additional workspace files, use Markdown links (`[index](../index.ts)`) or #-reference them (`#index.ts`) within the instructions file.
+    To reference additional workspace files, use Markdown links (`[index](../index.ts)`).
 
 To modify an existing instructions file, select the **Configure Chat** button in the Chat view, select **Instructions**, and then select an instructions file from the list. Alternatively, use the **Chat: Configure Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
@@ -172,13 +202,13 @@ If you specified the `applyTo` metadata property in the instructions file, VS Co
 
 To manually attach an instructions file to a chat prompt:
 
-* In the Chat view, select **Add Context** > **Instructions** and select the instruction file from the Quick Pick.
+* In the Chat view, select **Add Context** > **Instructions** and select the instructions file from the Quick Pick.
 
-* Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instruction file from the Quick Pick.
+* Run the **Chat: Attach Instructions** command from the Command Palette (`kb(workbench.action.showCommands)`) and select the instructions file from the Quick Pick.
 
 ## Specify custom instructions in settings
 
-You can configure custom instructions for specialized scenarios in your user or workspace settings.
+You can configure custom instructions for specialized scenarios by using VS Code user or workspace settings.
 
 | Type of instruction | Setting name |
 |---------------------|--------------|
@@ -208,13 +238,11 @@ The following code snippet shows how to define a set of instructions in the `set
 
 ## Generate an instructions file for your workspace
 
-VS Code can analyze your workspace and generate a matching `.github/copilot-instructions.md` file with custom instructions that match your coding practices and project requirements.
+VS Code can analyze your workspace and generate a matching `.github/copilot-instructions.md` file with custom instructions that match your coding practices and project structure.
 
 To generate an instructions file for your workspace:
 
-1. Select the **Configure Chat** button in the Chat view and select **Instructions**.
-
-1. Select **Generate instructions** from the Quick Pick.
+1. In the Chat view, select **Configure Chat** > **Generate Instructions**.
 
 1. Review the generated instructions file and make any necessary edits.
 
@@ -222,41 +250,11 @@ To generate an instructions file for your workspace:
 
 * Keep your instructions short and self-contained. Each instruction should be a single, simple statement. If you need to provide multiple pieces of information, use multiple instructions.
 
-* Don't refer to external resources in the instructions, such as specific coding standards.
+* For task or language-specific instructions, use multiple `*.instructions.md` files per topic and apply them selectively by using the `applyTo` property.
 
-* Split instructions into multiple files. This approach is useful for organizing instructions by topic or type of task.
+* Store project-specific instructions in your workspace to share them with other team members and include them in your version control.
 
-* Make it easy to share custom instructions with your team or across projects by storing your instructions in instruction files. You can also version control the files to track changes over time.
-
-* Use the `applyTo` property in the instruction file header to automatically apply the instructions to specific files or folders.
-
-* Reference custom instructions in your prompt files to keep your prompts clean and focused, and to avoid duplicating instructions for different tasks.
-
-## Settings reference
-
-<details>
-<summary>Custom instructions settings</summary>
-
-* `setting(chat.promptFiles)` _(Experimental)_: Enable reusable prompt and instructions files.
-
-* `setting(github.copilot.chat.codeGeneration.useInstructionFiles)`: Controls whether code instructions from `.github/copilot-instructions.md` are added to Copilot requests.
-
-* `setting(chat.instructionsFilesLocations)` _(Experimental)_: A dictionary of folders where instructions files are located and a boolean indicating whether they are enabled. Relative paths are resolved from the root folder(s) of your workspace. Supports glob patterns for file paths. By default, instructions files are located in the `.github/instructions` folder of your workspace.
-
-    ```json
-    "chat.instructionsFilesLocations": {
-        "src/frontend/instructions": true,
-        "src/backend/instructions": false
-    }
-    ```
-
-* `setting(github.copilot.chat.codeGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate code.
-* `setting(github.copilot.chat.testGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate tests.
-* `setting(github.copilot.chat.reviewSelection.instructions)` _(Preview)_: set of instructions that will be added to Copilot requests for reviewing the current editor selection.
-* `setting(github.copilot.chat.commitMessageGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate commit messages.
-* `setting(github.copilot.chat.pullRequestDescriptionGeneration.instructions)` _(Experimental)_: set of instructions that will be added to Copilot requests that generate pull request titles and descriptions.
-
-</details>
+* Reuse and reference instructions files in your [prompt files](/docs/copilot/customization/prompt-files.md) and [chat modes](/docs/copilot/customization/custom-chat-modes.md) to keep them clean and focused, and to avoid duplicating instructions.
 
 ## Related content
 
