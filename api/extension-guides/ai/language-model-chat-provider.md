@@ -195,6 +195,10 @@ Your provider can report different types of response parts through the progress 
 - `LanguageModelDataPart` - Arbitrary data (with proposed API)
 - `LanguageModelThinkingPart` - Internal reasoning (with proposed API)
 
+## Getting started
+
+You can get started with a [basic example project](https://github.com/microsoft/vscode-extension-samples/blob/main/chat-model-provider-sample).
+
 ## Related content
 
 - [VS Code API Reference](/api/references/vscode-api)
