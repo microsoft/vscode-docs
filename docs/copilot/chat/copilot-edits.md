@@ -117,7 +117,7 @@ applyTo: "**"
 - Always log errors with contextual information
 ```
 
-Learn more about [using instruction files](/docs/copilot/copilot-customization.md).
+Learn more about [using instruction files](/docs/copilot/customization/overview.md).
 
 ## Settings
 
