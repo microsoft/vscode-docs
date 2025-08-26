@@ -120,6 +120,48 @@ To update the provider details, such as the API key or endpoint URL:
 
 1. Update the provider details, such as the API key or endpoint URL.
 
+## Use a OpenAI-compatible model
+
+The Custom OpenAI provider enables you use any OpenAI-compatible API endpoint and configure the models for use in chat.
+
+To configure a custom OpenAI endpoint and model:
+
+1. Open the Settings editor (`kb(workbench.action.openSettings)`) and search for `setting(github.copilot.chat.customOAIModels)`.
+
+1. Add your custom model configuration details.
+
+    - `name`: Display name for the model in the picker
+    - `url`: Full API endpoint URL (will automatically append /v1/chat/completions if not present)
+    - `toolCalling`: Whether the model supports function calling
+    - `vision`: Whether the model supports image inputs
+    - `maxInputTokens`: Maximum input token limit
+    - `maxOutputTokens`: Maximum output token limit
+    - `requiresAPIKey`: Set to false if the endpoint doesn't require authentication
+    - `thinking`: Whether the model supports reasoning/thinking capabilities
+
+    Example configuration:
+
+    ```json
+    {
+        "github.copilot.chat.customOAIModels": {
+        "my-custom-model": {
+            "name": "My Custom Model",
+            "url": "https://your-endpoint.com/v1/chat/completions",
+            "toolCalling": true,
+            "vision": false,
+            "maxInputTokens": 4096,
+            "maxOutputTokens": 2048,
+            "requiresAPIKey": true,
+            "thinking": false
+        }
+        }
+    }
+    ```
+
+1. Select **Manage Models** from the model picker, and then select **OpenAI Compatible** to configure the API key for your custom endpoint.
+
+    Your custom model should now appear in the model picker in chat.
+
 ## Considerations
 
 There are a number of considerations when using your own language model API key in VS Code:
