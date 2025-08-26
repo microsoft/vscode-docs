@@ -34,6 +34,7 @@
           ["Chat Tutorial", "/api/extension-guides/ai/chat-tutorial"],
           ["Language Model", "/api/extension-guides/ai/language-model"],
           ["Language Model Tutorial", "/api/extension-guides/ai/language-model-tutorial"],
+          ["Language Model Chat Provider", "/api/extension-guides/ai/language-model-chat-provider"],
           ["Prompt TSX", "/api/extension-guides/ai/prompt-tsx"]
         ]
       }],
