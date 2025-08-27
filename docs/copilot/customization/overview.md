@@ -69,7 +69,7 @@ Different customization methods work best for different scenarios. The following
 | Use Case | Approach |
 |----------|----------|
 | Project-wide coding standards | [Custom instructions](/docs/copilot/customization/custom-instructions.md) |
-| Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-structure) |
+| Language or framework-specific rules | [Custom instructions with glob patterns](/docs/copilot/customization/custom-instructions.md#instructions-file-format) |
 | Reusable development tasks | [Prompt files](/docs/copilot/customization/prompt-files.md) |
 | Use chat in plan or research mode | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
 | Define specialized workflows | [Custom chat modes](/docs/copilot/customization/custom-chat-modes.md) |
