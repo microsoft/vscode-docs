@@ -44,8 +44,8 @@ We also have **special virtual editions** featuring sessions packed with demos a
 
 | **Event** | **Language** | **Date** | **Time (UTC)** | **Register** |
 | --- | --- | --- | --- | --- |
-| **VS Code Dev Days: Brasil** | **Português** | **September 23** | **15:00** | <https://aka.ms/vscodedevdays/apac> |
-| **VS Code Dev Days: APAC** | **English** | **September 23** | **12:30** | <https://aka.ms/vscodedevdays/brasil> |
+| **VS Code Dev Days: Brasil** | **Português** | **September 23** | **15:00** | <https://aka.ms/vscodedevdays/brasil> |
+| **VS Code Dev Days: APAC** | **English** | **September 23** | **12:30** | <https://aka.ms/vscodedevdays/apac> |
 | **VS Code Dev Days: LATAM** | **Español** | **September 24** | **18:00** | <https://aka.ms/vscodedevdays/latam> |
 | **VS Code Dev Days: Worldwide** | **English** | **September 25** | **16:00** | <https://aka.ms/vscode/devdays/ww-r> |
 
