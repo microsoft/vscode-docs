@@ -11,8 +11,6 @@ MetaDescription: Learn how to implement a LanguageModelChatProvider to contribut
 
 The Language Model Chat Provider API enables you to contribute your own language models to chat in Visual Studio Code.
 
-> **Important**: The Language Model Chat Provider API is currently a proposed API. You need to add `"chatProvider"` to the `enabledApiProposals` array in your extension's `package.json` to use this API.
-
 ## Overview
 
 The `LanguageModelChatProvider` interface follows a one-provider-to-many-models relationship, enabling providers to offer multiple models. Each provider is responsible for:
@@ -27,18 +25,15 @@ Each language model must provide metadata through the `LanguageModelChatInformat
 
 ```typescript
 interface LanguageModelChatInformation {
-    readonly id: string;                    // Unique identifier for the model
-    readonly name: string;                  // Human-readable name
-    readonly family: string;                // Model family (e.g., "gpt-4", "claude")
+    readonly id: string;                    // Unique identifier for the model - unique within the provider
+    readonly name: string;                  // Human-readable name of the language model
+    readonly family: string;                // Model family name
     readonly version: string;               // Version string
-    readonly maxInputTokens: number;        // Maximum input token limit
-    readonly maxOutputTokens: number;       // Maximum output token limit
-    readonly tooltip?: string;              // Optional tooltip text
-    readonly detail?: string;               // Additional detail text
-    readonly isDefault?: boolean;           // Whether this is a default model
-    readonly isUserSelectable?: boolean;    // Whether shown in model picker
-    readonly requiresAuthorization?: true | { label: string };
-    readonly capabilities?: {
+    readonly maxInputTokens: number;        // Maximum number of tokens the model can accept as input
+    readonly maxOutputTokens: number;       // Maximum number of tokens the model is capable of producing
+    readonly tooltip?: string;              // Optional tooltip text when hovering the model in the UI
+    readonly detail?: string;               // Human-readable text that is rendered alongside the model
+    readonly capabilities: {
         readonly imageInput?: boolean;      // Supports image inputs
         readonly toolCalling?: boolean | number; // Supports tool calling
     };
@@ -121,7 +116,9 @@ async prepareLanguageModelChatInformation(
 
 ### Handle chat requests
 
-The `provideLanguageModelChatResponse` method handles actual chat requests. Use the `progress` parameter to stream response chunks:
+The `provideLanguageModelChatResponse` method handles actual chat requests. The provider receives an array of messages in the `LanguageModelChatRequestMessage` format and you can optionally convert them to the format required by your language model API (see [Message format and conversion](#message-format-and-conversion)).
+
+Use the `progress` parameter to stream response chunks. The response can include text parts, tool calls, and tool results (see [Response parts](#response-parts)).
 
 ```typescript
 async provideLanguageModelChatResponse(
@@ -132,7 +129,7 @@ async provideLanguageModelChatResponse(
     token: CancellationToken
 ): Promise<void> {
 
-    // TODO: Implement message processing, tool calls, and streaming response
+    // TODO: Implement message conversion, processing, and response streaming
 
     // Optionally, differentiate behavior based on model ID
     if (model.id === "my-model-a") {
@@ -162,17 +159,17 @@ async provideTokenCount(
 
 ## Message format and conversion
 
-Your provider receives messages in the `LanguageModelChatRequestMessage` format, which you'll typically need to convert to your service's API format:
+Your provider receives messages in the `LanguageModelChatRequestMessage` format, which you'll typically need to convert to your service's API format. The message content can be a mix of text parts, tool calls, and tool results.
 
 ```typescript
 interface LanguageModelChatRequestMessage {
     readonly role: LanguageModelChatMessageRole;
-    readonly content: ReadonlyArray<LanguageModelTextPart | LanguageModelToolResultPart | LanguageModelToolCallPart | unknown>;
+    readonly content: ReadonlyArray<LanguageModelInputPart | unknown>;
     readonly name: string | undefined;
 }
 ```
 
-Convert these messages appropriately for your language model API:
+Optionally, convert these messages appropriately for your language model API:
 
 ```typescript
 private convertMessages(messages: readonly LanguageModelChatRequestMessage[]) {
@@ -188,12 +185,11 @@ private convertMessages(messages: readonly LanguageModelChatRequestMessage[]) {
 
 ## Response parts
 
-Your provider can report different types of response parts through the progress callback:
+Your provider can report different types of response parts through the progress callback via the `LanguageModelResponsePart` type, which can be one of:
 
 - `LanguageModelTextPart` - Text content
 - `LanguageModelToolCallPart` - Tool/function calls
-- `LanguageModelDataPart` - Arbitrary data (with proposed API)
-- `LanguageModelThinkingPart` - Internal reasoning (with proposed API)
+- `LanguageModelToolResultPart` - Tool result content
 
 ## Getting started
 
