@@ -11,6 +11,7 @@ Author: Katie Savage, Cynthia Zanoni
 # VS Code Dev Days – Join an event near you to learn about AI-assisted development
 
 August 26th, 2025 by [Katie Savage](https://github.com/katiesavage) and [Cynthia Zanoni](https://x.com/cynthiazanoni)
+
 AI has become core to the developer experience in VS Code, shipping features like agent mode, next edit suggestions, and full MCP spec support in just the past six months. We've loved seeing how the community has embraced these AI features to transform their developer workflows. But with this rapid era of change, we also recognize that there is a lot to learn to effectively use these tools. We are excited to share that, together with our amazing community, we’re running 60+ global, in-person events to re-introduce you to VS Code as an AI-powered editor and upskill you on the latest features.
 
 Find an event near you and register today: <https://aka.ms/VSCode/DevDays>.
