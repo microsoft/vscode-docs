@@ -122,6 +122,7 @@
       ["Smart Actions", "/docs/copilot/copilot-smart-actions"],
       ["Customize Copilot", "/docs/copilot/copilot-customization"],
       ["Language Models", "/docs/copilot/language-models"],
+      ["Security", "/docs/copilot/security"],
       ["", "", {
         "name": "Guides",
         "area": "copilot/guides",
