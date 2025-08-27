@@ -105,7 +105,7 @@ You can enhance the quality of Copilot's responses by using effective prompts. A
     * Generate a function that takes a list of recipes and returns a shopping list.
     * Generate a function that takes a list of recipes and returns a meal plan for the week.
 
-* Provide the [right context](#provide-the-right-context), such as code selections, files, terminal output, and more.
+* Provide the [right context](#provide-the-right-context-and-tools), such as code selections, files, terminal output, and more.
 
     Example, use the `#codebase` variable to refer to the entire codebase:
 

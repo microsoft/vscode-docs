@@ -92,7 +92,7 @@ Follow these steps to get started:
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
 
-    ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+    ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
@@ -100,7 +100,7 @@ Follow these steps to get started:
 
     Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.
 
-    ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
+    ![MCP Tool Input Parameters](../images/mcp-servers/mcp-tool-edit-parameters.png)
 
 1. VS Code detects issues and problems in code edits and terminal commands and will iterate to resolve them.
 
@@ -176,7 +176,7 @@ Before agent mode runs a tool or terminal command, it requests confirmation to r
 
 In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
-![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
 You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
 
