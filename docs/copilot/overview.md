@@ -224,3 +224,4 @@ You can start using GitHub Copilot for free with monthly limits on completions a
 - [Set up Copilot in VS Code](/docs/copilot/setup.md)
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
 - [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)
