@@ -15,15 +15,21 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language to sp
 
 ## Why use agent mode?
 
-Agent mode is optimized for making autonomous edits across multiple files in your project. It is particularly useful for complex tasks that require not only code edits but also the invocation of tools and terminal commands. You can use agent mode to:
+Agent mode is optimized for the following scenarios:
+
+* Coding tasks based on high-level requirements or less well-defined implementation details
+* Making autonomous edits across multiple files in your project
+* Handling complex tasks that require not only code edits but also the invocation of tools and terminal commands
+
+Agent mode autonomously determines the relevant context and tasks to accomplish a given request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+
+Some examples of tasks you can use agent mode for:
 
 * Refactor parts of your codebase, such as "refactor the app to use a Redis cache".
 * Plan and implement new features, such as "add a login form to the app using OAuth for authentication".
 * Migrate your codebase to a new framework, such as "migrate the app from React to Vue.js".
 * Generate an implementation plan for a complex task, such as "create a meal-planning web app using a Swift front-end and a Node.js back-end".
 * Define a high-level requirement, such as "add social media sharing functionality".
-
-Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
 
 ## Agent mode vs Copilot coding agent
 
