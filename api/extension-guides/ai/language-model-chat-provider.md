@@ -158,9 +158,9 @@ async provideLanguageModelChatResponse(
 
     // Optionally, differentiate behavior based on model ID
     if (model.id === "my-model-a") {
-        progress.report({index: 0, part: new LanguageModelTextPart("This is my A response.") });
+        progress.report(new LanguageModelTextPart("This is my A response."));
     } else {
-        progress.report({ index: 0, part: new LanguageModelTextPart("Unknown model.") });
+        progress.report(new LanguageModelTextPart("Unknown model."));
     }
 }
 ```
@@ -177,7 +177,7 @@ async provideTokenCount(
 ): Promise<number> {
     // TODO: Implement token counting for your models
 
-    // Simple estimation for strings
+    // Example estimation for strings
     return Math.ceil(text.toString().length / 4);
 }
 ```
