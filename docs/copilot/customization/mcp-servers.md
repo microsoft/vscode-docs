@@ -59,7 +59,7 @@ You have two options to centrally manage MCP support in your organization:
 ## Add an MCP server
 
 > [!CAUTION]
-> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time.
+> MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. VS Code prompts you to confirm that you [trust the MCP server](#mcp-server-trust) when you start an MCP server for the first time. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
 
 You have multiple options to add an MCP server in VS Code:
 
@@ -319,7 +319,7 @@ VS Code extensions can also contribute MCP servers and configure them as part of
 
 ## MCP server trust
 
-MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it.
+MCP servers can run arbitrary code on your machine. Only add servers from trusted sources, and review the publisher and server configuration before starting it. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications.
 
 When you add an MCP server to your workspace or change its configuration, you need to confirm that you trust the server and its capabilities before starting it. VS Code shows a dialog to confirm that you trust the server when you start a server for the first time. Select the link to MCP server in the dialog to review the MCP server configuration in a separate window.
 

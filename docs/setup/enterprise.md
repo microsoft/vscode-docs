@@ -227,3 +227,7 @@ Users can still uninstall extensions that were preinstalled. Restarting VS Code 
 ### Does VS Code support configuration profiles on Linux?
 
 Support for Linux is not on the roadmap. If you're interested in configuration profiles on Linux, open an issue in the VS Code [GitHub repository](https://github.com/microsoft/vscode/issues) and share details about your scenario.
+
+## Related resources
+
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)
