@@ -59,15 +59,16 @@ If your Copilot subscription is associated with another GitHub account, follow t
 
 ## Remove AI features from VS Code
 
-To completely hide AI features in VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select **Hide AI Features** from the Copilot menu in the VS Code title bar.
+To remove the built-in AI features from VS Code, run the **Chat: Hide AI Features** command from the Command Palette (`kb(workbench.action.showCommands)`) or select the **Hide AI Features** option from the Copilot menu in the VS Code title bar.
 
-![Screenshot that shows the Copilot menu in the VS Code title bar, with the option to hide AI features.](images/setup/hide-copilot.png)
+> [!NOTE]
+> If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions before you can remove the AI features.
 
-To reenable Copilot, run the **Chat: Use AI Features with Copilot for Free** command in the Command Palette (`kb(workbench.action.showCommands)`).
+To restore the built-in AI features in VS Code, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-## Disable Copilot for a workspace
+## Disable AI features for a workspace
 
-To disable Copilot for a specific workspace:
+To disable AI features for a specific workspace:
 
 1. Open the Extensions view in VS Code (`kb(workbench.view.extensions)`).
 1. Search for the **GitHub Copilot** extension.
