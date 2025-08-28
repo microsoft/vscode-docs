@@ -26,7 +26,7 @@ Each language model must provide metadata through the `LanguageModelChatInformat
 ```typescript
 interface LanguageModelChatInformation {
     readonly id: string;                    // Unique identifier for the model - unique within the provider
-    readonly name: string;                  // Human-readable name of the language model
+    readonly name: string;                  // Human-readable name of the language model - shown in the model picker
     readonly family: string;                // Model family name
     readonly version: string;               // Version string
     readonly maxInputTokens: number;        // Maximum number of tokens the model can accept as input
@@ -42,12 +42,12 @@ interface LanguageModelChatInformation {
 
 ## Register the provider
 
-1. The first step is to register the provider in your `package.json`, in the `contributes.languageModels` section. Provide a unique `vendor` ID and a `displayName`.
+1. The first step is to register the provider in your `package.json`, in the `contributes.languageModelChatProviders` section. Provide a unique `vendor` ID and a `displayName`.
 
     ```json
     {
         "contributes": {
-            "languageModels": [
+            "languageModelChatProviders": [
                 {
                     "vendor": "my-provider",
                     "displayName": "My Provider"
@@ -66,7 +66,31 @@ interface LanguageModelChatInformation {
     import { SampleChatModelProvider } from './provider';
 
     export function activate(_: vscode.ExtensionContext) {
-        vscode.lm.registerChatModelProvider('my-provider', new SampleChatModelProvider());
+        vscode.lm.registerLanguageModelChatProvider('my-provider', new SampleChatModelProvider());
+    }
+    ```
+
+1. Optionally, provide a `contributes.languageModelChatProviders.managementCommand` in your `package.json` to allow users to manage the language model provider.
+
+    The value of the `managementCommand` property must be a command defined in the `contributes.commands` section of your `package.json`. In your extension, register the command (`vscode.commands.registerCommand`) and implement the logic for managing the provider such as configuring API keys or other settings.
+
+    ```json
+    {
+        "contributes": {
+            "languageModelChatProviders": [
+                {
+                    "vendor": "my-provider",
+                    "displayName": "My Provider",
+                    "managementCommand": "my-provider.manage"
+                }
+            ],
+            "commands": [
+                {
+                    "command": "my-provider.manage",
+                    "title": "Manage My Provider"
+                }
+            ]
+        }
     }
     ```
 
@@ -80,7 +104,7 @@ A language provider must implement the `LanguageModelChatProvider` interface, wh
 
 ### Prepare language model information
 
-The `prepareLanguageModelChatInformation` method is called by VS Code to discover the available models and returns a list of `LanguageModelChatInformation` objects. The `displayName` is shown in the model picker in chat.
+The `prepareLanguageModelChatInformation` method is called by VS Code to discover the available models and returns a list of `LanguageModelChatInformation` objects.
 
 Use the `options.silent` parameter to control whether to prompt the user for credentials or extra configuration:
 
@@ -98,6 +122,7 @@ async prepareLanguageModelChatInformation(
     // Fetch available models from your service
     const models = await this.fetchAvailableModels();
 
+    // Map your models to LanguageModelChatInformation format
     return models.map(model => ({
         id: model.id,
         name: model.displayName,
