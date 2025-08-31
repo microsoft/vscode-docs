@@ -15,6 +15,15 @@ The completed code project from this FastAPI tutorial can be found on GitHub: [p
 
 If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
 
+## Prerequisites Knowledge
+
+Before starting this tutorial, it will be helpful to have:
+- Basic understanding of Python programming
+- Familiarity with RESTful API concepts
+- Basic understanding of async/await in Python
+- Knowledge of HTTP methods (GET, POST, PUT, DELETE)
+- Basic understanding of JSON data format
+
 ## Set up the project
 
 There are different ways you can set up your project for this tutorial. We will cover how you can set it up in [GitHub Codespaces](#github-codespaces) and in [VS Code on your local machine](#locally-in-vs-code).
@@ -722,6 +731,199 @@ With GitHub Codespaces, you can host your application for testing purposes when 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fPCjEbRpK1M" title="Build a ChatGPT plugin with VS Code and Codespaces" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 >**Note**: All personal GitHub.com accounts have a monthly quota of free use of GitHub Codespaces included in the Free or Pro plan. For more information, go to [About billing for GitHub Codespaces](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+
+## Best Practices for FastAPI Development
+
+Following these best practices will help you build more maintainable, efficient, and secure FastAPI applications:
+
+### Project Structure
+1. **Organize by Feature**
+   ```
+   myapp/
+   ├── api/
+   │   ├── endpoints/
+   │   │   ├── items.py
+   │   │   └── users.py
+   │   └── dependencies.py
+   ├── core/
+   │   ├── config.py
+   │   └── security.py
+   ├── models/
+   │   ├── domain/
+   │   └── schemas/
+   └── services/
+   ```
+
+2. **Separation of Concerns**
+   - Keep route handlers thin
+   - Move business logic to service layers
+   - Use dependency injection for shared resources
+
+### Code Organization
+1. **Type Hints**
+   ```python
+   from typing import List, Optional
+   from pydantic import BaseModel
+
+   class Item(BaseModel):
+       name: str
+       price: float
+       is_offer: Optional[bool] = None
+   ```
+
+2. **Path Operation Decorators**
+   ```python
+   @app.get("/items/{item_id}", response_model=Item)
+   async def read_item(item_id: int) -> Item:
+       return await get_item(item_id)
+   ```
+
+### Performance
+1. **Async Operations**
+   - Use async/await for I/O-bound operations
+   - Keep CPU-intensive tasks in background workers
+   - Implement caching for frequent requests
+
+2. **Database Best Practices**
+   - Use connection pools
+   - Implement database migrations
+   - Use SQLAlchemy for complex queries
+
+### Security
+1. **Input Validation**
+   - Always use Pydantic models
+   - Implement proper validation rules
+   - Sanitize input data
+
+2. **Authentication & Authorization**
+   - Use JWT tokens or OAuth2
+   - Implement rate limiting
+   - Use HTTPS in production
+
+### Error Handling
+```python
+from fastapi import HTTPException, status
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int):
+    item = await get_item(item_id)
+    if not item:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Item {item_id} not found"
+        )
+    return item
+```
+
+### Testing
+1. **Use pytest with FastAPI's TestClient**
+   ```python
+   from fastapi.testclient import TestClient
+
+   client = TestClient(app)
+
+   def test_read_item():
+       response = client.get("/items/1")
+       assert response.status_code == 200
+   ```
+
+2. **Implement Different Test Types**
+   - Unit tests for business logic
+   - Integration tests for API endpoints
+   - Performance tests for critical paths
+
+### Documentation
+1. **OpenAPI/Swagger**
+   - Write clear operation descriptions
+   - Add examples to your schemas
+   - Keep documentation up-to-date
+
+2. **Code Documentation**
+   - Document complex functions
+   - Add type hints for better IDE support
+   - Include usage examples
+
+### Development Workflow
+1. **Use VS Code Features**
+   - Enable auto-formatting
+   - Configure type checking
+   - Set up debugger configurations
+
+2. **Environment Management**
+   - Use virtual environments
+   - Maintain requirements.txt or pyproject.toml
+   - Configure environment variables properly
+
+>**Tip**: These practices are guidelines. Adapt them based on your project's specific needs and requirements.
+
+## Troubleshooting Guide
+
+When developing FastAPI applications in VS Code, you might encounter some common issues. Here's how to resolve them:
+
+### Import and Package Issues
+
+1. **"Module not found" errors**
+   - **Issue**: ImportError: No module named 'fastapi'
+   - **Solution**:
+     - Verify your virtual environment is activated
+     - Run `pip install fastapi uvicorn`
+     - Select the correct Python interpreter in VS Code
+
+2. **Pydantic import issues**
+   - **Issue**: Missing Pydantic types or validation errors
+   - **Solution**:
+     - Update FastAPI: `pip install --upgrade fastapi`
+     - Install Pydantic explicitly: `pip install pydantic`
+
+### Development Server Issues
+
+1. **Port conflicts**
+   - **Issue**: Server won't start due to port being in use
+   - **Solution**:
+     - Change the port in launch.json: `"args": ["--port", "8001"]`
+     - Close other running FastAPI instances
+     - Check for other services using the port
+
+2. **Auto-reload not working**
+   - **Issue**: Changes not reflecting in the running app
+   - **Solution**:
+     - Ensure `--reload` flag is in launch.json
+     - Save all modified files
+     - Check terminal for reload errors
+
+### Debugging Problems
+
+1. **Breakpoints not working**
+   - **Issue**: Debugger skips breakpoints
+   - **Solution**:
+     - Verify debug configuration in launch.json
+     - Check if the file is in the workspace
+     - Ensure breakpoint is in active code path
+
+2. **Debug configuration issues**
+   - **Issue**: Unable to start debugger
+   - **Solution**:
+     - Use Command Palette to create proper FastAPI debug config
+     - Check Python path in launch.json
+     - Verify uvicorn is installed
+
+### Code Intelligence
+
+1. **IntelliSense not working**
+   - **Issue**: No code completion for FastAPI
+   - **Solution**:
+     - Install Pylance extension
+     - Select Python interpreter with FastAPI
+     - Reload VS Code window
+
+2. **Type hints missing**
+   - **Issue**: No type information for FastAPI objects
+   - **Solution**:
+     - Add proper type annotations
+     - Update Python extension
+     - Check Pylance language server settings
+
+>**Tip**: For additional help, consult the [FastAPI documentation](https://fastapi.tiangolo.com/) or the [VS Code Python support page](/docs/python/python-tutorial.md).
 
 ## Next Steps
 
