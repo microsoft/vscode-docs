@@ -140,6 +140,8 @@ Agent mode can use the following tools:
 * [MCP tools](/docs/copilot/customization/mcp-servers.md)
 * [Tools contributed by extensions](/api/extension-guides/ai/tools.md)
 
+The built-in tools can only read and edit files in your current workspace.
+
 You can view and manage the tools that can be used for responding to a request. Select the **Tools** icon in the Chat view to view and select the tools that are available in agent mode.
 
 ![Screenshot showing the Chat view, highlighting the Tools icon in the chat input and showing the tools Quick Pick where you can select which tools are active.](images/copilot-edits/agent-mode-select-tools.png)

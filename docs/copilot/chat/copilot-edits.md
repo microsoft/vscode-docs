@@ -57,6 +57,9 @@ In edit mode, you select which files to edit and provide the relevant context an
 
     ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files.png)
 
+    > [!NOTE]
+    > AI-generated code edits are restricted to the files in your current workspace.
+
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
 1. Continue to iterate on the code changes to refine the edits or to implement additional features.
