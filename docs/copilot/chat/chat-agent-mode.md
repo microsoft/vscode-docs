@@ -60,11 +60,11 @@ To centrally enable or disable agent mode within your organization with device m
 
 You can centrally manage the following settings related to agent mode:
 
-* Enable or disable agent mode: `setting(chat.agent.enabled)`
+* `setting(chat.agent.enabled)`: enable or disable agent mode
 
-* Enable or disable using tools contributed by third-party extensions: `setting(chat.extensionTools.enabled)`
+* `setting(chat.extensionTools.enabled)`: enable or disable using tools contributed by third-party extensions
 
-* Enable or disable auto-approval for agent mode tools: `setting(chat.tools.autoApprove)`
+* `setting(chat.tools.autoApprove)`: enable or disable auto-approval for agent mode tools
 
 ## Use agent mode
 
