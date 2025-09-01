@@ -256,9 +256,11 @@ With the editor overlay controls, you can navigate between the suggested edits b
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-If you want to automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown.
+If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
 
-When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
+When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
+
+To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
 ## Edit a previous chat request
 
