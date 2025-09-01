@@ -10,9 +10,7 @@ Welcome to AI-powered development with Visual Studio Code! Follow the steps in t
 
 ## Set up Copilot in VS Code
 
-To use Copilot in VS Code, you need access to a GitHub Copilot subscription.
-
-To set up Copilot in VS Code:
+To use Copilot in VS Code, you need access to a GitHub Copilot subscription. You can set up Copilot directly from within VS Code.
 
 1. [Download and install Visual Studio Code](https://code.visualstudio.com/Download) for your platform
 

@@ -15,7 +15,15 @@ With chat _agent mode_ in Visual Studio Code, you can use natural language to sp
 
 ## Why use agent mode?
 
-Agent mode is optimized for making autonomous edits across multiple files in your project. It is particularly useful for complex tasks that require not only code edits but also the invocation of tools and terminal commands. You can use agent mode to:
+Agent mode is optimized for the following scenarios:
+
+* Coding tasks based on high-level requirements or less well-defined implementation details
+* Making autonomous edits across multiple files in your project
+* Handling complex tasks that require not only code edits but also the invocation of tools and terminal commands
+
+Agent mode autonomously determines the relevant context and tasks to accomplish a given request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+
+Some examples of tasks you can use agent mode for:
 
 * Refactor parts of your codebase, such as "refactor the app to use a Redis cache".
 * Plan and implement new features, such as "add a login form to the app using OAuth for authentication".
@@ -23,7 +31,8 @@ Agent mode is optimized for making autonomous edits across multiple files in you
 * Generate an implementation plan for a complex task, such as "create a meal-planning web app using a Swift front-end and a Node.js back-end".
 * Define a high-level requirement, such as "add social media sharing functionality".
 
-Agent mode is particularly useful for coding tasks when you have a less well-defined task that might also require running terminal commands and tools. Agent mode autonomously determines the relevant context and tasks to accomplish the request. It can also iterate multiple times to resolve intermediate issues, such as syntax errors or test failures.
+> [!IMPORTANT]
+> It's important to be aware of the security considerations of using AI-powered development. Review the [Security documentation](/docs/copilot/security.md) for using AI in VS Code.
 
 ## Agent mode vs Copilot coding agent
 
@@ -92,7 +101,7 @@ Follow these steps to get started:
 
     Use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. Learn how to [manage tool approvals and approve all tool invocations](#manage-tool-approvals).
 
-    ![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+    ![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
     If your project has configured [tasks](/docs/debugtest/tasks.md) in `tasks.json`, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the `setting(github.copilot.chat.agent.runTasks)` setting.
 
@@ -100,7 +109,7 @@ Follow these steps to get started:
 
     Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.
 
-    ![MCP Tool Input Parameters](images/mcp-servers/mcp-tool-edit-parameters.png)
+    ![MCP Tool Input Parameters](../images/mcp-servers/mcp-tool-edit-parameters.png)
 
 1. VS Code detects issues and problems in code edits and terminal commands and will iterate to resolve them.
 
@@ -113,6 +122,9 @@ Follow these steps to get started:
 1. As your chat request is processed, notice that suggested code edits appear directly in the editor.
 
     You can view the list of changed files in the Chat view. The editor overlay controls enable you to navigate between the suggested edits.
+
+    > [!NOTE]
+    > AI-generated code edits are restricted to the files in your current workspace.
 
 1. Review the suggested edits and [accept or discard the suggested edits](#accept-or-discard-edits).
 
@@ -176,16 +188,19 @@ Before agent mode runs a tool or terminal command, it requests confirmation to r
 
 In the Chat view, when a tool or terminal command invocation occurs, use the **Continue** button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
 
-![MCP Tool Confirmation](images/mcp-servers/mcp-tool-confirmation.png)
+![MCP Tool Confirmation](../images/mcp-servers/mcp-tool-confirmation.png)
 
 You can reset the tool confirmations by using the **Chat: Reset Tool Confirmations** command in the Command Palette.
+
+> [!IMPORTANT]
+> It's important to be aware of the security considerations of using AI-powered development. Review the [Security documentation](/docs/copilot/security.md) for using AI in VS Code.
 
 ### Auto-approve all tools and commands (Experimental)
 
 In case you want to auto-approve _all_ tools and terminal commands, you can now use the experimental `setting(chat.tools.autoApprove)` setting. This will automatically approve all tool and command invocations, and VS Code will not ask for confirmation when a language model wishes to run tools.
 
 > [!CAUTION]
-> With this setting enabled, you don't have the opportunity to cancel potentially destructive actions a model wants to take.
+> With this setting enabled, you don't have the opportunity to cancel potentially destructive actions a model wants to take. Read the [Security documentation](/docs/copilot/security.md) for using AI in VS Code to understand the implications of this setting.
 
 As an enhanced boundary, you might choose to set `setting(chat.tools.autoApprove)` only when connected to a [remote environment](/docs/remote/remote-overview.md). You'll want to set this as a remote, rather than user-level, setting. Note that remote environments that are part of your local machine (like dev containers) or that have access to your credentials will still pose different levels of risk.
 
@@ -233,7 +248,7 @@ For a terminal command to be auto approved, both the subcommand and command line
 
 ## Accept or discard edits
 
-Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
+VS Code lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 

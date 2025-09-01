@@ -195,7 +195,7 @@ Learn more about [creating your own chat modes](/docs/copilot/customization/cust
 
 Extend the capabilities of the chat experience with specialized tools from MCP servers or Marketplace extensions. For example, add tools for querying databases, connecting to external APIs, or performing specialized tasks.
 
-![MCP tools list](chat/images/mcp-servers/agent-mode-select-tools.png)
+![MCP tools list](images/mcp-servers/agent-mode-select-tools.png)
 
 Learn more about [using MCP servers and tools](/docs/copilot/customization/mcp-servers.md).
 
@@ -224,3 +224,4 @@ You can start using GitHub Copilot for free with monthly limits on completions a
 - [Set up Copilot in VS Code](/docs/copilot/setup.md)
 - [Get started with hands-on examples](/docs/copilot/getting-started.md)
 - [Customize the AI for your workflow](/docs/copilot/customization/overview.md)
+- [Learn about security considerations of using AI in VS Code](/docs/copilot/security.md)

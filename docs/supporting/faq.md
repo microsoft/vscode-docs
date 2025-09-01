@@ -66,9 +66,12 @@ Performance is our core priority and we are committed to maintaining the perform
 
 ### Can I disable AI functionality in VS Code?
 
-You can disable the built-in AI functionality in VS Code by selecting **Hide AI Features** in the Command Palette or selecting **Hide AI Features** from the Copilot menu in the VS Code title bar.
+You can hide the built-in AI functionality in VS Code by selecting **Hide AI Features** in the Command Palette or selecting **Hide AI Features** from the Copilot menu in the VS Code title bar.
 
-If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions from the Extensions view. After that, you can disable the AI features.
+> [!NOTE]
+> If you have already installed the Copilot extensions, you need to first uninstall the Copilot and Copilot Chat extensions before you can hide the built-in AI features.
+
+To restore the built-in AI features in VS Code, run the **Chat: Use AI Features with Copilot for free** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ### If I disable AI functionality in VS Code, is my data still sent to Microsoft?
 
