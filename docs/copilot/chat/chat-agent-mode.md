@@ -248,19 +248,15 @@ For a terminal command to be auto approved, both the subcommand and command line
 
 ## Accept or discard edits
 
-VS Code lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.
+VS Code lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have a visual indicator (dot within a square) in the Explorer view and editor tabs.
 
 ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
+With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
-
-![Screenshot showing the Chat view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
-
-With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
+If you want to automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown.
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
 
