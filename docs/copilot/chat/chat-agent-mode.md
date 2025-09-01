@@ -264,6 +264,20 @@ When you close VS Code, the status of the pending edits is remembered and restor
 
 To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
+## Manage file edit approvals
+
+You can manage which files the AI is allowed to edit without asking for explicit user approval with the `setting(chat.tools.edits.autoApprove)` setting. This setting can help inadvertent edits to files that contain sensitive information like workspace configuration settings or environment settings.
+
+The `setting(chat.tools.edits.autoApprove)` setting accepts glob pattern-boolean pairs that indicate which files are automatically approved for edits. For example:
+
+```json
+"chat.tools.edits.autoApprove": {
+  "**/*": true,
+  "**/.vscode/*.json": false,
+  "**/.env": false
+}
+```
+
 ## Edit a previous chat request
 
 You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).

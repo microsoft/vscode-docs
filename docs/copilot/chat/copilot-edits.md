@@ -74,15 +74,25 @@ With the editor overlay controls, you can navigate between the suggested edits b
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
-Use the **Keep** or **Undo** controls in the editor or Chat view to accept or reject individual or all suggested edits.
-
-![Screenshot showing the Chat view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
-
 If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
 
 When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
 To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
+
+## Manage file edit approvals
+
+You can manage which files the AI is allowed to edit without asking for explicit user approval with the `setting(chat.tools.edits.autoApprove)` setting. This setting can help inadvertent edits to files that contain sensitive information like workspace configuration settings or environment settings.
+
+The `setting(chat.tools.edits.autoApprove)` setting accepts glob pattern-boolean pairs that indicate which files are automatically approved for edits. For example:
+
+```json
+"chat.tools.edits.autoApprove": {
+  "**/*": true,
+  "**/.vscode/*.json": false,
+  "**/.env": false
+}
+```
 
 ## Edit a previous chat request
 
