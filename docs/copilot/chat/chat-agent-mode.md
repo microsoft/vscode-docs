@@ -264,25 +264,9 @@ To automatically accept all the suggested edits after a specific delay, configur
 
 ## Edit a previous chat request
 
-> [!NOTE]
-> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
-
-You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
-
-When you edit a previous chat request, the following steps are performed:
-
-1. The edited request and all subsequent requests and responses are removed from the conversation history.
-1. Any edits that were made by these requests are reverted to their state before the request was made.
-1. The edited request is added to the conversation history and submitted to the language model for a new response.
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).
 
 <video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
-
-You can configure editing of previous chat request with the `setting(chat.editRequests)` setting:
-
-* `inline`: Select the request in the Chat view to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
-* `hover`: Hover over a chat request and select the edit icon (pencil) to make it editable in-place. Use `kbstyle(Escape)` to exit the edit mode.
-* `input`: Hover over a chat request and select the edit icon (pencil) to edit the request in the chat input field.
-* `none`: Disable editing of chat requests in the Chat view.
 
 ## Revert edits with checkpoints
 

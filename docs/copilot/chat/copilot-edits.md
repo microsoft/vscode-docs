@@ -67,7 +67,7 @@ VS Code lists the files that were edited in the changed files list in the Chat v
 
 ![Screenshot that shows the Chat view, highlighting the changed files list and the indicator in the Explorer view and editor tabs.](images/copilot-edits/copilot-edits-changed-files-full.png)
 
-With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` (<i class="codicon codicon-arrow-up"></i>) and `kbstyle(Down)` (<i class="codicon codicon-arrow-down"></i>) controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
+With the editor overlay controls, you can navigate between the suggested edits by using the `kbstyle(Up)` and `kbstyle(Down)` controls. Use the **Keep** or **Undo** button to accept or reject the edits for a given file.
 
 ![Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls.](images/copilot-edits/copilot-edits-file-review-controls.png)
 
@@ -75,21 +75,29 @@ Use the **Keep** or **Undo** controls in the editor or Chat view to accept or re
 
 ![Screenshot showing the Chat view, highlighting the Accept All and Discard All buttons.](images/copilot-edits/copilot-edits-accept-discard.png)
 
-With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.
+If you stage your changes in the Source Control view, any pending edits are automatically accepted. On the other hand, if you discard your changes, any pending edits are also discarded.
 
-When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored and you can still accept or discard the edits.
+When you close VS Code, the status of the pending edits is remembered and restored when you reopen VS Code.
 
-## Revert edits
+To automatically accept all the suggested edits after a specific delay, configure the `setting(chat.editing.autoAccept)` setting. By hovering over the editor overlay controls, you can cancel the auto-accept countdown. If you automatically accept all edits, it's recommended to still review the changes before committing them in source control.
 
-As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example because you want to use another implementation strategy or because the AI starts walking down the wrong path when generating edits.
+## Edit a previous chat request
 
-You can use the **Undo Last Edit** control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the **Redo Last Edit** control in the Chat view title bar.
+You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt. Learn more about [editing a previous chat request](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request).
 
-![Screenshot showing the Chat view, highlighting the Undo and Redo actions in the view title bar.](images/copilot-edits/copilot-edits-undo-redo.png)
+<video src="images/copilot-chat/chat-edit-request.mp4" title="Video showing the editing of a previous chat request in the Chat view." autoplay loop controls muted></video>
 
-You can also use the **Undo Edits (Delete)** control (`kbstyle(x)` icon) when hovering over a request in the Chat view to revert all edits that were made from that request onwards.
+## Revert chat requests with checkpoints
 
-![Screenshot showing the Chat view, highlighting the Undo Edits control for a specific request.](images/copilot-edits/copilot-edits-undo-request.png)
+Chat checkpoints provide a way to restore the state of your workspace to a previous point in time, and are particularly useful when chat interactions resulted in changes across multiple files.
+
+When checkpoints are enabled, VS Code automatically creates snapshots of your files at key points during chat interactions, allowing you to return to a known good state if the changes made by chat requests are not what you expected or if you want to try a different approach.
+
+To enable checkpoints, configure the `setting(chat.checkpoints.enabled)` setting.
+
+![Screenshot of the Chat view, showing the Restore Checkpoint action in the Chat view.](images/copilot-chat/chat-restore-checkpoint.png)
+
+Learn more about working with [checkpoints in chat](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints).
 
 ## Use instructions to get AI edits that follow your coding style
 
