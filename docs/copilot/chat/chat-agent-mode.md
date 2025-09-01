@@ -264,7 +264,7 @@ With the `setting(chat.editing.autoAcceptDelay)` setting, you can configure a de
 
 When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.
 
-## Edit a previous chat request (Experimental)
+## Edit a previous chat request
 
 > [!NOTE]
 > The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.

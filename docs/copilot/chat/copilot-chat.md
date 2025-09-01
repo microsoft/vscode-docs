@@ -156,7 +156,7 @@ To view the history of chat sessions, select the **Show Chats...** button in the
 
 You can export all prompts and responses for a chat session in a JSON file with the **Chat: Export Chat...** command in the Command Palette. To copy a specific chat prompt or response to the clipboard in Markdown format, right-click the message and select **Copy**. To copy the entire chat session, right-click the Chat view and select **Copy All**.
 
-## Edit a previous chat request (Experimental)
+## Edit a previous chat request
 
 > [!NOTE]
 > The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
