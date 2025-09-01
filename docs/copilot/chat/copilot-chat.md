@@ -285,6 +285,18 @@ Learn more about security, privacy, and transparency in the [GitHub Copilot Trus
 
 ## Frequently asked questions
 
+### How do I prevent the Chat view from opening automatically?
+
+By default, the Chat view opens in the Secondary Side Bar. When you close the Chat view for a workspace, VS Code remembers this setting and does not open the Chat view automatically the next time you open that workspace.
+
+You can change the default visibility directly from the Chat view:
+
+1. Open the Chat view (`kb(workbench.action.chat.open)`).
+1. Select the `...` icon in the top-right corner of the Chat view.
+1. Select **Show View by Default** to enable or disable the automatic opening of the Chat view.
+
+You can also control the default visibility of the Secondary Side Bar with the `setting(workbench.secondarySideBar.defaultVisibility)` setting. Set it to `hidden` to prevent the Chat view from opening automatically.
+
 ### How do I choose between the different chat modes?
 
 The different chat modes are optimized for different use cases:
