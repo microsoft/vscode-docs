@@ -45,6 +45,7 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.detectParticipant.enabled)`<br/>Enable chat participant detection in the Chat view. | `true` |
 | `setting(chat.checkpoints.enabled)` <br/>Enable or disable [checkpoints](/docs/copilot/chat/copilot-chat.md#revert-chat-requests-with-checkpoints) in the chat. | `true` |
 | `setting(chat.checkpoints.showFileChanges)` <br/>Show a summary of file changes at the end of each chat request. | `false` |
+| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(chat.editor.fontFamily)`<br/>Font family in chat codeblocks. | `"default"` |
 | `setting(chat.editor.fontSize)`<br/>Font size in pixels in chat codeblocks. | `14` |
 | `setting(chat.editor.fontWeight)`<br/>Font weight in chat codeblocks. | `"default"` |
@@ -56,7 +57,6 @@ The team is continuously working on improving Copilot in VS Code and adding new 
 | `setting(chat.notifyWindowOnConfirmation)`<br/>Enable or disable showing a OS notification window when user input is needed. | `true` |
 | `setting(chat.math.enabled)` _(Preview)_<br/>Enable or disable math rendering with [KaTeX](https://katex.org) in chat. | `false` |
 | `setting(github.copilot.chat.codesearch.enabled)` _(Preview)_<br/>When using `#codebase` in the prompt, Copilot automatically discovers relevant files to be edited. | `false` |
-| `setting(chat.editRequests)`<br/>Enable or disable [editing previous chat requests](/docs/copilot/chat/copilot-chat.md#edit-a-previous-chat-request). | `"inline"` |
 | `setting(github.copilot.chat.edits.suggestRelatedFilesFromGitHistory)` _(Experimental)_<br/>Suggest related files from git history in chat context. | `true` |
 | `setting(chat.sendElementsToChat.enabled)` _(Experimental)_<br/>Enable sending elements from the Simple Browser to the chat view as context. | `true` |
 
