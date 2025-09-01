@@ -27,7 +27,5 @@
     },
     "markdown.editor.filePaste.videoSnippet": "<video src=\"${src}\" title=\"${title}\" autoplay loop controls muted></video>",
 
-    "doc-assistant.milestone": "June 2025",
-
     "github.copilot.chat.codeGeneration.useInstructionFiles": false,
 }
