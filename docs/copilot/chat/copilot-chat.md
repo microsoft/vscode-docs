@@ -159,7 +159,7 @@ You can export all prompts and responses for a chat session in a JSON file with 
 ## Edit a previous chat request
 
 > [!NOTE]
-> The ability to edit chat requests is available as of VS Code version 1.102 and is currently an experimental feature.
+> The ability to edit chat requests is available as of VS Code version 1.102.
 
 You can edit a previous chat request in the active chat session. This is useful if you want to refine your prompt or correct a mistake. Editing a chat request is equivalent to reverting the request and then submitting a new request with the edited prompt.
 
