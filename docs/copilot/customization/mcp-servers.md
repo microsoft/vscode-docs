@@ -161,9 +161,9 @@ When the Dev Container is created, VS Code automatically writes the MCP server c
 <details>
 <summary>Automatically discover MCP servers</summary>
 
-VS Code can automatically detect and reuse MCP servers that you defined in other tools, such as Claude Desktop.
+VS Code can automatically detect and reuse MCP server configurations from other applications, such as Claude Desktop.
 
-Enable autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting.
+Configure autodiscovery with the `setting(chat.mcp.discovery.enabled)` setting. Select one or more tools from which to discover MCP server configuration from those tools.
 
 </details>
 
